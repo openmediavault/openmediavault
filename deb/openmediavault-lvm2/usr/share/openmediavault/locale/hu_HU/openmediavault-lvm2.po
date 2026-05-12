@@ -1,0 +1,163 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-lvm2 package.
+# 
+# Translators:
+# Ádám Balajti <balajtiadam@gmail.com>, 2012
+# Sári Gábor <sari.gabor@gmail.com>, 2017
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021,2024
+# Gábor Majoros <mersaint@gmail.com>, 2012
+# Sári Gábor <sari.gabor@gmail.com>, 2018
+# Grawens <szabolcs.szanyi@gmail.com>, 2014-2015,2017,2021
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-03-17 01:49+0000\n"
+"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021,2024\n"
+"Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu_HU\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Active"
+msgstr "Aktív"
+
+msgid "Available"
+msgstr "Elérhető"
+
+msgid "Capacity"
+msgstr "Kapacitás"
+
+msgid "Create"
+msgstr "Létrehozás"
+
+msgid "Created logical volume '{{ name }}'."
+msgstr "'{{ name }}' logikai kötet létrehozva."
+
+msgid "Created physical volume {{ devicefile }}."
+msgstr "'{{ name }}' fizikai kötet létrehozva."
+
+msgid "Created snapshot of logical volume '{{ devicefile }}'."
+msgstr "Pillanatkép a '{{ devicefile }}' logikai kötetről létrehozva."
+
+msgid "Created volume group '{{ name }}'."
+msgstr "'{{ name }}' kötetcsoport létrehozva."
+
+msgid "Device"
+msgstr "Meghajtó"
+
+msgid "Devices"
+msgstr "Meghajtók"
+
+msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
+msgstr "Valóban létre akarja hozni a  '{{ devicefile }}' fizikai kötetet?"
+
+msgid "Do you really want to resize the selected physical volume?"
+msgstr "Valóban át szeretné méretezni a kiválasztott fizikai kötetet?"
+
+msgid "Edit"
+msgstr "Szerkesztés"
+
+msgid "Extend"
+msgstr "Kiterjesztés"
+
+msgid "Extended logical volume '{{ devicefile }}'."
+msgstr "'{{ devicefile }}' kiterjesztett logikai kötet."
+
+msgid "Extended volume group '{{ devicefile }}'."
+msgstr "'{{ devicefile }}' kiterjesztett kötetcsoport."
+
+msgid "Free"
+msgstr "Szabad"
+
+msgid "Invalid name"
+msgstr "Érvénytelen név"
+
+msgid "LVM"
+msgstr "LVM"
+
+msgid "Logical Volume Management"
+msgstr "Logikai kötet kezelése"
+
+msgid "Logical Volumes"
+msgstr "Logikai kötetek"
+
+msgid "Name"
+msgstr "Név"
+
+msgid "Physical Volumes"
+msgstr "Fizikai kötetek"
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr "Kérjük várjon, amíg a pillanatkép elkészül…"
+
+msgid "Reduce"
+msgstr "Csökkentés"
+
+msgid "Reduced volume group '{{ devicefile }}'."
+msgstr "'{{ devicefile }}' kötetcsoport csökkentése."
+
+msgid "Referenced"
+msgstr "Használatban"
+
+msgid "Resize"
+msgstr "Átméretezés"
+
+msgid "Select a device ..."
+msgstr "Válasszon ki egy meghajtót ..."
+
+msgid "Select a volume group ..."
+msgstr "Válasszon ki egy kötetcsoportot..."
+
+msgid "Select devices ..."
+msgstr "Eszközök kivála \nSelect devic"
+
+msgid "Select the devices used to extend the volume group."
+msgstr "Válassza ki a kötetcsoport kiterjesztéséhez használt eszközöket."
+
+msgid "Select the devices used to reduce from the volume group."
+msgstr "A kötetcsoportból válassza ki a csökkenteni kívánt eszközöket. "
+
+msgid "Size"
+msgstr "Méret"
+
+msgid "Snapshot"
+msgstr "Pillanatkép"
+
+msgid "The name of the logical volume."
+msgstr "A logikai kötet neve."
+
+msgid "The name of the volume group."
+msgstr "A kötetcsoport neve."
+
+msgid ""
+"The percentage of the total space in the volume group to allocate for the "
+"new logical volume."
+msgstr "A kötetcsoport teljes területének százalékos aránya az új logikai kötet számára. "
+
+msgid ""
+"The percentage of the total space in the volume group to use by the logical "
+"volume."
+msgstr "A kötetcsoport teljes méretének százalékos aránya, amelyet a logikai kötet használ. "
+
+msgid "Updated logical volume '{{ devicefile }}'."
+msgstr "'{{ devicefile }}' logikai kötet frissítve."
+
+msgid "Updated volume group '{{ devicefile }}'."
+msgstr "'{{ devicefile }}' kötetcsoport frissítve."
+
+msgid "Used"
+msgstr "Foglalt"
+
+msgid "Volume Group"
+msgstr "Kötetcsoport"
+
+msgid "Volume Groups"
+msgstr "Kötetcsoportok"
+
+msgid "Volume group"
+msgstr "Kötetcsoport"

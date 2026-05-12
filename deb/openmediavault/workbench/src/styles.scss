@@ -1,0 +1,1148 @@
+// This file is part of OpenMediaVault.
+//
+// @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
+// @author    Volker Theile <volker.theile@openmediavault.org>
+// @copyright Copyright (c) 2009-2026 Volker Theile
+//
+// OpenMediaVault is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// any later version.
+//
+// OpenMediaVault is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+@use 'sass:map';
+@use 'sass:math';
+@use '@angular/cdk' as cdk;
+@use '@angular/material' as mat;
+@use 'scss/defaults/colors' as dc;
+@use 'scss/defaults/variables' as dv;
+@use 'scss/theme';
+@use 'scss/mixins';
+@use 'scss/ngx-scrollbar';
+@use 'scss/ngx-toastr';
+
+////////////////////////////////////////////////////////////////////////////////
+// Initialize Material
+////////////////////////////////////////////////////////////////////////////////
+$omv-typography-config: mat.define-typography-config(theme.$omv-font-family-default);
+
+@include mat.core($omv-typography-config);
+
+$omv-theme-primary-palette: mat.define-palette(theme.$omv-color-primary-palette);
+$omv-theme-accent-palette: map.merge(
+  mat.define-palette(theme.$omv-color-accent-palette),
+  (
+    default-contrast: theme.$omv-color-accent-contrast
+  )
+);
+$omv-theme-warn-palette: mat.define-palette(theme.$omv-color-warn-palette);
+$omv-light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $omv-theme-primary-palette,
+      accent: $omv-theme-accent-palette,
+      warn: $omv-theme-warn-palette
+    )
+  )
+);
+$omv-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $omv-theme-primary-palette,
+      accent: $omv-theme-accent-palette,
+      warn: $omv-theme-warn-palette
+    )
+  )
+);
+$omv-dark-theme: map.deep-merge(
+  $omv-dark-theme,
+  (
+    color: (
+      background: (
+        app-bar: map.get(dc.$omv-color-charcoal-palette, 800),
+        background: #4b575e,
+        card: map.get(dc.$omv-color-charcoal-palette, 600),
+        dialog: map.get(dc.$omv-color-charcoal-palette, 600),
+        raised-button: map.get(dc.$omv-color-charcoal-palette, 800),
+        selected-button: map.get(dc.$omv-color-charcoal-palette, 900),
+        selected-disabled-button: map.get(dc.$omv-color-charcoal-palette, 800),
+        unselected-chip: map.get(dc.$omv-color-charcoal-palette, 700),
+        tooltip: map.get(dc.$omv-color-charcoal-palette, 700)
+      )
+    )
+  )
+);
+
+@include mat.all-component-themes($omv-light-theme);
+@include theme.all-component-themes('light', $omv-light-theme, $omv-typography-config);
+
+.omv-dark-theme {
+  @include mat.all-component-colors($omv-dark-theme);
+  @include theme.all-component-themes('dark', $omv-dark-theme, $omv-typography-config);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// CSS variables
+////////////////////////////////////////////////////////////////////////////////
+:root {
+  --omv-background-color-muted: rgb(0 0 0 / 10%);
+  --omv-background-color-muted-text: rgb(0 0 0 / 6%);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Classes
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+// Orientation
+.omv-vertical-align {
+  @extend .omv-display-flex;
+  @extend .omv-align-items-center;
+}
+
+.omv-horizontal-align {
+  @extend .omv-display-flex;
+  @extend .omv-justify-content-center;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Overflow
+.omv-overflow-auto {
+  overflow: auto;
+}
+
+.omv-overflow-y-auto {
+  overflow-y: auto;
+}
+
+.omv-overflow-hidden {
+  overflow: hidden;
+}
+
+.omv-overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Sizing
+.omv-h-100, .omv-h-full {
+  height: 100% !important;
+}
+
+.omv-h-auto {
+  height: auto;
+}
+
+.omv-w-10 {
+  width: 10% !important;
+}
+
+.omv-w-20 {
+  width: 20% !important;
+}
+
+.omv-w-25 {
+  width: 25% !important;
+}
+
+.omv-w-33 {
+  width: 33.3333% !important;
+}
+
+.omv-w-45 {
+  width: 45% !important;
+}
+
+.omv-w-50 {
+  width: 50% !important;
+}
+
+.omv-w-66 {
+  width: 66.6667% !important;
+}
+
+.omv-w-75 {
+  width: 75% !important;
+}
+
+.omv-w-80 {
+  width: 80% !important;
+}
+
+.omv-w-90 {
+  width: 90% !important;
+}
+
+.omv-w-100, .omv-w-full {
+  width: 100% !important;
+}
+
+.omv-w-auto {
+  width: auto;
+}
+
+.omv-max-w-10 {
+  max-width: 10%;
+}
+
+.omv-max-w-20 {
+  max-width: 20%;
+}
+
+.omv-max-w-25 {
+  max-width: 25%;
+}
+
+.omv-max-w-33 {
+  max-width: 33.3333%;
+}
+
+.omv-max-w-45 {
+  max-width: 45%;
+}
+
+.omv-max-w-50 {
+  max-width: 50%;
+}
+
+.omv-max-w-66 {
+  max-width: 66.6667%;
+}
+
+.omv-max-w-75 {
+  max-width: 75%;
+}
+
+.omv-max-w-80 {
+  max-width: 80%;
+}
+
+.omv-max-w-90 {
+  max-width: 90%;
+}
+
+.omv-max-w-100 {
+  max-width: 100%;
+}
+
+.omv-max-w-none {
+  max-width: none;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Spacing
+//
+// Where property is one of:
+// m - For classes that set margin
+// p - For classes that set padding
+//
+// Where sides is one of:
+// t - For classes that set margin-top
+// b - For classes that set margin-bottom
+// l - For classes that set margin-left
+// r - For classes that set margin-right
+// x - For classes that set both *-left and *-right
+// y - For classes that set both *-top and *-bottom
+// blank - For classes that set a margin on all 4 sides of the element
+//
+// Where size is one of:
+// z - For classes that eliminate the margin by setting it to 0
+// h - For classes that set the margin to $omv-margin * 0.5
+// q - For classes that set the margin to $omv-margin * 0.25
+// blank - For classes that set the margin to $omv-margin * 1
+.omv-m {
+  margin: dv.$omv-margin;
+}
+
+.omv-m-z {
+  margin: 0;
+}
+
+.omv-m-h {
+  margin: dv.$omv-margin * 0.5;
+}
+
+.omv-m-q {
+  margin: dv.$omv-margin * 0.25;
+}
+
+.omv-mr {
+  margin-right: dv.$omv-margin;
+}
+
+.omv-mr-z {
+  margin-right: 0;
+}
+
+.omv-mr-h {
+  margin-right: dv.$omv-margin * 0.5;
+}
+
+.omv-mr-q {
+  margin-right: dv.$omv-margin * 0.25;
+}
+
+.omv-ml {
+  margin-left: dv.$omv-margin;
+}
+
+.omv-ml-z {
+  margin-left: 0;
+}
+
+.omv-ml-h {
+  margin-left: dv.$omv-margin * 0.5;
+}
+
+.omv-ml-q {
+  margin-left: dv.$omv-margin * 0.25;
+}
+
+.omv-mt {
+  margin-top: dv.$omv-margin;
+}
+
+.omv-mt-z {
+  margin-top: 0;
+}
+
+.omv-mt-h {
+  margin-top: dv.$omv-margin * 0.5;
+}
+
+.omv-mt-q {
+  margin-top: dv.$omv-margin * 0.25;
+}
+
+.omv-mb {
+  margin-bottom: dv.$omv-margin;
+}
+
+.omv-mb-z {
+  margin-bottom: 0;
+}
+
+.omv-mb-h {
+  margin-bottom: dv.$omv-margin * 0.5;
+}
+
+.omv-mb-q {
+  margin-bottom: dv.$omv-margin * 0.25;
+}
+
+.omv-mx {
+  @extend .omv-ml;
+  @extend .omv-mr;
+}
+
+.omv-mx-z {
+  @extend .omv-ml-z;
+  @extend .omv-mr-z;
+}
+
+.omv-mx-h {
+  @extend .omv-ml-h;
+  @extend .omv-mr-h;
+}
+
+.omv-mx-q {
+  @extend .omv-ml-q;
+  @extend .omv-mr-q;
+}
+
+.omv-my {
+  @extend .omv-mt;
+  @extend .omv-mb;
+}
+
+.omv-my-z {
+  @extend .omv-mt-z;
+  @extend .omv-mb-z;
+}
+
+.omv-my-h {
+  @extend .omv-mt-h;
+  @extend .omv-mb-h;
+}
+
+.omv-my-q {
+  @extend .omv-mt-q;
+  @extend .omv-mb-q;
+}
+
+.omv-p {
+  padding: dv.$omv-padding;
+}
+
+.omv-p-z {
+  padding: 0;
+}
+
+.omv-p-h {
+  padding: dv.$omv-padding * 0.5;
+}
+
+.omv-p-q {
+  padding: dv.$omv-padding * 0.25;
+}
+
+.omv-pr {
+  padding-right: dv.$omv-padding;
+}
+
+.omv-pr-z {
+  padding-right: 0;
+}
+
+.omv-pr-h {
+  padding-right: dv.$omv-padding * 0.5;
+}
+
+.omv-pr-q {
+  padding-right: dv.$omv-padding * 0.25;
+}
+
+.omv-pl {
+  padding-left: dv.$omv-padding;
+}
+
+.omv-pl-z {
+  padding-left: 0;
+}
+
+.omv-pl-h {
+  padding-left: dv.$omv-padding * 0.5;
+}
+
+.omv-pl-q {
+  padding-left: dv.$omv-padding * 0.25;
+}
+
+.omv-pt {
+  padding-top: dv.$omv-padding;
+}
+
+.omv-pt-z {
+  padding-top: 0;
+}
+
+.omv-pt-h {
+  padding-top: dv.$omv-padding * 0.5;
+}
+
+.omv-pt-q {
+  padding-top: dv.$omv-padding * 0.25;
+}
+
+.omv-pb {
+  padding-bottom: dv.$omv-padding;
+}
+
+.omv-pb-z {
+  padding-bottom: 0;
+}
+
+.omv-pb-h {
+  padding-bottom: dv.$omv-padding * 0.5;
+}
+
+.omv-pb-q {
+  padding-bottom: dv.$omv-padding * 0.25;
+}
+
+.omv-px {
+  @extend .omv-pl;
+  @extend .omv-pr;
+}
+
+.omv-px-z {
+  @extend .omv-pl-z;
+  @extend .omv-pr-z;
+}
+
+.omv-px-h {
+  @extend .omv-pl-h;
+  @extend .omv-pr-h;
+}
+
+.omv-px-q {
+  @extend .omv-pl-q;
+  @extend .omv-pr-q;
+}
+
+.omv-py {
+  @extend .omv-pt;
+  @extend .omv-pb;
+}
+
+.omv-py-z {
+  @extend .omv-pt-z;
+  @extend .omv-pb-z;
+}
+
+.omv-py-h {
+  @extend .omv-pt-h;
+  @extend .omv-pb-h;
+}
+
+.omv-py-q {
+  @extend .omv-pt-q;
+  @extend .omv-pb-q;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Flex
+//
+// The following implementation is based on Angular flex-layout to make
+// the transition as easy as possible.
+//
+// References:
+// - https://github.com/angular/flex-layout/wiki/Declarative-API-Overview
+// - https://github.com/angular/flex-layout/wiki/Responsive-API
+.omv-display-flex {
+  display: flex !important;
+}
+
+.omv-flex-row {
+  flex-direction: row;
+}
+
+.omv-flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.omv-flex-column {
+  flex-direction: column;
+}
+
+.omv-flex-column-reverse {
+  flex-direction: column-reverse;
+}
+
+.omv-flex-column-reverse-lt-sm {
+  @media only screen and (width <= 599px) {
+    flex-direction: column-reverse;
+  }
+}
+
+// Prevent a flex item from growing or shrinking.
+.omv-flex-none {
+  flex: none;
+}
+
+// Allow a flex item to grow and shrink as needed, ignoring its initial
+// size.
+.omv-flex-1 {
+  flex: 1 1 0%;
+}
+
+.omv-flex-grow {
+  flex: 1 1 100%;
+}
+
+// Allow a flex item to shrink but not grow, taking into account its
+// initial size.
+.omv-flex-initial, .omv-flex-nogrow {
+  flex: 0 1 auto;
+}
+
+.omv-flex-noshrink {
+  flex: 1 0 auto;
+}
+
+// Allow a flex item to grow and shrink, taking its initial size into
+// account.
+.omv-flex-auto {
+  flex: 1 1 auto;
+}
+
+.omv-flex-fill {
+  height: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  width: 100%;
+}
+
+.omv-flex-grow-1 {
+  flex-grow: 1;
+}
+
+.omv-flex-grow-0 {
+  flex-grow: 0;
+}
+
+.omv-flex-wrap {
+  flex-wrap: wrap;
+}
+
+.omv-flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.omv-flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+.omv-justify-content-start {
+  justify-content: flex-start;
+}
+
+.omv-justify-content-center {
+  justify-content: center;
+}
+
+.omv-justify-content-between {
+  justify-content: space-between;
+}
+
+.omv-justify-content-end {
+  justify-content: flex-end;
+}
+
+.omv-align-content-start {
+  align-content: flex-start;
+}
+
+.omv-align-content-center {
+  align-content: center;
+}
+
+.omv-align-content-end {
+  align-content: flex-end;
+}
+
+.omv-align-content-stretch {
+  align-content: stretch;
+}
+
+.omv-align-items-start {
+  align-items: flex-start;
+}
+
+.omv-align-items-center {
+  align-items: center;
+}
+
+.omv-align-items-end {
+  align-items: flex-end;
+}
+
+.omv-align-items-baseline {
+  align-items: baseline;
+}
+
+.omv-align-items-stretch {
+  align-items: stretch;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Grid
+.omv-grid {
+  display: grid;
+
+  & > * {
+    // Ensure grid items handle text overflow properly.
+    min-width: 0;
+    overflow-wrap: break-word;
+  }
+}
+
+.omv-grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+}
+
+.omv-grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+.omv-grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+
+.omv-grid-cols-none {
+  grid-template-columns: none !important;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Gap
+.omv-gap-0 {
+  gap: 0;
+}
+
+/* stylelint-disable selector-class-pattern */
+.omv-gap-0\.5 {
+  gap: 0.125rem;
+}
+
+.omv-gap-1 {
+  gap: 0.25rem;
+}
+
+.omv-gap-1\.5 {
+  gap: 0.375rem;
+}
+
+.omv-gap-2 {
+  gap: 0.5rem;
+}
+
+.omv-gap-2\.5 {
+  gap: 0.625rem;
+}
+/* stylelint-enable selector-class-pattern */
+
+.omv-gap-3 {
+  gap: 0.75rem;
+}
+
+.omv-gap-4 {
+  gap: 1rem;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Box sizing
+.omv-box-border {
+  box-sizing: border-box;
+}
+
+.omv-box-content {
+  box-sizing: content-box;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Color
+.omv-color-primary {
+  color: theme.$omv-color-primary;
+}
+
+.omv-color-accent {
+  color: theme.$omv-color-accent;
+}
+
+.omv-color-black {
+  color: dc.$omv-color-black;
+}
+
+.omv-color-gray {
+  color: dc.$omv-color-gray;
+}
+
+.omv-color-white {
+  color: dc.$omv-color-white;
+}
+
+.omv-color-green,
+.omv-color-success,
+.omv-color-enabled {
+  color: theme.$omv-color-success;
+}
+
+.omv-color-red,
+.omv-color-error {
+  color: theme.$omv-color-error;
+}
+
+.omv-color-yellow,
+.omv-color-warning {
+  color: theme.$omv-color-warning;
+}
+
+.omv-color-blue,
+.omv-color-info {
+  color: theme.$omv-color-info;
+}
+
+@each $name in map-keys(theme.$omv-color-pairs) {
+  .omv-background-color-pair-#{$name} {
+    @include theme.background-color-pair($name);
+  }
+
+  .omv-dark-theme {
+    .omv-background-color-pair-#{$name} {
+      @include theme.background-color-pair($name);
+    }
+  }
+}
+
+.omv-background-color-pair-tip {
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Color - Derived from the active Material theme
+.omv-color-text {
+  color: var(--mat-color-text);
+}
+
+.omv-color-secondary-text {
+  color: var(--mat-color-secondary-text);
+}
+
+.omv-color-disabled-text {
+  color: var(--mat-color-disabled-text);
+}
+
+.omv-color-hint-text {
+  color: var(--mat-color-hint-text);
+}
+
+.omv-background-color-hover {
+  background-color: var(--mat-background-color-hover);
+}
+
+.omv-background-color-muted,
+.omv-background-color-selected-button {
+  background-color: var(--omv-background-color-muted);
+}
+
+.omv-background-color-muted-text {
+  background-color: var(--omv-background-color-muted-text);
+}
+
+.omv-background-color-card {
+  background-color: var(--mat-background-color-card);
+}
+
+.omv-background-color-transparent {
+  background-color: dc.$omv-color-transparent;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Cursors
+.omv-cursor-default {
+  cursor: default !important;
+}
+
+.omv-cursor-pointer {
+  cursor: pointer !important;
+}
+
+.omv-cursor-wait {
+  cursor: wait !important;
+}
+
+.omv-cursor-amiga20-select {
+  cursor:
+    url('data:image/x-icon;base64,AAABAAEAFBQAAAEAIAC4BgAAFgAAACgAAAAUAAAAKAAAAAEAIAAAAAAAQAYAAMIeAADCHgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP9Ic///SHP//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/SHP//0hz//9Ic///AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/SHP//wAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/0hz//9Ic///SHP///////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP9Ic///AAAAAAAAAAAAAAAAAAAA/wAAAP9Ic///SHP//0hz/////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/SHP//0hz//8AAAAAAAAAAAAAAP8AAAD/SHP//0hz//9Ic/////////////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP9Ic///SHP//wAAAAAAAAD/AAAA/0hz//9Ic///SHP/////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/SHP//0hz//9Ic///AAAA/wAAAP9Ic///SHP//0hz/////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP9Ic///SHP//0hz//8AAAD/SHP//0hz//9Ic/////////////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/SHP//0hz//9Ic///SHP//0hz//9Ic///SHP/////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP9Ic///SHP//0hz//9Ic///SHP//0hz/////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/SHP//0hz//9Ic///SHP//0hz//9Ic///SHP//0hz//9Ic///SHP//0hz//9Ic///SHP//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP9Ic///SHP//0hz//9Ic///SHP//0hz//9Ic///SHP//0hz//9Ic///SHP/////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/SHP//0hz//9Ic///SHP//0hz//9Ic///SHP//0hz//9Ic///SHP//////////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP9Ic///SHP//0hz//9Ic///SHP//0hz//9Ic///SHP//////////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/SHP//0hz//9Ic///SHP//0hz//9Ic///SHP//////////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP9Ic///SHP//0hz//9Ic///SHP//////////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/SHP//0hz//9Ic///SHP//////////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP9Ic///SHP//////////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/SHP//////////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEhz/////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAP/+AAD/PAAA/jgAAP4wEAD8IDAA/ABwAPgA8AD4AfAA8APwAPAAMADgADAA4ABwAMAB8ADAB/AAgB/wAIB/8AAB//AAB//wAB//8AA='),
+    auto;
+}
+
+.omv-cursor-amiga20-busy {
+  cursor:
+    url('data:image/x-icon;base64,AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAMIeAADCHgAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8AAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8AAAAA/wAAAP8AAAD/AAAA/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/////wD///8A////AP///wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AAAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP8AAAD/AAAA/////wD///8A////AP///wD///8A////AAAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8AAAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP8AAAD/AAAA/////wD///8A////AP///wAAAAD/AAAA/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AAAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/AAAA/wAAAP////8A////AAAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/0BA4P9AQOD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/QEDg/0BA4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP8AAAD/AAAA/////wD///8AAAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/0BA4P9AQOD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP8AAAD/AAAA/////wD///8A////AP///wAAAAD/AAAA/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/QEDg/0BA4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AAAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/0BA4P9AQOD/wODg/8Dg4P/A4OD/wODg/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8AAAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/QEDg/0BA4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP8AAAD/AAAA/////wD///8A////AP///wD///8A////AAAAAP8AAAD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/0BA4P9AQOD/AAAA/wAAAP8AAAD/AAAA/////wD///8A////AP///wD///8A////AP///wD///8AAAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/QEDg/0BA4P8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAAAAP8AAAD/AAAA/wAAAP/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8AAAAA/wAAAP8AAAD/AAAA/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P/A4OD/wODg/8Dg4P8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8AAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8AAAAA/wAAAP/A4OD/wODg/wAAAP8AAAD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/8Dg4P/A4OD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8AwODg/8Dg4P8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/////wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wDA4OD/wODg/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A/8AD///AA//8AAA//AAAP/AAAA/wAAAPwAAAA8AAAAPAAAADwAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAPAAAADwAAAA8AAAAPwAAAP8AAAD/wAAD/8AAA//8AD///AA///8D////A////AD///wA///8AP///AD/8='),
+    auto;
+}
+
+.omv-cursor-amiga13-select {
+  cursor:
+    url('data:image/x-icon;base64,AAACAAEAICAAAAoACgCoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEIAP8RCAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEQgA/xEIAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8iIt3/IiLd/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/yIi3f8iIt3/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/yIi3f8iIt3/IiLd/yIi3f/Mu6r/zLuq/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/IiLd/yIi3f8iIt3/IiLd/8y7qv/Mu6r/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/IiLd/yIi3f8iIt3/IiLd/8y7qv/Mu6r/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8iIt3/IiLd/yIi3f8iIt3/zLuq/8y7qv8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8AAAD/AAAA/wAAAAAAAAAAAAAA/wAAAP8iIt3/IiLd/yIi3f8iIt3/zLuq/8y7qv8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/wAAAP8AAAD/AAAAAAAAAAAAAAD/AAAA/yIi3f8iIt3/IiLd/yIi3f/Mu6r/zLuq/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/yIi3f8iIt3/IiLd/yIi3f8AAAD/AAAA/yIi3f8iIt3/IiLd/yIi3f/Mu6r/zLuq/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/IiLd/yIi3f8iIt3/IiLd/wAAAP8AAAD/IiLd/yIi3f8iIt3/IiLd/8y7qv/Mu6r/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8iIt3/IiLd/yIi3f8iIt3/IiLd/yIi3f8iIt3/IiLd/8y7qv/Mu6r/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/yIi3f8iIt3/IiLd/yIi3f8iIt3/IiLd/yIi3f8iIt3/zLuq/8y7qv8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/IiLd/yIi3f8iIt3/IiLd/yIi3f8iIt3/zLuq/8y7qv8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8iIt3/IiLd/yIi3f8iIt3/IiLd/yIi3f/Mu6r/zLuq/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/yIi3f8iIt3/IiLd/yIi3f8iIt3/IiLd/yIi3f8iIt3/zLuq/8y7qv8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/IiLd/yIi3f8iIt3/IiLd/yIi3f8iIt3/IiLd/yIi3f/Mu6r/zLuq/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP/Mu6r/zLuq/8y7qv/Mu6r/zLuq/8y7qv/Mu6r/zLuq/8y7qv/Mu6r/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/8y7qv/Mu6r/zLuq/8y7qv/Mu6r/zLuq/8y7qv/Mu6r/zLuq/8y7qv8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////z////8////8D////A////AD///wA///wA///8AP/8MAP//DAD//AAD//wAA//8AA///AAP//wAP//8AD///AAP//wAD//8AA///AAP//wAP//8AD//////////////////////////////////////////////////////8='),
+    auto;
+}
+
+.omv-cursor-amiga13-link {
+  a:hover {
+    cursor:
+      url('data:image/x-icon;base64,AAACAAEAICAAAAoACgCoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEIAP8RCAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEQgA/xEIAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8iIt3/IiLd/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/yIi3f8iIt3/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/yIi3f8iIt3/IiLd/yIi3f/Mu6r/zLuq/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/IiLd/yIi3f8iIt3/IiLd/8y7qv/Mu6r/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/IiLd/yIi3f8iIt3/IiLd/8y7qv/Mu6r/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8iIt3/IiLd/yIi3f8iIt3/zLuq/8y7qv8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8iIt3/IiLd/yIi3f8iIt3/zLuq/8y7qv8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/yIi3f8iIt3/IiLd/yIi3f/Mu6r/zLuq/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/yIi3f8iIt3/IiLd/yIi3f/Mu6r/zLuq/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/IiLd/yIi3f8iIt3/IiLd/8y7qv/Mu6r/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/IiLd/yIi3f8iIt3/IiLd/8y7qv/Mu6r/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8iIt3/IiLd/yIi3f8iIt3/zLuq/8y7qv8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8iIt3/IiLd/yIi3f8iIt3/zLuq/8y7qv8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/yIi3f8iIt3/IiLd/yIi3f/Mu6r/zLuq/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/yIi3f8iIt3/IiLd/yIi3f/Mu6r/zLuq/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/IiLd/yIi3f8iIt3/IiLd/8y7qv/Mu6r/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP/Mu6r/zLuq/8y7qv/Mu6r/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/8y7qv/Mu6r/zLuq/8y7qv8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////z////8////8D////A////AD///wA///wA///8AP//8AP///AD///AD///wA///wA///8AP//8AP///AD///AD///wA///8A////AP///wP///8D///////////////////////////////////////////////////////8='),
+      auto;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Display
+.omv-display-none {
+  display: none !important;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Font
+.omv-font-weight-lighter {
+  font-weight: lighter !important;
+}
+
+.omv-font-weight-normal {
+  font-weight: normal !important;
+}
+
+.omv-font-weight-bold {
+  font-weight: bold !important;
+}
+
+.omv-font-weight-bolder {
+  font-weight: bolder !important;
+}
+
+.omv-font-italic {
+  font-style: italic !important;
+}
+
+.omv-font-size-small {
+  font-size: small !important;
+}
+
+.omv-font-size-smaller {
+  font-size: smaller !important;
+}
+
+.omv-font-size-medium {
+  font-size: medium !important;
+}
+
+.omv-font-size-large {
+  font-size: large !important;
+}
+
+.omv-font-size-larger {
+  font-size: larger !important;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Font - Derived from the Material theme typography
+.omv-font-weight-title {
+  font-weight: var(--mat-font-weight-title);
+}
+
+.omv-font-size-title {
+  font-size: var(--mat-font-size-title);
+}
+
+.omv-font-size-subheading-2 {
+  font-size: var(--mat-font-size-subheading-2);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Text
+.omv-text-center {
+  text-align: center !important;
+}
+
+.omv-text-monospace {
+  font-family: theme.$omv-font-family-monospace !important;
+}
+
+.omv-text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.omv-text-wrap {
+  white-space: pre-wrap;
+}
+
+.omv-text-nowrap {
+  white-space: pre;
+}
+
+.omv-text-decoration-none {
+  text-decoration: none !important;
+}
+
+.omv-text-muted {
+  @extend .omv-color-disabled-text;
+}
+
+.omv-text-capitalize {
+  text-transform: capitalize !important;
+}
+
+.omv-text-lowercase {
+  text-transform: lowercase !important;
+}
+
+.omv-text-uppercase {
+  text-transform: uppercase !important;
+}
+
+.omv-text-blink {
+  animation: toggle-opacity 1s step-start infinite;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Keyframes
+@keyframes toggle-opacity {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes rotate-360 {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loading-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Icon
+.omv-icon-sm {
+  height: 0.875rem !important;
+  width: 0.875rem !important;
+  flex-shrink: 0;
+}
+
+.omv-icon-lg {
+  height: 2.5rem !important;
+  width: 2.5rem !important;
+  flex-shrink: 0;
+}
+
+.omv-icon-rotate-360-infinite {
+  animation: rotate-360 1s infinite linear;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Scrollbar
+.omv-scrollable-xy,
+.omv-scrollable-y {
+  @include mixins.omv-scrollbar;
+}
+
+.omv-scrollable-xy {
+  @extend .omv-overflow-auto;
+}
+
+.omv-scrollable-y {
+  @extend .omv-overflow-x-hidden;
+  @extend .omv-overflow-y-auto;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Position
+.omv-position-absolute {
+  position: absolute;
+}
+
+.omv-position-relative {
+  position: relative;
+}
+
+.omv-sticky {
+  position: sticky;
+  top: 0;
+  z-index: cdk.$overlay-z-index + 1;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Borders
+.omv-rounded {
+  border-radius: math.div(dv.$omv-border-radius, 2);
+}
+
+.omv-rounded-none {
+  border-radius: 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// z-index
+.omv-z-10 {
+  z-index: cdk.$overlay-z-index + 10;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Markdown
+.omv-markdown {
+  line-height: 1.2rem;
+
+  blockquote {
+    background-color: var(--omv-background-color-muted-text);
+    border-left: 4px solid dc.$omv-color-corporate-default;
+    border-radius: 4px;
+    margin: 20px 0;
+    padding: 1px 20px;
+  }
+
+  code {
+    background-color: var(--omv-background-color-muted-text);
+    border-radius: 4px;
+    font-size: 85%;
+    margin: 0;
+    padding: 0.2em 0.4em;
+    white-space: break-spaces;
+  }
+
+  pre {
+    background-color: var(--omv-background-color-muted-text);
+    border-radius: 4px;
+    font-size: 85%;
+    overflow: auto;
+    padding: 1rem;
+
+    & code {
+      background-color: transparent;
+      border: 0;
+      display: inline;
+      line-height: inherit;
+      margin: 0;
+      overflow: visible;
+      padding: 0;
+      word-wrap: normal;
+    }
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Customize HTML elements
+////////////////////////////////////////////////////////////////////////////////
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--mat-background-color-body);
+  font-family: var(--mat-font-family-body);
+  margin: 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Links
+/* stylelint-disable no-descending-specificity */
+a {
+  color: inherit;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Textarea
+textarea {
+  @include mixins.omv-scrollbar;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Image
+img.loading,
+img.loading::after {
+  background-color: dc.$omv-color-transparent;
+  border-radius: 50%;
+  width: 10em !important;
+  height: 10em !important;
+}
+
+img.loading {
+  content: url('data:image/x-icon;base64,');
+  color: rgb(0 0 0 / 0%) !important; // Hide 'alt' text.
+  font-size: 5px;
+  border-top: 1.1em solid dc.$omv-color-whitesmoke;
+  border-right: 1.1em solid dc.$omv-color-whitesmoke;
+  border-bottom: 1.1em solid dc.$omv-color-whitesmoke;
+  border-left: 1.1em solid dc.$omv-color-corporate-default;
+  animation-duration: 1.1s;
+  animation-iteration-count: infinite;
+  animation-name: loading-spinner;
+  animation-timing-function: linear;
+}

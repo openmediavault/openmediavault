@@ -1,0 +1,26 @@
+{%- set image = salt['pillar.get']('default:OMV_PHOTOPRISM_PROXY_CONTAINER_IMAGE', 'docker.io/library/caddy:latest') -%}
+{%- set ssl_cert_dir = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_DIR', '/etc/ssl') -%}
+{%- set ssl_cert_prefix = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_PREFIX', 'openmediavault') -%}
+{%- set ssl_cert = ssl_cert_dir | path_join('certs', ssl_cert_prefix ~ config.sslcertificateref ~ '.crt') -%}
+{%- set ssl_key = ssl_cert_dir | path_join('private', ssl_cert_prefix ~ config.sslcertificateref ~ '.key') -%}
+{{ pillar['headers']['multiline'] -}}
+[Unit]
+Description=Podman container-photoprism-proxy.service
+Wants=network.target
+After=network-online.target
+BindsTo=pod-photoprism.service
+After=pod-photoprism.service
+
+[Service]
+Environment=PODMAN_SYSTEMD_UNIT=%n
+Restart=on-failure
+TimeoutStopSec=70
+ExecStartPre=/bin/rm -f %t/container-photoprism-proxy.pid %t/container-photoprism-proxy.ctr-id
+ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-photoprism-proxy.pid --cidfile %t/container-photoprism-proxy.ctr-id --cgroups=no-conmon --pod-id-file %t/pod-photoprism.pod-id -d --replace --pull=never --name=photoprism-proxy -v "/var/lib/photoprism/Caddyfile":/etc/caddy/Caddyfile:Z -v "{{ ssl_cert }}":/data/cert.crt:ro -v "{{ ssl_key }}":/data/cert.key:ro {{ image }}
+ExecStop=/usr/bin/podman stop --ignore --cidfile %t/container-photoprism-proxy.ctr-id
+ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/container-photoprism-proxy.ctr-id
+PIDFile=%t/container-photoprism-proxy.pid
+Type=forking
+
+[Install]
+WantedBy=multi-user.target default.target

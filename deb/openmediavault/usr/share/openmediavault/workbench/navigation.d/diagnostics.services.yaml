@@ -1,0 +1,11 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "diagnostics.services"
+  position: 40
+  text: _("Services")
+  icon: share
+  url: "/diagnostics/services"
+  permissions:
+    role:
+    - admin

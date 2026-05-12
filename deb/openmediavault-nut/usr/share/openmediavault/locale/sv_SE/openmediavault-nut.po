@@ -1,0 +1,145 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-nut package.
+# 
+# Translators:
+# d8527209fb8c70c5b5fcb33678ff7c94_64a2687 <02f319e914d16f5dcdd2de15d3144927_23340>, 2012
+# Karl Jonatan Nyberg, 2021-2022
+# Karl Jonatan Nyberg, 2020-2021
+# efef6ec5b435a041fce803c7f8af77d2_2341d43, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-03-17 01:51+0000\n"
+"Last-Translator: Karl Jonatan Nyberg, 2021-2022\n"
+"Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid ""
+"'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
+msgstr "\"Standalone\" för lokal UPS, \"Netclient\" för fjärr-UPS på en NUT-server."
+
+msgid "Charge"
+msgstr "Ladda"
+
+msgid "Comment"
+msgstr "Kommentar"
+
+msgid "Date & Time"
+msgstr "Datum & tid"
+
+msgid "Defines when the shutdown is initiated."
+msgstr "Definiera när avstängning initieras."
+
+msgid "Driver configuration directives"
+msgstr "Direktiv för drivrutinskonfiguration"
+
+msgid "Enable remote monitoring of the local connected UPS."
+msgstr "Aktivera fjärrövervakning för den lokalt anslutna UPS:en."
+
+msgid "Enabled"
+msgstr "Aktiverad"
+
+msgid "Identifier"
+msgstr "Identifierare"
+
+msgid "Invalid identifier"
+msgstr "Ogiltig identifierare"
+
+msgid "Load"
+msgstr "Belastning"
+
+msgid "Message"
+msgstr "Meddelande"
+
+msgid "Mode"
+msgstr "Läge"
+
+msgid "Netclient"
+msgstr "Netclient"
+
+msgid "Netclient hostname"
+msgstr "Netclient-värdnamn"
+
+msgid "Netclient password"
+msgstr "Netclient-lösenord"
+
+msgid "Netclient user name"
+msgstr "Netclient-användarnamn"
+
+msgid "PID"
+msgstr "PID"
+
+msgid "Password"
+msgstr "Lösenord"
+
+msgid "Powervalue"
+msgstr "Powervalue"
+
+msgid "Program"
+msgstr "Program"
+
+msgid "Remote monitoring"
+msgstr "Fjärrövervakning"
+
+msgid "Service disabled"
+msgstr "Tjänst inaktiverad"
+
+msgid "Shutdown mode"
+msgstr "Avstängningsläge"
+
+msgid "Shutdown timer"
+msgstr "Tidtagare för avstängning"
+
+msgid "Standalone"
+msgstr "Standalone"
+
+msgid "Temperature"
+msgstr "Temperatur"
+
+msgid "The name used to uniquely identify your UPS on local or remote system."
+msgstr "Namnet som används för att identifiera din UPS på ett lokalt eller fjärrsystem."
+
+msgid ""
+"The number of power supplies that the UPS feeds on this system (usually 1), "
+"refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
+"target='_blank'>upsmon.conf(5)</a> for more information."
+msgstr "Antalet strömförsörjningar som UPS matar på det här systemet (vanligtvis 1), se <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf(5)</a> för mer information."
+
+msgid ""
+"The time in seconds until shutdown is initiated. If the UPS happens to come "
+"back before the time is up the shutdown is canceled."
+msgstr "Tiden i sekunder till avstängningen initieras. Om UPS:en kommer tillbaka innan tiden är slut kommer avstängningen att avbrytas."
+
+msgid ""
+"To get more information how to configure your UPS please check the Network "
+"UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
+"target='_blank'>documentation</a>."
+msgstr "För mer information om hur du konfigurerar din UPS, se <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>dokumentationen</a> för nätverks-UPS-verktyg."
+
+msgid "UPS"
+msgstr "UPS"
+
+msgid "UPS goes on battery"
+msgstr "UPS går på batteri"
+
+msgid "UPS reaches low battery"
+msgstr "UPS når låg batterinivå"
+
+msgid "Updated UPS settings."
+msgstr "Uppdaterade UPS-inställningarna."
+
+msgid "Used for remote authentication."
+msgstr "Används för fjärrautentisering."
+
+msgid "User name"
+msgstr "Användarnamn"
+
+msgid "Voltage"
+msgstr "Volt"

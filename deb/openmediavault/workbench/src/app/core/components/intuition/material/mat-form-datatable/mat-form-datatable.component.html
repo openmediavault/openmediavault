@@ -1,0 +1,22 @@
+<omv-datatable #table
+               [data]="store.data"
+               [autoReload]="false"
+               [hasReloadButton]="false"
+               [columns]="columns"
+               [columnMode]="columnMode"
+               [hasActionBar]="hasActionBar"
+               [hasSearchField]="hasSearchField"
+               [hasHeader]="hasHeader"
+               [hasFooter]="hasFooter"
+               [selectionType]="selectionType"
+               (selectionChangeEvent)="onSelectionChange($event)"
+               [limit]="limit"
+               [sorters]="sorters"
+               [sortType]="sortType"
+               [stateId]="stateId"
+               (cellDataChangedEvent)="onCellDataChanged($event)">
+  <omv-datatable-actions [actions]="actions"
+                         [selection]="selection"
+                         [table]="table">
+  </omv-datatable-actions>
+</omv-datatable>

@@ -1,0 +1,160 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-lvm2 package.
+# 
+# Translators:
+# Quim Farriol <qfarriol@valette.cat>, 2021-2022,2024
+# Quim Farriol <qfarriol@valette.cat>, 2018
+# Quim Farriol <qfarriol@valette.cat>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-03-17 01:49+0000\n"
+"Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2021-2022,2024\n"
+"Language-Team: Catalan (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ca_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Active"
+msgstr "Actiu"
+
+msgid "Available"
+msgstr "Disponible"
+
+msgid "Capacity"
+msgstr "Capacitat"
+
+msgid "Create"
+msgstr "Crea"
+
+msgid "Created logical volume '{{ name }}'."
+msgstr "S'ha creat el volum lògic \"{{name}}\"."
+
+msgid "Created physical volume {{ devicefile }}."
+msgstr "S'ha creat el volum físic {{devicefile}}."
+
+msgid "Created snapshot of logical volume '{{ devicefile }}'."
+msgstr "S'ha creat una instantània del volum lògic \"{{devicefile}}\"."
+
+msgid "Created volume group '{{ name }}'."
+msgstr "S'ha creat el grup de volums \"{{name}}\"."
+
+msgid "Device"
+msgstr "Dispositiu"
+
+msgid "Devices"
+msgstr "Dispositius"
+
+msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
+msgstr "De veritat voleu crear un volum físic a \"{{devicefile}}\"?"
+
+msgid "Do you really want to resize the selected physical volume?"
+msgstr "Realment desitges redimensionar el volum seleccionat?"
+
+msgid "Edit"
+msgstr "Edita"
+
+msgid "Extend"
+msgstr "Ampliar"
+
+msgid "Extended logical volume '{{ devicefile }}'."
+msgstr "Volum lògic ampliat \"{{devicefile}}\"."
+
+msgid "Extended volume group '{{ devicefile }}'."
+msgstr "Grup de volums ampliat \"{{devicefile}}\"."
+
+msgid "Free"
+msgstr "Lliure"
+
+msgid "Invalid name"
+msgstr "Nom inválid"
+
+msgid "LVM"
+msgstr "LVM"
+
+msgid "Logical Volume Management"
+msgstr "Gestió de volums lògics"
+
+msgid "Logical Volumes"
+msgstr "Volums lògics"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "Physical Volumes"
+msgstr "Volums físics"
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr "Espereu, es crearà una instantània..."
+
+msgid "Reduce"
+msgstr "Reduir"
+
+msgid "Reduced volume group '{{ devicefile }}'."
+msgstr "Grup de volums reduït \"{{devicefile}}\"."
+
+msgid "Referenced"
+msgstr "Referenciat"
+
+msgid "Resize"
+msgstr "Redimensionar"
+
+msgid "Select a device ..."
+msgstr "Selecciona un dispositiu ..."
+
+msgid "Select a volume group ..."
+msgstr "Selecciona un grup de volums ..."
+
+msgid "Select devices ..."
+msgstr "Selecciona dispositius ..."
+
+msgid "Select the devices used to extend the volume group."
+msgstr "Seleccioneu els dispositius que s’utilitzaran per ampliar el grup de volums."
+
+msgid "Select the devices used to reduce from the volume group."
+msgstr "Seleccioneu els dispositius que voleu reduir del grup de volums."
+
+msgid "Size"
+msgstr "Mida"
+
+msgid "Snapshot"
+msgstr "Instantània"
+
+msgid "The name of the logical volume."
+msgstr "El nom del volum lògic."
+
+msgid "The name of the volume group."
+msgstr "El nom del grup de volums."
+
+msgid ""
+"The percentage of the total space in the volume group to allocate for the "
+"new logical volume."
+msgstr "El percentatge de l'espai total del grup de volums que s'ha d'assignar al nou volum lògic."
+
+msgid ""
+"The percentage of the total space in the volume group to use by the logical "
+"volume."
+msgstr "El percentatge de l'espai total del grup de volums que utilitzarà el volum lògic."
+
+msgid "Updated logical volume '{{ devicefile }}'."
+msgstr "S'ha actualitzat el volum lògic \"{{devicefile}}\"."
+
+msgid "Updated volume group '{{ devicefile }}'."
+msgstr "S'ha actualitzat el volum lògic \"{{devicefile}}\"."
+
+msgid "Used"
+msgstr "Utilitzat"
+
+msgid "Volume Group"
+msgstr "Grup de volums"
+
+msgid "Volume Groups"
+msgstr "Grups de volums"
+
+msgid "Volume group"
+msgstr "Grup de volums"

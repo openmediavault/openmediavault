@@ -1,0 +1,10 @@
+@use 'scss/defaults/variables' as dv;
+
+.widget-content {
+  padding: 0 dv.$omv-padding dv.$omv-padding;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}

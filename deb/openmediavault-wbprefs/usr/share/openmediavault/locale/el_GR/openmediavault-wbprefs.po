@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-wbprefs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kostas Moho, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-wbprefs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-08 19:29+0100\n"
+"PO-Revision-Date: 2026-03-07 00:03+0000\n"
+"Last-Translator: Kostas Moho, 2026\n"
+"Language-Team: Greek (Greece) (https://app.transifex.com/openmediavault/teams/14254/el_GR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Apply"
+msgstr "Εφαρμογή"
+
+msgid "Login"
+msgstr "Είσοδος"
+
+msgid "Page"
+msgstr "Σελίδα"
+
+msgid "Reset"
+msgstr "Επαναφορά"
+
+msgid "Reset the wallpaper to the default image."
+msgstr "Επαναφορά του φόντου στην αρχική εικόνα."
+
+msgid "Shutdown"
+msgstr "Τερματισμός"
+
+msgid "Standby"
+msgstr "Αναμονή"
+
+msgid "The URL from which the image is to be fetched."
+msgstr "Το URL από το οποίο θα ανακτηθεί η εικόνα."
+
+msgid "The URL must start with http://, https:// or file://."
+msgstr "Το URL πρέπει να ξεκινάει με http://, https:// ή file://."
+
+msgid "The page for which the wallpaper is to be set."
+msgstr "Η σελίδα στην οποία θα ρυθμιστεί το φόντο."
+
+msgid "The wallpaper has been updated."
+msgstr "Το φόντο έχει ενημερωθεί."
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Wallpaper"
+msgstr "Φόντο"
+
+msgid "You may need to clear your browser's cache to see your changes."
+msgstr ""
+"Ίσως χρειαστεί ο καθαρισμός της προσωρινής μνήμης για να εμφανιστούν οι "
+"αλλαγές."

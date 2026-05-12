@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/ftp/shares"
+  title: _("Shares")
+  component: omv-services-ftp-share-datatable-page

@@ -1,0 +1,40 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-hosts package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# irrelevant91, 2025
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-hosts\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2023-12-20 21:57+0000\n"
+"Last-Translator: irrelevant91, 2025\n"
+"Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"Add custom entries to the /etc/hosts file. Please check the <a "
+"href='https://manpages.debian.org/stable/manpages/hosts.5.en.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+"新增自定义条目至 /etc/hosts 文件。请查看<a "
+"href='https://manpages.debian.org/stable/manpages/hosts.5.en.html' "
+"target='_blank'>手册</a>以获得详细信息。"
+
+msgid "Custom entries"
+msgstr "自定义条目"
+
+msgid "Hosts"
+msgstr "主机"
+
+msgid "Updated local hostname-to-IP mapping."
+msgstr "已更新本地主机名与 IP 地址的对应关系。"

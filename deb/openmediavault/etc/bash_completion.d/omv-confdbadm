@@ -1,0 +1,72 @@
+# This file is part of OpenMediaVault.
+#
+# @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2026 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
+
+# Links:
+# https://github.com/scop/bash-completion
+
+_omv-confdbadm()
+{
+  local cur words
+  _init_completion || return
+
+  local COMMANDS=("create" "delete" "exists" "list-ids"
+    "migrate" "populate" "read" "update")
+
+  local command i
+  for (( i=0; i < ${#words[@]}-1; i++ )); do
+    if [[ ${COMMANDS[@]} =~ ${words[i]} ]]; then
+      command=${words[i]}
+    fi
+  done
+
+  # supported options per command
+  if [[ "$cur" == -* ]]; then
+    case $command in
+    read)
+      COMPREPLY=( $( compgen -W '--prettify --defaults --uuid --filter' -- "$cur" ) )
+      return 0
+      ;;
+    delete)
+      COMPREPLY=( $( compgen -W '--uuid --filter' -- "$cur" ) )
+      return 0
+      ;;
+    exists)
+      COMPREPLY=( $( compgen -W '--filter' -- "$cur" ) )
+      return 0
+      ;;
+    esac
+  fi
+
+  if [[ -n "$command" ]]; then
+    case $command in
+    list-ids|populate)
+      return 0
+      ;;
+    *)
+      COMPREPLY=( $( compgen -W "$( command omv-confdbadm list-ids 2>/dev/null )" -- "$cur" ) )
+      return 0
+    esac
+  fi
+
+  # no command yet, show what commands we have
+  if [[ -z "$command" ]]; then
+    COMPREPLY=( $( compgen -W '${COMMANDS[@]}' -- "$cur" ) )
+  fi
+} &&
+complete -F _omv-confdbadm omv-confdbadm

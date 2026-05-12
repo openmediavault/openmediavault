@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+[ "$1" = "configure" ] && phpenmod pam
+
+#DEBHELPER#
+
+exit 0

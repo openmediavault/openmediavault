@@ -1,0 +1,20 @@
+<omv-dashboard-widget [config]="config"
+                      [loadData]="loadData.bind(this)">
+  <div class="widget-content omv-scrollable-xy">
+    <omv-datatable [selectionType]="'none'"
+                   [limit]="0"
+                   [loadingIndicator]="false"
+                   [hasActionBar]="false"
+                   [hasHeader]="config.datatable?.hasHeader"
+                   [hasFooter]="config.datatable?.hasFooter"
+                   [stateId]="config.id"
+                   [data]="config.datatable?.store.data"
+                   [columns]="config.datatable?.columns"
+                   [columnMode]="config.datatable?.columnMode"
+                   [autoLoad]="false"
+                   [autoReload]="false"
+                   [sortType]="config.datatable?.sortType"
+                   [sorters]="config.datatable?.sorters">
+    </omv-datatable>
+  </div>
+</omv-dashboard-widget>

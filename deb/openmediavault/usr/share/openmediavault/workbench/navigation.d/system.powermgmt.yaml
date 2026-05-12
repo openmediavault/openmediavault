@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "system.powermgmt"
+  position: 40
+  text: _("Power Management")
+  icon: "mdi:battery-medium"
+  url: "/system/powermgmt"

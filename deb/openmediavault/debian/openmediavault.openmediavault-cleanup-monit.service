@@ -1,0 +1,14 @@
+[Unit]
+Description=Cleanup monit state file
+DefaultDependencies=no
+After=local-fs.target
+Before=monit.service
+
+[Service]
+Type=oneshot
+Environment="OMV_MONIT_STATEFILE=/var/lib/monit/state"
+EnvironmentFile=-/etc/default/openmediavault
+ExecStart=/bin/rm -f ${OMV_MONIT_STATEFILE}
+
+[Install]
+WantedBy=multi-user.target

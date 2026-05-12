@@ -1,0 +1,32 @@
+{%- set smart_config = salt['omv_conf.get']('conf.service.smartmontools') -%}
+{%- set smart_devices = salt['omv_conf.get_by_filter'](
+  'conf.service.smartmontools.device',
+  {'operator': 'equals', 'arg0': 'enable', 'arg1': '1'}) -%}
+{%- set email_config = salt['omv_conf.get']('conf.system.notification.email') -%}
+{%- set smart_notification_config = salt['omv_conf.get_by_filter'](
+  'conf.system.notification.notification',
+  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'smartmontools'})[0] -%}
+{%- set default_directives = salt['pillar.get']('default:OMV_SMARTMONTOOLS_DEFAULTDIRECTIVES', '-a -o on -S on -T permissive -R 5! -R 197! -U 198+') -%}
+{%- set temp_crit_diff = salt['pillar.get']('default:OMV_SMARTMONTOOLS_TEMP_CRIT_DIFF', 5) -%}
+{{ pillar['headers']['multiline'] }}
+DEFAULT {{ default_directives }} -W {{ smart_config.tempdiff }},{{ smart_config.tempmax }},{{ smart_config.tempmax + temp_crit_diff if smart_config.tempmax else 0 }} -n {{ smart_config.powermode }},q
+{%- for device in smart_devices | selectattr('devicefile', 'is_block_device') -%}
+{%- set smart_jobs = salt['omv_conf.get_by_filter'](
+  'conf.service.smartmontools.job',
+  {'operator': 'and', 'arg0': {'operator': 'stringEquals', 'arg0': 'devicefile', 'arg1': device.devicefile}, 'arg1': {'operator': 'equals', 'arg0': 'enable', 'arg1': '1'}}) %}
+{{ device.devicefile }}{% if device.devicetype | length > 0 %} -d {{ device.devicetype }}{% endif %}{% if device.tempdiff > 0 or device.tempmax > 0 %} -W {{ device.tempdiff or smart_config.tempdiff }},{{ device.tempmax or smart_config.tempmax }},{{ device.tempmax + temp_crit_diff if device.tempmax else (smart_config.tempmax + temp_crit_diff if smart_config.tempmax else 0) }}{% endif %}
+{%- for job in smart_jobs -%}
+{% if loop.first %} \
+  -s (
+{%- else -%}|{% endif -%}
+{{ job.type }}/
+{%- if job.month == '*' %}..{% else %}{{ job.month }}{% endif %}/
+{%- if job.dayofmonth == '*' %}..{% else %}{{ job.dayofmonth }}{% endif %}/
+{%- if job.dayofweek == '*' %}.{% else %}{{ job.dayofweek }}{% endif %}/
+{%- if job.hour == '*' %}..{% else %}{{ job.hour }}{% endif %}
+{%- if loop.last %}){% endif -%}
+{% endfor -%}
+{%- if email_config.enable and smart_notification_config.enable %} \
+  -m {{ email_config.primaryemail }}{% if email_config.secondaryemail | length > 0 %},{{ email_config.secondaryemail }}{% endif %} -M exec /usr/share/smartmontools/smartd-runner
+{% endif -%}
+{% endfor -%}

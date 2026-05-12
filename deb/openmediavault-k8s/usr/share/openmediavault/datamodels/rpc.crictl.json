@@ -1,0 +1,13 @@
+[{
+	"type": "rpc",
+	"id": "rpc.crictl.id",
+	"params": {
+		"type": "object",
+		"properties": {
+			"id": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+}]

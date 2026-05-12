@@ -1,0 +1,4280 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault package.
+# 
+# Translators:
+# omv nas <myomv100@gmail.com>, 2020,2023
+# omv nas <myomv100@gmail.com>, 2020-2023
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-30 21:52+0200\n"
+"PO-Revision-Date: 2012-03-17 01:48+0000\n"
+"Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
+"Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar_SA\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "# Members"
+msgstr ""
+
+msgid "%CPU"
+msgstr ""
+
+msgid "%MEM"
+msgstr ""
+
+msgid "%d days"
+msgstr "%d يوم"
+
+msgid "%d hours"
+msgstr "%d ساعة"
+
+msgid "%d minutes"
+msgstr "%d دقيقة"
+
+msgid "%d months"
+msgstr "%d شهر "
+
+msgid "%d years"
+msgstr "%d سنة "
+
+msgid "%s [%s, %s (%d%%) used, %s available]"
+msgstr "%s [%s, %s (%d%%) مستخدم, %s متاح]"
+
+msgid "%s [%s]"
+msgstr "%s [%s]"
+
+msgid "%s [on %s, %s]"
+msgstr "٪s [على ٪s ، ٪s]"
+
+msgid "%s [on N/A, %s]"
+msgstr ""
+
+msgid "%s ago"
+msgstr "منذ %s "
+
+msgid "1 - Minimum power usage with standby (spindown)"
+msgstr "1 - الحد الأدنى من استخدام الطاقة مع وضع الاستعداد (إبطاء سرعة دوران القرص spindown)"
+
+msgid "1 GiB"
+msgstr "1 جيجابايت"
+
+msgid "1 MiB"
+msgstr "1 ميجابايت"
+
+msgid "1 day"
+msgstr "1 يوم"
+
+msgid "1 min"
+msgstr "1 دقيقة"
+
+msgid "1 minute"
+msgstr "1 دقيقة"
+
+msgid "1 month"
+msgstr "1 شهر"
+
+msgid "1 week"
+msgstr "1 أسبوع"
+
+msgid "1 year"
+msgstr "1 سنة"
+
+msgid "10 MiB"
+msgstr "10 ميجابايت"
+
+msgid "10 minutes"
+msgstr "10 دقيقة"
+
+msgid "10 years"
+msgstr "10 سنوات"
+
+msgid "100 MiB"
+msgstr "100 ميجابايت"
+
+msgid "120 minutes"
+msgstr "120 دقيقة"
+
+msgid "127 - Intermediate power usage with standby"
+msgstr "127 - استخدام الطاقة المتوسط ​​مع وضع الاستعداد"
+
+msgid "128 - Minimum power usage without standby (no spindown)"
+msgstr "128 - الحد الأدنى لاستخدام الطاقة بدون وضع الاستعداد ( بدون إبطاء سرعة دوران القرص)"
+
+msgid "15 min"
+msgstr "15 دقيقة"
+
+msgid "15 minutes"
+msgstr "15 دقيقة"
+
+msgid "15 years"
+msgstr "15 سنة"
+
+msgid "180 minutes"
+msgstr "180 دقيقة"
+
+msgid "192 - Intermediate power usage without standby"
+msgstr "192 - استخدام الطاقة المتوسط بدون وضع الاستعداد"
+
+msgid "2 GiB"
+msgstr "2 جيجابايت"
+
+msgid "2 MiB"
+msgstr "2 ميجابايت"
+
+msgid "2 days"
+msgstr "يومان"
+
+msgid "2 minutes"
+msgstr "دقيقتان"
+
+msgid "2 weeks"
+msgstr "أسبوعان"
+
+msgid "2 years"
+msgstr "سنتان"
+
+msgid "20 minutes"
+msgstr "20 دقيقة"
+
+msgid "20 years"
+msgstr "20 سنة"
+
+msgid "240 minutes"
+msgstr "240 دقيقة"
+
+msgid "25 MiB"
+msgstr "25 ميجابايت"
+
+msgid "25 years"
+msgstr "25 سنة"
+
+msgid "250 MiB"
+msgstr "250 ميجابايت"
+
+msgid "254 - Maximum performance, maximum power usage"
+msgstr "254 - أقصى أداء ، أقصى استهلاك للطاقة"
+
+msgid "3 days"
+msgstr "3 أيام"
+
+msgid "3 minutes"
+msgstr "3 دقائق"
+
+msgid "3 months"
+msgstr "3 أشهر"
+
+msgid "3 weeks"
+msgstr "3 أسابيع"
+
+msgid "3 years"
+msgstr "3 سنوات"
+
+msgid "30 minutes"
+msgstr "30 دقيقة"
+
+msgid "300 minutes"
+msgstr "300 دقيقة"
+
+msgid "330 minutes"
+msgstr "330 دقيقة"
+
+msgid "4 GiB"
+msgstr "4 جيجابايت"
+
+msgid "4 days"
+msgstr "4 أيام"
+
+msgid "4 minutes"
+msgstr "4 دقائق"
+
+msgid "4 years"
+msgstr "4 سنوات"
+
+msgid "5 MiB"
+msgstr "5 ميجابايت"
+
+msgid "5 days"
+msgstr "5 أيام"
+
+msgid "5 min"
+msgstr "5 دقائق"
+
+msgid "5 minutes"
+msgstr "5 دقائق"
+
+msgid "5 years"
+msgstr "5 سنوات"
+
+msgid "50 MiB"
+msgstr "50 ميجابايت"
+
+msgid "500 MiB"
+msgstr "500 ميجابايت"
+
+msgid "6 days"
+msgstr "6 أيام"
+
+msgid "6 months"
+msgstr "6 أشهر"
+
+msgid "60 minutes"
+msgstr "60 دقيقة"
+
+msgid "64 - Intermediate power usage with standby"
+msgstr "64 - استخدام الطاقة المتوسط ​​مع وضع الاستعداد"
+
+msgid "75 MiB"
+msgstr "75 ميجابايت"
+
+msgid "750 MiB"
+msgstr "750 ميجابايت"
+
+msgid "9 months"
+msgstr "9 أشهر"
+
+msgid "A (5 GHz)"
+msgstr ""
+
+msgid ""
+"A reboot is needed to fully apply the changes introduced by package "
+"installation or upgrade."
+msgstr "يلزم إعادة التشغيل لتطبيق التغييرات التي أدخلتها حزمة التثبيت أو الترقية بشكل كامل."
+
+msgid "A running background task was detected."
+msgstr "تم الكشف عن عملية قيد التشغيل في الخلفية."
+
+msgid "A scheduled task to create a snapshot has been created."
+msgstr "تم إنشاء مهمة مجدولة لإنشاء نسخة (snapshot)."
+
+msgid "A secure shell (SSH) server."
+msgstr "خادم (SSH) آمن."
+
+msgid "ACL"
+msgstr "قائمة التحكم بالدخول ACL"
+
+msgid "About"
+msgstr "حول"
+
+msgid "Absolute Path"
+msgstr "المسار المطلق"
+
+msgid "Abstract"
+msgstr "الملخص"
+
+msgid "Access control list"
+msgstr "قائمة التحكم بالدخول"
+
+msgid "Act as a WINS server."
+msgstr "العمل كخادم WINS."
+
+msgid ""
+"Acting as a WINS server and using a WINS server are mutually exclusive."
+msgstr "يعمل كخادم WINS ويستخدم خادم WINS حصريًا و بشكل متبادل."
+
+msgid "Action"
+msgstr "إجراء"
+
+msgid ""
+"Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
+"devices are listed in the scheduled tasks. Monitoring cannot be switched off"
+" as long as there are scheduled tasks for this device."
+msgstr ""
+
+msgid "Active"
+msgstr "نشط"
+
+msgid "Active or Idle"
+msgstr ""
+
+msgid "Add"
+msgstr "أضف"
+
+msgid "Address"
+msgstr "العنوان"
+
+msgid "Administrator: read/write, Users: no access, Others: no access"
+msgstr "المسؤول: القراءة / الكتابة ، المستخدمون: لا يمكن الوصول ، الآخرين: لا يمكن الوصول"
+
+msgid "Administrator: read/write, Users: read-only, Others: no access"
+msgstr "المسؤول: القراءة / الكتابة ، المستخدمون: القراءة فقط ، آخرون: لا يمكن الوصول"
+
+msgid "Administrator: read/write, Users: read-only, Others: read-only"
+msgstr "المسؤول: القراءة / الكتابة ، المستخدمون: القراءة فقط ، آخرون: القراءة فقط"
+
+msgid "Administrator: read/write, Users: read/write, Others: no access"
+msgstr "المسؤول: القراءة / الكتابة ، المستخدمون: القراءة / الكتابة ، آخرون: لا يمكن الوصول"
+
+msgid "Administrator: read/write, Users: read/write, Others: read-only"
+msgstr "المسؤول: القراءة / الكتابة ، المستخدمون: القراءة / الكتابة ، آخرون: القراءة فقط"
+
+msgid "Advanced Acoustic Management"
+msgstr "الإدارة الصوتية المتقدمة"
+
+msgid "Advanced Power Management"
+msgstr "إدارة الطاقة المتقدمة"
+
+msgid "Advanced settings"
+msgstr "الإعدادات المتقدمة"
+
+msgid "Afghanistan"
+msgstr "أفغانستان"
+
+msgid "Aland Islands"
+msgstr "جزر ألاند"
+
+msgid "Albania"
+msgstr "ألبانيا"
+
+msgid "Algeria"
+msgstr "الجزائر"
+
+msgid "All"
+msgstr "الكل"
+
+msgid "All Snapshots"
+msgstr "جميع النسخ (Snapshots)"
+
+msgid "All packages will be upgraded. Do you want to proceed?"
+msgstr "سيتم ترقية جميع الحزم. هل تريد المتابعة؟"
+
+msgid ""
+"Allow clients to attempt to access extended attributes on a share. The "
+"underlying filesystem exposed by the share must support extended attributes."
+msgstr ""
+
+msgid "Allow following symbolic links in the home directories."
+msgstr ""
+
+msgid "Allow following symbolic links in the share."
+msgstr ""
+
+msgid "Allow symbolic links to areas that are outside the home directories."
+msgstr ""
+
+msgid "Allow symbolic links to areas that are outside the share."
+msgstr ""
+
+msgid ""
+"Allow this server to advertise itself as a time server to Windows clients."
+msgstr "اسمح لهذا الخادم بالإعلان عن نفسه كخادم وقت لعملاء Windows"
+
+msgid "Allowed clients"
+msgstr "العملاء المسموح لهم"
+
+msgid "American Samoa"
+msgstr "ساموا الأمريكية"
+
+msgid ""
+"An attempt to send the test email has been made. Please check your mailbox. "
+"If the email does not arrive, check any spam folders and also check there "
+"are no Postfix related errors in the system log."
+msgstr "تم إجراء محاولة لإرسال بريد إلكتروني تجريبي. يرجى التحقق من صندوق البريد الخاص بك. إذا لم يصل البريد الإلكتروني ، فتحقق من مجلدات البريد غير المرغوب فيه \"Spam\" وأيضًا تحقق من عدم وجود أخطاء متعلقة بـ Postfix في سجل النظام."
+
+msgid ""
+"An email message with the command output (if any produced) is sent to the "
+"administrator."
+msgstr ""
+
+msgid ""
+"An email message with the command output (if any produced) is sent to the "
+"user who performs the job."
+msgstr ""
+
+msgid "Andorra"
+msgstr "أندورا"
+
+msgid "Angola"
+msgstr "أنجولا"
+
+msgid "Anguilla"
+msgstr "أنغيلا"
+
+msgid "Antarctica"
+msgstr "أنتاركتيكا"
+
+msgid "Antigua and Barbuda"
+msgstr "أنتيغوا وبربودا"
+
+msgid "Applied the configuration changes."
+msgstr "تطبيق تغييرات التكوين"
+
+msgid "Apply"
+msgstr "تطبيق"
+
+msgid "Apply permissions to files and subfolders."
+msgstr "تطبيق الصلاحيات على الملفات والمجلدات الفرعية"
+
+msgid "April"
+msgstr "إبريل"
+
+msgid "Architecture"
+msgstr "معمارية"
+
+msgid "Archive mode"
+msgstr "وضع الأرشيف"
+
+msgid "Argentina"
+msgstr "الأرجنتين"
+
+msgid "Armenia"
+msgstr "أرمينيا"
+
+msgid "Aruba"
+msgstr "أروبا"
+
+msgid "Asynchronous I/O"
+msgstr "Async I/O الدخل والخرج غير المتزامن"
+
+msgid "At least four devices are required."
+msgstr "مطلوب أربعة أجهزة على الأقل."
+
+msgid "At least one device is required."
+msgstr "مطلوب جهاز واحد على الأقل."
+
+msgid "At least one network interface is required."
+msgstr "مطلوب واجهة شبكة واحدة على الأقل."
+
+msgid "At least two devices are required."
+msgstr "مطلوب جهازين على الأقل."
+
+msgid "At reboot"
+msgstr "عند إعادة التشغيل"
+
+msgid "Attach"
+msgstr "إلحاق"
+
+msgid "Attributes"
+msgstr "السمات"
+
+msgid "Audit file operations"
+msgstr "تدقيق عمليات الملفات."
+
+msgid "August"
+msgstr "أغسطس"
+
+msgid "Australia"
+msgstr "أستراليا"
+
+msgid "Austria"
+msgstr "النمسا"
+
+msgid "Authenticate users"
+msgstr "مصادقة المستخدمين"
+
+msgid "Authentication"
+msgstr "المصادقة"
+
+msgid "Authentication required"
+msgstr "المصادقة مطلوبة"
+
+msgid "Automatic"
+msgstr ""
+
+msgid "Automatic logout"
+msgstr ""
+
+msgid "Available"
+msgstr "متاح"
+
+msgid "Azerbaijan"
+msgstr "أذربيجان"
+
+msgid "B/G (2.4 GHz)"
+msgstr ""
+
+msgid "Back"
+msgstr "للحلف"
+
+msgid "Background image"
+msgstr ""
+
+msgid "Background task"
+msgstr "مهمة في الخلفية"
+
+msgid "Bad"
+msgstr "سيء"
+
+msgid "Bahamas"
+msgstr "جزر البهاما"
+
+msgid "Bahrain"
+msgstr "البحرين"
+
+msgid "Band"
+msgstr ""
+
+msgid "Bangladesh"
+msgstr "بنغلاديش"
+
+msgid "Barbados"
+msgstr "بربادوس"
+
+msgid "Base path"
+msgstr "المسار الأساسي"
+
+msgid "Belarus"
+msgstr "بيلاروسيا"
+
+msgid "Belgium"
+msgstr "بلجيكا"
+
+msgid "Belize"
+msgstr "بليز"
+
+msgid "Benin"
+msgstr "بنين"
+
+msgid "Bermuda"
+msgstr "برمودا"
+
+msgid "Bhutan"
+msgstr "بوتان"
+
+msgid "Block layer cache [%s, %s]"
+msgstr "كتلة طبقة ذاكرة التخزين المؤقت [٪s،٪s]"
+
+msgid "Bolivia"
+msgstr "بوليفيا"
+
+msgid "Bond"
+msgstr "ترابط"
+
+msgid "Boot"
+msgstr "إقلاع"
+
+msgid "Bosnia and Herzegovina"
+msgstr "البوسنة والهرسك"
+
+msgid "Botswana"
+msgstr "بوتسوانا"
+
+msgid "Bouvet Island"
+msgstr "جزيرة بوفيت"
+
+msgid "Brazil"
+msgstr "البرازيل"
+
+msgid "Bridge"
+msgstr "اتصال Bridge"
+
+msgid "British Antarctic Territory"
+msgstr "إقليم القطب الجنوبي البريطاني"
+
+msgid "British Indian Ocean Territory"
+msgstr "إقليم المحيط الهندي البريطاني"
+
+msgid "British Virgin Islands"
+msgstr "جزر فيرجن البريطانية"
+
+msgid "Browse directory"
+msgstr "تصفح المجلد"
+
+msgid "Browseable"
+msgstr "قابل للتصفح"
+
+msgid "Brunei"
+msgstr "بروناي"
+
+msgid "Bulgaria"
+msgstr "بلغاريا"
+
+msgid "Burkina Faso"
+msgstr "بوركينا فاسو"
+
+msgid "Burundi"
+msgstr "بوروندي"
+
+msgid "COMMAND"
+msgstr ""
+
+msgid "CPU"
+msgstr "وحدة المعالجة المركزية"
+
+msgid "CPU Usage"
+msgstr "استهلاك المعالج"
+
+msgid "CPU Utilization"
+msgstr "استهلاك المعالج"
+
+msgid "CPU frequency scaling"
+msgstr ""
+
+msgid "Cambodia"
+msgstr "كمبوديا"
+
+msgid "Cameroon"
+msgstr "الكاميرون"
+
+msgid "Canada"
+msgstr "كندا"
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Canton and Enderbury Islands"
+msgstr "جزر كانتون وندربري"
+
+msgid "Capacity"
+msgstr "السعة"
+
+msgid "Cape Verde"
+msgstr "الرأس الأخضر"
+
+msgid "Cayman Islands"
+msgstr "جزر كايمان"
+
+msgid "Central African Republic"
+msgstr "جمهورية إفريقيا الوسطى"
+
+msgid "Certain date"
+msgstr "تاريخ معين"
+
+msgid "Certificate"
+msgstr "شهادة"
+
+msgid "Certificate management."
+msgstr "إدارة الشهادات."
+
+msgid "Certificates"
+msgstr "الشهادات"
+
+msgid "Chad"
+msgstr "تشاد"
+
+msgid "Change Password"
+msgstr "تغيير كلمة المرور"
+
+msgid "Changelog"
+msgstr "سجل التغيير"
+
+msgid "Check for new plugins"
+msgstr "التحقق من وجود مكونات إضافية جديدة"
+
+msgid "Check for new updates"
+msgstr "التحقق من وجود تحديثات جديدة"
+
+msgid "Check interval"
+msgstr "التحقق من الفاصل الزمني"
+
+msgid "Checking for new plugins ..."
+msgstr "التحقق من المكونات الإضافية الجديدة ..."
+
+msgid "Chile"
+msgstr "تشيلي"
+
+msgid "China"
+msgstr "الصين"
+
+msgid "Choose"
+msgstr "اختر"
+
+msgid "Christmas Island"
+msgstr "جزيرة الكريسماس"
+
+msgid "City"
+msgstr "المدينة"
+
+msgid "Cleaning up recycle bin on the share."
+msgstr "تنظيف سلة المحذوفات الموجودة على مجلد المشاركة"
+
+msgid "Clear"
+msgstr "مسح"
+
+msgid "Client"
+msgstr "العميل"
+
+msgid "Client NetBIOS name"
+msgstr "اسم عميل NetBIOS"
+
+msgid "Client address"
+msgstr "عنوان العميل"
+
+msgid "Close"
+msgstr "إغلاق"
+
+msgid "Close the session on inactivity after the specified time."
+msgstr "أغلق الجلسة عند عدم النشاط بعد الوقت المحدد."
+
+msgid "Cocos (Keeling) Islands"
+msgstr "جزر كوكوس (كيلينغ)"
+
+msgid "Colombia"
+msgstr "كولومبيا"
+
+msgid "Command"
+msgstr "أمر"
+
+msgid "Comment"
+msgstr "تعليق"
+
+msgid "Common Name"
+msgstr "الاسم الشائع"
+
+msgid "Community-maintained updates"
+msgstr "التحديثات التي تتم رعايتها من قبل المجتمع."
+
+msgid "Comoros"
+msgstr "جزر القمر"
+
+msgid "Compress"
+msgstr "ضغط"
+
+msgid "Compress file data during the transfer."
+msgstr "ضغط بيانات الملف أثناء النقل."
+
+msgid "Compression"
+msgstr "ضغط"
+
+msgid ""
+"Compression is worth using if your connection is slow. The efficiency of the"
+" compression depends on the type of the file, and varies widely. Useful for "
+"internet transfer only."
+msgstr "الضغط يستحق الاستخدام إذا كان الاتصال بطيئًا. تعتمد كفاءة الضغط على نوع الملف ، وإن كان تتفاوت بشكل كبير. إنها مفيدة عند الإتصال من خلال الإنترنت فقط."
+
+msgid "Confirm"
+msgstr "تأكيد"
+
+msgid "Confirm password"
+msgstr "تأكيد كلمة المرور"
+
+msgid "Confirmation"
+msgstr "التأكيد"
+
+msgid "Congo (Brazzaville)"
+msgstr "الكونغو (برازافيل)"
+
+msgid "Congo (Kinshasa)"
+msgstr "الكونغو (كينشاسا)"
+
+msgid "Connect even if the network is not broadcasting its SSID name."
+msgstr "اتصل حتى إذا كانت الشبكة لا تبث اسم SSID الخاص بها."
+
+msgid "Connect to hidden network"
+msgstr "اتصل بشبكة مخفية"
+
+msgid "Connections"
+msgstr "اتصالات"
+
+msgid "Control and monitor storage systems using S.M.A.R.T."
+msgstr "التحكم في أنظمة التخزين ومراقبتها باستخدام S.M.A.R.T."
+
+msgid "Conveyance self-test"
+msgstr "Conveyance اختبار النقل الذاتي على القرص"
+
+msgid "Cook Islands"
+msgstr "جزر كوك"
+
+msgid "Copied SSH certificate to {{ hostname }}."
+msgstr "تم نسخ شهادة SSH إلى {{ hostname }}."
+
+msgid "Copy"
+msgstr "نسخ"
+
+msgid "Copy permissions"
+msgstr "نسخ الصلاحيات"
+
+msgid "Copy to clipboard"
+msgstr "نسخ إلى الحافظة"
+
+msgid "Costa Rica"
+msgstr "كوستاريكا"
+
+msgid "Country"
+msgstr "البلد"
+
+msgid "Create"
+msgstr "إنشاء"
+
+msgid "Create and mount a file system."
+msgstr "قم بإنشاء وتثبيت نظام ملفات."
+
+msgid "Create file system"
+msgstr "إنشاء نظام ملفات"
+
+msgid "Create | Import"
+msgstr "إنشاء | استيراد"
+
+msgid "Created NFS share."
+msgstr "إنشاء مشاركة NFS."
+
+msgid "Created Rsync server module \"{{ name }}\"."
+msgstr "تم إنشاء وحدة خادم Rsync \"{{ name }}\"."
+
+msgid "Created Rsync task."
+msgstr "تم إنشاء مهمة Rsync."
+
+msgid "Created SMB/CIFS share."
+msgstr "تم إنشاء مشاركة SMB / CIFS."
+
+msgid "Created SSH certificate."
+msgstr "تم إنشاء شهادة SSH."
+
+msgid "Created SSL certificate."
+msgstr "تم إنشاء شهادة SSL."
+
+msgid "Created VLAN network connection."
+msgstr "تم إنشاء اتصال شبكة VLAN."
+
+msgid "Created bond network connection."
+msgstr "تم إنشاء اتصال شبكة ترابط Binding Network."
+
+msgid "Created bridge network connection."
+msgstr "تم إنشاء اتصال شبكة الجسر Bridge Network."
+
+msgid "Created firewall rule."
+msgstr "تم إنشاء قاعدة جدار الحماية."
+
+msgid "Created group \"{{ name }}\"."
+msgstr "تم إنشاء المجموعة \"{{ name }}\"."
+
+msgid "Created scheduled task."
+msgstr "تم إنشاء مهمة مجدولة."
+
+msgid "Created user \"{{ name }}\"."
+msgstr "تم إنشاء المستخدم  \"{{ name }}\"."
+
+msgid "Created wired network connection."
+msgstr "تم إنشاء اتصال شبكة سلكية."
+
+msgid "Created wireless network connection."
+msgstr "تم إنشاء اتصال شبكة لاسلكية."
+
+msgid "Creating"
+msgstr ""
+
+msgid "Creation Time"
+msgstr "وقت الإنشاء"
+
+msgid "Croatia"
+msgstr "كرواتيا"
+
+msgid "Cuba"
+msgstr "كوبا"
+
+msgid "Currently logged in users"
+msgstr "المستخدمون المسجلون حاليا"
+
+msgid "Cyprus"
+msgstr "قبرص"
+
+msgid "Czech Republic"
+msgstr "جمهورية التشيك"
+
+msgid "DHCP"
+msgstr "DHCP"
+
+msgid "DNS servers"
+msgstr "خوادم DNS"
+
+msgid "Daemon"
+msgstr "خدمة"
+
+msgid "Daily"
+msgstr "يومي"
+
+msgid "Dark mode"
+msgstr "الوضع الداكن"
+
+msgid "Dashboard"
+msgstr "الصفحة الرئيسية"
+
+msgid "Database record not found."
+msgstr ""
+
+msgid "Date & Time"
+msgstr "التاريخ والوقت"
+
+msgid "Day of month"
+msgstr "يوم الشهر"
+
+msgid "Day of week"
+msgstr "يوم الأسبوع"
+
+msgid "Debug"
+msgstr "التصحيح Debug"
+
+msgid "December"
+msgstr "ديسمبر"
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Delete files on the receiving side that don't exist on sender."
+msgstr "حذف الملفات على الجانب المتلقي والتي لا وجود لها على المرسل"
+
+msgid "Denmark"
+msgstr "الدنمارك"
+
+msgid "Description"
+msgstr "الوصف"
+
+msgid "Destination"
+msgstr "الوجهة"
+
+msgid ""
+"Destination address can be either a network IP address (with /mask), a IP "
+"range or a plain IP address. A \"!\" argument before the address "
+"specification inverts the sense of the address."
+msgstr "يمكن أن يكون عنوان الوجهة إما عنوان IP للشبكة (مع قناع mask) أو نطاق IP أو عنوان IP عادي. تمرير العلامة \"!\" قبل تحديد العنوان يعكس معنى العنوان."
+
+msgid "Destination port"
+msgstr "منفذ الوجهة"
+
+msgid "Destination server"
+msgstr "خادم الوجهة"
+
+msgid "Destination shared folder"
+msgstr "المجلد المشترك في الوجهة"
+
+msgid "Details"
+msgstr "التفاصيل"
+
+msgid "Device"
+msgstr "الجهاز"
+
+msgid "Device Information"
+msgstr "معلومات الجهاز"
+
+msgid "Device Mapper %s [%s, %s]"
+msgstr "مُعِّين الجهاز  ٪s [٪ s،٪ s]"
+
+msgid "Device Symlinks"
+msgstr "الروابط الرمزية للجهاز"
+
+msgid "Device has a few bad sectors."
+msgstr "يحتوي الجهاز على بعض القطاعات السيئة"
+
+msgid "Device has many bad sectors."
+msgstr "يحتوي الجهاز على العديد من القطاعات السيئة"
+
+msgid "Device is being used outside design parameters."
+msgstr "الجهاز قيد الاستخدام خارج معاملات التصميم"
+
+msgid "Device was used outside of design parameters in the past."
+msgstr "تم استخدام الجهاز خارج معاملات التصميم في الماضي"
+
+msgid "Device(s)"
+msgstr "الجهاز (الأجهزة)"
+
+msgid "Devices"
+msgstr "الأجهزة"
+
+msgid "Diagnostics"
+msgstr "التشخيص"
+
+msgid "Difference"
+msgstr "الفرق"
+
+msgid "Direction"
+msgstr "الاتجاه"
+
+msgid "Directory does not exist."
+msgstr ""
+
+msgid "Disabled"
+msgstr "معطل"
+
+msgid "Disallow account modification"
+msgstr "عدم السماح بتعديل الحساب"
+
+msgid "Disallow the user to modify their own account."
+msgstr ""
+
+msgid "Disk Temperatures"
+msgstr ""
+
+msgid "Disks"
+msgstr "الأقراص"
+
+msgid "Dismiss"
+msgstr "تجاهل"
+
+msgid "Dismiss all"
+msgstr "تجاهل الكل"
+
+msgid "Displays information about the file systems in a grid."
+msgstr "يعرض معلومات حول أنظمة الملفات على شكل شبكة."
+
+msgid "Displays information about the file systems in a table."
+msgstr "يعرض معلومات حول أنظمة الملفات على شكل جدول."
+
+msgid "Displays information about the network interfaces in a grid."
+msgstr "يعرض معلومات حول الشبكة على شكل شبكة."
+
+msgid "Displays information about the network interfaces in a table."
+msgstr "يعرض معلومات حول الشبكة على شكل جدول."
+
+msgid "Displays information about the services in a grid."
+msgstr "يعرض معلومات حول الخدمات على شكل شبكة."
+
+msgid "Displays information about the services in a table."
+msgstr "يعرض معلومات حول الخدمات على شكل جدول ."
+
+msgid "Displays links to help and support pages."
+msgstr ""
+
+msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
+msgstr ""
+
+msgid "Displays the system time."
+msgstr "يعرض وقت النظام."
+
+msgid "Displays the system uptime."
+msgstr "يعرض مدة التشغيل الخاصة بالنظام"
+
+msgid "Displays the temperature of all disk devices."
+msgstr ""
+
+msgid "Displays various system information."
+msgstr "يعرض معلومات النظام المختلفة."
+
+msgid "Djibouti"
+msgstr "جيبوتي"
+
+msgid "Do you really want to apply the configuration changes?"
+msgstr "هل تريد تطبيق تغييرات التكوين؟"
+
+msgid "Do you really want to copy the permissions from the shared folder?"
+msgstr "هل تريد حقًا نسخ الصلاحيات من المجلد المشترك؟"
+
+msgid ""
+"Do you really want to delete the selected item(s) <strong>{{ items | "
+"join(\", \") }}</strong>?"
+msgstr "هل تريد حقًا حذف العنصر (العناصر) المحددة <strong> {{ items | join(\", \") }} </strong>؟"
+
+msgid "Do you really want to delete the selected item(s)?"
+msgstr "هل تريد حذف العنصر (العناصر) المحدد؟"
+
+msgid "Do you really want to install the plugin?"
+msgstr "هل تريد تثبيت المكون الإضافي؟"
+
+msgid "Do you really want to log out?"
+msgstr ""
+
+msgid "Do you really want to put the system into standby?"
+msgstr "هل تريد وضع النظام في وضع الاستعداد؟"
+
+msgid "Do you really want to reboot the system?"
+msgstr "هل تريد إعادة تشغيل النظام؟"
+
+msgid "Do you really want to reset the UI settings to their default values?"
+msgstr "هل تريد إعادة تعيين إعدادات واجهة المستخدم إلى قيمها الافتراضية؟"
+
+msgid ""
+"Do you really want to resize the file system? You have to do that after a "
+"RAID has been grown for example."
+msgstr "هل تريد تغيير حجم نظام الملفات المحدد؟ يمكن فعل ذلك بعد أن يزيد حجم مصفوفة RAID على سبيل المثال."
+
+msgid "Do you really want to shutdown the system?"
+msgstr "هل تريد إيقاف تشغيل النظام؟"
+
+msgid "Do you really want to undo the configuration changes?"
+msgstr "هل تريد بالفعل التراجع عن تغييرات التكوين؟"
+
+msgid "Do you really want to uninstall the plugin?"
+msgstr "هل تريد بالفعل إلغاء تثبيت المكون الإضافي؟"
+
+msgid ""
+"Do you really want to unmount this file system? Please make sure that the "
+"file system is not used by any service before unmounting. Note, the file "
+"system will not be deleted by this action."
+msgstr "هل تريد بالفعل إلغاء تثبيت نظام الملفات هذا؟ يرجى التأكد من عدم استخدام أي خدمة لنظام الملفات قبل إلغاء التثبيت. ملاحظة ، لن يتم حذف نظام الملفات من خلال هذا الإجراء."
+
+msgid ""
+"Do you really want to wipe the device {{ canonicaldevicefile }}? All data "
+"will be lost."
+msgstr "هل تريد بالفعل مسح الجهاز {{ canonicaldevicefile }}؟ سيتم فقدان كافة البيانات."
+
+msgid "Documentation"
+msgstr "الوثائق"
+
+msgid "Domain name"
+msgstr "اسم النطاق"
+
+msgid "Domains used when resolving host names."
+msgstr "النطاقات المستخدمة عند البحث عن أسماء المضيفين."
+
+msgid "Dominica"
+msgstr "دومينيكا"
+
+msgid "Dominican Republic"
+msgstr "جمهورية الدومينيكان"
+
+msgid "Down"
+msgstr "أسفل"
+
+msgid "Down delay"
+msgstr "تأخير عملية الإغلاق"
+
+msgid "Download"
+msgstr "تنزيل"
+
+msgid "Dronning Maud Land"
+msgstr "أرض الملكة مود"
+
+msgid "Each line represents a group."
+msgstr "كل سطر يمثل مجموعة واحدة."
+
+msgid ""
+"Each line represents a user. Note, the password must be entered in plain "
+"text."
+msgstr "كل سطر يمثل مستخدم واحد. ملاحظة، يجب إدخال كلمة المرور بنص عادي."
+
+msgid "East Timor"
+msgstr "تيمور الشرقية"
+
+msgid "Ecuador"
+msgstr "إكوادور"
+
+msgid "Edit"
+msgstr "تحرير"
+
+msgid "Egypt"
+msgstr "مصر"
+
+msgid "El Salvador"
+msgstr "السلفادور"
+
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+msgid "Empty now"
+msgstr "تفريغ الآن"
+
+msgid ""
+"Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU "
+"performance based on system load. The CPU frequency governor determines how "
+"the CPU frequency is adjusted.<ul><li>schedutil - Balances performance and "
+"power efficiency by adjusting CPU frequency based on scheduler utilization. "
+"Recommended for most users as it provides good performance while saving "
+"energy when the system is idle.</li><li>powersave - Keeps the CPU running at"
+" minimum frequency at all times to maximize energy savings. Use this when "
+"power consumption is the primary concern and performance is not "
+"critical.</li><li>performance - Keeps the CPU running at maximum frequency "
+"at all times. Use this when you need consistent peak performance and power "
+"consumption is not a concern.</li></ul>"
+msgstr ""
+
+msgid "Enable NetBIOS"
+msgstr ""
+
+msgid "Enable Time Machine support for this share."
+msgstr "تفعيل دعم آلة الزمن لهذه المشاركة."
+
+msgid "Enable WINS server"
+msgstr "تفعيل خادم WINS"
+
+msgid "Enable automatic snapshot clean up."
+msgstr "تفعيل التنظيف التلقائي للنسخ Snapshots."
+
+msgid "Enable keyboard-interactive authentication."
+msgstr "تفعيل مصادقة لوحة المفاتيح التفاعلية"
+
+msgid "Enable public key authentication."
+msgstr "تفعيل مصادقة المفتاح العام."
+
+msgid "Enable recycle bin"
+msgstr "تفعيل سلة المحذوفات"
+
+msgid "Enable remote logging of syslog to the specified host."
+msgstr "تفعيل التسجيل عن بُعد لسجل أحداث النظام إلى المضيف المحدد."
+
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr "تفعيل هذا الخيار للاحتفاظ بالملفات المنقولة جزئيًا ، وإلا فسيتم حذفها إذا تمت مقاطعة النقل."
+
+msgid "Enable user home directories."
+msgstr "تفعيل مجلدات المستخدم الرئيسية."
+
+msgid "Enable write-cache"
+msgstr "تفعيل ذاكرة التخزين المؤقت للكتابة."
+
+msgid "Enabled"
+msgstr "مفعّل"
+
+msgid "Enabled widgets"
+msgstr "تفعيل الأدوات"
+
+msgid "Encryption mode"
+msgstr "وضع التشفير"
+
+msgid ""
+"Enforce transport encryption for this share. Clients that do not support "
+"encryption will be denied access to the share."
+msgstr "فرض تشفير النقل لهذه المشاركة. سيتم رفض وصول العملاء الذين لا يدعمون التشفير إلى هذه المشاركة."
+
+msgid "Equatorial Guinea"
+msgstr "غينيا الاستوائية"
+
+msgid "Eritrea"
+msgstr "إريتريا"
+
+msgid "Error"
+msgstr "خطأ"
+
+msgid "Estonia"
+msgstr "إستونيا"
+
+msgid "Ethernet"
+msgstr "Ethernet"
+
+msgid "Ethiopia"
+msgstr "إثيوبيا"
+
+msgid "Events"
+msgstr "الأحداث"
+
+msgid "Every N day of month"
+msgstr "كل العدد المحدد من الأيام من الشهر"
+
+msgid "Every N hour"
+msgstr "كل العدد المحدد من الساعات"
+
+msgid "Every N minute"
+msgstr "كل العدد المحدد من الدقائق"
+
+msgid "Everyone: read/write"
+msgstr "الكل: القراءة / الكتابة"
+
+msgid "Execute only"
+msgstr "تنفيذ فقط"
+
+msgid "Extended Information"
+msgstr "معلومات موسعة"
+
+msgid "Extended attributes"
+msgstr "السمات الموسعة"
+
+msgid "Extra options"
+msgstr "خيارات إضافية"
+
+msgid "FTP-Proxy"
+msgstr "FTP-Proxy"
+
+msgid "Failed"
+msgstr "فشل"
+
+msgid "Failed to copy data to the clipboard."
+msgstr "فشل نسخ البيانات إلى حافظة النسخ المؤقت."
+
+msgid "Failed to start session."
+msgstr ""
+
+msgid "Failed to write session data."
+msgstr ""
+
+msgid "Falkland Islands"
+msgstr "جزر فوكلاند"
+
+msgid "Family"
+msgstr "العائلة"
+
+msgid "Faroe Islands"
+msgstr "جزر فارو"
+
+msgid "Fatal error"
+msgstr "خطأ فادح"
+
+msgid "February"
+msgstr "فبراير"
+
+msgid "Fiji"
+msgstr "فيجي"
+
+msgid "File System Usage"
+msgstr ""
+
+msgid "File Systems"
+msgstr "أنظمة الملفات"
+
+msgid "File access control lists"
+msgstr ""
+
+msgid "File owner and group"
+msgstr ""
+
+msgid "File path"
+msgstr "مسار الملف"
+
+msgid "File system"
+msgstr "نظام الملفات"
+
+msgid "Filename"
+msgstr "اسم الملف"
+
+msgid ""
+"Files in the recycle bin will be deleted automatically after the specified "
+"number of days. Set to 0 for manual deletion."
+msgstr "سيتم حذف الملفات الموجودة في سلة المحذوفات تلقائيًا بعد عدد الأيام المحدد. حدد على 0 للحذف اليدوي."
+
+msgid ""
+"Files that are larger than the specified number will not be put into the "
+"recycle bin."
+msgstr "الملفات التي تكون أكبر من العدد المحدد لن يتم وضعها في سلة المحذوفات."
+
+msgid "Filesystem is being created."
+msgstr ""
+
+msgid "Filesystem is detected."
+msgstr ""
+
+msgid "Filesystem is missing."
+msgstr ""
+
+msgid "Fingerprint (SHA-1)"
+msgstr "بصمة (SHA-1)"
+
+msgid "Fingerprint (SHA-256)"
+msgstr "بصمة (SHA-256)"
+
+msgid "Finland"
+msgstr "فنلندا"
+
+msgid "Firewall"
+msgstr "الجدار الناري"
+
+msgid "Firmware version"
+msgstr "إصدار البرنامج الثابت"
+
+msgid "Flags"
+msgstr "الأعلام"
+
+msgid "Follow symlinks"
+msgstr ""
+
+msgid "Force SSL/TLS"
+msgstr "فرض SSL / TLS"
+
+msgid "Force a specific MAC address on this interface."
+msgstr ""
+
+msgid "Force secure connection only."
+msgstr "فرض اتصال آمن فقط."
+
+msgid "Forum"
+msgstr "المنتدى"
+
+msgid "Framework for Multicast DNS Service Discovery."
+msgstr "إطار عمل لاكتشاف خدمة DNS متعددة البث."
+
+msgid "France"
+msgstr "فرنسا"
+
+msgid "Free"
+msgstr "إفراغ"
+
+msgid "French Guiana"
+msgstr "غيانا الفرنسية"
+
+msgid "French Polynesia"
+msgstr "بولينيزيا الفرنسية"
+
+msgid "French Southern Territories"
+msgstr "الأقاليم الجنوبية الفرنسية"
+
+msgid "French Southern and Antarctic Territories"
+msgstr "الأقاليم الجنوبية الفرنسية والقطب الجنوبي"
+
+msgid "Friday"
+msgstr "الجمعة"
+
+msgid "Full"
+msgstr "ممتلئ"
+
+msgid "GID"
+msgstr "GID"
+
+msgid "Gabon"
+msgstr "الغابون"
+
+msgid "Gambia"
+msgstr "غامبيا"
+
+msgid "Gateway"
+msgstr "البوابة"
+
+msgid "General"
+msgstr "عام"
+
+msgid "Georgia"
+msgstr "جورجيا"
+
+msgid "Germany"
+msgstr "ألمانيا"
+
+msgid "Ghana"
+msgstr "غانا"
+
+msgid "Gibraltar"
+msgstr "جبل طارق"
+
+msgid "Good"
+msgstr "جيد"
+
+msgid "Greece"
+msgstr "اليونان"
+
+msgid "Greenland"
+msgstr "جرينلاند"
+
+msgid "Grenada"
+msgstr "غرينادا"
+
+msgid "Group"
+msgstr "المجموعة"
+
+msgid "Groups"
+msgstr "المجموعات"
+
+msgid "Grow"
+msgstr "تكبير"
+
+msgid "Guadeloupe"
+msgstr "جوادلوب"
+
+msgid "Guam"
+msgstr "غوام"
+
+msgid "Guatemala"
+msgstr "غواتيمالا"
+
+msgid "Guests allowed"
+msgstr "الضيوف المسموح لهم"
+
+msgid "Guests only"
+msgstr "الضيوف فقط"
+
+msgid "Guinea"
+msgstr "غينيا"
+
+msgid "Guinea-Bissau"
+msgstr "غينيا بيساو"
+
+msgid "Guyana"
+msgstr "غيانا"
+
+msgid "HTTP-Proxy"
+msgstr "HTTP-Proxy"
+
+msgid "HTTPS-Proxy"
+msgstr "HTTPS-Proxy"
+
+msgid "Haiti"
+msgstr "هايتي"
+
+msgid "Hardware Address"
+msgstr "عنوان الجهاز"
+
+msgid "Heard Island and McDonald Islands"
+msgstr "جزيرة هيرد وجزر ماكدونالد"
+
+msgid "Help"
+msgstr "مساعدة"
+
+msgid "Hibernate"
+msgstr "السبات"
+
+msgid "Hide"
+msgstr "إخفاء"
+
+msgid "Hide dot files"
+msgstr "إخفاء الملفات المسماه بحرف نقطة"
+
+msgid "High-performance mail transport agent."
+msgstr "وكيل نقل بريد عالي الأداء."
+
+msgid "Home"
+msgstr "الرئيسية"
+
+msgid "Home directories"
+msgstr "مجلدات المستخدمين الرئيسية"
+
+msgid "Homepage"
+msgstr "الصفحة الرئيسية"
+
+msgid "Honduras"
+msgstr "هندوراس"
+
+msgid "Hong Kong S.A.R., China"
+msgstr "Hong Kong S.A.R.، China"
+
+msgid "Host"
+msgstr "المضيف"
+
+msgid "Hostname"
+msgstr "اسم المضيف"
+
+msgid "Hosts allow"
+msgstr "الضيوف - سماح"
+
+msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr ""
+
+msgid "Hosts deny"
+msgstr "الضيوف -  منع"
+
+msgid "Hot-Pluggable"
+msgstr ""
+
+msgid "Hour"
+msgstr "ساعة"
+
+msgid "Hourly"
+msgstr "كل ساعة"
+
+msgid "Hungary"
+msgstr "هنغاريا"
+
+msgid "Hybrid sleep"
+msgstr "النوم الهجين"
+
+msgid "ID"
+msgstr "ID"
+
+msgid ""
+"IP addresses in CIDR notation or host names of clients that are allowed to "
+"access the NTP server."
+msgstr "عناوين IP في قيمة CIDR أو أسماء المضيف hosts للعملاء المسموح لهم بالوصول إلى خادم NTP."
+
+msgid "IP addresses of domain name servers used to resolve host names."
+msgstr "عناوين IP لخوادم اسم المجال المستخدمة لحل أسماء المضيفين."
+
+msgid "IPv4"
+msgstr "IPv4"
+
+msgid "IPv6"
+msgstr "IPv6"
+
+msgid "Iceland"
+msgstr "أيسلندا"
+
+msgid "Identify"
+msgstr "تحديد"
+
+msgid "Identify As"
+msgstr "تعريف باسم"
+
+msgid "Identify network interface"
+msgstr "تحديد بطاقة الشبكة"
+
+msgid "Idle"
+msgstr "خمول"
+
+msgid ""
+"If 'Guests allowed' is selected and no login credential is provided, then "
+"access as guest. Always access as guest when 'Guests only' is selecting; in "
+"this case no password is required to connect to the share."
+msgstr "إذا تم تحديد ' الضيوف المسموح لهم ' ولم يتم توفير معلومات تسجيل الدخول ، فقم بالوصول كضيف. قم دائما بالوصول كضيف عند تحديد' الضيوف فقط '؛ وفي هذه الحالة لا يلزم كلمة مرور للاتصال بالمشاركة."
+
+msgid ""
+"If a device is not listed here, it is usually because the device already "
+"contains a file system or partitions. With the former, the file system can "
+"be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, "
+"please <a href='#/storage/disks'>wipe</a> the device as partitions are not "
+"supported."
+msgstr ""
+
+msgid ""
+"If set then the client will be prompted to supply a user name and password "
+"to connect to the module."
+msgstr "في حالة التعيين ، سيتم تحدي العميل لتوفير اسم مستخدم وكلمة مرور للاتصال بالوحدة النمطية."
+
+msgid ""
+"If this option is set, the daemon will chroot to the shared folder path "
+"before starting the file transfer with the client. Then it is not possible "
+"to map users and groups by name and the daemon is not being able to follow "
+"symbolic links that are either absolute or outside of the new root path."
+msgstr "إذا تم تعيين هذا الخيار ، فإن برنامج الخفي سوف ينتقل إلى مسار المجلد المشترك قبل بدء نقل الملفات مع العميل. ثم لا يمكن تعيين المستخدمين والمجموعات بالاسم ولن يتمكن البرنامج الخفي من تتبع الروابط الرمزية التي هي إما مطلقة أو خارج مسار الجذر الجديد. "
+
+msgid "If this option is set, then any attempted downloads will fail."
+msgstr "إذا تم تعيين هذا الخيار ، فسوف تفشل أي محاولة تنزيل."
+
+msgid "If this option is set, then any attempted uploads will fail."
+msgstr "إذا تم تعيين هذا الخيار ، فسوف تفشل أي محاولة تحميل."
+
+msgid ""
+"If this parameter is set, Samba attempts to first read DOS attributes "
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
+"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
+"DOS attributes will be stored onto an extended attribute in the UNIX file "
+"system, associated with the file or directory."
+msgstr "إذا تم تعيين هذا الخبار ، فإن Samba يحاول أولاً قراءة سمات DOS (SYSTEM أو HIDDEN أو ARCHIVE أو READ-ONLY) من سمة موسعة لنظام الملفات ، قبل تعيين سمات DOS إلى وحدات حروف الصلاحيات في UNIX. عند التعيين ، سيتم تخزين سمات DOS على سمة ممتدة في نظام ملفات UNIX ، مرتبطة بالملف أو المجلد. "
+
+msgid ""
+"If this parameter is set, then users may not create or modify files in the "
+"share."
+msgstr "إذا تم تعيين هذا الخبار ، فلن يتمكن المستخدمون من إنشاء أو تعديل الملفات في المشاركة."
+
+msgid "Import"
+msgstr "استيراد"
+
+msgid "Imported SSH certificate."
+msgstr "تم استيراد شهادة SSH."
+
+msgid "Imported SSL certificate."
+msgstr "تم استيراد شهادة SSL."
+
+msgid "Imported groups."
+msgstr "تم استيراد المجموعات."
+
+msgid "Imported users."
+msgstr "تم استيراد المستخدمين."
+
+msgid "India"
+msgstr "الهند"
+
+msgid "Indicates whether updates are available."
+msgstr "يشير إلى ما إذا كانت هناك تحديثات جديدة."
+
+msgid "Indonesia"
+msgstr "اندونيسيا"
+
+msgid "Information"
+msgstr "المعلومات"
+
+msgid "Inherit ACLs"
+msgstr "وراثة قوائم التحكم الدخول ACLs"
+
+msgid "Inherit permissions"
+msgstr "وراثة الصلاحيات"
+
+msgid "Install"
+msgstr "تثبيت"
+
+msgid "Install plugin"
+msgstr "تثبيت المكون الإضافي"
+
+msgid "Install public key to remote machine"
+msgstr ""
+
+msgid "Install security updates unattended."
+msgstr ""
+
+msgid "Install updates"
+msgstr "تثبيت التحديثات"
+
+msgid "Install updates from"
+msgstr "تثبيت التحديثات من"
+
+msgid "Installed"
+msgstr "مثبت"
+
+msgid ""
+"Installs the public SSH key on a remote system as an authorized key. Make "
+"sure password authentication is enabled on that remote system."
+msgstr "تثبيت مفتاح SSH العام على نظام بعيد كمفتاح معتمد. تأكد من تفعيل مصادقة كلمة المرور على هذا النظام البعيد."
+
+msgid "Interfaces"
+msgstr "بطاقات الشبكة"
+
+msgid "Invalid IP address."
+msgstr "عنوان IP غير صالح."
+
+msgid "Invalid NetBIOS name."
+msgstr "اسم NetBIOS غير صالح."
+
+msgid "Invalid PGP public key."
+msgstr ""
+
+msgid "Invalid SSH public key (OpenSSH format)."
+msgstr "مفتاح SSH العام غير صالح (تنسيق OpenSSH)"
+
+msgid "Invalid SSH public key (OpenSSH or RFC 4716 format)"
+msgstr "مفتاح SSH العام غير صالح (تنسيق OpenSSH أو RFC 4716)"
+
+msgid "Invalid SSH public key (RFC 4716 format)."
+msgstr "مفتاح SSH العام غير صالح (تنسيق RFC 4716)"
+
+msgid "Invalid User-Agent."
+msgstr "وكيل مستخدم غير صالح."
+
+msgid "Invalid domain name."
+msgstr "اسم نطاق غير صالح"
+
+msgid "Invalid group name."
+msgstr "اسم مجموعة غير صالح"
+
+msgid "Invalid host name."
+msgstr "اسم مضيف غير صالح"
+
+msgid "Invalid user name."
+msgstr "اسم مستخدم غير صالح"
+
+msgid "Invalid user."
+msgstr "مستخدم غير صالح."
+
+msgid "Iran"
+msgstr "إيران"
+
+msgid "Iraq"
+msgstr "العراق"
+
+msgid "Ireland"
+msgstr "أيرلندا"
+
+msgid "Israel"
+msgstr "إسرائيل"
+
+msgid ""
+"It may take a while to detect the new devices, thus it might be necessary to"
+" reload the table several times. Do you want to proceed?"
+msgstr "قد يستغرق اكتشاف الأجهزة الجديدة بعض الوقت ، وبالتالي قد يكون من الضروري إعادة تحميل الجدول عدة مرات. هل تريد المتابعة؟"
+
+msgid "Italy"
+msgstr "إيطاليا"
+
+msgid "Ivory Coast"
+msgstr "ساحل العاج"
+
+msgid "Jamaica"
+msgstr "جامايكا"
+
+msgid "January"
+msgstr "يناير"
+
+msgid "Japan"
+msgstr "اليابان"
+
+msgid "Johnston Island"
+msgstr "جزيرة جونستون"
+
+msgid "Jordan"
+msgstr "الأردن"
+
+msgid "July"
+msgstr "يوليو"
+
+msgid "June"
+msgstr "يونيو"
+
+msgid "Kazakhstan"
+msgstr "كازاخستان"
+
+msgid "Keep partially transferred files"
+msgstr "الاحتفاظ بالملفات المنقولة جزئيًا"
+
+msgid "Kenya"
+msgstr "كينيا"
+
+msgid "Kernel"
+msgstr "النواة"
+
+msgid "Key size"
+msgstr "حجم المفتاح"
+
+msgid "Kiribati"
+msgstr "كيريباتي"
+
+msgid "Kuwait"
+msgstr "الكويت"
+
+msgid "Kyrgyzstan"
+msgstr "قيرغيزستان"
+
+msgid "LBA of first error"
+msgstr "LBA أول خطأ في القرص "
+
+msgid "LVM logical volume %s [%s, %s]"
+msgstr "المجلد المنطقي LVM٪ s [٪s،٪s]"
+
+msgid "Label"
+msgstr "علامة"
+
+msgid "Language"
+msgstr "اللغة"
+
+msgid "Laos"
+msgstr "لاوس"
+
+msgid "Latvia"
+msgstr "لاتفيا"
+
+msgid "Lebanon"
+msgstr "لبنان"
+
+msgid ""
+"Length of time in seconds to blink one or more LEDs on the specific ethernet"
+" port."
+msgstr "طول الوقت بالثواني وميض مؤشر LED واحد أو أكثر على منفذ إيثرنت محدد."
+
+msgid "Lesotho"
+msgstr "ليسوتو"
+
+msgid "Liberia"
+msgstr "ليبيريا"
+
+msgid "Libya"
+msgstr "ليبيا"
+
+msgid "Liechtenstein"
+msgstr "ليختنشتاين"
+
+msgid "Lifetime"
+msgstr "العمر"
+
+msgid "Limit custom"
+msgstr "حد مخصص"
+
+msgid "Limit daily"
+msgstr "الحد يوميا"
+
+msgid "Limit hourly"
+msgstr "الحد بالساعة"
+
+msgid "Limit monthly"
+msgstr "الحد شهريا"
+
+msgid ""
+"Limit the reported disk size, thus preventing Time Machine from using the "
+"whole real disk space for backup."
+msgstr ""
+
+msgid "Limit weekly"
+msgstr "الحد أسبوعيا"
+
+msgid "Limit yearly"
+msgstr "الحد سنويا"
+
+msgid "Link"
+msgstr "رابط"
+
+msgid "List module"
+msgstr "عرض الوحدة"
+
+msgid "Lithuania"
+msgstr "ليتوانيا"
+
+msgid "Load Average"
+msgstr "متوسط الحمل"
+
+msgid "Loading ..."
+msgstr "يتم التحميل ..."
+
+msgid "Local"
+msgstr "محلي"
+
+msgid "Location"
+msgstr "الموقع"
+
+msgid "Log in"
+msgstr "تسجيل الدخول"
+
+msgid "Log level"
+msgstr "مستوى السجل"
+
+msgid "Log out"
+msgstr ""
+
+msgid "Logged in as <strong>{{ username }}</strong>"
+msgstr ""
+
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+msgid "Logs"
+msgstr "سجلات"
+
+msgid "Long self-test"
+msgstr "الاختبار الذاتي الطويل"
+
+msgid "Loop device [%s, %s]"
+msgstr " جهاز  loop التكرار [٪s،٪s]"
+
+msgid "Luxembourg"
+msgstr "لوكسمبورغ"
+
+msgid "MAC"
+msgstr "MAC"
+
+msgid "MAC address"
+msgstr "عنوان MAC"
+
+msgid "MII monitoring frequency"
+msgstr "تردد مراقبة MII"
+
+msgid "MTU"
+msgstr "MTU"
+
+msgid "Macao S.A.R., China"
+msgstr "ماكاو، الصين"
+
+msgid "Macedonia"
+msgstr "مقدونيا"
+
+msgid "Madagascar"
+msgstr "مدغشقر"
+
+msgid "Maintainer"
+msgstr "المطور"
+
+msgid "Make sure that the guest user <em>nobody</em> can access the files."
+msgstr "تأكد من أن المستخدم الضيف <em>nobody</em> يمكنه الوصول إلى الملفات."
+
+msgid "Malawi"
+msgstr "ملاوي"
+
+msgid "Malaysia"
+msgstr "ماليزيا"
+
+msgid "Maldives"
+msgstr "جزر المالديف"
+
+msgid "Mali"
+msgstr "مالي"
+
+msgid "Malta"
+msgstr "مالطا"
+
+msgid "Management of CPU frequency scaling."
+msgstr ""
+
+msgid "Management of scheduled tasks."
+msgstr "إدارة المهام المجدولة."
+
+msgid "Management of the file systems to be mounted."
+msgstr "إدارة أنظمة الملفات المراد تثبيتها."
+
+msgid "March"
+msgstr "مارس"
+
+msgid "Marshall Islands"
+msgstr "جزر مارشال"
+
+msgid "Martinique"
+msgstr "المارتينيك"
+
+msgid ""
+"Match if the destination port is one of the given ports, e.g. 21 or !443 or "
+"1024-65535."
+msgstr "تطابق إذا كان المنفذ الوجهة أحد المنافذ المعطاة. على سبيل المثال ، 21 أو! 443 أو 1024-65535."
+
+msgid ""
+"Match if the source port is one of the given ports, e.g. 21 or !443 or "
+"1024-65535."
+msgstr "تطابق إذا كان المنفذ المصدر أحد المنافذ المعطاة. على سبيل المثال ، 21 أو ! 443 أو 1024-65535."
+
+msgid "Mauritania"
+msgstr "موريتانيا"
+
+msgid "Mauritius"
+msgstr "موريشيوس"
+
+msgid "Max. connections"
+msgstr "العدد الأقصى للاتصالات"
+
+msgid "Maximum"
+msgstr "الحد الأعلى"
+
+msgid "Maximum disk size"
+msgstr ""
+
+msgid "Maximum file size"
+msgstr "حجم الملف الأقصى"
+
+msgid "Maximum performance, maximum acoustic output"
+msgstr "أقصى أداء ، أقصى خرج صوتي"
+
+msgid "May"
+msgstr "مايو"
+
+msgid "Mayotte"
+msgstr "Mayotte"
+
+msgid "Members"
+msgstr "الأعضاء"
+
+msgid "Memory"
+msgstr "الذاكرة"
+
+msgid "Memory Usage"
+msgstr "استخدام الذاكرة"
+
+msgid "Message"
+msgstr "رسالة"
+
+msgid "Messages"
+msgstr "الرسائل"
+
+msgid "Method"
+msgstr "الطريقة"
+
+msgid "Metric"
+msgstr "متري"
+
+msgid "Metropolitan France"
+msgstr "متروبوليتان فرنسا"
+
+msgid "Mexico"
+msgstr "المكسيك"
+
+msgid "MiB Mem"
+msgstr ""
+
+msgid "MiB Swap"
+msgstr ""
+
+msgid "Micronesia"
+msgstr "ميكرونيزيا"
+
+msgid "Midway Islands"
+msgstr "جزر ميدواي"
+
+msgid "Minimum"
+msgstr "الحد الأدنى"
+
+msgid "Minimum performance, minimum acoustic output"
+msgstr "الأداء الأدنى ، الحد الأدنى للإخراج الصوتي"
+
+msgid "Minimum protocol version"
+msgstr ""
+
+msgid "Minute"
+msgstr "دقيقة"
+
+msgid "Miscellaneous"
+msgstr ""
+
+msgid "Missing"
+msgstr "مفقود"
+
+msgid "Mode"
+msgstr "الوضع"
+
+msgid "Model"
+msgstr "الطراز"
+
+msgid "Modules"
+msgstr "الوحدات"
+
+msgid "Moldova"
+msgstr "مولدوفا"
+
+msgid "Monaco"
+msgstr "موناكو"
+
+msgid "Monday"
+msgstr "الاثنين"
+
+msgid "Mongolia"
+msgstr "منغوليا"
+
+msgid "Monitored"
+msgstr "مراقب"
+
+msgid "Monitoring"
+msgstr "مراقبة"
+
+msgid "Monitoring - CPU usage"
+msgstr ""
+
+msgid "Monitoring - File systems"
+msgstr ""
+
+msgid "Monitoring - Load average"
+msgstr ""
+
+msgid "Monitoring - Memory usage"
+msgstr ""
+
+msgid "Monitoring - Processes"
+msgstr ""
+
+msgid "Monitoring enabled"
+msgstr "المراقبة مفعّلة"
+
+msgid "Month"
+msgstr "شهر"
+
+msgid "Monthly"
+msgstr "شهري"
+
+msgid "Montserrat"
+msgstr "مونتسيرات"
+
+msgid "Morocco"
+msgstr "المغرب"
+
+msgid "Mount"
+msgstr "تفعيل"
+
+msgid "Mount Options"
+msgstr "خيارات التثبيت"
+
+msgid "Mount Point"
+msgstr "مجلد التفعيل"
+
+msgid "Mount an existing file system."
+msgstr "تثبيت نظام ملفات موجود."
+
+msgid "Mounted"
+msgstr "مفعل"
+
+msgid "Mozambique"
+msgstr "موزمبيق"
+
+msgid "Myanmar"
+msgstr "ميانمار"
+
+msgid "N/A"
+msgstr ""
+
+msgid "NFS"
+msgstr "NFS"
+
+msgid "NI"
+msgstr ""
+
+msgid "NTP time servers, separated by comma."
+msgstr ""
+
+msgid "Name"
+msgstr "الاسم"
+
+msgid "Namibia"
+msgstr "ناميبيا"
+
+msgid "Nauru"
+msgstr "ناورو"
+
+msgid "Nepal"
+msgstr "نيبال"
+
+msgid "Netherlands"
+msgstr "هولندا"
+
+msgid "Netherlands Antilles"
+msgstr "جزر الأنتيل الهولندية"
+
+msgid "Netmask"
+msgstr "قناع الشبكة"
+
+msgid "Network"
+msgstr "الشبكة"
+
+msgid "Network Interfaces"
+msgstr "بطاقات الشبكة"
+
+msgid "Neutral Zone"
+msgstr "المنطقة المحايدة"
+
+msgid "Never"
+msgstr "أبدًا"
+
+msgid "New Caledonia"
+msgstr "كاليدونيا الجديدة"
+
+msgid "New Zealand"
+msgstr "نيوزيلندا"
+
+msgid "New package updates are available for installation."
+msgstr "تحديثات جديدة للحزمة متوفرة للتثبيت"
+
+msgid "New password"
+msgstr "كلمة السر الجديدة"
+
+msgid "Nicaragua"
+msgstr "نيكاراغوا"
+
+msgid "Niger"
+msgstr "النيجر"
+
+msgid "Nigeria"
+msgstr "نيجيريا"
+
+msgid "Niue"
+msgstr "نيوي"
+
+msgid "No"
+msgstr "لا"
+
+msgid "No access"
+msgstr "لا يمكن الوصول"
+
+msgid "No connections"
+msgstr "لا اتصالات"
+
+msgid "No data to display."
+msgstr "لا توجد بيانات لعرضها"
+
+msgid "No monitored devices."
+msgstr ""
+
+msgid "No users connected"
+msgstr "لا يوجد مستخدمين متصلين"
+
+msgid "None"
+msgstr "بدون"
+
+msgid "Norfolk Island"
+msgstr "جزيرة نورفولك"
+
+msgid "Normal"
+msgstr "عادي"
+
+msgid "North Korea"
+msgstr "كوريا الشمالية"
+
+msgid "North Vietnam"
+msgstr "شمال فيتنام"
+
+msgid "Northern Mariana Islands"
+msgstr "جزر ماريانا الشمالية"
+
+msgid "Norway"
+msgstr "النرويج"
+
+msgid "Not ICMP"
+msgstr "ليس ICMP"
+
+msgid "Not ICMPv6"
+msgstr "ليس ICMPv6"
+
+msgid "Not TCP"
+msgstr "ليس TCP"
+
+msgid "Not UDP"
+msgstr "ليس UDP"
+
+msgid "Not a directory."
+msgstr ""
+
+msgid "Not mounted"
+msgstr "غير مثبت"
+
+msgid "Not running"
+msgstr "لا يعمل"
+
+msgid ""
+"Note that SMB1 is deprecated and should only be used in mandatory cases."
+msgstr ""
+
+msgid "Note, only one client can be configured per share."
+msgstr ""
+
+msgid "Nothing"
+msgstr "لا شيء"
+
+msgid "Notification"
+msgstr "تنبيه"
+
+msgid "Notification schedule"
+msgstr ""
+
+msgid "Notifications"
+msgstr "التنبيهات"
+
+msgid "November"
+msgstr "نوفمبر"
+
+msgid "Num"
+msgstr "رقم"
+
+msgid "OK"
+msgstr "موافق"
+
+msgid ""
+"Obsolete cached data found. Page will be reloaded. If the problem persists, "
+"press Ctrl-Shift-R or Ctrl-F5 to force a hard reload of the page."
+msgstr "تم العثور على بيانات مخبأة قديمة. سيتم إعادة تحميل الصفحة. إذا استمرت المشكلة ، فاضغط على Ctrl-Shift-R أو Ctrl-F5 لفرض إعادة تحميل الصفحة."
+
+msgid "October"
+msgstr "أكتوبر"
+
+msgid "Offline immediate test"
+msgstr "اختبار فوري للاتصال المنقطع "
+
+msgid "Old Version"
+msgstr ""
+
+msgid "Old-age"
+msgstr "قديم Old-age"
+
+msgid "Oman"
+msgstr "عمان"
+
+msgid "Operation"
+msgstr "العملية"
+
+msgid "Options"
+msgstr "الخيارات"
+
+msgid "Organization Name"
+msgstr "اسم المنظمة"
+
+msgid "Organization Unit"
+msgstr "الوحدة التنظيمية"
+
+msgid "Others"
+msgstr "آخرون"
+
+msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
+msgstr "عنوان خادم بريد SMTP الصادر ، مثل smtp.mycorp.com."
+
+msgid "Outlying Oceania"
+msgstr "أوقيانوسيا النائية"
+
+msgid "Owner"
+msgstr "المالك"
+
+msgid "PID"
+msgstr "PID"
+
+msgid "PR"
+msgstr ""
+
+msgid "Pacific Islands Trust Territory"
+msgstr "إقليم جزر المحيط الهادئ الاستئماني"
+
+msgid "Package Information"
+msgstr "معلومات الحزمة"
+
+msgid "Package management."
+msgstr "إدارة الحزمة"
+
+msgid "Pakistan"
+msgstr "باكستان"
+
+msgid "Palau"
+msgstr "بالاو"
+
+msgid "Palestinian Territory"
+msgstr "الأراضي الفلسطينية"
+
+msgid "Panama"
+msgstr "بنما"
+
+msgid "Panama Canal Zone"
+msgstr "منطقة قناة بنما"
+
+msgid "Papua New Guinea"
+msgstr "بابوا غينيا الجديدة"
+
+msgid "Paraguay"
+msgstr "باراجواي"
+
+msgid "Parent Device"
+msgstr "الجهاز الرئيسي"
+
+msgid "Parent UUID"
+msgstr "UUID الأصل"
+
+msgid "Parent device"
+msgstr "الجهاز الأب"
+
+msgid "Password"
+msgstr "كلمة المرور"
+
+msgid "Password authentication"
+msgstr "مصادقة كلمة المرور"
+
+msgid "Password does not match."
+msgstr "كلمة المرور غير مطابقة"
+
+msgid "Password doesn't match."
+msgstr "كلمة المرور غير مطابقة"
+
+msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
+msgstr "لصق شهادة RSA أو ECC بتنسيق X.509 PEM هنا."
+
+msgid "Paste a RSA or ECC private key in X.509 PEM format here."
+msgstr "لصق مفتاح RSA أو ECC الخاص بتنسيق X.509 PEM هنا."
+
+msgid "Pending configuration changes"
+msgstr "تغييرات تكوين معلقة"
+
+msgid "People's Democratic Republic of Yemen"
+msgstr "جمهورية اليمن الديمقراطية الشعبية"
+
+msgid "Perform a trial run with no changes made"
+msgstr "إجراء تشغيل تجريبي دون إجراء أي تغييرات"
+
+msgid "Performance Statistics"
+msgstr "إحصائيات الأداء"
+
+msgid "Period of validity"
+msgstr "فترة الصلاحية"
+
+msgid "Permission"
+msgstr "الصلاحية"
+
+msgid "Permissions"
+msgstr "الصلاحيات"
+
+msgid "Permissions of group."
+msgstr "صلاحيات المجموعة."
+
+msgid "Permissions of others (e.g. anonymous FTP users)."
+msgstr "صلاحيات الآخرين (مثل مستخدمي بروتوكول نقل الملفات المجهولين)."
+
+msgid "Permissions of owner."
+msgstr "صلاحيات المالك."
+
+msgid "Permit root login"
+msgstr "تصريح تسجيل الدخول إلى المجلد الجذر root"
+
+msgid "Permit to do SSH tunneling."
+msgstr "السماح بإنشاء نفق SSH"
+
+msgid "Peru"
+msgstr "بيرو"
+
+msgid "Philippines"
+msgstr "الفلبين"
+
+msgid "Pitcairn"
+msgstr "بيتكيرن"
+
+msgid ""
+"Please check the <a href=\"https://download.samba.org/pub/rsync/rsync.1\" "
+"target=\"_blank\">manual page</a> for more details."
+msgstr ""
+
+msgid ""
+"Please check the <a "
+"href=\"https://download.samba.org/pub/rsync/rsyncd.conf.5\" "
+"target=\"_blank\">manual page</a> for more details."
+msgstr ""
+
+msgid ""
+"Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
+"target=\"_blank\">manual page</a> for more details."
+msgstr "الرجاء التحقق من <a href=\"https://man.openbsd.org/sshd_config.5\" target=\"_blank\">صفحة الدليل </a> للحصول على مزيد من التفاصيل."
+
+msgid ""
+"Please check the <a "
+"href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "الرجاء التحقق من <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'> صفحة الدليل </a> لمزيد من التفاصيل."
+
+msgid ""
+"Please check the <a href='https://manpages.debian.org/nfs-kernel-"
+"server/exports.5.html' target='_blank'>manual page</a> for more details."
+msgstr "الرجاء التحقق من <a href='https://manpages.debian.org/nfs-kernel-server/exports.5.html' target='_blank'> صفحة الدليل</a> للحصول على مزيد من التفاصيل."
+
+msgid "Please choose the method to wipe the device."
+msgstr "الرجاء اختيار طريقة محو الجهاز."
+
+msgid "Please note that values >= 128 do not permit the disk to spin down."
+msgstr ""
+
+msgid "Please wait ..."
+msgstr "يرجى الانتظار ..."
+
+msgid "Please wait, a shared folder will be created ..."
+msgstr ""
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
+
+msgid "Please wait, deleting selected item(s) ..."
+msgstr "الرجاء الانتظار، يتم الان حذف العنصر (العناصر) المحددة ..."
+
+msgid "Please wait, identifying network device ..."
+msgstr "الرجاء الانتظار، يتم الان التعرف على جهاز الشبكة ..."
+
+msgid "Please wait, installing public SSH key on remote system ..."
+msgstr "الرجاء الانتظار، يتم الان تثبيت مفتاح SSH العام على نظام بعيد ..."
+
+msgid "Please wait, processing selected item(s) ..."
+msgstr "الرجاء الانتظار، تتم الان معالجة العنصر (العناصر) المحددة ..."
+
+msgid "Please wait, reverting configuration changes ..."
+msgstr "الرجاء الانتظار، يتم الان التراجع عن تغييرات التكوين ..."
+
+msgid "Please wait, sending a test email ..."
+msgstr "الرجاء الانتظار، يتم الان إرسال بريد إلكتروني تجريبي ..."
+
+msgid "Please wait, the configuration changes are being applied ..."
+msgstr "الرجاء الانتظار، يتم الان تطبيق تغييرات التكوين ..."
+
+msgid "Please wait, the data is being loaded ..."
+msgstr "الرجاء الانتظار، يتم الان تحميل البيانات ..."
+
+msgid "Please wait, the statistic graphs will be regenerated ..."
+msgstr "الرجاء الانتظار، سيتم إعادة إنشاء الرسوم البيانية الإحصائية ..."
+
+msgid "Please wait, unmounting the file system ..."
+msgstr "الرجاء الانتظار، يتم الان إلغاء تثبيت نظام الملفات ..."
+
+msgid "Please wait, updating access control lists ..."
+msgstr "الرجاء الانتظار، يتم الان تحديث قوائم التحكم في الوصول ..."
+
+msgid "Please wait, updating the permissions ..."
+msgstr "الرجاء الانتظار، يتم الان تحديث الصلاحيات..."
+
+msgid "Plugins"
+msgstr "المكونات الإضافية"
+
+msgid "Poland"
+msgstr "بولندا"
+
+msgid "Port"
+msgstr "منفذ"
+
+msgid "Portugal"
+msgstr "البرتغال"
+
+msgid "Power"
+msgstr "الطاقة"
+
+msgid "Power Management"
+msgstr "إدارة الطاقة"
+
+msgid "Power Mode"
+msgstr ""
+
+msgid "Power Off"
+msgstr "إيقاف التشغيل"
+
+msgid "Power button"
+msgstr "زر الطاقة"
+
+msgid "Power cycle count"
+msgstr "عدد دورات التشغيل"
+
+msgid "Power mode"
+msgstr "وضع الطاقة"
+
+msgid "Powered on"
+msgstr "تم تشغيله"
+
+msgid "Pre-release updates"
+msgstr "تحديثات ما قبل الإصدار"
+
+msgid "Prefail"
+msgstr "قبل الفشل Prefail"
+
+msgid "Prefix address"
+msgstr ""
+
+msgid "Prefix length"
+msgstr "طول البادئة"
+
+msgid "Preserve ACLs"
+msgstr "الحفاظ على قوائم التحكم الدخول ACL"
+
+msgid "Preserve extended attributes"
+msgstr "الحفاظ على السمات الموسعة"
+
+msgid "Preserve group"
+msgstr "مجموعة الحفظ"
+
+msgid "Preserve modification times"
+msgstr "الحفاظ على أوقات التعديل"
+
+msgid "Preserve owner"
+msgstr "الحفاظ على المالك"
+
+msgid "Preserve permissions"
+msgstr "الحفاظ على الصلاحيات"
+
+msgid ""
+"Prevent a disk from being spun-up when it is periodically "
+"polled.<ul><li>Never - Poll (check) the device regardless of its power mode."
+" This may cause a disk which is spun-down to be spun-up when it is "
+"checked.</li><li>Sleep - Check the device unless it is in SLEEP "
+"mode.</li><li>Standby - Check the device unless it is in SLEEP or STANDBY "
+"mode. In these modes most disks are not spinning, so if you want to prevent "
+"a disk from spinning up each poll, this is probably what you "
+"want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
+" mode. In the IDLE state, most disks are still spinning, so this is probably"
+" not what you want.</li></ul>"
+msgstr "منع أي قرص من  spun-up عندما يتم استطلاعه دوريًا.  <ul> <li> لا تقم أبدا بعملية استطلاع (فحص) للجهاز بصرف النظر عن وضع الطاقة الخاص به. قد يتسبب ذلك في توقف القرص عن التشغيل ليتم تثبيته عند تحديده. </li> <li> السكون - تحقق من الجهاز ما لم يكن في وضع SLEEP. </li> <li> الاستعداد - تحقق من الجهاز ما لم يكن في وضع SLEEP أو STANDBY. في هذه الأوضاع ، لا يتم تدوير معظم الأقراص ، لذلك إذا كنت ترغب في منع أي قرص من الدوران في كل استطلاع ، فربما هذا ما تريده. </li> <li> خامل - تحقق من الجهاز ما لم يكن في وضع SLEEP أو STANDBY أو وضع IDLE. في حالة IDLE ، لا تزال معظم الأقراص تدور ، لذلك ربما ليس هذا ما تريده. </li> </ul> "
+
+msgid "Primary"
+msgstr "أساسي"
+
+msgid "Primary email"
+msgstr "البريد الإلكتروني الأساسي"
+
+msgid "Private key"
+msgstr "المفتاح الخاص"
+
+msgid "Processes"
+msgstr "العمليات"
+
+msgid "Processor"
+msgstr "المعالج"
+
+msgid "Profile"
+msgstr "الملف الشخصي"
+
+msgid "Protocol"
+msgstr "البروتوكول"
+
+msgid "Proxy"
+msgstr "الوكيل"
+
+msgid "Public"
+msgstr "عام"
+
+msgid "Public key"
+msgstr "المفتاح العمومي"
+
+msgid "Public key authentication"
+msgstr "مصادقة المفتاح العام"
+
+msgid "Puerto Rico"
+msgstr "بورتوريكو"
+
+msgid "Pull"
+msgstr "سحب"
+
+msgid "Push"
+msgstr "دفع"
+
+msgid "Qatar"
+msgstr "قطر"
+
+msgid "Quick"
+msgstr "سريع"
+
+msgid "Quota"
+msgstr "حصص المستخدمين"
+
+msgid "RES"
+msgstr ""
+
+msgid "RSync server"
+msgstr "RSync خادم"
+
+msgid "Raw value"
+msgstr "القيمة الخام"
+
+msgid "Read only"
+msgstr "القراءة فقط"
+
+msgid "Read-only"
+msgstr "القراءة فقط"
+
+msgid "Read/Execute"
+msgstr "قراءة / تنفيذ"
+
+msgid "Read/Write"
+msgstr "القراءة / الكتابة"
+
+msgid "Read/Write/Execute"
+msgstr "القراءة / الكتابة / التنفيذ"
+
+msgid "Reboot"
+msgstr "إعادة التشغيل"
+
+msgid "Recipient"
+msgstr "مستلم"
+
+msgid "Recurse into directories"
+msgstr "تضمين المجلدات الفرعية"
+
+msgid "Recursive"
+msgstr "متكرر"
+
+msgid "Referenced"
+msgstr "مشار إليه"
+
+msgid "Relative Path"
+msgstr "المسار النسبي"
+
+msgid "Relative path"
+msgstr "المسار النسبي"
+
+msgid "Reliable system and kernel logging daemon."
+msgstr ""
+
+msgid "Reload"
+msgstr "إعادة تحميل"
+
+msgid "Remaining"
+msgstr "متبقي"
+
+msgid "Remote"
+msgstr "عن بعد"
+
+msgid "Replace"
+msgstr "استبدال"
+
+msgid "Replace all existing permissions."
+msgstr "استبدال جميع الصلاحيات الموجودة"
+
+msgid "Report"
+msgstr "تقرير"
+
+msgid ""
+"Report if the temperature had changed by at least N degrees Celsius since "
+"last report."
+msgstr "إبلاغ إذا كانت درجة الحرارة قد تغيرت بمقدار س درجة مئوية على الأقل منذ التقرير الأخير."
+
+msgid ""
+"Report if the temperature is greater than or equal to N degrees Celsius."
+msgstr "إبلاغ إذا كانت درجة الحرارة أكبر من أو تساوي س درجة مئوية. "
+
+msgid "Repository"
+msgstr "المستودع"
+
+msgid "Reset UI to defaults"
+msgstr "إعادة تعيين واجهة المستخدم إلى الإعدادات الافتراضية"
+
+msgid "Result"
+msgstr "النتيجة"
+
+msgid "Retention period"
+msgstr "فترة الاحتفاظ"
+
+msgid "Retention time"
+msgstr "وقت الاحتفاظ"
+
+msgid "Reunion"
+msgstr "ريونيون"
+
+msgid "Reverted the configuration changes."
+msgstr "تم التراجع عن تغييرات التكوين."
+
+msgid "Romania"
+msgstr "رومانيا"
+
+msgid "Row No."
+msgstr "رقم الصف"
+
+msgid "Rsync"
+msgstr "Rsync"
+
+msgid "Rsync - Jobs"
+msgstr "Rsync - وظائف"
+
+msgid "Rsync - Server"
+msgstr "Rsync - خادم"
+
+msgid "Rules"
+msgstr "القواعد"
+
+msgid "Run"
+msgstr "تشغيل"
+
+msgid "Run rsync task"
+msgstr "تشغيل مهمة rsync"
+
+msgid "Run scheduled task"
+msgstr "تشغيل مهمة مجدولة"
+
+msgid "Running"
+msgstr "نشط"
+
+msgid "Russia"
+msgstr "روسيا"
+
+msgid "Rwanda"
+msgstr "رواندا"
+
+msgid "S"
+msgstr ""
+
+msgid "S.M.A.R.T."
+msgstr "S.M.A.R.T."
+
+msgid "S.M.A.R.T. Status"
+msgstr ""
+
+msgid "S.M.A.R.T. monitoring must be activated for the selected device."
+msgstr "يجب تنشيط مراقبة S.M.A.R.T. للجهاز المحدد."
+
+msgid "SHR"
+msgstr ""
+
+msgid "SMB/CIFS"
+msgstr "SMB / CIFS"
+
+msgid "SMB/CIFS - Audit"
+msgstr "SMB / CIFS - مراقبة"
+
+msgid "SMB/CIFS file, print, and login server for Unix."
+msgstr "ملف SMB/CIFS والطباعة وخادم تسجيل الدخول إلى Unix."
+
+msgid "SMTP port"
+msgstr "منفذ SMTP"
+
+msgid "SMTP server"
+msgstr "خادم SMTP"
+
+msgid "SSH"
+msgstr "SSH"
+
+msgid "SSH certificate"
+msgstr "شهادة SSH"
+
+msgid "SSH port"
+msgstr "SSH منفذ"
+
+msgid "SSH public key"
+msgstr "المفتاح SSH العام"
+
+msgid "SSH public keys"
+msgstr "مفاتيح SSH العامة"
+
+msgid "SSID"
+msgstr "SSID"
+
+msgid "SSL"
+msgstr "SSL"
+
+msgid "SSL/TLS"
+msgstr "SSL / TLS"
+
+msgid "SSL/TLS enabled"
+msgstr "تم تفعيل SSL/TLS"
+
+msgid "STARTTLS"
+msgstr "STARTTLS"
+
+msgid "Saint Helena"
+msgstr "سانت هيلانة"
+
+msgid "Saint Kitts and Nevis"
+msgstr "سانت كيتس ونيفيس"
+
+msgid "Saint Lucia"
+msgstr "سانت لوسيا"
+
+msgid "Saint Pierre and Miquelon"
+msgstr "سان بيير وميكلون"
+
+msgid "Saint Vincent and the Grenadines"
+msgstr "سانت فنسنت وجزر غرينادين"
+
+msgid "Samoa"
+msgstr "ساموا"
+
+msgid "San Marino"
+msgstr "سان مارينو"
+
+msgid "Sao Tome and Principe"
+msgstr "ساو تومي وبرينسيبي"
+
+msgid "Saturday"
+msgstr "السبت"
+
+msgid "Saudi Arabia"
+msgstr "السعودية"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Scan for new devices"
+msgstr "بحث عن أجهزة جديدة"
+
+msgid "Scanning for new devices ..."
+msgstr "المسح للأجهزة الجديدة ..."
+
+msgid "Scheduled Tasks"
+msgstr "المهام المجدولة"
+
+msgid "Scheduling"
+msgstr "الجدولة"
+
+msgid "Search domains"
+msgstr "مجالات البحث"
+
+msgid "Secondary email"
+msgstr "البريد الإلكتروني الثانوي"
+
+msgid "Seconds"
+msgstr "ثواني"
+
+msgid "Section"
+msgstr "القسم"
+
+msgid "Secure"
+msgstr "آمن"
+
+msgid "Secure connection"
+msgstr "اتصال آمن"
+
+msgid "Security"
+msgstr ""
+
+msgid "Select a country ..."
+msgstr "اختر دولة ..."
+
+msgid "Select a device ..."
+msgstr "تحديد جهاز ..."
+
+msgid "Select a file system ..."
+msgstr "حدد نظام ملفات ..."
+
+msgid "Select a group ..."
+msgstr "تحديد مجموعة ..."
+
+msgid "Select a shared folder ..."
+msgstr "تحديد مجلد مشترك ..."
+
+msgid "Select a shell ..."
+msgstr "تحديد Shell ..."
+
+msgid "Select a system log ..."
+msgstr "تحديد سجل أحداث النظام ..."
+
+msgid "Select all"
+msgstr "تحديد الكل"
+
+msgid "Select an authentication mode ..."
+msgstr "تحديد وضع مصادقة ..."
+
+msgid "Select an user ..."
+msgstr "تحديد مستخدم ..."
+
+msgid "Select devices ..."
+msgstr "تحديد أجهزة ..."
+
+msgid "Select groups ..."
+msgstr "تحديد مجموعات ..."
+
+msgid "Select interface devices ..."
+msgstr "تحديد أجهزة واجهة الشبكة ..."
+
+msgid "Select members ..."
+msgstr "تحديد أعضاء ..."
+
+msgid "Select permissions ..."
+msgstr "تحديد صلاحيات ..."
+
+msgid "Select slave devices ..."
+msgstr "تحديد الأجهزة التابعة ..."
+
+msgid "Select the device that will be used to create the file system."
+msgstr "تحديد الجهاز الذي سيتم استخدامه لإنشاء نظام الملفات."
+
+msgid "Select the devices that will be used to create the file system."
+msgstr "حدد الأجهزة التي سيتم استخدامها لإنشاء نظام الملفات."
+
+msgid "Self-Test Logs"
+msgstr "سجلات الاختبار الذاتي"
+
+msgid ""
+"Send a notification when the used file system capacity exceeds the specified"
+" threshold."
+msgstr "إرسال تنبيه عندما تتجاوز سعة نظام الملفات المستخدمة الحد المعين."
+
+msgid "Send command output via email"
+msgstr "إرسال مخرجات الأمر عبر البريد الإلكتروني"
+
+msgid "Send notifications about pending package updates."
+msgstr ""
+
+msgid "Sender email"
+msgstr "البريد الإلكتروني للمرسل"
+
+msgid "Senegal"
+msgstr "السنغال"
+
+msgid "September"
+msgstr "سبتمر"
+
+msgid "Serbia And Montenegro"
+msgstr "صربيا والجبل الأسود"
+
+msgid "Serial Number"
+msgstr "الرقم التسلسلي"
+
+msgid "Serial number"
+msgstr "الرقم التسلسلي"
+
+msgid "Server"
+msgstr "الخادم"
+
+msgid "Service"
+msgstr "الخدمة"
+
+msgid "Service disabled"
+msgstr "تم تعطيل الخدمة"
+
+msgid "Services"
+msgstr "الخدمات"
+
+msgid "Session expired."
+msgstr "انتهاء الوقت الخاص بحلسة الويب"
+
+msgid "Session not authenticated."
+msgstr "خطأ في التحقق من جلسة الويب"
+
+msgid ""
+"Set the destination permissions to be the same as the source permissions."
+msgstr "اضبط صلاحيات الوجهة لتكون هي نفس صلاحيات المصدر"
+
+msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr "قم بتعيين مجموعة الملف الوجهة لتكون هي نفسها الملف المصدر."
+
+msgid ""
+"Set the owner of the destination file to be the same as the source file, but"
+" only if the receiving rsync is being run as the super-user."
+msgstr "عيّن مالك الملف الوجهة ليكون هو نفسه الملف المصدر ، ولكن فقط إذا كان rsync المستقبل قيد التشغيل كمستخدم فائق."
+
+msgid ""
+"Sets the interval between disk checks to N seconds. Take caution when "
+"setting this polling interval to more than sixty minutes. The poll times may"
+" fail to coincide with any of the scheduled test that have been specified. "
+"In this case the scheduled test will be run following the next device "
+"polling."
+msgstr ""
+
+msgid "Settings"
+msgstr "الإعدادات"
+
+msgid "Seychelles"
+msgstr "سيشيل"
+
+msgid "Share"
+msgstr "المشاركة"
+
+msgid "Shared Folders"
+msgstr "المجلدات المشتركة"
+
+msgid "Shared folder"
+msgstr "مجلد مشترك"
+
+msgid "Shared folder name"
+msgstr "اسم المجلد المشترك"
+
+msgid "Shared folder path"
+msgstr "مسار المجلد المشترك"
+
+msgid "Shared folder permissions"
+msgstr "صلاحيات المجلد المشترك"
+
+msgid "Shared folder permissions have been copied."
+msgstr "تم نسخ صلاحيات المجلد المشترك."
+
+msgid "Shares"
+msgstr "المشاركات"
+
+msgid "Shell"
+msgstr "Shell"
+
+msgid "Short self-test"
+msgstr "اختبار ذاتي قصير"
+
+msgid "Show changelog"
+msgstr "عرض سجل التغيير"
+
+msgid "Show details"
+msgstr "إظهار التفاصيل"
+
+msgid "Show/Hide columns"
+msgstr "إظهار/إخفاء الأعمدة"
+
+msgid "Show/Hide navigation"
+msgstr "إظهار/إخفاء التنقل"
+
+msgid "Shutdown"
+msgstr "إيقاف التشغيل"
+
+msgid "Sierra Leone"
+msgstr "سيراليون"
+
+msgid "Singapore"
+msgstr "سنغافورة"
+
+msgid "Size"
+msgstr "الحجم"
+
+msgid "Slaves"
+msgstr "Slaves"
+
+msgid "Sleep"
+msgstr "الخمول"
+
+msgid "Sleeping"
+msgstr ""
+
+msgid "Slovakia"
+msgstr "سلوفاكيا"
+
+msgid "Slovenia"
+msgstr "سلوفينيا"
+
+msgid "Snapshots"
+msgstr "النسخ Snapshots"
+
+msgid "Software"
+msgstr ""
+
+msgid "Software Failure.   Press left mouse button to continue."
+msgstr "فشل في البرنامج. اضغط على زر الفأرة الأيسر للمتابعة."
+
+msgid "Solomon Islands"
+msgstr "جزر سليمان"
+
+msgid "Somalia"
+msgstr "الصومال"
+
+msgid "Source"
+msgstr "المصدر"
+
+msgid ""
+"Source address can be either a network IP address (with /mask), a IP range "
+"or a plain IP address. A \"!\" argument before the address specification "
+"inverts the sense of the address."
+msgstr "يمكن أن يكون عنوان الوجهة إما عنوان IP للشبكة (مع قناع mask) أو نطاق IP أو عنوان IP عادي. تمرير العلامة \"!\" قبل تحديد العنوان يعكس معنى العنوان."
+
+msgid "Source port"
+msgstr "منفذ المصدر"
+
+msgid "Source server"
+msgstr "خادم المصدر"
+
+msgid "Source shared folder"
+msgstr "مجلد مشترك المصدر"
+
+msgid "South Africa"
+msgstr "جنوب إفريقيا"
+
+msgid "South Georgia and the South Sandwich Islands"
+msgstr "جورجيا الجنوبية وجزر ساندويتش الجنوبية"
+
+msgid "South Korea"
+msgstr "كوريا الجنوبية"
+
+msgid "Spain"
+msgstr "أسبانيا"
+
+msgid "Specifies the MII link monitoring frequency in milliseconds."
+msgstr "تحديد تردد مراقبة ارتباط MII بالمللي ثانية."
+
+msgid "Specifies the interface devices."
+msgstr "يحدد أجهزة واجهة الشبكة ..."
+
+msgid "Specifies the slave devices."
+msgstr "يحدد الأجهزة التابعة ..."
+
+msgid ""
+"Specifies the time, in milliseconds, to wait before disabling a slave after "
+"a link failure has been detected."
+msgstr "يحدد الوقت ، بالمللي ثانية ، للانتظار قبل تعطيل أحد الرقيق بعد اكتشاف فشل الارتباط."
+
+msgid ""
+"Specifies the time, in milliseconds, to wait before enabling a slave after a"
+" link recovery has been detected."
+msgstr "يحدد الوقت ، بالمللي ثانية ، للانتظار قبل تمكين أحد الرقيق بعد اكتشاف استرداد الارتباط."
+
+msgid "Specifies the type of key to create."
+msgstr ""
+
+msgid "Specifies whether it is allowed to login as superuser."
+msgstr "يحدد ما إذا كان مسموحًا بتسجيل الدخول كمستخدم فائق."
+
+msgid ""
+"Specifies whether the system performance statistics are collected "
+"periodically."
+msgstr "يحدد ما إذا كان يتم جمع إحصائيات أداء النظام بشكل دوري."
+
+msgid "Specifies which slave is the primary device."
+msgstr "يحدد أي من جهاز ثانوي هو الجهاز الأساسي."
+
+msgid ""
+"Specify how often to receive notifications about available package updates."
+msgstr ""
+
+msgid "Speed"
+msgstr "السرعة"
+
+msgid "Spindown time"
+msgstr " سرعة إبطاء القرص Spindown time"
+
+msgid "Sri Lanka"
+msgstr "سريلانكا"
+
+msgid "Standby"
+msgstr "الاستعداد"
+
+msgid "Standby mode"
+msgstr "وضعيه الإستعداد"
+
+msgid "Start"
+msgstr "ابدأ"
+
+msgid "State"
+msgstr "الحالة"
+
+msgid "State/Province"
+msgstr "الولاية / المقاطعة"
+
+msgid "Static"
+msgstr "ثابت"
+
+msgid "Statistics collection and monitoring daemon."
+msgstr "برنامج الخلفية لجمع الإحصاءات والمراقبة."
+
+msgid "Status"
+msgstr "الحالة"
+
+msgid "Stop"
+msgstr "إيقاف"
+
+msgid "Stopped by debugger during trace"
+msgstr ""
+
+msgid "Stopped by job control signal"
+msgstr ""
+
+msgid "Storage"
+msgstr "التخزين"
+
+msgid "Store DOS attributes"
+msgstr "تخزين سمات DOS"
+
+msgid "Success"
+msgstr "نجاح"
+
+msgid "Sudan"
+msgstr "السودان"
+
+msgid "Summary"
+msgstr "الخلاصة"
+
+msgid "Sunday"
+msgstr "الأحد"
+
+msgid "Support name resolution and network discovery for legacy systems."
+msgstr ""
+
+msgid "Suppress non-error messages"
+msgstr "منع الرسائل غير المتعلقة بالخطأ"
+
+msgid "Suriname"
+msgstr "سورينام"
+
+msgid "Suspend"
+msgstr "تعليق"
+
+msgid "Svalbard and Jan Mayen"
+msgstr "سفالبارد وجان ماين"
+
+msgid "Swaziland"
+msgstr "سوازيلند"
+
+msgid "Sweden"
+msgstr "السويد"
+
+msgid "Switzerland"
+msgstr "سويسرا"
+
+msgid "Syria"
+msgstr "سوريا"
+
+msgid "Syslog"
+msgstr "سجلات النظام"
+
+msgid "System"
+msgstr "النظام"
+
+msgid "System Information"
+msgstr "معلومات النظام"
+
+msgid "System Logs"
+msgstr "سجلات النظام"
+
+msgid "System Time"
+msgstr "وقت النظام"
+
+msgid "System account"
+msgstr "حساب نظام"
+
+msgid "System clock synchronization client and server."
+msgstr "عميل وخادم مزامنة ساعة النظام."
+
+msgid ""
+"System monitoring is disabled. To enable it, please go to the <a "
+"href='#/system/monitoring'>settings page</a>."
+msgstr "تم تعطيل مراقبة النظام. لتفعيلها مرة أخرى، يرجى الانتقال إلى صفحة <a href='#/system/monitoring'>الإعدادات</a>."
+
+msgid "System restart required"
+msgstr "يجب إعادة تشغيل النظام"
+
+msgid "System time"
+msgstr "وقت النظام"
+
+msgid "TCP"
+msgstr "TCP"
+
+msgid "TCP forwarding"
+msgstr "إعادة توجيه TCP "
+
+msgid "TIME+"
+msgstr ""
+
+msgid "Tags"
+msgstr "العلامات"
+
+msgid "Taiwan"
+msgstr "تايوان"
+
+msgid "Tajikistan"
+msgstr "طاجيكستان"
+
+msgid "Tanzania"
+msgstr "تنزانيا"
+
+msgid "Tasks"
+msgstr "المهام"
+
+msgid "Temperature"
+msgstr "درجة الحرارة"
+
+msgid "Temperature monitoring"
+msgstr "مراقبة الحرارة"
+
+msgid "Test"
+msgstr "اختبار"
+
+msgid "Thailand"
+msgstr "تايلاند"
+
+msgid "The HTTP and HTTPS ports must not be the same."
+msgstr ""
+
+msgid "The NFS versions provided by the service."
+msgstr ""
+
+msgid "The NT description field."
+msgstr "حقل وصف NT."
+
+msgid "The RSA key length."
+msgstr "طول مفتاح RSA."
+
+msgid "The SSH certificate used for authentication."
+msgstr "شهادة SSH المستخدمة للمصادقة."
+
+msgid "The SSH public key in OpenSSH or RFC 4716 format."
+msgstr "مفتاح SSH العام بتنسيق OpenSSH أو RFC 4716."
+
+msgid "The action to be done when pressing the power button."
+msgstr "الإجراء الذي يجب القيام به عند الضغط على زر الطاقة."
+
+msgid ""
+"The dashboard has not yet been configured. To personalize it, please go to "
+"the <a href='#/dashboard/settings'>settings page</a>."
+msgstr "لم يتم تكوين الصفحة الرئيسية. لتخصيصها، يرجى الانتقال إلى <a href='#/dashboard/settings'>صفحة الإعدادات </a>."
+
+msgid "The data has been copied to the clipboard."
+msgstr "تم نسخ البيانات إلى الحافظة المؤقتة."
+
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr "منفذ خادم بريد SMTP الافتراضي ، على سبيل المثال 25 أو 587 أو 465. "
+
+msgid ""
+"The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
+"rsync://[USER@]HOST[:PORT]/DEST."
+msgstr "الخادم البعيد الوجهة ، على سبيل المثال [USER @] HOST: DEST ، [USER @] HOST :: DEST أو rsync: // [USER @] HOST [: PORT] / DEST."
+
+msgid ""
+"The documentation page provides helpful information about your storage "
+"system."
+msgstr ""
+
+msgid ""
+"The domain name of the system. If your system is part of a private network "
+"without a registered domain, use <em>internal</em> as suggested by <a "
+"href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
+"target=\"_blank\">ICANN</a>."
+msgstr ""
+
+msgid "The field should only contain * or a comma separated list of values."
+msgstr "يجب أن يحتوي الحقل فقط على * أو قائمة قيم مفصولة بفواصل."
+
+msgid "The file mode of the shared folder path."
+msgstr "وضع ملف مسار المجلد المشترك."
+
+msgid "The file system on which the shared folder is to be created."
+msgstr "نظام الملفات الذي سيتم إنشاء المجلد المشترك عليه."
+
+msgid "The file system to mount."
+msgstr "نظام الملفات المراد تثبيته."
+
+msgid "The following modules have been updated: {{ modules }}"
+msgstr ""
+
+msgid "The following modules will be updated:"
+msgstr "سيتم تحديث الوحدات التالية:"
+
+msgid "The forum page is the best place to ask questions and find answers."
+msgstr ""
+
+msgid "The home of the project and source of news and updates."
+msgstr ""
+
+msgid "The hostname is a label that identifies the system to the network."
+msgstr "اسم المضيف هو تسمية تعرّف النظام بالشبكة."
+
+msgid "The hostname of the remote system."
+msgstr "اسم المضيف للنظام البعيد."
+
+msgid ""
+"The information about available software is out-of-date. Do you want to "
+"reload this information?"
+msgstr "المعلومات حول البرامج المتوفرة قديمة. هل تريد إعادة تحميل هذه المعلومات؟"
+
+msgid "The location of the files to share."
+msgstr "موقع الملفات المراد مشاركتها."
+
+msgid ""
+"The location of the files to share. The share will be accessible at "
+"/export/<name>."
+msgstr "موقع الملفات المراد مشاركتها. ستكون المشاركة قابلة للوصول في /export/ <name>."
+
+msgid "The location of the user home directories."
+msgstr "موقع مجلدات المستخدم الرئيسية."
+
+msgid ""
+"The maximum transmission unit in bytes to set for the device. Set to 0 to "
+"use the default value."
+msgstr "قيمة الإرسال القصوى بالبايت المطلوب ضبطها للجهاز. اضبط على 0 لاستخدام القيمة الافتراضية."
+
+msgid "The name of the share."
+msgstr "اسم المشاركة."
+
+msgid "The number of custom snapshots to keep."
+msgstr "عدد نسخ Snapshots المخصصة المطلوب الاحتفاظ بها."
+
+msgid "The number of daily snapshots to keep."
+msgstr "عدد نسخ Snapshots اليومية المطلوب الاحتفاظ بها."
+
+msgid "The number of days the certificate is valid for."
+msgstr "عدد الأيام التي تكون فيها الشهادة صالحة."
+
+msgid "The number of hourly snapshots to keep."
+msgstr "عدد نسخ Snapshots لكل ساعة المطلوب الاحتفاظ بها."
+
+msgid "The number of monthly snapshots to keep."
+msgstr "عدد نسخ Snapshots الشهرية المطلوب الاحتفاظ بها."
+
+msgid "The number of weekly snapshots to keep."
+msgstr "عدد نسخ Snapshots الأسبوعية المطلوب الاحتفاظ بها."
+
+msgid "The number of yearly snapshots to keep."
+msgstr "عدد نسخ Snapshots السنوية المطلوب الاحتفاظ بها."
+
+msgid ""
+"The password that is used for access via rsync daemon. Note, this is not "
+"used for remote shell transport such as SSH."
+msgstr "كلمة المرور التي يتم استخدامها للوصول عبر برنامج الخلفية لـ rsync. ملاحظة ، لا يتم استخدام كلمة المرور هذه في عمليات النقل عن بعد shell مثل SSH."
+
+msgid ""
+"The permissions on new files and directories are normally governed by create"
+" mask and directory mask but the inherit permissions parameter overrides "
+"this. This can be particularly useful on systems with many users to allow a "
+"single share to be used flexibly by each user."
+msgstr "عادةً ما تخضع أذونات الملفات والجلدات الجديدة لإنشاء قناع وقناع مجلد ، لكن معلمة أذونات الوراثة تتجاوز ذلك. يمكن أن يكون ذلك مفيدًا بشكل خاص على الأنظمة التي يوجد بها العديد من المستخدمين للسماح باستخدام مشاركة واحدة بمرونة بواسطة كل مستخدم."
+
+msgid "The port on which SSH is running on the remote system."
+msgstr "المنفذ الذي يعمل عليه SSH على النظام البعيد."
+
+msgid "The private key in PEM format."
+msgstr ""
+
+msgid ""
+"The protocol is not supported in conjunction with a source/destination port."
+msgstr "لا يمكن دعم البروتوكول مع منفذ المصدر/الوجهة."
+
+msgid "The public key in OpenSSH format."
+msgstr ""
+
+msgid ""
+"The relative path of the folder to share. Use '/' to share the root of the "
+"file system. The specified folder will be created if it does not exist."
+msgstr ""
+
+msgid ""
+"The repository will be checked for new, removed or upgraded software "
+"packages."
+msgstr "سيتم فحص المستودع بحثًا عن حزم برامج جديدة أو تمت إزالتها أو ترقيتها."
+
+msgid "The requested page was not found."
+msgstr "الصفحة المطلوبة لم يتم العثور عليها."
+
+msgid ""
+"The retention period (in seconds) before a snapshot can be deleted. This "
+"ensures that a snapshot that has just been created cannot be deleted again "
+"immediately."
+msgstr "فترة الاحتفاظ (بالثواني) قبل حذف نسخة Snapshot. هذا يضمن أن نسخة Snapshot التي تم إنشاؤها للتو لا يمكن حذفها مرة أخرى على الفور."
+
+msgid "The server is unavailable to handle this request right now."
+msgstr "الخادم غير متاح للتعامل مع هذا الطلب في الوقت الحالي."
+
+msgid "The shared folder from which the permissions are copied."
+msgstr "المجلد المشترك الذي يتم نسخ الصلاحيات منه."
+
+msgid "The shared folder {{ _selected[0].name }} was successfully created."
+msgstr "تم إنشاء المجلد المشترك {{ _selected [0] .name }} بنجاح."
+
+msgid ""
+"The snapshot '{{ _response.name }}' has been created for the shared folder "
+"'{{ _response.sharedfolder }}'."
+msgstr "نسخة \"{{ _response.name }}\" تم إنشاؤها للمجلد المشترك \"{{ _response.sharedfolder }}\"."
+
+msgid ""
+"The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
+"rsync://[USER@]HOST[:PORT]/SRC."
+msgstr "الخادم البعيد المصدر ، على سبيل المثال [USER @] HOST: SRC ، [USER @] HOST :: SRC أو rsync: // [USER @] HOST [: PORT] / SRC."
+
+msgid "The system will reboot now. This may take some time ..."
+msgstr "سيتم إعادة تشغيل النظام الآن. قد يستغرق هذا بعض الوقت ..."
+
+msgid "The users that are allowed to access this module."
+msgstr "المستخدمون المسموح لهم بالوصول إلى هذه الوحدة."
+
+msgid "The value does not match the pattern /{{ pattern }}/."
+msgstr "القيمة لا تطابق النمط /{{ pattern }}/."
+
+msgid ""
+"The value must be on of the slave network interfaces {{ slaves | join(\", "
+"\") }}."
+msgstr "يجب أن تكون القيمة واحدة من واجهات الشبكة التابعة {{ slaves | join(\", \") }}."
+
+msgid "The value must be one of the slave network interfaces."
+msgstr ""
+
+msgid "The workgroup the server will appear to be in when queried by clients."
+msgstr "مجموعة العمل التي سيظهر الخادم فيها عند الاستعلام عنها من قبل العملاء."
+
+msgid "There are no notifications."
+msgstr "لا توجد تنبيهات."
+
+msgid ""
+"These settings are used by the services to configure the access rights for "
+"the group \"{{ _routeParams.name }}\". Please note that these settings have "
+"no effect on file system permissions."
+msgstr "يتم استخدام هذه الإعدادات بواسطة الخدمات لتهيئة حقوق الوصول للمجموعة \"{{ _routeParams.name }}\". يرجى ملاحظة أن هذه الإعدادات ليس لها أي تأثير على صلاحيات نظام الملفات."
+
+msgid ""
+"These settings are used by the services to configure the access rights for "
+"the user \"{{ _routeParams.name }}\". Please note that these settings have "
+"no effect on file system permissions."
+msgstr "يتم استخدام هذه الإعدادات بواسطة الخدمات لتهيئة حقوق الوصول للمستخدم \"{{ _routeParams.name }}\". يرجى ملاحظة أن هذه الإعدادات ليس لها أي تأثير على صلاحيات نظام الملفات."
+
+msgid ""
+"These settings are used by the services to configure the user and group "
+"access rights. Please note that these settings have no effect on file system"
+" permissions."
+msgstr "يتم استخدام هذه الإعدادات بواسطة الخدمات لتكوين حقوق وصول المستخدم والمجموعة. يرجى ملاحظة أن هذه الإعدادات ليس لها أي تأثير على صلاحيات نظام الملفات."
+
+msgid ""
+"This controls whether this share is seen in the list of available shares in "
+"a net view and in the browse list."
+msgstr "يتحكم هذا ما إذا كانت هذه المشاركة تظهر في قائمة المشاركات المتوفرة في طريقة عرض net وفي قائمة الاستعراض."
+
+msgid ""
+"This field contains invalid characters, e.g. a blank or \"/[]:+|<>=;,*? "
+"character."
+msgstr "يحتوي هذا الحقل على أحرف غير صالحة، على سبيل المثال فارغ أو حرف من الحروف التالية:  \"/ []: + | <> = ؛ ، *؟"
+
+msgid ""
+"This field contains invalid characters, only alphanumeric characters and "
+"underscore are allowed."
+msgstr "يحتوي هذا الحقل على أحرف غير صالحة ، ويسمح فقط باستخدام الأحرف الأبجدية الرقمية والشرطة السفلية."
+
+msgid ""
+"This field is automatically filled with the subject of the certificate if "
+"left blank."
+msgstr ""
+
+msgid "This field is required."
+msgstr "هذا الحقل مطلوب"
+
+msgid "This field must have the format <hh:mm:ss>."
+msgstr "يجب أن يكون هذا الحقل وفق التنسيق <hh:mm:ss>."
+
+msgid "This field must match the format SIZE[K|M|G|T|P]."
+msgstr ""
+
+msgid "This field should be a IP network address in CIDR notation."
+msgstr "يجب أن يحتوي هذا الحقل على عنوان شبكة IP في صيغة CIDR"
+
+msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
+msgstr ""
+
+msgid "This field should be a domain name or an IP address."
+msgstr "يجب أن يحتوي هذا الحقل على اسم نطاق أو عنوان IP"
+
+msgid "This field should be a host name or an IP address in CIDR notation."
+msgstr "يجب أن يحتوي هذا الحقل على اسم مضيف أو عنوان شبكة IP في صيغة CIDR"
+
+msgid "This field should be a list of IP addresses separated by <,> or <;>."
+msgstr "يجب أن يحتوي هذا الحقل على قائمة عناوين IP مفصولة بـ <,> أو <؛>. "
+
+msgid ""
+"This field should be a list of domain names or IP addresses separated by <,>"
+" or <;>."
+msgstr "يجب أن يحتوي هذا الحقل على قائمة أسماء نطاقات أو عناوين IP مفصولة بـ <,> أو <؛>. "
+
+msgid "This field should be a list of domain names or IP addresses."
+msgstr "يجب أن يحتوي هذا الحقل على قائمة بأسماء النطاقات أو عناوين IP"
+
+msgid ""
+"This field should be a list of host names or IP addresses in CIDR notation "
+"separated by <,> or <;>."
+msgstr "يجب أن يحتوي هذا الحقل على قائمة بأسماء المضيف أو عناوين IP وفق صيغة CIDR مفصولة بعلامة <،> أو <؛> . "
+
+msgid ""
+"This field should be a netmask within the range 128.0.0.0 - 255.255.255.252."
+msgstr "يجب أن يحتوي هذا الحقل على قناع شبكة اتصال ضمن النطاق 128.0.0.0 - 255.255.255.252"
+
+msgid "This field should be a network port in the range of 1 to 65535."
+msgstr "يجب أن يحتوي هذا الحقل على منفذ شبكة ذو قيمة بين 1 و 65535"
+
+msgid ""
+"This field should be a port or port range (e.g. 21 or !443 or 1024-65535)."
+msgstr "يجب أن يحتوي هذا الحقل على منذف شبكة أو نطاق منافذ (على سبيل المثال 21 أو! 443 أو 1024-65535)"
+
+msgid "This field should be an IP address."
+msgstr "يجب أن يحتوي هذا الحقل على عنوان IP"
+
+msgid "This field should be an IPv4 address."
+msgstr "يجب أن يحتوي هذا الحقل على عنوان IPv4."
+
+msgid "This field should be an IPv6 address."
+msgstr "يجب أن يحتوي هذا الحقل على عنوان IPv6."
+
+msgid "This field should be an email address."
+msgstr "يجب أن يحتوي هذا الحقل على عنوان بريد إلكتروني."
+
+msgid "This field should contain a decimal value."
+msgstr "يجب أن يحتوي هذا الحقل على قيمة عشرية."
+
+msgid "This field should contain a number with a binary prefix."
+msgstr "يجب أن يحتوي هذا الحقل على رقم ببادئة ثنائية."
+
+msgid "This field should contain a numeric value."
+msgstr "يجب أن يحتوي هذا الحقل على قيمة عددية."
+
+msgid "This function is effective only if the hard drive supports it."
+msgstr "هذه الوظيفة فعالة فقط إذا كان القرص الصلب يدعمها."
+
+msgid ""
+"This is a text field that is seen next to a share when a client queries the "
+"server."
+msgstr "هذا حقل نصي يتم رؤيته بجوار مشاركة عندما يستعلم العميل عن الخادم."
+
+msgid ""
+"This option determines if this module should be listed when the client asks "
+"for a listing of available modules."
+msgstr "يحدد هذا الخيار ما إذا كان يجب إدراج هذه الوحدة عندما يطلب العميل قائمة بالوحدات النمطية المتاحة."
+
+msgid ""
+"This option is a comma, space, or tab delimited set of host which are NOT "
+"permitted to access this module. Where the lists conflict, the allow list "
+"takes precedence. In the event that it is necessary to deny all by default, "
+"use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
+"to the hosts allow parameter those hosts that should be permitted access. "
+"Leave this field empty to use default settings."
+msgstr "هذا الخيار عبارة عن مجموعة مضيف محدد بفواصل أو مسافة أو علامة تبويب والتي لا يُسمح لها بالوصول إلى هذه الوحدة. في حالة تعارض القوائم ، تكون لقائمة السماح الأسبقية. في حال كان من الضروري رفض الكل افتراضيًا ، استخدم الكلمة الأساسية ALL (أو قناع الشبكة 0.0.0.0/0) ، ثم حدد صراحةً للمضيفين السماح للمضيفين المضيفين الذين يجب السماح لهم بالوصول. اترك هذا الحقل فارغًا لاستخدام الإعدادات الافتراضية. "
+
+msgid ""
+"This option is a comma, space, or tab delimited set of host which are NOT "
+"permitted to access this share. Where the lists conflict, the allow list "
+"takes precedence. In the event that it is necessary to deny all by default, "
+"use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
+"to the hosts allow parameter those hosts that should be permitted access. "
+"Leave this field empty to use default settings."
+msgstr "هذا الخيار عبارة عن مجموعة مضيف محدد بفواصل أو مسافة أو علامة تبويب والتي لا يُسمح لها بالوصول إلى هذه المشاركة. في حالة تعارض القوائم ، تكون لقائمة السماح الأسبقية. في حالة ضرورة الرفض بشكل افتراضي ، استخدم الكلمة الأساسية ALL (أو قناع الشبكة 0.0.0.0/0) ثم حدد صراحةً للمضيفين السماح للمضيفين المضيفين بالسماح لهم بالوصول. اترك هذا الحقل فارغًا لاستخدام الإعدادات الافتراضية. "
+
+msgid ""
+"This option is a comma, space, or tab delimited set of hosts which are "
+"permitted to access this module. You can specify the hosts by name or IP "
+"number. Leave this field empty to use default settings."
+msgstr "هذا الخيار عبارة عن مجموعة من المضيفين محددة بفواصل أو مسافة أو علامة تبويب ويسمح لهم بالوصول إلى هذه الوحدة. يمكنك تحديد المضيفين حسب الاسم أو رقم IP. اترك هذا الحقل فارغًا لاستخدام الإعدادات الافتراضية."
+
+msgid ""
+"This option is a comma, space, or tab delimited set of hosts which are "
+"permitted to access this share. You can specify the hosts by name or IP "
+"number. Leave this field empty to use default settings."
+msgstr "هذا الخيار عبارة عن مجموعة من المضيفين محددة بفواصل أو مسافة أو علامة تبويب ويسمح لهم بالوصول إلى هذه المشاركة. يمكنك تحديد المضيفين حسب الاسم أو رقم IP. اترك هذا الحقل فارغًا لاستخدام الإعدادات الافتراضية."
+
+msgid ""
+"This option specifies the group name that file transfers to and from that "
+"module should take place."
+msgstr "يحدد هذا الخيار اسم المجموعة الذي يجب أن يتم نقل الملف منه وإليه."
+
+msgid ""
+"This option specifies the maximum number of simultaneous connections. 0 "
+"means no limit."
+msgstr "يحدد هذا الخيار الحد الأقصى لعدد الاتصالات المتزامنة. 0 يعني عدم وجود حد."
+
+msgid ""
+"This option specifies the user name that file transfers to and from that "
+"module should take place."
+msgstr "يحدد هذا الخيار اسم المستخدم الذي يجب أن يتم نقل الملف منه وإليه."
+
+msgid ""
+"This parameter can be used to ensure that if default acls exist on parent "
+"directories, they are always honored when creating a new file or "
+"subdirectory in these parent directories."
+msgstr "يمكن استخدام هذه الخيار للتأكد من أنه في حالة وجود ACLs افتراضية في المجلدات الأصل ، يتم دائمًا إبقاءها وعدم حذفهاعند إنشاء ملف جديد أو مجلد فرعي في هذه المجلدات الأصل."
+
+msgid ""
+"This parameter controls whether files starting with a dot appear as hidden "
+"files"
+msgstr "يتحكم هذا الخبار فيما إذا كانت الملفات التي تبدأ بنقطة تظهر كملفات مخفية"
+
+msgid ""
+"This setting controls the minimum protocol version that the server will "
+"allow the client to use."
+msgstr ""
+
+msgid "This specifies what to do if the packet matches."
+msgstr "يحدد هذا ما يجب القيام به إذا كانت الحزمة مطابقة."
+
+msgid "This will create a recycle bin for each user home directory."
+msgstr "سيؤدي ذلك إلى إنشاء سلة محذوفات لكل دليل رئيسي للمستخدم."
+
+msgid "This will create a recycle bin for the share."
+msgstr "سيؤدي هذا إلى إنشاء سلة المحذوفات للمشاركة."
+
+msgid "Threshold"
+msgstr "الحد الفاصل"
+
+msgid "Thursday"
+msgstr "الخميس"
+
+msgid "Time Machine support"
+msgstr "دعم جهاز  Apple Time Machine"
+
+msgid "Time of execution"
+msgstr "وقت التنفيذ"
+
+msgid "Time server"
+msgstr "خادم الوقت"
+
+msgid "Time servers"
+msgstr "خوادم الوقت"
+
+msgid "Time zone"
+msgstr "المنطقة الزمنية"
+
+msgid "Tip"
+msgstr "نصيحة"
+
+msgid "Togo"
+msgstr "توغو"
+
+msgid "Tokelau"
+msgstr "توكيلاو"
+
+msgid "Tonga"
+msgstr "تونغا"
+
+msgid "Total"
+msgstr "المجموع"
+
+msgid ""
+"Transfer modification times along with the files and update them on the "
+"remote system."
+msgstr "نقل أوقات التعديل مع الملفات وتحديثها على النظام البعيد."
+
+msgid "Transmit Hash Policy"
+msgstr "نقل سياسة التجزئة Hash Policy"
+
+msgid "Transport encryption"
+msgstr "تشفير النقل"
+
+msgid "Trial run"
+msgstr "التشغيل التجريبي"
+
+msgid "Trinidad and Tobago"
+msgstr "ترينيداد وتوباغو"
+
+msgid "Tuesday"
+msgstr "الثلاثاء"
+
+msgid "Tunisia"
+msgstr "تونس"
+
+msgid "Turkey"
+msgstr "تركيا"
+
+msgid "Turkmenistan"
+msgstr "تركمانستان"
+
+msgid "Turks and Caicos Islands"
+msgstr "جزر تركس وكايكوس"
+
+msgid "Tuvalu"
+msgstr "توفالو"
+
+msgid "Type"
+msgstr "النوع"
+
+msgid "U.S. Miscellaneous Pacific Islands"
+msgstr "جزر المحيط الهادئ المتنوعة للولايات المتحدة"
+
+msgid "U.S. Virgin Islands"
+msgstr "جزر فيرجن الأمريكية"
+
+msgid "UDP"
+msgstr "UDP"
+
+msgid "UID"
+msgstr "UID"
+
+msgid "UNKNOWN"
+msgstr "غير معروف"
+
+msgid "USER"
+msgstr ""
+
+msgid "UUID"
+msgstr "UUID"
+
+msgid "Uganda"
+msgstr "أوغندا"
+
+msgid "Ukraine"
+msgstr "أوكرانيا"
+
+msgid "Unavailable"
+msgstr ""
+
+msgid "Undo"
+msgstr "تراجع"
+
+msgid "Uninstall"
+msgstr "إلغاء التثبيت"
+
+msgid "Uninstall plugin"
+msgstr "إلغاء تثبيت المكون الإضافي"
+
+msgid "Uninterruptible sleep"
+msgstr ""
+
+msgid "Union of Soviet Socialist Republics"
+msgstr "اتحاد الجمهوريات الاشتراكية السوفياتية"
+
+msgid "Unit"
+msgstr "الوحدة"
+
+msgid "United Arab Emirates"
+msgstr "الإمارات العربية المتحدة"
+
+msgid "United Kingdom"
+msgstr "المملكة المتحدة"
+
+msgid "United States"
+msgstr "الولايات المتحدة"
+
+msgid "United States Minor Outlying Islands"
+msgstr "جزر الولايات المتحدة البعيدة الصغيرة"
+
+msgid "Unknown"
+msgstr "غير معروف"
+
+msgid "Unmount"
+msgstr "تعطيل "
+
+msgid "Unrestricted"
+msgstr "غير مقيد"
+
+msgid "Up"
+msgstr "أعلى"
+
+msgid "Up delay"
+msgstr "Up delay"
+
+msgid "Update Management"
+msgstr "إدارة التحديث"
+
+msgid "Update management"
+msgstr ""
+
+msgid "Update the destination ACLs to be the same as the source ACLs."
+msgstr "قم بتحديث قوائم ACL الوجهة لتكون هي نفس قوائم ACL المصدر."
+
+msgid ""
+"Update the destination extended attributes to be the same as the local ones."
+msgstr "قم بتحديث السمات الموسعة للوجهة لتكون هي نفس السمات المحلية."
+
+msgid "Updated NFS settings."
+msgstr "تم تحديث إعدادات NFS."
+
+msgid "Updated NFS share."
+msgstr "تم تحديث مشاركة NFS."
+
+msgid "Updated Rsync Server settings."
+msgstr "تم تحديث إعدادات خادم Rsync."
+
+msgid "Updated Rsync server module \"{{ name }}\"."
+msgstr "تم تحديث وحدة خادم Rsync \"{{ name }}\"."
+
+msgid "Updated Rsync task."
+msgstr "تم تحديث مهمة Rsync"
+
+msgid "Updated SMB/CIFS settings."
+msgstr "تم تحديث إعدادات SMB/CIFS."
+
+msgid "Updated SMB/CIFS share."
+msgstr "تم تحديث مشاركة SMB/CIFS."
+
+msgid "Updated SSH certificate."
+msgstr "تم تحديث شهادة SSH."
+
+msgid "Updated SSH settings."
+msgstr "تم تحديث إعدادات SSH."
+
+msgid "Updated VLAN network connection \"{{ devicename }}\"."
+msgstr "تم تحديث اتصال شبكة VLAN \"{{ devicename }}\"."
+
+msgid "Updated access control list of shared folder."
+msgstr "تحديث قائمة التحكم في الوصول للمجلد المشترك."
+
+msgid "Updated bond network connection \"{{ devicename }}\"."
+msgstr "تم تحديث اتصال شبكة ترابط \"{{ devicename }}\"."
+
+msgid "Updated bridge network connection \"{{ devicename }}\"."
+msgstr "تم تحديث اتصال شبكة الجسر \"{{ devicename }}\"."
+
+msgid "Updated dashboard settings."
+msgstr "تم تحديث إعدادات الصفحة الرئيسية."
+
+msgid "Updated date & time settings."
+msgstr "تم تحديث إعدادات التاريخ والوقت."
+
+msgid "Updated file system settings."
+msgstr "تم تحديث إعدادات نظام الملفات."
+
+msgid "Updated firewall rule."
+msgstr "تم تحديث قاعدة جدار الحماية."
+
+msgid "Updated firewall rules."
+msgstr "تم تحديث قواعد جدار الحماية."
+
+msgid "Updated group \"{{ name }}\"."
+msgstr "تم تحديث المجموعة \"{{ name }}\"."
+
+msgid "Updated monitoring settings."
+msgstr "تم تحديث إعدادات المراقبة."
+
+msgid "Updated network settings."
+msgstr "تم تحديث إعدادات الشبكة."
+
+msgid "Updated notification event settings."
+msgstr "تم تحديث إعدادات تنبيهات الاحداث."
+
+msgid "Updated notification settings."
+msgstr "تم تحديث إعدادات التنبيهات."
+
+msgid "Updated password."
+msgstr "تم تحديث كلمة المرور."
+
+msgid "Updated permissions of group \"{{ name }}\"."
+msgstr "صلاحيات محدثة للمجموعة \"{{ name }}\"."
+
+msgid "Updated permissions of shared folder."
+msgstr "صلاحيات محدثة للمجلد المشترك."
+
+msgid "Updated permissions of user \"{{ name }}\"."
+msgstr "أذونات محدثة للمستخدم \"{{ name }}\"."
+
+msgid "Updated power management settings."
+msgstr "تم تحديث إعدادات إدارة الطاقة."
+
+msgid "Updated proxy settings."
+msgstr "تم تحديث إعدادات الوكيل."
+
+msgid "Updated quota."
+msgstr "تم تحديث إعدادات الحصص."
+
+msgid "Updated remote system-logs settings."
+msgstr "تم تحديث إعدادات سجلات النظام عن بُعد."
+
+msgid "Updated scheduled task."
+msgstr "تم تحديث المهمة المجدولة."
+
+msgid "Updated settings."
+msgstr "تم تحديث الإعدادات."
+
+msgid "Updated shared folder."
+msgstr "تم تحديث المجلد المشترك."
+
+msgid "Updated update management settings."
+msgstr "تم تحديث إعدادات إدارة التحديثات."
+
+msgid "Updated user \"{{ name }}\"."
+msgstr "تم تحديث المستخدم \"{{ name }}\"."
+
+msgid "Updated user profile."
+msgstr "تم تحديث ملف المستخدم الشخصي."
+
+msgid "Updated wired network connection \"{{ devicename }}\"."
+msgstr "تم تحديث اتصال الشبكة السلكي \"{{ devicename }}\"."
+
+msgid "Updated wireless network connection \"{{ devicename }}\"."
+msgstr "تم تحديث اتصال الشبكة اللاسلكي \"{{ devicename }}\"."
+
+msgid "Updated workbench settings."
+msgstr "تم تحديث إعدادات مساحة العمل."
+
+msgid "Updates"
+msgstr "تحديثات"
+
+msgid "Updates Available"
+msgstr "التحديثات متوفرة"
+
+msgid "Updates available"
+msgstr "التحديثات متوفرة"
+
+msgid "Upgrade system"
+msgstr "ترقية النظام"
+
+msgid "Uptime"
+msgstr "وقت التشغيل"
+
+msgid "Uruguay"
+msgstr "أوروجواي"
+
+msgid "Usage Warning Threshold"
+msgstr "تحذير حد الاستخدام"
+
+msgid "Use NTP server"
+msgstr "استخدام خادم NTP"
+
+msgid "Use chroot"
+msgstr "استخدام chroot"
+
+msgid "Use global settings"
+msgstr "استخدم الإعدادات العامة"
+
+msgid "Use sendfile"
+msgstr "استخدام sendfile"
+
+msgid ""
+"Use the more efficient sendfile system call for files that are exclusively "
+"oplocked. This may make more efficient use of the system CPU's and cause "
+"Samba to be faster. Samba automatically turns this off for clients that use "
+"protocol levels lower than NT LM 0.12 and when it detects a client is "
+"Windows 9x."
+msgstr "استخدم نظام sendfile الأكثر كفاءة للملفات المحجوزة مؤقتا بواسطة المستخدم. قد يؤدي ذلك إلى زيادة كفاءة استخدام وحدة المعالجة المركزية للنظام ويجعل Samba أسرع. يقوم Samba تلقائيًا بإيقاف تشغيل هذا للعملاء الذين يستخدمون مستويات بروتوكول أقل من NT LM 0.12 وعندما يكتشف أن العميل يستخدم Windows 9x."
+
+msgid "Use the specified WINS server."
+msgstr "استخدم خادم WINS المحدد."
+
+msgid "Used"
+msgstr "مستعمل"
+
+msgid "Used capacity"
+msgstr "السعة المستخدمة"
+
+msgid "User"
+msgstr "المستخدم"
+
+msgid "User Management"
+msgstr "إدارة المستخدمين"
+
+msgid "User Settings"
+msgstr "إعدادات المستخدم"
+
+msgid "User home directory"
+msgstr "مجلد المستخدم الرئيسي"
+
+msgid "User name"
+msgstr "اسم المستخم"
+
+msgid "User/Group permissions"
+msgstr "صلاحيات المستخدم / المجموعة"
+
+msgid "Users"
+msgstr "المستخدمون"
+
+msgid ""
+"Users must be assigned to the <em>_ssh</em> group to be able to log in via "
+"SSH."
+msgstr ""
+
+msgid "Utilization"
+msgstr ""
+
+msgid "Uzbekistan"
+msgstr "أوزبكستان"
+
+msgid "VIRT"
+msgstr ""
+
+msgid "VLAN"
+msgstr "VLAN"
+
+msgid "VLAN id"
+msgstr "معرف VLAN"
+
+msgid "Valid from"
+msgstr ""
+
+msgid "Valid to"
+msgstr "صالح إلى"
+
+msgid "Value"
+msgstr "القيمة"
+
+msgid "Vanuatu"
+msgstr "فانواتو"
+
+msgid "Vatican"
+msgstr "الفاتيكان"
+
+msgid "Vendor"
+msgstr "المصنع"
+
+msgid "Venezuela"
+msgstr "فنزويلا"
+
+msgid "Version"
+msgstr "الإصدار"
+
+msgid "Versions"
+msgstr ""
+
+msgid "Vietnam"
+msgstr "فيتنام"
+
+msgid "VirtIO device"
+msgstr "جهاز VirtIO"
+
+msgid "WINS server"
+msgstr "خادم WINS"
+
+msgid "WOL"
+msgstr "WOL"
+
+msgid "WPA2-Personal"
+msgstr ""
+
+msgid "WPA3-Personal"
+msgstr ""
+
+msgid "WWN"
+msgstr "WWN"
+
+msgid "Wake Island"
+msgstr "جزيرة ويك"
+
+msgid "Wake-on-LAN"
+msgstr "Wake-on-LAN"
+
+msgid "Wallis and Futuna"
+msgstr "واليس وفوتونا"
+
+msgid "Warning"
+msgstr "تحذير"
+
+msgid "Wednesday"
+msgstr "الأربعاء"
+
+msgid "Weekly"
+msgstr "ويكلي"
+
+msgid "Welcome to openmediavault"
+msgstr "مرحبا بكم في openmediavault"
+
+msgid "Western Sahara"
+msgstr "الصحراء الغربية"
+
+msgid ""
+"While the background task is still running, you can attach the Workbench "
+"terminal dialog to it in the notification bar."
+msgstr ""
+
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+msgid "Wide links"
+msgstr ""
+
+msgid "Wipe"
+msgstr "مسح"
+
+msgid "Wiping device"
+msgstr "محو الجهاز"
+
+msgid "Workbench"
+msgstr "مساحة العمل"
+
+msgid "Workgroup"
+msgstr "مجموعة العمل"
+
+msgid "Worst"
+msgstr "الأسوأ"
+
+msgid "Write only"
+msgstr "الكتابة فقط"
+
+msgid "Write-only"
+msgstr "الكتابة فقط"
+
+msgid "Write/Execute"
+msgstr "الكتابة / التنفيذ"
+
+msgid "Xen virtual disk device"
+msgstr "Xen disk disk device"
+
+msgid "Yearly"
+msgstr "سنوي"
+
+msgid "Yemen"
+msgstr "اليمن"
+
+msgid "Yes"
+msgstr "نعم"
+
+msgid ""
+"You have made changes that have not yet been saved. Do you want to discard "
+"them?"
+msgstr "لقد قمت بإجراء تغييرات لم يتم حفظها بعد. هل تريد التخلص منها؟"
+
+msgid "You must apply these changes in order for them to take effect."
+msgstr "يجب تطبيق التغييرات حتى تصبح نافذة المفعول."
+
+msgid "You will be logged out due to inactivity in {{ n }} seconds."
+msgstr ""
+
+msgid "Your profile"
+msgstr "ملفك الشخصي"
+
+msgid "Zambia"
+msgstr "زامبيا"
+
+msgid "Zimbabwe"
+msgstr "زيمبابوي"
+
+msgid "Zombie"
+msgstr ""
+
+msgid "a day"
+msgstr "يوم"
+
+msgid "a few seconds"
+msgstr "بضع ثواني"
+
+msgid "a minute"
+msgstr "دقيقة"
+
+msgid "a month"
+msgstr "شهر"
+
+msgid "a year"
+msgstr "سنة"
+
+msgid "an hour"
+msgstr "ساعة"
+
+msgid "in %s"
+msgstr "في %s"
+
+msgid "selected"
+msgstr "المحدد"
+
+msgid "total"
+msgstr "المجموع"
+
+msgid "{{ percent }}% of {{ total }}"
+msgstr ""

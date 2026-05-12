@@ -1,0 +1,179 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-onedrive package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2022
+# Kostas Moho, 2025
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-onedrive\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2022-04-13 15:28+0000\n"
+"Last-Translator: Kostas Moho, 2025\n"
+"Language-Team: Greek (Greece) (https://app.transifex.com/openmediavault/teams/14254/el_GR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "1 MiB/s"
+msgstr "1 MiB/s"
+
+msgid "10 MiB/s"
+msgstr "10 MiB/s"
+
+msgid "10 minutes"
+msgstr "10 λεπτά"
+
+msgid "100 MiB/s"
+msgstr "100 MiB/s"
+
+msgid "12 hours"
+msgstr "12 ώρες"
+
+msgid "128 KiB/s"
+msgstr "128 KiB/s"
+
+msgid "15 minutes"
+msgstr "15 λεπτά"
+
+msgid "24 hours"
+msgstr "24 ώρες"
+
+msgid "256 KiB/s"
+msgstr "256 KiB/s"
+
+msgid "30 minutes"
+msgstr "30 λεπτά"
+
+msgid "5 minutes"
+msgstr "5 λεπτά"
+
+msgid "512 KiB/s"
+msgstr "512 KiB/s"
+
+msgid "6 hours"
+msgstr "6 ώρες"
+
+msgid "60 minutes"
+msgstr "60 λεπτά"
+
+msgid ""
+"<ul><li>Full - Replicate changes from and to OneDrive.</li><li>Download only"
+" - Replicate the OneDrive online state locally, by only downloading changes "
+"from OneDrive. Do not upload local changes to OneDrive.</li><li>Upload only "
+"- Replicate the local state to OneDrive, by only uploading local changes to "
+"OneDrive. Do not download changes from OneDrive.</li></ul>"
+msgstr ""
+"<ul><li>Πλήρης - Αντιγραφή αλλαγών από και προς το OneDrive.</li><li>Μόνο "
+"Λήψη - Αντιγραφή της απομακρυσμένης κατάστασης του OneDrive τοπικά, μόνο "
+"λαμβάνοντας τις αλλαγές από το OneDrive. Χωρίς αποστολή των τοπικών αλλαγών "
+"στο OneDrive.</li><li>Μόνο Αποστολή - Αντιγραφή της τοπικής κατάστασης στο "
+"OneDrive, μόνο αποστέλλοντας τις αλλαγές στο OneDrive. Χωρίς λήψη αλλαγών "
+"από το OneDrive.</li></ul>"
+
+msgid ""
+"After enabling and deploying this service the first time please run the "
+"command <em>omv-onedrive-auth</em> as <em>root</em> user in the CLI to "
+"authenticate the application in Microsoft OneDrive."
+msgstr ""
+"Μετά την ενεργοποίηση και αρχική εκτέλεση αυτής της υπηρεσίας, δώστε την "
+"εντολή <em>omv-onedrive-auth</em> ως χρήστης <em>root</em> στη γραμμή "
+"εντολών, για την πιστοποίηση της εφαρμογής στο Microsoft OneDrive."
+
+msgid "Clean up local files"
+msgstr "Εκκαθάριση τοπικών αρχείων"
+
+msgid "Clean up local files that have been removed online."
+msgstr "Εκκαθάριση τοπικών αρχείων που έχουν αφαιρεθεί από το δίκτυο."
+
+msgid "Date & Time"
+msgstr "Ημερομηνία & Ώρα"
+
+msgid "Disabled"
+msgstr "Ανενεργό"
+
+msgid "Do not delete local file deletions from OneDrive."
+msgstr "Να μην διαγράφονται οι τοπικές διαγραφές αρχείων από το OneDrive."
+
+msgid "Download only"
+msgstr "Μόνο Λήψη"
+
+msgid "Enabled"
+msgstr "Ενεργό"
+
+msgid "Extra options"
+msgstr "Επιπλέον επιλογές"
+
+msgid "Full"
+msgstr "Πλήρες"
+
+msgid "Local first"
+msgstr "Τοπικά πρώτα"
+
+msgid "Message"
+msgstr "Μήνυμα"
+
+msgid "Monitor interval"
+msgstr "Διάστημα επίβλεψης"
+
+msgid "No remote delete"
+msgstr "Όχι απομακρυσμένη διαγραφή"
+
+msgid "OneDrive"
+msgstr "OneDrive"
+
+msgid "Rate limit"
+msgstr "Όριο μετάδοσης"
+
+msgid "Replicate local state first, before downloading changes from OneDrive."
+msgstr ""
+"Αντιγραφή πρώτα της τοπικής κατάστασης, πριν την λήψη αλλαγών από το "
+"OneDrive."
+
+msgid "Replication mode"
+msgstr "Λειτουργία αντιγραφής"
+
+msgid "Shared folder"
+msgstr "Κοινόχρηστος φάκελος"
+
+msgid "Skip dot files and folders from syncing."
+msgstr "Παράλειψη κρυφών αρχείων και φακέλων από τον συγχρονισμό."
+
+msgid "Skip dotfiles"
+msgstr "Παράλειψη κρυφών αρχείων"
+
+msgid "The location to which the files are synchronised."
+msgstr "Η θέση στην οποία θα συγχρονίζονται τα αρχεία."
+
+msgid "The synchronised files and directories are owned by this user."
+msgstr "Τα συγχρονισμένα αρχεία και φάκελοι θα ανήκουν σε αυτόν τον χρήστη."
+
+msgid "The wait time between each sync operation."
+msgstr "Ο χρόνος αναμονής ανάμεσα στον κάθε συγχρονισμό."
+
+msgid "Updated OneDrive settings."
+msgstr "Ενημέρωση ρυθμίσεων OneDrive."
+
+msgid "Upload only"
+msgstr "Μόνο Αποστολή"
+
+msgid "Upload/Download rate limit."
+msgstr "Όριο μετάδοσης Αποστολής/Λήψης."
+
+msgid ""
+"Use the <em>omv-onedrive</em> command in the CLI to perform additional "
+"actions according to the documentation of the OneDrive Linux client."
+msgstr ""
+"Χρησιμοποιήστε την εντολή <em>omv-onedrive</em> στη γραμμή εντολών για την "
+"εκτέλεση επιπρόσθετων ενεργειών, σύμφωνα με τις οδηγίες του προγράμματος "
+"OneDrive για Linux."
+
+msgid "User"
+msgstr "Χρήστης"

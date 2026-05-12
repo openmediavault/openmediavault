@@ -1,0 +1,7 @@
+check process omv-engined with pidfile /run/omv-engined.pid
+    start program = "/bin/systemctl start openmediavault-engined"
+    stop program = "/bin/systemctl stop openmediavault-engined"
+    mode active
+{%- if email_config.enable | to_bool and not notification_config.enable | to_bool %}
+    noalert {{ email_config.primaryemail }}
+{%- endif %}

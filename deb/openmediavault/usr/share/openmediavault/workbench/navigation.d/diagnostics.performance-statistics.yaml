@@ -1,0 +1,10 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "diagnostics.performance-statistics"
+  text: _("Performance Statistics")
+  icon: "mdi:chart-line"
+  url: "/diagnostics/performance-statistics"
+  permissions:
+    role:
+    - admin

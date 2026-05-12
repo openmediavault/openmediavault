@@ -1,0 +1,90 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-k8s-resources-service-datatable-page
+  type: datatablePage
+  config:
+    autoReload: 10000
+    stateId: 5cef3992-d496-11ee-9552-e74736f6cb41
+    sorters:
+      - dir: asc
+        prop: metadata.namespace
+      - dir: asc
+        prop: metadata.name
+    store:
+      proxy:
+        service: Kubectl
+        get:
+          method: getList
+          params:
+            type: services
+      transform:
+        spec.externalIPs: '{{ status | get("loadBalancer.ingress") | join(",", "ip") }}'
+    rowId: metadata.name
+    rowEnumFmt: "{{ metadata.namespace }}/{{ metadata.name }}"
+    selectionType: single
+    hasSearchField: true
+    columns:
+      - name: _("Namespace")
+        prop: metadata.namespace
+        flexGrow: 1
+        sortable: true
+      - name: _("Name")
+        prop: metadata.name
+        flexGrow: 1
+        sortable: true
+      - name: _("Type")
+        prop: spec.type
+        flexGrow: 1
+        sortable: true
+      - name: _("Cluster IP")
+        prop: spec.clusterIP
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: copyToClipboard
+      - name: _("External IP")
+        prop: spec.externalIPs
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: copyToClipboard
+      - name: _("Ports")
+        prop: spec.ports
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: template
+        cellTemplateConfig: '{% for port in spec.ports %}{{ port.port }}{% if port.nodePort %}:{{ port.nodePort }}{% endif %}/{{ port.protocol }}{% if not loop.last %},{% endif %}{% endfor %}'
+      - name: _("Created")
+        prop: metadata.creationTimestamp
+        flexGrow: 1
+        sortable: true
+        hidden: true
+        cellTemplateName: relativeTime
+    actions:
+      - type: iconButton
+        icon: show
+        tooltip: _("View")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/k8s/resources/service/get/{{ _selected[0].metadata.name }}?namespace={{ _selected[0].metadata.namespace }}&type=service"
+      - type: iconButton
+        icon: "mdi:text-box-edit"
+        tooltip: _("Describe")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/k8s/resources/service/describe/{{ _selected[0].metadata.name }}?namespace={{ _selected[0].metadata.namespace }}&type=service"
+      - template: delete
+        execute:
+          type: request
+          request:
+            service: Kubectl
+            method: delete
+            params:
+              type: service
+              name: "{{ metadata.name }}"
+              namespace: "{{ metadata.namespace }}"

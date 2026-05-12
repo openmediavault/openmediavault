@@ -1,0 +1,15 @@
+[Unit]
+Description=OneDrive Free Client
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=onedrive
+Group=users
+ExecStart=/usr/bin/onedrive --confdir /var/cache/onedrive --monitor
+Restart=on-failure
+RestartPreventExitStatus=3
+RestartSec=3
+
+[Install]
+WantedBy=default.target

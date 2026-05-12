@@ -1,0 +1,5 @@
+*.dch*
+*.deb
+*.udeb
+.idea/
+__pycache__/

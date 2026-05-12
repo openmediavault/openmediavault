@@ -1,0 +1,16 @@
+Source: openmediavault-wbprefs
+Section: admin
+XB-Plugin-Section: administration
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>= 12), gettext
+Standards-Version: 3.9.6
+Homepage: https://www.openmediavault.org
+
+Package: openmediavault-wbprefs
+Architecture: all
+Depends: openmediavault (>= 8.2.11)
+Priority: optional
+Description: openmediavault Workbench preferences
+ Additional settings for the Workbench, for example to customize
+ the wallpaper on the login screen.

@@ -1,0 +1,17 @@
+Source: openmediavault-nut
+Section: admin
+XB-Plugin-Section: admin
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>= 12), gettext
+Standards-Version: 3.9.6
+Homepage: https://www.openmediavault.org
+
+Package: openmediavault-nut
+Architecture: all
+Depends: openmediavault (>= 8.0), nut, udev
+Priority: optional
+Description: openmediavault Network UPS Tools (NUT) plugin
+ Network UPS Tools (NUT) is a client/server monitoring system that
+ allows computers to share uninterruptible power supply (UPS) and
+ power distribution unit (PDU) hardware.

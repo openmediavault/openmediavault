@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/bcache/cache/configuration/:devicefile"
+  title: "{{ 'Configuration' | translate }} @ {{ _routeParams.devicefile }}"
+  editing: true
+  notificationTitle: _("Updated cache device '{{ devicefile }}'.")
+  component: omv-storage-bcache-cache-configuration-form-page

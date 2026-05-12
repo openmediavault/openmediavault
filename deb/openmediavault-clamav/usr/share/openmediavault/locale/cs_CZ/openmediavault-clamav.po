@@ -1,0 +1,310 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-clamav package.
+# 
+# Translators:
+# Jan Štourač <wormsik666@gmail.com>, 2014
+# Marek Pavelka, 2024
+# Pavel Borecki <pavel.borecki@gmail.com>, 2014-2017,2021
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-05-18 22:06+0000\n"
+"Last-Translator: Marek Pavelka, 2024\n"
+"Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+
+msgid "Algorithmic detection"
+msgstr "Algoritmické rozpoznávání"
+
+msgid ""
+"An email message with the command output (if any produced) is sent to the "
+"administrator."
+msgstr ""
+
+msgid "Antivirus"
+msgstr "Antivirus"
+
+msgid "April"
+msgstr "duben"
+
+msgid "August"
+msgstr "srpen"
+
+msgid "Be verbose."
+msgstr "Více podrobností."
+
+msgid "Create"
+msgstr "Vytvořit"
+
+msgid "Created on-access scan."
+msgstr "Vytvořeno skenování při přístupu."
+
+msgid "Created scheduled scan."
+msgstr "Vytvořeno naplánované skenování."
+
+msgid "Database checks"
+msgstr "Kontroly databáze"
+
+msgid "Date & Time"
+msgstr "Datum a čas"
+
+msgid "Day of month"
+msgstr "Den v měsíci"
+
+msgid "Day of week"
+msgstr "Den v týdnu"
+
+msgid "December"
+msgstr "prosinec"
+
+msgid "Delete immediately"
+msgstr "Okamžitě odstranit"
+
+msgid "Detect PUA"
+msgstr "Zjišťovat možné nežádoucí aplikace"
+
+msgid "Detect broken executables"
+msgstr "Zjišťovat poškozené spustitelné"
+
+msgid "Detect broken media"
+msgstr ""
+
+msgid "Edit"
+msgstr "Upravit"
+
+msgid "Enable HTML detection and normalisation."
+msgstr "Povolit zjišťování a normalizaci HTML."
+
+msgid "Enable archive scanning."
+msgstr "Povolit skenování archivů."
+
+msgid "Enable scanning of ELF files."
+msgstr "Povolit skenování souborů ELF."
+
+msgid ""
+"Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
+"files."
+msgstr "Povolit skenování souborů OLE2, jako jsou dokumenty Microsoft Office a soubory .msi."
+
+msgid "Enable scanning within PDF files."
+msgstr "Povolení skenování v souborech PDF."
+
+msgid "Enable the algorithmic detection."
+msgstr "Povolit algoritmické rozpoznávání."
+
+msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr "Povolit rozpoznávání poškozených spustitelných souborů (PE i ELF)."
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
+msgstr ""
+
+msgid "Enable the detection of possibly unwanted applications."
+msgstr "Povolit rozpoznávání možných nežádoucích aplikací."
+
+msgid "Enabled"
+msgstr "Povoleno"
+
+msgid "Every N day of month"
+msgstr "Každý N. den v měsíci"
+
+msgid "Every N hour"
+msgstr "Každých N hodin"
+
+msgid "Every N minute"
+msgstr "Každých N minut"
+
+msgid "Execute scheduled scan"
+msgstr "Spustit naplánované skenování"
+
+msgid "Extra options"
+msgstr "Dodatečné volby"
+
+msgid "February"
+msgstr "únor"
+
+msgid "Follow directory symlinks"
+msgstr "Sledovat symbolické odkazy na adresáře"
+
+msgid "Follow directory symlinks."
+msgstr "Sledovat symbolické odkazy na adresáře."
+
+msgid "Follow file symlinks"
+msgstr "Sledovat symbolické odkazy na soubory"
+
+msgid "Follow regular file symlinks."
+msgstr "Sledovat symbolické odkazy na běžné soubory."
+
+msgid "Friday"
+msgstr "pátek"
+
+msgid "Hour"
+msgstr "Hodina"
+
+msgid "Infected files"
+msgstr "Infikované soubory"
+
+msgid "January"
+msgstr "leden"
+
+msgid "July"
+msgstr "červenec"
+
+msgid "June"
+msgstr "červen"
+
+msgid "Log clean files"
+msgstr "Zaznamenávat i nenakažené soubory"
+
+msgid "Log clean files. This drastically increases the log size."
+msgstr "Zaznamenávat i nenakažené soubory. Tím se výrazně zvětší velikost protokolu."
+
+msgid "March"
+msgstr "březen"
+
+msgid "May"
+msgstr "květen"
+
+msgid "Message"
+msgstr "Zpráva"
+
+msgid "Minute"
+msgstr "Minuta"
+
+msgid "Monday"
+msgstr "pondělí"
+
+msgid "Month"
+msgstr "Měsíc"
+
+msgid "Move to quarantine"
+msgstr "Přesunout do karantény"
+
+msgid "Multiscan"
+msgstr "Vícenásobné skenování"
+
+msgid "November"
+msgstr "listopad"
+
+msgid "Number of database update checks per day. Set to 0 to disable."
+msgstr "Počet kontrol aktualizace databáze za den. Nastavením na 0 se vypne."
+
+msgid "October"
+msgstr "říjen"
+
+msgid "On Access Scans"
+msgstr "Skenování při přístupu"
+
+msgid "Perform a deeper analysis of executable files."
+msgstr "Provádět hlubší analýzu spustitelných souborů."
+
+msgid "Perform nothing"
+msgstr "Nic neprovádět"
+
+msgid ""
+"Please check the <a href='https://manpages.debian.org/stable/clamav-"
+"daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
+"details."
+msgstr "Další podrobnosti naleznete na <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'>stránce s příručkou</a>."
+
+msgid "Quarantine"
+msgstr "Karanténa"
+
+msgid "Run"
+msgstr "Spustit"
+
+msgid "Saturday"
+msgstr "sobota"
+
+msgid "Scan ELF"
+msgstr "Skenovat ELF"
+
+msgid "Scan HTML"
+msgstr "Skenovat HTML"
+
+msgid "Scan OLE2"
+msgstr "Skenovat OLE2"
+
+msgid "Scan PDF"
+msgstr "Skenovat PDF"
+
+msgid "Scan Portable Executable"
+msgstr "Skenovat přenosné spustitelné soubory"
+
+msgid "Scan archives"
+msgstr "Skenovat archivy"
+
+msgid "Scan the directory contents in parallel using available threads."
+msgstr "Paralelní skenování obsahu adresáře pomocí dostupných vláken."
+
+msgid "Scheduled Scans"
+msgstr "Naplánovaná skenování"
+
+msgid "Scheduling"
+msgstr "Plánování"
+
+msgid "Send email"
+msgstr "Poslat e-mail"
+
+msgid "September"
+msgstr "září"
+
+msgid "Service disabled"
+msgstr "Služba zakázána"
+
+msgid "Settings"
+msgstr "Nastavení"
+
+msgid "Shared folder"
+msgstr "Sdílená složka"
+
+msgid "Sunday"
+msgstr "neděle"
+
+msgid "Tags"
+msgstr "Štítky"
+
+msgid "The field should only contain * or a comma separated list of values."
+msgstr "Pole by mělo obsahovat pouze * nebo seznam hodnot oddělených čárkou."
+
+msgid "The location of the files to scan on-access."
+msgstr "Umístění souborů, které skenovat při přístupu."
+
+msgid "The location of the files to scan."
+msgstr "Umístění souborů, které se mají skenovat."
+
+msgid "The location which is used as quarantine."
+msgstr "Umístění, které se používá jako karanténa."
+
+msgid "The option, how to handle infected files."
+msgstr "Volba způsobu, jakým zacházet s nakaženými soubory."
+
+msgid "Thursday"
+msgstr "čtvrtek"
+
+msgid "Time of execution"
+msgstr "Čas provedení"
+
+msgid "Tuesday"
+msgstr "úterý"
+
+msgid "Updated on-access scan."
+msgstr "Aktualizováno skenování při přístupu."
+
+msgid "Updated scheduled scan."
+msgstr "Aktualizováno naplánované skenování."
+
+msgid "Verbose"
+msgstr "Podrobnější"
+
+msgid "Wednesday"
+msgstr "středa"
+
+msgid "n/a"
+msgstr "neuvedeno"

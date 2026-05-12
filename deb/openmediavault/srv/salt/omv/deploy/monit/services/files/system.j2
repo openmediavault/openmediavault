@@ -1,0 +1,22 @@
+{%- set memory_usage = salt['pillar.get']('default:OMV_MONIT_SERVICE_SYSTEM_MEMORYUSAGE', '90') -%}
+{%- set cpu_usage_user = salt['pillar.get']('default:OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_USER', '95') -%}
+{%- set cpu_usage_system = salt['pillar.get']('default:OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_SYSTEM', '95') -%}
+{%- set cpu_usage_wait = salt['pillar.get']('default:OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_WAIT', '95') -%}
+{%- set cpu_usage_cycles = salt['pillar.get']('default:OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_CYCLES', '2') -%}
+{%- set loadavg_1min_mult = salt['pillar.get']('default:OMV_MONIT_SERVICE_SYSTEM_LOADAVG_1MIN_MULT', '2') -%}
+{%- set loadavg_1min_cycles = salt['pillar.get']('default:OMV_MONIT_SERVICE_SYSTEM_LOADAVG_1MIN_CYCLES', '3') -%}
+{%- set loadavg_5min_mult = salt['pillar.get']('default:OMV_MONIT_SERVICE_SYSTEM_LOADAVG_5MIN_MULT', '1') -%}
+{%- set loadavg_5min_cycles = salt['pillar.get']('default:OMV_MONIT_SERVICE_SYSTEM_LOADAVG_5MIN_CYCLES', '3') -%}
+check system $HOST
+{%- if loadavg_notification_config.enable | to_bool %}
+    if loadavg (1min) > {{ grains['num_cpus'] * loadavg_1min_mult | float(1.0) | round(1) }} for {{ loadavg_1min_cycles }} cycles then alert
+    if loadavg (5min) > {{ grains['num_cpus'] * loadavg_5min_mult | float(1.0) | round(1) }} for {{ loadavg_5min_cycles }} cycles then alert
+{%- endif %}
+{%- if memory_usage_notification_config.enable | to_bool %}
+    if memory usage > {{ memory_usage }}% then alert
+{%- endif %}
+{%- if cpu_usage_notification_config.enable | to_bool %}
+    if cpu usage (user) > {{ cpu_usage_user }}% for {{ cpu_usage_cycles }} cycles then alert
+    if cpu usage (system) > {{ cpu_usage_system }}% for {{ cpu_usage_cycles }} cycles then alert
+    if cpu usage (wait) > {{ cpu_usage_wait }}% for {{ cpu_usage_cycles }} cycles then alert
+{%- endif %}

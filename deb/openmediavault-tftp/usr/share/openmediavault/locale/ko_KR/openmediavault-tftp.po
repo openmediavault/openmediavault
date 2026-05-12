@@ -1,0 +1,68 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-tftp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2017
+# Ji-Hyeon Gim <potatogim@potatogim.net>, 2022
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-tftp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2017-03-31 07:22+0000\n"
+"Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2022\n"
+"Language-Team: Korean (Korea) (https://app.transifex.com/openmediavault/teams/14254/ko_KR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ko_KR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Allow new files to be created."
+msgstr "새로운 파일이 생성되도록 허용합니다."
+
+msgid "Blocksize"
+msgstr "블록 크기"
+
+msgid "By default, only files that already exist are allowed to be uploaded."
+msgstr "기본적으로, 이미 존재하는 파일만 올려주기될 수 있습니다."
+
+msgid ""
+"Determine the default timeout, in microseconds, before the first packet is "
+"retransmitted."
+msgstr "첫 번째 패킷이 재전송되기 전에 마이크로초 단위의 기본 만료 시간을 정합니다,"
+
+msgid "Enabled"
+msgstr "활성화됨"
+
+msgid "Extra options"
+msgstr "추가 옵션"
+
+msgid "Port"
+msgstr "포트"
+
+msgid "Retry timeout"
+msgstr "재시도 시간만료"
+
+msgid "Shared folder"
+msgstr "공유 폴더"
+
+msgid ""
+"Specifies the maximum permitted block size. The permitted range for this "
+"parameter is from 512 to 65464."
+msgstr "최대 허용된 블록의 크기를 지정합니다. 이 매개변수에 대한 허용 범위는 512부터 65464입니다."
+
+msgid "TFTP"
+msgstr "TFTP"
+
+msgid ""
+"The location of the files to share. Please make sure that the shared folder "
+"is publicly writable if new files are allowed."
+msgstr ""
+
+msgid "Updated TFTP settings."
+msgstr ""

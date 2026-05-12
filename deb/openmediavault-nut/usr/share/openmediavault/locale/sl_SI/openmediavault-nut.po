@@ -1,0 +1,143 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-nut package.
+# 
+# Translators:
+# Miha Bezjak <miha@bezjak.info>, 2017
+# Valentin Korenjak <valentin@korenjak.si>, 2025
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-03-17 01:51+0000\n"
+"Last-Translator: Valentin Korenjak <valentin@korenjak.si>, 2025\n"
+"Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sl_SI\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+msgid ""
+"'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
+msgstr "\"Samostojen\" za lokalni UPS, \"Netclient\" za oddaljeni UPS na strežniku NUT."
+
+msgid "Charge"
+msgstr "Napolnjenost"
+
+msgid "Comment"
+msgstr "Komentar"
+
+msgid "Date & Time"
+msgstr "Datum in čas"
+
+msgid "Defines when the shutdown is initiated."
+msgstr "Definira čas začetka zaustavitve sistema."
+
+msgid "Driver configuration directives"
+msgstr "Navodila za konfiguracijo gonilnikov"
+
+msgid "Enable remote monitoring of the local connected UPS."
+msgstr "Omogoči oddaljen nadzor lokalno priklopljenih UPS naprav."
+
+msgid "Enabled"
+msgstr "Omogočeno"
+
+msgid "Identifier"
+msgstr "Identifikator"
+
+msgid "Invalid identifier"
+msgstr "Neveljaven identifikator"
+
+msgid "Load"
+msgstr "Obremenitev"
+
+msgid "Message"
+msgstr "Sporočilo"
+
+msgid "Mode"
+msgstr "Način"
+
+msgid "Netclient"
+msgstr "Netclient"
+
+msgid "Netclient hostname"
+msgstr "Ime gostitelja Netclient"
+
+msgid "Netclient password"
+msgstr "Netclient geslo"
+
+msgid "Netclient user name"
+msgstr "Netclient uporabniško ime"
+
+msgid "PID"
+msgstr "PID"
+
+msgid "Password"
+msgstr "Geslo"
+
+msgid "Powervalue"
+msgstr "Moč napajanja"
+
+msgid "Program"
+msgstr "Program"
+
+msgid "Remote monitoring"
+msgstr "Oddaljen nadzor"
+
+msgid "Service disabled"
+msgstr "Storitev je onemogočena"
+
+msgid "Shutdown mode"
+msgstr "Način zaustavitve"
+
+msgid "Shutdown timer"
+msgstr "Časovnik za izklo"
+
+msgid "Standalone"
+msgstr "Samostojen"
+
+msgid "Temperature"
+msgstr "Temperatura"
+
+msgid "The name used to uniquely identify your UPS on local or remote system."
+msgstr "Ime, ki se uporablja za enolično identifikacijo vašega UPS v lokalnem ali oddaljenem sistemu."
+
+msgid ""
+"The number of power supplies that the UPS feeds on this system (usually 1), "
+"refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
+"target='_blank'>upsmon.conf(5)</a> for more information."
+msgstr "Število napajalnikov, ki jih UPS napaja v tem sistemu (običajno 1), za več informacij glejte <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf(5)</a>."
+
+msgid ""
+"The time in seconds until shutdown is initiated. If the UPS happens to come "
+"back before the time is up the shutdown is canceled."
+msgstr "Čas v sekundah dokler ne pride do zaustavitve. V kolikor v tem času dobi UPS napajanje, se zaustavitev prekine."
+
+msgid ""
+"To get more information how to configure your UPS please check the Network "
+"UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
+"target='_blank'>documentation</a>."
+msgstr "Za pridobitev več informacij o tem, kako konfigurirati vaš UPS vas prosimo, da si preberete Network UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>dokumentacijo</a>."
+
+msgid "UPS"
+msgstr "UPS"
+
+msgid "UPS goes on battery"
+msgstr "UPS gre na baterijo"
+
+msgid "UPS reaches low battery"
+msgstr "UPS doseže nizko stanje baterije"
+
+msgid "Updated UPS settings."
+msgstr "Posodobljene nastavitve UPS."
+
+msgid "Used for remote authentication."
+msgstr "Uporabljeno za oddaljeno avtentikacijo."
+
+msgid "User name"
+msgstr "Uporabniško ime"
+
+msgid "Voltage"
+msgstr "Napetost"

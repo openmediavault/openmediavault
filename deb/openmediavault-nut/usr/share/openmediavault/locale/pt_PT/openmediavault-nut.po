@@ -1,0 +1,143 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-nut package.
+# 
+# Translators:
+# Nelson Rosado <nelsontrosado@gmail.com>, 2014
+# Nelson Rosado <nelsontrosado@gmail.com>, 2012
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-03-17 01:51+0000\n"
+"Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>, 2014\n"
+"Language-Team: Portuguese (Portugal) (http://app.transifex.com/openmediavault/openmediavault/language/pt_PT/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_PT\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+msgid ""
+"'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
+msgstr ""
+
+msgid "Charge"
+msgstr "Carga"
+
+msgid "Comment"
+msgstr "Comentário"
+
+msgid "Date & Time"
+msgstr "Data & Hora"
+
+msgid "Defines when the shutdown is initiated."
+msgstr "Definir quando se inicia o desligar."
+
+msgid "Driver configuration directives"
+msgstr "Directivas de configuração do driver"
+
+msgid "Enable remote monitoring of the local connected UPS."
+msgstr "Permitir a monitorização remota das UPS locais ligadas."
+
+msgid "Enabled"
+msgstr "Ativar"
+
+msgid "Identifier"
+msgstr "Identificador"
+
+msgid "Invalid identifier"
+msgstr ""
+
+msgid "Load"
+msgstr "Carregar"
+
+msgid "Message"
+msgstr "Mensagem"
+
+msgid "Mode"
+msgstr "Modo"
+
+msgid "Netclient"
+msgstr ""
+
+msgid "Netclient hostname"
+msgstr ""
+
+msgid "Netclient password"
+msgstr ""
+
+msgid "Netclient user name"
+msgstr ""
+
+msgid "PID"
+msgstr "PID"
+
+msgid "Password"
+msgstr "Senha de acesso"
+
+msgid "Powervalue"
+msgstr ""
+
+msgid "Program"
+msgstr "Programa"
+
+msgid "Remote monitoring"
+msgstr "Monitorização remota"
+
+msgid "Service disabled"
+msgstr "Serviço desativo"
+
+msgid "Shutdown mode"
+msgstr "Modo de encerramento"
+
+msgid "Shutdown timer"
+msgstr "Encerramento temporizado"
+
+msgid "Standalone"
+msgstr ""
+
+msgid "Temperature"
+msgstr "Temperatura"
+
+msgid "The name used to uniquely identify your UPS on local or remote system."
+msgstr ""
+
+msgid ""
+"The number of power supplies that the UPS feeds on this system (usually 1), "
+"refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
+"target='_blank'>upsmon.conf(5)</a> for more information."
+msgstr ""
+
+msgid ""
+"The time in seconds until shutdown is initiated. If the UPS happens to come "
+"back before the time is up the shutdown is canceled."
+msgstr "O tempo em segundos até o encerramento se iniciar. Se acontecer a UPS voltar a ter carga antes do tempo de encerramento, este é cancelado."
+
+msgid ""
+"To get more information how to configure your UPS please check the Network "
+"UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
+"target='_blank'>documentation</a>."
+msgstr "Para obter mais informações sobre a configuração das UPS por favor verifique Network UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>documentation</a>."
+
+msgid "UPS"
+msgstr "UPS"
+
+msgid "UPS goes on battery"
+msgstr "UPS usa a carga das baterias"
+
+msgid "UPS reaches low battery"
+msgstr "UPS tem pouca carga"
+
+msgid "Updated UPS settings."
+msgstr ""
+
+msgid "Used for remote authentication."
+msgstr "Utilizador para autenticação remota."
+
+msgid "User name"
+msgstr "Utilizador"
+
+msgid "Voltage"
+msgstr "Voltagem"

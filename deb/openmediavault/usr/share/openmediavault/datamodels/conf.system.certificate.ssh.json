@@ -1,0 +1,32 @@
+{
+	"type": "config",
+	"id": "conf.system.certificate.ssh",
+	"title": "SSH certificate",
+	"queryinfo": {
+		"xpath": ".//system/certificates/sshcertificate",
+		"iterable": true,
+		"idproperty": "uuid",
+		"refproperty": "sshcertificateref"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4",
+			"default": ""
+		},
+		"publickey": {
+			"type": "string",
+			"format": "sshpubkey-openssh",
+			"default": ""
+		},
+		"privatekey": {
+			"type": "string",
+			"format": "sshprivkey-pem",
+			"default": ""
+		},
+		"comment": {
+			"type": "string",
+			"default": ""
+		}
+	}
+}

@@ -1,0 +1,76 @@
+{%- set dns_config = salt['omv_conf.get']('conf.system.network.dns') -%}
+network:
+  vlans:
+    {{ interface.devicename }}:
+{%- if interface.altmacaddress | length > 0 %}
+      macaddress: "{{ interface.altmacaddress }}"
+{%- endif %}
+{%- if interface.method == "static" or interface.method6 == "static" %}
+      addresses:
+{%- if interface.method == "static" %}
+      - {{ interface.address }}/{{ interface.netmask | network_prefix_len }}
+{%- endif %}
+{%- if interface.method6 == "static" %}
+      - {{ interface.address6 }}/{{ interface.netmask6 }}
+{%- endif %}
+{%- endif %}
+{%- if (interface.method == "static" and interface.gateway | is_ipv4) or (interface.method6 == "static" and interface.gateway6 | is_ipv6) %}
+      routes:
+{%- if interface.method == "static" and interface.gateway | is_ipv4 %}
+      - to: 0.0.0.0/0
+        via: {{ interface.gateway }}
+{%- if interface.routemetric > 0 %}
+        metric: {{ interface.routemetric }}
+{%- endif %}
+{%- endif %}
+{%- if interface.method6 == "static" and interface.gateway6 | is_ipv6 %}
+      - to: "::/0"
+        via: "{{ interface.gateway6 }}"
+{%- if interface.routemetric6 != 1 %}
+        metric: {{ interface.routemetric6 }}
+{%- endif %}
+{%- endif %}
+{%- endif %}
+{%- if interface.method6 in ["auto", "dhcp"] %}
+      accept-ra: true
+{%- endif %}
+{%- if interface.method6 == "static" %}
+      accept-ra: false
+{%- endif %}
+{%- if interface.method == "manual" and interface.method6 == "manual" %}
+      addresses: []
+{%- endif %}
+      dhcp4: {{ (interface.method == "dhcp") | yesno }}
+{%- if interface.method == "dhcp" %}
+      dhcp4-overrides:
+        use-dns: {{ (interface.dnsnameservers == "") | yesno('true,false') }}
+        use-domains: {{ (interface.dnssearch == "") | yesno('true,false') }}
+{%- endif %}
+      dhcp6: {{ (interface.method6 == "dhcp") | yesno }}
+{%- if interface.method6 == "dhcp" %}
+      dhcp6-overrides:
+        use-dns: {{ (interface.dnsnameservers == "") | yesno('true,false') }}
+        use-domains: {{ (interface.dnssearch == "") | yesno('true,false') }}
+{%- endif %}
+{%- if interface.method6 == "manual" %}
+      link-local: []
+{%- endif %}
+{%- if not interface.dnsnameservers == "" %}
+      nameservers:
+        addresses:
+{%- for dnsserver in interface.dnsnameservers.split(' ') %}
+        - {{ dnsserver }}
+{%- endfor %}
+{%- if interface.dnssearch | length > 0 %}
+        search: [{{ interface.dnssearch }}]
+{%- else %}
+{%- if dns_config.domainname | length > 0 and dns_config.domainname != "local" %}
+        search: [{{ dns_config.domainname }}]
+{%- endif %}
+{%- endif %}
+{%- endif %}
+{%- if interface.mtu > 0 %}
+      mtu: {{ interface.mtu }}
+{%- endif %}
+      id: {{ interface.vlanid }}
+      link: {{ interface.vlanrawdevice }}

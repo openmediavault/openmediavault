@@ -1,0 +1,64 @@
+#!/usr/bin/env python3
+#
+# This file is part of OpenMediaVault.
+#
+# @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2026 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
+
+# Documentation:
+# https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#DFREECOMMAND
+# https://archive.kernel.org/oldwiki/btrfs.wiki.kernel.org/index.php/FAQ.html#Why_is_free_space_so_complicated.3F
+
+import os
+import re
+import subprocess
+import sys
+
+import openmediavault.procutils
+
+
+def main():
+    path = os.path.realpath(sys.argv[1] if len(sys.argv) > 0 else '.')
+    if os.path.isfile(path):
+        path = os.path.dirname(path)
+    output = openmediavault.procutils.check_output(
+        ['btrfs', 'filesystem', 'usage', '--raw', path],
+        stderr=subprocess.DEVNULL
+    ).decode()
+    matches = re.match(
+        r'.+Device size:\s+(\d+).+Free \(statfs, df\):\s+(\d+).+Data ratio:\s+(\d+\.\d+).+',
+        output, re.DOTALL
+    )
+    if matches is not None:
+        total = int(matches.group(1)) // 1024
+        available = int(matches.group(2)) // 1024
+        data_ratio = float(matches.group(3))
+
+        if data_ratio > 0.0:
+            # See https://github.com/digint/btrbk/commit/b69e9ebf349c5430fbfa8d1b31a80b254eda0441
+            total = round(total // data_ratio)
+    else:
+        output = openmediavault.procutils.check_output(
+            ['df', '--portability', '--print-type', '--block-size=1K', path],
+            stderr=subprocess.DEVNULL
+        ).decode()
+        _, _, total, _, available, *_ = output.split('\n')[1].split()
+    sys.stdout.write(f'{total} {available} 1024\n')
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,0 +1,535 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-clamav-scan-form-page
+  type: formPage
+  config:
+    request:
+      service: ClamAV
+      get:
+        method: getJob
+        params:
+          uuid: "{{ _routeParams.uuid }}"
+      post:
+        method: setJob
+    fields:
+      - type: confObjUuid
+      - type: checkbox
+        name: enable
+        label: _("Enabled")
+        value: false
+      - type: sharedFolderSelect
+        name: sharedfolderref
+        value: ""
+        label: _("Shared folder")
+        hint: _("The location of the files to scan.")
+        validators:
+          required: true
+      - type: textInput
+        name: cronexprdesc
+        label: _("Time of execution")
+        disabled: true
+        submitValue: false
+        value: ""
+        modifiers:
+          - type: value
+            typeConfig: |
+              {% set _minute = minute %}
+              {% set _hour = hour %}
+              {% set _dayofmonth = dayofmonth %}
+              {% if everynminute %}{% set _minute %}*/{{ minute }}{% endset %}{% endif %}
+              {% if everynhour %}{% set _hour %}*/{{ hour }}{% endset %}{% endif %}
+              {% if everyndayofmonth %}{% set _dayofmonth %}*/{{ dayofmonth }}{% endset %}{% endif %}
+              {{ [_minute, _hour, _dayofmonth, month, dayofweek] | join(" ") | cron2human }}
+            deps:
+              - minute
+              - hour
+              - dayofmonth
+              - month
+              - dayofweek
+              - everynminute
+              - everynhour
+              - everyndayofmonth
+      - type: container
+        fields:
+          - type: select
+            name: minute
+            label: _("Minute")
+            value:
+              - "{{ moment('H:m:ss') | split(':') | get(1) }}"
+            multiple: true
+            validators:
+              required: true
+              pattern:
+                pattern: "^(\\*|(([0-9]|[1-5][0-9]),)*([0-9]|[1-5][0-9]))$"
+                errorData: _("The field should only contain * or a comma separated list of values.")
+            store:
+              data:
+                - - "*"
+                  - "*"
+                - - "0"
+                  - "0"
+                - - "1"
+                  - "1"
+                - - "2"
+                  - "2"
+                - - "3"
+                  - "3"
+                - - "4"
+                  - "4"
+                - - "5"
+                  - "5"
+                - - "6"
+                  - "6"
+                - - "7"
+                  - "7"
+                - - "8"
+                  - "8"
+                - - "9"
+                  - "9"
+                - - "10"
+                  - "10"
+                - - "11"
+                  - "11"
+                - - "12"
+                  - "12"
+                - - "13"
+                  - "13"
+                - - "14"
+                  - "14"
+                - - "15"
+                  - "15"
+                - - "16"
+                  - "16"
+                - - "17"
+                  - "17"
+                - - "18"
+                  - "18"
+                - - "19"
+                  - "19"
+                - - "20"
+                  - "20"
+                - - "21"
+                  - "21"
+                - - "22"
+                  - "22"
+                - - "23"
+                  - "23"
+                - - "24"
+                  - "24"
+                - - "25"
+                  - "25"
+                - - "26"
+                  - "26"
+                - - "27"
+                  - "27"
+                - - "28"
+                  - "28"
+                - - "29"
+                  - "29"
+                - - "30"
+                  - "30"
+                - - "31"
+                  - "31"
+                - - "32"
+                  - "32"
+                - - "33"
+                  - "33"
+                - - "34"
+                  - "34"
+                - - "35"
+                  - "35"
+                - - "36"
+                  - "36"
+                - - "37"
+                  - "37"
+                - - "38"
+                  - "38"
+                - - "39"
+                  - "39"
+                - - "40"
+                  - "40"
+                - - "41"
+                  - "41"
+                - - "42"
+                  - "42"
+                - - "43"
+                  - "43"
+                - - "44"
+                  - "44"
+                - - "45"
+                  - "45"
+                - - "46"
+                  - "46"
+                - - "47"
+                  - "47"
+                - - "48"
+                  - "48"
+                - - "49"
+                  - "49"
+                - - "50"
+                  - "50"
+                - - "51"
+                  - "51"
+                - - "52"
+                  - "52"
+                - - "53"
+                  - "53"
+                - - "54"
+                  - "54"
+                - - "55"
+                  - "55"
+                - - "56"
+                  - "56"
+                - - "57"
+                  - "57"
+                - - "58"
+                  - "58"
+                - - "59"
+                  - "59"
+          - type: checkbox
+            name: everynminute
+            label: _("Every N minute")
+            value: false
+            modifiers:
+              - type: unchecked
+                opposite: false
+                constraint:
+                  operator: "<>"
+                  arg0:
+                    operator: length
+                    arg0:
+                      prop: minute
+                  arg1: 1
+              - type: disabled
+                constraint:
+                  operator: or
+                  arg0:
+                    operator: "<>"
+                    arg0:
+                      operator: length
+                      arg0:
+                        prop: minute
+                    arg1: 1
+                  arg1:
+                    operator: "in"
+                    arg0:
+                      value: "*"
+                    arg1:
+                      prop: minute
+      - type: container
+        fields:
+          - type: select
+            name: hour
+            label: _("Hour")
+            value:
+              - "{{ moment('H:m:ss') | split(':') | get(0) }}"
+            multiple: true
+            validators:
+              required: true
+              pattern:
+                pattern: "^(\\*|(([0-9]|1[0-9]|2[0-3]),)*([0-9]|1[0-9]|2[0-3]))$"
+                errorData: _("The field should only contain * or a comma separated list of values.")
+            store:
+              data:
+                - - "*"
+                  - "*"
+                - - "0"
+                  - "0"
+                - - "1"
+                  - "1"
+                - - "2"
+                  - "2"
+                - - "3"
+                  - "3"
+                - - "4"
+                  - "4"
+                - - "5"
+                  - "5"
+                - - "6"
+                  - "6"
+                - - "7"
+                  - "7"
+                - - "8"
+                  - "8"
+                - - "9"
+                  - "9"
+                - - "10"
+                  - "10"
+                - - "11"
+                  - "11"
+                - - "12"
+                  - "12"
+                - - "13"
+                  - "13"
+                - - "14"
+                  - "14"
+                - - "15"
+                  - "15"
+                - - "16"
+                  - "16"
+                - - "17"
+                  - "17"
+                - - "18"
+                  - "18"
+                - - "19"
+                  - "19"
+                - - "20"
+                  - "20"
+                - - "21"
+                  - "21"
+                - - "22"
+                  - "22"
+                - - "23"
+                  - "23"
+          - type: checkbox
+            name: everynhour
+            label: _("Every N hour")
+            value: false
+            modifiers:
+              - type: unchecked
+                opposite: false
+                constraint:
+                  operator: "<>"
+                  arg0:
+                    operator: length
+                    arg0:
+                      prop: hour
+                  arg1: 1
+              - type: disabled
+                constraint:
+                  operator: or
+                  arg0:
+                    operator: "<>"
+                    arg0:
+                      operator: length
+                      arg0:
+                        prop: hour
+                    arg1: 1
+                  arg1:
+                    operator: "in"
+                    arg0:
+                      value: "*"
+                    arg1:
+                      prop: hour
+      - type: container
+        fields:
+          - type: select
+            name: dayofmonth
+            label: _("Day of month")
+            value:
+              - "*"
+            multiple: true
+            validators:
+              required: true
+              pattern:
+                pattern: "^(\\*|(([1-9]|[12][0-9]|3[01]),)*([1-9]|[12][0-9]|3[01]))$"
+                errorData: _("The field should only contain * or a comma separated list of values.")
+            store:
+              data:
+                - - "*"
+                  - "*"
+                - - "1"
+                  - "1"
+                - - "2"
+                  - "2"
+                - - "3"
+                  - "3"
+                - - "4"
+                  - "4"
+                - - "5"
+                  - "5"
+                - - "6"
+                  - "6"
+                - - "7"
+                  - "7"
+                - - "8"
+                  - "8"
+                - - "9"
+                  - "9"
+                - - "10"
+                  - "10"
+                - - "11"
+                  - "11"
+                - - "12"
+                  - "12"
+                - - "13"
+                  - "13"
+                - - "14"
+                  - "14"
+                - - "15"
+                  - "15"
+                - - "16"
+                  - "16"
+                - - "17"
+                  - "17"
+                - - "18"
+                  - "18"
+                - - "19"
+                  - "19"
+                - - "20"
+                  - "20"
+                - - "21"
+                  - "21"
+                - - "22"
+                  - "22"
+                - - "23"
+                  - "23"
+                - - "24"
+                  - "24"
+                - - "25"
+                  - "25"
+                - - "26"
+                  - "26"
+                - - "27"
+                  - "27"
+                - - "28"
+                  - "28"
+                - - "29"
+                  - "29"
+                - - "30"
+                  - "30"
+                - - "31"
+                  - "31"
+          - type: checkbox
+            name: everyndayofmonth
+            label: _("Every N day of month")
+            value: false
+            modifiers:
+              - type: unchecked
+                opposite: false
+                constraint:
+                  operator: "<>"
+                  arg0:
+                    operator: length
+                    arg0:
+                      prop: dayofmonth
+                  arg1: 1
+              - type: disabled
+                constraint:
+                  operator: or
+                  arg0:
+                    operator: "<>"
+                    arg0:
+                      operator: length
+                      arg0:
+                        prop: dayofmonth
+                    arg1: 1
+                  arg1:
+                    operator: "in"
+                    arg0:
+                      value: "*"
+                    arg1:
+                      prop: dayofmonth
+      - type: select
+        name: month
+        label: _("Month")
+        value:
+          - "*"
+        multiple: true
+        validators:
+          required: true
+          pattern:
+            pattern: "^(\\*|(([1-9]|1[0-2]),)*([1-9]|1[0-2]))$"
+            errorData: _("The field should only contain * or a comma separated list of values.")
+        store:
+          data:
+            - - "*"
+              - "*"
+            - - "1"
+              - _("January")
+            - - "2"
+              - _("February")
+            - - "3"
+              - _("March")
+            - - "4"
+              - _("April")
+            - - "5"
+              - _("May")
+            - - "6"
+              - _("June")
+            - - "7"
+              - _("July")
+            - - "8"
+              - _("August")
+            - - "9"
+              - _("September")
+            - - "10"
+              - _("October")
+            - - "11"
+              - _("November")
+            - - "12"
+              - _("December")
+      - type: select
+        name: dayofweek
+        label: _("Day of week")
+        value:
+          - "*"
+        multiple: true
+        validators:
+          required: true
+          pattern:
+            pattern: "^(\\*|([1-7],)*[1-7])$"
+            errorData: _("The field should only contain * or a comma separated list of values.")
+        store:
+          data:
+            - - "*"
+              - "*"
+            - - "1"
+              - _("Monday")
+            - - "2"
+              - _("Tuesday")
+            - - "3"
+              - _("Wednesday")
+            - - "4"
+              - _("Thursday")
+            - - "5"
+              - _("Friday")
+            - - "6"
+              - _("Saturday")
+            - - "7"
+              - _("Sunday")
+      - type: hidden
+        name: onaccess
+        value: false
+      - type: select
+        name: virusaction
+        label: _("Infected files")
+        hint: _("The option, how to handle infected files.")
+        value: "nothing"
+        store:
+          data:
+            - - "nothing"
+              - _("Perform nothing")
+            - - "quarantine"
+              - _("Move to quarantine")
+            - - "delete"
+              - _("Delete immediately")
+      - type: checkbox
+        name: multiscan
+        label: _("Multiscan")
+        hint: _("Scan the directory contents in parallel using available threads.")
+        value: false
+      - type: checkbox
+        name: verbose
+        label: _("Verbose")
+        hint: _("Be verbose.")
+        value: false
+      - type: checkbox
+        name: sendemail
+        label: _("Send email")
+        hint: _("An email message with the command output (if any produced) is sent to the administrator.")
+        value: false
+      - type: tagInput
+        name: comment
+        label: _("Tags")
+        value: ""
+    buttons:
+      - template: submit
+        execute:
+          type: url
+          url: "/services/clamav/scans"
+      - template: cancel
+        execute:
+          type: url
+          url: "/services/clamav/scans"

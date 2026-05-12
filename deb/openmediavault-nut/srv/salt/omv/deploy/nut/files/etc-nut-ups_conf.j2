@@ -1,0 +1,6 @@
+{{ pillar['headers']['multiline'] -}}
+[{{ config.upsname }}]
+{{ config.driverconf }}
+{%- if config.comment | length > 0 %}
+desc = {{ config.comment }}
+{%- endif %}

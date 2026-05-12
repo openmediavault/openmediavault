@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.onedrive"
+  text: _("OneDrive")
+  icon: "mdi:microsoft-onedrive"
+  url: "/services/onedrive"

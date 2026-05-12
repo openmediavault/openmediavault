@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/system/workbench/wallpaper"
+  title: _("Wallpaper")
+  editing: true
+  notificationTitle: _("The wallpaper has been updated.")
+  component: omv-system-workbench-wallpaper-form-page

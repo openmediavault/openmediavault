@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/podman"
+  title: _("Podman")
+  editing: true
+  notificationTitle: _("Updated Podman settings.")
+  component: omv-services-podman-navigation-page

@@ -1,0 +1,231 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-bcache package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kostas Moho, 2024
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-bcache\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2024-11-20 12:26+0000\n"
+"Last-Translator: Kostas Moho, 2024\n"
+"Language-Team: Greek (Greece) (https://app.transifex.com/openmediavault/teams/14254/el_GR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "5 Minutes"
+msgstr "5 Λεπτά"
+
+msgid ""
+"A sequential IO will bypass the cache once it passes this threshold. "
+"(default:4.0M, max:3.9G)"
+msgstr ""
+"Μια επακόλουθη μεταφορά θα παρακάμπτει την cache άπαξ και υπερβαίνει αυτό το"
+" όριο. (προεπιλογή : 4.0M, μέγιστο : 3.9G)"
+
+msgid ""
+"Allow bcache go around the cache when there's read / write congestion. "
+"(default:true)"
+msgstr ""
+"Να επιτρέπεται στην bcache να παρακάμπτει την cache όταν υπάρχει συμφόρηση "
+"αναγνώσεων / εγγραφών. (προεπιλογή: ενεργό)"
+
+msgid "Backing Devices"
+msgstr "Συσκευές Υποστήριξης"
+
+msgid "Bcache"
+msgstr "Bcache"
+
+msgid "Bcache Device"
+msgstr "Συσκευή Bcache"
+
+msgid "Cache Device"
+msgstr "Συσκευή Cache"
+
+msgid "Cache Devices"
+msgstr "Συσκευές Cache"
+
+msgid "Cache Mode"
+msgstr "Λειτουργία Cache"
+
+msgid "Capacity"
+msgstr "Χωρητικότητα"
+
+msgid "Clean"
+msgstr "Καθαρισμός"
+
+msgid "Clear total statistics"
+msgstr "Καθισμός συνολικών στατιστικών"
+
+msgid "Configuration"
+msgstr "Διαμόρφωση"
+
+msgid "Congest Tracking"
+msgstr "Παρακολούθηση Συμφόρησης"
+
+msgid "Congested Read Threshold (us)"
+msgstr "Όριο Συμφόρησης Αναγνώσεων (us)"
+
+msgid "Create"
+msgstr "Δημιουργία"
+
+msgid "Day"
+msgstr "Ημέρα"
+
+msgid "Device"
+msgstr "Συσκευή"
+
+msgid "Dirty"
+msgstr "Ακάθαρτα"
+
+msgid "Dirty Data"
+msgstr "Ακάθαρτα Δεδομένα"
+
+msgid "Docs"
+msgstr "Έγγραφα"
+
+msgid "Hour"
+msgstr "Ώρα"
+
+msgid ""
+"If nonzero, bcache tries to keep around this percentage of the cache dirty "
+"by throttling background writeback and using a PD controller to smoothly "
+"adjust the rate. (default:10)"
+msgstr ""
+"Αν δεν τεθεί σε μηδέν, τότε η bcache θα προσπαθεί να διατηρεί αυτό το "
+"ποσοστό της cache ως ακάθαρτο περιορίζοντας το παρασκηνιακό writeback με τη "
+"χρήση ενός ελεγκτή PD για την ομαλή προσαρμογή του ρυθμού. (προεπιλογή : 10)"
+
+msgid "Inconsistent"
+msgstr "Ασυνεπή"
+
+msgid "Metadata"
+msgstr "Μεταδεδομένα"
+
+msgid "Missing"
+msgstr "Απόντα"
+
+msgid "Missing Cache"
+msgstr "Αστοχία Cache"
+
+msgid "Mounted"
+msgstr "Προσαρτημένο"
+
+msgid "Name"
+msgstr "Όνομα"
+
+msgid "No Cache"
+msgstr "Χωρίς cache"
+
+msgid "Online"
+msgstr "Συνδεδεμένο"
+
+msgid ""
+"Please note that creating a file system on a Bcache device can take longer. "
+"It is therefore possible that the file system is not immediately available "
+"for mounting."
+msgstr ""
+"Η δημιουργία ενός συστήματος αρχείων σε συσκευή Bcache παίρνει κάποιο χρόνο."
+" Συνεπώς ενδέχεται το σύστημα αρχείων να μην είναι άμεσα διαθέσιμο για "
+"προσάρτηση."
+
+msgid "Recovery Actions"
+msgstr "Δράσεις Ανάκτησης"
+
+msgid "Register"
+msgstr "Καταχώρηση"
+
+msgid "Select a cache device ..."
+msgstr "Επιλογή συσκευής cache ..."
+
+msgid "Select a device ..."
+msgstr "Επιλογή συσκευής ..."
+
+msgid "Select the device that will be formatted as Bcache backing device."
+msgstr ""
+"Επιλογή συσκευής που θα διαμορφωθεί ως συσκευή υποστήριξης της Bcache."
+
+msgid "Select the device that will be formatted as Bcache cache device."
+msgstr "Επιλογή συσκευής που θα διαμορφωθεί ως συσκευή cache της Bcache."
+
+msgid "Select the device that will be used as cache device."
+msgstr "Επιλογή συσκευής που θα χρησιμοποιηθεί ως συσκευή cache."
+
+msgid "Sequential Cutoff"
+msgstr "Επακόλουθη Αποκοπή"
+
+msgid "Show details"
+msgstr "Εμφάνιση λεπτομερειών"
+
+msgid "Start without cache"
+msgstr "Εκκίνηση χωρίς cache"
+
+msgid "State"
+msgstr "Καθεστώς"
+
+msgid "Statistics"
+msgstr "Στατιστικά"
+
+msgid "Superblock"
+msgstr "Superblock"
+
+msgid "The default is 2000 us (2 milliseconds)"
+msgstr "Η προεπιλογή είναι στα 2000 us (2 milliseconds)"
+
+msgid "The default is 20000 us (20 milliseconds)"
+msgstr "Η προεπιλογή είναι στα 20000 us (20 milliseconds)"
+
+msgid "Total"
+msgstr "Σύνολο"
+
+msgid "Unit"
+msgstr "Μονάδα"
+
+msgid "Unregister"
+msgstr "Απεγγραφή"
+
+msgid "Unregistered"
+msgstr "Αδήλωτα"
+
+msgid "Unused"
+msgstr "Αχρησιμοποίητα"
+
+msgid "Updated backing device '{{ devicefile }}'."
+msgstr "Ενημέρωση συσκευής υποστήριξης '{{ devicefile }}'."
+
+msgid "Updated cache device '{{ devicefile }}'."
+msgstr "Ενημέρωση συσκευής cache '{{ devicefile }}'."
+
+msgid ""
+"When dirty data is written to the cache and it previously did not contain "
+"any, waits some number of seconds before initiating writeback. (default:30)"
+msgstr ""
+"Όταν γράφονται στην cache ακάθαρτα δεδομένα ενώ πριν δεν περιείχε τίποτα, να"
+" περιμένει για κάποια δευτερόλεπτα πριν ξεκινήσει το writeback. (προεπιλογή "
+": 30)"
+
+msgid "Writeback Delay"
+msgstr "Καθυστέρηση Writeback"
+
+msgid "Writeback Percent"
+msgstr "Ποσοστό Writeback"
+
+msgid "none"
+msgstr "ουδέν"
+
+msgid "writearound"
+msgstr "writearound"
+
+msgid "writeback"
+msgstr "writeback"
+
+msgid "writethrough"
+msgstr "writethrough"

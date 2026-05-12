@@ -1,0 +1,63 @@
+version: "1.0"
+type: log
+data:
+  id: smbdaudit
+  text: _("SMB/CIFS - Audit")
+  columns:
+  - name: _("Date & Time")
+    sortable: true
+    prop: ts
+    cellTemplateName: localeDateTime
+    flexGrow: 1
+  - name: _("Hostname")
+    sortable: true
+    hidden: true
+    prop: hostname
+    flexGrow: 1
+  - name: _("User name")
+    sortable: true
+    prop: username
+    flexGrow: 1
+  - name: _("Client address")
+    sortable: true
+    prop: clientipaddr
+    flexGrow: 1
+  - name: _("Client NetBIOS name")
+    sortable: true
+    hidden: true
+    prop: clientnetbiosname
+    flexGrow: 1
+  - name: _("Shared folder path")
+    sortable: true
+    hidden: true
+    prop: servicerootdir
+    flexGrow: 1
+  - name: _("Shared folder name")
+    sortable: true
+    prop: servicename
+    flexGrow: 1
+  - name: _("File path")
+    sortable: true
+    hidden: true
+    prop: filepath
+    flexGrow: 1
+  - name: _("Filename")
+    sortable: true
+    prop: filename
+    flexGrow: 1
+  - name: _("Operation")
+    prop: operation
+    flexGrow: 1
+  - name: _("Result")
+    sortable: true
+    prop: result
+    flexGrow: 1
+    cellTemplateName: checkIcon
+  sorters:
+  - dir: desc
+    prop: ts
+  request:
+    service: LogFile
+    method: getList
+    params:
+      id: smbdaudit

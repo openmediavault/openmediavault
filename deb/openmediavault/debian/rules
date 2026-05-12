@@ -1,0 +1,31 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+include ../openmediavault.mk
+
+%:
+	dh $@
+
+override_dh_auto_clean:
+	cd workbench && npm run clean
+	rm -rf opt/
+
+override_dh_auto_build:
+	cd workbench && npm ci && npm run build:prod
+
+override_dh_auto_install:
+	dh_install --verbose workbench/dist/openmediavault-workbench/* var/www/openmediavault
+
+override_dh_installinit:
+	# Install the /etc/default/openmediavault file.
+	dh_installinit --noscripts --name=openmediavault
+
+override_dh_installsystemd:
+	dh_installsystemd -r --no-start --name=openmediavault-beep-up
+	dh_installsystemd -r --no-start --name=openmediavault-beep-down
+	dh_installsystemd -r --no-start --name=openmediavault-cleanup-monit
+	dh_installsystemd -r --no-start --name=openmediavault-cleanup-php
+	dh_installsystemd -r --no-start --name=openmediavault-engined
+	dh_installsystemd -r --no-start --name=openmediavault-issue

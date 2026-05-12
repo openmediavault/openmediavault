@@ -1,0 +1,22 @@
+<omv-alert-panel *ngIf="dirtyModules | count"
+                 type="warning"
+                 icon="information"
+                 title="{{ 'Pending configuration changes' | transloco }}"
+                 [buttons]="buttons">
+  <div class="omv-cursor-pointer omv-display-flex omv-flex-column omv-align-items-start omv-align-content-start omv-justify-content-center"
+       (click)="expanded = !expanded">
+    {{ 'You must apply these changes in order for them to take effect.' | transloco }}
+    <div class="details"
+         [ngClass]="{'omv-display-none': !expanded}">
+      <div class="omv-mt-h">
+        {{ 'The following modules will be updated:' | transloco }}
+      </div>
+      <ul>
+        <li *ngFor="let module of dirtyModules | keyvalue"
+            matTooltip="{{ module.value | transloco }}">
+          {{ module.key }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</omv-alert-panel>

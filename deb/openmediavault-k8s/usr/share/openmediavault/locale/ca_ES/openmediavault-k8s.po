@@ -1,0 +1,451 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-k8s package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Quim Farriol <qfarriol@valette.cat>, 2025
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-k8s\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-26 11:58+0100\n"
+"PO-Revision-Date: 2024-03-09 09:44+0000\n"
+"Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2025\n"
+"Language-Team: Catalan (Spain) (https://app.transifex.com/openmediavault/teams/14254/ca_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ca_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Absolute Path"
+msgstr "Camí absolut"
+
+msgid "Access Modes"
+msgstr "Modes d'accés"
+
+msgid "App Version"
+msgstr "Versió de l'aplicació"
+
+msgid "Apply"
+msgstr "Aplicació"
+
+msgid "Architecture"
+msgstr "Arquitectura"
+
+msgid "Available"
+msgstr "Disponible"
+
+msgid "Capacity"
+msgstr "Capacitat"
+
+msgid "Certificate"
+msgstr "Certificat"
+
+msgid "Certificates"
+msgstr "Certificats"
+
+msgid "Chart"
+msgstr "Gràfic"
+
+msgid "Check for new recipes"
+msgstr "Comproveu noves receptes"
+
+msgid "Class"
+msgstr "Classe"
+
+msgid "Cluster IP"
+msgstr "IP del clúster"
+
+msgid "Compressed"
+msgstr "Comprimit"
+
+msgid "Config Maps"
+msgstr "Configuració de mapes"
+
+msgid "Copy to clipboard"
+msgstr "Copiar al portapapers"
+
+msgid "Copy token"
+msgstr "Copia el testimoni"
+
+msgid "Count"
+msgstr ""
+
+msgid "Created"
+msgstr "Creat"
+
+msgid "Dashboard"
+msgstr "Panell"
+
+msgid "Data"
+msgstr "Dada"
+
+msgid "Datastore"
+msgstr "Magatzem de dades"
+
+msgid "Date & Time"
+msgstr "Data i hora"
+
+msgid "Depends"
+msgstr "Depèn"
+
+msgid "Deployments"
+msgstr "Desplegaments"
+
+msgid "Describe"
+msgstr "Descriu"
+
+msgid "Description"
+msgstr "Descripció"
+
+msgid "Do you really want to restore this snapshot?"
+msgstr "Realment voleu restaurar aquesta instantània?"
+
+msgid "Download"
+msgstr "Descarregar"
+
+msgid ""
+"Downloading the kubeconfig file to the local system enables secure remote "
+"management of the Kubernetes cluster using command-line tools like kubectl."
+msgstr ""
+"La descàrrega del fitxer kubeconfig al sistema local permet una gestió "
+"remota segura del clúster Kubernetes mitjançant eines de línia d'ordres com "
+"ara kubectl."
+
+msgid "Enabled"
+msgstr "Activat"
+
+msgid "Events"
+msgstr ""
+
+msgid "Expose"
+msgstr ""
+
+msgid "Exposed"
+msgstr ""
+
+msgid "Exposed port"
+msgstr ""
+
+msgid "External IP"
+msgstr "IP externa"
+
+msgid "Extra configuration"
+msgstr ""
+
+msgid "Failed"
+msgstr "Fallat"
+
+msgid "First seen"
+msgstr ""
+
+msgid "GID"
+msgstr "GID"
+
+msgid "Groups"
+msgstr "Grups"
+
+msgid "Helm Charts"
+msgstr "Gràfics Helm"
+
+msgid "Homepage"
+msgstr "Pàgina d'inici"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Image"
+msgstr "Imatge"
+
+msgid "Images"
+msgstr "Imatges"
+
+msgid "Import"
+msgstr "Importar"
+
+msgid "Ingredients"
+msgstr "Ingredients"
+
+msgid "Ingress Routes"
+msgstr "Rutes d'entrada"
+
+msgid "Ingresses"
+msgstr "Ingresses"
+
+msgid "Job"
+msgstr "Treball"
+
+msgid "Kubeconfig"
+msgstr "Kubeconfig"
+
+msgid "Kubernetes"
+msgstr "Kubernetes"
+
+msgid "Kubernetes - Pods"
+msgstr "Kubernetes - Pods"
+
+msgid "Kubernetes - Resources"
+msgstr "Kubernetes - Recursos"
+
+msgid "Labels"
+msgstr "Etiquetes"
+
+msgid "Last seen"
+msgstr ""
+
+msgid "Load Balancer"
+msgstr "Equilibrador de càrrega"
+
+msgid "Logs"
+msgstr "Logs"
+
+msgid "Manifest"
+msgstr "Manifest"
+
+msgid "Message"
+msgstr "Missatge"
+
+msgid "Monitoring - Kubernetes"
+msgstr ""
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "Namespace"
+msgstr "Espai de noms"
+
+msgid "Namespaces"
+msgstr "Espais de noms"
+
+msgid "NodePort IP"
+msgstr "NodePort IP"
+
+msgid "Normal"
+msgstr ""
+
+msgid "Object"
+msgstr ""
+
+msgid "Open UI"
+msgstr "Open UI"
+
+msgid "PV"
+msgstr "PV"
+
+msgid "PVC"
+msgstr "PVC"
+
+msgid "Pending"
+msgstr "Pendent"
+
+msgid "Persistent Volume Claims"
+msgstr "Reclamacions de volum persistents"
+
+msgid "Persistent Volumes"
+msgstr "Volums persistents"
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr "Espereu, es crearà una instantània..."
+
+msgid "Please wait, the snapshot will be restored ..."
+msgstr "Espereu, la instantània es restaurarà..."
+
+msgid "Pods"
+msgstr "Pods"
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Ports"
+msgstr "Ports"
+
+msgid "Protocol"
+msgstr ""
+
+msgid "README"
+msgstr "LLEGEIX-ME"
+
+msgid "Ready"
+msgstr "A punt"
+
+msgid "Reason"
+msgstr ""
+
+msgid "Recipe Information"
+msgstr "Informació de la recepta"
+
+msgid "Recipe Version"
+msgstr "Versió de la recepta"
+
+msgid "Recipes"
+msgstr "Receptes"
+
+msgid "Reclaim policy"
+msgstr "Política de reclamació"
+
+msgid ""
+"Refer to the values.yaml file in the Traefik Helm chart to see what "
+"configuration options are available."
+msgstr ""
+
+msgid "Repository"
+msgstr "Repository"
+
+msgid "Resources"
+msgstr "Recursos"
+
+msgid "Restore"
+msgstr "Restaurar"
+
+msgid "Running"
+msgstr "Corrent"
+
+msgid "SQLite"
+msgstr "SQLite"
+
+msgid "Secrets"
+msgstr "Secrets"
+
+msgid "Section"
+msgstr "Secció"
+
+msgid "Services"
+msgstr "Serveis"
+
+msgid "Settings"
+msgstr "Configuració"
+
+msgid "Shared Folders"
+msgstr "Carpetes compartides"
+
+msgid "Show README"
+msgstr "Mostra LLEGEIX-ME"
+
+msgid "Show the number of pods per status phase."
+msgstr "Mostra el nombre de pods per fase d'estat."
+
+msgid "Show the total number of several resources."
+msgstr "Mostra el nombre total de diversos recursos."
+
+msgid "Size"
+msgstr "Talla"
+
+msgid "Snapshots"
+msgstr "Imatges instantànies"
+
+msgid "Source"
+msgstr ""
+
+msgid "Stateful Sets"
+msgstr "Conjunt d'estats"
+
+msgid "Status"
+msgstr "Estat"
+
+msgid "Storage Class"
+msgstr "Classe d'emmagatzematge"
+
+msgid "Succeeded"
+msgstr "Ha tingut èxit"
+
+msgid "Tag"
+msgstr "Etiqueta"
+
+msgid "Tags"
+msgstr "Etiquetes"
+
+msgid "Target Namespace"
+msgstr "Espai de noms de destinació"
+
+msgid ""
+"The SSL certificate used by the LoadBalancer service. If not set, a self-"
+"signed certificate from cert-manager is used."
+msgstr ""
+
+msgid ""
+"The datastore used by the Kubernetes cluster. SQLite is recommended for "
+"single-node setups and SBCs with slow disks, while etcd is recommended for "
+"high-availability setups with multiple nodes."
+msgstr ""
+"El magatzem de dades utilitzat pel clúster de Kubernetes. Es recomana SQLite"
+" per a configuracions d'un sol node i SBC amb discs lents, mentre que etcd "
+"es recomana per a configuracions d'alta disponibilitat amb diversos nodes."
+
+msgid "The field should only contain the characters a-z, 0-9 and -."
+msgstr ""
+
+msgid ""
+"The following placeholders can be used in recipes to get access to global "
+"system information and the configuration "
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
+"braces. An overview of additional available filters can be found <a "
+"href='https://twig.symfony.com/doc/filters/index.html' "
+"target='_blank'>here</a>."
+msgstr ""
+"Els següents marcadors de posició es poden utilitzar a les receptes per "
+"accedir a la informació global del sistema i a la base de dades de "
+"configuració: "
+"<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>Heu de denotar els marcadors de posició amb dobles "
+"claus. Podeu trobar una visió general dels filtres addicionals disponibles "
+"<a href='https://twig.symfony.com/doc/filters/index.html' "
+"target='_blank'>aquí</a>."
+
+msgid "The location where to store etcd on-demand snapshots."
+msgstr "La ubicació on s'emmagatzemen les instantànies sota demanda etcd."
+
+msgid "The manifest to apply."
+msgstr "El manifest a aplicar."
+
+msgid "The snapshot was created successfully."
+msgstr "La instantània s'ha creat correctament."
+
+msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
+msgstr "La instantània {{ spec.snapshotName }} s'ha restaurat correctament."
+
+msgid "The token to authenticate to the Kubernetes Dashboard."
+msgstr "El testimoni per autenticar-se al tauler de control de Kubernetes."
+
+msgid "Type"
+msgstr "Tipus"
+
+msgid "UID"
+msgstr "UID"
+
+msgid "UUID"
+msgstr ""
+
+msgid "Unknown"
+msgstr "Desconegut"
+
+msgid "Up-to-date"
+msgstr "Actualitzat"
+
+msgid "Updated Kubernetes settings."
+msgstr "Configuració de Kubernetes actualitzada."
+
+msgid "Users"
+msgstr "Usuaris"
+
+msgid "Version"
+msgstr "Versió"
+
+msgid "View"
+msgstr "Vista"
+
+msgid "Volume"
+msgstr "Volum"
+
+msgid "Warning"
+msgstr ""
+
+msgid "YAML"
+msgstr "YAML"
+
+msgid "etcd"
+msgstr "etcd"

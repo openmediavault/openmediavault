@@ -1,0 +1,50 @@
+@use 'scss/theme/colors' as tc;
+
+.mat-card {
+  &.alert-info {
+    @include tc.background-color-pair('info');
+  }
+
+  &.alert-success {
+    @include tc.background-color-pair('success');
+  }
+
+  &.alert-warning {
+    @include tc.background-color-pair('warning');
+  }
+
+  &.alert-error {
+    @include tc.background-color-pair('error');
+  }
+
+  &.alert-tip {
+    @include tc.background-color-pair('tip');
+  }
+
+  .mat-icon.alert-icon {
+    margin-right: 16px;
+  }
+
+  .content-wrapper {
+    overflow: hidden;
+
+    & .mat-card-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: normal;
+    }
+
+    & .mat-card-content {
+      margin-bottom: 0;
+    }
+  }
+
+  .mat-card-actions {
+    margin: 0 0 0 16px;
+    padding: 0;
+
+    .alert-action-button {
+      margin: 0;
+    }
+  }
+}

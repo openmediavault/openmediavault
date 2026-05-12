@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/podman/containers"
+  title: _("Containers")
+  component: omv-services-podman-containers-datatable-page

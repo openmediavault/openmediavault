@@ -1,0 +1,36 @@
+php-pam (2.2.5-1+deb13u1) stable; urgency=low
+
+  * New upstream version 2.2.5.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 12 Sep 2025 08:45:08 +0200
+
+php-pam (2.2.4-1+deb12u1) stable; urgency=low
+
+  * New upstream version 2.2.4.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 18 Jul 2023 23:05:19 +0200
+
+php-pam (2.2.3-1+deb11u1) stable; urgency=low
+
+  * New upstream version 2.2.3.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 09 Jun 2021 07:02:51 +0000
+
+php-pam (1.0.3-1+deb11u1) stable; urgency=low
+
+  * Rebuild for Debian 11 (Bullseye).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 11 May 2021 14:14:11 +0000
+
+php-pam (1.0.3-1+deb10u1) stable; urgency=low
+
+  * Rebuild for Debian 10 (Buster).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 26 Feb 2019 00:10:17 +0100
+
+php-pam (1.0.3-1) stable; urgency=low
+
+  * Initial release for Debian 9 (Stretch).
+  * Adapt and apply patch from Gentoo for PHP7 (https://gitweb.gentoo.org/repo/gentoo.git/commit/?id=8f113e301d3d56ef3c9623c40014000a102db15c).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 22 Feb 2017 04:40:38 -0500

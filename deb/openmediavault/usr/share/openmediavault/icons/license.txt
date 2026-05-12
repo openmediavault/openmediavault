@@ -1,0 +1,4 @@
+Image: rrd_graph_error_64.png
+Designer: Volker Theile
+License: GPL3
+URL: none

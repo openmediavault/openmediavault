@@ -1,0 +1,57 @@
+version: "1.0"
+type: component
+data:
+  name: omv-storage-lvm-vg-extend-form-page
+  type: formPage
+  config:
+    request:
+      service: LogicalVolumeMgmt
+      get:
+        method: getVolumeGroup
+        params:
+          name: "{{ _routeParams.name }}"
+        filter:
+          mode: pick
+          props:
+            - devicefile
+            - name
+      post:
+        method: extendVolumeGroup
+    fields:
+      - type: hidden
+        name: devicefile
+      - type: textInput
+        name: name
+        label: _("Name")
+        hint: _("The name of the volume group.")
+        value: ""
+        disabled: true
+        submitValue: false
+      - type: select
+        name: devices
+        label: _("Devices")
+        placeholder: _("Select devices ...")
+        hint: _("Select the devices used to extend the volume group.")
+        multiple: true
+        value: ""
+        valueField: devicefile
+        textField: description
+        store:
+          proxy:
+            service: LogicalVolumeMgmt
+            get:
+              method: getVolumeGroupCandidates
+          sorters:
+            - dir: asc
+              prop: devicefile
+        validators:
+          required: true
+    buttons:
+      - template: submit
+        execute:
+          type: url
+          url: "/storage/lvm/vgs"
+      - template: cancel
+        execute:
+          type: url
+          url: "/storage/lvm/vgs"

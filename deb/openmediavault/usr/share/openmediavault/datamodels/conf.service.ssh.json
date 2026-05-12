@@ -1,0 +1,45 @@
+{
+	"type": "config",
+	"id": "conf.service.ssh",
+	"title": "SSH",
+	"queryinfo": {
+		"xpath": ".//services/ssh",
+		"iterable": false
+	},
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"port":{
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 65535,
+			"default": 22
+		},
+		"passwordauthentication": {
+			"type": "boolean",
+			"default": true
+		},
+		"pubkeyauthentication": {
+			"type": "boolean",
+			"default": true
+		},
+		"permitrootlogin": {
+			"type": "boolean",
+			"default": true
+		},
+		"tcpforwarding": {
+			"type": "boolean",
+			"default": false
+		},
+		"compression": {
+			"type": "boolean",
+			"default": false
+		},
+		"extraoptions": {
+			"type": "string",
+			"default": ""
+		}
+	}
+}

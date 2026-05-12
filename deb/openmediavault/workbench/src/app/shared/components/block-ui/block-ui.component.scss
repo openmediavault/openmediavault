@@ -1,0 +1,37 @@
+@use 'scss/defaults/colors' as dc;
+
+.overlay {
+  background: dc.$omv-color-black-translucent !important;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 30000;
+
+  .container {
+    display: block;
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    .icon {
+      width: 3.125rem;
+      height: 3.125rem;
+      margin: 0.5rem auto;
+      border: 5px solid rgb(255 255 255 / 20%);
+      border-radius: 50%;
+      border-left-color: dc.$omv-color-white;
+      animation: rotate-360 1s infinite linear;
+    }
+
+    .message {
+      color: dc.$omv-color-white;
+      font-size: var(--mat-font-size-subheading-2);
+      text-align: center;
+    }
+  }
+}

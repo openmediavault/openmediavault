@@ -1,0 +1,10 @@
+{%- set halt = salt['pillar.get']('default:OMV_HALT_HALT', 'poweroff') -%}
+{%- set interfaces = salt['omv_conf.get_by_filter'](
+  'conf.system.network.interface',
+  {'operator': 'equals', 'arg0': 'wol', 'arg1': '1'}) -%}
+# Default behaviour of shutdown -h / halt. Set to "halt" or "poweroff".
+HALT={{ halt }}
+{%- if interfaces | length > 0 %}
+# Do not shut down network interfaces, needed to use wake-on-lan
+NETDOWN=no
+{% endif -%}

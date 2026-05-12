@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/md/recover/:devicefile"
+  title: _("Recover")
+  editing: false
+  component: omv-storage-md-recover-form-page

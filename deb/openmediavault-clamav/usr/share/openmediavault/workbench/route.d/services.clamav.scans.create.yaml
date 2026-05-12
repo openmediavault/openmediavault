@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/clamav/scans/create"
+  title: _("Create")
+  notificationTitle: _("Created scheduled scan.")
+  component: omv-services-clamav-scan-form-page

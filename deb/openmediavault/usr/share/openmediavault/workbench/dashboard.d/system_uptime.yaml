@@ -1,0 +1,18 @@
+version: "1.0"
+type: dashboard-widget
+data:
+  id: 3cdbc4c4-0678-425a-8269-04d25d397365
+  permissions:
+    role:
+    - admin
+  title: _("Uptime")
+  description: _("Displays the system uptime.")
+  type: value
+  reloadPeriod: 60000
+  value:
+    icon: "clock"
+    title: _("Uptime")
+    value: "{{ (moment('X') - uptime) | localedate('relative', true) }}"
+    request:
+      service: System
+      method: getInformation

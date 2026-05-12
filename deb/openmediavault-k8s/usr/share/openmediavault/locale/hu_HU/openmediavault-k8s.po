@@ -1,0 +1,458 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-k8s package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Sári Gábor <sari.gabor@gmail.com>, 2024
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-k8s\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-26 11:58+0100\n"
+"PO-Revision-Date: 2024-03-09 09:44+0000\n"
+"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2026\n"
+"Language-Team: Hungarian (Hungary) (https://app.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu_HU\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Absolute Path"
+msgstr "Abszolút elérési út"
+
+msgid "Access Modes"
+msgstr "Hozzáférési módok"
+
+msgid "App Version"
+msgstr "Alkalmazásverzió"
+
+msgid "Apply"
+msgstr "Alkalmaz"
+
+msgid "Architecture"
+msgstr "Architektúra"
+
+msgid "Available"
+msgstr "Elérhető"
+
+msgid "Capacity"
+msgstr "Kapacitás"
+
+msgid "Certificate"
+msgstr "Tanúsítvány"
+
+msgid "Certificates"
+msgstr "Tanúsítványok"
+
+msgid "Chart"
+msgstr "Diagram"
+
+msgid "Check for new recipes"
+msgstr "Új receptek ellenőrzése"
+
+msgid "Class"
+msgstr "Osztály"
+
+msgid "Cluster IP"
+msgstr "Klaszter IP"
+
+msgid "Compressed"
+msgstr "Tömörített"
+
+msgid "Config Maps"
+msgstr "Beállítástérkép"
+
+msgid "Copy to clipboard"
+msgstr "Másolás vágólapra"
+
+msgid "Copy token"
+msgstr "Token másolása"
+
+msgid "Count"
+msgstr "Szám"
+
+msgid "Created"
+msgstr "Létrehozva"
+
+msgid "Dashboard"
+msgstr "Műszerfal"
+
+msgid "Data"
+msgstr "Adatok"
+
+msgid "Datastore"
+msgstr "Adattároló"
+
+msgid "Date & Time"
+msgstr "Dátum és idő"
+
+msgid "Depends"
+msgstr "Függés"
+
+msgid "Deployments"
+msgstr "Telepítések"
+
+msgid "Describe"
+msgstr "Leírás"
+
+msgid "Description"
+msgstr "Leírás"
+
+msgid "Do you really want to restore this snapshot?"
+msgstr "Valóban vissza szeretné állítani ezt a pillanatképet?"
+
+msgid "Download"
+msgstr "Letöltés"
+
+msgid ""
+"Downloading the kubeconfig file to the local system enables secure remote "
+"management of the Kubernetes cluster using command-line tools like kubectl."
+msgstr ""
+"A kubeconfig fájl letöltése a helyi rendszerre lehetővé teszi a Kubernetes "
+"fürt biztonságos távoli kezelését olyan parancssori eszközökkel, mint a "
+"kubectl."
+
+msgid "Enabled"
+msgstr "Engedélyezve"
+
+msgid "Events"
+msgstr "Események"
+
+msgid "Expose"
+msgstr "Felfed"
+
+msgid "Exposed"
+msgstr "Felfedett"
+
+msgid "Exposed port"
+msgstr "Felfedett port"
+
+msgid "External IP"
+msgstr "Külső IP"
+
+msgid "Extra configuration"
+msgstr "Extra konfiguráció"
+
+msgid "Failed"
+msgstr "Sikertelen"
+
+msgid "First seen"
+msgstr "Első feltűnés"
+
+msgid "GID"
+msgstr "GID"
+
+msgid "Groups"
+msgstr "Csoportok"
+
+msgid "Helm Charts"
+msgstr "Helm diagramok"
+
+msgid "Homepage"
+msgstr "Főoldal"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Image"
+msgstr "Kép"
+
+msgid "Images"
+msgstr "Képek"
+
+msgid "Import"
+msgstr "Importálás"
+
+msgid "Ingredients"
+msgstr "Összetevők"
+
+msgid "Ingress Routes"
+msgstr "Behatolási útvonalak"
+
+msgid "Ingresses"
+msgstr "Behatolások"
+
+msgid "Job"
+msgstr "Feladat"
+
+msgid "Kubeconfig"
+msgstr "Kubeconfig"
+
+msgid "Kubernetes"
+msgstr "Kubernetes"
+
+msgid "Kubernetes - Pods"
+msgstr "Kubernetes – Hüvelyek"
+
+msgid "Kubernetes - Resources"
+msgstr "Kubernetes - Erőforrások"
+
+msgid "Labels"
+msgstr "Címkék"
+
+msgid "Last seen"
+msgstr "Utolsó feltűnés"
+
+msgid "Load Balancer"
+msgstr "Terheléselosztó"
+
+msgid "Logs"
+msgstr "Napló"
+
+msgid "Manifest"
+msgstr "Manifesztum"
+
+msgid "Message"
+msgstr "Üzenet"
+
+msgid "Monitoring - Kubernetes"
+msgstr "Felügyelet – Kubernetes"
+
+msgid "Name"
+msgstr "Név"
+
+msgid "Namespace"
+msgstr "Névtér"
+
+msgid "Namespaces"
+msgstr "Névterek"
+
+msgid "NodePort IP"
+msgstr "NodePort IP"
+
+msgid "Normal"
+msgstr "Normál"
+
+msgid "Object"
+msgstr "Tárgy"
+
+msgid "Open UI"
+msgstr "UI megnyitása"
+
+msgid "PV"
+msgstr "PV"
+
+msgid "PVC"
+msgstr "PVC"
+
+msgid "Pending"
+msgstr "Függőben"
+
+msgid "Persistent Volume Claims"
+msgstr "Megmaradókötet-kérés"
+
+msgid "Persistent Volumes"
+msgstr "Megmaradó kötetek"
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr "Kérjük várjon, amíg a pillanatkép elkészül…"
+
+msgid "Please wait, the snapshot will be restored ..."
+msgstr "Kérjük várjon, amíg a pillanatkép vissza lesz állítva…"
+
+msgid "Pods"
+msgstr "Hüvelyek"
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Ports"
+msgstr "Portok"
+
+msgid "Protocol"
+msgstr "Protokoll"
+
+msgid "README"
+msgstr "OLVASSEL"
+
+msgid "Ready"
+msgstr "Kész"
+
+msgid "Reason"
+msgstr "Ok"
+
+msgid "Recipe Information"
+msgstr "Receptinformáció"
+
+msgid "Recipe Version"
+msgstr "Receptverzió"
+
+msgid "Recipes"
+msgstr "Receptek"
+
+msgid "Reclaim policy"
+msgstr "Visszaigénylési irányelv"
+
+msgid ""
+"Refer to the values.yaml file in the Traefik Helm chart to see what "
+"configuration options are available."
+msgstr ""
+"A rendelkezésre álló konfigurációs opciók megtekintéséhez lásd a Traefik "
+"Helm chart values.yaml fájlját."
+
+msgid "Repository"
+msgstr "Tároló"
+
+msgid "Resources"
+msgstr "Erőforrások"
+
+msgid "Restore"
+msgstr "Visszaállítás"
+
+msgid "Running"
+msgstr "Fut"
+
+msgid "SQLite"
+msgstr "SQLite"
+
+msgid "Secrets"
+msgstr "Titkok"
+
+msgid "Section"
+msgstr "Rész"
+
+msgid "Services"
+msgstr "Szolgáltatások"
+
+msgid "Settings"
+msgstr "Beállítások"
+
+msgid "Shared Folders"
+msgstr "Megosztott mappák"
+
+msgid "Show README"
+msgstr "OLVASSEL megjelenítése"
+
+msgid "Show the number of pods per status phase."
+msgstr "Hüvelyek számának megjelenítése állapotfázisonként."
+
+msgid "Show the total number of several resources."
+msgstr "Több erőforrás teljes számának megjelenítése."
+
+msgid "Size"
+msgstr "Méret"
+
+msgid "Snapshots"
+msgstr "Pillanatképek"
+
+msgid "Source"
+msgstr "Forrás"
+
+msgid "Stateful Sets"
+msgstr "Állapotfüggő beállítások"
+
+msgid "Status"
+msgstr "Állapot"
+
+msgid "Storage Class"
+msgstr "Tárolási osztály"
+
+msgid "Succeeded"
+msgstr "Sikerült"
+
+msgid "Tag"
+msgstr "Címke"
+
+msgid "Tags"
+msgstr "Címkék"
+
+msgid "Target Namespace"
+msgstr "Célnévtér"
+
+msgid ""
+"The SSL certificate used by the LoadBalancer service. If not set, a self-"
+"signed certificate from cert-manager is used."
+msgstr ""
+"A Terheléselosztó szolgáltatás által használt SSL-tanúsítvány. Ha nincs "
+"beállítva, akkor a tanúsítványkezelő saját aláírású tanúsítványát használja."
+
+msgid ""
+"The datastore used by the Kubernetes cluster. SQLite is recommended for "
+"single-node setups and SBCs with slow disks, while etcd is recommended for "
+"high-availability setups with multiple nodes."
+msgstr ""
+"A Kubernetes fürt adattárolója. Az SQLite egy csomópontos beállításokhoz és "
+"lassú lemezekkel rendelkező SBC-khez ajánlott. Az etcd több csomópontos "
+"magas rendelkezésre állású rendszerekhez ajánlott."
+
+msgid "The field should only contain the characters a-z, 0-9 and -."
+msgstr "A mező csak a–z, 0–9 és - karaktereket tartalmazhat."
+
+msgid ""
+"The following placeholders can be used in recipes to get access to global "
+"system information and the configuration "
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
+"braces. An overview of additional available filters can be found <a "
+"href='https://twig.symfony.com/doc/filters/index.html' "
+"target='_blank'>here</a>."
+msgstr ""
+"A következő helyőrzők használhatóak a receptekben a globális "
+"rendszerinformációk és a konfigurációs adatbázis eléréséhez: "
+"<br><ul><li>hostname()</li> <li>domain()</li> <li>fqdn()</li> <li>tz()</li> "
+"<li>ipaddr(name=NULL)</li> <li>ipaddr6(name=NULL)</li> <li>uid(name)</li> "
+"<li>gid(name)</li> <li>sharedfolder_path(name)</li> <li>conf_get(id, "
+"uuid=NULL)</li> </ul>A helyőrzőket dupla szögletes zárójelekkel kell "
+"jelölni. A további elérhető szűrők áttekintése <a "
+"href='https://twig.symfony.com/doc/filters/index.html' target='_blank'>itt "
+"található</a>."
+
+msgid "The location where to store etcd on-demand snapshots."
+msgstr "Az etcd igény szerinti pillanatképek tárolási helye."
+
+msgid "The manifest to apply."
+msgstr "Az alkalmazandó manifesztum. "
+
+msgid "The snapshot was created successfully."
+msgstr "A pillanatfelvétel sikeresen létrejött."
+
+msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
+msgstr ""
+"A(z) {{ spec.snapshotName}} pillanatkép sikeresen vissza lett állítva."
+
+msgid "The token to authenticate to the Kubernetes Dashboard."
+msgstr "A Kubernetes Műszerfalon való hitelesítéshez szükséges token."
+
+msgid "Type"
+msgstr "Típus"
+
+msgid "UID"
+msgstr "UID"
+
+msgid "UUID"
+msgstr "UUID"
+
+msgid "Unknown"
+msgstr "Ismeretlen"
+
+msgid "Up-to-date"
+msgstr "Friss"
+
+msgid "Updated Kubernetes settings."
+msgstr "Kubernetes beállítások frissítve."
+
+msgid "Users"
+msgstr "Felhasználók"
+
+msgid "Version"
+msgstr "Verzió"
+
+msgid "View"
+msgstr "Nézet"
+
+msgid "Volume"
+msgstr "Kötet"
+
+msgid "Warning"
+msgstr "Figyelmeztetés"
+
+msgid "YAML"
+msgstr "YAML"
+
+msgid "etcd"
+msgstr "etcd"

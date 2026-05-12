@@ -1,0 +1,41 @@
+<mat-form-field class="omv-flex-1"
+                [formGroup]="formGroup">
+  <mat-label>{{ config.label | transloco | template:pageContext }}</mat-label>
+  <mat-select [formControlName]="config.name"
+              [placeholder]="config.placeholder | transloco"
+              [multiple]="config.multiple"
+              [required]="config.validators?.required"
+              (selectionChange)="onSelectionChange($event)">
+    <ng-container *ngIf="!loading; else renderLoading">
+      <mat-option *ngFor="let option of config.store.data"
+                  [value]="option[config.valueField]">
+        {{ option[config.textField] | transloco }}
+      </mat-option>
+    </ng-container>
+    <ng-template #renderLoading>
+      <mat-option disabled>
+        <div class="omv-display-flex omv-flex-row omv-align-items-center omv-align-content-center omv-justify-content-between">
+          <span>{{ 'Loading ...' | transloco }}</span>
+          <mat-icon *ngIf="loading"
+                    class="omv-icon-rotate-360-infinite"
+                    svgIcon="mdi:loading">
+          </mat-icon>
+        </div>
+      </mat-option>
+    </ng-template>
+  </mat-select>
+  <mat-error *ngIf="formGroup.invalid">
+    <span *ngIf="formGroup.hasError('required', config.name)">
+      {{ 'This field is required.' | transloco }}
+    </span>
+    <span *ngIf="formGroup.hasError('constraint', config.name)">
+      {{ formGroup.getError('constraint', config.name) | transloco }}
+    </span>
+    <span *ngIf="formGroup.hasError('pattern', config.name)">
+      {{ formGroup.getError('pattern', config.name) | transloco }}
+    </span>
+  </mat-error>
+  <mat-hint *ngIf="config.hint?.length > 0"
+            [innerHTML]="config.hint | transloco | template:pageContext | sanitizeHtml">
+  </mat-hint>
+</mat-form-field>

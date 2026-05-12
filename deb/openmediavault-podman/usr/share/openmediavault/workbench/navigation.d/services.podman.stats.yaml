@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.podman.stats"
+  position: 50
+  text: _("Statistics")
+  icon: "mdi:chart-line"
+  url: "/services/podman/stats"

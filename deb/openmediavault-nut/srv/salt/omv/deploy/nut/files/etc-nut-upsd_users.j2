@@ -1,0 +1,17 @@
+{%- set admin_instcmds = salt['pillar.get']('default:OMV_NUT_UPSDUSERS_ADMIN_INSTCMDS', 'ALL') -%}
+{{ pillar['headers']['multiline'] -}}
+[{{ admin_user }}]
+password = {{ admin_passwd }}
+actions = set
+actions = fsd
+instcmds = {{ admin_instcmds }}
+
+[{{ monitor_user }}]
+password = {{ monitor_passwd }}
+upsmon master
+
+{%- if config.remotemonitor | to_bool %}
+[{{ config.remoteuser }}]
+password = {{ config.remotepassword }}
+upsmon slave
+{%- endif %}

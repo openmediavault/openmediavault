@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/lvm/vgs/extend/:name"
+  title: _("Extend")
+  editing: true
+  notificationTitle: _("Extended volume group '{{ devicefile }}'.")
+  component: omv-storage-lvm-vg-extend-form-page

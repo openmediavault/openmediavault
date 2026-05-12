@@ -1,0 +1,58 @@
+<ng-container *ngTemplateOutlet="renderDialogHeader"></ng-container>
+<mat-dialog-content>
+  <!--
+  Wrap form inside a card like it is done in 'omv-intuition-form-page' to get
+  the same layout (incl. font size, line-height, ...) for the form fields.
+  -->
+  <mat-card>
+    <mat-card-content>
+      <omv-intuition-form [id]="config.id"
+                          [config]="config.fields">
+      </omv-intuition-form>
+    </mat-card-content>
+  </mat-card>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button *ngIf="config.buttons.cancel && !config.buttons.cancel.hidden"
+          mat-flat-button
+          color="accent"
+          (click)="onCancel()">
+    {{ config.buttons.cancel.text | transloco }}
+  </button>
+  <omv-submit-button *ngIf="config.buttons.submit && !config.buttons.submit.hidden"
+                     cdkFocusInitial
+                     [form]="config.id"
+                     [formGroup]="form.formGroup"
+                     [disabled]="form.formGroup.pristine"
+                     (buttonClick)="onSubmit()">
+    {{ config.buttons.submit.text | transloco }}
+  </omv-submit-button>
+</mat-dialog-actions>
+
+<ng-template #renderDialogHeader>
+  <mat-card *ngIf="config.title || config.subTitle">
+    <ng-container *ngIf="config.icon">
+      <mat-card-header>
+        <mat-icon mat-card-avatar
+                  svgIcon="{{ config.icon }}">
+        </mat-icon>
+        <mat-card-title *ngIf="config.title">
+          {{ config.title }}
+        </mat-card-title>
+        <mat-card-subtitle *ngIf="config.subTitle">
+          {{ config.subTitle }}
+        </mat-card-subtitle>
+      </mat-card-header>
+    </ng-container>
+    <ng-container *ngIf="!config.icon">
+      <mat-card-title-group>
+        <mat-card-title *ngIf="config.title">
+          {{ config.title }}
+        </mat-card-title>
+        <mat-card-subtitle *ngIf="config.subTitle">
+          {{ config.subTitle }}
+        </mat-card-subtitle>
+      </mat-card-title-group>
+    </ng-container>
+  </mat-card>
+</ng-template>

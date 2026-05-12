@@ -1,0 +1,14 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-podman-containers-inspect-text-page
+  type: textPage
+  config:
+    hasCopyToClipboardButton: true
+    hasReloadButton: true
+    request:
+      service: Podman
+      get:
+        method: containerInspect
+        params:
+          id: "{{ _routeParams.id }}"

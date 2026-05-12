@@ -1,0 +1,98 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-snmp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kostas Moho, 2021
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-snmp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2017-09-24 18:47+0000\n"
+"Last-Translator: Kostas Moho, 2021\n"
+"Language-Team: Greek (Greece) (https://app.transifex.com/openmediavault/teams/14254/el_GR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Authentication and no privacy"
+msgstr "Πιστοποίηση χωρίς ιδιωτικότητα"
+
+msgid "Authentication and privacy"
+msgstr "Πιστοποίηση με ιδιωτικότητα"
+
+msgid "Authentication passphrase"
+msgstr "Κωδικός πιστοποίησης"
+
+msgid "Authentication type"
+msgstr "Τύπος πιστοποίησης"
+
+msgid "Community"
+msgstr "Κοινότητα"
+
+msgid "Contact"
+msgstr "Επικοινωνία"
+
+msgid ""
+"Contact information, e.g. name or email address of the person responsible "
+"for this system."
+msgstr ""
+"Στοιχεία επικοινωνίας, π.χ. όνομα ή διεύθυνση ηλεκτρονικού ταχυδρομείου για "
+"τον διαχειριστή αυτού του συστήματος."
+
+msgid "Enabled"
+msgstr "Ενεργό"
+
+msgid "Extra options"
+msgstr "Επιπλέον επιλογές"
+
+msgid "Host"
+msgstr "Σύστημα"
+
+msgid "Location"
+msgstr "Τοποθεσία"
+
+msgid "Location information, e.g. physical location of this system."
+msgstr "Πληροφορίες τοποθεσίας συστήματος"
+
+msgid "No authentication and no privacy"
+msgstr "Χωρίς πιστοποίηση και χωρίς ιδιοτικότητα"
+
+msgid "Port"
+msgstr "Θύρα"
+
+msgid "Privacy passphrase"
+msgstr "Φράση-κλειδί"
+
+msgid "Privacy type"
+msgstr "Τύπος ιδιοτικότητας"
+
+msgid "SNMP"
+msgstr "SNMP"
+
+msgid "SNMP version 1/2c"
+msgstr "SNMP έκδοση 1/2c"
+
+msgid "SNMP version 3"
+msgstr "SNMP έκδοση 3"
+
+msgid "Security level"
+msgstr "Επίπεδο ασφάλειας"
+
+msgid "Traps"
+msgstr "Διεγέρσεις"
+
+msgid "Updated SNMP settings."
+msgstr "Ενημέρωση ρυθμίσεων SNMP."
+
+msgid "User name"
+msgstr "Όνομα χρήστη"
+
+msgid "Version"
+msgstr "Έκδοση"

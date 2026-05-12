@@ -1,0 +1,126 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-podman-containers-datatable-page
+  type: datatablePage
+  config:
+    autoReload: 10000
+    stateId: d248caa8-680a-11ee-a2f3-bfe971ac1574
+    sorters:
+      - dir: asc
+        prop: Image
+    store:
+      proxy:
+        service: Podman
+        get:
+          method: containerListBg
+          task: true
+      transform:
+        State: "{{ State | title }}"
+    rowId: Id
+    rowEnumFmt: "{{ Image }}"
+    selectionType: single
+    columns:
+      - name: _("ID")
+        prop: Id
+        cellTemplateName: template
+        cellTemplateConfig: "{{ Id | substr(0, 12) }}"
+        flexGrow: 1
+        sortable: true
+      - name: _("Image")
+        prop: Image
+        flexGrow: 1
+        sortable: true
+      - name: _("Names")
+        prop: Names
+        flexGrow: 1
+        sortable: true
+      - name: _("Command")
+        prop: Command
+        cellTemplateName: template
+        cellTemplateConfig: "{{ Command | default([], true) | join(' ') }}"
+        flexGrow: 1
+        sortable: true
+      - name: _("Created")
+        prop: Created
+        cellTemplateName: relativeTime
+        flexGrow: 1
+        sortable: true
+      - name: _("Started")
+        prop: StartedAt
+        cellTemplateName: relativeTime
+        flexGrow: 1
+        hidden: true
+        sortable: true
+      - name: _("State")
+        prop: State
+        cellTemplateName: chip
+        cellTemplateConfig:
+          map:
+            Running:
+              class: omv-background-color-pair-success
+        flexGrow: 1
+        sortable: true
+      - name: _("Status")
+        prop: Status
+        flexGrow: 1
+        sortable: true
+      - name: _("Ports")
+        prop: Ports
+        hidden: true
+        flexGrow: 1
+        sortable: true
+      - name: _("Mounts")
+        prop: Mounts
+        hidden: true
+        flexGrow: 1
+        sortable: true
+      - name: _("Networks")
+        prop: Networks
+        hidden: true
+        flexGrow: 1
+        sortable: true
+    actions:
+      - type: iconButton
+        icon: search
+        tooltip: _("Inspect")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/podman/containers/inspect/{{ _selected[0].Id }}"
+      - type: iconButton
+        icon: "mdi:chart-line"
+        tooltip: _("Statistics")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/podman/containers/stats/{{ _selected[0].Id }}"
+      - type: iconButton
+        icon: "mdi:file-document-edit"
+        tooltip: _("Logs")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/podman/containers/logs/{{ _selected[0].Id }}"
+      - type: iconButton
+        icon: "mdi:restart"
+        tooltip: _("Restart")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        confirmationDialogConfig:
+          template: confirmation
+          message: _("Do you really want to restart this container?")
+        execute:
+          type: request
+          request:
+            service: Podman
+            method: containerRestart
+            params:
+              id: "{{ _selected[0].Id }}"

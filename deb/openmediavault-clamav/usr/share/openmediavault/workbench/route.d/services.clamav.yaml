@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/clamav"
+  title: _("Antivirus")
+  component: omv-services-clamav-navigation-page

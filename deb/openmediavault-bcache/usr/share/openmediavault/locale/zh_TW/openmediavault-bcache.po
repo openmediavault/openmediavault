@@ -1,0 +1,221 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-bcache package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# kochin <kochinc@outlook.com>, 2024
+# 王大山, 2024
+# songming <by@songming.me>, 2024
+# 黃柏諺 <s8321414@gmail.com>, 2024
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-bcache\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2024-11-20 12:26+0000\n"
+"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2024\n"
+"Language-Team: Chinese (Taiwan) (https://app.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "5 Minutes"
+msgstr "5分鐘"
+
+msgid ""
+"A sequential IO will bypass the cache once it passes this threshold. "
+"(default:4.0M, max:3.9G)"
+msgstr "一旦超過此臨界值，連續 IO 將會繞過快取。（預設值：4.0M，最大：3.9G）"
+
+msgid ""
+"Allow bcache go around the cache when there's read / write congestion. "
+"(default:true)"
+msgstr "允許 bcache 在讀寫壅塞時繞過快取。（預設值：true）"
+
+msgid "Backing Devices"
+msgstr "備份裝置"
+
+msgid "Bcache"
+msgstr "Bcache"
+
+msgid "Bcache Device"
+msgstr "Bcache 裝置"
+
+msgid "Cache Device"
+msgstr "快取裝置"
+
+msgid "Cache Devices"
+msgstr "快取裝置"
+
+msgid "Cache Mode"
+msgstr "快取模式"
+
+msgid "Capacity"
+msgstr "容量"
+
+msgid "Clean"
+msgstr "清除"
+
+msgid "Clear total statistics"
+msgstr "清除總計統計資料"
+
+msgid "Configuration"
+msgstr "組態"
+
+msgid "Congest Tracking"
+msgstr "壅塞追蹤"
+
+msgid "Congested Read Threshold (us)"
+msgstr "壅塞讀取臨界值（微秒）"
+
+msgid "Create"
+msgstr "建立"
+
+msgid "Day"
+msgstr "天"
+
+msgid "Device"
+msgstr "裝置"
+
+msgid "Dirty"
+msgstr "不完整"
+
+msgid "Dirty Data"
+msgstr "不完整的資料"
+
+msgid "Docs"
+msgstr "文件"
+
+msgid "Hour"
+msgstr "小時"
+
+msgid ""
+"If nonzero, bcache tries to keep around this percentage of the cache dirty "
+"by throttling background writeback and using a PD controller to smoothly "
+"adjust the rate. (default:10)"
+msgstr ""
+"如果不是零，bcache 會嘗試透過節流背景寫回與使用 PD 控制器來平順調整速率，以保持這個百分比左右的快取記憶體不被弄髒。（預設值：10）"
+
+msgid "Inconsistent"
+msgstr "不一致"
+
+msgid "Metadata"
+msgstr "中介資料"
+
+msgid "Missing"
+msgstr "遺失"
+
+msgid "Missing Cache"
+msgstr "遺失快取"
+
+msgid "Mounted"
+msgstr "已掛載"
+
+msgid "Name"
+msgstr "名稱"
+
+msgid "No Cache"
+msgstr "無快取"
+
+msgid "Online"
+msgstr "線上"
+
+msgid ""
+"Please note that creating a file system on a Bcache device can take longer. "
+"It is therefore possible that the file system is not immediately available "
+"for mounting."
+msgstr "請注意，在 Bcache 裝置上建立檔案系統可能需要較長時間。因此，檔案系統可能無法立即可供掛載。"
+
+msgid "Recovery Actions"
+msgstr "還原動作"
+
+msgid "Register"
+msgstr "註冊"
+
+msgid "Select a cache device ..."
+msgstr "選取快取裝置……"
+
+msgid "Select a device ..."
+msgstr "選取裝置"
+
+msgid "Select the device that will be formatted as Bcache backing device."
+msgstr "選取要格式化為 Bcache 備份裝置的裝置。"
+
+msgid "Select the device that will be formatted as Bcache cache device."
+msgstr "選取要格式化為 Bcache 快取裝置的裝置。"
+
+msgid "Select the device that will be used as cache device."
+msgstr "選取要作為快取裝置的裝置。"
+
+msgid "Sequential Cutoff"
+msgstr "循序截止"
+
+msgid "Show details"
+msgstr "顯示詳細資料"
+
+msgid "Start without cache"
+msgstr "無快取啟動"
+
+msgid "State"
+msgstr "狀態"
+
+msgid "Statistics"
+msgstr "統計"
+
+msgid "Superblock"
+msgstr "Superblock"
+
+msgid "The default is 2000 us (2 milliseconds)"
+msgstr "預設為2000微秒（2毫秒）"
+
+msgid "The default is 20000 us (20 milliseconds)"
+msgstr "預設為20000微秒（20毫秒）"
+
+msgid "Total"
+msgstr "總計"
+
+msgid "Unit"
+msgstr "單位"
+
+msgid "Unregister"
+msgstr "未註冊"
+
+msgid "Unregistered"
+msgstr "未註冊"
+
+msgid "Unused"
+msgstr "未使用"
+
+msgid "Updated backing device '{{ devicefile }}'."
+msgstr "已更新備份裝置 '{{ devicefile }}'。"
+
+msgid "Updated cache device '{{ devicefile }}'."
+msgstr "已更新快取裝置 '{{ devicefile }}'。"
+
+msgid ""
+"When dirty data is written to the cache and it previously did not contain "
+"any, waits some number of seconds before initiating writeback. (default:30)"
+msgstr "當有不完整資料寫入快取，而快取之前不包含任何不完整資料時，在啟動寫回之前等待若干秒。（預設值：30）"
+
+msgid "Writeback Delay"
+msgstr "寫回延遲"
+
+msgid "Writeback Percent"
+msgstr "寫回百分比"
+
+msgid "none"
+msgstr "無"
+
+msgid "writearound"
+msgstr "回写"
+
+msgid "writeback"
+msgstr "寫回"
+
+msgid "writethrough"
+msgstr "直写"

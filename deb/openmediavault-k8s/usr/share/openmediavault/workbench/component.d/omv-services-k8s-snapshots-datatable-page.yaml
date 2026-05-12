@@ -1,0 +1,81 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-k8s-snapshots-datatable-page
+  type: datatablePage
+  config:
+    autoReload: false
+    stateId: 16d4f878-da56-11ee-8341-43ec4e0bf096
+    sorters:
+      - dir: desc
+        prop: createdAtTs
+    store:
+      proxy:
+        service: K3s
+        get:
+          method: getSnapshotList
+    rowId: name
+    rowEnumFmt: "{{ name }}"
+    selectionType: single
+    columns:
+      - name: _("Name")
+        prop: spec.snapshotName
+        flexGrow: 1
+        sortable: true
+      - name: _("Created")
+        prop: metadata.creationTimestamp
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: localeDateTime
+      - name: _("Size")
+        prop: status.size
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: binaryUnit
+      - name: _("Compressed")
+        prop: status.compressed
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: checkIcon
+        hidden: true
+      - name: _("Ready")
+        prop: status.readyToUse
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: checkIcon
+        hidden: true
+    actions:
+      - template: create
+        execute:
+          type: request
+          request:
+            service: K3s
+            method: createSnapshot
+            progressMessage: _("Please wait, a snapshot will be created ...")
+            successNotification: _("The snapshot was created successfully.")
+      - type: iconButton
+        icon: restore
+        tooltip: _("Restore")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        confirmationDialogConfig:
+          template: confirmation
+          message: _("Do you really want to restore this snapshot?")
+        execute:
+          type: request
+          request:
+            service: K3s
+            method: restoreSnapshot
+            params:
+              name: "{{ spec.snapshotName }}"
+            progressMessage: _("Please wait, the snapshot will be restored ...")
+            successNotification: _("The snapshot {{ spec.snapshotName }} has been successfully restored.")
+      - template: delete
+        execute:
+          type: request
+          request:
+            service: K3s
+            method: deleteSnapshot
+            params:
+              name: "{{ spec.snapshotName }}"

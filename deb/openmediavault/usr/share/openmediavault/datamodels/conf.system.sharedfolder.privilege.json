@@ -1,0 +1,23 @@
+{
+	"type": "config",
+	"id": "conf.system.sharedfolder.privilege",
+	"title": "Shared folder privilege",
+	"queryinfo": {
+		"xpath": ".//system/shares/sharedfolder/privileges/privilege",
+		"iterable": true
+	},
+	"properties": {
+		"type": {
+			"type": "string",
+			"enum": [ "user", "group" ]
+		},
+		"name": {
+			"type": "string"
+		},
+		"perms": {
+			"type": "integer",
+			"enum": [ 0, 5, 7 ],
+			"default": 0
+		}
+	}
+}

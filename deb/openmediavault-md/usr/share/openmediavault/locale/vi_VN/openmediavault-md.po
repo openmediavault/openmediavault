@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-md package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Dung Ba Minh, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-md\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2023-11-06 09:08+0000\n"
+"Last-Translator: Dung Ba Minh, 2026\n"
+"Language-Team: Vietnamese (Viet Nam) (https://app.transifex.com/openmediavault/teams/14254/vi_VN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: vi_VN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "A maximum of one device can be removed."
+msgstr "Chỉ có thể gỡ bỏ tối đa một thiết bị."
+
+msgid "A maximum of two devices can be removed."
+msgstr "Chỉ có thể gỡ bỏ tối đa hai thiết bị."
+
+msgid "Add hot spares / recover RAID device."
+msgstr "Thêm ổ đĩa dự phòng nóng / Khôi phục thiết bị RAID."
+
+msgid "At least four devices are required."
+msgstr "Yêu cầu ít nhất có bốn thiết bị"
+
+msgid "At least three devices are required."
+msgstr "Yêu cầu ít nhất có ba thiết bị"
+
+msgid "At least two devices are required."
+msgstr "Yêu cầu ít nhất có hai thiết bị"
+
+msgid "Capacity"
+msgstr "Dung lượng"
+
+msgid "Create"
+msgstr "Tạo"
+
+msgid "Device"
+msgstr "Thiết bị"
+
+msgid "Devices"
+msgstr "Các thiết bị"
+
+msgid "Displays information about MD (Software RAID) devices."
+msgstr ""
+
+msgid "Grow"
+msgstr ""
+
+msgid "Level"
+msgstr ""
+
+msgid "MD Devices"
+msgstr ""
+
+msgid "Mirror"
+msgstr ""
+
+msgid "Multiple Device"
+msgstr "Đa thiết bị"
+
+msgid "Name"
+msgstr "Tên "
+
+msgid "RAID 10"
+msgstr "RAID 10"
+
+msgid "RAID 2"
+msgstr "RAID 2"
+
+msgid "RAID 3"
+msgstr "RAID 3"
+
+msgid "RAID 4"
+msgstr "RAID 4"
+
+msgid "RAID 5"
+msgstr "RAID 5"
+
+msgid "RAID 6"
+msgstr "RAID 6"
+
+msgid "Recover"
+msgstr "Khôi phục"
+
+msgid "Referenced"
+msgstr "Được tham chiếu"
+
+msgid "Remove"
+msgstr "Xóa bỏ"
+
+msgid "Select devices ..."
+msgstr "Chọn các thiết bị ..."
+
+msgid "Select devices to be added to the RAID device."
+msgstr "Chọn các thiết bị để thêm vào mảng RAID."
+
+msgid "Select devices to be removed from the RAID device."
+msgstr "Chọn các thiết bị cần gỡ bỏ khỏi mảng RAID."
+
+msgid ""
+"Select the devices that will be used to create the RAID device. Devices "
+"connected via USB will not be listed (too unreliable)."
+msgstr ""
+"Chọn các thiết bị sẽ được sử dụng để tạo mảng RAID. Các thiết bị kết nối qua"
+" cổng USB sẽ không được liệt kê (do độ tin cậy quá thấp)."
+
+msgid "Show details"
+msgstr "Xem thông tin chi tiết "
+
+msgid "Software RAID"
+msgstr "RAID phần mềm"
+
+msgid "State"
+msgstr "Tình trạng"
+
+msgid "Stripe"
+msgstr ""

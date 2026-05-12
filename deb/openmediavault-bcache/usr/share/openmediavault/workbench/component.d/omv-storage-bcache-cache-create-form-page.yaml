@@ -1,0 +1,45 @@
+version: "1.0"
+type: component
+data:
+  name: omv-storage-bcache-cache-create-form-page
+  type: formPage
+  config:
+    request:
+      service: Bcache
+      post:
+        method: createCache
+    fields:
+      - type: select
+        name: devicefile
+        label: _("Device")
+        placeholder: _("Select a device ...")
+        hint: _("Select the device that will be formatted as Bcache cache device.")
+        value: ""
+        valueField: devicefile
+        textField: description
+        store:
+          proxy:
+            service: FileSystemMgmt
+            get:
+              method: getCandidates
+          filters:
+            - operator: not
+              arg0:
+                operator: regex
+                arg0:
+                  prop: devicefile
+                arg1: 'bcache[0-9]+'
+          sorters:
+            - dir: asc
+              prop: devicefile
+        validators:
+          required: true
+    buttons:
+      - template: submit
+        execute:
+          type: url
+          url: '/storage/bcache/cache'
+      - template: cancel
+        execute:
+          type: url
+          url: '/storage/bcache/cache'

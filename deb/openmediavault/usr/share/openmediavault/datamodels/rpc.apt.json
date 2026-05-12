@@ -1,0 +1,44 @@
+[{
+	"type": "rpc",
+	"id": "rpc.apt.upload",
+	"params": {
+		"type": "object",
+		"properties": {
+			"filename": {
+				"type": "string",
+				"required": true
+			},
+			"filepath": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.apt.install",
+	"params": {
+		"type": "object",
+		"properties": {
+			"packages": {
+				"type": "array",
+				"items": {
+					"type": "string"
+				},
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.apt.getchangelog",
+	"params": {
+		"type": "object",
+		"properties": {
+			"filename": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+}]

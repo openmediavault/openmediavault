@@ -1,0 +1,32 @@
+{
+	"type": "config",
+	"id": "conf.service.ftp.share",
+	"title": "FTP share",
+	"queryinfo": {
+		"xpath": ".//services/ftp/shares/share",
+		"iterable": true,
+		"idproperty": "uuid"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"sharedfolderref": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"extraoptions": {
+			"type": "string",
+			"default": ""
+		},
+		"comment": {
+			"type": "string",
+			"default": ""
+		}
+	}
+}

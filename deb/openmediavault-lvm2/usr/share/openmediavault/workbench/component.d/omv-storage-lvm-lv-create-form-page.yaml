@@ -1,0 +1,55 @@
+version: "1.0"
+type: component
+data:
+  name: omv-storage-lvm-lv-create-form-page
+  type: formPage
+  config:
+    request:
+      service: LogicalVolumeMgmt
+      post:
+        method: createLogicalVolume
+    fields:
+      - type: textInput
+        name: name
+        label: _("Name")
+        hint: _("The name of the logical volume.")
+        value: ""
+        validators:
+          required: true
+          pattern:
+            pattern: "^[a-zA-Z0-9+_\\.\\-]+$"
+            errorData: _("Invalid name")
+      - type: select
+        name: vgname
+        label: _("Volume group")
+        placeholder: _("Select a volume group ...")
+        value: ""
+        valueField: name
+        textField: description
+        store:
+          proxy:
+            service: LogicalVolumeMgmt
+            get:
+              method: getLogicalVolumeCandidates
+          sorters:
+            - dir: asc
+              prop: name
+        validators:
+          required: true
+      - type: slider
+        name: size
+        label: _("Size")
+        hint: _("The percentage of the total space in the volume group to allocate for the new logical volume.")
+        value: 50
+        validators:
+          min: 1
+          max: 100
+    buttons:
+      - template: submit
+        execute:
+          type: url
+          url: "/storage/lvm/lvs"
+      - template: cancel
+        execute:
+          type: url
+          url: "/storage/lvm/lvs"

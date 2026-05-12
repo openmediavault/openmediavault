@@ -1,0 +1,159 @@
+<mat-toolbar class="omv-top-bar"
+             color="primary">
+  <button mat-icon-button
+          matTooltip="{{ 'Show/Hide navigation' | transloco }}"
+          [attr.aria-label]="'Show/Hide navigation' | transloco"
+          (click)="onToggleNavigation($event)">
+    <mat-icon svgIcon="{{ icon.menu }}"></mat-icon>
+  </button>
+  <span class="omv-flex-1"></span>
+  <span class="hostname">{{ hostname }}</span>
+  <mat-divider *ngIf="hostname"
+               vertical="true">
+  </mat-divider>
+  <button *ngIf="permissions?.role.includes(roles.admin)"
+          mat-icon-button
+          matTooltip="{{ 'Notifications' | transloco }}"
+          [attr.aria-label]="'Notifications' | transloco"
+          (click)="onToggleNotification($event)">
+    <mat-icon svgIcon="{{ icon.bell }}"
+              [matBadge]="numNotifications"
+              [matBadgeHidden]="!numNotifications"
+              matBadgeColor="accent"
+              matBadgeOverlap="true"
+              matBadgeSize="small">
+    </mat-icon>
+  </button>
+  <button mat-icon-button
+          matTooltip="{{ 'Help' | transloco }}"
+          [attr.aria-label]="'Help' | transloco"
+          [matMenuTriggerFor]="helpMenu">
+    <mat-icon svgIcon="{{ icon.help }}"></mat-icon>
+  </button>
+  <button mat-icon-button
+          matTooltip="{{ 'User Settings' | transloco }}"
+          [attr.aria-label]="'User Settings' | transloco"
+          [matMenuTriggerFor]="settingsMenu">
+    <mat-icon svgIcon="{{ icon.user }}"></mat-icon>
+  </button>
+  <button *ngIf="permissions?.role.includes(roles.admin)"
+          mat-icon-button
+          matTooltip="{{ 'Power' | transloco }}"
+          [attr.aria-label]="'Power' | transloco"
+          [matMenuTriggerFor]="powerMenu">
+    <mat-icon svgIcon="{{ icon.power }}"></mat-icon>
+  </button>
+
+  <mat-menu #settingsMenu="matMenu">
+    <ng-template matMenuContent>
+      <button mat-menu-item
+              disabled>
+        <mat-icon svgIcon="{{ icon.user }}"></mat-icon>
+        <span [innerHTML]="'Logged in as <strong>{{ username }}</strong>' | transloco | template:{username} | sanitizeHtml"></span>
+      </button>
+      <button *ngIf="permissions?.role.includes(roles.user)"
+              mat-menu-item
+              routerLink="/usermgmt/profile">
+        <mat-icon svgIcon="mdi:account-details"></mat-icon>
+        <span>{{ 'Your profile' | transloco }}</span>
+      </button>
+      <button mat-menu-item
+              routerLink="/usermgmt/change-password">
+        <mat-icon svgIcon="{{ icon.password }}"></mat-icon>
+        <span>{{ 'Change Password' | transloco }}</span>
+      </button>
+      <button mat-menu-item
+              (click)="onLogout()">
+        <mat-icon svgIcon="{{ icon.logout }}"></mat-icon>
+        <span>{{ 'Log out' | transloco }}</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item
+              [ngClass]="{'active': darkModeEnabled}"
+              (click)="onToggleDarkMode()">
+        <mat-icon svgIcon="mdi:weather-night"></mat-icon>
+        <mat-slide-toggle [checked]="darkModeEnabled">{{ 'Dark mode' | transloco }}</mat-slide-toggle>
+      </button>
+      <button mat-menu-item
+              [matMenuTriggerFor]="localeMenu">
+        <mat-icon svgIcon="mdi:earth"></mat-icon>
+        <span>{{ 'Language' | transloco }}</span>
+      </button>
+      <button mat-menu-item
+              routerLink="/dashboard/settings">
+        <mat-icon svgIcon="{{ icon.apps }}"></mat-icon>
+        <span>{{ 'Dashboard' | transloco }}</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item
+              (click)="onClearStateStorage()">
+        <mat-icon svgIcon="{{ icon.reset }}"></mat-icon>
+        <span>{{ 'Reset UI to defaults' | transloco }}</span>
+      </button>
+    </ng-template>
+  </mat-menu>
+
+  <mat-menu #powerMenu="matMenu">
+    <ng-template matMenuContent>
+      <button mat-menu-item
+              (click)="onReboot()">
+        <mat-icon svgIcon="{{ icon.reboot }}"></mat-icon>
+        <span>{{ 'Reboot' | transloco }}</span>
+      </button>
+      <button mat-menu-item
+              (click)="onStandby()">
+        <mat-icon svgIcon="{{ icon.standby }}"></mat-icon>
+        <span>{{ 'Standby' | transloco }}</span>
+      </button>
+      <button mat-menu-item
+              (click)="onShutdown()">
+        <mat-icon svgIcon="{{ icon.shutdown }}"></mat-icon>
+        <span>{{ 'Shutdown' | transloco }}</span>
+      </button>
+    </ng-template>
+  </mat-menu>
+
+  <mat-menu #localeMenu="matMenu">
+    <ng-template matMenuContent>
+      <button *ngFor="let locale of locales | keyvalue"
+              mat-menu-item
+              [ngClass]="{'active': locale.key === currentLocale}"
+              [disabled]="locale.key === currentLocale"
+              (click)="onLocale(locale.key)">
+        <span>{{ locale.value }}</span>
+      </button>
+    </ng-template>
+  </mat-menu>
+
+  <mat-menu #helpMenu="matMenu">
+    <ng-template matMenuContent>
+      <a class="omv-text-decoration-none"
+         href="https://docs.openmediavault.org">
+        <button mat-menu-item>
+          <mat-icon svgIcon="{{ icon.docs }}"></mat-icon>
+          <span>{{ 'Documentation' | transloco }}</span>
+        </button>
+      </a>
+      <a class="omv-text-decoration-none"
+         href="https://forum.openmediavault.org">
+        <button mat-menu-item>
+          <mat-icon svgIcon="mdi:forum"></mat-icon>
+          <span>{{ 'Forum' | transloco }}</span>
+        </button>
+      </a>
+      <a class="omv-text-decoration-none"
+         href="https://www.openmediavault.org">
+        <button mat-menu-item>
+          <mat-icon svgIcon="mdi:web"></mat-icon>
+          <span>{{ 'Homepage' | transloco }}</span>
+        </button>
+      </a>
+      <mat-divider></mat-divider>
+      <button mat-menu-item
+              routerLink="/about">
+        <mat-icon svgIcon="{{ icon.information }}"></mat-icon>
+        <span>{{ 'About' | transloco }}</span>
+      </button>
+    </ng-template>
+  </mat-menu>
+</mat-toolbar>

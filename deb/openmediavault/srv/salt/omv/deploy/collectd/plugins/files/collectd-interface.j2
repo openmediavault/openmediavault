@@ -1,0 +1,7 @@
+LoadPlugin interface
+<Plugin interface>
+{%- for interface in interfaces %}
+	Interface "{{ interface.devicename }}"
+{%- endfor %}
+	IgnoreSelected false
+</Plugin>

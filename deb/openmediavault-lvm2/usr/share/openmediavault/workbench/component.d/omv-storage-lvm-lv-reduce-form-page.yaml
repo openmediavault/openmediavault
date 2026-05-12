@@ -1,0 +1,10 @@
+version: "1.0"
+type: component
+data:
+  name: omv-storage-lvm-lv-reduce-form-page
+  type: formPage
+  extends: omv-storage-lvm-lv-extend-form-page
+  config:
+    request:
+      post:
+        method: reduceLogicalVolume

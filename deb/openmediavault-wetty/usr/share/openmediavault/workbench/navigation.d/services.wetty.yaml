@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.wetty"
+  text: _("WeTTY")
+  icon: "ssh"
+  url: "/services/wetty"

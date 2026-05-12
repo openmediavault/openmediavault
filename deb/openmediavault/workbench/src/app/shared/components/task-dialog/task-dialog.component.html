@@ -1,0 +1,43 @@
+<h1 *ngIf="config.title"
+    class="omv-display-flex omv-align-items-center"
+    mat-dialog-title>
+  <mat-icon *ngIf="config.icon"
+            class="omv-pr-h"
+            svgIcon="{{ config.icon }}">
+  </mat-icon>
+  {{ config.title | transloco }}
+</h1>
+<mat-progress-bar *ngIf="running"
+                  mode="indeterminate">
+</mat-progress-bar>
+<mat-dialog-content>
+  <div #content
+       class="omv-task-dialog-content omv-scrollable-xy omv-text-monospace omv-background-color-pair-terminal">
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button *ngIf="!config.buttons.close.hidden"
+          mat-flat-button
+          [class]="config.buttons.close.class"
+          [mat-dialog-close]="config.buttons.close.dialogResult"
+          [disabled]="config.buttons.close.disabled"
+          [autofocus]="config.buttons.close.autofocus">
+    {{ config.buttons.close.text | transloco }}
+  </button>
+  <button *ngIf="!config.buttons.stop.hidden"
+          mat-flat-button
+          [class]="config.buttons.stop.class"
+          [disabled]="config.buttons.stop.disabled"
+          [autofocus]="config.buttons.stop.autofocus"
+          (click)="onStop()">
+    {{ config.buttons.stop.text | transloco }}
+  </button>
+  <button *ngIf="!config.buttons.start.hidden"
+          mat-flat-button
+          [class]="config.buttons.start.class"
+          [disabled]="config.buttons.start.disabled"
+          [autofocus]="config.buttons.start.autofocus"
+          (click)="onStart()">
+    {{ config.buttons.start.text | transloco }}
+  </button>
+</mat-dialog-actions>

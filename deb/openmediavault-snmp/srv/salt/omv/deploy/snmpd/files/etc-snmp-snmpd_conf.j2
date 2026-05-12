@@ -1,0 +1,33 @@
+{{ pillar['headers']['multiline'] -}}
+{%- if snmpd_config.version == '2c' %}
+com2sec readonly default {{ snmpd_config.community }}
+group MyROGroup v1 readonly
+group MyROGroup v2c readonly
+{%- endif %}
+{%- if snmpd_config.version == '3' %}
+{%- if snmpd_config.securitylevel == 'auth' %}
+createUser {{ snmpd_config.username }} {{ snmpd_config.authtype }} {{ snmpd_config.authpassphrase }}
+{%- endif %}
+{%- if snmpd_config.securitylevel == 'priv' %}
+createUser {{ snmpd_config.username }} {{ snmpd_config.authtype }} {{ snmpd_config.authpassphrase }} {{ snmpd_config.privtype }} {{ snmpd_config.privpassphrase }}
+{%- endif %}
+group MyROGroup usm {{ snmpd_config.username }}
+{%- endif %}
+view all included .1 80
+{%- if snmpd_config.version == '2c' %}
+access MyROGroup "" any noauth exact all none none
+{%- endif %}
+{%- if snmpd_config.version == '3' %}
+access MyROGroup "" usm {{ snmpd_config.securitylevel }} exact all none none
+{%- endif %}
+sysName {{ network_dns_config.hostname }}
+{% if snmpd_config.syslocation | length > 0 %}sysLocation {{ snmpd_config.syslocation }}{%- endif %}
+{% if snmpd_config.syscontact | length > 0 %}sysContact {{ snmpd_config.syscontact }}{%- endif %}
+{%- if snmpd_config.trap.enable | to_bool %}
+trapcommunity {{ snmpd_config.trap.community }}
+trapsink {{ snmpd_config.trap.host }} {{ snmpd_config.trap.community }} {{ snmpd_config.trap.port }}
+authtrapenable 1
+{%- endif %}
+{%- if snmpd_config.extraoptions | length > 0 %}
+{{ snmpd_config.extraoptions }}
+{%- endif %}

@@ -1,0 +1,11 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "system"
+  position: 20
+  text: _("System")
+  icon: laptop
+  url: "/system"
+  permissions:
+    role:
+    - admin

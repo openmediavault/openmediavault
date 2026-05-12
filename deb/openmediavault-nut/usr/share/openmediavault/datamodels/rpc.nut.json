@@ -1,0 +1,70 @@
+[{
+	"type": "rpc",
+	"id": "rpc.nut.set",
+	"params": {
+		"type": "object",
+		"properties": {
+			"enable": {
+				"type": "boolean",
+				"required": true
+			},
+			"mode": {
+				"type": "string",
+				"enum": [ "netclient", "standalone" ],
+				"required": true
+			},
+			"upsname": {
+				"type": "string",
+				"pattern": "^[a-z0-9_-]+$",
+				"required": true
+			},
+			"comment": {
+				"type": "string",
+				"required": true
+			},
+			"netclienthostname": {
+				"type": "string",
+				"required": true
+			},
+			"netclientusername": {
+				"type": "string",
+				"required": true
+			},
+			"netclientpassword": {
+				"type": "string",
+				"required": true
+			},
+			"powervalue": {
+				"type": "integer",
+				"minimum": 0,
+				"required": true
+			},
+			"driverconf": {
+				"type": "string",
+				"required": true
+			},
+			"shutdownmode": {
+				"type": "string",
+				"enum":[ "fsd", "onbatt" ],
+				"required": true
+			},
+			"shutdowntimer": {
+				"type": "integer",
+				"minimum": 1,
+				"required": true
+			},
+			"remotemonitor": {
+				"type": "boolean",
+				"required": true
+			},
+			"remoteuser": {
+				"type": "string",
+				"required": true
+			},
+			"remotepassword": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+}]

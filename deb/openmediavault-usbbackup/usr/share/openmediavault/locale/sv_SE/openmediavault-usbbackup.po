@@ -1,0 +1,192 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-usbbackup package.
+# 
+# Translators:
+# Karl Jonatan Nyberg, 2021-2022,2024
+# Karl Jonatan Nyberg, 2019-2021
+# efef6ec5b435a041fce803c7f8af77d2_2341d43, 2017-2018
+# Karl Jonatan Nyberg, 2026
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2013-02-15 12:55+0000\n"
+"Last-Translator: Karl Jonatan Nyberg, 2026\n"
+"Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid ""
+"An email message with the command output (if any produced) is sent to the "
+"administrator."
+msgstr "Ett e-postmeddelande med kommandoutdata (om någon utdata genereras) skickas till administratören."
+
+msgid "Archive"
+msgstr "Arkiv"
+
+msgid "Compress"
+msgstr "Komprimera"
+
+msgid "Compress file data during the transfer."
+msgstr "Komprimera fildata under överföringen."
+
+msgid "Create"
+msgstr "Skapa"
+
+msgid "Created USB backup job."
+msgstr "Skapade USB-säkerhetskopieringsjobbet."
+
+msgid "Delete"
+msgstr "Ta bort"
+
+msgid "Delete files on the receiving side that don't exist on sender."
+msgstr "Ta bort filer på mottagningssidan som inte finns på avsändarsidan."
+
+msgid "Device"
+msgstr "Enhet"
+
+msgid "Edit"
+msgstr "Redigera"
+
+msgid "Enable archive mode."
+msgstr "Aktivera arkivläge."
+
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr "Aktivera det här alternativet för att behålla delvis överförda filer, annars tas de bort om överföringen avbryts."
+
+msgid "Enabled"
+msgstr "Aktiverad"
+
+msgid "External Storage Device"
+msgstr "Extern lagringsenhet"
+
+msgid "Extra options"
+msgstr "Extra alternativ"
+
+msgid "From external storage to shared folder"
+msgstr "Från externt lagringsutrymme till delad mapp"
+
+msgid "From shared folder to external storage"
+msgstr "Från delad mapp till externt lagringsutrymme"
+
+msgid "Keep partially transferred files"
+msgstr "Behåll delvis överförda filer"
+
+msgid "Mode"
+msgstr "Läge"
+
+msgid ""
+"Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Se <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manualsidan</a> för mer information."
+
+msgid "Preserve ACLs"
+msgstr "Bevara åtkomstkontrollistor"
+
+msgid "Preserve extended attributes"
+msgstr "Bevara utökade attribut"
+
+msgid "Preserve group"
+msgstr "Bevara grupp"
+
+msgid "Preserve modification times"
+msgstr "Bevara ändringstider"
+
+msgid "Preserve owner"
+msgstr "Bevara ägare"
+
+msgid "Preserve permissions"
+msgstr "Bevara behörigheter"
+
+msgid "Quiet"
+msgstr "Tyst"
+
+msgid "Recurse into directories."
+msgstr "Gå rekursivt in i mappar."
+
+msgid "Recursive"
+msgstr "Rekursiv"
+
+msgid "Relative path"
+msgstr "Relativ sökväg"
+
+msgid "Run"
+msgstr "Kör"
+
+msgid "Run backup job"
+msgstr "Kör säkerhetskopieringsjobb"
+
+msgid "Select a device ..."
+msgstr "Välj en enhet ..."
+
+msgid "Send email"
+msgstr "Skicka e-post"
+
+msgid ""
+"Set the destination permissions to be the same as the source permissions."
+msgstr "Ställ in destinationsbehörigheterna att vara desamma som källbehörigheterna."
+
+msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr "Ställ in gruppen för målfilen att vara samma som för källfilen."
+
+msgid ""
+"Set the owner of the destination file to be the same as the source file, but"
+" only if the receiving rsync is being run as the super-user."
+msgstr "Ställ in att ägaren till målfilen ska vara densamma som källfilen, men endast om den mottagande rsync körs som superanvändare."
+
+msgid "Shared folder"
+msgstr "Delad mapp"
+
+msgid "Suppress non-error messages."
+msgstr "Undertryck icke-felmeddelanden."
+
+msgid "Tags"
+msgstr "Taggar"
+
+msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
+msgstr "Alternativen \"Skicka e-post\" och \"Tyst\" utesluter varandra."
+
+msgid ""
+"The external storage device. Please make sure that the device has only one "
+"file system."
+msgstr "Den externa lagringsenheten. Se till att enheten bara har ett filsystem."
+
+msgid ""
+"The relative directory path on the external storage device from/to which the"
+" content of the shared folder is to be synchronized. The directory is "
+"created if it does not exist."
+msgstr "Den relativa mappsökvägen på den externa lagringsenheten från/till vilket innehållet i den delade mappen ska synkroniseras. Mappen skapas om den inte finns."
+
+msgid ""
+"The shared folder to synchronise when the external storage device is "
+"connected."
+msgstr "Den delade mappen synkroniseras när den externa lagringsenheten är ansluten."
+
+msgid ""
+"Transfer modification times along with the files and update them on the "
+"remote system."
+msgstr "Överför ändringstider tillsammans med filerna och uppdatera dem på fjärrsystemet."
+
+msgid "USB Backup"
+msgstr "USB-säkerhetskopiering"
+
+msgid "Update the destination ACLs to be the same as the source ACLs."
+msgstr "Uppdatera destinationens åtkomstkontrollistor så att de är desamma som källans åtkomstkontrollistor."
+
+msgid ""
+"Update the destination extended attributes to be the same as the local ones."
+msgstr "Uppdatera destinationens utökade attribut så att de är desamma som de lokala."
+
+msgid "Updated USB backup job."
+msgstr "USB-säkerhetskopieringsjobbet uppdaterades."
+
+msgid "n/a"
+msgstr "ingen uppgift"

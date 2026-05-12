@@ -1,0 +1,47 @@
+version: "1.0"
+type: component
+data:
+  name: omv-storage-bcache-backing-edit-form-page
+  type: formPage
+  config:
+    request:
+      service: Bcache
+      get:
+        method: getBacking
+        params:
+          devicefile: "{{ _routeParams.devicefile }}"
+      post:
+        method: updateBacking
+    fields:
+      - type: hidden
+        name: devicefile
+      - type: textInput
+        name: description
+        label: _("Device")
+        disabled: true
+      - type: select
+        name: cachedevicefile
+        label: _("Cache Device")
+        placeholder: _("Select a cache device ...")
+        hint: _("Select the device that will be used as cache device.")
+        valueField: devicefile
+        textField: description
+        hasEmptyOption: true
+        value: ""
+        store:
+          proxy:
+            service: Bcache
+            get:
+              method: getCacheCandidates
+            sorters:
+              - dir: asc
+                prop: devicefile
+    buttons:
+      - template: submit
+        execute:
+          type: url
+          url: '/storage/bcache/backing'
+      - template: cancel
+        execute:
+          type: url
+          url: '/storage/bcache/backing'

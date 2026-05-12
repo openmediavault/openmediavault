@@ -1,0 +1,62 @@
+// This file is part of OpenMediaVault.
+//
+// @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
+// @author    Volker Theile <volker.theile@openmediavault.org>
+// @copyright Copyright (c) 2009-2026 Volker Theile
+//
+// OpenMediaVault is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// any later version.
+//
+// OpenMediaVault is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+@use 'sass:color';
+@use 'scss/defaults/colors' as dc;
+@use 'scss/theme';
+
+omv-login-page {
+  .background {
+    content: url('^./assets/images/login.jpg');
+    object-fit: cover;
+  }
+
+  omv-green-rain {
+    font-family: theme.$omv-font-family-monospace !important;
+    font-size: 14px;
+  }
+
+  .topbar {
+    background-color: hsla(
+      color.hue(dc.$omv-color-corporate-darker),
+      color.saturation(dc.$omv-color-corporate-darker),
+      color.lightness(dc.$omv-color-corporate-darker),
+      54%
+    );
+    backdrop-filter: blur(4px);
+
+    .logo {
+      content: url('^./assets/images/openmediavault_logo.svg');
+      width: auto;
+      height: auto;
+    }
+
+    @media only screen and (width <= 420px) {
+      .logo {
+        content: url('^./assets/images/openmediavault_logo_only.svg');
+      }
+    }
+  }
+
+  .content {
+    omv-intuition-form-page {
+      .mat-card {
+        border-color: dc.$omv-color-black-translucent;
+        border-style: solid;
+        border-width: 1px;
+      }
+    }
+  }
+}

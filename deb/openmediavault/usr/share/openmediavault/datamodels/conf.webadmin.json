@@ -1,0 +1,46 @@
+{
+	"type": "config",
+	"id": "conf.webadmin",
+	"queryinfo": {
+		"xpath": ".//webadmin",
+		"iterable": false
+	},
+	"properties": {
+		"port":{
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 65535,
+			"default": 80
+		},
+		"enablessl": {
+			"type": "boolean",
+			"default": false
+		},
+		"sslport": {
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 65535,
+			"default": 443
+		},
+		"forcesslonly": {
+			"type": "boolean",
+			"default": false
+		},
+		"sslcertificateref": {
+			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "uuidv4"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}]
+		},
+		"timeout": {
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 1440,
+			"default": 5
+		}
+	}
+}

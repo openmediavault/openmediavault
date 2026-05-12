@@ -1,0 +1,42 @@
+openmediavault-keyring (1.0.2-2) stable; urgency=low
+
+  * Install dearmored files to /usr/share/keyrings/.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 02 Jun 2023 20:59:31 +0200
+
+openmediavault-keyring (1.0.1) stable; urgency=low
+
+  * Bump compat level to 12, build depending on debhelper (>= 12)
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 23 Mar 2021 10:28:35 +0100
+
+openmediavault-keyring (1.0) stable; urgency=low
+
+  * Add new key.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 13 Jul 2016 00:57:27 +0200
+
+openmediavault-keyring (0.4) stable; urgency=low
+
+  * Put openmediavault-keyring.gpg into trusted.gpg.d.
+  * Remove key from trusted.gpg file.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Aug 2015 23:47:18 +0200
+
+openmediavault-keyring (0.3) stable; urgency=low
+
+  * Add udeb package.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 03 Aug 2014 02:05:55 +0200
+
+openmediavault-keyring (0.2) stable; urgency=low
+
+  * Fix bug in postinst.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 25 Jan 2013 18:32:29 +0100
+
+openmediavault-keyring (0.1) stable; urgency=low
+
+  * Initial release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 12 Dec 2010 20:57:17 +0200

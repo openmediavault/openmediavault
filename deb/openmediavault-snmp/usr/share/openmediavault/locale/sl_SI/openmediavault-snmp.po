@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-snmp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Miha Bezjak <miha@bezjak.info>, 2022
+# Valentin Korenjak <valentin@korenjak.si>, 2025
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-snmp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2017-09-24 18:47+0000\n"
+"Last-Translator: Valentin Korenjak <valentin@korenjak.si>, 2025\n"
+"Language-Team: Slovenian (Slovenia) (https://app.transifex.com/openmediavault/teams/14254/sl_SI/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sl_SI\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+msgid "Authentication and no privacy"
+msgstr "Avtentikacija in brez zasebnosti"
+
+msgid "Authentication and privacy"
+msgstr "Avtentikacija in zasebnost"
+
+msgid "Authentication passphrase"
+msgstr "Geslo avtentikacije"
+
+msgid "Authentication type"
+msgstr "Tip avtentikacije"
+
+msgid "Community"
+msgstr "Skupnost"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid ""
+"Contact information, e.g. name or email address of the person responsible "
+"for this system."
+msgstr ""
+"Kontaktne informacije npr. ime ali elektronski naslov osebe, ki je odgovorna"
+" za ta sistem."
+
+msgid "Enabled"
+msgstr "Omogočeno"
+
+msgid "Extra options"
+msgstr "Dodatne možnosti"
+
+msgid "Host"
+msgstr "Gostitelj"
+
+msgid "Location"
+msgstr "Lokacija"
+
+msgid "Location information, e.g. physical location of this system."
+msgstr "Informacije o lokaciji, t.j. fizična lokacija tega sistema."
+
+msgid "No authentication and no privacy"
+msgstr "Brez avtentikacije in brez zasebnosti"
+
+msgid "Port"
+msgstr "Vrata"
+
+msgid "Privacy passphrase"
+msgstr "Geslo zasebnosti"
+
+msgid "Privacy type"
+msgstr "Tip zasebnosti"
+
+msgid "SNMP"
+msgstr "SNMP"
+
+msgid "SNMP version 1/2c"
+msgstr "SNMP različica 1/2c"
+
+msgid "SNMP version 3"
+msgstr "SNMP različica 3"
+
+msgid "Security level"
+msgstr "Raven varnosti"
+
+msgid "Traps"
+msgstr "Pasti"
+
+msgid "Updated SNMP settings."
+msgstr "Posodobljene nastavitve SNMP."
+
+msgid "User name"
+msgstr "Uporabniško ime"
+
+msgid "Version"
+msgstr "Različica"

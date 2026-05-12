@@ -1,0 +1,151 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-podman package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# M@T D., 2024
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-podman\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2023-10-11 19:57+0000\n"
+"Last-Translator: M@T D., 2024\n"
+"Language-Team: French (France) (https://app.transifex.com/openmediavault/teams/14254/fr_FR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr_FR\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+msgid "Block I/O"
+msgstr ""
+
+msgid "CID"
+msgstr ""
+
+msgid "CPU %"
+msgstr ""
+
+msgid "Command"
+msgstr "Commande"
+
+msgid "Containers"
+msgstr "Conteneur"
+
+msgid "Created"
+msgstr "Créé"
+
+msgid "Digest"
+msgstr ""
+
+msgid "Do you really want to restart this container?"
+msgstr "Voulez-vous vraiment redémarrer ce conteneur ?"
+
+msgid "Do you really want to restart this pod?"
+msgstr "Voulez-vous vraiment redémarrer ce pod ?"
+
+msgid "Driver"
+msgstr ""
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Image"
+msgstr "Image"
+
+msgid "Images"
+msgstr "Images"
+
+msgid "Infra ID"
+msgstr ""
+
+msgid "Inspect"
+msgstr ""
+
+msgid "Logs"
+msgstr "Journaux"
+
+msgid "Mem %"
+msgstr ""
+
+msgid "Mem Usage / Limit"
+msgstr ""
+
+msgid "Mount Point"
+msgstr "Point de montage"
+
+msgid "Mounts"
+msgstr "Montages"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "Names"
+msgstr "Noms"
+
+msgid "Network I/O"
+msgstr ""
+
+msgid "Networks"
+msgstr "Réseaux"
+
+msgid "PIDs"
+msgstr ""
+
+msgid "Pod"
+msgstr ""
+
+msgid "Podman"
+msgstr ""
+
+msgid "Pods"
+msgstr "Pods"
+
+msgid "Ports"
+msgstr "Ports"
+
+msgid "Pull"
+msgstr ""
+
+msgid "Pull image"
+msgstr ""
+
+msgid "Repository"
+msgstr "Dépôt"
+
+msgid "Restart"
+msgstr "Redémarrer"
+
+msgid "Size"
+msgstr "Taille"
+
+msgid "Started"
+msgstr "Démarré"
+
+msgid "State"
+msgstr "État"
+
+msgid "Statistics"
+msgstr "Statistiques"
+
+msgid "Status"
+msgstr "Etat"
+
+msgid "Tag"
+msgstr "Étiquette"
+
+msgid "The tag of the image to pull."
+msgstr ""
+
+msgid "Updated Podman settings."
+msgstr ""
+
+msgid "Used"
+msgstr "Utilisé"
+
+msgid "Volumes"
+msgstr "Volume"

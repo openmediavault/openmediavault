@@ -1,0 +1,89 @@
+[{
+	"type": "rpc",
+	"id": "rpc.fstab.set",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"fsname": {
+				"type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "fsuuid"
+				},{
+					"type": "string",
+					"format": "devicefile"
+				},{
+					"type": "string",
+					"format": "dirpath"
+				}],
+				"required": true
+			},
+			"dir": {
+				"type": "string",
+				"required": true
+			},
+			"type": {
+				"type": "string",
+				"required": true
+			},
+			"opts": {
+				"type": "string",
+				"required": true
+			},
+			"freq": {
+				"type": "integer",
+				"required": true
+			},
+			"passno": {
+				"type": "integer",
+				"enum": [ 0, 1, 2 ],
+				"required": true
+			},
+			"usagewarnthreshold": {
+				"type": "integer",
+				"required": false
+			},
+			"comment": {
+				"type": "string",
+				"required": false
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.fstab.getbyfsname",
+	"params": {
+		"type": "object",
+		"properties": {
+			"fsname": {
+				"type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "fsuuid"
+				},{
+					"type": "string",
+					"format": "devicefile"
+				}],
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.fstab.getbydir",
+	"params": {
+		"type": "object",
+		"properties": {
+			"dir": {
+				"type": "string",
+				"format": "dirpath",
+				"required": true
+			}
+		}
+	}
+}]

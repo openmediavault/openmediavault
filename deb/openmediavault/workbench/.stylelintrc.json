@@ -1,0 +1,17 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "rules": {
+    "color-hex-length": "long",
+    "block-no-empty": null,
+    "no-empty-source": null,
+    "no-invalid-position-at-import-rule": null,
+    "selector-pseudo-element-no-unknown": [
+      true,
+      {
+        "ignorePseudoElements": ["ng-deep"]
+      }
+    ],
+    "scss/comment-no-empty": null,
+    "scss/at-extend-no-missing-placeholder": null
+  }
+}

@@ -1,0 +1,28 @@
+# EditorConfig is awesome: http://EditorConfig.org
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+end_of_line = lf
+
+[*.{js,php,inc,sh,xml,json,html,css,scss}]
+indent_size = 4
+indent_style = tab
+
+[*.py]
+indent_size = 4
+
+[*.md]
+max_line_length = off
+trim_trailing_whitespace = false
+
+[*.j2]
+max_line_length = off
+
+[{*.mk,Makefile}]
+indent_size = 4
+indent_style = tab

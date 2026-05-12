@@ -1,0 +1,49 @@
+{%- set check_interval = salt['pillar.get']('default:OMV_MONIT_CHECK_INTERVAL', '30') -%}
+{%- set check_start_delay = salt['pillar.get']('default:OMV_MONIT_CHECK_START_DELAY', '30') -%}
+{%- set logfile = salt['pillar.get']('default:OMV_MONIT_LOGFILE', 'syslog facility log_daemon') -%}
+{%- set idfile = salt['pillar.get']('default:OMV_MONIT_IDFILE', '/var/lib/monit/id') -%}
+{%- set statefile = salt['pillar.get']('default:OMV_MONIT_STATEFILE', '/var/lib/monit/state') -%}
+{%- set unixsocket = salt['pillar.get']('default:OMV_MONIT_UNIXSOCKET', '/run/monit.sock') -%}
+{%- set eventqueue_basedir = salt['pillar.get']('default:OMV_MONIT_EVENTQUEUE_BASEDIR', '/var/lib/monit/events') -%}
+{%- set eventqueue_slots = salt['pillar.get']('default:OMV_MONIT_EVENTQUEUE_SLOTS', '100') -%}
+{%- set include_dir = salt['pillar.get']('default:OMV_MONIT_CONFIG_INCLUDE_DIR', '/etc/monit/conf.d') -%}
+{%- set email_timeout = salt['pillar.get']('default:OMV_MONIT_EMAIL_TIMEOUT', '5') -%}
+{%- set email_alert_noevents = salt['pillar.get']('default:OMV_MONIT_EMAIL_ALERT_NOTEVENTS', 'action, instance') -%}
+{{ pillar['headers']['multiline'] }}
+set daemon {{ check_interval }} with start delay {{ check_start_delay }}
+set logfile {{ logfile }}
+set idfile {{ idfile }}
+set statefile {{ statefile }}
+
+set httpd unixsocket {{ unixsocket }}
+    allow localhost
+
+set eventqueue
+    basedir {{ eventqueue_basedir }}
+    slots {{ eventqueue_slots }}
+
+{%- if email_config.enable | to_bool  %}
+set mailserver 127.0.0.1
+    with timeout {{ email_timeout }} seconds
+set mail-format {
+    from: {{ email_config.sender }}
+    subject: Monitoring $ACTION -- $EVENT $SERVICE
+    message:
+The system monitoring needs your attention.
+
+Host:        $HOST
+Date:        $DATE
+Service:     $SERVICE
+Event:       $EVENT
+Description: $DESCRIPTION
+
+This triggered the monitoring system to: $ACTION
+
+—
+You have received this notification because you have enabled the system monitoring on this host.
+To change your notification preferences, please go to the 'System | Notification' or 'System | Monitoring' page in the web interface.
+}
+set alert {{ email_config.primaryemail }} but not on { {{ email_alert_noevents }} }
+{% endif %}
+
+include {{ include_dir }}/*

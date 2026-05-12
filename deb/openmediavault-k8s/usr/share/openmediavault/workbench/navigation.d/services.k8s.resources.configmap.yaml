@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.k8s.resources.configmap"
+  text: _("Config Maps")
+  icon: "mdi:text"
+  url: "/services/k8s/resources/configmap"

@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "network.proxy"
+  position: 30
+  text: _("Proxy")
+  icon: "mdi:router-network"
+  url: "/network/proxy"

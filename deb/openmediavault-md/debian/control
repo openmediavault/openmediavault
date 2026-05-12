@@ -1,0 +1,16 @@
+Source: openmediavault-md
+Section: admin
+XB-Plugin-Section: filesystems
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>= 12), gettext
+Standards-Version: 3.9.6
+Homepage: https://www.openmediavault.org
+
+Package: openmediavault-md
+Architecture: all
+Depends: openmediavault (>= 8.0.7), mdadm
+Priority: optional
+Description: openmediavault Linux MD (Software RAID) plugin
+ This plugin is used to create, manage, and monitor Linux MD (Multiple
+ Device) devices.

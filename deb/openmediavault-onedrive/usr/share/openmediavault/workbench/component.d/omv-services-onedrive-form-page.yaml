@@ -1,0 +1,164 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-onedrive-form-page
+  type: formPage
+  config:
+    request:
+      service: OneDrive
+      get:
+        method: get
+      post:
+        method: set
+    hints:
+      - type: info
+        text: _("After enabling and deploying this service the first time please run the command <em>omv-onedrive-auth</em> as <em>root</em> user in the CLI to authenticate the application in Microsoft OneDrive.")
+        dismissible: true
+        stateId: c563faed-4331-493b-937d-20489be8c203
+      - type: info
+        text: _("Use the <em>omv-onedrive</em> command in the CLI to perform additional actions according to the documentation of the OneDrive Linux client.")
+        dismissible: true
+        stateId: 88ac9240-3e8a-4372-8a63-74baa4276cf2
+    fields:
+      - type: checkbox
+        name: enable
+        label: _("Enabled")
+        value: false
+      - type: sharedFolderSelect
+        name: sharedfolderref
+        label: _("Shared folder")
+        hint: _("The location to which the files are synchronised.")
+        hasEmptyOption: true
+        value: ""
+        validators:
+          requiredIf:
+            operator: truthy
+            arg0:
+              prop: enable
+      - type: select
+        name: username
+        label: _("User")
+        hint: _("The synchronised files and directories are owned by this user.")
+        value: "onedrive"
+        valueField: name
+        textField: name
+        store:
+          proxy:
+            service: UserMgmt
+            get:
+              method: enumerateAllUsers
+              params:
+                detail: basic
+          sorters:
+            - dir: asc
+              prop: name
+        validators:
+          requiredIf:
+            operator: truthy
+            arg0:
+              prop: enable
+      - type: select
+        name: replicationmode
+        label: _("Replication mode")
+        hint: _("<ul><li>Full - Replicate changes from and to OneDrive.</li><li>Download only - Replicate the OneDrive online state locally, by only downloading changes from OneDrive. Do not upload local changes to OneDrive.</li><li>Upload only - Replicate the local state to OneDrive, by only uploading local changes to OneDrive. Do not download changes from OneDrive.</li></ul>")
+        value: "updown"
+        store:
+          data:
+            - - "updown"
+              - _("Full")
+            - - "down"
+              - _("Download only")
+            - - "up"
+              - _("Upload only")
+      - type: select
+        name: monitorinterval
+        label: _("Monitor interval")
+        hint: _("The wait time between each sync operation.")
+        value: 300
+        store:
+          data:
+            - - 300
+              - _("5 minutes")
+            - - 600
+              - _("10 minutes")
+            - - 900
+              - _("15 minutes")
+            - - 1800
+              - _("30 minutes")
+            - - 3600
+              - _("60 minutes")
+            - - 21600
+              - _("6 hours")
+            - - 43200
+              - _("12 hours")
+            - - 86400
+              - _("24 hours")
+      - type: select
+        name: ratelimit
+        label: _("Rate limit")
+        hint: _("Upload/Download rate limit.")
+        value: 0
+        store:
+          data:
+            - - 0
+              - _("Disabled")
+            - - 131072
+              - _("128 KiB/s")
+            - - 262144
+              - _("256 KiB/s")
+            - - 524288
+              - _("512 KiB/s")
+            - - 1048576
+              - _("1 MiB/s")
+            - - 10485760
+              - _("10 MiB/s")
+            - - 104857600
+              - _("100 MiB/s")
+      - type: checkbox
+        name: localfirst
+        label: _("Local first")
+        hint: _("Replicate local state first, before downloading changes from OneDrive.")
+        value: false
+        modifiers: [
+          {
+            type: 'disabled',
+            constraint: { operator: 'ne', arg0: { prop: 'replicationmode' }, arg1: 'updown' }
+          }
+        ]
+      - type: checkbox
+        name: cleanuplocalfiles
+        label: _("Clean up local files")
+        hint: _("Clean up local files that have been removed online.")
+        value: false
+        modifiers: [
+          {
+            type: 'disabled',
+            constraint: { operator: 'ne', arg0: { prop: 'replicationmode' }, arg1: 'down' }
+          }
+        ]
+      - type: checkbox
+        name: noremotedelete
+        label: _("No remote delete")
+        hint: _("Do not delete local file deletions from OneDrive.")
+        value: false
+        modifiers: [
+          {
+            type: 'disabled',
+            constraint: { operator: 'ne', arg0: { prop: 'replicationmode' }, arg1: 'up' }
+          }
+        ]
+      - type: checkbox
+        name: skipdotfiles
+        label: _("Skip dotfiles")
+        hint: _("Skip dot files and folders from syncing.")
+        value: false
+      - type: textarea
+        name: extraoptions
+        label: _("Extra options")
+        value: ""
+    buttons:
+      - template: cancel
+        execute:
+          type: url
+          url: "/services"
+      - template: submit

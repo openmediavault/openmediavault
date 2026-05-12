@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/k8s/snapshots"
+  title: _("Snapshots")
+  component: omv-services-k8s-snapshots-datatable-page

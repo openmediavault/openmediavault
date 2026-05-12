@@ -1,0 +1,48 @@
+version: "1.0"
+type: component
+data:
+  name: omv-storage-lvm-vg-create-form-page
+  type: formPage
+  config:
+    request:
+      service: LogicalVolumeMgmt
+      post:
+        method: createVolumeGroup
+    fields:
+      - type: textInput
+        name: name
+        label: _("Name")
+        value: ""
+        hint: _("The name of the volume group.")
+        validators:
+          required: true
+          pattern:
+            pattern: "^[a-zA-Z0-9+_\\.\\-]+$"
+            errorData: _("Invalid name")
+      - type: select
+        name: devices
+        label: _("Devices")
+        placeholder: _("Select devices ...")
+        multiple: true
+        value: ""
+        valueField: devicefile
+        textField: description
+        store:
+          proxy:
+            service: LogicalVolumeMgmt
+            get:
+              method: getVolumeGroupCandidates
+          sorters:
+            - dir: asc
+              prop: devicefile
+        validators:
+          required: true
+    buttons:
+      - template: submit
+        execute:
+          type: url
+          url: "/storage/lvm/vgs"
+      - template: cancel
+        execute:
+          type: url
+          url: "/storage/lvm/vgs"

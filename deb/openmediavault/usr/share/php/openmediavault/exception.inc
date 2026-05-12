@@ -1,0 +1,40 @@
+<?php
+/**
+ * This file is part of OpenMediaVault.
+ *
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @author    Volker Theile <volker.theile@openmediavault.org>
+ * @copyright Copyright (c) 2009-2026 Volker Theile
+ *
+ * OpenMediaVault is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * OpenMediaVault is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
+ */
+namespace OMV;
+
+/**
+ * \em Exception is the base class for nearly all exceptions of this framework.
+ * @ingroup api
+ */
+class Exception extends BaseException {
+	public function __construct() {
+		$code = 0;
+		$args = func_get_args();
+		$arg0 = array_shift($args);
+		if (TRUE === is_int($arg0)) {
+			$code = $arg0;
+			$arg0 = array_shift($args);
+		}
+		$message = vsprintf($arg0, $args);
+		parent::__construct($message, $code);
+	}
+}

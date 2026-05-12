@@ -1,0 +1,101 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-k8s-apply-tabs-page
+  type: tabsPage
+  config:
+    tabs:
+      - type: form
+        label: _("YAML")
+        config:
+          request:
+            service: K8s
+            get:
+              method: getRecipe
+              params:
+                id: "{{ _routeQueryParams.recipe }}"
+              onlyIf: "{{ _routeQueryParams | keys | includes('recipe') }}"
+            post:
+              method: applyRecipe
+          fields:
+            - type: codeEditor
+              name: manifest
+              label: _("Manifest")
+              hint: _("The manifest to apply.")
+              value: ""
+              lineNumbers: true
+              language: yaml
+              validators:
+                required: true
+          buttons:
+            - template: submit
+              text: _("Apply")
+            - template: cancel
+              execute:
+                type: url
+                url: "/services/k8s"
+      - type: form
+        label: _("Ingredients")
+        config:
+          request:
+            service: k8s
+            get:
+              method: getManifestIngredients
+          fields:
+            - type: hint
+              hintType: tip
+              text: _("The following placeholders can be used in recipes to get access to global system information and the configuration database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id, uuid=NULL)</li></ul>You have to denote placeholders with double-curly braces. An overview of additional available filters can be found <a href='https://twig.symfony.com/doc/filters/index.html' target='_blank'>here</a>.")
+            - type: datatable
+              name: sharedfolders
+              label: _("Shared Folders")
+              hasSearchField: true
+              limit: 5
+              columns:
+                - name: _("Name")
+                  prop: name
+                  flexGrow: 1
+                  cellTemplateName: copyToClipboard
+                - name: _("Absolute Path")
+                  prop: absdirpath
+                  flexGrow: 1
+                  cellTemplateName: copyToClipboard
+                - name: _("Tags")
+                  prop: comment
+                  cellTemplateName: chip
+                  cellTemplateConfig:
+                    separator: ','
+                  flexGrow: 1
+                  sortable: true
+            - type: datatable
+              name: users
+              label: _("Users")
+              hasSearchField: true
+              limit: 5
+              columns:
+                - name: _("Name")
+                  prop: name
+                  flexGrow: 1
+                  cellTemplateName: copyToClipboard
+                - name: _("UID")
+                  prop: uid
+                  flexGrow: 1
+                  cellTemplateName: copyToClipboard
+            - type: datatable
+              name: groups
+              label: _("Groups")
+              hasSearchField: true
+              limit: 5
+              columns:
+                - name: _("Name")
+                  prop: name
+                  flexGrow: 1
+                  cellTemplateName: copyToClipboard
+                - name: _("GID")
+                  prop: gid
+                  flexGrow: 1
+                  cellTemplateName: copyToClipboard
+          buttons:
+            - template: cancel
+              execute:
+                type: url
+                url: "/services/k8s"

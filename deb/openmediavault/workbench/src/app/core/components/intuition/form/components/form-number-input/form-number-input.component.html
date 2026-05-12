@@ -1,0 +1,46 @@
+<mat-form-field class="omv-flex-1"
+                [formGroup]="formGroup">
+  <div *ngIf="config.icon"
+       matPrefix>
+    <mat-icon [svgIcon]="config.icon"></mat-icon>&nbsp;
+  </div>
+  <mat-label>{{ config.label | transloco | template:pageContext }}</mat-label>
+  <input matInput
+         type="number"
+         [formControlName]="config.name"
+         [placeholder]="config.placeholder"
+         [readonly]="config.readonly"
+         [autofocus]="config.autofocus"
+         [autocomplete]="config.autocomplete"
+         [step]="config.step"
+         [required]="config.validators?.required"
+         [min]="config.validators?.min"
+         [max]="config.validators?.max">
+  <mat-icon *ngIf="config.hasCopyToClipboardButton"
+            matSuffix
+            matTooltip="{{ 'Copy to clipboard' | transloco }}"
+            [attr.aria-label]="'Copy to clipboard' | transloco"
+            (click)="onCopyToClipboard()"
+            svgIcon="{{ icon.copy }}">
+  </mat-icon>
+  <mat-error *ngIf="formGroup.invalid">
+    <span *ngIf="formGroup.hasError('required', config.name)">
+      This field is required.
+    </span>
+    <span *ngIf="formGroup.hasError('min', config.name)">
+      The value must be at least {{ config.validators.min }}.
+    </span>
+    <span *ngIf="formGroup.hasError('max', config.name)">
+      The value cannot exceed {{ config.validators.max }}.
+    </span>
+    <span *ngIf="formGroup.hasError('constraint', config.name)">
+      {{ formGroup.getError('constraint', config.name) | transloco }}
+    </span>
+    <span *ngIf="formGroup.hasError('pattern', config.name)">
+      {{ formGroup.getError('pattern', config.name) | transloco }}
+    </span>
+  </mat-error>
+  <mat-hint *ngIf="config.hint?.length > 0"
+            [innerHTML]="config.hint | transloco | template:pageContext | sanitizeHtml">
+  </mat-hint>
+</mat-form-field>

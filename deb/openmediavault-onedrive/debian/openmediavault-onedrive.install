@@ -1,0 +1,3 @@
+usr/sbin/* usr/sbin/
+usr/share/openmediavault/* usr/share/openmediavault/
+srv/* srv/

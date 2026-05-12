@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.ftp.tls-settings"
+  position: 20
+  text: _("SSL/TLS Settings")
+  icon: tune
+  url: "/services/ftp/tls-settings"

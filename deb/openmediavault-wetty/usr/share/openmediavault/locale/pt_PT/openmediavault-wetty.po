@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-wetty package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2022
+# Nelson Rosado <nelsontrosado@gmail.com>, 2022
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-wetty\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2022-03-22 21:34+0000\n"
+"Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>, 2022\n"
+"Language-Team: Portuguese (Portugal) (https://app.transifex.com/openmediavault/teams/14254/pt_PT/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_PT\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+msgid "Certificate"
+msgstr "Certificado"
+
+msgid "Enabled"
+msgstr "Ativar"
+
+msgid "Open UI"
+msgstr ""
+
+msgid "Port"
+msgstr "Porta"
+
+msgid "Port to listen on."
+msgstr "Porta para escutar."
+
+msgid "The SSL certificate."
+msgstr "O certificado SSL."
+
+msgid "Updated WeTTY settings."
+msgstr ""
+
+msgid "WeTTY"
+msgstr ""

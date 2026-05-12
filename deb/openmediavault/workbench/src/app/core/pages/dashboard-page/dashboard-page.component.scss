@@ -1,0 +1,29 @@
+@use 'scss/defaults/variables' as dv;
+
+.omv-dashboard-page-container {
+  margin: dv.$omv-margin;
+
+  .widgets-container {
+    box-sizing: border-box;
+    column-count: 1;
+    column-gap: dv.$omv-margin * 0.5;
+  }
+
+  @media only screen and (width >= 600px) {
+    .widgets-container {
+      column-count: 2;
+    }
+  }
+
+  @media only screen and (width >= 1280px) {
+    .widgets-container {
+      column-count: 3;
+    }
+  }
+
+  @media only screen and (width >= 1920px) {
+    .widgets-container {
+      column-count: 4;
+    }
+  }
+}

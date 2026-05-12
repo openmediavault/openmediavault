@@ -1,0 +1,455 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-k8s package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kostas Moho, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-k8s\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-26 11:58+0100\n"
+"PO-Revision-Date: 2024-03-09 09:44+0000\n"
+"Last-Translator: Kostas Moho, 2026\n"
+"Language-Team: Greek (Greece) (https://app.transifex.com/openmediavault/teams/14254/el_GR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Absolute Path"
+msgstr "Πλήρης Διαδρομή"
+
+msgid "Access Modes"
+msgstr "Καταστάσεις Πρόσβασης"
+
+msgid "App Version"
+msgstr "Έκδοση Εφαρμογής"
+
+msgid "Apply"
+msgstr "Εφαρμογή"
+
+msgid "Architecture"
+msgstr "Αρχιτεκτονική"
+
+msgid "Available"
+msgstr "Διαθέσιμο"
+
+msgid "Capacity"
+msgstr "Χωρητικότητα"
+
+msgid "Certificate"
+msgstr "Πιστοποιητικό"
+
+msgid "Certificates"
+msgstr "Πιστοποιητικά"
+
+msgid "Chart"
+msgstr "Διάγραμμα"
+
+msgid "Check for new recipes"
+msgstr "Έλεγχος για νέες συνταγές"
+
+msgid "Class"
+msgstr "Τάξη"
+
+msgid "Cluster IP"
+msgstr "ΙΡ Συστάδας"
+
+msgid "Compressed"
+msgstr "Συμπιεσμένο"
+
+msgid "Config Maps"
+msgstr "Χάρτες Ρυθμίσεων"
+
+msgid "Copy to clipboard"
+msgstr "Αντιγραφή στο πρόχειρο"
+
+msgid "Copy token"
+msgstr "Αντιγραφή τεκμηρίου."
+
+msgid "Count"
+msgstr "Μέτρηση"
+
+msgid "Created"
+msgstr "Δημιουργία"
+
+msgid "Dashboard"
+msgstr "Ταμπλό"
+
+msgid "Data"
+msgstr "Δεδομένα"
+
+msgid "Datastore"
+msgstr "Αποθετήριο"
+
+msgid "Date & Time"
+msgstr "Ημερομηνία & Ώρα"
+
+msgid "Depends"
+msgstr "Εξαρτήσεις"
+
+msgid "Deployments"
+msgstr "Ενεργοποιήσεις"
+
+msgid "Describe"
+msgstr "Περιγραφή"
+
+msgid "Description"
+msgstr "Περιγραφή"
+
+msgid "Do you really want to restore this snapshot?"
+msgstr "Να αποκατασταθεί αυτό το στιγμιότυπο;"
+
+msgid "Download"
+msgstr "Λήψη"
+
+msgid ""
+"Downloading the kubeconfig file to the local system enables secure remote "
+"management of the Kubernetes cluster using command-line tools like kubectl."
+msgstr ""
+"Η λήψη του αρχείου kubeconfig στο τοπικό σύστημα επιτρέπει την ασφαλή "
+"απομακρυσμένη διαχείριση της συστάδας Kubernetes με την χρήση εργαλείων της "
+"γραμμής εντολών όπως το kubectl."
+
+msgid "Enabled"
+msgstr "Ενεργό"
+
+msgid "Events"
+msgstr "Συμβάντα"
+
+msgid "Expose"
+msgstr "Εμφάνιση"
+
+msgid "Exposed"
+msgstr "Εμφάνιση"
+
+msgid "Exposed port"
+msgstr "Εμφανισμένη θύρα"
+
+msgid "External IP"
+msgstr "Εξωτερική ΙΡ"
+
+msgid "Extra configuration"
+msgstr "Επιπλέον ρυθμίσεις"
+
+msgid "Failed"
+msgstr "Απέτυχε"
+
+msgid "First seen"
+msgstr "Πρώτη εμφάνιση"
+
+msgid "GID"
+msgstr "GID"
+
+msgid "Groups"
+msgstr "Ομάδες"
+
+msgid "Helm Charts"
+msgstr "Διαγράμματα Πλοήγησης"
+
+msgid "Homepage"
+msgstr "Αρχική Σελίδα"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Image"
+msgstr "Εικόνα"
+
+msgid "Images"
+msgstr "Εικόνες"
+
+msgid "Import"
+msgstr "Εισαγωγή"
+
+msgid "Ingredients"
+msgstr "Συστατικά"
+
+msgid "Ingress Routes"
+msgstr "Διαδρομές Εισόδου"
+
+msgid "Ingresses"
+msgstr "Είσοδοι"
+
+msgid "Job"
+msgstr "Εργασία"
+
+msgid "Kubeconfig"
+msgstr "Kubeconfig"
+
+msgid "Kubernetes"
+msgstr "Kubernetes"
+
+msgid "Kubernetes - Pods"
+msgstr "Kubernetes - Κάψουλες"
+
+msgid "Kubernetes - Resources"
+msgstr "Kubernetes - Πόροι"
+
+msgid "Labels"
+msgstr "Ετικέτες"
+
+msgid "Last seen"
+msgstr "Τελευταία εμφάνιση"
+
+msgid "Load Balancer"
+msgstr "Εξισορροπητής Φόρτου"
+
+msgid "Logs"
+msgstr "Καταγραφές"
+
+msgid "Manifest"
+msgstr "Δήλωση"
+
+msgid "Message"
+msgstr "Μήνυμα"
+
+msgid "Monitoring - Kubernetes"
+msgstr "Επίβλεψη - Kubernetes"
+
+msgid "Name"
+msgstr "Όνομα"
+
+msgid "Namespace"
+msgstr "Χώρος ονομάτων"
+
+msgid "Namespaces"
+msgstr "Χώροι ονομάτων"
+
+msgid "NodePort IP"
+msgstr "NodePort IP"
+
+msgid "Normal"
+msgstr "Κανονικό"
+
+msgid "Object"
+msgstr "Αντικείμενο"
+
+msgid "Open UI"
+msgstr "Open UI"
+
+msgid "PV"
+msgstr "PV"
+
+msgid "PVC"
+msgstr "PVC"
+
+msgid "Pending"
+msgstr "Εκκρεμότητες"
+
+msgid "Persistent Volume Claims"
+msgstr "Αξιώσεις Μόνιμων Τόμων"
+
+msgid "Persistent Volumes"
+msgstr "Μόνιμοι Τόμοι"
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr "Αναμείνατε για δημιουργία του στιγμιότυπου ..."
+
+msgid "Please wait, the snapshot will be restored ..."
+msgstr "Αναμείνατε για επαναφορά του στιγμιότυπου ..."
+
+msgid "Pods"
+msgstr "Κάψουλες"
+
+msgid "Port"
+msgstr "Θύρα"
+
+msgid "Ports"
+msgstr "Θύρες"
+
+msgid "Protocol"
+msgstr "Πρωτόκολλο"
+
+msgid "README"
+msgstr "README"
+
+msgid "Ready"
+msgstr "Έτοιμο"
+
+msgid "Reason"
+msgstr "Αιτία"
+
+msgid "Recipe Information"
+msgstr "Πληροφορίες Συνταγής"
+
+msgid "Recipe Version"
+msgstr "Έκδοση Συνταγής"
+
+msgid "Recipes"
+msgstr "Συνταγές"
+
+msgid "Reclaim policy"
+msgstr "Πολιτική επανάκτησης"
+
+msgid ""
+"Refer to the values.yaml file in the Traefik Helm chart to see what "
+"configuration options are available."
+msgstr ""
+"Στο αρχείο values.yaml του πίνακα Traefik Helm αναφέρονται οι διαθέσιμες "
+"επιλογές των ρυθμίσεων."
+
+msgid "Repository"
+msgstr "Αποθετήριο"
+
+msgid "Resources"
+msgstr "Πόροι"
+
+msgid "Restore"
+msgstr "Αποκατάσταση"
+
+msgid "Running"
+msgstr "Εκτελείται"
+
+msgid "SQLite"
+msgstr "SQLite"
+
+msgid "Secrets"
+msgstr "Μυστικά"
+
+msgid "Section"
+msgstr "Ενότητα"
+
+msgid "Services"
+msgstr "Υπηρεσίες"
+
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+msgid "Shared Folders"
+msgstr "Κοινόχρηστοι Φάκελοι"
+
+msgid "Show README"
+msgstr "Εμφάνιση README"
+
+msgid "Show the number of pods per status phase."
+msgstr "Εμφάνιση του αριθμού των καψουλών ανά φάση κατάστασης"
+
+msgid "Show the total number of several resources."
+msgstr "Εμφάνιση του συνολικού αριθμού διάφορων πόρων"
+
+msgid "Size"
+msgstr "Μέγεθος"
+
+msgid "Snapshots"
+msgstr "Στιγμιότυπα"
+
+msgid "Source"
+msgstr "Πηγή"
+
+msgid "Stateful Sets"
+msgstr "Ομάδες Καταστάσεων"
+
+msgid "Status"
+msgstr "Κατάσταση"
+
+msgid "Storage Class"
+msgstr "Τάξη Αποθήκευσης"
+
+msgid "Succeeded"
+msgstr "Επιτυχημένο"
+
+msgid "Tag"
+msgstr "Ετικέτα"
+
+msgid "Tags"
+msgstr "Ετικέτες"
+
+msgid "Target Namespace"
+msgstr "Σκοπούμενος Χώρος Ονομάτων"
+
+msgid ""
+"The SSL certificate used by the LoadBalancer service. If not set, a self-"
+"signed certificate from cert-manager is used."
+msgstr ""
+"Το πιστοποιητικό SSL που χρησιμοποιείται από την υπηρεσία του Εξισορροπητή "
+"Φόρτου. Αν δεν οριστεί, τότε θα χρησιμοποιείται ένα αυτοσχέδιο πιστοποιητικό"
+" από τον cert-manager."
+
+msgid ""
+"The datastore used by the Kubernetes cluster. SQLite is recommended for "
+"single-node setups and SBCs with slow disks, while etcd is recommended for "
+"high-availability setups with multiple nodes."
+msgstr ""
+"Το αποθετήριο της συστάδας Kubernetes. Το SQLite προτείνεται για μεμονωμένες"
+" υλοποιήσεις και αργούς δίσκους, ενώ το etcd προτείνεται για υλοποιήσεις "
+"πολλαπλών κόμβων υψηλής διαθεσιμότητας."
+
+msgid "The field should only contain the characters a-z, 0-9 and -."
+msgstr "Αυτό το πεδίο πρέπει να περιέχει μόνο τους χαρακτήρες a-z, 0-9 και -."
+
+msgid ""
+"The following placeholders can be used in recipes to get access to global "
+"system information and the configuration "
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
+"braces. An overview of additional available filters can be found <a "
+"href='https://twig.symfony.com/doc/filters/index.html' "
+"target='_blank'>here</a>."
+msgstr ""
+"Οι ακόλουθοι συμβολισμοί μπορούν να χρησιμοποιηθούν σε συνταγές για να "
+"δώσουν πρόσβαση σε γενικές πληροφορίες συστήματος και διαμόρφωσης : "
+"<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>Οι συμβολισμοί πρέπει να υποδηλώνονται με διπλές "
+"αγκύλες. Μια σύνοψη των επιπλέον διαθέσιμων φίλτρων βρίσκεται <a "
+"href='https://twig.symfony.com/doc/filters/index.html' "
+"target='_blank'>εδώ</a>."
+
+msgid "The location where to store etcd on-demand snapshots."
+msgstr "Η θέση αποθήκευσης των αιτούμενων στιγμιοτύπων etcd."
+
+msgid "The manifest to apply."
+msgstr "Η δήλωση προς εφαρμογή."
+
+msgid "The snapshot was created successfully."
+msgstr "Το στιγμιότυπο δημιουργήθηκε επιτυχώς"
+
+msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
+msgstr "Το στιγμιότυπο {{ spec.snapshotName }} αποκαταστάθηκε επιτυχώς."
+
+msgid "The token to authenticate to the Kubernetes Dashboard."
+msgstr "Το τεκμήριο για την πιστοποίηση στο Ταμπλώ του Kubernetes."
+
+msgid "Type"
+msgstr "Τύπος"
+
+msgid "UID"
+msgstr "UID"
+
+msgid "UUID"
+msgstr "UUID"
+
+msgid "Unknown"
+msgstr "Άγνωστο"
+
+msgid "Up-to-date"
+msgstr "Ενημερωμένο"
+
+msgid "Updated Kubernetes settings."
+msgstr "Ενημέρωση ρυθμίσεων Kubernetes."
+
+msgid "Users"
+msgstr "Χρήστες"
+
+msgid "Version"
+msgstr "Έκδοση"
+
+msgid "View"
+msgstr "Προβολή"
+
+msgid "Volume"
+msgstr "Τόμος"
+
+msgid "Warning"
+msgstr "Προειδοποίηση"
+
+msgid "YAML"
+msgstr "YAML"
+
+msgid "etcd"
+msgstr "etcd"

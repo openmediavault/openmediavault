@@ -1,0 +1,142 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-nut package.
+# 
+# Translators:
+# Dung Ba Minh, 2026
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-03-17 01:51+0000\n"
+"Last-Translator: Dung Ba Minh, 2026\n"
+"Language-Team: Vietnamese (Viet Nam) (http://app.transifex.com/openmediavault/openmediavault/language/vi_VN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: vi_VN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
+msgstr "'Standalone' cho UPS cục bộ, 'Netclient' cho bộ lưu điện từ xa trên một máy chủ NUT."
+
+msgid "Charge"
+msgstr "Mức sạc"
+
+msgid "Comment"
+msgstr "Bình luận"
+
+msgid "Date & Time"
+msgstr "Ngày và giờ"
+
+msgid "Defines when the shutdown is initiated."
+msgstr "Xác định khi nào quá trình tắt máy được bắt đầu."
+
+msgid "Driver configuration directives"
+msgstr "Chỉ thị cấu hình trình điều khiển"
+
+msgid "Enable remote monitoring of the local connected UPS."
+msgstr "Kích hoạt giám sát từ xa cho bộ lưu điện được kết nối cục bộ."
+
+msgid "Enabled"
+msgstr "Đã kích hoạt"
+
+msgid "Identifier"
+msgstr "Mã định danh"
+
+msgid "Invalid identifier"
+msgstr "Mã định danh không hợp lệ"
+
+msgid "Load"
+msgstr "Mức tải"
+
+msgid "Message"
+msgstr "Tin nhắn"
+
+msgid "Mode"
+msgstr "Chế độ"
+
+msgid "Netclient"
+msgstr ""
+
+msgid "Netclient hostname"
+msgstr ""
+
+msgid "Netclient password"
+msgstr ""
+
+msgid "Netclient user name"
+msgstr ""
+
+msgid "PID"
+msgstr "PID"
+
+msgid "Password"
+msgstr "Mật khẩu"
+
+msgid "Powervalue"
+msgstr "Giá trị năng lượng"
+
+msgid "Program"
+msgstr "Chương trình"
+
+msgid "Remote monitoring"
+msgstr "Giám sát từ xa"
+
+msgid "Service disabled"
+msgstr "Dịch vụ đã bị vô hiệu hóa"
+
+msgid "Shutdown mode"
+msgstr "Chế độ tắt nguồn"
+
+msgid "Shutdown timer"
+msgstr "Thời gian tắt nguồn"
+
+msgid "Standalone"
+msgstr ""
+
+msgid "Temperature"
+msgstr "Nhiệt độ"
+
+msgid "The name used to uniquely identify your UPS on local or remote system."
+msgstr "Tên được sử dụng để định danh duy nhất cho bộ lưu điện của bạn trên hệ thống cục bộ hoặc từ xa."
+
+msgid ""
+"The number of power supplies that the UPS feeds on this system (usually 1), "
+"refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
+"target='_blank'>upsmon.conf(5)</a> for more information."
+msgstr ""
+
+msgid ""
+"The time in seconds until shutdown is initiated. If the UPS happens to come "
+"back before the time is up the shutdown is canceled."
+msgstr "Thời gian tính bằng giây chờ cho đến khi lệnh tắt máy được kích hoạt. Nếu nguồn điện của bộ lưu điện phục hồi trước khi hết thời gian này, lệnh tắt máy sẽ bị hủy bỏ."
+
+msgid ""
+"To get more information how to configure your UPS please check the Network "
+"UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
+"target='_blank'>documentation</a>."
+msgstr ""
+
+msgid "UPS"
+msgstr "Bộ lưu điện"
+
+msgid "UPS goes on battery"
+msgstr "Bộ lưu điện chuyển sang chế độ dùng pin"
+
+msgid "UPS reaches low battery"
+msgstr "Bộ lưu điện pin yếu"
+
+msgid "Updated UPS settings."
+msgstr "Đã cập nhật cài đặt bộ lưu điện"
+
+msgid "Used for remote authentication."
+msgstr "Được sử dụng để xác thực từ xa."
+
+msgid "User name"
+msgstr "Tên người dùng"
+
+msgid "Voltage"
+msgstr "Hiệu điện thế"

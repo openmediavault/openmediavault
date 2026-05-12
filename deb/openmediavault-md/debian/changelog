@@ -1,0 +1,81 @@
+openmediavault-md (8.0.4-1) stable; urgency=medium
+
+  * Issue #2144: Colorize state of RAID devices in dashboard widget.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 15 Mar 2026 20:56:40 +0100
+
+openmediavault-md (8.0.3-1) stable; urgency=medium
+
+  * Enable mdmonitor.service only and let systemd/udev start it on demand.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 04 Feb 2026 23:29:20 +0100
+
+openmediavault-md (8.0.2-1) stable; urgency=medium
+
+  * Show device file in dashboard widget if name is empty.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 21 Jan 2026 19:54:09 +0100
+
+openmediavault-md (8.0.1-1) stable; urgency=medium
+
+  * Adapt to Debian 13 defaults.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 02 Jan 2026 22:36:22 +0100
+
+openmediavault-md (8.0-6) stable; urgency=medium
+
+  * Adapt to openmediavault 8.
+  * Remove support of `Linear` RAID levels due this has been deprecated in
+    Linux Kernel 6.8+.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 10 Aug 2025 12:49:01 +0200
+
+openmediavault-md (7.1.1-1) stable; urgency=medium
+
+  * Prevent `No mail address or alert command - not monitoring` warning.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 13 Dec 2025 10:29:43 +0100
+
+openmediavault-md (7.1.0-1) stable; urgency=medium
+
+  * Update locale files.
+  * Add dashboard widget.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 06 Sep 2025 13:27:56 +0200
+
+openmediavault-md (7.0.5-1) stable; urgency=medium
+
+  * Update locale files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 03 Jun 2025 19:43:34 +0200
+
+openmediavault-md (7.0.4-1) stable; urgency=medium
+
+  * Update locale files.
+  * Add `Referenced` column to the `Multiple Device` page.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 22 Mar 2025 07:07:45 +0100
+
+openmediavault-md (7.0.3-1) stable; urgency=low
+
+  * Issue #1862: Use LC_ALL environment variable instead of LANG.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 25 Nov 2024 13:25:53 +0100
+
+openmediavault-md (7.0.2-1) stable; urgency=low
+
+  * Relocate mdadm cron job into this plugin.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 12 Aug 2024 18:14:45 +0200
+
+openmediavault-md (7.0.1-1) stable; urgency=low
+
+  * Relocate module listeners.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 19 Jul 2024 10:03:15 +0200
+
+openmediavault-md (7.0-7) stable; urgency=low
+
+  * Initial release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 06 Nov 2023 08:16:34 +0100

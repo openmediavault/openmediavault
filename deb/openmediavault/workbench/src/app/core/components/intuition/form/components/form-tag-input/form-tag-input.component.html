@@ -1,0 +1,36 @@
+<mat-form-field class="omv-flex-1"
+                [formGroup]="formGroup">
+  <div *ngIf="config.icon"
+       matPrefix>
+    <mat-icon [svgIcon]="config.icon"></mat-icon>&nbsp;
+  </div>
+  <mat-label>{{ config.label | transloco | template:pageContext }}</mat-label>
+  <mat-form-tag-input [formControlName]="config.name"
+                      [placeholder]="config.placeholder | transloco"
+                      [autofocus]="config.autofocus"
+                      [required]="config.validators?.required"
+                      [minlength]="config.validators?.minLength"
+                      [maxlength]="config.validators?.maxLength"
+                      [separator]="config.separator">
+  </mat-form-tag-input>
+  <mat-error *ngIf="formGroup.invalid">
+    <span *ngIf="formGroup.hasError('required', config.name)">
+      {{ 'This field is required.' | transloco }}
+    </span>
+    <span *ngIf="formGroup.hasError('minlength', config.name)"
+          transloco="The value must be at least {{ config.validators.minLength }} characters long.">
+    </span>
+    <span *ngIf="formGroup.hasError('maxlength', config.name)"
+          transloco="The value cannot exceed {{ config.validators.maxLength }} characters.">
+    </span>
+    <span *ngIf="formGroup.hasError('constraint', config.name)">
+      {{ formGroup.getError('constraint', config.name) | transloco }}
+    </span>
+    <span *ngIf="formGroup.hasError('pattern', config.name)">
+      {{ formGroup.getError('pattern', config.name) | transloco }}
+    </span>
+  </mat-error>
+  <mat-hint *ngIf="config.hint?.length > 0"
+            [innerHTML]="config.hint | transloco | template:pageContext | sanitizeHtml">
+  </mat-hint>
+</mat-form-field>

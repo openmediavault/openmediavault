@@ -1,0 +1,53 @@
+{
+	"type": "config",
+	"id": "conf.system.sharedfolder",
+	"title": "Shared folder",
+	"queryinfo": {
+		"xpath": ".//system/shares/sharedfolder",
+		"iterable": true,
+		"idproperty": "uuid",
+		"refproperty": "*[contains(name(), 'sharedfolderref')]"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"name": {
+			"type": "string"
+		},
+		"comment": {
+			"type": "string"
+		},
+		"mntentref": {
+			"type": "string"
+		},
+		"reldirpath": {
+			"type": "string"
+		},
+		"privileges": {
+			"type": "object",
+			"properties": {
+				"privilege": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"type": {
+								"type": "string",
+								"enum": [ "user", "group" ]
+							},
+							"name": {
+								"type": "string"
+							},
+							"perms": {
+								"type": "integer",
+								"enum": [ 0, 5, 7 ]
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

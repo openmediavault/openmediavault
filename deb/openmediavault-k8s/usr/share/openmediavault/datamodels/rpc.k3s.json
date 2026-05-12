@@ -1,0 +1,25 @@
+[{
+	"type": "rpc",
+	"id": "rpc.k3s.deletesnapshot",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.k3s.restoresnapshot",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+}]

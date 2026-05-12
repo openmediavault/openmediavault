@@ -1,0 +1,126 @@
+version: "1.0"
+type: component
+data:
+  name: omv-storage-filesystem-btrfs-create-form-page
+  type: formPage
+  config:
+    hints:
+      - type: info
+        text: _("If a device is not listed here, it is usually because the device already contains a file system or partitions. With the former, the file system can be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, please <a href='#/storage/disks'>wipe</a> the device as partitions are not supported.")
+        dismissible: true
+        stateId: 199e8c7a-ee3b-11ed-9fb1-2750842abc68
+    fields:
+      - type: textInput
+        name: type
+        label: _("Type")
+        disabled: true
+        value: BTRFS
+        submitValue: false
+      - type: select
+        name: profile
+        label: _("Profile")
+        value: "raid0"
+        store:
+          data:
+            - - "single"
+              - "Single"
+            - - "dup"
+              - "DUP"
+            - - "raid0"
+              - "RAID0"
+            - - "raid1"
+              - "RAID1"
+            - - "raid10"
+              - "RAID10"
+      - type: select
+        name: devicefiles
+        label: _("Devices")
+        placeholder: _("Select devices ...")
+        hint: _("Select the devices that will be used to create the file system.")
+        multiple: true
+        valueField: devicefile
+        textField: description
+        store:
+          proxy:
+            service: FileSystemMgmt
+            get:
+              method: getCandidatesBg
+              task: true
+          sorters:
+            - dir: asc
+              prop: devicefile
+        validators:
+          required: true
+          custom:
+            - constraint:
+                operator: if
+                arg0:
+                  operator: in
+                  arg0:
+                    prop: profile
+                  arg1:
+                    - single
+                    - dup
+                arg1:
+                  operator: '>='
+                  arg0:
+                    operator: length
+                    arg0:
+                      prop: devicefiles
+                  arg1: 1
+              errorData: _("At least one device is required.")
+            - constraint:
+                operator: if
+                arg0:
+                  operator: in
+                  arg0:
+                    prop: profile
+                  arg1:
+                    - raid0
+                    - raid1
+                arg1:
+                  operator: '>='
+                  arg0:
+                    operator: length
+                    arg0:
+                      prop: devicefiles
+                  arg1: 2
+              errorData: _("At least two devices are required.")
+            - constraint:
+                operator: if
+                arg0:
+                  operator: eq
+                  arg0:
+                    prop: profile
+                  arg1: raid10
+                arg1:
+                  operator: '>='
+                  arg0:
+                    operator: length
+                    arg0:
+                      prop: devicefiles
+                  arg1: 4
+              errorData: _("At least four devices are required.")
+    buttons:
+      - template: submit
+        execute:
+          type: taskDialog
+          taskDialog:
+            config:
+              title: _("Create file system")
+              width: 75%
+              startOnInit: true
+              request:
+                service: FileSystemMgmt
+                method: createBtrfs
+                params:
+                  profile: '{{ profile }}'
+                  devicefiles: '{{ devicefiles }}'
+              buttons:
+                stop:
+                  hidden: true
+            successUrl: /storage/filesystems/mount
+      - template: cancel
+        execute:
+          type: url
+          url: /storage/filesystems

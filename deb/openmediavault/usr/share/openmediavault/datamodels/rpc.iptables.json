@@ -1,0 +1,193 @@
+[{
+	"type": "rpc",
+	"id": "rpc.iptables.setrules",
+	"params": {
+		"type": "array",
+		"items": {
+			"type": "object",
+			"properties": {
+				"uuid": {
+					"type": "string",
+					"format": "uuidv4",
+					"required": true
+				},
+				"rulenum": {
+					"type": "integer",
+					"minimum": 0,
+					"required": true
+				},
+				"chain": {
+					"type": "string",
+					"enum": [ "INPUT", "OUTPUT" ],
+					"required": true
+				},
+				"action": {
+					"type": "string",
+					"enum": [ "ACCEPT", "REJECT", "DROP", "LOG", "" ],
+					"required": true
+				},
+				"family": {
+					"type": "string",
+					"enum": [ "inet" ],
+					"required": true
+				},
+				"source": {
+					"type": "string",
+					"required": true
+				},
+				"sport": {
+					"type": "string",
+					"required": true
+				},
+				"destination": {
+					"type": "string",
+					"required": true
+				},
+				"dport": {
+					"type": "string",
+					"required": true
+				},
+				"protocol": {
+					"type": "string",
+					"pattern": "^(!?(tcp|udp|icmp))|all$",
+					"required": true
+				},
+				"extraoptions": {
+					"type": "string",
+					"required": true
+				},
+				"comment": {
+					"type": "string",
+					"required": true
+				}
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.iptables.setrules6",
+	"params": {
+		"type": "array",
+		"items": {
+			"type": "object",
+			"properties": {
+				"uuid": {
+					"type": "string",
+					"format": "uuidv4",
+					"required": true
+				},
+				"rulenum": {
+					"type": "integer",
+					"minimum": 0,
+					"required": true
+				},
+				"chain": {
+					"type": "string",
+					"enum": [ "INPUT", "OUTPUT" ],
+					"required": true
+				},
+				"action": {
+					"type": "string",
+					"enum": [ "ACCEPT", "REJECT", "DROP", "LOG", "" ],
+					"required": true
+				},
+				"family": {
+					"type": "string",
+					"enum": [ "inet6" ],
+					"required": true
+				},
+				"source": {
+					"type": "string",
+					"required": true
+				},
+				"sport": {
+					"type": "string",
+					"required": true
+				},
+				"destination": {
+					"type": "string",
+					"required": true
+				},
+				"dport": {
+					"type": "string",
+					"required": true
+				},
+				"protocol": {
+					"type": "string",
+					"pattern": "^(!?(tcp|udp|icmpv6))|all$",
+					"required": true
+				},
+				"extraoptions": {
+					"type": "string",
+					"required": true
+				},
+				"comment": {
+					"type": "string",
+					"required": true
+				}
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.iptables.setrule",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"rulenum": {
+				"type": "integer",
+				"minimum": -1,
+				"required": true
+			},
+			"chain": {
+				"type": "string",
+				"enum": [ "INPUT", "OUTPUT" ],
+				"required": true
+			},
+			"action": {
+				"type": "string",
+				"enum": [ "ACCEPT", "REJECT", "DROP", "LOG", "" ],
+				"required": true
+			},
+			"family": {
+				"type": "string",
+				"enum": [ "inet", "inet6" ],
+				"required": true
+			},
+			"source": {
+				"type": "string",
+				"required": true
+			},
+			"sport": {
+				"type": "string",
+				"required": true
+			},
+			"destination": {
+				"type": "string",
+				"required": true
+			},
+			"dport": {
+				"type": "string",
+				"required": true
+			},
+			"protocol": {
+				"type": "string",
+				"pattern": "^(!?(tcp|udp|icmp|icmpv6))|all$",
+				"required": true
+			},
+			"extraoptions": {
+				"type": "string",
+				"required": true
+			},
+			"comment": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+}]

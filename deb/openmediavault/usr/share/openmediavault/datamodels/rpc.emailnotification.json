@@ -1,0 +1,79 @@
+[{
+	"type": "rpc",
+	"id": "rpc.emailnotification.set",
+	"params": {
+		"type": "object",
+		"properties": {
+			"enable": {
+			    "type": "boolean",
+				"required": true
+			},
+			"server": {
+			    "type": "string",
+				"required": true
+			},
+			"port": {
+			    "type": "integer",
+			    "minimum": 1,
+			    "maximum": 65535,
+				"required": true
+			},
+			"tls": {
+				"type": "string",
+				"required": true,
+				"enum": [
+					"none",
+					"ssl",
+					"starttls",
+					"auto"
+				]
+			},
+			"sender": {
+				"type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "email"
+				},{
+					"type": "string",
+					"maxLength": 0
+				}],
+				"required": true
+			},
+			"authenable": {
+				"type": "boolean",
+				"required": true
+			},
+			"username": {
+			    "type": "string",
+				"required": true
+			},
+			"password": {
+			    "type": "string",
+				"format": "no-multi-line",
+				"required": true
+			},
+			"primaryemail": {
+			    "type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "email"
+				},{
+					"type": "string",
+					"maxLength": 0
+				}],
+				"required": true
+			},
+			"secondaryemail": {
+			    "type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "email"
+				},{
+					"type": "string",
+					"maxLength": 0
+				}],
+				"required": true
+			}
+		}
+	}
+}]

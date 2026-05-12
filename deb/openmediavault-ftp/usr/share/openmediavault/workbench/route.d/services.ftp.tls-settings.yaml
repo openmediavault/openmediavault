@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/ftp/tls-settings"
+  title: _("SSL/TLS Settings")
+  editing: true
+  notificationTitle: _('Updated FTP SSL/TLS settings.')
+  component: omv-services-ftp-tls-settings-form-page

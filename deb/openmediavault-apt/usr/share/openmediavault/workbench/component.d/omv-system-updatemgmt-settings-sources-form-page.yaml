@@ -1,0 +1,71 @@
+version: "1.0"
+type: component
+data:
+  name: omv-system-updatemgmt-settings-sources-form-page
+  type: formPage
+  config:
+    request:
+      service: AptMgmt
+      get:
+        method: getSource
+        params:
+          uuid: "{{ _routeParams.uuid }}"
+      post:
+        method: setSource
+    fields:
+      - type: confObjUuid
+      - type: checkbox
+        name: enable
+        label: _("Enabled")
+        value: false
+      - type: textInput
+        name: types
+        label: _("Types")
+        hint: _("Defines which types of packages to look for from a given source, e.g. 'deb' or 'deb-src'.")
+        validators:
+          required: true
+        value: "deb"
+      - type: textInput
+        name: uris
+        label: _("URIs")
+        hint: _("The URI must specify the base of the package repository, e.g. 'https://ftp.debian.org/debian'. Configure multiple URIs at once by separating them with a blank.")
+        validators:
+          required: true
+        value: ""
+      - type: textInput
+        name: suites
+        label: _("Suites")
+        hint: _("The suite is the name of the release, e.g. 'stable', 'testing', 'unstable' or 'sandworm'.")
+        validators:
+          required: true
+        value: ""
+      - type: textInput
+        name: components
+        label: _("Components")
+        hint: _("Components specify different sections of one distribution version present in a suite, e.g. 'main', 'contrib' or 'non-free'. Configure multiple components at once by separating them with a blank.")
+        validators:
+          required: true
+        value: ""
+      - type: fileInput
+        name: signedby
+        label: _("Signed-By")
+        hint: _("The GPG/PGP key used to verify packages and repository metadata. This increases security by ensuring that only packages signed with a specific key are accepted.")
+        validators:
+          required: false
+          patternType: pgpPubKey
+        value: ""
+        monospace: true
+        accept: ".asc"
+      - type: tagInput
+        name: comment
+        label: _("Tags")
+        value: ""
+    buttons:
+      - template: submit
+        execute:
+          type: url
+          url: "/system/updatemgmt/settings/sources"
+      - template: cancel
+        execute:
+          type: url
+          url: "/system/updatemgmt/settings/sources"

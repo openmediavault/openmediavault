@@ -1,0 +1,108 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-clamav-settings-form-page
+  type: formPage
+  config:
+    request:
+      service: ClamAV
+      get:
+        method: getSettings
+      post:
+        method: setSettings
+    fields:
+      - type: checkbox
+        name: enable
+        label: _("Enabled")
+        value: false
+      - type: numberInput
+        name: checks
+        label: _("Database checks")
+        value: 24
+        hint: _("Number of database update checks per day. Set to 0 to disable.")
+        validators:
+          min: 0
+          max: 50
+          required: true
+      - type: sharedFolderSelect
+        name: quarantine_sharedfolderref
+        label: _("Quarantine")
+        hint: _("The location which is used as quarantine.")
+        hasEmptyOption: true
+        value: ""
+      - type: checkbox
+        name: logclean
+        label: _("Log clean files")
+        hint: _("Log clean files. This drastically increases the log size.")
+        value: false
+      - type: checkbox
+        name: scanpe
+        label: _("Scan Portable Executable")
+        hint: _("Perform a deeper analysis of executable files.")
+        value: true
+      - type: checkbox
+        name: scanole2
+        label: _("Scan OLE2")
+        hint: _("Enable scanning of OLE2 files, such as Microsoft Office documents and .msi files.")
+        value: true
+      - type: checkbox
+        name: scanhtml
+        label: _("Scan HTML")
+        hint: _("Enable HTML detection and normalisation.")
+        value: true
+      - type: checkbox
+        name: scanpdf
+        label: _("Scan PDF")
+        hint: _("Enable scanning within PDF files.")
+        value: true
+      - type: checkbox
+        name: scanelf
+        label: _("Scan ELF")
+        hint: _("Enable scanning of ELF files.")
+        value: true
+      - type: checkbox
+        name: scanarchive
+        label: _("Scan archives")
+        hint: _("Enable archive scanning.")
+        value: true
+      - type: checkbox
+        name: detectbrokenexecutables
+        label: _("Detect broken executables")
+        hint: _("Enable the detection of broken executables (both PE and ELF).")
+        value: false
+      - type: checkbox
+        name: alertbrokenmedia
+        label: _("Detect broken media")
+        hint: _("Enable the detection of broken media files (JPEG, TIFF, PNG, GIF).")
+        value: false
+      - type: checkbox
+        name: detectpua
+        label: _("Detect PUA")
+        hint: _("Enable the detection of possibly unwanted applications.")
+        value: false
+      - type: checkbox
+        name: algorithmicdetection
+        label: _("Algorithmic detection")
+        hint: _("Enable the algorithmic detection.")
+        value: true
+      - type: checkbox
+        name: followdirectorysymlinks
+        label: _("Follow directory symlinks")
+        hint: _("Follow directory symlinks.")
+        value: false
+      - type: checkbox
+        name: followfilesymlinks
+        label: _("Follow file symlinks")
+        hint: _("Follow regular file symlinks.")
+        value: false
+      - type: textarea
+        name: extraoptions
+        label: _("Extra options")
+        hint: _("Please check the <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more details.")
+        value: ""
+        rows: 5
+    buttons:
+      - template: submit
+        url: "/services/clamav"
+      - template: cancel
+        url: "/services/clamav"

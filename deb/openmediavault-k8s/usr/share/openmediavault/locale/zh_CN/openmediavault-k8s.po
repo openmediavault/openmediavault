@@ -1,0 +1,446 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-k8s package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# 王大山, 2024
+# songming <by@songming.me>, 2024
+# kochin <kochinc@outlook.com>, 2025
+# 黃柏諺 <s8321414@gmail.com>, 2026
+# irrelevant91, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-k8s\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-26 11:58+0100\n"
+"PO-Revision-Date: 2024-03-09 09:44+0000\n"
+"Last-Translator: irrelevant91, 2026\n"
+"Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Absolute Path"
+msgstr "绝对路径"
+
+msgid "Access Modes"
+msgstr "访问模式"
+
+msgid "App Version"
+msgstr "App 版本"
+
+msgid "Apply"
+msgstr "应用"
+
+msgid "Architecture"
+msgstr "架构"
+
+msgid "Available"
+msgstr "可用"
+
+msgid "Capacity"
+msgstr "容量"
+
+msgid "Certificate"
+msgstr "证书"
+
+msgid "Certificates"
+msgstr "证书"
+
+msgid "Chart"
+msgstr "图表"
+
+msgid "Check for new recipes"
+msgstr "检查新 recipes"
+
+msgid "Class"
+msgstr "类别"
+
+msgid "Cluster IP"
+msgstr "集群 IP"
+
+msgid "Compressed"
+msgstr "已压缩"
+
+msgid "Config Maps"
+msgstr "设置地图"
+
+msgid "Copy to clipboard"
+msgstr "复制到剪贴板"
+
+msgid "Copy token"
+msgstr "复制令牌"
+
+msgid "Count"
+msgstr "数量"
+
+msgid "Created"
+msgstr "已创建"
+
+msgid "Dashboard"
+msgstr "仪表板"
+
+msgid "Data"
+msgstr "数据"
+
+msgid "Datastore"
+msgstr "数据存储"
+
+msgid "Date & Time"
+msgstr "日期与时间"
+
+msgid "Depends"
+msgstr "依赖"
+
+msgid "Deployments"
+msgstr "部署"
+
+msgid "Describe"
+msgstr "描述"
+
+msgid "Description"
+msgstr "描述"
+
+msgid "Do you really want to restore this snapshot?"
+msgstr "确定要还原此快照吗？"
+
+msgid "Download"
+msgstr "下载"
+
+msgid ""
+"Downloading the kubeconfig file to the local system enables secure remote "
+"management of the Kubernetes cluster using command-line tools like kubectl."
+msgstr "将 kubeconfig 文件下载到本地系统便可以使用 kubectl 等命令行工具对 Kubernetes 集群进行安全的远程管理。"
+
+msgid "Enabled"
+msgstr "已启用"
+
+msgid "Events"
+msgstr "事件"
+
+msgid "Expose"
+msgstr "开放"
+
+msgid "Exposed"
+msgstr "开放"
+
+msgid "Exposed port"
+msgstr "开放的端口"
+
+msgid "External IP"
+msgstr "外部 IP"
+
+msgid "Extra configuration"
+msgstr "额外的配置"
+
+msgid "Failed"
+msgstr "失败"
+
+msgid "First seen"
+msgstr "首次出现"
+
+msgid "GID"
+msgstr "GID"
+
+msgid "Groups"
+msgstr "组"
+
+msgid "Helm Charts"
+msgstr "Helm Charts"
+
+msgid "Homepage"
+msgstr "首页"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Image"
+msgstr "镜像"
+
+msgid "Images"
+msgstr "镜像"
+
+msgid "Import"
+msgstr "导入"
+
+msgid "Ingredients"
+msgstr "Ingredients"
+
+msgid "Ingress Routes"
+msgstr "Ingress 路由"
+
+msgid "Ingresses"
+msgstr "Ingresses"
+
+msgid "Job"
+msgstr "任务"
+
+msgid "Kubeconfig"
+msgstr "Kubeconfig"
+
+msgid "Kubernetes"
+msgstr "Kubernetes"
+
+msgid "Kubernetes - Pods"
+msgstr "Kubernetes - Pods"
+
+msgid "Kubernetes - Resources"
+msgstr "Kubernetes - 资源"
+
+msgid "Labels"
+msgstr "标签"
+
+msgid "Last seen"
+msgstr "最后一次出现"
+
+msgid "Load Balancer"
+msgstr "负载均衡器"
+
+msgid "Logs"
+msgstr "日志"
+
+msgid "Manifest"
+msgstr "Manifest"
+
+msgid "Message"
+msgstr "信息"
+
+msgid "Monitoring - Kubernetes"
+msgstr "监控 - Kubernetes"
+
+msgid "Name"
+msgstr "名称"
+
+msgid "Namespace"
+msgstr "命名空间"
+
+msgid "Namespaces"
+msgstr "命名空间"
+
+msgid "NodePort IP"
+msgstr "NodePort IP"
+
+msgid "Normal"
+msgstr "正常"
+
+msgid "Object"
+msgstr "对象"
+
+msgid "Open UI"
+msgstr "打开 UI"
+
+msgid "PV"
+msgstr "PV"
+
+msgid "PVC"
+msgstr "PVC"
+
+msgid "Pending"
+msgstr "待处理"
+
+msgid "Persistent Volume Claims"
+msgstr "持久卷申领"
+
+msgid "Persistent Volumes"
+msgstr "持久卷"
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr "请稍候，将会创建一个快照……"
+
+msgid "Please wait, the snapshot will be restored ..."
+msgstr "请稍候，将会还原快照……"
+
+msgid "Pods"
+msgstr "Pods"
+
+msgid "Port"
+msgstr "端口"
+
+msgid "Ports"
+msgstr "端口"
+
+msgid "Protocol"
+msgstr "协议"
+
+msgid "README"
+msgstr "README"
+
+msgid "Ready"
+msgstr "就绪"
+
+msgid "Reason"
+msgstr "理由"
+
+msgid "Recipe Information"
+msgstr "Recipe 信息"
+
+msgid "Recipe Version"
+msgstr "Recipe 版本"
+
+msgid "Recipes"
+msgstr "Recipes"
+
+msgid "Reclaim policy"
+msgstr "回收策略"
+
+msgid ""
+"Refer to the values.yaml file in the Traefik Helm chart to see what "
+"configuration options are available."
+msgstr "请参阅 Traefik Helm 图表中的 values.yaml 文件，以查看可用的配置选项。"
+
+msgid "Repository"
+msgstr "源"
+
+msgid "Resources"
+msgstr "资源"
+
+msgid "Restore"
+msgstr "还原"
+
+msgid "Running"
+msgstr "运行中"
+
+msgid "SQLite"
+msgstr "SQLite"
+
+msgid "Secrets"
+msgstr "Secrets"
+
+msgid "Section"
+msgstr "区段"
+
+msgid "Services"
+msgstr "服务"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "Shared Folders"
+msgstr "共享文件夹"
+
+msgid "Show README"
+msgstr "显示 README"
+
+msgid "Show the number of pods per status phase."
+msgstr "显示各状态阶段的 Pod 数量。"
+
+msgid "Show the total number of several resources."
+msgstr "显示几项资源的总数。"
+
+msgid "Size"
+msgstr "大小"
+
+msgid "Snapshots"
+msgstr "快照"
+
+msgid "Source"
+msgstr "來源"
+
+msgid "Stateful Sets"
+msgstr "状态副本集"
+
+msgid "Status"
+msgstr "状态"
+
+msgid "Storage Class"
+msgstr "存储类别"
+
+msgid "Succeeded"
+msgstr "成功"
+
+msgid "Tag"
+msgstr "标签"
+
+msgid "Tags"
+msgstr "标签"
+
+msgid "Target Namespace"
+msgstr "目标命名空间"
+
+msgid ""
+"The SSL certificate used by the LoadBalancer service. If not set, a self-"
+"signed certificate from cert-manager is used."
+msgstr "负载平衡器服务使用的 SSL 证书。若未设定，则使用 cert-manager 提供的自签名证书。"
+
+msgid ""
+"The datastore used by the Kubernetes cluster. SQLite is recommended for "
+"single-node setups and SBCs with slow disks, while etcd is recommended for "
+"high-availability setups with multiple nodes."
+msgstr ""
+"Kubernetes 集群使用的数据存储。SQLite 建议用于单节点配置与使用低速磁盘的单板机，而 etcd 建议用于具有多个节点的高可用性配置。"
+
+msgid "The field should only contain the characters a-z, 0-9 and -."
+msgstr "字段仅应包含 a-z, 0-9 与 - 字符。"
+
+msgid ""
+"The following placeholders can be used in recipes to get access to global "
+"system information and the configuration "
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
+"braces. An overview of additional available filters can be found <a "
+"href='https://twig.symfony.com/doc/filters/index.html' "
+"target='_blank'>here</a>."
+msgstr ""
+"可以在recipe中使用以下占位符来访问全局系统信息与配置数据库：<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>您必须用双大括号表示占位符。可以在<a "
+"href='https://twig.symfony.com/doc/filters/index.html' "
+"target='_blank'>此处</a>找到其他可用筛选条件的概览。"
+
+msgid "The location where to store etcd on-demand snapshots."
+msgstr "存储 etcd 按需快照的位置。"
+
+msgid "The manifest to apply."
+msgstr "要应用的 manifest。"
+
+msgid "The snapshot was created successfully."
+msgstr "快照创建成功。"
+
+msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
+msgstr "已成功还原快照 {{ spec.snapshotName }}。"
+
+msgid "The token to authenticate to the Kubernetes Dashboard."
+msgstr "用于向 Kubernetes 仪表板进行身份认证的令牌。"
+
+msgid "Type"
+msgstr "类型"
+
+msgid "UID"
+msgstr "UID"
+
+msgid "UUID"
+msgstr "UUID"
+
+msgid "Unknown"
+msgstr "未知"
+
+msgid "Up-to-date"
+msgstr "最新"
+
+msgid "Updated Kubernetes settings."
+msgstr "已更新 Kubernetes 设置。"
+
+msgid "Users"
+msgstr "用户"
+
+msgid "Version"
+msgstr "版本"
+
+msgid "View"
+msgstr "查看"
+
+msgid "Volume"
+msgstr "卷"
+
+msgid "Warning"
+msgstr "警告"
+
+msgid "YAML"
+msgstr "YAML"
+
+msgid "etcd"
+msgstr "etcd"

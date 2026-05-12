@@ -1,0 +1,8 @@
+/openmediavault-podman/
+/files
+/*.debhelper.log
+/*.postinst.debhelper
+/*.postrm.debhelper
+/*.substvars
+/*-stamp
+/.debhelper/

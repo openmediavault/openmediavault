@@ -1,0 +1,144 @@
+{% set email = salt['pillar.get']('default:OMV_APTICRON_EMAIL', 'root') -%}
+{% set diff_only = salt['pillar.get']('default:OMV_APTICRON_DIFF_ONLY', '0') -%}
+{% set listchanges_profile = salt['pillar.get']('default:OMV_APTICRON_LISTCHANGES_PROFILE', '') -%}
+{% set all_fqdns = salt['pillar.get']('default:OMV_APTICRON_ALL_FQDNS', '0') -%}
+{% set ipaddress_num = salt['pillar.get']('default:OMV_APTICRON_IPADDRESSNUM', '1') -%}
+{% set ipaddresses = salt['pillar.get']('default:OMV_APTICRON_IPADDRESSES', '') -%}
+{% set notify_holds = salt['pillar.get']('default:OMV_APTICRON_NOTIFY_HOLDS', '1') -%}
+{% set notify_new = salt['pillar.get']('default:OMV_APTICRON_NOTIFY_NEW', '1') -%}
+{% set notify_no_updates = salt['pillar.get']('default:OMV_APTICRON_NOTIFY_NO_UPDATES', '0') -%}
+{% set gpg_encrypt = salt['pillar.get']('default:OMV_APTICRON_GPG_ENCRYPT', '0') -%}
+
+{{ pillar['headers']['multiline'] -}}
+#
+# apticron.conf
+#
+# The values set in /etc/apticron/apticron.conf will override the default
+# apticron options.
+
+#
+# Set EMAIL to a space separated list of addresses which will be notified of
+# impending updates. By default the root account will be notified.
+#
+EMAIL="{{  email }}"
+
+#
+# Set DIFF_ONLY to "1" to only output the difference of the current run
+# compared to the last run (ie. only new upgrades since the last run). If there
+# are no differences, no output/email will be generated. By default, apticron
+# will output everything that needs to be upgraded.
+#
+# DIFF_ONLY="1"
+#
+DIFF_ONLY="{{ diff_only }}"
+
+#
+# Set LISTCHANGES_PROFILE if you would like apticron to invoke apt-listchanges
+# with the --profile option. You should add a corresponding profile to
+# /etc/apt/listchanges.conf
+#
+# LISTCHANGES_PROFILE="apticron"
+#
+# By default apt-listchanges is run with no profile
+#
+LISTCHANGES_PROFILE="{{ listchanges_profile }}"
+
+#
+# From hostname manpage: "Displays  all FQDNs of the machine. This option
+# enumerates all configured network addresses on all configured network inter‐
+# faces, and translates them to DNS domain names. Addresses that cannot be
+# translated (i.e. because they do not have an appropriate  reverse DNS
+# entry) are skipped. Note that different addresses may resolve to the same
+# name, therefore the output may contain duplicate entries. Do not make any
+# assumptions about the order of the output."
+#
+# By default only the first FQDN is used
+#
+# ALL_FQDNS="1"
+ALL_FQDNS="{{ all_fqdns }}"
+
+#
+# Set SYSTEM if you would like apticron to use something other than the output
+# of "hostname -f" for the system name in the mails it generates. This option
+# overrides the ALL_FQDNS above.
+#
+# SYSTEM="foobar.example.com"
+#
+SYSTEM=$(/usr/bin/hostname -f)
+
+#
+# Set IPADDRESSNUM if you would like to configure the maximal number of IP
+# addresses apticron displays. The default is to display 1 address of each
+# family type (inet, inet6), if available.
+#
+IPADDRESSNUM="{{ ipaddress_num }}"
+
+#
+# Set IPADDRESSES to a whitespace separated list of reachable addresses for
+# this system. If unset or empty, apticron will try to work these out using
+# the "ip" command.
+#
+# IPADDRESSES="192.0.2.1 2001:db8:1:2:3::1"
+#
+IPADDRESSES="{{ ipaddresses }}"
+
+#
+# Set NOTIFY_HOLDS="0" if you don't want to be notified about new versions of
+# packages on hold in your system. The default behavior is downloading and
+# listing them as any other package.
+#
+# NOTIFY_HOLDS="0"
+#
+NOTIFY_HOLDS="{{ notify_holds }}"
+
+#
+# Set NOTIFY_NEW="0" if you don't want to be notified about packages which
+# are not installed in your system. Yes, it's possible! There are some issues
+# related to systems which have mixed stable/unstable sources. In these cases
+# apt-get will consider for example that packages with "Priority:
+# required"/"Essential: yes" in unstable but not in stable should be installed,
+# so they will be listed in dist-upgrade output. Please take a look at
+# http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=531002#44
+#
+# NOTIFY_NEW="0"
+#
+NOTIFY_NEW="{{ notify_new }}"
+
+#
+# Set NOTIFY_NO_UPDATES="1" if you want to be notified when there are no
+# new versions. This is useful to assure you that apticron works well.
+# By default notifications will be sent only when new versions are available.
+#
+# NOTIFY_NO_UPDATES="1"
+#
+NOTIFY_NO_UPDATES="{{ notify_no_updates }}"
+
+#
+# Set CUSTOM_SUBJECT if you want to replace the default subject used in
+# the notification e-mails. This may help filtering/sorting client-side e-mail.
+# If you want to use internal vars please use single quotes here. Ex:
+# CUSTOM_SUBJECT='[apticron] $SYSTEM: $NUM_PACKAGES package update(s)'
+#
+CUSTOM_SUBJECT="\${NUM_PACKAGES} package update(s) available"
+
+#
+# Set CUSTOM_NO_UPDATES_SUBJECT if you want to replace the default subject used
+# in the no update notification e-mails. This may help filtering/sorting
+# client-side e-mail.
+# If you want to use internal vars please use single quotes here. Ex:
+# CUSTOM_NO_UPDATES_SUBJECT='[apticron] $SYSTEM: no updates'
+#
+CUSTOM_NO_UPDATES_SUBJECT="No package updates available"
+
+#
+# Set CUSTOM_FROM if you want to replace the default sender by changing the
+# 'From:' field used in the notification e-mails.
+#
+# CUSTOM_FROM=""
+
+# Set GPG_ENCRYPT="1" if you want to encrypt the mail being send to
+# $EMAIL. apticron will use gpg and the public key of the recipient to encrypt
+# the mail. Please note that the $EMAIL value above can't be an alias, since
+# gpg will trust it to encrypt the message.
+#
+GPG_ENCRYPT="{{ gpg_encrypt }}"

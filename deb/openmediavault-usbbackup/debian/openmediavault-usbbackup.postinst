@@ -1,0 +1,80 @@
+#!/usr/bin/env dash
+#
+# This file is part of OpenMediaVault.
+#
+# @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2026 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+case "$1" in
+	configure)
+		########################################################################
+		# Set the default settings.
+		########################################################################
+		omv_set_default "OMV_USBBACKUP_SCRIPTS_DIR" "/var/lib/openmediavault/usbbackup.d" false
+
+		########################################################################
+		# Activate trigger to rebuild workbench configuration files.
+		########################################################################
+		dpkg-trigger update-workbench
+
+		########################################################################
+		# Initialize and migrate configuration database.
+		########################################################################
+		echo "Updating configuration database ..."
+		omv-confdbadm create "conf.service.usbbackup"
+		if [ -n "$2" ]; then
+			omv-confdbadm migrate "conf.service.usbbackup" "${2}"
+		fi
+
+		########################################################################
+		# Action to be done depending on the previous version.
+		########################################################################
+		if dpkg --compare-versions "$2" lt-nl "4.0.7"; then
+			omv-mkconf usbbackup
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.0.4"; then
+		  omv_module_set_dirty usbbackup
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.0.6"; then
+		  omv_module_set_dirty usbbackup
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.0.7"; then
+		  omv_module_set_dirty usbbackup
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.0.2"; then
+		  omv_module_set_dirty usbbackup
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.1.1"; then
+		  omv_module_set_dirty usbbackup
+		fi
+	;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+
+	*)
+		echo "postinst called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac
+
+exit 0

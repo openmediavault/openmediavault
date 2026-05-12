@@ -1,0 +1,201 @@
+{
+	"type": "config",
+	"id": "conf.service.smb",
+	"title": "SMB/CIFS",
+	"queryinfo": {
+		"xpath": ".//services/smb",
+		"iterable": false
+	},
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"workgroup": {
+			"type": "string",
+			"default": "WORKGROUP",
+			"format": "netbiosname"
+		},
+		"serverstring": {
+			"type": "string",
+			"default": "%h server"
+		},
+		"loglevel": {
+			"type": "integer",
+			"enum": [ 0, 1, 2, 3, 10 ],
+			"default": 0
+		},
+		"usesendfile": {
+			"type": "boolean",
+			"default": true
+		},
+		"aio": {
+			"type": "boolean",
+			"default": true
+		},
+		"timeserver": {
+			"type": "boolean",
+			"default": false
+		},
+		"winssupport": {
+			"type": "boolean",
+			"default": false
+		},
+		"winsserver": {
+			"type": "string"
+		},
+		"homesenable": {
+			"type": "boolean",
+			"default": false
+		},
+		"homesbrowseable": {
+			"type": "boolean",
+			"default": true
+		},
+		"homesrecyclebin": {
+			"type": "boolean",
+			"default": false
+		},
+		"homesinheritacls": {
+			"type": "boolean",
+			"default": false
+		},
+		"homesinheritpermissions": {
+			"type": "boolean",
+			"default": false
+		},
+		"homesextraoptions": {
+			"type": "string",
+			"default": ""
+		},
+		"homesfollowsymlinks": {
+			"type": "boolean",
+			"default": true
+		},
+		"homeswidelinks": {
+			"type": "boolean",
+			"default": false
+		},
+		"netbios": {
+			"type": "boolean",
+			"default": false
+		},
+		"minprotocol": {
+			"type": "string",
+			"enum": [ "SMB1", "SMB2", "SMB3" ],
+			"default": "SMB2"
+		},
+		"extraoptions": {
+			"type": "string"
+		},
+		"shares": {
+			"type": "object",
+			"properties": {
+				"share": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"uuid": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"enable": {
+								"type": "boolean",
+								"default": false
+							},
+							"sharedfolderref": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"comment": {
+								"type": "string"
+							},
+							"guest": {
+								"type": "string",
+								"enum": [ "no", "allow", "only" ],
+								"default": "no"
+							},
+							"readonly": {
+								"type": "boolean",
+								"default": false
+							},
+							"browseable": {
+								"type": "boolean",
+								"default": true
+							},
+							"recyclebin": {
+								"type": "boolean",
+								"default": false
+							},
+							"recyclemaxsize": {
+								"type": "integer",
+								"minimum": 0,
+								"default": 0
+							},
+							"recyclemaxage": {
+								"type": "integer",
+								"minimum": 0,
+								"default": 0
+							},
+							"hidedotfiles": {
+								"type": "boolean",
+								"default": true
+							},
+							"inheritacls": {
+								"type": "boolean",
+								"default": true
+							},
+							"inheritpermissions": {
+								"type": "boolean",
+								"default": false
+							},
+							"easupport": {
+								"type": "boolean",
+								"default": true
+							},
+							"storedosattributes": {
+								"type": "boolean",
+								"default": false
+							},
+							"hostsallow": {
+								"type": "string"
+							},
+							"hostsdeny": {
+								"type": "string"
+							},
+							"audit": {
+								"type": "boolean",
+								"default": false
+							},
+							"timemachine": {
+								"type": "boolean",
+								"default": false
+							},
+							"timemachinemaxsize": {
+								"type": "string",
+								"pattern": "^(\\d+[KMGTP]?)?$",
+								"default": ""
+							},
+							"transportencryption": {
+								"type": "boolean",
+								"default": false
+							},
+							"followsymlinks": {
+								"type": "boolean",
+								"default": true
+							},
+							"widelinks": {
+								"type": "boolean",
+								"default": false
+							},
+							"extraoptions": {
+								"type": "string"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

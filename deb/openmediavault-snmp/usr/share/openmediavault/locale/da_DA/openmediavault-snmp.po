@@ -1,0 +1,98 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-snmp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Stefan Thrane Overby <stoverby@gmail.com>, 2022
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-snmp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2017-09-24 18:47+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>, 2022\n"
+"Language-Team: Danish (https://app.transifex.com/openmediavault/teams/14254/da/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Authentication and no privacy"
+msgstr "Godkendelse og ingen fortrolighed"
+
+msgid "Authentication and privacy"
+msgstr "Godkendelse og fortrolighed"
+
+msgid "Authentication passphrase"
+msgstr "Godkendelses løsen"
+
+msgid "Authentication type"
+msgstr "Godkendelses type"
+
+msgid "Community"
+msgstr "Fællesskab"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid ""
+"Contact information, e.g. name or email address of the person responsible "
+"for this system."
+msgstr ""
+"Kontakt oplysninger, f.eks. navn eller email adresse på den person der er "
+"ansvarlig for systemet."
+
+msgid "Enabled"
+msgstr "Aktiveret"
+
+msgid "Extra options"
+msgstr "Ekstra valgmuligheder"
+
+msgid "Host"
+msgstr "Vært"
+
+msgid "Location"
+msgstr "Placering"
+
+msgid "Location information, e.g. physical location of this system."
+msgstr "Placerings oplysninger, f.eks. fysisk placering af dette system."
+
+msgid "No authentication and no privacy"
+msgstr "Ingen godkendelse og ingen fortrolighed"
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Privacy passphrase"
+msgstr "Fortroligheds løsen"
+
+msgid "Privacy type"
+msgstr "Fortroligheds type"
+
+msgid "SNMP"
+msgstr "SNMP"
+
+msgid "SNMP version 1/2c"
+msgstr "SNMP version 1/2c"
+
+msgid "SNMP version 3"
+msgstr "SNMP version 3"
+
+msgid "Security level"
+msgstr "Sikkerhedsniveau"
+
+msgid "Traps"
+msgstr "Fælder"
+
+msgid "Updated SNMP settings."
+msgstr ""
+
+msgid "User name"
+msgstr ""
+
+msgid "Version"
+msgstr "Version"

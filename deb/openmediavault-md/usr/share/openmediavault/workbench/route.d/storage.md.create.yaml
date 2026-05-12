@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/md/create"
+  title: _("Create")
+  editing: false
+  component: omv-storage-md-create-form-page

@@ -1,0 +1,111 @@
+openmediavault-snmp (8.0-4) stable; urgency=medium
+
+  * Adapt to openmediavault 8.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 10 Aug 2025 12:50:30 +0200
+
+openmediavault-snmp (7.0.1-1) stable; urgency=medium
+
+  * Update locale files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 03 Jun 2025 19:46:28 +0200
+
+openmediavault-snmp (7.0-2) unstable; urgency=low
+
+  * Adapt to openmediavault 7 (Sandworm).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Jul 2023 17:09:45 +0200
+
+openmediavault-snmp (6.0.2-1) stable; urgency=low
+
+  * Update locale files.
+  * Update package dependency.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 26 Jul 2023 21:31:46 +0200
+
+openmediavault-snmp (6.0.1-2) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 17 Sep 2022 10:04:51 +0200
+
+openmediavault-snmp (6.0-5) unstable; urgency=low
+
+  * Reimplement UI.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 06 Dec 2020 21:12:36 +0100
+
+openmediavault-snmp (5.0.4-1) stable; urgency=low
+
+  * Issue #986: Divert files modified by openmediavault to prevent
+    problems when package updates want to override them.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 04 Jul 2021 19:26:53 +0200
+
+openmediavault-snmp (5.0.3-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 11 Jun 2021 17:29:53 +0200
+
+openmediavault-snmp (5.0.2-1) stable; urgency=low
+
+  * Update locales.
+  * Fix bug in snmpd.conf when using SNMP v3.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 26 Aug 2020 18:25:10 +0200
+
+openmediavault-snmp (5.0.1-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Feb 2020 20:22:56 +0100
+
+openmediavault-snmp (5.0-1) stable; urgency=low
+
+  * Adapt to openmediavault 5 (Usul).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Dec 2018 12:59:01 +0100
+
+openmediavault-snmp (4.0.6-1) stable; urgency=low
+
+  * Remove useless /etc/default/snmpd.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Dec 2018 13:42:16 +0100
+
+openmediavault-snmp (4.0.5-1) stable; urgency=low
+
+  * Fix postrm script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 06 Mar 2018 19:28:03 +0100
+
+openmediavault-snmp (4.0.4-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 03 Mar 2018 07:24:15 +0100
+
+openmediavault-snmp (4.0.3-1) stable; urgency=low
+
+  * Remove configuration in database when package is purged.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 20 Nov 2017 19:28:34 +0100
+
+openmediavault-snmp (4.0.2-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 18 Nov 2017 10:06:38 +0100
+
+openmediavault-snmp (4.0.1-1) stable; urgency=low
+
+  * Update locales.
+  * Use Font Awesome icons.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 15 Nov 2017 22:33:12 +0100
+
+openmediavault-snmp (4.0) stable; urgency=low
+
+  * Initial release.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 24 Sep 2017 19:34:06 +0200

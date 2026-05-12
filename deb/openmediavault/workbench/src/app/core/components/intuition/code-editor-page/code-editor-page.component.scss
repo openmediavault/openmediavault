@@ -1,0 +1,16 @@
+@use 'scss/defaults/variables' as dv;
+@use 'scss/theme';
+
+.mat-card {
+  margin: dv.$omv-margin;
+  padding: unset;
+
+  .mat-card-title-group {
+    padding: dv.$omv-padding dv.$omv-padding 0;
+  }
+
+  .mat-card-actions {
+    margin: 0;
+    padding: 0 dv.$omv-padding dv.$omv-padding;
+  }
+}

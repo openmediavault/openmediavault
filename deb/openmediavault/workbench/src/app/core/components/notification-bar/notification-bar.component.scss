@@ -1,0 +1,29 @@
+@use 'scss/defaults/colors' as dc;
+@use 'scss/defaults/variables' as dv;
+
+.omv-notification-bar {
+  min-width: dv.$omv-notification-bar-width;
+  max-width: dv.$omv-notification-bar-width;
+
+  .mat-list {
+    .mat-list-item {
+      color: dc.$omv-color-white;
+      height: fit-content;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+
+      .list-item-title {
+        white-space: normal;
+      }
+
+      .list-item-message {
+        max-width: 300px;
+        white-space: normal;
+      }
+    }
+
+    .mat-divider {
+      border-color: dc.$omv-color-white-translucent;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+version: "1.0"
+type: "component"
+data:
+  name: "omv-diagnostics-performance-statistics-diskio-rrd-page"
+  type: "rrdPage"
+  config:
+    graphs:
+      - name: "disk-octets-{{ canonicaldevicefile | replace('/dev/', '') }}"
+        label: _("Traffic")
+      - name: "disk-ops-{{ canonicaldevicefile | replace('/dev/', '') }}"
+        label: _("Operations")
+      - name: "disk-time-{{ canonicaldevicefile | replace('/dev/', '') }}"
+        label: _("Time per operation")
+    label: '{{ predictabledevicefile }}{{ " [" + "System" | translate + "]" if root === true }}'
+    store:
+      proxy:
+        service: "CollectdDisk"
+        get:
+          method: "enumerate"
+      sorters:
+        - prop: "predictabledevicefile"
+          dir: "asc"
+      uniqBy: "canonicaldevicefile"

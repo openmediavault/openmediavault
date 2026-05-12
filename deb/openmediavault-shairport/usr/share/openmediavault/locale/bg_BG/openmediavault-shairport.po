@@ -1,0 +1,45 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-shairport package.
+# 
+# Translators:
+# Plamen Vasilev <p.vasileff@gmail.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2014-06-23 16:18+0000\n"
+"Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>, 2017\n"
+"Language-Team: Bulgarian (Bulgaria) (http://app.transifex.com/openmediavault/openmediavault/language/bg_BG/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: bg_BG\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A password is required to stream audio."
+msgstr "Нужна е парола, ако желаете да стриймвате аудио."
+
+msgid "Authentication"
+msgstr "Идентификация"
+
+msgid "Enabled"
+msgstr "Разрешено"
+
+msgid "Name"
+msgstr "Име"
+
+msgid "Password"
+msgstr "Парола"
+
+msgid "Shairport"
+msgstr "Shairport"
+
+msgid ""
+"The name the service will advertise to clients. Leave this field empty to "
+"use the hostname by default."
+msgstr "Името, което услугата, която ще се рекламира на клиентите. Оставете това поле празно, за да използвате името на хоста по подразбиране."
+
+msgid "Updated Shairport settings."
+msgstr ""

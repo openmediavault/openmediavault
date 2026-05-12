@@ -1,0 +1,100 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-snmp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Varkentjes, 2020
+# Milan Toet <milantoet@gmail.com>, 2022
+# Stephan Paternotte <stephan@paternottes.net>, 2025
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-snmp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2017-09-24 18:47+0000\n"
+"Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
+"Language-Team: Dutch (Netherlands) (https://app.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl_NL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Authentication and no privacy"
+msgstr "Authenticatie en geen privacy"
+
+msgid "Authentication and privacy"
+msgstr "Authenticatie en privacy"
+
+msgid "Authentication passphrase"
+msgstr "Authenticatie wachtwoord"
+
+msgid "Authentication type"
+msgstr "Authenticatie type"
+
+msgid "Community"
+msgstr "Gemeenschap"
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid ""
+"Contact information, e.g. name or email address of the person responsible "
+"for this system."
+msgstr ""
+"Contactgegevens, bijv. naam of e-mailadres van de verantwoordelijke persoon "
+"voor dit systeem."
+
+msgid "Enabled"
+msgstr "Ingeschakeld"
+
+msgid "Extra options"
+msgstr "Extra opties"
+
+msgid "Host"
+msgstr "Host"
+
+msgid "Location"
+msgstr "Locatie"
+
+msgid "Location information, e.g. physical location of this system."
+msgstr "Locatieinformatie, bijv. fysieke locatie van dit systeem ."
+
+msgid "No authentication and no privacy"
+msgstr "Geen authenticatie en geen privacy"
+
+msgid "Port"
+msgstr "Poort"
+
+msgid "Privacy passphrase"
+msgstr "Privacy wachtwoord"
+
+msgid "Privacy type"
+msgstr "Privacy type"
+
+msgid "SNMP"
+msgstr "SNMP"
+
+msgid "SNMP version 1/2c"
+msgstr "SNMP-versie 1/2c"
+
+msgid "SNMP version 3"
+msgstr "SNMP-versie 3"
+
+msgid "Security level"
+msgstr "Veiligheidsniveau"
+
+msgid "Traps"
+msgstr "Traps"
+
+msgid "Updated SNMP settings."
+msgstr "SNMP-instellingen bijgewerkt."
+
+msgid "User name"
+msgstr "Gebruikersnaam"
+
+msgid "Version"
+msgstr "Versie"

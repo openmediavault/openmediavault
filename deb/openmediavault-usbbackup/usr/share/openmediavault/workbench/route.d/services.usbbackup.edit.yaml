@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/usbbackup/edit/:uuid"
+  title: _("Edit")
+  editing: true
+  notificationTitle: _("Updated USB backup job.")
+  component: omv-services-usbbackup-job-form-page

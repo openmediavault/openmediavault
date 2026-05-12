@@ -1,0 +1,55 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-envvars package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-envvars\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-23 20:04+0200\n"
+"PO-Revision-Date: 2026-04-23 18:04+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2026\n"
+"Language-Team: German (https://app.transifex.com/openmediavault/teams/14254/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Apply"
+msgstr "Anwenden"
+
+msgid "Create"
+msgstr "Erstellen"
+
+msgid "Created environment variable."
+msgstr "Umgebungsvariable erstellt."
+
+msgid "Edit"
+msgstr "Bearbeiten"
+
+msgid "Environment Variables"
+msgstr "Umgebungsvariablen"
+
+msgid "Name"
+msgstr "Name"
+
+msgid ""
+"Please wait, applying environment variables. This can take some time ..."
+msgstr ""
+"Bitte warten Sie, während die Umgebungsvariablen übernommen werden. Dies "
+"kann einen Moment dauern ..."
+
+msgid "Select an environment variable ..."
+msgstr "Wähle eine Umgebungsvariable aus ..."
+
+msgid "Updated environment variable."
+msgstr "Umgebungsvariable wurde aktualisiert."
+
+msgid "Value"
+msgstr "Wert"

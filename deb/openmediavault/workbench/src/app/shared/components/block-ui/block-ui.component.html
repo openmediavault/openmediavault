@@ -1,0 +1,8 @@
+<div *ngIf="(blockUiService.config$ | async)?.active"
+     class="overlay omv-cursor-amiga20-busy"
+     @fadeInOut>
+  <div class="container">
+    <div class="icon"></div>
+    <div class="omv-mx message">{{ (blockUiService.config$ | async)?.message | transloco }}</div>
+  </div>
+</div>

@@ -1,0 +1,114 @@
+#!/usr/bin/env dash
+#
+# This file is part of OpenMediaVault.
+#
+# @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2026 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+case "$1" in
+	configure)
+		########################################################################
+		# Activate trigger to rebuild workbench configuration files.
+		########################################################################
+		dpkg-trigger update-workbench
+
+		########################################################################
+		# Initialize and migrate configuration database.
+		########################################################################
+		echo "Updating configuration database ..."
+		omv-confdbadm create "conf.service.k8s"
+		if [ -n "$2" ]; then
+			omv-confdbadm migrate "conf.service.k8s" "${2}"
+		fi
+
+		########################################################################
+		# Append notification configuration.
+		# Note, we are not using the `omv-confdbadm create "conf.service.xxx"`
+		# mechanism here because data is added to an existing configuration.
+		########################################################################
+		if ! omv-confdbadm exists --filter "{\"operator\":\"stringEquals\",\"arg0\":\"id\",\"arg1\":\"monitk8s\"}" \
+			  "conf.system.notification.notification"; then
+			echo "Append notification configuration ..."
+			omv-confdbadm read --defaults "conf.system.notification.notification" | \
+			  jq ".id = \"monitk8s\"" | \
+			  omv-confdbadm update "conf.system.notification.notification" -
+		fi
+
+		########################################################################
+		# Install k3s software and set the default settings on first package
+		# installation.
+		########################################################################
+		if [ -z "$2" ]; then
+			echo "Installing k3s ..."
+			LC_ALL=C.UTF-8 omv-salt deploy run --no-color --quiet k3s || :
+		fi
+
+		########################################################################
+		# Install the recipes from the GitHub repository.
+		########################################################################
+		if [ ! -d "/var/lib/openmediavault/k8s-recipes" ]; then
+			# Import the configured proxy settings, but do not output anything to stdout.
+			. /etc/profile 1>/dev/null
+
+			echo "Cloning recipes repository ..."
+			mkdir -p "/var/lib/openmediavault/k8s-recipes"
+			git clone https://github.com/openmediavault/openmediavault-k8s-recipes.git "/var/lib/openmediavault/k8s-recipes"
+		fi
+
+		########################################################################
+		# Action to be done depending on the previous version.
+		########################################################################
+		echo "Updating configuration ..."
+		if dpkg --compare-versions "$2" lt-nl "7.1.1"; then
+			touch /var/lib/openmediavault/upgrade_k3s || :
+			omv_module_set_dirty k3s
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.4.10"; then
+			omv_module_set_dirty k3s
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.4.11"; then
+			omv_module_set_dirty k3s
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.4.13"; then
+			omv_module_set_dirty k3s
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.4.14"; then
+			omv_module_set_dirty monit
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.1.0"; then
+			omv_module_set_dirty k3s
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.2.2"; then
+			omv_module_set_dirty k3s
+		fi
+	;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+
+	*)
+		echo "postinst called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac
+
+exit 0

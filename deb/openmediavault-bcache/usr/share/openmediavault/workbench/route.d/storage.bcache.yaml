@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/bcache"
+  title: _("Bcache")
+  component: omv-storage-bcache-navigation-page

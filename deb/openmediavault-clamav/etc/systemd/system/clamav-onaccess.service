@@ -1,0 +1,16 @@
+[Unit]
+Description=Clam AntiVirus on-access daemon
+After=clamav-daemon.service
+Wants=clamav-daemon.service
+BindsTo=clamav-daemon.service
+
+[Service]
+EnvironmentFile=-/etc/default/clamav-onaccess
+ExecStartPre=-/sbin/sysctl fs.inotify.max_user_watches=524288
+ExecStart=/usr/sbin/clamonacc --fdpass --foreground=true ${CLAMONACC_OPTIONS}
+Restart=on-failure
+RestartSec=5s
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target

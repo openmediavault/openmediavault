@@ -1,0 +1,151 @@
+[{
+	"type": "rpc",
+	"id": "rpc.smb.setsettings",
+	"params": {
+		"type": "object",
+		"properties": {
+			"enable": {
+				"type": "boolean",
+				"required": true
+			},
+			"workgroup": {
+				"type": "string",
+				"required": true
+			},
+			"serverstring": {
+				"type": "string",
+				"required": true
+			},
+			"loglevel": {
+				"type": "integer",
+				"enum":[ 0, 1, 2, 3, 10 ],
+				"required": true
+			},
+			"usesendfile": {
+				"type": "boolean",
+				"required": true
+			},
+			"aio": {
+				"type": "boolean",
+				"required": true
+			},
+			"timeserver": {
+				"type": "boolean",
+				"required": true
+			},
+			"winssupport": {
+				"type": "boolean",
+				"required": true
+			},
+			"winsserver": {
+				"type": "string",
+				"required": true
+			},
+			"homesenable": {
+				"type": "boolean",
+				"required": true
+			},
+			"homesbrowseable": {
+				"type": "boolean",
+				"required": true
+			},
+			"extraoptions": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.smb.setshare",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"enable": {
+				"type": "boolean",
+				"required": true
+			},
+			"sharedfolderref": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"comment": {
+				"type": "string",
+				"required": true
+			},
+			"guest": {
+				"type": "string",
+				"enum":[ "no", "allow", "only" ],
+				"required": true
+			},
+			"readonly": {
+				"type": "boolean",
+				"required": true
+			},
+			"browseable": {
+				"type": "boolean",
+				"required": true
+			},
+			"recyclebin": {
+				"type": "boolean",
+				"required": true
+			},
+			"recyclemaxsize": {
+				"type": "integer",
+				"minimum": 0,
+				"required": true
+			},
+			"recyclemaxage": {
+				"type": "integer",
+				"minimum": 0,
+				"required": true
+			},
+			"hidedotfiles": {
+				"type": "boolean",
+				"required": true
+			},
+			"inheritacls": {
+				"type": "boolean",
+				"required": true
+			},
+			"inheritpermissions": {
+				"type": "boolean",
+				"required": true
+			},
+			"easupport": {
+				"type": "boolean",
+				"required": true
+			},
+			"storedosattributes": {
+				"type": "boolean",
+				"required": true
+			},
+			"hostsallow": {
+				"type": "string",
+				"required": true
+			},
+			"hostsdeny": {
+				"type": "string",
+				"required": true
+			},
+			"audit": {
+				"type": "boolean",
+				"required": true
+			},
+			"timemachine": {
+				"type": "boolean",
+				"default": false
+			},
+			"extraoptions": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+}]

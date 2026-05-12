@@ -1,0 +1,21 @@
+{%- set user = salt['pillar.get']('default:OMV_RSYNC_CRONUSER', 'root') -%}
+{%- set scripts_dir = salt['pillar.get']('default:OMV_CRONSCRIPTS_DIR', '/var/lib/openmediavault/cron.d') -%}
+{%- set script_prefix = salt['pillar.get']('default:OMV_RSYNC_CRONSCRIPT_PREFIX', 'rsync-') -%}
+{%- set separator = ' ' -%}
+{{ pillar['headers']['multiline'] -}}
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+# m h dom mon dow user    command
+{%- for job in jobs | selectattr('enable') %}
+{% if job.everynminute | to_bool %}*/{{ job.minute }}{% else %}{{ job.minute }}{% endif -%}
+{{ separator }}{% if job.everynhour | to_bool %}*/{{ job.hour }}{% else %}{{ job.hour }}{% endif -%}
+{{ separator }}{% if job.everyndayofmonth | to_bool %}*/{{ job.dayofmonth }}{% else %}{{ job.dayofmonth }}{% endif -%}
+{{ separator }}{{ job.month }}{{ separator }}{{ job.dayofweek -}}
+{{ separator }}{{ user -}}
+{{ separator }}{{ scripts_dir | path_join(script_prefix ~ job.uuid) -}}
+{%- if not job.sendemail | to_bool -%}
+{{ separator }}>/dev/null 2>&1
+{%- else -%}
+{{ separator }}2>&1 | grep -v '/$' | mail -E -s "Cron{{ ' - ' ~ job.comment | replace('\n', ' ') if job.comment | length > 0 else '' }}" -a "From: Cron Daemon <{{ user }}>" {{ user }} >/dev/null 2>&1
+{%- endif -%}
+{%- endfor -%}

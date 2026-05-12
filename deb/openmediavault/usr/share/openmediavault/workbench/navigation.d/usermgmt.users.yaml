@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "usermgmt.users"
+  position: 20
+  text: _("Users")
+  icon: user
+  url: "/usermgmt/users"

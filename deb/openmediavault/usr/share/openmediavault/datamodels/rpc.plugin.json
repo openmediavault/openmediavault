@@ -1,0 +1,47 @@
+[{
+	"type": "rpc",
+	"id": "rpc.plugin.remove",
+	"params": {
+		"type": "object",
+		"properties": {
+			"packages": {
+				"type": "array",
+				"items": {
+					"type": "string"
+				},
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.plugin.upload",
+	"params": {
+		"type": "object",
+		"properties": {
+			"filename": {
+				"type": "string",
+				"required": true
+			},
+			"filepath": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.plugin.install",
+	"params": {
+		"type": "object",
+		"properties": {
+			"packages": {
+				"type": "array",
+				"items": {
+					"type": "string"
+				},
+				"required": true
+			}
+		}
+	}
+}]

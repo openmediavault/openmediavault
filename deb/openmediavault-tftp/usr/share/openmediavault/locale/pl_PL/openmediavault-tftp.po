@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-tftp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2017
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2022
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-tftp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2017-03-31 07:22+0000\n"
+"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>, 2022\n"
+"Language-Team: Polish (Poland) (https://app.transifex.com/openmediavault/teams/14254/pl_PL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl_PL\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+msgid "Allow new files to be created."
+msgstr "Pozwala tworzyć nowe pliki"
+
+msgid "Blocksize"
+msgstr "Wielkość bloku"
+
+msgid "By default, only files that already exist are allowed to be uploaded."
+msgstr ""
+"Domyślnie, tylko pliki już istniejące mają zezwolenie na to, by je wysyłać."
+
+msgid ""
+"Determine the default timeout, in microseconds, before the first packet is "
+"retransmitted."
+msgstr ""
+"Określa domyślny limit czasu, w mikrosekundach, zanim pierwszy pakiet będzie"
+" ponownie wysłany."
+
+msgid "Enabled"
+msgstr "Właczony"
+
+msgid "Extra options"
+msgstr "Dodatkowe opcje"
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Retry timeout"
+msgstr "Limit czasu powtórzeń"
+
+msgid "Shared folder"
+msgstr "Katalog współdzielony"
+
+msgid ""
+"Specifies the maximum permitted block size. The permitted range for this "
+"parameter is from 512 to 65464."
+msgstr ""
+"Określa rozmiar maksymalny dozwolony bloku. Zakres dozwolone dla tego "
+"parametru od 512 do 65464."
+
+msgid "TFTP"
+msgstr "TFTP"
+
+msgid ""
+"The location of the files to share. Please make sure that the shared folder "
+"is publicly writable if new files are allowed."
+msgstr ""
+"Lokalizacja plików do udostępnienia. Upewnij się, że udostępniony folder "
+"jest publicznie zapisywalny, jeśli dozwolone jest dodawanie nowych plików."
+
+msgid "Updated TFTP settings."
+msgstr "Zaktualizowane ustawienia TFTP"

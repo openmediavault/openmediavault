@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "storage.filesystems"
+  position: 40
+  text: _("File Systems")
+  icon: "mdi:file-tree"
+  url: "/storage/filesystems"

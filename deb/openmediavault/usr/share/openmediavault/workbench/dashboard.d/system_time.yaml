@@ -1,0 +1,14 @@
+version: "1.0"
+type: dashboard-widget
+data:
+  id: 5e41d045-bd91-4300-9af3-52ef5f4715df
+  title: _("System Time")
+  description: _("Displays the system time.")
+  type: value
+  value:
+    icon: "clock"
+    title: _("System time")
+    value: "{{ time }}"
+    request:
+      service: System
+      method: getInformation

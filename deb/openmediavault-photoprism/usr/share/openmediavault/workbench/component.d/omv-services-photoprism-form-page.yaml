@@ -1,0 +1,133 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-photoprism-form-page
+  type: formPage
+  config:
+    request:
+      service: PhotoPrism
+      get:
+        method: get
+      post:
+        method: set
+    hints:
+      - type: info
+        text: _("Use the <em>admin:admin</em> credentials when logging in for the first time. Please do not forget to change the password immediately.")
+        dismissible: true
+        stateId: 76f127fb-092d-43af-8479-c035da5e0ba3
+    fields:
+      - type: checkbox
+        name: enable
+        label: _("Enabled")
+        value: false
+      - type: numberInput
+        name: port
+        label: _("Port")
+        hint: _("Port to listen on.")
+        value: 2342
+        validators:
+          min: 1
+          max: 65535
+          patternType: port
+          required: true
+      - type: sslCertSelect
+        name: sslcertificateref
+        label: _("Certificate")
+        hint: _("The SSL certificate.")
+        hasEmptyOption: true
+        value: ""
+      - type: checkbox
+        name: public
+        label: _("Public")
+        value: false
+        hint: _("Disable password authentication, WebDAV, and the advanced settings page.")
+      - type: checkbox
+        name: readonly
+        label: _("Read-only")
+        value: false
+        hint: _("If enabled, all features that require write permission to the images folder are disabled, in particular import, upload, and delete.")
+      - type: select
+        name: originalslimit
+        label: _("Filesize limit")
+        hint: _("The maximum size of media files.")
+        value: 1000
+        store:
+          data:
+            - - -1
+              - _("Disabled")
+            - - 1
+              - _("1 MB")
+            - - 5
+              - _("5 MB")
+            - - 10
+              - _("10 MB")
+            - - 25
+              - _("25 MB")
+            - - 50
+              - _("50 MB")
+            - - 100
+              - _("100 MB")
+            - - 250
+              - _("250 MB")
+            - - 500
+              - _("500 MB")
+            - - 1000
+              - _("1 GB")
+            - - 5000
+              - _("5 GB")
+            - - 10000
+              - _("10 GB")
+            - - 25000
+              - _("25 GB")
+            - - 50000
+              - _("50 GB")
+            - - 100000
+              - _("100 GB")
+      - type: sharedFolderSelect
+        name: originals_sharedfolderref
+        label: _("Images")
+        hint: _("The location of the media files. Make sure the user <em>photoprism</em> or group <em>users</em> can access the files.")
+        hasEmptyOption: true
+        value: ""
+        validators:
+          requiredIf:
+            operator: truthy
+            arg0:
+              prop: enable
+      - type: sharedFolderSelect
+        name: appdata_sharedfolderref
+        label: _("Application data")
+        hint: _("The location where to store the application data.")
+        hasEmptyOption: true
+        value: ""
+        validators:
+          requiredIf:
+            operator: truthy
+            arg0:
+              prop: enable
+      - type: sharedFolderSelect
+        name: import_sharedfolderref
+        label: _("Import")
+        hint: _("You may optionally mount an import folder from which files can be transferred to the originals folder in a structured way that avoids duplicates. Make sure the user <em>photoprism</em> or group <em>users</em> can access the files.")
+        hasEmptyOption: true
+        value: ""
+        modifiers:
+          - type: disabled
+            constraint:
+              operator: truthy
+              arg0:
+                prop: readonly
+    buttons:
+      - text: _("Open UI")
+        enabledConstraint:
+          operator: "truthy"
+          arg0:
+            prop: "enable"
+        execute:
+          type: url
+          url: "/externalRedirect/{% if sslcertificateref %}https{% else %}http{% endif %}{{ ['://', location() | get('hostname'), ':', port] | join | encodeuricomponent }}"
+      - template: cancel
+        execute:
+          type: url
+          url: "/services"
+      - template: submit

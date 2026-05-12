@@ -1,0 +1,32 @@
+<omv-alert-panel type="info"
+                 title="{{ 'Welcome to openmediavault' | transloco }}"
+                 dismissible
+                 (closed)="onClosed()">
+  This <a href="https://en.wikipedia.org/wiki/OpenMediaVault">project</a> is developed by me, <a href="https://github.com/votdev">Volker Theile</a>, with heart and soul and a lot of commitment since 2009 in the hope that it will be of use to you. If you like it I would be happy about a small donation to support me and the project.
+  <br><br>
+  <div class="omv-text-center">
+    <form action="https://www.paypal.com/cgi-bin/webscr"
+          method="post"
+          target="_blank">
+      <input type="hidden"
+             name="cmd"
+             value="_s-xclick">
+      <input type="hidden"
+             name="hosted_button_id"
+             value="95MF5UQ66PW2E">
+      <input class="omv-text-center"
+             type="image"
+             src="./assets/images/donate.gif"
+             name="submit"
+             alt="PayPal - The safer, easier way to pay online!">
+    </form>
+  </div>
+  <br>
+  You can find more information about <strong>openmediavault</strong> here:
+  <ul>
+    <li><a href="https://www.openmediavault.org">Homepage</a></li>
+    <li><a href="https://forum.openmediavault.org">Forum</a></li>
+    <li><a href="https://docs.openmediavault.org">Documentation</a></li>
+  </ul>
+  Additional plugins created by <strong>openmediavault</strong> enthusiasts can be found <a href="https://github.com/OpenMediaVault-Plugin-Developers">here</a>.
+</omv-alert-panel>

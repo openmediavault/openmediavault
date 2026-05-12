@@ -1,0 +1,308 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-clamav package.
+# 
+# Translators:
+# Toshihiro Kan <kansuke4649@gmail.com>, 2014,2017,2021,2023
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-05-18 22:06+0000\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014,2017,2021,2023\n"
+"Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja_JP\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Algorithmic detection"
+msgstr "アルゴリズム的検出"
+
+msgid ""
+"An email message with the command output (if any produced) is sent to the "
+"administrator."
+msgstr ""
+
+msgid "Antivirus"
+msgstr "アンチウィルス"
+
+msgid "April"
+msgstr "4月"
+
+msgid "August"
+msgstr "8月"
+
+msgid "Be verbose."
+msgstr "詳細に。"
+
+msgid "Create"
+msgstr "作成"
+
+msgid "Created on-access scan."
+msgstr "アクセス時のスキャンを作成しました。"
+
+msgid "Created scheduled scan."
+msgstr "スケジュールされたスキャンを作成しました。"
+
+msgid "Database checks"
+msgstr "データベースチェック"
+
+msgid "Date & Time"
+msgstr "日付 & 時刻"
+
+msgid "Day of month"
+msgstr "月の日"
+
+msgid "Day of week"
+msgstr "曜日"
+
+msgid "December"
+msgstr "12月"
+
+msgid "Delete immediately"
+msgstr "すぐに削除"
+
+msgid "Detect PUA"
+msgstr "PUAの検出"
+
+msgid "Detect broken executables"
+msgstr "壊れた実行ファイルを検出"
+
+msgid "Detect broken media"
+msgstr ""
+
+msgid "Edit"
+msgstr "編集"
+
+msgid "Enable HTML detection and normalisation."
+msgstr "HTMLの検出および正規化を有効にします。"
+
+msgid "Enable archive scanning."
+msgstr "圧縮ファイルのスキャンを有効にします。"
+
+msgid "Enable scanning of ELF files."
+msgstr "ELFファイルのスキャンを有効にします。"
+
+msgid ""
+"Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
+"files."
+msgstr " Microsoft Officeドキュメントや、 .msi ファイルなどのOLE2ファイルのスキャンを有効にします。"
+
+msgid "Enable scanning within PDF files."
+msgstr "PDFファイル内のスキャンを有効にします。"
+
+msgid "Enable the algorithmic detection."
+msgstr "アルゴリズム的検出を有効にします。"
+
+msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr "壊れた実行ファイル（PEとELF両方）の検出を有効にします。"
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
+msgstr ""
+
+msgid "Enable the detection of possibly unwanted applications."
+msgstr "おそらく不要なアプリケーションの検出を有効にします。"
+
+msgid "Enabled"
+msgstr "有効"
+
+msgid "Every N day of month"
+msgstr "毎月N日"
+
+msgid "Every N hour"
+msgstr "N時間ごと"
+
+msgid "Every N minute"
+msgstr "N分ごと"
+
+msgid "Execute scheduled scan"
+msgstr "スケジュールされたスキャンを実行"
+
+msgid "Extra options"
+msgstr "その他のオプション"
+
+msgid "February"
+msgstr "2月"
+
+msgid "Follow directory symlinks"
+msgstr "ディレクトリのシンボリックリンクをたどる"
+
+msgid "Follow directory symlinks."
+msgstr "ディレクトリのシンボリックリンクをたどります。"
+
+msgid "Follow file symlinks"
+msgstr "ファイルのシンボリックリンクをたどる"
+
+msgid "Follow regular file symlinks."
+msgstr "通常ファイルのシンボリックリンクをたどります。"
+
+msgid "Friday"
+msgstr "金曜"
+
+msgid "Hour"
+msgstr "時"
+
+msgid "Infected files"
+msgstr "感染したファイル"
+
+msgid "January"
+msgstr "1月"
+
+msgid "July"
+msgstr "7月"
+
+msgid "June"
+msgstr "6月"
+
+msgid "Log clean files"
+msgstr "ログファイルの整形"
+
+msgid "Log clean files. This drastically increases the log size."
+msgstr "ログファイルを整形します。ログファイルのサイズが劇的に大きくなります。"
+
+msgid "March"
+msgstr "3月"
+
+msgid "May"
+msgstr "5月"
+
+msgid "Message"
+msgstr "メッセージ"
+
+msgid "Minute"
+msgstr "分"
+
+msgid "Monday"
+msgstr "月曜"
+
+msgid "Month"
+msgstr "月"
+
+msgid "Move to quarantine"
+msgstr "検疫に移動"
+
+msgid "Multiscan"
+msgstr "マルチスキャン"
+
+msgid "November"
+msgstr "11月"
+
+msgid "Number of database update checks per day. Set to 0 to disable."
+msgstr "データベースの更新を1日に何回確認するかを設定します。0に設定すると確認しません。"
+
+msgid "October"
+msgstr "10月"
+
+msgid "On Access Scans"
+msgstr "アクセス時のスキャン"
+
+msgid "Perform a deeper analysis of executable files."
+msgstr "実行可能ファイルのより詳細な分析を行う。"
+
+msgid "Perform nothing"
+msgstr "何もしない"
+
+msgid ""
+"Please check the <a href='https://manpages.debian.org/stable/clamav-"
+"daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
+"details."
+msgstr "詳細については <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'>マニュアルページ</a> を確認してください。"
+
+msgid "Quarantine"
+msgstr "検疫"
+
+msgid "Run"
+msgstr "実行"
+
+msgid "Saturday"
+msgstr "土曜"
+
+msgid "Scan ELF"
+msgstr "ELFのスキャン"
+
+msgid "Scan HTML"
+msgstr "HTMLのスキャン"
+
+msgid "Scan OLE2"
+msgstr "OLE2のスキャン"
+
+msgid "Scan PDF"
+msgstr "PDFのスキャン"
+
+msgid "Scan Portable Executable"
+msgstr "Portable Executable(PE)のスキャン"
+
+msgid "Scan archives"
+msgstr "圧縮ファイルのスキャン"
+
+msgid "Scan the directory contents in parallel using available threads."
+msgstr "利用可能なスレッドを使用しディレクトリを並行でスキャンします。"
+
+msgid "Scheduled Scans"
+msgstr "スケジュールされたスキャン"
+
+msgid "Scheduling"
+msgstr "スケジューリング"
+
+msgid "Send email"
+msgstr "電子メールの送信"
+
+msgid "September"
+msgstr "9月"
+
+msgid "Service disabled"
+msgstr "サービスは無効"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Shared folder"
+msgstr "共有フォルダ"
+
+msgid "Sunday"
+msgstr "日曜"
+
+msgid "Tags"
+msgstr "Tags"
+
+msgid "The field should only contain * or a comma separated list of values."
+msgstr "フィールドには、* またはカンマで区切られた値のリストのみを含める必要があります。"
+
+msgid "The location of the files to scan on-access."
+msgstr "アクセス時のスキャンを行うファイルの場所。"
+
+msgid "The location of the files to scan."
+msgstr "スキャンするファイルの場所。"
+
+msgid "The location which is used as quarantine."
+msgstr "検疫として使用されている場所。"
+
+msgid "The option, how to handle infected files."
+msgstr "感染したファイルをどのように処理するかのオプション。"
+
+msgid "Thursday"
+msgstr "木曜"
+
+msgid "Time of execution"
+msgstr "実行時刻"
+
+msgid "Tuesday"
+msgstr "火曜"
+
+msgid "Updated on-access scan."
+msgstr "アクセス時のスキャンを更新しました。"
+
+msgid "Updated scheduled scan."
+msgstr "スケジュールされたスキャンを更新しました。"
+
+msgid "Verbose"
+msgstr "詳細"
+
+msgid "Wednesday"
+msgstr "水曜"
+
+msgid "n/a"
+msgstr "n/a"

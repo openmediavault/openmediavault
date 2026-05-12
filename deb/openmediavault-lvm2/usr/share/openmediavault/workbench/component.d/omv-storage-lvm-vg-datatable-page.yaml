@@ -1,0 +1,87 @@
+version: "1.0"
+type: component
+data:
+  name: omv-storage-lvm-vg-datatable-page
+  type: datatablePage
+  config:
+    autoReload: false
+    stateId: af0712c4-9f60-493a-9be4-c9658f958f99
+    sorters:
+      - dir: asc
+        prop: devicefile
+    store:
+      proxy:
+        service: LogicalVolumeMgmt
+        get:
+          method: getVolumeGroupsList
+    rowEnumFmt: "{{ devicefile }}"
+    columns:
+      - name: _("Device")
+        prop: devicefile
+        flexGrow: 1
+        sortable: true
+        hidden: true
+      - name: _("Name")
+        prop: name
+        flexGrow: 1
+        sortable: true
+      - name: _("Available")
+        prop: size
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: binaryUnit
+      - name: _("Free")
+        prop: free
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: binaryUnit
+      - name: _("Physical Volumes")
+        prop: pvname
+        flexGrow: 2
+        sortable: true
+        cellTemplateName: unsortedList
+      - name: _("Logical Volumes")
+        prop: lvname
+        flexGrow: 2
+        sortable: true
+        cellTemplateName: unsortedList
+    actions:
+      - template: create
+        execute:
+          type: url
+          url: "/storage/lvm/vgs/create"
+      - template: edit
+        execute:
+          type: url
+          url: "/storage/lvm/vgs/edit/{{ _selected[0].name }}"
+      - type: iconButton
+        icon: expand
+        tooltip: _("Extend")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/storage/lvm/vgs/extend/{{ _selected[0].name }}"
+      - type: iconButton
+        icon: collapse
+        tooltip: _("Reduce")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/storage/lvm/vgs/reduce/{{ _selected[0].name }}"
+      - template: delete
+        enabledConstraints:
+          constraint:
+            - operator: falsy
+              arg0:
+                prop: "_used"
+        execute:
+          type: request
+          request:
+            service: LogicalVolumeMgmt
+            method: deleteVolumeGroup
+            params:
+              name: "{{ name }}"

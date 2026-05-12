@@ -1,0 +1,76 @@
+name: Continues Integration
+
+on:
+  push:
+    branches:
+      - 'master'
+  pull_request:
+    branches:
+      - 'master'
+
+env:
+  NODE_VERSION: 16
+  NODE_OPTIONS: --max_old_space_size=4096
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@3235b876344d2a9aa001b8d1453c930bba69e610 # v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: deb/openmediavault/workbench/package-lock.json
+
+      - name: Install dependencies
+        working-directory: deb/openmediavault/workbench/
+        run: npm ci
+
+      - name: Run lint
+        working-directory: deb/openmediavault/workbench/
+        run: npm run lint
+
+  test-ui:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@3235b876344d2a9aa001b8d1453c930bba69e610 # v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: deb/openmediavault/workbench/package-lock.json
+
+      - name: Install dependencies
+        working-directory: deb/openmediavault/workbench/
+        run: npm ci
+
+      - name: Run unit tests
+        working-directory: deb/openmediavault/workbench/
+        run: npm run test:ci
+
+  test-shell:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+
+      - name: Install dependencies
+        working-directory: deb/openmediavault/usr/share/openmediavault/unittests/shell
+        run: make install
+
+      - name: Run unit tests
+        working-directory: deb/openmediavault/usr/share/openmediavault/unittests/shell
+        run: make test

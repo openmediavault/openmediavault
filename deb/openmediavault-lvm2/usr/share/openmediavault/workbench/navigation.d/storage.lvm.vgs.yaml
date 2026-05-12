@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "storage.lvm.vgs"
+  text: _("Volume Groups")
+  icon: "mdi:database"
+  url: "/storage/lvm/vgs"
+  position: 20

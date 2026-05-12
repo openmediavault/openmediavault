@@ -1,0 +1,87 @@
+<omv-alert-panel *ngIf="!monitoringEnabled"
+                 type="info">
+  <span [innerHTML]="monitoringDisabledMessage | transloco | sanitizeHtml"></span>
+</omv-alert-panel>
+
+<ng-container *ngIf="monitoringEnabled && !config.store">
+  <ng-container [ngTemplateOutlet]="renderRrdGraphs"
+                [ngTemplateOutletContext]="{ $implicit: config.graphs }">
+  </ng-container>
+</ng-container>
+
+<ng-container *ngIf="monitoringEnabled && config.store">
+  <omv-intuition-page-header></omv-intuition-page-header>
+  <mat-tab-group [ngClass]="{'omv-display-none': (pageStatus?.loading && pageStatus?.initialLoad) || pageStatus?.error}">
+    <mat-tab *ngFor="let tab of tabs"
+             [label]="tab.label">
+      <ng-container [ngTemplateOutlet]="renderRrdGraphs"
+                    [ngTemplateOutletContext]="{ $implicit: tab.graphs }">
+      </ng-container>
+    </mat-tab>
+  </mat-tab-group>
+</ng-container>
+
+<ng-template #renderRrdGraphs
+             let-graphs>
+  <ng-container *ngIf="graphs.length === 1">
+    <ng-container [ngTemplateOutlet]="renderRrdGraph"
+                  [ngTemplateOutletContext]="{ $implicit: graphs[0].name }">
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="graphs.length > 1">
+    <mat-tab-group>
+      <mat-tab *ngFor="let graph of graphs"
+               [label]="graph.label">
+        <ng-container [ngTemplateOutlet]="renderRrdGraph"
+                      [ngTemplateOutletContext]="{ $implicit: graph.name }">
+        </ng-container>
+      </mat-tab>
+    </mat-tab-group>
+  </ng-container>
+</ng-template>
+
+<ng-template #renderRrdGraph
+             let-name>
+  <mat-card>
+    <mat-toolbar class="omv-display-flex omv-flex-row omv-justify-content-end omv-sticky">
+      <button mat-icon-button
+              matTooltip="{{ 'Reload' | transloco }}"
+              [attr.aria-label]="'Reload' | transloco"
+              (click)="onGenerate()">
+        <mat-icon svgIcon="{{ icon.reload }}"></mat-icon>
+      </button>
+    </mat-toolbar>
+    <mat-card-content class="omv-display-flex omv-flex-column omv-justify-content-start omv-align-items-center">
+      <div>
+        <img src="download.php?service=Rrd&method=getGraph&params=%7B%22kind%22:%22{{ name }}%22,%22period%22:%22hour%22%7D&time={{ time }}"
+             loading="lazy"
+             loadingState
+             alt="RRD graph - by hour"/>
+      </div>
+      <div>
+        <img src="download.php?service=Rrd&method=getGraph&params=%7B%22kind%22:%22{{ name }}%22,%22period%22:%22day%22%7D&time={{ time }}"
+             loading="lazy"
+             loadingState
+             alt="RRD graph - by day"/>
+      </div>
+      <div>
+        <img src="download.php?service=Rrd&method=getGraph&params=%7B%22kind%22:%22{{ name }}%22,%22period%22:%22week%22%7D&time={{ time }}"
+             loading="lazy"
+             loadingState
+             alt="RRD graph - by week"/>
+      </div>
+      <div>
+        <img src="download.php?service=Rrd&method=getGraph&params=%7B%22kind%22:%22{{ name }}%22,%22period%22:%22month%22%7D&time={{ time }}"
+             loading="lazy"
+             loadingState
+             alt="RRD graph - by month"/>
+      </div>
+      <div>
+        <img src="download.php?service=Rrd&method=getGraph&params=%7B%22kind%22:%22{{ name }}%22,%22period%22:%22year%22%7D&time={{ time }}"
+             loading="lazy"
+             loadingState
+             alt="RRD graph - by year"/>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</ng-template>

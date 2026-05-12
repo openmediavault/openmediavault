@@ -1,0 +1,33 @@
+{%- set image = salt['pillar.get']('default:OMV_PHOTOPRISM_APP_CONTAINER_IMAGE', 'docker.io/photoprism/photoprism:latest') -%}
+{%- set options = salt['pillar.get']('default:OMV_PHOTOPRISM_APP_CONTAINER_START_OPTIONS', '') -%}
+{%- set uname = salt['pillar.get']('default:OMV_PHOTOPRISM_APP_CONTAINER_UNAME', 'photoprism') -%}
+{%- set gname = salt['pillar.get']('default:OMV_PHOTOPRISM_APP_CONTAINER_GNAME', 'users') -%}
+{%- set uid = salt['user.info'](uname).uid -%}
+{%- set gid = salt['group.info'](gname).gid -%}
+{%- set originals_path = salt['omv_conf.get_sharedfolder_path'](config.originals_sharedfolderref) -%}
+{%- set originals_mnt_path = salt['omv_conf.get_sharedfolder_mount_path'](config.originals_sharedfolderref) -%}
+{%- set appdata_path = salt['omv_conf.get_sharedfolder_path'](config.appdata_sharedfolderref) -%}
+{%- set appdata_mnt_path = salt['omv_conf.get_sharedfolder_mount_path'](config.appdata_sharedfolderref) -%}
+{%- set ssl_enabled = config.sslcertificateref | length > 0 -%}
+{{ pillar['headers']['multiline'] -}}
+[Unit]
+Description=Podman container-photoprism-app.service
+Wants=network.target
+After=network-online.target
+BindsTo=pod-photoprism.service
+After=pod-photoprism.service container-photoprism-db.service
+RequiresMountsFor="{{ originals_mnt_path }}" "{{ appdata_mnt_path }}"
+
+[Service]
+Environment=PODMAN_SYSTEMD_UNIT=%n
+Restart=on-failure
+TimeoutStopSec=70
+ExecStartPre=/bin/rm -f %t/container-photoprism-app.pid %t/container-photoprism-app.ctr-id
+ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-photoprism-app.pid --cidfile %t/container-photoprism-app.ctr-id --cgroups=no-conmon --pod-id-file %t/pod-photoprism.pod-id -d --replace --pull=never --name=photoprism-app -e PHOTOPRISM_HTTP_PORT={{ ssl_enabled | yesno('8080,2342') }} -e PHOTOPRISM_UID={{ uid }} -e PHOTOPRISM_GID={{ gid }} -e PHOTOPRISM_ADMIN_PASSWORD=admin -e PHOTOPRISM_READONLY={{ config.readonly | to_bool | yesno('true,false') }} -e PHOTOPRISM_PUBLIC={{ config.public | to_bool | yesno('true,false') }} -e PHOTOPRISM_ORIGINALS_LIMIT={{ config.originalslimit }} -e PHOTOPRISM_DATABASE_DRIVER=mysql -e PHOTOPRISM_DATABASE_SERVER=photoprism-db:3306 -e PHOTOPRISM_DATABASE_NAME=photoprism -e PHOTOPRISM_DATABASE_USER=photoprism -e PHOTOPRISM_DATABASE_PASSWORD=photoprism -v "{{ originals_path }}":/photoprism/originals/ -v "{{ appdata_path }}/storage/":/photoprism/storage/ {% if config.import_sharedfolderref | is_uuid4 %}-v "{{ salt['omv_conf.get_sharedfolder_path'](config.import_sharedfolderref) }}":/photoprism/import/{% endif %} {{ options }} {{ image }}
+ExecStop=/usr/bin/podman stop --ignore --cidfile %t/container-photoprism-app.ctr-id
+ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/container-photoprism-app.ctr-id
+PIDFile=%t/container-photoprism-app.pid
+Type=forking
+
+[Install]
+WantedBy=multi-user.target default.target

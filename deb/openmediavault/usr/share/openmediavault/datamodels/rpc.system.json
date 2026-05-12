@@ -1,0 +1,87 @@
+[{
+	"type": "rpc",
+	"id": "rpc.system.settimesettings",
+	"params": {
+		"type": "object",
+		"properties": {
+			"timezone": {
+				"type": "string",
+				"required": true
+			},
+			"ntpenable":{
+				"type": "boolean",
+				"required": true
+			},
+			"ntptimeservers": {
+				"type": "string",
+				"required": true
+			},
+			"ntpclients": {
+				"type": "string",
+				"required": false
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.system.setdate",
+	"params": {
+		"type": "object",
+		"properties": {
+			"timestamp": {
+				"type": "integer",
+				"minimum": 0,
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.system.reboot",
+	"params": {
+		"type": "object",
+		"properties": {
+			"delay": {
+				"type": "integer",
+				"minimum": 0
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.system.shutdown",
+	"params": {
+		"type": "object",
+		"properties": {
+			"delay": {
+				"type": "integer",
+				"minimum": 0
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.system.standby",
+	"params": {
+		"type": "object",
+		"properties": {
+			"delay": {
+				"type": "integer",
+				"minimum": 0
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.system.gettopinfo",
+	"params": {
+		"type": "object",
+		"properties": {
+			"format": {
+				"type": "string",
+				"enum": ["text" ,"json"],
+				"required": false
+			}
+		}
+	}
+}]

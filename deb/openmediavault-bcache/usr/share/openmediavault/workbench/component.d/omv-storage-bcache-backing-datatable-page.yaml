@@ -1,0 +1,219 @@
+version: "1.0"
+type: component
+data:
+  name: omv-storage-bcache-backing-datatable-page
+  type: datatablePage
+  config:
+    hints:
+      - type: info
+        text: _("Please note that creating a file system on a Bcache device can take longer. It is therefore possible that the file system is not immediately available for mounting.")
+        dismissible: true
+        stateId: 839ff718-a73e-11ef-9b7d-5feaca4263bf
+    autoReload: false
+    stateId: 7b0b9926-2a09-4aef-807d-85d40dc992e1
+    sorters:
+      - dir: asc
+        prop: devicefile
+    store:
+      proxy:
+        service: Bcache
+        get:
+          method: getBackingList
+    selectionType: single
+    columns:
+      - name: _("Device")
+        prop: devicefile
+        flexGrow: 1
+        sortable: true
+      - name: _("Bcache Device")
+        prop: bcachedevicefile
+        flexGrow: 1
+        sortable: true
+      - name: _("Cache Device")
+        prop: cachedevicefile
+        flexGrow: 1
+        sortable: true
+      - name: _("Cache Mode")
+        prop: cachemode
+        flexGrow: 1
+        sortable: true
+      - name: _("Capacity")
+        prop: size
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: binaryUnit
+      - name: _("Dirty Data")
+        prop: dirtydata
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: template
+        cellTemplateConfig: '{{ dirtydata | tobytes | binaryunit | notavailable("-") }}'
+      - name: _("Mounted")
+        prop: mounted
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: checkIcon
+      - name: _("State")
+        prop: state
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: chip
+        cellTemplateConfig:
+          map:
+            unregistered:
+              value: _("Unregistered")
+              class: "omv-background-color-pair-gray"
+            missing cache:
+              value: _("Missing Cache")
+              class: "omv-background-color-pair-error"
+            no cache:
+              value: _("No Cache")
+              class: "omv-background-color-pair-info"
+            clean:
+              value: _("Clean")
+              class: "omv-background-color-pair-success"
+            dirty:
+              value: _("Dirty")
+              class: "omv-background-color-pair-warning"
+            inconsistent:
+              value: _("Inconsistent")
+              class: "omv-background-color-pair-orange"
+            missing:
+              value: _("Missing")
+              class: "omv-background-color-pair-error"
+    actions:
+      - template: create
+        execute:
+          type: url
+          url: "/storage/bcache/backing/create"
+      - template: edit
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+          constraint:
+            - operator: ne
+              arg0:
+                prop: state
+              arg1: unregistered
+            - operator: ne
+              arg0:
+                prop: state
+              arg1: missing
+        execute:
+          type: url
+          url: "/storage/bcache/backing/edit/{{ _selected[0].devicefile | encodeuricomponent }}"
+      - type: iconButton
+        icon: mdi:tools
+        tooltip: _("Configuration")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+          constraint:
+            - operator: ne
+              arg0:
+                prop: state
+              arg1: unregistered
+            - operator: ne
+              arg0:
+                prop: state
+              arg1: missing
+        execute:
+          type: url
+          url: '/storage/bcache/backing/configuration/{{ _selected[0].devicefile | encodeuricomponent }}'
+      - type: menu
+        icon: mdi:medical-bag
+        tooltip: _("Recovery Actions")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+          constraint:
+            - operator: ne
+              arg0:
+                prop: state
+              arg1: missing
+        actions:
+          - text: _("Register")
+            icon: mdi:login
+            enabledConstraints:
+              minSelected: 1
+              maxSelected: 1
+              constraint:
+                - operator: eq
+                  arg0:
+                    prop: state
+                  arg1: unregistered
+            execute:
+              type: request
+              request:
+                service: Bcache
+                method: register
+                params:
+                  devicefile: '{{ devicefile }}'
+          - text: _("Unregister")
+            icon: mdi:logout
+            enabledConstraints:
+              minSelected: 1
+              maxSelected: 1
+              constraint:
+                - operator: ne
+                  arg0:
+                    prop: state
+                  arg1: unregistered
+                - operator: falsy
+                  arg0:
+                    prop: mounted
+                - operator: ne
+                  arg0:
+                    prop: state
+                  arg1: missing
+            execute:
+              type: request
+              request:
+                service: Bcache
+                method: unregisterBacking
+                params:
+                  devicefile: '{{ devicefile }}'
+          - text: _("Start without cache")
+            icon: mdi:play
+            enabledConstraints:
+              minSelected: 1
+              maxSelected: 1
+              constraint:
+                - operator: eq
+                  arg0:
+                    prop: state
+                  arg1: missing cache
+            execute:
+              type: request
+              request:
+                service: Bcache
+                method: forceRunBacking
+                params:
+                  devicefile: '{{ devicefile }}'
+      - type: iconButton
+        icon: details
+        tooltip: _("Show details")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+          constraint:
+            - operator: ne
+              arg0:
+                prop: state
+              arg1: missing
+        execute:
+          type: url
+          url: '/storage/bcache/backing/details/{{ _selected[0].devicefile | encodeuricomponent }}'
+      - template: delete
+        enabledConstraints:
+          constraint:
+          - operator: falsy
+            arg0:
+              prop: mounted
+        execute:
+          type: request
+          request:
+            service: Bcache
+            method: deleteBacking
+            params:
+              devicefile: '{{ devicefile }}'

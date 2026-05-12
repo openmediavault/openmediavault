@@ -1,0 +1,7 @@
+check process rrdcached with pidfile /run/rrdcached.pid
+    start program = "/bin/systemctl start rrdcached"
+    stop program = "/bin/systemctl stop rrdcached"
+    mode active
+{%- if email_config.enable | to_bool and not notification_config.enable | to_bool %}
+    noalert {{ email_config.primaryemail }}
+{%- endif %}

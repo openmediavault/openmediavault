@@ -1,0 +1,13 @@
+version: "1.0"
+type: component
+data:
+  name: omv-storage-md-details-text-page
+  type: textPage
+  config:
+    hasReloadButton: true
+    request:
+      service: MdMgmt
+      get:
+        method: getDetail
+        params:
+          devicefile: '{{ _routeParams.devicefile }}'

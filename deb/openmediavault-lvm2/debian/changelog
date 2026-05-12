@@ -1,0 +1,430 @@
+openmediavault-lvm2 (8.0-3) stable; urgency=medium
+
+  * Adapt to openmediavault 8.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 10 Aug 2025 12:47:54 +0200
+
+openmediavault-lvm2 (7.0.2-1) stable; urgency=medium
+
+  * Update locale files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 03 Jun 2025 19:42:40 +0200
+
+openmediavault-lvm2 (7.0.1-1) stable; urgency=medium
+
+  * Update locale files.
+  * Add `Referenced` column to the `Logical Volumes` page.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 21 Mar 2025 08:32:29 +0100
+
+openmediavault-lvm2 (7.0-2) unstable; urgency=low
+
+  * Adapt to openmediavault 7 (Sandworm).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Jul 2023 17:08:23 +0200
+
+openmediavault-lvm2 (6.0.3-1) stable; urgency=low
+
+  * Update locale files.
+  * Update package dependency.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 26 Jul 2023 19:51:38 +0200
+
+openmediavault-lvm2 (6.0.2-1) stable; urgency=low
+
+  * Update locales.
+  * Change order in navigation menu.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 31 Jan 2023 12:44:48 +0100
+
+openmediavault-lvm2 (6.0.1-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 17 Sep 2022 09:59:59 +0200
+
+openmediavault-lvm2 (6.0-8) unstable; urgency=low
+
+  * Reimplement UI.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 11 Apr 2021 12:04:58 +0200
+
+openmediavault-lvm2 (5.0.3-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 11 Jun 2021 17:27:48 +0200
+
+openmediavault-lvm2 (5.0.2-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Feb 2020 20:21:12 +0100
+
+openmediavault-lvm2 (5.0.1-1) stable; urgency=low
+
+  * Issue #346: Uninstallation of LVM plugin fails.
+  * Issue #347: Cannot create logical volume.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 25 Apr 2019 14:36:35 +0200
+
+openmediavault-lvm2 (5.0-1) stable; urgency=low
+
+  * Adapt to Debian 10 (Buster).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 25 Dec 2018 19:04:00 +0100
+
+openmediavault-lvm2 (4.0.7-1) stable; urgency=low
+
+  * Update locales.
+  * Fix various issues found by the lgtm.com project.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 22 Oct 2018 18:44:39 +0200
+
+openmediavault-lvm2 (4.0.6-1) stable; urgency=low
+
+  * Fix the pattern attribute in the JSON schemas according to the ECMA 262
+    regular expression dialect.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 26 May 2018 10:56:19 +0200
+
+openmediavault-lvm2 (4.0.5-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 03 Mar 2018 07:22:28 +0100
+
+openmediavault-lvm2 (4.0.4-1) stable; urgency=low
+
+  * Adapt to new API.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 23 Feb 2018 17:53:59 +0100
+
+openmediavault-lvm2 (4.0.3-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 18 Nov 2017 10:04:53 +0100
+
+openmediavault-lvm2 (4.0.2-1) stable; urgency=low
+
+  * Update locales.
+  * Use Font Awesome icons.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 15 Nov 2017 12:30:10 +0100
+
+openmediavault-lvm2 (4.0.1-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 01 Nov 2017 10:16:26 +0100
+
+openmediavault-lvm2 (4.0-1) stable; urgency=low
+
+  * Adapt to Debian 9 (Stretch).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 20 Aug 2017 14:34:15 +0200
+
+openmediavault-lvm2 (3.2.5) stable; urgency=low
+
+  * Fix issue when getting the VG device file.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 01 Nov 2017 10:05:01 +0100
+
+openmediavault-lvm2 (3.2.4) stable; urgency=low
+
+  * Update locales.
+  * Display logical volume status.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 14 Jul 2017 19:43:53 +0200
+
+openmediavault-lvm2 (3.2.3) stable; urgency=low
+
+  * Various improvements and small bugfixes.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 10 Jul 2017 21:41:56 +0200
+
+openmediavault-lvm2 (3.2.2) stable; urgency=low
+
+  * Mantis 0001761: Can not create a lv.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 14 Jun 2017 08:05:25 +0200
+
+openmediavault-lvm2 (3.2.1) stable; urgency=low
+
+  * Update locales.
+  * Various API improvements.
+  * Display the devicefile of the PV/VG/LV in the WebUI.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 20 Apr 2017 23:04:03 +0200
+
+openmediavault-lvm2 (3.2) stable; urgency=low
+
+  * Update locales.
+  * Add ability to create snapshots.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 12 Apr 2017 17:57:05 +0200
+
+openmediavault-lvm2 (3.1.5) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 31 Mar 2017 20:22:19 +0200
+
+openmediavault-lvm2 (3.1.4) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 12 Feb 2017 21:59:30 +0100
+
+openmediavault-lvm2 (3.1.3) stable; urgency=low
+
+  * Fix bug in RPC datamodel.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 04 Nov 2016 14:23:31 +0100
+
+openmediavault-lvm2 (3.1.2) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 04 Sep 2016 18:26:39 +0200
+
+openmediavault-lvm2 (3.1.1) stable; urgency=low
+
+  * Fix bug in RPC.
+  * Mantis 0001507: Can't add logical volume.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 11 Jun 2016 02:14:40 +0200
+
+openmediavault-lvm2 (3.1) stable; urgency=low
+
+  * Update locales.
+  * Adapt to new framework.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 04 Jun 2016 09:38:03 +0200
+
+openmediavault-lvm2 (3.0.1) stable; urgency=low
+
+  * Update locales.
+  * Adapt to new framework.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 09 Mar 2016 17:19:04 +0100
+
+openmediavault-lvm2 (3.0) stable; urgency=low
+
+  * Adapt to Debian 8 (Jessie).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 21 Dec 2015 19:43:36 +0100
+
+openmediavault-lvm2 (2.1) stable; urgency=low
+
+  * Update locales.
+  * Do not list read-only devices as physical volume candidates.
+  * Fix bug in logical volume dialog.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 29 Jun 2015 22:47:43 +0200
+
+openmediavault-lvm2 (2.0) stable; urgency=low
+
+  * Update locales.
+  * Adapt WebGUI to Sencha ExtJS 5.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 01 Jun 2015 21:48:10 +0200
+
+openmediavault-lvm2 (1.3) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 16 Mar 2015 22:14:30 +0100
+
+openmediavault-lvm2 (1.2) stable; urgency=low
+
+  * Update locales.
+  * Introduce custom field XB-Plugin-Section in debian/control.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 07 Dec 2014 12:57:27 +0100
+
+openmediavault-lvm2 (1.1) stable; urgency=low
+
+  * Update locales.
+  * Mantis 0001204: Add support for pvresize.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Nov 2014 12:20:28 +0100
+
+openmediavault-lvm2 (1.0.1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 06 Sep 2014 20:34:23 +0200
+
+openmediavault-lvm2 (1.0) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 07 Jul 2014 18:41:08 +0200
+
+openmediavault-lvm2 (0.6.2) stable; urgency=low
+
+  * Update locales.
+  * Adapt code to new core framework.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 24 Jun 2014 07:20:48 +0200
+
+openmediavault-lvm2 (0.6.1) stable; urgency=low
+
+  * Modify package trigger handling. Now the triggers update-fixperms and
+    update-locale are only called during package installation.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 13 Apr 2014 02:56:48 +0200
+
+openmediavault-lvm2 (0.6) stable; urgency=low
+
+  * Update locales.
+  * Adapt plugin to Debian Wheezy.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Mar 2014 12:22:48 +0100
+
+openmediavault-lvm2 (0.5.5) stable; urgency=low
+
+  * Mantis 0000895: Mutiple LVM logical volumes.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 13 Nov 2013 12:09:30 +0100
+
+openmediavault-lvm2 (0.5.4) stable; urgency=low
+
+  * Various code improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 07 Nov 2013 23:25:47 +0100
+
+openmediavault-lvm2 (0.5.3) stable; urgency=low
+
+  * Update locales.
+  * Adapt plugin to framework changes.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 30 Oct 2013 18:20:02 +0100
+
+openmediavault-lvm2 (0.5.2) stable; urgency=low
+
+  * Update locales.
+  * Mantis 0000859: Parent tab will not be refreshed after delete of child.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 09 Oct 2013 18:22:59 +0200
+
+openmediavault-lvm2 (0.5.1) stable; urgency=low
+
+  * Update locales.
+  * Add SVG icon.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 16 Jun 2013 03:20:08 +0200
+
+openmediavault-lvm2 (0.5) stable; urgency=low
+
+  * Adapt plugin to new framework.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 26 Nov 2012 20:23:11 +0100
+
+openmediavault-lvm2 (0.4) stable; urgency=low
+
+  * Upgrade to xmlstarlet 1.3.1.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 09 Sep 2012 01:29:13 +0200
+
+openmediavault-lvm2 (0.3.0.12) stable; urgency=low
+
+  * Update locales.
+  * Mantis 0000605: Cannot resize LVM Logical Volume.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 19 Sep 2012 13:09:37 +0200
+
+openmediavault-lvm2 (0.3.0.11) stable; urgency=low
+
+  * Update locales.
+  * Modify RPC to create/extend a logical volume.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 14 Sep 2012 13:34:52 +0200
+
+openmediavault-lvm2 (0.3.0.10) stable; urgency=low
+
+  * Mantis 0000600: Improve the create/extend logical volume dialogs.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 13 Sep 2012 10:43:29 +0200
+
+openmediavault-lvm2 (0.3.0.9) stable; urgency=low
+
+  * Improve create/extend logical volume dialogs.
+  * Rename deb-trigger 'update-fileperms' to 'update-fixperms'.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 08 Sep 2012 01:33:35 +0200
+
+openmediavault-lvm2 (0.3.0.8) stable; urgency=low
+
+  * Update locales.
+  * Code was modified to meet the coding guidelines.
+  * Improve create/extend logical volume dialogs.
+  * Mantis 0000581: Add deb-triggers 'update-locale' and 'update-fileperms'
+    to replace omv_install_locale and omv_install_fixperms in postinst
+    scripts.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 28 Aug 2012 21:05:13 +0200
+
+openmediavault-lvm2 (0.3.0.7) stable; urgency=low
+
+  * Code cleanup.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 24 Aug 2012 22:05:56 +0200
+
+openmediavault-lvm2 (0.3.0.6) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 29 Jun 2012 22:32:19 +0200
+
+openmediavault-lvm2 (0.3.0.5) stable; urgency=low
+
+  * Mantis 0000503: Volume groups containing the character '-' are not
+    processed correctly in association with logical volumes.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 10 Jun 2012 02:56:06 +0200
+
+openmediavault-lvm2 (0.3.0.4) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 25 May 2012 21:42:47 +0200
+
+openmediavault-lvm2 (0.3.0.3) stable; urgency=low
+
+  * Fix error message when extending a volume group.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 May 2012 19:37:10 +0200
+
+openmediavault-lvm2 (0.3.0.2) stable; urgency=low
+
+  * Translate various strings.
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Apr 2012 16:07:41 +0200
+
+openmediavault-lvm2 (0.3.0.1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 26 Apr 2012 22:42:25 +0200
+
+openmediavault-lvm2 (0.3) stable; urgency=low
+
+  * Adapt to openmediavault 0.3
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 02 Apr 2012 22:24:41 +0200
+
+openmediavault-lvm2 (0.2) stable; urgency=low
+
+  * Disallow spaces in volume group and logical volume names.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 16 Feb 2012 07:31:32 +0000
+
+openmediavault-lvm2 (0.1) stable; urgency=low
+
+  * Initial release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 11 Feb 2012 22:17:29 +0100

@@ -1,0 +1,97 @@
+[{
+	"type": "rpc",
+	"id": "rpc.usbbackup.set",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+			    "type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"enable": {
+			    "type": "boolean",
+				"required": true
+			},
+			"mode": {
+			    "type": "string",
+			    "enum":[ "push", "pull" ],
+				"required": true
+			},
+			"sendemail": {
+			    "type": "boolean",
+				"required": true
+			},
+			"comment": {
+			    "type": "string",
+				"required": true
+			},
+			"devicefile": {
+			    "type": "string",
+				"format": "devicefile",
+				"required": true
+			},
+			"sharedfolderref": {
+			    "type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"reldirpath": {
+			    "type": "string",
+				"required": true
+			},
+			"optionrecursive": {
+			    "type": "boolean",
+				"required": true
+			},
+			"optiontimes": {
+			    "type": "boolean",
+				"required": true
+			},
+			"optiongroup": {
+				"type": "boolean",
+				"required": true
+			},
+			"optionowner": {
+				"type": "boolean",
+				"required": true
+			},
+			"optioncompress": {
+			    "type": "boolean",
+				"required": true
+			},
+			"optionarchive": {
+			    "type": "boolean",
+				"required": true
+			},
+			"optiondelete": {
+			    "type": "boolean",
+				"required": true
+			},
+			"optionquiet": {
+			    "type": "boolean",
+				"required": true
+			},
+			"optionperms": {
+			    "type": "boolean",
+				"required": true
+			},
+			"optionacls": {
+			    "type": "boolean",
+				"required": true
+			},
+			"optionxattrs": {
+			    "type": "boolean",
+				"required": true
+			},
+			"optionpartial": {
+			    "type": "boolean",
+				"required": true
+			},
+			"extraoptions": {
+			    "type": "string",
+				"required": true
+			}
+		}
+	}
+}]

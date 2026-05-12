@@ -1,0 +1,229 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-bcache package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Karl Jonatan Nyberg, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-bcache\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2024-11-20 12:26+0000\n"
+"Last-Translator: Karl Jonatan Nyberg, 2026\n"
+"Language-Team: Swedish (https://app.transifex.com/openmediavault/teams/14254/sv/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "5 Minutes"
+msgstr "5 minuter"
+
+msgid ""
+"A sequential IO will bypass the cache once it passes this threshold. "
+"(default:4.0M, max:3.9G)"
+msgstr ""
+"En sekventiell IO kommer att kringgå cachen när den passerar denna tröskel. "
+"(standard: 4,0 M, max: 3,9 G)"
+
+msgid ""
+"Allow bcache go around the cache when there's read / write congestion. "
+"(default:true)"
+msgstr ""
+"Tillåt bcache att kringgå cachen när det finns läs-/skrivstockningar. "
+"(standard: true)"
+
+msgid "Backing Devices"
+msgstr "Uppbackningsenheter"
+
+msgid "Bcache"
+msgstr "Bcache"
+
+msgid "Bcache Device"
+msgstr "Bcache-enhet"
+
+msgid "Cache Device"
+msgstr "Cache-enhet"
+
+msgid "Cache Devices"
+msgstr "Cache-enheter"
+
+msgid "Cache Mode"
+msgstr "Cacheläge"
+
+msgid "Capacity"
+msgstr "Kapacitet"
+
+msgid "Clean"
+msgstr "Städa"
+
+msgid "Clear total statistics"
+msgstr "Rensa totalstatistik"
+
+msgid "Configuration"
+msgstr "Konfiguration"
+
+msgid "Congest Tracking"
+msgstr "Överbelastningsspårning"
+
+msgid "Congested Read Threshold (us)"
+msgstr "Tröskel för överbelastad läsning (us)"
+
+msgid "Create"
+msgstr "Skapa"
+
+msgid "Day"
+msgstr "Dag"
+
+msgid "Device"
+msgstr "Enhet"
+
+msgid "Dirty"
+msgstr "Smutsig"
+
+msgid "Dirty Data"
+msgstr "Smutsiga data"
+
+msgid "Docs"
+msgstr "Dokument"
+
+msgid "Hour"
+msgstr "Timme"
+
+msgid ""
+"If nonzero, bcache tries to keep around this percentage of the cache dirty "
+"by throttling background writeback and using a PD controller to smoothly "
+"adjust the rate. (default:10)"
+msgstr ""
+"Om värdet inte är noll försöker bcache hålla runt denna procentandel av "
+"cachen smutsig genom att strypa bakgrundsåterskrivning och använda en PD-"
+"kontroller för att smidigt justera hastigheten. (standard: 10)"
+
+msgid "Inconsistent"
+msgstr "Inkonsekvent"
+
+msgid "Metadata"
+msgstr "Metadata"
+
+msgid "Missing"
+msgstr "Saknad"
+
+msgid "Missing Cache"
+msgstr "Saknad cache"
+
+msgid "Mounted"
+msgstr "Monterad"
+
+msgid "Name"
+msgstr "Namn"
+
+msgid "No Cache"
+msgstr "Ingen cache"
+
+msgid "Online"
+msgstr "Uppkopplad"
+
+msgid ""
+"Please note that creating a file system on a Bcache device can take longer. "
+"It is therefore possible that the file system is not immediately available "
+"for mounting."
+msgstr ""
+"Observera att det kan ta längre tid att skapa ett filsystem på en Bcache-"
+"enhet. Det är därför möjligt att filsystemet inte är omedelbart tillgängligt"
+" för montering."
+
+msgid "Recovery Actions"
+msgstr "Återställningsåtgärder"
+
+msgid "Register"
+msgstr "Registrera"
+
+msgid "Select a cache device ..."
+msgstr "Välj en cache-enhet ..."
+
+msgid "Select a device ..."
+msgstr "Välj en enhet ..."
+
+msgid "Select the device that will be formatted as Bcache backing device."
+msgstr "Välj den enhet som ska formateras som Bcache-uppbackningsenhet."
+
+msgid "Select the device that will be formatted as Bcache cache device."
+msgstr "Välj den enhet som ska formateras som Bcache-cache-enhet."
+
+msgid "Select the device that will be used as cache device."
+msgstr "Välj den enhet som ska användas som cache-enhet."
+
+msgid "Sequential Cutoff"
+msgstr "Sekventiell avskärning"
+
+msgid "Show details"
+msgstr "Visa detaljer"
+
+msgid "Start without cache"
+msgstr "Starta utan cache"
+
+msgid "State"
+msgstr "Tillstånd"
+
+msgid "Statistics"
+msgstr "Statistik"
+
+msgid "Superblock"
+msgstr "Superblock"
+
+msgid "The default is 2000 us (2 milliseconds)"
+msgstr "Standard är 2000 us (2 millisekunder)"
+
+msgid "The default is 20000 us (20 milliseconds)"
+msgstr "Standard är 20 000 us (20 millisekunder)"
+
+msgid "Total"
+msgstr "Totalt"
+
+msgid "Unit"
+msgstr "Enhet"
+
+msgid "Unregister"
+msgstr "Avregistrera"
+
+msgid "Unregistered"
+msgstr "Oregistrerad"
+
+msgid "Unused"
+msgstr "Oanvänd"
+
+msgid "Updated backing device '{{ devicefile }}'."
+msgstr "Uppdaterad uppbackningsenhet '{{ devicefile }}'."
+
+msgid "Updated cache device '{{ devicefile }}'."
+msgstr "Uppdaterad cache-enhet '{{ devicefile }}'."
+
+msgid ""
+"When dirty data is written to the cache and it previously did not contain "
+"any, waits some number of seconds before initiating writeback. (default:30)"
+msgstr ""
+"När smutsiga data skrivs till cachen och den tidigare inte innehöll någon, "
+"väntar ett antal sekunder innan återskrivning påbörjas. (standard:30)"
+
+msgid "Writeback Delay"
+msgstr "Återskrivningsfördröjning"
+
+msgid "Writeback Percent"
+msgstr "Återskrivningsprocent"
+
+msgid "none"
+msgstr "ingen"
+
+msgid "writearound"
+msgstr "omskrivning"
+
+msgid "writeback"
+msgstr "återskrivning"
+
+msgid "writethrough"
+msgstr "genomskrivning"

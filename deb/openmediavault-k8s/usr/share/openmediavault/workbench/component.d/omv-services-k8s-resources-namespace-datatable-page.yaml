@@ -1,0 +1,70 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-k8s-resources-namespace-datatable-page
+  type: datatablePage
+  config:
+    autoReload: 10000
+    stateId: 8b5e4194-d1a1-11ee-a964-fb72e3cf663e
+    sorters:
+      - dir: asc
+        prop: metadata.name
+    store:
+      proxy:
+        service: Kubectl
+        get:
+          method: getList
+          params:
+            type: namespaces
+    rowId: metadata.name
+    rowEnumFmt: "{{ metadata.name }}"
+    selectionType: single
+    hasSearchField: true
+    columns:
+      - name: _("Name")
+        prop: metadata.name
+        flexGrow: 1
+        sortable: true
+      - name: _("Status")
+        prop: status.phase
+        cellTemplateName: chip
+        cellTemplateConfig:
+          map:
+            Active:
+              class: omv-background-color-pair-success
+        flexGrow: 1
+        sortable: true
+      - name: _("Created")
+        prop: metadata.creationTimestamp
+        cellTemplateName: relativeTime
+        flexGrow: 1
+        sortable: true
+    actions:
+      - type: iconButton
+        icon: show
+        tooltip: _("View")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/k8s/resources/namespace/get/{{ _selected[0].metadata.name }}?namespace=default&type=namespace"
+      - type: iconButton
+        icon: "mdi:text-box-edit"
+        tooltip: _("Describe")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/k8s/resources/namespace/describe/{{ _selected[0].metadata.name }}?namespace=default&type=namespace"
+      - template: delete
+        execute:
+          type: request
+          request:
+            service: Kubectl
+            method: delete
+            params:
+              type: namespace
+              name: "{{ metadata.name }}"
+              namespace: "{{ metadata.namespace }}"

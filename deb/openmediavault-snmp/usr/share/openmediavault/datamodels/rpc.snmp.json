@@ -1,0 +1,79 @@
+[{
+	"type": "rpc",
+	"id": "rpc.snmp.set",
+	"params": {
+		"type": "object",
+		"properties": {
+			"enable": {
+				"type": "boolean",
+				"required": true
+			},
+			"community": {
+			    "type": "string",
+				"required": true
+			},
+			"syslocation": {
+			    "type": "string",
+				"required": true
+			},
+			"syscontact": {
+			    "type": "string",
+				"required": true
+			},
+			"version": {
+			    "type": "string",
+			    "enum": [ "2c", "3" ],
+				"required": true
+			},
+			"username": {
+			    "type": "string",
+				"required": true
+			},
+			"securitylevel": {
+			    "type": "string",
+			    "enum": [ "noauth", "auth", "priv" ],
+				"required": true
+			},
+			"authtype": {
+			    "type": "string",
+			    "enum": [ "MD5", "SHA" ],
+				"required": true
+			},
+			"authpassphrase": {
+			    "type": "string",
+				"required": true
+			},
+			"privtype": {
+			    "type": "string",
+			    "enum": [ "DES", "AES" ],
+				"required": true
+			},
+			"privpassphrase": {
+			    "type": "string",
+				"required": true
+			},
+			"extraoptions": {
+			    "type": "string",
+				"required": true
+			},
+			"trapenable": {
+			    "type": "boolean",
+				"required": true
+			},
+			"trapcommunity": {
+			    "type": "string",
+				"required": true
+			},
+			"traphost": {
+			    "type": "string",
+				"required": true
+			},
+			"trapport": {
+			    "type": "integer",
+			    "minimum": 1,
+			    "maximum": 65535,
+				"required": true
+			}
+		}
+	}
+}]

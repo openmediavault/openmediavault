@@ -1,0 +1,155 @@
+[{
+	"type": "rpc",
+	"id": "rpc.filesystemmgmt.enumeratemountedfilesystems",
+	"params": {
+		"type": "object",
+		"properties": {
+			"type": {
+				"type": "string",
+				"required": false
+			},
+			"includeroot": {
+				"type": "boolean",
+				"required": false
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.filesystemmgmt.create",
+	"params": {
+		"type": "object",
+		"properties": {
+			"devicefile": {
+				"type": "string",
+				"format": "devicefile",
+				"required": true
+			},
+			"type": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.filesystemmgmt.createbtrfs",
+	"params": {
+		"type": "object",
+		"properties": {
+			"label": {
+				"type": "string",
+				"required": false
+			},
+			"profile":{
+				"type": "string",
+				"enum": [ "single", "dup", "raid0", "raid1", "raid10" ],
+				"required": true
+			},
+			"devicefiles": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.filesystemmgmt.grow",
+	"params": {
+		"type": "object",
+		"properties": {
+			"id": {
+				"type": "string",
+				"format": "fsuuid",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.filesystemmgmt.setMountPoint",
+	"params": {
+		"type": "object",
+		"properties": {
+			"id": {
+				"type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "fsuuid"
+				},{
+					"type": "string",
+					"format": "devicefile"
+				}],
+				"required": true
+			},
+			"usagewarnthreshold": {
+				"type": "number",
+				"minimum": 0,
+				"maximum": 100,
+				"required": false
+			},
+			"comment": {
+				"type": "string",
+				"required": false
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.filesystemmgmt.umountbyfsname",
+	"params": {
+		"type": "object",
+		"properties": {
+			"fsname": {
+				"type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "fsuuid"
+				},{
+					"type": "string",
+					"format": "devicefile"
+				}],
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.filesystemmgmt.umountbydir",
+	"params": {
+		"type": "object",
+		"properties": {
+			"dir": {
+				"type": "string",
+				"format": "dirpath",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.filesystemmgmt.hasfilesystem",
+	"params": {
+		"type": "object",
+		"properties": {
+			"devicefile": {
+				"type": "string",
+				"format": "devicefile",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.filesystemmgmt.getdetails",
+	"params": {
+		"type": "object",
+		"properties": {
+			"devicefile": {
+				"type": "string",
+				"format": "devicefile",
+				"required": true
+			}
+		}
+	}
+}]

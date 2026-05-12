@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/k8s/resources/configmap"
+  title: _("Config Maps")
+  component: omv-services-k8s-resources-configmap-datatable-page

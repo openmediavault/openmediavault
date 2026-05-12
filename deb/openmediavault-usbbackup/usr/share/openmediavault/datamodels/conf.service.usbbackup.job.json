@@ -1,0 +1,96 @@
+{
+	"type": "config",
+	"id": "conf.service.usbbackup.job",
+	"title": "USB backup job",
+	"queryinfo": {
+		"xpath": ".//services/usbbackup/jobs/job",
+		"iterable": true,
+		"idproperty": "uuid"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"mode": {
+			"type": "string",
+			"enum":[ "push", "pull" ],
+			"default": "push"
+		},
+		"sendemail": {
+			"type": "boolean",
+			"default": false
+		},
+		"comment": {
+			"type": "string",
+			"default": ""
+		},
+		"devicefile": {
+			"type": "string",
+			"format": "devicefile"
+		},
+		"sharedfolderref": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"reldirpath": {
+			"type": "string",
+			"default": "/"
+		},
+		"optionrecursive": {
+			"type": "boolean",
+			"default": true
+		},
+		"optiontimes": {
+			"type": "boolean",
+			"default": true
+		},
+		"optiongroup": {
+			"type": "boolean",
+			"default": true
+		},
+		"optionowner": {
+			"type": "boolean",
+			"default": true
+		},
+		"optioncompress": {
+			"type": "boolean",
+			"default": false
+		},
+		"optionarchive": {
+			"type": "boolean",
+			"default": true
+		},
+		"optiondelete": {
+			"type": "boolean",
+			"default": false
+		},
+		"optionquiet": {
+			"type":"boolean",
+			"default": false
+		},
+		"optionperms": {
+			"type": "boolean",
+			"default": true
+		},
+		"optionacls": {
+			"type": "boolean",
+			"default": false
+		},
+		"optionxattrs":{
+			"type": "boolean",
+			"default": false
+		},
+		"optionpartial": {
+			"type": "boolean",
+			"default": false
+		},
+		"extraoptions": {
+			"type": "string"
+		}
+	}
+}

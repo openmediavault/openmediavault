@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/lvm/vgs/edit/:name"
+  title: _("Edit")
+  editing: true
+  notificationTitle: _("Updated volume group '{{ devicefile }}'.")
+  component: omv-storage-lvm-vg-edit-form-page

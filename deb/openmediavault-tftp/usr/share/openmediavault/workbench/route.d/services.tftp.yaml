@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/tftp"
+  title: _("TFTP")
+  editing: true
+  notificationTitle: _("Updated TFTP settings.")
+  component: omv-services-tftp-form-page

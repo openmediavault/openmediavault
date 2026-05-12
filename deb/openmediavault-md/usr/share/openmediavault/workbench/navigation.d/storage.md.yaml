@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "storage.md"
+  position: 30
+  text: _("Multiple Device")
+  icon: "mdi:database"
+  url: "/storage/md"

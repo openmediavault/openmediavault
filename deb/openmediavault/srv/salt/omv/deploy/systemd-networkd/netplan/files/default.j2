@@ -1,0 +1,4 @@
+{%- set renderer = salt['pillar.get']('default:OMV_SYSTEMD_NETWORKD_NETPLANIO_RENDERER', 'networkd') -%}
+network:
+  version: 2
+  renderer: {{ renderer }}

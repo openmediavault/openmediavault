@@ -1,0 +1,52 @@
+[{
+	"type": "rpc",
+	"id": "rpc.logfile.getlist",
+	"params": {
+		"type": "object",
+		"properties": {
+			"start": {
+				"type": "integer",
+				"required": true
+			},
+			"limit": {
+				"type": [ "integer", "null" ],
+				"required": true
+			},
+			"sortfield": {
+				"type": [ "string", "null" ]
+			},
+			"sortdir": {
+				"type": [ "string", "null" ],
+				"enum": [ "asc", "ASC", "desc", "DESC" ]
+			},
+			"id": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.logfile.clear",
+	"params": {
+		"type": "object",
+		"properties": {
+			"id":{
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.logfile.getcontent",
+	"params": {
+		"type": "object",
+		"properties": {
+			"id":{
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+}]

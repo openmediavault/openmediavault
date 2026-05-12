@@ -1,0 +1,40 @@
+version: "1.0"
+type: component
+data:
+  name: omv-storage-lvm-pv-create-form-page
+  type: formPage
+  config:
+    request:
+      service: LogicalVolumeMgmt
+      post:
+        method: createPhysicalVolume
+        confirmationDialogConfig:
+          template: confirmation
+          message: _("Do you really want to create a physical volume on '{{ devicefile }}'?")
+    fields:
+      - type: select
+        name: devicefile
+        label: _("Device")
+        placeholder: _("Select a device ...")
+        value: ""
+        valueField: devicefile
+        textField: description
+        store:
+          proxy:
+            service: LogicalVolumeMgmt
+            get:
+              method: getPhysicalVolumeCandidates
+          sorters:
+            - dir: asc
+              prop: devicefile
+        validators:
+          required: true
+    buttons:
+      - template: submit
+        execute:
+          type: url
+          url: "/storage/lvm/pvs"
+      - template: cancel
+        execute:
+          type: url
+          url: "/storage/lvm/pvs"

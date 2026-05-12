@@ -1,0 +1,864 @@
+# This file is part of OpenMediaVault.
+#
+# @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2026 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
+
+# These UDEV rules are used to workaround a bug of external USB enclosures
+# (mostly based on JMicron controllers) that are reporting the same serial
+# ID for all attached devices. This will break the /dev/disk/by-id behavior
+# because now a device can not be identified uniquely.
+# The fix is to replace the falsy ID_SERIAL and ID_SERIAL_SHORT properties
+# of those devices with the correct ones reported by hdparm and to recreate
+# correct and unique device files.
+
+# Documentation/Howto:
+# https://www.freedesktop.org/software/systemd/man/udev.html
+# https://wiki.ubuntuusers.de/udev/
+# https://www.tecmint.com/udev-for-device-detection-management-in-linux/
+
+ACTION=="remove", GOTO="omv_dev_disk_by_id_end"
+KERNEL!="sd*", GOTO="omv_dev_disk_by_id_end"
+SUBSYSTEM!="block", GOTO="omv_dev_disk_by_id_end"
+ENV{DEVTYPE}!="disk", GOTO="omv_dev_disk_by_id_end"
+
+# JMicron JMS578 SATA 6Gb/s
+# https://devicehunt.com/view/type/usb/vendor/152D/device/0578
+#
+# DEVPATH=/devices/platform/soc/soc:usb3-0/12000000.dwc3/xhci-hcd.3.auto/usb4/4-1/4-1:1.0/host0/target0:0:0/0:0:0:0/block/sda
+# DEVNAME=/dev/sda
+# DEVTYPE=disk
+# MAJOR=8
+# MINOR=0
+# SUBSYSTEM=block
+# USEC_INITIALIZED=16854982
+# ID_VENDOR=JMicron
+# ID_VENDOR_ENC=JMicron\x20
+# ID_VENDOR_ID=152d
+# ID_MODEL=USB_to_SATA_bridge
+# ID_MODEL_ENC=USB\x20to\x20SATA\x20bridge
+# ID_MODEL_ID=0578
+# ID_REVISION=0105
+# ID_SERIAL=USB-1832E14CEB27-0:0
+# ID_SERIAL_SHORT=1832E14CEB27
+# ID_TYPE=disk
+# ID_INSTANCE=0:0
+# ID_BUS=usb
+# ID_USB_INTERFACES=:080650:080662:
+# ID_USB_INTERFACE_NUM=00
+# ID_USB_DRIVER=uas
+# ID_PATH=platform-xhci-hcd.3.auto-usb-0:1:1.0-scsi-0:0:0:0
+# ID_PATH_TAG=platform-xhci-hcd_3_auto-usb-0_1_1_0-scsi-0_0_0_0
+# ID_PART_TABLE_UUID=485df466-d2c1-499a-8767-329d11af536b
+# ID_PART_TABLE_TYPE=gpt
+# DEVLINKS=...
+# TAGS=:systemd:
+ENV{ID_VENDOR_ID}=="152d", \
+  ENV{ID_MODEL_ID}=="0578", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# JMicron JMS561U two ports SATA 6Gb/s bridge
+# https://www.sabrent.com/product/EC-DFLT/usb-3-0-sata-external-hard-drive-lay-flat-docking-station-2-5-3-5in-hdd-ssd/
+ENV{ID_VENDOR_ID}=="152d", \
+  ENV{ID_MODEL_ID}=="1561", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# JMicron JM20337 USB PATA/SATA bridge on Orangepi PC2
+# https://devicehunt.com/view/type/usb/vendor/152D/device/2338
+#
+# DEVPATH=/devices/platform/soc/1c1b000.usb/usb3/3-1/3-1:1.0/host0/target0:0:0/0:0:0:0/block/sda
+# DEVNAME=/dev/sda
+# DEVTYPE=disk
+# MAJOR=8
+# MINOR=0
+# SUBSYSTEM=block
+# USEC_INITIALIZED=7523465
+# ID_VENDOR=WDC_WD50
+# ID_VENDOR_ENC=WDC\x20WD50
+# ID_VENDOR_ID=152d
+# ID_MODEL=00AAKB-00H8A0
+# ID_MODEL_ENC=00AAKB-00H8A0\x20\x20\x20
+# ID_MODEL_ID=2338
+# ID_REVISION=0100
+# ID_SERIAL=WDC_WD50_00AAKB-00H8A0_7D5000AA5B50-0:0
+# ID_SERIAL_SHORT=7D5000AA5B50
+# ID_TYPE=disk
+# ID_INSTANCE=0:0
+# ID_BUS=usb
+# ID_USB_INTERFACES=:080650:
+# ID_USB_INTERFACE_NUM=00
+# ID_USB_DRIVER=usb-storage
+# ID_PATH=platform-1c1b000.usb-usb-0:1:1.0-scsi-0:0:0:0
+# ID_PATH_TAG=platform-1c1b000_usb-usb-0_1_1_0-scsi-0_0_0_0
+# ID_PART_TABLE_UUID=00049a1f
+# ID_PART_TABLE_TYPE=dos
+# DEVLINKS=...
+# TAGS=:systemd:
+ENV{ID_VENDOR_ID}=="152d", \
+  ENV{ID_MODEL_ID}=="2338", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# ORICO 2.5 inch Hard Drive Adapter (27UTS)
+# http://my.orico.cc/goods.php?id=6355
+ATTRS{idVendor}=="0080", \
+  ATTRS{idProduct}=="a001", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# JMicron JMS567 SATA 6Gb/s bridge
+# https://devicehunt.com/search/type/usb/vendor/152D/device/0567
+#
+# ORICO 3.5 inch 5 Bay Magnetic-type USB3.0 Hard Drive Enclosure (DS500U3)
+# http://my.orico.cc/goods.php?id=6659
+#
+# ORICO 3.5-Inch Multi-Bay Hard Drive Enclosure (9548U3)
+# https://www.orico.cc/us/product/detail/6764/9528U3-BK.html
+#
+# Icy Dock Black Vortex MB174U3S-4SB Quad Bay usb 3.0 eSATA external 3.5" SATA HDD Enclosure
+# https://www.icydock.com/goods.php?id=191
+#
+# P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-1/2-1.2/2-1.2:1.0/host1/target1:0:0/1:0:0:0/block/sdc
+# N: sdc
+# L: 0
+# S: disk/by-id/usb-External_USB3.0_DISK00_20170331000C3-0:0
+# S: disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.2:1.0-scsi-0:0:0:0
+# E: DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-1/2-1.2/2-1.2:1.0/host1/target1:0:0/1:0:0:0/block/sdc
+# E: DEVNAME=/dev/sdc
+# E: DEVTYPE=disk
+# E: MAJOR=8
+# E: MINOR=32
+# E: SUBSYSTEM=block
+# E: USEC_INITIALIZED=37574669
+# E: ID_VENDOR=External
+# E: ID_VENDOR_ENC=External
+# E: ID_VENDOR_ID=152d
+# E: ID_MODEL=USB3.0_DISK00
+# E: ID_MODEL_ENC=USB3.0\x20DISK00\x20\x20\x20
+# E: ID_MODEL_ID=0567
+# E: ID_REVISION=5203
+# E: ID_SERIAL=External_USB3.0_DISK00_20170331000C3-0:0
+# E: ID_SERIAL_SHORT=20170331000C3
+# E: ID_TYPE=disk
+# E: ID_INSTANCE=0:0
+# E: ID_BUS=usb
+# E: ID_USB_INTERFACES=:080650:
+# E: ID_USB_INTERFACE_NUM=00
+# E: ID_USB_DRIVER=usb-storage
+# E: ID_PATH=platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.2:1.0-scsi-0:0:0:0
+# E: ID_PATH_TAG=platform-fd500000_pcie-pci-0000_01_00_0-usb-0_1_2_1_0-scsi-0_0_0_0
+# E: ID_PART_TABLE_UUID=edb7f0ce-d545-411c-9e1c-52e9f8625e32
+# E: ID_PART_TABLE_TYPE=gpt
+# E: DEVLINKS=/dev/disk/by-id/usb-External_USB3.0_DISK00_20170331000C3-0:0 /dev/disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.2:1.0-scsi-0:0:0:0
+# E: TAGS=:systemd:
+#
+# P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-2/2-2:1.0/host1/target1:0:0/1:0:0:0/block/sdb
+# N: sdb
+# L: 0
+# S: disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:2:1.0-scsi-0:0:0:0
+# S: disk/by-id/usb-External_USB3.0_DISK02_20170331000C3-0:0
+# E: DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-2/2-2:1.0/host1/target1:0:0/1:0:0:0/block/sdb
+# E: DEVNAME=/dev/sdb
+# E: DEVTYPE=disk
+# E: MAJOR=8
+# E: MINOR=16
+# E: SUBSYSTEM=block
+# E: USEC_INITIALIZED=14275296
+# E: ID_VENDOR=External
+# E: ID_VENDOR_ENC=External
+# E: ID_VENDOR_ID=152d
+# E: ID_MODEL=USB3.0_DISK02
+# E: ID_MODEL_ENC=USB3.0\x20DISK02\x20\x20\x20
+# E: ID_MODEL_ID=0567
+# E: ID_REVISION=5203
+# E: ID_SERIAL=External_USB3.0_DISK02_20170331000C3-0:0
+# E: ID_SERIAL_SHORT=20170331000C3
+# E: ID_TYPE=disk
+# E: ID_INSTANCE=0:0
+# E: ID_BUS=usb
+# E: ID_USB_INTERFACES=:080650:
+# E: ID_USB_INTERFACE_NUM=00
+# E: ID_USB_DRIVER=usb-storage
+# E: ID_PATH=platform-fd500000.pcie-pci-0000:01:00.0-usb-0:2:1.0-scsi-0:0:0:0
+# E: ID_PATH_TAG=platform-fd500000_pcie-pci-0000_01_00_0-usb-0_2_1_0-scsi-0_0_0_0
+# E: DEVLINKS=/dev/disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:2:1.0-scsi-0:0:0:0 /dev/disk/by-id/usb-External_USB3.0_DISK02_20170331000C3-0:0
+# E: TAGS=:systemd:
+ENV{ID_VENDOR_ID}=="152d", \
+  ENV{ID_MODEL_ID}=="0567", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# JMicron JMS576 USB 3.1 Gen 1 to SATA 6Gb/s with Integrated USB Type-C
+# JMicron JMS580 USB 3.1 Gen 2 to SATA 6Gb/s with Integrated USB Type-C
+#
+# Congdi 2.5-Inch USB 3.1 Type-C Hard Drive Enclosure
+# https://www.aliexpress.com/item/1005006038604901.html
+#
+# P: /devices/pci0000:00/0000:00:1e.0/0000:02:1b.0/usb3/3-2/3-2:1.0/host4/target4:0:0/4:0:0:0/block/sdc
+# M: sdc
+# U: block
+# T: disk
+# D: b 8:32
+# N: sdc
+# L: 0
+# S: disk/by-id/usb-JMicron_Generic_W38012HV-0:0
+# S: disk/by-path/pci-0000:02:1b.0-usb-0:2:1.0-scsi-0:0:0:0
+# Q: 13
+# E: DEVPATH=/devices/pci0000:00/0000:00:1e.0/0000:02:1b.0/usb3/3-2/3-2:1.0/host4/target4:0:0/4:0:0:0/block/sdc
+# E: DEVNAME=/dev/sdc
+# E: DEVTYPE=disk
+# E: DISKSEQ=13
+# E: MAJOR=8
+# E: MINOR=32
+# E: SUBSYSTEM=block
+# E: USEC_INITIALIZED=1755150019
+# E: ID_BUS=usb
+# E: ID_MODEL=Generic
+# E: ID_MODEL_ENC=Generic\x20\x20\x20\x20\x20\x20\x20\x20\x20
+# E: ID_MODEL_ID=0580
+# E: ID_SERIAL=JMicron_Generic_W38012HV-0:0
+# E: ID_SERIAL_SHORT=W38012HV
+# E: ID_VENDOR=JMicron
+# E: ID_VENDOR_ENC=JMicron\x20
+# E: ID_VENDOR_ID=152d
+# E: ID_REVISION=0202
+# E: ID_TYPE=disk
+# E: ID_INSTANCE=0:0
+# E: ID_USB_MODEL=Generic
+# E: ID_USB_MODEL_ENC=Generic\x20\x20\x20\x20\x20\x20\x20\x20\x20
+# E: ID_USB_MODEL_ID=0580
+# E: ID_USB_SERIAL=JMicron_Generic_0123456789ABCDEF-0:0
+# E: ID_USB_SERIAL_SHORT=0123456789ABCDEF
+# E: ID_USB_VENDOR=JMicron
+# E: ID_USB_VENDOR_ENC=JMicron\x20
+# E: ID_USB_VENDOR_ID=152d
+# E: ID_USB_REVISION=0202
+# E: ID_USB_TYPE=disk
+# E: ID_USB_INSTANCE=0:0
+# E: ID_USB_INTERFACES=:080650:080662:
+# E: ID_USB_INTERFACE_NUM=00
+# E: ID_USB_DRIVER=uas
+# E: ID_PATH=pci-0000:02:1b.0-usb-0:2:1.0-scsi-0:0:0:0
+# E: ID_PATH_TAG=pci-0000_02_1b_0-usb-0_2_1_0-scsi-0_0_0_0
+# E: DEVLINKS=/dev/disk/by-id/usb-JMicron_Generic_W38012HV-0:0 /dev/disk/by-path/pci-0000:02:1b.0-usb-0:2:1.0-scsi-0:0:0:0
+# E: TAGS=:systemd:
+# E: CURRENT_TAGS=:systemd:
+ENV{ID_VENDOR_ID}=="152d", \
+  ENV{ID_MODEL_ID}=="0580", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# QUAD SATA HAT KIT for your Raspberry Pi 4
+# https://shop.allnetchina.cn/products/quad-sata-hat-case-for-raspberry-pi-4?_pos=4&_sid=8298cd20c&_ss=r
+# https://wiki.radxa.com/Dual_Quad_SATA_HAT
+#
+# P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-2/2-2:1.0/host0/target0:0:0/0:0:0:0/block/sda
+# N: sda
+# L: 0
+# S: disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:2:1.0-scsi-0:0:0:0
+# S: disk/by-id/usb-ACASIS_Go_To_Final_Lap_1234567890123-0:0
+# S: disk/by-label/SDA2Tpictures
+# S: disk/by-uuid/cc08740f-b9db-460f-a89e-9d5fb4b334bd
+# E: DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-2/2-2:1.0/host0/target0:0:0/0:0:0:0/block/sda
+# E: DEVNAME=/dev/sda
+# E: DEVTYPE=disk
+# E: MAJOR=8
+# E: MINOR=0
+# E: SUBSYSTEM=block
+# E: USEC_INITIALIZED=11738857
+# E: ID_VENDOR=ACASIS
+# E: ID_VENDOR_ENC=ACASIS\x20\x20
+# E: ID_VENDOR_ID=1058
+# E: ID_MODEL=Go_To_Final_Lap
+# E: ID_MODEL_ENC=Go\x20To\x20Final\x20Lap
+# E: ID_MODEL_ID=0a10
+# E: ID_REVISION=8034
+# E: ID_SERIAL=ACASIS_Go_To_Final_Lap_1234567890123-0:0
+# E: ID_SERIAL_SHORT=1234567890123
+# E: ID_TYPE=disk
+# E: ID_INSTANCE=0:0
+# E: ID_BUS=usb
+# E: ID_USB_INTERFACES=:080650:080662:
+# E: ID_USB_INTERFACE_NUM=00
+# E: ID_USB_DRIVER=uas
+# E: ID_PATH=platform-fd500000.pcie-pci-0000:01:00.0-usb-0:2:1.0-scsi-0:0:0:0
+# E: ID_PATH_TAG=platform-fd500000_pcie-pci-0000_01_00_0-usb-0_2_1_0-scsi-0_0_0_0
+# E: ID_FS_LABEL=SDA2Tpictures
+# E: ID_FS_LABEL_ENC=SDA2Tpictures
+# E: ID_FS_UUID=cc08740f-b9db-460f-a89e-9d5fb4b334bd
+# E: ID_FS_UUID_ENC=cc08740f-b9db-460f-a89e-9d5fb4b334bd
+# E: ID_FS_VERSION=1.0
+# E: ID_FS_TYPE=ext4
+# E: ID_FS_USAGE=filesystem
+# E: DEVLINKS=/dev/disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:2:1.0-scsi-0:0:0:0 /dev/disk/by-id/usb-ACASIS_Go_To_Final_Lap_1234567890123-0:0 /dev/disk/by-label/SDA2Tpictures /dev/disk/by-uuid/cc08740f-b9db-460f-a89e-9d5fb4b334bd
+# E: TAGS=:systemd:
+ENV{ID_VENDOR}=="ACASIS", \
+  ENV{ID_MODEL}=="Go_To_Final_Lap", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# VL817 SATA Adaptor
+# https://devicehunt.com/view/type/usb/vendor/2109/device/0715
+#
+# Sabrent EC-SS31 USB 3.1 (Type-A) to SSD / 2.5-Inch SATA Hard Drive Adapter
+# https://www.sabrent.com/product/EC-SS31/usb-3-1-type-ssd-2-5-inch-sata-hard-drive-adapter
+#
+# P: /devices/pci0000:00/0000:00:15.0/usb2/2-2/2-2:1.0/host4/target4:0:0/4:0:0:0/block/sda
+# N: sda
+# L: 0
+# S: disk/by-path/pci-0000:00:15.0-usb-0:2:1.0-scsi-0:0:0:0
+# S: disk/by-id/usb-SABRENT_SABRENT_000000123AD2-0:0
+# E: DEVPATH=/devices/pci0000:00/0000:00:15.0/usb2/2-2/2-2:1.0/host4/target4:0:0/4:0:0:0/block/sda
+# E: DEVNAME=/dev/sda
+# E: DEVTYPE=disk
+# E: MAJOR=8
+# E: MINOR=0
+# E: SUBSYSTEM=block
+# E: USEC_INITIALIZED=3427017
+# E: ID_VENDOR=SABRENT
+# E: ID_VENDOR_ENC=SABRENT
+# E: ID_VENDOR_ID=2109
+# E: ID_MODEL=SABRENT
+# E: ID_MODEL_ENC=SABRENT\x20\x20\x20\x20\x20\x20\x20\x20\x20
+# E: ID_MODEL_ID=0715
+# E: ID_REVISION=2210
+# E: ID_SERIAL=SABRENT_SABRENT_000000123AD2-0:0
+# E: ID_SERIAL_SHORT=000000123AD2
+# E: ID_TYPE=disk
+# E: ID_INSTANCE=0:0
+# E: ID_BUS=usb
+# E: ID_USB_INTERFACES=:080650:080662:
+# E: ID_USB_INTERFACE_NUM=00
+# E: ID_USB_DRIVER=uas
+# E: ID_PATH=pci-0000:00:15.0-usb-0:2:1.0-scsi-0:0:0:0
+# E: ID_PATH_TAG=pci-0000_00_15_0-usb-0_2_1_0-scsi-0_0_0_0
+# E: ID_PART_TABLE_UUID=24551388-5c28-4a0d-ae74-38861756e6eb
+# E: ID_PART_TABLE_TYPE=gpt
+# E: DEVLINKS=/dev/disk/by-path/pci-0000:00:15.0-usb-0:2:1.0-scsi-0:0:0:0 /dev/disk/by-id/usb-SABRENT_SABRENT_000000123AD2-0:0
+# E: TAGS=:systemd:
+ENV{ID_VENDOR_ID}=="2109", \
+  ENV{ID_MODEL_ID}=="0715", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# JMS551 - Sharkoon SATA QuickPort Duo
+# https://devicehunt.com/view/type/usb/vendor/152D/device/0561
+# http://www.hornettek.com/hdd-enclosure/dual-bay/hornettek-usb-3-0-dual-2-5-hdd-sdd-enclosure-w-raid-ht-rab237.html
+#
+# P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-2/2-2:1.0/host0/target0:0:0/0:0:0:0/block/sda/sda1
+# N: sda1
+# L: 0
+# S: disk/by-uuid/ad0eff7e-b1b7-485a-831f-dd27d84c7065
+# S: disk/by-id/usb-SanDisk_SDSSDH3_1T02_RANDOM__622374CDBF83-0:0-part1
+# S: disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:2:1.0-scsi-0:0:0:0-part1
+# S: disk/by-partuuid/4b019603-fb86-47f5-a894-9b3e3ac951ff
+# S: disk/by-label/1TB
+# E: DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-2/2-2:1.0/host0/target0:0:0/0:0:0:0/block/sda/sda1
+# E: DEVNAME=/dev/sda1
+# E: DEVTYPE=partition
+# E: PARTN=1
+# E: MAJOR=8
+# E: MINOR=1
+# E: SUBSYSTEM=block
+# E: USEC_INITIALIZED=5674561
+# E: ID_VENDOR=SanDisk
+# E: ID_VENDOR_ENC=SanDisk\x20
+# E: ID_VENDOR_ID=152d
+# E: ID_MODEL=SDSSDH3_1T02
+# E: ID_MODEL_ENC=SDSSDH3\x201T02\x20\x20\x20\x20
+# E: ID_MODEL_ID=0561
+# E: ID_REVISION=0108
+# E: ID_SERIAL=SanDisk_SDSSDH3_1T02_RANDOM__622374CDBF83-0:0
+# E: ID_SERIAL_SHORT=RANDOM__622374CDBF83
+# E: ID_TYPE=disk
+# E: ID_INSTANCE=0:0
+# E: ID_BUS=usb
+# E: ID_USB_INTERFACES=:080650:080662:
+# E: ID_USB_INTERFACE_NUM=00
+# E: ID_USB_DRIVER=uas
+# E: ID_PATH=platform-fd500000.pcie-pci-0000:01:00.0-usb-0:2:1.0-scsi-0:0:0:0
+# E: ID_PATH_TAG=platform-fd500000_pcie-pci-0000_01_00_0-usb-0_2_1_0-scsi-0_0_0_0
+# E: ID_PART_TABLE_UUID=39c29a25-ee97-4738-a043-70457295818c
+# E: ID_PART_TABLE_TYPE=gpt
+# E: ID_FS_LABEL=1TB
+# E: ID_FS_LABEL_ENC=1TB
+# E: ID_FS_UUID=ad0eff7e-b1b7-485a-831f-dd27d84c7065
+# E: ID_FS_UUID_ENC=ad0eff7e-b1b7-485a-831f-dd27d84c7065
+# E: ID_FS_VERSION=1.0
+# E: ID_FS_TYPE=ext4
+# E: ID_FS_USAGE=filesystem
+# E: ID_PART_ENTRY_SCHEME=gpt
+# E: ID_PART_ENTRY_UUID=4b019603-fb86-47f5-a894-9b3e3ac951ff
+# E: ID_PART_ENTRY_TYPE=0fc63daf-8483-4772-8e79-3d69d8477de4
+# E: ID_PART_ENTRY_NUMBER=1
+# E: ID_PART_ENTRY_OFFSET=2048
+# E: ID_PART_ENTRY_SIZE=2000407183
+# E: ID_PART_ENTRY_DISK=8:0
+# E: DEVLINKS=...
+ENV{ID_VENDOR_ID}=="152d", \
+  ENV{ID_MODEL_ID}=="0561", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# https://www.owcdigital.com/products/mercury-elite-pro-dual-mini
+#
+# DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-1/2-1:1.0/host3/target3:0:0/3:0:0:0/block/sdd
+# DEVNAME=/dev/sdd
+# DEVTYPE=disk
+# MAJOR=8
+# MINOR=48
+# SUBSYSTEM=block
+# USEC_INITIALIZED=8654497300
+# ID_VENDOR=Elite
+# ID_VENDOR_ENC=Elite\x20\x20\x20
+# ID_VENDOR_ID=1e91
+# ID_MODEL=Pro_Dual-R1
+# ID_MODEL_ENC=Pro\x20Dual-R1\x20\x20\x20\x20\x20
+# ID_MODEL_ID=a3a6
+# ID_REVISION=0105
+# ID_SERIAL=Elite_Pro_Dual-R1_RANDOM__D61B6A084014-0:0
+# ID_SERIAL_SHORT=RANDOM__D61B6A084014
+# ID_TYPE=disk
+# ID_INSTANCE=0:0
+# ID_BUS=usb
+# ID_USB_INTERFACES=:080650:080662:
+# ID_USB_INTERFACE_NUM=00
+# ID_USB_DRIVER=usb-storage
+# ID_PATH=platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1:1.0-scsi-0:0:0:0
+# ID_PATH_TAG=platform-fd500000_pcie-pci-0000_01_00_0-usb-0_1_1_0-scsi-0_0_0_0
+# ID_PART_TABLE_UUID=93568ccc
+# ID_PART_TABLE_TYPE=dos
+# DEVLINKS=/dev/disk/by-id/usb-Elite_Pro_Dual-R1_RANDOM__D61B6A084014-0:0 /dev/disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1:1.0-scsi-0:0:0:0
+# TAGS=:systemd:
+ENV{ID_VENDOR}=="Elite", \
+  ENV{ID_MODEL}=="Pro_Dual-R1", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# Mediasonic HUR3-SU3S3 2 Bay 3.5-inch SATA hard drive enclosure
+# https://www.amazon.com/Mediasonic-ProRaid-SATA-Drive-Enclosure/dp/B00KCEAXJW
+#
+# P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-1/2-1:1.0/host0/target0:0:0/0:0:0:1/block/sdb
+# N: sdb
+# L: 0
+# S: disk/by-label/Terra
+# S: disk/by-uuid/19dc2f0f-acad-44e4-a0dd-687f6cd3b383
+# S: disk/by-id/usb-WDC_WD40_EFRX-68N32N0_00000000000000000000-0:1
+# S: disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1:1.0-scsi-0:0:0:1
+# E: DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-1/2-1:1.0/host0/target0:0:0/0:0:0:1/block/sdb
+# E: DEVNAME=/dev/sdb
+# E: DEVTYPE=disk
+# E: MAJOR=8
+# E: MINOR=16
+# E: SUBSYSTEM=block
+# E: USEC_INITIALIZED=6717784
+# E: ID_VENDOR=WDC_WD40
+# E: ID_VENDOR_ENC=WDC\x20WD40
+# E: ID_VENDOR_ID=152d
+# E: ID_MODEL=EFRX-68N32N0
+# E: ID_MODEL_ENC=EFRX-68N32N0\x20\x20\x20\x20
+# E: ID_MODEL_ID=9561
+# E: ID_REVISION=0106
+# E: ID_SERIAL=WDC_WD40_EFRX-68N32N0_00000000000000000000-0:1
+# E: ID_SERIAL_SHORT=00000000000000000000
+# E: ID_TYPE=disk
+# E: ID_INSTANCE=0:1
+# E: ID_BUS=usb
+# E: ID_USB_INTERFACES=:080650:080662:
+# E: ID_USB_INTERFACE_NUM=00
+# E: ID_USB_DRIVER=uas
+# E: ID_PATH=platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1:1.0-scsi-0:0:0:1
+# E: ID_PATH_TAG=platform-fd500000_pcie-pci-0000_01_00_0-usb-0_1_1_0-scsi-0_0_0_1
+# E: ID_FS_VERSION=2
+# E: ID_FS_UUID=19dc2f0f-acad-44e4-a0dd-687f6cd3b383
+# E: ID_FS_UUID_ENC=19dc2f0f-acad-44e4-a0dd-687f6cd3b383
+# E: ID_FS_LABEL=Terra
+# E: ID_FS_LABEL_ENC=Terra
+# E: ID_FS_TYPE=crypto_LUKS
+# E: ID_FS_USAGE=crypto
+# E: DEVLINKS=/dev/disk/by-label/Terra /dev/disk/by-uuid/19dc2f0f-acad-44e4-a0dd-687f6cd3b383 /dev/disk/by-id/usb-WDC_WD40_EFRX-68N32N0_00000000000000000000-0:1 /dev/disk/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1:1.0-scsi-0:0:0:1
+# E: TAGS=:systemd:
+ENV{ID_VENDOR_ID}=="152d", \
+  ENV{ID_MODEL_ID}=="9561", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# GENESYS USB2.0/SATA ADAPTER
+# https://devicehunt.com/view/type/usb/vendor/05E3/device/0718
+#
+# P: /devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host0/target0:0:0/0:0:0:0/block/sda
+# N: sda
+# L: 0
+# S: disk/by-path/platform-3f980000.usb-usb-0:1.2:1.0-scsi-0:0:0:0
+# S: disk/by-id/usb-TOSHIBA_MQ01ABF050_000000000033-0:0
+# E: DEVPATH=/devices/platform/soc/3f980000.usb/usb1/1-1/1-1.2/1-1.2:1.0/host0/target0:0:0/0:0:0:0/block/sda
+# E: DEVNAME=/dev/sda
+# E: DEVTYPE=disk
+# E: MAJOR=8
+# E: MINOR=0
+# E: SUBSYSTEM=block
+# E: USEC_INITIALIZED=14055486
+# E: ID_VENDOR=TOSHIBA
+# E: ID_VENDOR_ENC=TOSHIBA\x20
+# E: ID_VENDOR_ID=05e3
+# E: ID_MODEL=MQ01ABF050
+# E: ID_MODEL_ENC=MQ01ABF050\x20\x20\x20\x20\x20\x20
+# E: ID_MODEL_ID=0718
+# E: ID_REVISION=0009
+# E: ID_SERIAL=TOSHIBA_MQ01ABF050_000000000033-0:0
+# E: ID_SERIAL_SHORT=000000000033
+# E: ID_TYPE=disk
+# E: ID_INSTANCE=0:0
+# E: ID_BUS=usb
+# E: ID_USB_INTERFACES=:080650:
+# E: ID_USB_INTERFACE_NUM=00
+# E: ID_USB_DRIVER=usb-storage
+# E: ID_PATH=platform-3f980000.usb-usb-0:1.2:1.0-scsi-0:0:0:0
+# E: ID_PATH_TAG=platform-3f980000_usb-usb-0_1_2_1_0-scsi-0_0_0_0
+# E: ID_PART_TABLE_UUID=7d9ff90a-4dc0-410b-a6ac-ed6015b53faa
+# E: ID_PART_TABLE_TYPE=gpt
+# E: DEVLINKS=/dev/disk/by-path/platform-3f980000.usb-usb-0:1.2:1.0-scsi-0:0:0:0 /dev/disk/by-id/usb-TOSHIBA_M$
+# E: TAGS=:systemd:
+ENV{ID_VENDOR_ID}=="05e3", \
+  ENV{ID_MODEL_ID}=="0718", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# QNAP TR-002
+# https://www.qnap.com/en-us/product/tr-002
+# https://devicehunt.com/search/type/usb/vendor/1C04/device/0012
+# https://github.com/openmediavault/openmediavault/issues/1683
+#
+# DEVPATH=/devices/pci0000:00/0000:00:15.0/usb2/2-1/2-1.1/2-1.1:1.0/host1/target1:0:0/1:0:0:0/block/sdb
+# DEVNAME=/dev/sdb
+# DEVTYPE=disk
+# DISKSEQ=2
+# MAJOR=8
+# MINOR=16
+# ACTION=add
+# SUBSYSTEM=block
+# TAGS=:systemd:
+# ID_BUS=usb
+# ID_MODEL=TR-002_DISK00
+# ID_MODEL_ENC=TR-002\x20DISK00\x20\x20\x20
+# ID_MODEL_ID=0012
+# ID_SERIAL=QNAP_TR-002_DISK00_WW62NQRY-0:0
+# ID_SERIAL_SHORT=WW62NQRY
+# ID_VENDOR=QNAP
+# ID_VENDOR_ENC=QNAP\x20\x20\x20\x20
+# ID_VENDOR_ID=1c04
+# ID_REVISION=6109
+# ID_TYPE=disk
+# ID_INSTANCE=0:0
+# ID_USB_MODEL=TR-002_DISK00
+# ID_USB_MODEL_ENC=TR-002\x20DISK00\x20\x20\x20
+# ID_USB_MODEL_ID=0012
+# ID_USB_SERIAL=QNAP_TR-002_DISK00_51323341423030393130-0:0
+# ID_USB_SERIAL_SHORT=51323341423030393130
+# ID_USB_VENDOR=QNAP
+# ID_USB_VENDOR_ENC=QNAP\x20\x20\x20\x20
+# ID_USB_VENDOR_ID=1c04
+# ID_USB_REVISION=6109
+# ID_USB_TYPE=disk
+# ID_USB_INSTANCE=0:0
+# ID_USB_INTERFACES=:080650:
+# ID_USB_INTERFACE_NUM=00
+# ID_USB_DRIVER=usb-storage
+# DEVLINKS=/dev/disk/by-path/pci-0000:00:15.0-usb-0:1.1:1.0-scsi-0:0:0:0 /dev/disk/by-id/usb-QNAP_TR-002_DISK00_WW62NQRY-0:0
+# ID_PATH=pci-0000:00:15.0-usb-0:1.1:1.0-scsi-0:0:0:0
+# ID_PATH_TAG=pci-0000_00_15_0-usb-0_1_1_1_0-scsi-0_0_0_0
+# ID_PART_TABLE_UUID=a51e6e80-c2be-462b-90f9-3ac6681f854f
+# ID_PART_TABLE_TYPE=gpt
+# CURRENT_TAGS=:systemd:
+# USEC_INITIALIZED=6089547
+ENV{ID_VENDOR_ID}=="1c04", \
+  ENV{ID_MODEL_ID}=="0012", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# QNAP TR-004
+# https://www.qnap.com/en-us/product/tr-004
+# https://devicehunt.com/search/type/usb/vendor/1C04/device/0013
+# https://github.com/openmediavault/openmediavault/issues/1302
+# https://forum.openmediavault.org/index.php?thread/47388-qnap-tr-004-usb-raid-enclosure-duplicate-serial-number-fix/
+#
+# P: /devices/pci0000:00/0000:00:14.0/usb2/2-2/2-2.3/2-2.3:1.0/host0/target0:0:0/0:0:0:0/block/sda
+# N: sda
+# L: 0
+# S: disk/by-id/usb-QNAP_TR-004_DISK00_51313943493135333139-0:0
+# S: disk/by-path/pci-0000:00:14.0-usb-0:2.3:1.0-scsi-0:0:0:0
+# E: DEVPATH=/devices/pci0000:00/0000:00:14.0/usb2/2-2/2-2.3/2-2.3:1.0/host0/target0:0:0/0:0:0:0/block/sda
+# E: DEVNAME=/dev/sda
+# E: DEVTYPE=disk
+# E: DISKSEQ=8
+# E: MAJOR=8
+# E: MINOR=0
+# E: SUBSYSTEM=block
+# E: USEC_INITIALIZED=863778658
+# E: ID_VENDOR=QNAP
+# E: ID_VENDOR_ENC=QNAP\x20\x20\x20\x20
+# E: ID_VENDOR_ID=1c04
+# E: ID_MODEL=TR-004_DISK00
+# E: ID_MODEL_ENC=TR-004\x20DISK00\x20\x20\x20
+# E: ID_MODEL_ID=0013
+# E: ID_REVISION=6111
+# E: ID_SERIAL=QNAP_TR-004_DISK00_51313943493135333139-0:0
+# E: ID_SERIAL_SHORT=51313943493135333139
+# E: ID_TYPE=disk
+# E: ID_INSTANCE=0:0
+# E: ID_BUS=usb
+# E: ID_USB_INTERFACES=:080650:
+# E: ID_USB_INTERFACE_NUM=00
+# E: ID_USB_DRIVER=usb-storage
+# E: ID_PATH=pci-0000:00:14.0-usb-0:2.3:1.0-scsi-0:0:0:0
+# E: ID_PATH_TAG=pci-0000_00_14_0-usb-0_2_3_1_0-scsi-0_0_0_0
+# E: DEVLINKS=/dev/disk/by-id/usb-QNAP_TR-004_DISK00_51313943493135333139-0:0 /dev/disk/by-path/pci-0000:00:14.0-usb-0:2.3:1.0-scsi-0:0:0:0
+# E: TAGS=:systemd:
+# E: CURRENT_TAGS=:systemd:
+ENV{ID_VENDOR_ID}=="1c04", \
+  ENV{ID_MODEL_ID}=="0013", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# Insignia 2-Bay HDD docking station NS-PCHDEDS19
+# https://www.bestbuy.com/site/insignia-2-bay-hdd-docking-station/6153102.p?skuId=6153102
+# https://devicehunt.com/view/type/usb/vendor/0578/device/0578
+# https://github.com/openmediavault/openmediavault/issues/1816
+# https://forum.openmediavault.org/index.php?thread/47388-qnap-tr-004-usb-raid-enclosure-duplicate-serial-number-fix/&postID=398618#post398618
+#
+# DEVPATH=/devices/pci0000:00/0000:00:14.0/usb2/2-2/2-2.1/2-2.1:1.0/host2/target2:0:0/2:0:0:0/block/sda
+# DEVNAME=/dev/sda
+# DEVTYPE=disk
+# DISKSEQ=2
+# MAJOR=8
+# MINOR=0
+# SUBSYSTEM=block
+# USEC_INITIALIZED=6790221
+# ID_VENDOR=WDC_WD14
+# ID_VENDOR_ENC=WDC\x20WD14
+# ID_VENDOR_ID=0578
+# ID_MODEL=0EDGZ-11B2DA2
+# ID_MODEL_ENC=0EDGZ-11B2DA2\x20\x20\x20
+# ID_MODEL_ID=0578
+# ID_REVISION=7101
+# ID_SERIAL=WDC_WD14_0EDGZ-11B2DA2_DD564198838DA-0:0
+# ID_SERIAL_SHORT=DD564198838DA
+# ID_TYPE=disk
+# ID_INSTANCE=0:0
+# ID_BUS=usb
+# ID_USB_INTERFACES=:080650:080662:
+# ID_USB_INTERFACE_NUM=00
+# ID_USB_DRIVER=uas
+# ID_PATH=pci-0000:00:14.0-usb-0:2.1:1.0-scsi-0:0:0:0
+# ID_PATH_TAG=pci-0000_00_14_0-usb-0_2_1_1_0-scsi-0_0_0_0
+# ID_PART_TABLE_UUID=d0461568-446e-bf46-b956-ded8ccffa411
+# ID_PART_TABLE_TYPE=gpt
+# DEVLINKS=/dev/disk/by-id/usb-WDC_WD14_0EDGZ-11B2DA2_DD564198838DA-0:0 /dev/disk/by-path/pci-0000:00:14.0-usb-0:2.1:1.0-scsi-0:0:0:0
+# TAGS=:systemd:
+ENV{ID_VENDOR_ID}=="0578", \
+  ENV{ID_MODEL_ID}=="0578", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# JMicron Gen1 SATA 6Gb/s Bridge
+# https://devicehunt.com/view/type/usb/vendor/152D/device/0576
+#
+# TerraMaster D5-300
+# https://www.terra-master.com/global/d5-300.html
+#
+# P: /devices/pci0000:00/0000:00:0a.0/usb4/4-1/4-1:1.0/host1/target1:0:0/1:0:0:0/block/sdb
+# M: sdb
+# U: block
+# T: disk
+# D: b 8:16
+# N: sdb
+# L: 0
+# S: disk/by-id/usb-WDC_WD20EFRX-68EUZN0_202207153AB6-0:0
+# S: disk/by-path/pci-0000:00:0a.0-usb-0:1:1.0-scsi-0:0:0:0
+# S: disk/by-diskseq/2
+# Q: 2
+# E: DEVPATH=/devices/pci0000:00/0000:00:0a.0/usb4/4-1/4-1:1.0/host1/target1:0:0/1:0:0:0/block/sdb
+# E: DEVNAME=/dev/sdb
+# E: DEVTYPE=disk
+# E: DISKSEQ=2
+# E: MAJOR=8
+# E: MINOR=16
+# E: SUBSYSTEM=block
+# E: USEC_INITIALIZED=3771886
+# E: ID_BUS=usb
+# E: ID_MODEL=WD20EFRX-68EUZN0
+# E: ID_MODEL_ENC=WD20EFRX-68EUZN0
+# E: ID_MODEL_ID=0576
+# E: ID_SERIAL=WDC_WD20EFRX-68EUZN0_202207153AB6-0:0
+# E: ID_SERIAL_SHORT=202207153AB6
+# E: ID_VENDOR=WDC
+# E: ID_VENDOR_ENC=WDC\x20\x20\x20\x20\x20
+# E: ID_VENDOR_ID=152d
+# E: ID_REVISION=7102
+# E: ID_TYPE=disk
+# E: ID_INSTANCE=0:0
+# E: ID_USB_MODEL=WD20EFRX-68EUZN0
+# E: ID_USB_MODEL_ENC=WD20EFRX-68EUZN0
+# E: ID_USB_MODEL_ID=0576
+# E: ID_USB_SERIAL=WDC_WD20EFRX-68EUZN0_202207153AB6-0:0
+# E: ID_USB_SERIAL_SHORT=202207153AB6
+# E: ID_USB_VENDOR=WDC
+# E: ID_USB_VENDOR_ENC=WDC\x20\x20\x20\x20\x20
+# E: ID_USB_VENDOR_ID=152d
+# E: ID_USB_REVISION=7102
+# E: ID_USB_TYPE=disk
+# E: ID_USB_INSTANCE=0:0
+# E: ID_USB_INTERFACES=:080650:
+# E: ID_USB_INTERFACE_NUM=00
+# E: ID_USB_DRIVER=usb-storage
+# E: ID_PATH=pci-0000:00:0a.0-usb-0:1:1.0-scsi-0:0:0:0
+# E: ID_PATH_TAG=pci-0000_00_0a_0-usb-0_1_1_0-scsi-0_0_0_0
+# E: ID_PART_TABLE_UUID=4420bc5c-7c13-4829-8b87-c1841902125e
+# E: ID_PART_TABLE_TYPE=gpt
+# E: DEVLINKS=/dev/disk/by-id/usb-WDC_WD20EFRX-68EUZN0_202207153AB6-0:0 /dev/disk/by-path/pci-0000:00:0a.0-usb-0:1:1.0-scsi-0:0:0:0 /dev/disk/by-diskse...
+# E: TAGS=:systemd:
+# E: CURRENT_TAGS=:systemd:
+ENV{ID_VENDOR_ID}=="152d", \
+  ENV{ID_MODEL_ID}=="0576", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# External SATA Hard Drive Adapter cable PA023U3
+# https://devicehunt.com/view/type/usb/vendor/7825/device/a2a4
+#
+# P: /devices/pci0000:00/0000:00:14.0/usb2/2-3/2-3:1.0/host0/target0:0:0/0:0:0:0/block/sdb
+# M: sdb
+# U: block
+# T: disk
+# D: b 8:16
+# N: sdb
+# L: 0
+# S: disk/by-diskseq/3
+# S: disk/by-label/disk
+# S: disk/by-uuid/7067644550817850007
+# S: disk/by-id/usb-ST2000DM_008-2FR102_235678C218CA-0:0
+# S: disk/by-path/pci-0000:00:14.0-usb-0:3:1.0-scsi-0:0:0:0
+# Q: 3
+# E: DEVPATH=/devices/pci0000:00/0000:00:14.0/usb2/2-3/2-3:1.0/host0/target0:0:0/0:0:0:0/block/sdb
+# E: DEVNAME=/dev/sdb
+# E: DEVTYPE=disk
+# E: DISKSEQ=3
+# E: MAJOR=8
+# E: MINOR=16
+# E: SUBSYSTEM=block
+# E: USEC_INITIALIZED=3298176
+# E: ID_BUS=usb
+# E: ID_MODEL=008-2FR102
+# E: ID_MODEL_ENC=008-2FR102\x20\x20\x20\x20\x20\x20
+# E: ID_MODEL_ID=a2a4
+# E: ID_SERIAL=ST2000DM_008-2FR102_235678C218CA-0:0
+# E: ID_SERIAL_SHORT=235678C218CA
+# E: ID_VENDOR=ST2000DM
+# E: ID_VENDOR_ENC=ST2000DM
+# E: ID_VENDOR_ID=7825
+# E: ID_REVISION=4101
+# E: ID_TYPE=disk
+# E: ID_INSTANCE=0:0
+# E: ID_USB_MODEL=008-2FR102
+# E: ID_USB_MODEL_ENC=008-2FR102\x20\x20\x20\x20\x20\x20
+# E: ID_USB_MODEL_ID=a2a4
+# E: ID_USB_SERIAL=ST2000DM_008-2FR102_235678C218CA-0:0
+# E: ID_USB_SERIAL_SHORT=235678C218CA
+# E: ID_USB_VENDOR=ST2000DM
+# E: ID_USB_VENDOR_ENC=ST2000DM
+# E: ID_USB_VENDOR_ID=7825
+# E: ID_USB_REVISION=4101
+# E: ID_USB_TYPE=disk
+# E: ID_USB_INSTANCE=0:0
+# E: ID_USB_INTERFACES=:080650:080662:
+# E: ID_USB_INTERFACE_NUM=00
+# E: ID_USB_DRIVER=uas
+# E: ID_PATH=pci-0000:00:14.0-usb-0:3:1.0-scsi-0:0:0:0
+# E: ID_PATH_TAG=pci-0000_00_14_0-usb-0_3_1_0-scsi-0_0_0_0
+# E: ID_FS_VERSION=5000
+# E: ID_FS_LABEL=disk
+# E: ID_FS_LABEL_ENC=disk
+# E: ID_FS_UUID=7067644550817850007
+# E: ID_FS_UUID_ENC=7067644550817850007
+# E: ID_FS_UUID_SUB=9552983788758719893
+# E: ID_FS_UUID_SUB_ENC=9552983788758719893
+# E: ID_FS_TYPE=zfs_member
+# E: ID_FS_USAGE=filesystem
+# E: NVME_HOST_IFACE=none
+# E: DEVLINKS=/dev/disk/by-diskseq/3 /dev/disk/by-label/disk /dev/disk/by-uuid/7067644550817850007
+# E: TAGS=:systemd:
+# E: CURRENT_TAGS=:systemd:
+ENV{ID_VENDOR_ID}=="7825", \
+  ENV{ID_MODEL_ID}=="a2a4", \
+  IMPORT{program}="serial_id %N", \
+  ENV{ID_SERIAL}="$env{ID_VENDOR}_$env{ID_MODEL}_$env{ID_SERIAL_SHORT}-$env{ID_INSTANCE}", \
+  SYMLINK="disk/by-path/$env{ID_PATH}", \
+  SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
+
+# by-uuid links (filesystem metadata)
+# Skip bcache backing devices, handled in `/lib/udev/rules.d/69-bcache.rules`.
+ENV{ID_FS_TYPE}=="bcache", GOTO="omv_skip_by_uuid"
+# Skip devices that already have a `disk/by-uuid` link.
+SYMLINK=="*disk/by-uuid/*", GOTO="omv_skip_by_uuid"
+ENV{ID_FS_USAGE}=="filesystem|other|crypto", ENV{ID_FS_UUID_ENC}=="?*", SYMLINK+="disk/by-uuid/$env{ID_FS_UUID_ENC}"
+LABEL="omv_skip_by_uuid"
+
+# by-id (World Wide Name)
+SYMLINK=="*disk/by-id/wwn-*", GOTO="omv_skip_by_id_wwn"
+ENV{ID_WWN_WITH_EXTENSION}=="?*", SYMLINK+="disk/by-id/wwn-$env{ID_WWN_WITH_EXTENSION}"
+LABEL="omv_skip_by_id_wwn"
+
+# by-partuuid links (partition metadata)
+# Skip devices that already have a `disk/by-partuuid` link.
+SYMLINK=="*disk/by-partuuid/*", GOTO="omv_skip_by_partuuid"
+ENV{ID_PART_ENTRY_UUID}=="?*", SYMLINK+="disk/by-partuuid/$env{ID_PART_ENTRY_UUID}"
+LABEL="omv_skip_by_partuuid"
+
+LABEL="omv_dev_disk_by_id_end"

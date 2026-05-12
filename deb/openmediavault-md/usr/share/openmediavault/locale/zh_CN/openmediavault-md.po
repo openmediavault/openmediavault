@@ -1,0 +1,129 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-md package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# 王大山, 2023
+# songming <by@songming.me>, 2024
+# kochin <kochinc@outlook.com>, 2025
+# irrelevant91, 2025
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-md\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2023-11-06 09:08+0000\n"
+"Last-Translator: irrelevant91, 2025\n"
+"Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "A maximum of one device can be removed."
+msgstr "最多一个设备可被移除。"
+
+msgid "A maximum of two devices can be removed."
+msgstr "最多两个设备可被移除。"
+
+msgid "Add hot spares / recover RAID device."
+msgstr "添加热备/恢复 RAID 设备"
+
+msgid "At least four devices are required."
+msgstr "至少需要四台设备。"
+
+msgid "At least three devices are required."
+msgstr "至少需要三台设备。"
+
+msgid "At least two devices are required."
+msgstr "至少需要两台设备。"
+
+msgid "Capacity"
+msgstr "容量"
+
+msgid "Create"
+msgstr "新建"
+
+msgid "Device"
+msgstr "设备"
+
+msgid "Devices"
+msgstr "设备"
+
+msgid "Displays information about MD (Software RAID) devices."
+msgstr "显示关于 MD (软 RAID) 设备的信息。"
+
+msgid "Grow"
+msgstr "扩充"
+
+msgid "Level"
+msgstr "级别"
+
+msgid "MD Devices"
+msgstr "MD 设备"
+
+msgid "Mirror"
+msgstr "镜像"
+
+msgid "Multiple Device"
+msgstr "RAID 管理"
+
+msgid "Name"
+msgstr "名称"
+
+msgid "RAID 10"
+msgstr "RAID 10"
+
+msgid "RAID 2"
+msgstr "RAID 2"
+
+msgid "RAID 3"
+msgstr "RAID 3"
+
+msgid "RAID 4"
+msgstr "RAID 4"
+
+msgid "RAID 5"
+msgstr "RAID 5"
+
+msgid "RAID 6"
+msgstr "RAID 6"
+
+msgid "Recover"
+msgstr "恢复"
+
+msgid "Referenced"
+msgstr "被引用"
+
+msgid "Remove"
+msgstr "移除"
+
+msgid "Select devices ..."
+msgstr "选择设备 ..."
+
+msgid "Select devices to be added to the RAID device."
+msgstr "选择被添加到 RAID 的设备"
+
+msgid "Select devices to be removed from the RAID device."
+msgstr "选择要从 RAID 阵列中删除的设备。"
+
+msgid ""
+"Select the devices that will be used to create the RAID device. Devices "
+"connected via USB will not be listed (too unreliable)."
+msgstr "选择将要用于创建 RAID 的设备，通过 USB 接入的设备不会在列表中显示（USB接入不稳定）。"
+
+msgid "Show details"
+msgstr "显示详情"
+
+msgid "Software RAID"
+msgstr "软 RAID"
+
+msgid "State"
+msgstr "状态"
+
+msgid "Stripe"
+msgstr "条带"

@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "diagnostics.performance-statistics.load"
+  text: _("Load Average")
+  icon: "mdi:speedometer"
+  url: "/diagnostics/performance-statistics/load"

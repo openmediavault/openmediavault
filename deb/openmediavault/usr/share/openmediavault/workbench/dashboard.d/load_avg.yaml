@@ -1,0 +1,29 @@
+version: "1.0"
+type: dashboard-widget
+data:
+  id: 87c5224a-8ae2-11eb-8be3-1f259589acaf
+  permissions:
+    role:
+    - admin
+  title: _("Load Average")
+  type: chart
+  chart:
+    type: advanced-gauge
+    maxHeight: "150px"
+    maxWidth: "150px"
+    request:
+      service: System
+      method: getInformation
+    label:
+      formatter: template
+      formatterConfig: "{{ value | tofixed(2) }}"
+    dataConfig:
+    - label: _("1 min")
+      prop: loadAverage.1min
+      backgroundColor: "#ff9d00"
+    - label: _("5 min")
+      prop: loadAverage.5min
+      backgroundColor: "#bc5090"
+    - label: _("15 min")
+      prop: loadAverage.15min
+      backgroundColor: "#5dacdf"

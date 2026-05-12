@@ -1,0 +1,46 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-shairport package.
+# 
+# Translators:
+# omv nas <myomv100@gmail.com>, 2020
+# omv nas <myomv100@gmail.com>, 2023
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2014-06-23 16:18+0000\n"
+"Last-Translator: omv nas <myomv100@gmail.com>, 2023\n"
+"Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar_SA\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "A password is required to stream audio."
+msgstr "كلمة المرور مطلوبة لبث الصوت."
+
+msgid "Authentication"
+msgstr "المصادقة"
+
+msgid "Enabled"
+msgstr "ممكن"
+
+msgid "Name"
+msgstr "الاسم"
+
+msgid "Password"
+msgstr "كلمة المرور"
+
+msgid "Shairport"
+msgstr "Shairport"
+
+msgid ""
+"The name the service will advertise to clients. Leave this field empty to "
+"use the hostname by default."
+msgstr "اسم الخدمة التي سيتم الإعلان عنها للعملاء. اترك هذا الحقل فارغًا لاستخدام اسم المضيف بشكل افتراضي."
+
+msgid "Updated Shairport settings."
+msgstr "تم تحديث إعدادات Shairport."

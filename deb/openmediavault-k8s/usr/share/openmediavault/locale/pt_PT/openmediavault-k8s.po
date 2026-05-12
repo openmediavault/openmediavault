@@ -1,0 +1,438 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-k8s package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2024
+# Nelson Rosado <nelsontrosado@gmail.com>, 2025
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-k8s\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-26 11:58+0100\n"
+"PO-Revision-Date: 2024-03-09 09:44+0000\n"
+"Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>, 2025\n"
+"Language-Team: Portuguese (Portugal) (https://app.transifex.com/openmediavault/teams/14254/pt_PT/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_PT\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+msgid "Absolute Path"
+msgstr ""
+
+msgid "Access Modes"
+msgstr ""
+
+msgid "App Version"
+msgstr ""
+
+msgid "Apply"
+msgstr ""
+
+msgid "Architecture"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
+msgid "Capacity"
+msgstr ""
+
+msgid "Certificate"
+msgstr ""
+
+msgid "Certificates"
+msgstr ""
+
+msgid "Chart"
+msgstr ""
+
+msgid "Check for new recipes"
+msgstr ""
+
+msgid "Class"
+msgstr ""
+
+msgid "Cluster IP"
+msgstr ""
+
+msgid "Compressed"
+msgstr ""
+
+msgid "Config Maps"
+msgstr ""
+
+msgid "Copy to clipboard"
+msgstr ""
+
+msgid "Copy token"
+msgstr ""
+
+msgid "Count"
+msgstr ""
+
+msgid "Created"
+msgstr ""
+
+msgid "Dashboard"
+msgstr ""
+
+msgid "Data"
+msgstr ""
+
+msgid "Datastore"
+msgstr ""
+
+msgid "Date & Time"
+msgstr ""
+
+msgid "Depends"
+msgstr ""
+
+msgid "Deployments"
+msgstr ""
+
+msgid "Describe"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Do you really want to restore this snapshot?"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid ""
+"Downloading the kubeconfig file to the local system enables secure remote "
+"management of the Kubernetes cluster using command-line tools like kubectl."
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Events"
+msgstr ""
+
+msgid "Expose"
+msgstr ""
+
+msgid "Exposed"
+msgstr ""
+
+msgid "Exposed port"
+msgstr ""
+
+msgid "External IP"
+msgstr ""
+
+msgid "Extra configuration"
+msgstr ""
+
+msgid "Failed"
+msgstr ""
+
+msgid "First seen"
+msgstr ""
+
+msgid "GID"
+msgstr ""
+
+msgid "Groups"
+msgstr ""
+
+msgid "Helm Charts"
+msgstr ""
+
+msgid "Homepage"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "Image"
+msgstr ""
+
+msgid "Images"
+msgstr ""
+
+msgid "Import"
+msgstr ""
+
+msgid "Ingredients"
+msgstr ""
+
+msgid "Ingress Routes"
+msgstr ""
+
+msgid "Ingresses"
+msgstr ""
+
+msgid "Job"
+msgstr ""
+
+msgid "Kubeconfig"
+msgstr ""
+
+msgid "Kubernetes"
+msgstr ""
+
+msgid "Kubernetes - Pods"
+msgstr ""
+
+msgid "Kubernetes - Resources"
+msgstr ""
+
+msgid "Labels"
+msgstr ""
+
+msgid "Last seen"
+msgstr ""
+
+msgid "Load Balancer"
+msgstr ""
+
+msgid "Logs"
+msgstr ""
+
+msgid "Manifest"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Monitoring - Kubernetes"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Namespace"
+msgstr ""
+
+msgid "Namespaces"
+msgstr ""
+
+msgid "NodePort IP"
+msgstr ""
+
+msgid "Normal"
+msgstr ""
+
+msgid "Object"
+msgstr ""
+
+msgid "Open UI"
+msgstr ""
+
+msgid "PV"
+msgstr ""
+
+msgid "PVC"
+msgstr ""
+
+msgid "Pending"
+msgstr ""
+
+msgid "Persistent Volume Claims"
+msgstr ""
+
+msgid "Persistent Volumes"
+msgstr ""
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
+
+msgid "Please wait, the snapshot will be restored ..."
+msgstr ""
+
+msgid "Pods"
+msgstr ""
+
+msgid "Port"
+msgstr "Porta"
+
+msgid "Ports"
+msgstr ""
+
+msgid "Protocol"
+msgstr ""
+
+msgid "README"
+msgstr ""
+
+msgid "Ready"
+msgstr ""
+
+msgid "Reason"
+msgstr ""
+
+msgid "Recipe Information"
+msgstr ""
+
+msgid "Recipe Version"
+msgstr ""
+
+msgid "Recipes"
+msgstr ""
+
+msgid "Reclaim policy"
+msgstr ""
+
+msgid ""
+"Refer to the values.yaml file in the Traefik Helm chart to see what "
+"configuration options are available."
+msgstr ""
+
+msgid "Repository"
+msgstr ""
+
+msgid "Resources"
+msgstr ""
+
+msgid "Restore"
+msgstr ""
+
+msgid "Running"
+msgstr ""
+
+msgid "SQLite"
+msgstr ""
+
+msgid "Secrets"
+msgstr ""
+
+msgid "Section"
+msgstr ""
+
+msgid "Services"
+msgstr ""
+
+msgid "Settings"
+msgstr "Definições"
+
+msgid "Shared Folders"
+msgstr ""
+
+msgid "Show README"
+msgstr ""
+
+msgid "Show the number of pods per status phase."
+msgstr ""
+
+msgid "Show the total number of several resources."
+msgstr ""
+
+msgid "Size"
+msgstr ""
+
+msgid "Snapshots"
+msgstr ""
+
+msgid "Source"
+msgstr ""
+
+msgid "Stateful Sets"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Storage Class"
+msgstr ""
+
+msgid "Succeeded"
+msgstr ""
+
+msgid "Tag"
+msgstr ""
+
+msgid "Tags"
+msgstr ""
+
+msgid "Target Namespace"
+msgstr ""
+
+msgid ""
+"The SSL certificate used by the LoadBalancer service. If not set, a self-"
+"signed certificate from cert-manager is used."
+msgstr ""
+
+msgid ""
+"The datastore used by the Kubernetes cluster. SQLite is recommended for "
+"single-node setups and SBCs with slow disks, while etcd is recommended for "
+"high-availability setups with multiple nodes."
+msgstr ""
+
+msgid "The field should only contain the characters a-z, 0-9 and -."
+msgstr ""
+
+msgid ""
+"The following placeholders can be used in recipes to get access to global "
+"system information and the configuration "
+"database:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>You have to denote placeholders with double-curly "
+"braces. An overview of additional available filters can be found <a "
+"href='https://twig.symfony.com/doc/filters/index.html' "
+"target='_blank'>here</a>."
+msgstr ""
+
+msgid "The location where to store etcd on-demand snapshots."
+msgstr ""
+
+msgid "The manifest to apply."
+msgstr ""
+
+msgid "The snapshot was created successfully."
+msgstr ""
+
+msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
+msgstr ""
+
+msgid "The token to authenticate to the Kubernetes Dashboard."
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "UID"
+msgstr ""
+
+msgid "UUID"
+msgstr ""
+
+msgid "Unknown"
+msgstr ""
+
+msgid "Up-to-date"
+msgstr ""
+
+msgid "Updated Kubernetes settings."
+msgstr ""
+
+msgid "Users"
+msgstr ""
+
+msgid "Version"
+msgstr "Versão"
+
+msgid "View"
+msgstr ""
+
+msgid "Volume"
+msgstr ""
+
+msgid "Warning"
+msgstr ""
+
+msgid "YAML"
+msgstr ""
+
+msgid "etcd"
+msgstr ""

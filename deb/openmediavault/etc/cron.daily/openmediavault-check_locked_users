@@ -1,0 +1,57 @@
+#!/usr/bin/env dash
+#
+# This file is part of OpenMediaVault.
+#
+# @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2026 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
+MAILTO=""
+
+export LC_ALL=C.UTF-8
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+set -e
+
+# Make sure the directory exists. Note, after a reboot this directory does not
+# exist until the PAM faillock module has been executed.
+[ -d "/var/run/faillock/" ] || exit 0
+
+omv_syslog_info "Checking for locked/banned users."
+
+# Check if there are locked users.
+# admin:
+# When                Type  Source                                           Valid
+# test:
+# When                Type  Source                                           Valid
+# 2021-05-11 22:06:57 SVC   openmediavault                                       V
+# 2021-05-11 22:07:00 SVC   openmediavault                                       V
+# 2021-05-11 22:07:04 SVC   openmediavault                                       V
+if [ "$(faillock | sed -E -e '/^[^:]+:$/d' -e '/^When/d' | wc -l)" -gt 0 ]; then
+  omv_syslog_warning "Several users are locked/banned or are candidates for too many failed login attempts."
+
+  # Send a notification by email?
+  if omv_is_notifications_enabled && omv_is_notification_enabled_by_id "authentication"; then
+    (
+      echo "The following users are locked/banned or are candidates for too many failed login attempts:\n";
+      faillock;
+      echo "\nYou can reset their counters and unlock them via the omv-firstaid command."
+    ) | mail -E -s "Locked users overview" root
+  fi
+else
+  omv_syslog_info "No locked/banned users found."
+fi

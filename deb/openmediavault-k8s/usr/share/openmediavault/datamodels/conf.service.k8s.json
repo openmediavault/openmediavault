@@ -1,0 +1,85 @@
+{
+	"type": "config",
+	"id": "conf.service.k8s",
+	"title": "Kubernetes",
+	"queryinfo": {
+		"xpath": ".//services/k8s",
+		"iterable": false
+	},
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"datastore": {
+			"type": "string",
+			"enum": [ "etcd", "sqlite" ],
+			"default": "sqlite"
+		},
+		"lbports": {
+			"type": "object",
+			"properties": {
+				"item": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"uuid": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"name": {
+								"type": "string",
+								"maxLength": 15,
+								"pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
+							},
+							"port": {
+								"type": "integer",
+								"minimum": 1,
+								"maximum": 65535
+							},
+							"exposedport": {
+								"type": "integer",
+								"minimum": 1,
+								"maximum": 65535
+							},
+							"protocol": {
+								"type": "string",
+								"enum": ["udp", "tcp"]
+							},
+							"expose": {
+								"type": "boolean"
+							},
+							"comment": {
+								"type": "string"
+							},
+							"extravalues": {
+								"type": "string"
+							}
+						}
+					}
+				}
+			}
+		},
+		"snapshots_sharedfolderref": {
+			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "uuidv4"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}]
+		},
+		"sslcertificateref": {
+			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "uuidv4"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}]
+		}
+	}
+}

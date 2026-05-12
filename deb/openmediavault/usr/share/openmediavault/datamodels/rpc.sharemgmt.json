@@ -1,0 +1,331 @@
+[{
+	"type": "rpc",
+	"id": "rpc.sharemgmt.set",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"name": {
+				"type": "string",
+				"required": true
+			},
+			"reldirpath": {
+				"type": "string",
+				"required": true
+			},
+			"comment": {
+				"type": "string",
+				"required": true
+			},
+			"mntentref": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"mode": {
+			    "type": "string",
+			    "enum": [ "700", "750", "755", "770", "775", "777" ],
+				"required": false
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.sharemgmt.delete",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"recursive": {
+				"type": "boolean",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.sharemgmt.setprivileges",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"privileges": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"name": {
+							"type": "string",
+							"required": true
+						},
+						"perms": {
+							"type": "integer",
+							"enum": [ 0, 5, 7 ],
+							"required": true
+						},
+						"type": {
+							"type": "string",
+							"enum": [ "user", "group" ],
+							"required": true
+						}
+					}
+				}
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.sharemgmt.getprivilegesbyrole",
+	"params": {
+		"type": "object",
+		"properties": {
+			"role": {
+				"type": "string",
+				"enum": [ "user", "group" ],
+				"required": true
+			},
+			"name": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.sharemgmt.setprivilegesbyrole",
+	"params": {
+		"type": "object",
+		"properties": {
+			"role": {
+			    "type": "string",
+			    "enum": [ "user", "group" ],
+				"required": true
+			},
+			"name": {
+			    "type": "string",
+				"required": true
+			},
+			"privileges": {
+			    "type": "array",
+			    "items": {
+			        "type": "object",
+			        "properties": {
+			            "uuid": {
+			                "type": "string",
+							"required": true
+			            },
+			            "perms": {
+			                "type": "integer",
+			                "enum": [ 0, 5, 7 ],
+							"required": true
+			            }
+			        }
+			    }
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.sharemgmt.copyprivileges",
+	"params": {
+		"type": "object",
+		"properties": {
+			"src": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"dst": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.sharemgmt.getfileacl",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"file": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.sharemgmt.setfileacl",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"file": {
+			    "type": "string",
+				"required": true
+			},
+			"recursive": {
+			    "type": "boolean",
+				"required": true
+			},
+			"replace": {
+			    "type": "boolean",
+				"required": true
+			},
+			"owner": {
+			    "type": "string",
+				"required": false
+			},
+			"group": {
+			    "type": "string",
+				"required": false
+			},
+			"userperms": {
+			    "type": "integer",
+			    "enum": [ 0, 1, 2, 3, 4, 5, 6, 7 ],
+				"required": false
+			},
+			"groupperms": {
+			    "type": "integer",
+			    "enum": [ 0, 1, 2, 3, 4, 5, 6, 7 ],
+				"required": false
+			},
+			"otherperms": {
+			    "type": "integer",
+			    "enum": [ 0, 1, 2, 3, 4, 5, 6, 7 ],
+				"required": false
+			},
+			"users": {
+			    "type": "array",
+			    "items": {
+			        "type": "object",
+			        "properties": {
+			            "name": {
+			                "type": "string",
+							"required": true
+			            },
+			            "perms": {
+			                "type": "integer",
+			                "enum": [ 0, 1, 2, 3, 4, 5, 6, 7 ],
+							"required": true
+			            }
+			        }
+			    }
+			},
+			"groups": {
+			    "type": "array",
+			    "items": {
+			        "type": "object",
+			        "properties": {
+			            "name": {
+			                "type": "string",
+							"required": true
+			            },
+			            "perms": {
+			                "type": "integer",
+			                "enum": [ 0, 1, 2, 3, 4, 5, 6, 7 ],
+							"required": true
+			            }
+			        }
+			    }
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.sharemgmt.deletesnapshot",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"id": {
+				"type": [ "string", "integer" ],
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.sharemgmt.restoresnapshot",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"id": {
+				"type": [ "string", "integer" ],
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.sharemgmt.fromsnapshot",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"id": {
+				"type": [ "string", "integer" ],
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.sharemgmt.createscheduledsnapshot",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"execution": {
+				"type": "string",
+				"required": true,
+				"enum": [
+					"hourly",
+					"daily",
+					"weekly",
+					"monthly",
+					"yearly"
+				]
+			}
+		}
+	}
+}]

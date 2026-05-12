@@ -1,0 +1,59 @@
+<div class="omv-dashboard-page-container">
+  <omv-alert-panel *ngIf="!widgets.length"
+                   type="info"
+                   [hasMargin]="false">
+    <span [innerHTML]="notConfiguredMessage | transloco | sanitizeHtml"></span>
+  </omv-alert-panel>
+  <div class="widgets-container">
+    <div *ngFor="let widget of widgets">
+      <ng-container [ngTemplateOutlet]="renderWidget"
+                    [ngTemplateOutletContext]="{ $implicit: widget }">
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<ng-template #renderWidget
+             let-widget>
+  <ng-container [ngSwitch]="widget.type">
+    <ng-template [ngSwitchCase]="'grid'">
+      <omv-dashboard-widget-grid [config]="widget">
+      </omv-dashboard-widget-grid>
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="'datatable'">
+      <omv-dashboard-widget-datatable [config]="widget">
+      </omv-dashboard-widget-datatable>
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="'rrd'">
+      <omv-dashboard-widget-rrd [config]="widget">
+      </omv-dashboard-widget-rrd>
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="'chart'">
+      <omv-dashboard-widget-chart [config]="widget">
+      </omv-dashboard-widget-chart>
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="'text'">
+      <omv-dashboard-widget-text [config]="widget">
+      </omv-dashboard-widget-text>
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="'value'">
+      <omv-dashboard-widget-value [config]="widget">
+      </omv-dashboard-widget-value>
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="'system-information'">
+      <omv-dashboard-widget-system-information [config]="widget">
+      </omv-dashboard-widget-system-information>
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="'filesystems-status'">
+      <omv-dashboard-widget-filesystems-status [config]="widget">
+      </omv-dashboard-widget-filesystems-status>
+    </ng-template>
+  </ng-container>
+</ng-template>

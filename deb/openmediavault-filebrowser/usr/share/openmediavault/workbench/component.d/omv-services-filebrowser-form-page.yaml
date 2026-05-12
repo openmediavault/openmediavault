@@ -1,0 +1,63 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-filebrowser-form-page
+  type: formPage
+  config:
+    request:
+      service: FileBrowser
+      get:
+        method: get
+      post:
+        method: set
+    hints:
+      - type: info
+        text: _("Use the <em>admin:admin</em> credentials when logging in for the first time. Please do not forget to change the password immediately.")
+        dismissible: true
+        stateId: 9853961a-41e8-471e-bc28-f81e995dae43
+    fields:
+      - type: checkbox
+        name: enable
+        label: _("Enabled")
+        value: false
+      - type: numberInput
+        name: port
+        label: _("Port")
+        hint: _("Port to listen on.")
+        value: 3670
+        validators:
+          min: 1
+          max: 65535
+          patternType: port
+          required: true
+      - type: sslCertSelect
+        name: sslcertificateref
+        label: _("Certificate")
+        hint: _("The SSL certificate.")
+        hasEmptyOption: true
+        value: ""
+      - type: sharedFolderSelect
+        name: sharedfolderref
+        label: _("Shared folder")
+        hint: _("The location of the media files. Make sure the user <em>filebrowser</em> or group <em>users</em> can access the files.")
+        hasEmptyOption: true
+        value: ""
+        validators:
+          requiredIf:
+            operator: truthy
+            arg0:
+              prop: enable
+    buttons:
+      - text: _("Open UI")
+        enabledConstraint:
+          operator: "truthy"
+          arg0:
+            prop: "enable"
+        execute:
+          type: url
+          url: "/externalRedirect/{% if sslcertificateref %}https{% else %}http{% endif %}{{ ['://', location() | get('hostname'), ':', port] | join | encodeuricomponent }}"
+      - template: cancel
+        execute:
+          type: url
+          url: "/services"
+      - template: submit

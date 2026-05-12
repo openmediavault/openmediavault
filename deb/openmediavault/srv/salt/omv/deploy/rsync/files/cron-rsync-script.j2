@@ -1,0 +1,95 @@
+{%- set separator = ' ' -%}
+{%- set script_prefix = salt['pillar.get']('default:OMV_RSYNC_CRONSCRIPT_PREFIX', 'rsync-') -%}
+{%- set ssh_keys_dir = salt['pillar.get']('default:OMV_SSH_KEYS_DIR', '/etc/ssh') -%}
+{%- set ssh_key_prefix = salt['pillar.get']('default:OMV_SSH_KEY_PREFIX', 'openmediavault-') -%}
+{%- set logfile = salt['pillar.get']('default:OMV_RSYNC_LOGFILE', '/var/log/rsync.log') -%}
+{%- set runfile = '/run' | path_join(script_prefix ~ job.uuid) -%}
+{%- if job.type == 'local' -%}
+  {%- set srcuri = salt['omv_conf.get_sharedfolder_path'](job.src.sharedfolderref) -%}
+  {%- set srcmntdir = salt['omv_conf.get_sharedfolder_mount_path'](job.src.sharedfolderref) -%}
+  {%- set desturi = salt['omv_conf.get_sharedfolder_path'](job.dest.sharedfolderref) -%}
+  {%- set destmntdir = salt['omv_conf.get_sharedfolder_mount_path'](job.dest.sharedfolderref) -%}
+{%- elif job.type == 'remote' -%}
+  {%- if job.mode == 'push' -%}
+    {%- set srcuri = salt['omv_conf.get_sharedfolder_path'](job.src.sharedfolderref) -%}
+    {%- set srcmntdir = salt['omv_conf.get_sharedfolder_mount_path'](job.src.sharedfolderref) -%}
+    {%- set desturi = job.dest.uri -%}
+  {%- elif job.mode == 'pull' -%}
+    {%- set srcuri = job.src.uri -%}
+    {%- set desturi = salt['omv_conf.get_sharedfolder_path'](job.dest.sharedfolderref) -%}
+    {%- set destmntdir = salt['omv_conf.get_sharedfolder_mount_path'](job.dest.sharedfolderref) -%}
+  {%- endif -%}
+{%- endif -%}
+#!/usr/bin/env dash
+{{ pillar['headers']['multiline'] -}}
+. /usr/share/openmediavault/scripts/helper-functions
+cleanup() {
+    omv_kill_children $$
+    rm -f "{{ runfile }}"
+    exit
+}
+[ -e "{{ runfile }}" ] && exit 1
+{%- if job.type == 'local' or job.mode == 'push' %}
+if ! omv_is_mounted "{{ srcmntdir }}" ; then
+    omv_error "Source storage device not mounted at <{{ srcmntdir }}>!"
+    exit 1
+fi
+{%- endif %}
+{%- if job.type == 'local' or job.mode == 'pull' %}
+if ! omv_is_mounted "{{ destmntdir }}" ; then
+    omv_error "Destination storage device not mounted at <{{ destmntdir }}>!"
+    exit 1
+fi
+{%- endif %}
+trap cleanup 0 1 2 5 15
+touch "{{ runfile }}"
+{%- if not job.optionquiet | to_bool %}
+omv_log "Please wait, syncing <{{ srcuri }}> to <{{ desturi }}> ...\n"
+{%- endif %}
+{%- if job.authentication == 'password' and job.password | length > 0 %}
+export RSYNC_PASSWORD="{{ job.password | add_slashes }}"
+{%- endif %}
+rsync --verbose --log-file="{{ logfile }}"
+{%- if job.authentication == 'pubkey' %}{{ separator }}--rsh "ssh -p {{ job.sshport }} -i '{{ ssh_keys_dir | path_join(ssh_key_prefix ~ job.sshcertificateref) }}'"{%- endif %}
+{%- if job.optionquiet | to_bool %}{{ separator }}--quiet{%- endif %}
+{%- if job.optiondryrun | to_bool %}{{ separator }}--dry-run{%- endif %}
+{%- if job.optionarchive | to_bool %}{{ separator }}--archive{%- endif -%}
+{# Prefix implied archive options with '--no-' if enabled #}
+{%- if job.optionarchive | to_bool %}
+{%- if not job.optionrecursive | to_bool %}{{ separator }}--no-recursive{%- endif %}
+{%- if not job.optionperms | to_bool %}{{ separator }}--no-perms{%- endif %}
+{%- if not job.optiontimes | to_bool %}{{ separator }}--no-times{%- endif %}
+{%- if not job.optiongroup | to_bool %}{{ separator }}--no-group{%- endif %}
+{%- if not job.optionowner | to_bool %}{{ separator }}--no-owner{%- endif %}
+{%- else %}
+{%- if job.optionrecursive | to_bool %}{{ separator }}--recursive{%- endif %}
+{%- if job.optionperms | to_bool %}{{ separator }}--perms{%- endif %}
+{%- if job.optiontimes | to_bool %}{{ separator }}--times{%- endif %}
+{%- if job.optiongroup | to_bool %}{{ separator }}--group{%- endif %}
+{%- if job.optionowner | to_bool %}{{ separator }}--owner{%- endif %}
+{%- endif %}
+{%- if job.optioncompress | to_bool %}{{ separator }}--compress{%- endif %}
+{%- if job.optiondelete | to_bool %}{{ separator }}--delete{%- endif %}
+{%- if job.optionacls | to_bool %}{{ separator }}--acls{%- endif %}
+{%- if job.optionxattrs | to_bool %}{{ separator }}--xattrs{%- endif %}
+{%- if job.optionpartial | to_bool %}{{ separator }}--partial{%- endif %}
+{%- if job.extraoptions | length > 0 %}{{ separator }}{{ job.extraoptions }}{%- endif -%}
+{%- if job.type == 'local' -%}
+  {%- set srcuri = srcuri | quote -%}
+  {%- set desturi = desturi | quote -%}
+{%- elif job.type == 'remote' -%}
+  {%- if job.mode == 'push' -%}
+    {%- set srcuri = srcuri | quote -%}
+  {%- elif job.mode == 'pull' -%}
+    {%- set desturi = desturi | quote -%}
+  {%- endif -%}
+{%- endif -%}
+{{ separator }}{{ srcuri }}{{ separator }}{{ desturi }} & wait $!
+{%- if not job.optionquiet | to_bool %}
+if [ $? -eq 0 ]; then
+    omv_log "The synchronisation has completed successfully."
+else
+    omv_error "The synchronisation failed."
+fi
+{%- endif %}
+exit 0

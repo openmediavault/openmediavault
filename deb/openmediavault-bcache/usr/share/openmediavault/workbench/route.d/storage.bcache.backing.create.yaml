@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/bcache/backing/create"
+  title: _("Create")
+  editing: false
+  component: omv-storage-bcache-backing-create-form-page

@@ -1,0 +1,142 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-nut package.
+# 
+# Translators:
+# zubr139, 2013,2015,2021
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-03-17 01:51+0000\n"
+"Last-Translator: zubr139, 2013,2015,2021\n"
+"Language-Team: Ukrainian (http://app.transifex.com/openmediavault/openmediavault/language/uk/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+msgid ""
+"'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
+msgstr "\"Автономний\" для локального ДБЖ, \"Netclient\" для віддаленого ДБЖ на сервері NUT."
+
+msgid "Charge"
+msgstr "Заряд"
+
+msgid "Comment"
+msgstr "Коментар"
+
+msgid "Date & Time"
+msgstr "Дата і час"
+
+msgid "Defines when the shutdown is initiated."
+msgstr "Визначає, коли, почнеться відключення."
+
+msgid "Driver configuration directives"
+msgstr "Директиви конфігурації драйверів"
+
+msgid "Enable remote monitoring of the local connected UPS."
+msgstr "Увімкнути віддалений моніторинг локально підєднаного ДБЖ."
+
+msgid "Enabled"
+msgstr "Увімкнено"
+
+msgid "Identifier"
+msgstr "Ідентифікатор"
+
+msgid "Invalid identifier"
+msgstr "Недійсний ідентифікатор"
+
+msgid "Load"
+msgstr "Завантаження"
+
+msgid "Message"
+msgstr "Повідомлення"
+
+msgid "Mode"
+msgstr "Режим"
+
+msgid "Netclient"
+msgstr "Netclient"
+
+msgid "Netclient hostname"
+msgstr "Ім'я хосту Netclient"
+
+msgid "Netclient password"
+msgstr "Пароль Netclient"
+
+msgid "Netclient user name"
+msgstr "Ім'я користувача Netclient"
+
+msgid "PID"
+msgstr "PID"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Powervalue"
+msgstr "Значення потужності"
+
+msgid "Program"
+msgstr "Програма"
+
+msgid "Remote monitoring"
+msgstr "Віддалений моніторинг"
+
+msgid "Service disabled"
+msgstr "Служба вимкнення"
+
+msgid "Shutdown mode"
+msgstr "Режим вимкнення"
+
+msgid "Shutdown timer"
+msgstr "Таймер вимкнення"
+
+msgid "Standalone"
+msgstr "Автономний"
+
+msgid "Temperature"
+msgstr "Температура"
+
+msgid "The name used to uniquely identify your UPS on local or remote system."
+msgstr "Назва, що використовується для унікальної ідентифікації ДБЖ у локальній або віддаленій системі."
+
+msgid ""
+"The number of power supplies that the UPS feeds on this system (usually 1), "
+"refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
+"target='_blank'>upsmon.conf(5)</a> for more information."
+msgstr "Кількість джерел живлення, які ДБЖ подає на цю систему (зазвичай 1), для отримання додаткової інформації див. <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf (5)</a>."
+
+msgid ""
+"The time in seconds until shutdown is initiated. If the UPS happens to come "
+"back before the time is up the shutdown is canceled."
+msgstr "Час у секундах до вимикання системи. Якщо живлення ДБЖ поновиться, перш ніж час вийде, відключення буде скасовано."
+
+msgid ""
+"To get more information how to configure your UPS please check the Network "
+"UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
+"target='_blank'>documentation</a>."
+msgstr "Щоб отримати більш детальну інформацію, як налаштувати ДБЖ перевірте Network UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>documentation</a>."
+
+msgid "UPS"
+msgstr "ДБЖ"
+
+msgid "UPS goes on battery"
+msgstr "ДБЖ працює від батареї"
+
+msgid "UPS reaches low battery"
+msgstr "ДБЖ досягає низького заряду батареї"
+
+msgid "Updated UPS settings."
+msgstr "Оновлені налаштування ДБЖ."
+
+msgid "Used for remote authentication."
+msgstr "Використовується для віддаленої аутентифікації."
+
+msgid "User name"
+msgstr "Ім'я користувача"
+
+msgid "Voltage"
+msgstr "Напруга"

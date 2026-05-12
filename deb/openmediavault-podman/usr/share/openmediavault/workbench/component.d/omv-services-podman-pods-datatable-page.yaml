@@ -1,0 +1,93 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-podman-pods-datatable-page
+  type: datatablePage
+  config:
+    autoReload: 10000
+    stateId: 18eb7a4e-681c-11ee-971a-83a02ea092a8
+    sorters:
+      - dir: asc
+        prop: Name
+    store:
+      proxy:
+        service: Podman
+        get:
+          method: podListBg
+          task: true
+    rowId: Id
+    rowEnumFmt: "{{ Name }}"
+    selectionType: single
+    columns:
+      - name: _("ID")
+        prop: Id
+        cellTemplateName: template
+        cellTemplateConfig: "{{ Id | substr(0, 12) }}"
+        flexGrow: 1
+        sortable: true
+      - name: _("Name")
+        prop: Name
+        flexGrow: 1
+        sortable: true
+      - name: _("Created")
+        prop: Created
+        flexGrow: 1
+        hidden: true
+        sortable: true
+      - name: _("Status")
+        prop: Status
+        cellTemplateName: chip
+        cellTemplateConfig:
+          map:
+            Running:
+              class: omv-background-color-pair-success
+        flexGrow: 1
+        sortable: true
+      - name: _("Infra ID")
+        prop: InfraId
+        cellTemplateName: template
+        cellTemplateConfig: "{{ InfraId | substr(0, 12) }}"
+        flexGrow: 1
+        hidden: true
+        sortable: true
+      - name: _("Containers")
+        prop: Containers
+        cellTemplateName: template
+        cellTemplateConfig: "{{ Containers | length }}"
+        flexGrow: 1
+        sortable: true
+    actions:
+      - type: iconButton
+        icon: search
+        tooltip: _("Inspect")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/podman/pods/inspect/{{ _selected[0].Id }}"
+      - type: iconButton
+        icon: "mdi:chart-line"
+        tooltip: _("Statistics")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/podman/pods/stats/{{ _selected[0].Id }}"
+      - type: iconButton
+        icon: "mdi:restart"
+        tooltip: _("Restart")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        confirmationDialogConfig:
+          template: confirmation
+          message: _("Do you really want to restart this pod?")
+        execute:
+          type: request
+          request:
+            service: Podman
+            method: podRestart
+            params:
+              id: "{{ _selected[0].Id }}"

@@ -1,0 +1,27 @@
+<mat-form-field class="omv-flex-1"
+                [formGroup]="formGroup">
+  <mat-label>{{ config.label | transloco | template:pageContext }}</mat-label>
+  <mat-form-datatable [formControlName]="config.name"
+                      [columns]="config.columns"
+                      [columnMode]="config.columnMode"
+                      [actions]="config.actions"
+                      [hasActionBar]="config.hasActionBar || config.actions.length > 0"
+                      [hasSearchField]="config.hasSearchField"
+                      [hasFooter]="config.hasFooter"
+                      [hasHeader]="config.hasHeader"
+                      [selectionType]="config.selectionType"
+                      [limit]="config.limit"
+                      [sorters]="config.sorters"
+                      [sortType]="config.sortType"
+                      [stateId]="config.stateId"
+                      [valueType]="config.valueType">
+  </mat-form-datatable>
+  <mat-error *ngIf="formGroup.invalid">
+    <span *ngIf="formGroup.hasError('required', config.name)">
+      {{ 'This field is required.' | transloco }}
+    </span>
+  </mat-error>
+  <mat-hint *ngIf="config.hint?.length > 0"
+            [innerHTML]="config.hint | transloco | template:pageContext | sanitizeHtml">
+  </mat-hint>
+</mat-form-field>

@@ -1,0 +1,15 @@
+<div class="omv-navigation-bar omv-display-flex omv-flex-column">
+  <mat-toolbar class="header">
+    <div class="logo"></div>
+  </mat-toolbar>
+  <div class="content omv-flex-1">
+    <ng-scrollbar appearance="standard"
+                  visibility="hover">
+      <mat-nav-list role="list">
+        <omv-navigation-bar-list-item *ngFor="let item of menuItems"
+                                      [item]="item">
+        </omv-navigation-bar-list-item>
+      </mat-nav-list>
+    </ng-scrollbar>
+  </div>
+</div>

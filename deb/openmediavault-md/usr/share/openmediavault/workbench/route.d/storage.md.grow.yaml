@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/md/grow/:devicefile"
+  title: _("Grow")
+  editing: false
+  component: omv-storage-md-grow-form-page

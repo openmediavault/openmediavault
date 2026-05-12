@@ -1,0 +1,128 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-podman-images-datatable-page
+  type: datatablePage
+  config:
+    autoReload: false
+    stateId: a3248f6b-501e-4381-9748-56f5b7bc5eb9
+    sorters:
+      - dir: asc
+        prop: Repository
+    store:
+      proxy:
+        service: Podman
+        get:
+          method: imageListBg
+          task: true
+    rowId: Id
+    rowEnumFmt: "{{ Repository | safe }}:{{ Tag | safe }}"
+    selectionType: single
+    columns:
+      - name: _("ID")
+        prop: Id
+        cellTemplateName: template
+        cellTemplateConfig: "{{ Id | substr(0, 12) }}"
+        flexGrow: 1
+        sortable: true
+      - name: _("Repository")
+        prop: Repository
+        cellTemplateName: copyToClipboard
+        flexGrow: 1
+        sortable: true
+      - name: _("Tag")
+        prop: Tag
+        flexGrow: 1
+        sortable: true
+      - name: _("Digest")
+        prop: Digest
+        cellTemplateName: copyToClipboard
+        flexGrow: 1
+        hidden: true
+        sortable: true
+      - name: _("Created")
+        prop: CreatedTs
+        cellTemplateName: relativeTime
+        flexGrow: 1
+        sortable: true
+      - name: _("Size")
+        prop: VirtualSize
+        cellTemplateName: binaryUnit
+        flexGrow: 1
+        sortable: true
+      - name: _("Used")
+        prop: _used
+        cellTemplateName: checkIcon
+        flexGrow: 1
+        sortable: true
+    actions:
+      - type: iconButton
+        icon: search
+        tooltip: _("Inspect")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: url
+          url: "/services/podman/images/inspect/{{ _selected[0].Id }}"
+      - type: iconButton
+        icon: "mdi:download"
+        tooltip: _("Pull")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: formDialog
+          formDialog:
+            title: _("Pull image")
+            fields:
+              - type: textInput
+                name: repository
+                label: _("Repository")
+                readonly: true
+                value: "{{ _selected[0].Repository | safe }}"
+              - type: textInput
+                name: tag
+                label: _("Tag")
+                hint: _("The tag of the image to pull.")
+                value: ""
+                suggestions: true
+                store:
+                  proxy:
+                    service: Podman
+                    get:
+                      method: imageTags
+                      params:
+                        name: "{{ _selected[0].Repository }}"
+                  sorters:
+                    - dir: asc
+                      prop: value
+                validators:
+                  required: true
+            buttons:
+              submit:
+                text: _("Pull")
+                execute:
+                  type: taskDialog
+                  taskDialog:
+                    config:
+                      title: _("Pull image")
+                      startOnInit: true
+                      request:
+                        service: Podman
+                        method: imagePullBg
+                        params:
+                          source: "{{ repository }}:{{ tag }}"
+      - template: delete
+        enabledConstraints:
+          constraint:
+            - operator: falsy
+              arg0:
+                prop: "_used"
+        execute:
+          type: request
+          request:
+            service: Podman
+            method: imageDelete
+            params:
+              id: "{{ _selected[0].Id }}"

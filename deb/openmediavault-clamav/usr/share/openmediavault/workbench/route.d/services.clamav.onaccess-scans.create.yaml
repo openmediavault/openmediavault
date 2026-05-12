@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/clamav/onaccess-scans/create"
+  title: _("Create")
+  notificationTitle: _("Created on-access scan.")
+  component: omv-services-clamav-onaccess-scan-form-page

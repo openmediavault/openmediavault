@@ -1,0 +1,10 @@
+/openmediavault-keyring/
+/openmediavault-keyring-udeb/
+/tmp/
+/files
+/*.debhelper.log
+/*.postinst.debhelper
+/*.postrm.debhelper
+/*.substvars
+/*-stamp
+/.debhelper/

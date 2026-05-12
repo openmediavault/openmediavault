@@ -1,0 +1,11 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "diagnostics"
+  position: 70
+  text: _("Diagnostics")
+  icon: heartPulse
+  url: "/diagnostics"
+  permissions:
+    role:
+    - admin

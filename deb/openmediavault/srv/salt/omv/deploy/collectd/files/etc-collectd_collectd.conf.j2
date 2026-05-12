@@ -1,0 +1,10 @@
+{% set pid_file = salt['pillar.get']('default:OMV_COLLECTD_PIDFILE', '/run/collectd.pid') -%}
+{% set hostname = salt['pillar.get']('default:OMV_COLLECTD_HOSTNAME', 'localhost') -%}
+{% set fqdn_lookup = salt['pillar.get']('default:OMV_COLLECTD_FQDNLOOKUP', 'true') -%}
+PIDFile "{{ pid_file }}"
+Hostname "{{ hostname }}"
+FQDNLookup {{ fqdn_lookup }}
+
+<Include "/etc/collectd/collectd.conf.d">
+	Filter "*.conf"
+</Include>

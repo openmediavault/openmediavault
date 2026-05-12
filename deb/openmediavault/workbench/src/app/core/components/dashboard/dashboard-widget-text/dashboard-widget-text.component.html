@@ -1,0 +1,10 @@
+<omv-dashboard-widget [config]="config"
+                      (dataChangedEvent)="dataChanged($event)">
+  <div *ngIf="data"
+       class="widget-content omv-scrollable-xy">
+    <div class="content"
+         [ngClass]="config.text?.class | template"
+         [innerHTML]="data | sanitizeHtml">
+    </div>
+  </div>
+</omv-dashboard-widget>

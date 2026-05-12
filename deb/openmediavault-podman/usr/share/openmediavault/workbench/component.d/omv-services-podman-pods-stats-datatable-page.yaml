@@ -1,0 +1,57 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-podman-pods-stats-datatable-page
+  type: datatablePage
+  config:
+    autoReload: 5000
+    stateId: 520c575c-6949-11ee-be6d-631ee2b59735
+    sorters:
+      - dir: asc
+        prop: Name
+    store:
+      proxy:
+        service: Podman
+        get:
+          method: podStats
+          params:
+            id: "{{ _routeParams.id }}"
+    rowEnumFmt: "{{ Name }}"
+    selectionType: single
+    columns:
+      - name: _("Pod")
+        prop: Pod
+        flexGrow: 1
+        sortable: true
+      - name: _("CID")
+        prop: CID
+        flexGrow: 1
+        sortable: true
+      - name: _("Name")
+        prop: Name
+        flexGrow: 1
+        sortable: true
+      - name: _("CPU %")
+        prop: CPU
+        flexGrow: 1
+        sortable: true
+      - name: _("Mem Usage / Limit")
+        prop: MemUsage
+        flexGrow: 1
+        sortable: false
+      - name: _("Mem %")
+        prop: Mem
+        flexGrow: 1
+        sortable: true
+      - name: _("Network I/O")
+        prop: NetIO
+        flexGrow: 1
+        sortable: false
+      - name: _("Block I/O")
+        prop: BlockIO
+        flexGrow: 1
+        sortable: false
+      - name: _("PIDs")
+        prop: PIDS
+        flexGrow: 1
+        sortable: true

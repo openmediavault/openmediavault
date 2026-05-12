@@ -1,0 +1,74 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-tftp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2017
+# Stefan Thrane Overby <stoverby@gmail.com>, 2022
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-tftp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2017-03-31 07:22+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>, 2022\n"
+"Language-Team: Danish (https://app.transifex.com/openmediavault/teams/14254/da/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Allow new files to be created."
+msgstr "Tillad nye filer at blive oprettet."
+
+msgid "Blocksize"
+msgstr "Blokstørrelse"
+
+msgid "By default, only files that already exist are allowed to be uploaded."
+msgstr ""
+"Som standard, har kun filer der allerede eksisterer lov til at blive "
+"uploadet."
+
+msgid ""
+"Determine the default timeout, in microseconds, before the first packet is "
+"retransmitted."
+msgstr ""
+"Bestem den standard timeout, i mikrosekunder, før den første pakke bliver "
+"gensendt."
+
+msgid "Enabled"
+msgstr "Aktiveret"
+
+msgid "Extra options"
+msgstr "Ekstra valgmuligheder"
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Retry timeout"
+msgstr "Forsøg timeout igen"
+
+msgid "Shared folder"
+msgstr "Delt mappe"
+
+msgid ""
+"Specifies the maximum permitted block size. The permitted range for this "
+"parameter is from 512 to 65464."
+msgstr ""
+"Angiver den maksimale tilladte blokstørrelse. Det tilladte område for denne "
+"parameter er fra 512 til 65464."
+
+msgid "TFTP"
+msgstr "TFTP"
+
+msgid ""
+"The location of the files to share. Please make sure that the shared folder "
+"is publicly writable if new files are allowed."
+msgstr ""
+
+msgid "Updated TFTP settings."
+msgstr ""

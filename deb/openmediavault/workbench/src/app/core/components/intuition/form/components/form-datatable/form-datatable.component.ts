@@ -1,0 +1,98 @@
+/**
+ * This file is part of OpenMediaVault.
+ *
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @author    Volker Theile <volker.theile@openmediavault.org>
+ * @copyright Copyright (c) 2009-2026 Volker Theile
+ *
+ * OpenMediaVault is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * OpenMediaVault is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+import { Component } from '@angular/core';
+import * as _ from 'lodash';
+
+import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
+import {
+  flattenFormFieldConfig,
+  formatFormFieldConfig
+} from '~/app/core/components/intuition/functions.helper';
+import { MatFormDatatableAction } from '~/app/core/components/intuition/material/mat-form-datatable/mat-form-datatable.component';
+import { DEFAULT_TEXTS } from '~/app/shared/constants/text.constants';
+import { Icon } from '~/app/shared/enum/icon.enum';
+
+@Component({
+  selector: 'omv-form-datatable',
+  templateUrl: './form-datatable.component.html',
+  styleUrls: ['./form-datatable.component.scss']
+})
+export class FormDatatableComponent extends AbstractFormFieldComponent {
+  protected override sanitizeConfig(): void {
+    super.sanitizeConfig();
+    if (this.config.hasSearchField || this.config.actions.length) {
+      this.config.hasActionBar = true;
+    }
+    _.forEach(this.config.actions, (action) => {
+      switch (action.template) {
+        case 'add':
+          _.defaultsDeep(action, {
+            id: 'add',
+            type: 'iconButton',
+            tooltip: DEFAULT_TEXTS.add,
+            icon: Icon.add
+          });
+          break;
+        case 'edit':
+          _.defaultsDeep(action, {
+            id: 'edit',
+            type: 'iconButton',
+            tooltip: DEFAULT_TEXTS.edit,
+            icon: Icon.edit,
+            enabledConstraints: {
+              minSelected: 1,
+              maxSelected: 1
+            }
+          });
+          break;
+        case 'delete':
+          _.defaultsDeep(action, {
+            id: 'delete',
+            type: 'iconButton',
+            tooltip: DEFAULT_TEXTS.delete,
+            icon: Icon.delete,
+            enabledConstraints: {
+              minSelected: 1
+            }
+          });
+          break;
+        default:
+          _.defaultsDeep(action, {
+            id: 'custom',
+            type: 'iconButton'
+          });
+          break;
+      }
+    });
+  }
+
+  protected override formatConfig(): void {
+    super.formatConfig();
+    _.forEach(this.config.actions, (action: MatFormDatatableAction) => {
+      if (action.formDialogConfig?.fields) {
+        const allFields = flattenFormFieldConfig(action.formDialogConfig.fields);
+        formatFormFieldConfig(allFields, this.pageContext, [
+          'value',
+          'modifiers',
+          'store.proxy',
+          'store.filters'
+        ]);
+      }
+    });
+  }
+}

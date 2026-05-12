@@ -1,0 +1,70 @@
+{%- set compatibility_level = salt['pillar.get']('default:OMV_POSTFIX_MAIN_COMPATIBILITY_LEVEL', '3.6') -%}
+{%- set mydestination = salt['pillar.get']('default:OMV_POSTFIX_MAIN_MYDESTINATION', '') -%}
+{%- set inet_interfaces = salt['pillar.get']('default:OMV_POSTFIX_MAIN_INET_INTERFACES', 'localhost') -%}
+{%- set sender_canonical_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SENDER_CANONICAL_MAPS', '/etc/postfix/sender_canonical') -%}
+{%- set sender_bcc_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SENDER_BCC_MAPS', '/etc/postfix/sender_bcc') -%}
+{%- set recipient_canonical_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_RECIPIENT_CANONICAL_MAPS', '/etc/postfix/recipient_canonical') -%}
+{%- set recipient_bcc_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_RECIPIENT_BCC_MAPS', '/etc/postfix/recipient_bcc') -%}
+{%- set smtp_sasl_auth_enable = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SMTP_SASL_AUTH_ENABLE', 'yes') -%}
+{%- set smtp_sasl_security_options = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SMTP_SASL_SECURITY_OPTIONS', 'noanonymous') -%}
+{%- set smtp_sasl_password_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SMTP_SASL_PASSWORD_MAPS', '/etc/postfix/sasl_passwd') -%}
+{%- set smtp_sasl_mechanism_filter = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SMTP_SASL_MECHANISM_FILTER', '') -%}
+{%- set smtp_tls_wrappermode = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SMTP_TLS_WRAPPERMODE', 'yes') -%}
+{%- set smtp_tls_security_level = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SMTP_TLS_SECURITY_LEVEL', 'encrypt') -%}
+{%- set smtp_tls_CAfile = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SMTP_TLS_CAFILE', '/etc/ssl/certs/ca-certificates.crt') -%}
+{%- set smtp_tls_CApath = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SMTP_TLS_CAPATH', '/etc/ssl/certs') -%}
+{%- set smtp_header_checks = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SMTP_HEADER_CHECKS', '/etc/postfix/smtp_header_checks') -%}
+{%- set alias_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_ALIAS_MAPS', 'hash:/etc/aliases') -%}
+{%- set transport_maps = salt['pillar.get']('default:OMV_POSTFIX_MAIN_TRANSPORT_MAPS', 'hash:/etc/postfix/transport') -%}
+{%- set mailbox_size_limit = salt['pillar.get']('default:OMV_POSTFIX_MAIN_MAILBOX_SIZE_LIMIT', 0) -%}
+{%- set message_size_limit = salt['pillar.get']('default:OMV_POSTFIX_MAIN_MESSAGE_SIZE_LIMIT', 10240000) -%}
+{%- set throttling_enable = salt['pillar.get']('default:OMV_POSTFIX_MAIN_THROTTLING_ENABLE', 'yes') -%}
+{%- set default_destination_concurrency_limit = salt['pillar.get']('default:OMV_POSTFIX_MAIN_DEFAULT_DESTINATION_CONCURRENCY_LIMIT', 2) -%}
+{%- set default_destination_rate_delay = salt['pillar.get']('default:OMV_POSTFIX_MAIN_DEFAULT_DESTINATION_RATE_DELAY', '1s') -%}
+{%- set smtputf8_enable = salt['pillar.get']('default:OMV_POSTFIX_MAIN_SMTPUTF8_ENABLE', 'no') -%}
+{%- set default_transport = salt['pillar.get']('default:OMV_POSTFIX_MAIN_DEFAULT_TRANSPORT', 'smtp') -%}
+{%- set relayhost_mxlookup_enable = salt['pillar.get']('default:OMV_POSTFIX_MAIN_RELAYHOST_MXLOOKUP_ENABLE', 'no') -%}
+{{ pillar['headers']['multiline'] }}
+compatibility_level = {{ compatibility_level }}
+{%- if dns_config['domainname'] | length > 0 %}
+mydomain = {{ dns_config['domainname'] }}
+{%- endif %}
+mydestination = {{ mydestination }}
+inet_interfaces = {{ inet_interfaces }}
+{%- if not salt['omv_utils.is_ipv6_enabled']() %}
+inet_protocols = ipv4
+{%- endif %}
+{%- if config.server in ["127.0.0.1", "localhost"] %}
+relayhost =
+{%- else %}
+relayhost = {% if not relayhost_mxlookup_enable | to_bool %}[{% endif %}{{ config.server }}{% if not relayhost_mxlookup_enable | to_bool %}]{% endif %}:{{ config.port }}
+{%- endif %}
+sender_canonical_maps = regexp:{{ sender_canonical_maps }}
+sender_bcc_maps = hash:{{ sender_bcc_maps }}
+recipient_canonical_maps = hash:{{ recipient_canonical_maps }}
+recipient_bcc_maps = hash:{{ recipient_bcc_maps }}
+{%- if config.authentication.enable | to_bool %}
+smtp_sasl_auth_enable = {{ smtp_sasl_auth_enable }}
+smtp_sasl_security_options = {{ smtp_sasl_security_options }}
+smtp_sasl_password_maps = hash:{{ smtp_sasl_password_maps }}
+smtp_sasl_mechanism_filter = {{ smtp_sasl_mechanism_filter }}
+{%- endif %}
+{%- if config.tls != 'none' %}
+{%- if config.tls == 'ssl' or (config.tls == 'auto' and config.port == 465) %}
+smtp_tls_wrappermode = {{ smtp_tls_wrappermode }}
+{%- endif %}
+smtp_tls_security_level = {{ smtp_tls_security_level }}
+smtp_tls_CAfile = {{ smtp_tls_CAfile }}
+smtp_tls_CApath = {{ smtp_tls_CApath }}
+{%- endif %}
+smtp_header_checks = regexp:{{ smtp_header_checks }}
+alias_maps = {{ alias_maps }}
+transport_maps = {{ transport_maps }}
+mailbox_size_limit = {{ mailbox_size_limit }}
+message_size_limit = {{ message_size_limit }}
+{%- if throttling_enable | to_bool %}
+default_destination_concurrency_limit = {{ default_destination_concurrency_limit }}
+default_destination_rate_delay = {{ default_destination_rate_delay }}
+{%- endif %}
+smtputf8_enable = {{ smtputf8_enable }}
+default_transport = {{ default_transport }}

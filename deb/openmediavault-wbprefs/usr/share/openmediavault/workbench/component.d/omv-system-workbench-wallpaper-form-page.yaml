@@ -1,0 +1,70 @@
+version: "1.0"
+type: component
+data:
+  name: omv-system-workbench-wallpaper-form-page
+  type: formPage
+  config:
+    request:
+      service: WbPrefs
+      post:
+        method: setWallpaper
+    hints:
+      - type: info
+        text: _("You may need to clear your browser's cache to see your changes.")
+        dismissible: true
+        stateId: b3028702-1a20-11f1-b062-52540059321a
+    fields:
+      - type: select
+        name: page
+        label: _("Page")
+        hint: _("The page for which the wallpaper is to be set.")
+        store:
+          data:
+            - - "login"
+              - _("Login")
+            - - "shutdown"
+              - _("Shutdown")
+            - - "standby"
+              - _("Standby")
+        validators:
+          required: true
+        value: "login"
+      - type: textInput
+        name: url
+        label: _("URL")
+        hint: _("The URL from which the image is to be fetched.")
+        hasClearButton: true
+        validators:
+          requiredIf:
+            operator: falsy
+            arg0:
+              prop: reset
+          pattern:
+            pattern: "^(https?|file)://.*$"
+            errorData: _("The URL must start with http://, https:// or file://.")
+        value: ""
+        modifiers:
+          - type: disabled
+            constraint:
+              operator: truthy
+              arg0:
+                prop: reset
+          - type: value
+            typeConfig: ""
+            constraint:
+              operator: truthy
+              arg0:
+                prop: reset
+      - type: checkbox
+        name: reset
+        label: _("Reset")
+        value: false
+        submitValue: false
+        hint: _("Reset the wallpaper to the default image.")
+    buttons:
+      - template: cancel
+        execute:
+          type: url
+          url: "/system/workbench"
+      - template: submit
+        text: _("Apply")

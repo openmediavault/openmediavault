@@ -1,0 +1,23 @@
+[{
+	"type": "rpc",
+	"id": "rpc.folderbrowser.get",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"type": {
+				"type": "string",
+				"enum": [ "mntent", "sharedfolder" ],
+				"required": true
+			},
+			"path": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+}]

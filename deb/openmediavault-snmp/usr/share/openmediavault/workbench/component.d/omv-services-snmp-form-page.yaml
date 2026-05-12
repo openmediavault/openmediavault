@@ -1,0 +1,246 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-snmp-form-page
+  type: formPage
+  config:
+    request:
+      service: SNMP
+      get:
+        method: get
+      post:
+        method: set
+    fields:
+      - type: checkbox
+        name: enable
+        label: _("Enabled")
+        value: false
+      - type: textInput
+        name: syslocation
+        label: _("Location")
+        hint: _("Location information, e.g. physical location of this system.")
+        value: ""
+      - type: textInput
+        name: syscontact
+        label: _("Contact")
+        hint: _("Contact information, e.g. name or email address of the person responsible for this system.")
+        value: ""
+      - type: select
+        name: version
+        label: _("Version")
+        value: "2c"
+        store:
+          data:
+            - - "2c"
+              - _("SNMP version 1/2c")
+            - - "3"
+              - _("SNMP version 3")
+      - type: textInput
+        name: community
+        label: _("Community")
+        value: "public"
+        modifiers:
+          - type: visible
+            constraint:
+              operator: eq
+              arg0:
+                prop: version
+              arg1: "2c"
+        validators:
+          required: true
+      - type: textInput
+        name: username
+        label: _("User name")
+        value: ""
+        modifiers:
+          - type: visible
+            constraint:
+              operator: eq
+              arg0:
+                prop: version
+              arg1: "3"
+        validators:
+          requiredIf:
+            operator: eq
+            arg0:
+              prop: version
+            arg1: "3"
+      - type: select
+        name: securitylevel
+        label: _("Security level")
+        value: "noauth"
+        store:
+          data:
+            - - "noauth"
+              - _("No authentication and no privacy")
+            - - "auth"
+              - _("Authentication and no privacy")
+            - - "priv"
+              - _("Authentication and privacy")
+        modifiers:
+          - type: visible
+            constraint:
+              operator: eq
+              arg0:
+                prop: version
+              arg1: "3"
+      - type: select
+        name: authtype
+        label: _("Authentication type")
+        value: "MD5"
+        store:
+          data:
+            - - "MD5"
+              - "MD5"
+            - - "SHA"
+              - "SHA"
+        modifiers:
+          - type: visible
+            constraint:
+              operator: and
+              arg0:
+                operator: eq
+                arg0:
+                  prop: version
+                arg1: "3"
+              arg1:
+                operator: ne
+                arg0:
+                  prop: securitylevel
+                arg1: "noauth"
+      - type: passwordInput
+        name: authpassphrase
+        label: _("Authentication passphrase")
+        autocomplete: new-password
+        modifiers:
+          - type: visible
+            constraint:
+              operator: and
+              arg0:
+                operator: eq
+                arg0:
+                  prop: version
+                arg1: "3"
+              arg1:
+                operator: ne
+                arg0:
+                  prop: securitylevel
+                arg1: "noauth"
+        validators:
+          minLength: 8
+          requiredIf:
+            operator: and
+            arg0:
+              operator: eq
+              arg0:
+                prop: version
+              arg1: "3"
+            arg1:
+              operator: ne
+              arg0:
+                prop: securitylevel
+              arg1: "noauth"
+        value: ""
+      - type: select
+        name: privtype
+        label: _("Privacy type")
+        value: "DES"
+        store:
+          data:
+            - - "DES"
+              - "DES"
+            - - "AES"
+              - "AES"
+        modifiers:
+          - type: visible
+            constraint:
+              operator: and
+              arg0:
+                operator: eq
+                arg0:
+                  prop: version
+                arg1: "3"
+              arg1:
+                operator: eq
+                arg0:
+                  prop: securitylevel
+                arg1: "priv"
+      - type: passwordInput
+        name: privpassphrase
+        label: _("Privacy passphrase")
+        autocomplete: new-password
+        modifiers:
+          - type: visible
+            constraint:
+              operator: and
+              arg0:
+                operator: eq
+                arg0:
+                  prop: version
+                arg1: "3"
+              arg1:
+                operator: eq
+                arg0:
+                  prop: securitylevel
+                arg1: "priv"
+        validators:
+          minLength: 8
+          requiredIf:
+            operator: and
+            arg0:
+              operator: eq
+              arg0:
+                prop: version
+              arg1: "3"
+            arg1:
+              operator: eq
+              arg0:
+                prop: securitylevel
+              arg1: "priv"
+        value: ""
+      - type: textarea
+        name: extraoptions
+        label: _("Extra options")
+        value: ""
+      - type: divider
+        title: _("Traps")
+      - type: checkbox
+        name: trapenable
+        label: _("Enabled")
+        value: false
+      - type: textInput
+        name: trapcommunity
+        label: _("Community")
+        validators:
+          requiredIf:
+            operator: truthy
+            arg0:
+              prop: trapenable
+        value: ""
+      - type: textInput
+        name: traphost
+        label: _("Host")
+        validators:
+          requiredIf:
+            operator: truthy
+            arg0:
+              prop: trapenable
+        value: ""
+      - type: numberInput
+        name: trapport
+        label: _("Port")
+        value: 69
+        validators:
+          min: 1
+          max: 65535
+          patternType: port
+          requiredIf:
+            operator: truthy
+            arg0:
+              prop: trapenable
+    buttons:
+      - template: submit
+      - template: cancel
+        execute:
+          type: url
+          url: "/services"

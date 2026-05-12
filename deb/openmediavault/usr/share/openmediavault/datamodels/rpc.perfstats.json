@@ -1,0 +1,13 @@
+{
+	"type": "rpc",
+	"id": "rpc.perfstats.set",
+	"params": {
+		"type": "object",
+		"properties": {
+			"enable": {
+				"type": "boolean",
+				"required": true
+			}
+		}
+	}
+}

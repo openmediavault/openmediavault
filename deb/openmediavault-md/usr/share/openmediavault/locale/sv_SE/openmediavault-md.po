@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-md package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Karl Jonatan Nyberg, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-md\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2023-11-06 09:08+0000\n"
+"Last-Translator: Karl Jonatan Nyberg, 2026\n"
+"Language-Team: Swedish (https://app.transifex.com/openmediavault/teams/14254/sv/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A maximum of one device can be removed."
+msgstr "Högst en enhet kan tas bort."
+
+msgid "A maximum of two devices can be removed."
+msgstr "Högst två enheter kan tas bort."
+
+msgid "Add hot spares / recover RAID device."
+msgstr "Lägg till reservenheter / återställ RAID-enhet."
+
+msgid "At least four devices are required."
+msgstr "Minst fyra enheter krävs."
+
+msgid "At least three devices are required."
+msgstr "Minst tre enheter krävs."
+
+msgid "At least two devices are required."
+msgstr "Minst två enheter krävs."
+
+msgid "Capacity"
+msgstr "Kapacitet"
+
+msgid "Create"
+msgstr "Skapa"
+
+msgid "Device"
+msgstr "Enhet"
+
+msgid "Devices"
+msgstr "Enheter"
+
+msgid "Displays information about MD (Software RAID) devices."
+msgstr "Visar information om MD-enheter (programvaru-RAID)."
+
+msgid "Grow"
+msgstr "Utöka"
+
+msgid "Level"
+msgstr "Nivå"
+
+msgid "MD Devices"
+msgstr "MD-enheter"
+
+msgid "Mirror"
+msgstr "Spegel"
+
+msgid "Multiple Device"
+msgstr "Flera enheter"
+
+msgid "Name"
+msgstr "Namn"
+
+msgid "RAID 10"
+msgstr "RAID 10"
+
+msgid "RAID 2"
+msgstr "RAID 2"
+
+msgid "RAID 3"
+msgstr "RAID 3"
+
+msgid "RAID 4"
+msgstr "RAID 4"
+
+msgid "RAID 5"
+msgstr "RAID 5"
+
+msgid "RAID 6"
+msgstr "RAID 6"
+
+msgid "Recover"
+msgstr "Återställ"
+
+msgid "Referenced"
+msgstr "Refererade"
+
+msgid "Remove"
+msgstr "Ta bort"
+
+msgid "Select devices ..."
+msgstr "Välj enheter ..."
+
+msgid "Select devices to be added to the RAID device."
+msgstr "Välj enheter som ska läggas till RAID-enheten."
+
+msgid "Select devices to be removed from the RAID device."
+msgstr "Välj enheter som ska tas bort från RAID-enheten."
+
+msgid ""
+"Select the devices that will be used to create the RAID device. Devices "
+"connected via USB will not be listed (too unreliable)."
+msgstr ""
+"Välj de enheter som ska användas för att skapa RAID-enheten. Enheter som är "
+"anslutna via USB kommer inte att listas (för opålitliga)."
+
+msgid "Show details"
+msgstr "Visa detaljer"
+
+msgid "Software RAID"
+msgstr "Programvaru-RAID"
+
+msgid "State"
+msgstr "Tillstånd"
+
+msgid "Stripe"
+msgstr "Stripe"

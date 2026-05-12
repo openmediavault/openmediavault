@@ -1,0 +1,311 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-clamav package.
+# 
+# Translators:
+# Giovanni Scafora <scafora.giovanni@gmail.com>, 2025
+# maurorulli <mauro.rulli@gmail.com>, 2012
+# d5316b6b4d283a9cbe4ea704ae8abe02_b972f24 <bd82b27c045fcb3aa6bd04640e5224c5_36908>, 2013-2015,2017
+# Roberto Bellingeri <bellingeri@netguru.it>, 2025
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-05-18 22:06+0000\n"
+"Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
+"Language-Team: Italian (http://app.transifex.com/openmediavault/openmediavault/language/it/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+msgid "Algorithmic detection"
+msgstr "Rilevamento algoritmico"
+
+msgid ""
+"An email message with the command output (if any produced) is sent to the "
+"administrator."
+msgstr "Un messaggio email con l’output del comando (se presente) viene inviato all’amministratore."
+
+msgid "Antivirus"
+msgstr "Antivirus"
+
+msgid "April"
+msgstr "Aprile"
+
+msgid "August"
+msgstr "Agosto"
+
+msgid "Be verbose."
+msgstr "Attiva modalità verbosa."
+
+msgid "Create"
+msgstr "Crea"
+
+msgid "Created on-access scan."
+msgstr "La scansione all'accesso è stata creata."
+
+msgid "Created scheduled scan."
+msgstr "La scansione pianificata è stata creata."
+
+msgid "Database checks"
+msgstr "Verifiche al database"
+
+msgid "Date & Time"
+msgstr "Data e ora"
+
+msgid "Day of month"
+msgstr "Giorno del mese"
+
+msgid "Day of week"
+msgstr "Giorno della settimana"
+
+msgid "December"
+msgstr "Dicembre"
+
+msgid "Delete immediately"
+msgstr "Elimina immediatamente"
+
+msgid "Detect PUA"
+msgstr "Rileva PUA"
+
+msgid "Detect broken executables"
+msgstr "Rileva eseguibili danneggiati"
+
+msgid "Detect broken media"
+msgstr "Rileva supporti danneggiati"
+
+msgid "Edit"
+msgstr "Modifica"
+
+msgid "Enable HTML detection and normalisation."
+msgstr "Abilita rilevamento e normalizzazione HTML."
+
+msgid "Enable archive scanning."
+msgstr "Abilita scansione degli archivi."
+
+msgid "Enable scanning of ELF files."
+msgstr "Abilita scansione dei file ELF."
+
+msgid ""
+"Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
+"files."
+msgstr "Abilita scansione dei file OLE2, come i documenti di Microsoft Office e i file .msi."
+
+msgid "Enable scanning within PDF files."
+msgstr "Abilita scansione all'interno dei file PDF."
+
+msgid "Enable the algorithmic detection."
+msgstr "Abilita il rilevamento algoritmico."
+
+msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr "Abilita il rilevamento degli eseguibili danneggiati (sia PE che ELF)."
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
+msgstr "Abilita il rilevamento dei file multimediali danneggiati (JPEG, TIFF, PNG, GIF)."
+
+msgid "Enable the detection of possibly unwanted applications."
+msgstr "Abilita il rilevamento di possibili applicazioni indesiderate."
+
+msgid "Enabled"
+msgstr "Abilitato"
+
+msgid "Every N day of month"
+msgstr "Ogni N giorni del mese"
+
+msgid "Every N hour"
+msgstr "Ogni N ore"
+
+msgid "Every N minute"
+msgstr "Ogni N minuti"
+
+msgid "Execute scheduled scan"
+msgstr "Esegui scansione pianificata"
+
+msgid "Extra options"
+msgstr "Opzioni extra"
+
+msgid "February"
+msgstr "Febbraio"
+
+msgid "Follow directory symlinks"
+msgstr "Segui i link simbolici delle cartelle"
+
+msgid "Follow directory symlinks."
+msgstr "Segui i link simbolici delle cartelle."
+
+msgid "Follow file symlinks"
+msgstr "Segui link simbolici dei file"
+
+msgid "Follow regular file symlinks."
+msgstr "Segui link simbolici dei file regolari."
+
+msgid "Friday"
+msgstr "Venerdì"
+
+msgid "Hour"
+msgstr "Ora"
+
+msgid "Infected files"
+msgstr "File infetti"
+
+msgid "January"
+msgstr "Gennaio"
+
+msgid "July"
+msgstr "Luglio"
+
+msgid "June"
+msgstr "Giugno"
+
+msgid "Log clean files"
+msgstr "File di log puliti"
+
+msgid "Log clean files. This drastically increases the log size."
+msgstr "File di log puliti. Questa operazione aumenterà drasticamente la dimensione del file di log."
+
+msgid "March"
+msgstr "Marzo"
+
+msgid "May"
+msgstr "Maggio"
+
+msgid "Message"
+msgstr "Messaggio"
+
+msgid "Minute"
+msgstr "Minuto"
+
+msgid "Monday"
+msgstr "Lunedì"
+
+msgid "Month"
+msgstr "Mese"
+
+msgid "Move to quarantine"
+msgstr "Sposta in quarantena"
+
+msgid "Multiscan"
+msgstr "Multiscansione"
+
+msgid "November"
+msgstr "Novembre"
+
+msgid "Number of database update checks per day. Set to 0 to disable."
+msgstr "Numero di controlli di aggiornamenti del database giornalieri. Impostare a 0 per disabilitarli."
+
+msgid "October"
+msgstr "Ottobre"
+
+msgid "On Access Scans"
+msgstr "Scansioni all'accesso"
+
+msgid "Perform a deeper analysis of executable files."
+msgstr "Esegui un'analisi approfondita dei file eseguibili."
+
+msgid "Perform nothing"
+msgstr "Non fare nulla"
+
+msgid ""
+"Please check the <a href='https://manpages.debian.org/stable/clamav-"
+"daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
+"details."
+msgstr "Per maggiori dettagli consultare la <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'>pagina del manuale</a>."
+
+msgid "Quarantine"
+msgstr "Quarantena"
+
+msgid "Run"
+msgstr "Esegui"
+
+msgid "Saturday"
+msgstr "Sabato"
+
+msgid "Scan ELF"
+msgstr "Scansiona file ELF"
+
+msgid "Scan HTML"
+msgstr "Scansiona file HTML"
+
+msgid "Scan OLE2"
+msgstr "Scansiona file OLE2"
+
+msgid "Scan PDF"
+msgstr "Scansiona file PDF"
+
+msgid "Scan Portable Executable"
+msgstr "Scansiona file Portable Executable"
+
+msgid "Scan archives"
+msgstr "Scansiona archivi"
+
+msgid "Scan the directory contents in parallel using available threads."
+msgstr "Scansione del contenuto della directory in parallelo utilizzando i thread disponibili."
+
+msgid "Scheduled Scans"
+msgstr "Scansioni pianificate"
+
+msgid "Scheduling"
+msgstr "Pianificazione"
+
+msgid "Send email"
+msgstr "Invia email"
+
+msgid "September"
+msgstr "Settembre"
+
+msgid "Service disabled"
+msgstr "Servizio disabilitato"
+
+msgid "Settings"
+msgstr "Impostazioni"
+
+msgid "Shared folder"
+msgstr "Cartella condivisa"
+
+msgid "Sunday"
+msgstr "Domenica"
+
+msgid "Tags"
+msgstr "Tag"
+
+msgid "The field should only contain * or a comma separated list of values."
+msgstr "Il campo deve contenere solo * o un elenco di valori separati da virgole."
+
+msgid "The location of the files to scan on-access."
+msgstr "La posizione dei file da controllare all'accesso."
+
+msgid "The location of the files to scan."
+msgstr "La posizione dei file da controllare."
+
+msgid "The location which is used as quarantine."
+msgstr "La posizione utilizzata come quarantena."
+
+msgid "The option, how to handle infected files."
+msgstr "L'opzione, come gestire i file infetti."
+
+msgid "Thursday"
+msgstr "Giovedì"
+
+msgid "Time of execution"
+msgstr "Tempo di esecuzione"
+
+msgid "Tuesday"
+msgstr "Martedì"
+
+msgid "Updated on-access scan."
+msgstr "La scansione all'accesso è stata aggiornata."
+
+msgid "Updated scheduled scan."
+msgstr "La scansione pianificata è stata aggiornata."
+
+msgid "Verbose"
+msgstr "Verboso"
+
+msgid "Wednesday"
+msgstr "Mercoledì"
+
+msgid "n/a"
+msgstr "non disponibile"

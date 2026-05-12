@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/lvm/pvs/create"
+  title: _("Create")
+  notificationTitle: _("Created physical volume {{ devicefile }}.")
+  component: omv-storage-lvm-pv-create-form-page

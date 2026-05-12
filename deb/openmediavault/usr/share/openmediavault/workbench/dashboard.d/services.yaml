@@ -1,0 +1,34 @@
+version: "1.0"
+type: dashboard-widget
+data:
+  id: c93898cc-df13-11ea-8f71-0b7e6b4aeb13
+  title: _("Services")
+  description: _("Displays information about the services in a table.")
+  type: datatable
+  permissions:
+    role:
+    - admin
+  datatable:
+    columns:
+    - name: _("Service")
+      prop: title
+      sortable: true
+      flexGrow: 2
+    - name: _("Enabled")
+      prop: enabled
+      flexGrow: 1
+      sortable: true
+      cellTemplateName: checkIcon
+    - name: _("Running")
+      prop: running
+      flexGrow: 1
+      sortable: true
+      cellTemplateName: checkIcon
+    store:
+      proxy:
+        service: Services
+        get:
+          method: getStatus
+    sorters:
+    - dir: asc
+      prop: title

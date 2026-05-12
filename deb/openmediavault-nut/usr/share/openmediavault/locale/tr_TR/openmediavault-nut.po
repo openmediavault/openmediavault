@@ -1,0 +1,142 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-nut package.
+# 
+# Translators:
+# Serhat SUT <serhat.sut@gmail.com>, 2012-2014,2020-2021
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-03-17 01:51+0000\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2012-2014,2020-2021\n"
+"Language-Team: Turkish (Turkey) (http://app.transifex.com/openmediavault/openmediavault/language/tr_TR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: tr_TR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid ""
+"'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
+msgstr "Yerel KGK için 'Bağımsız', NUT sunucusuna uzaktan bağlı KGK için 'Netclient'."
+
+msgid "Charge"
+msgstr " Şarj"
+
+msgid "Comment"
+msgstr "Açıklama"
+
+msgid "Date & Time"
+msgstr "Tarih ve Zaman"
+
+msgid "Defines when the shutdown is initiated."
+msgstr "Kapanmanın ne zaman başladığını gösterir."
+
+msgid "Driver configuration directives"
+msgstr "Sürücü konfigürasyon direktifleri"
+
+msgid "Enable remote monitoring of the local connected UPS."
+msgstr "Lokal bağlı KGK için uzaktan izlemeyi etkinleştir."
+
+msgid "Enabled"
+msgstr "Etkin"
+
+msgid "Identifier"
+msgstr "Tanımlayıcı"
+
+msgid "Invalid identifier"
+msgstr "Geçersiz tanımlayıcı"
+
+msgid "Load"
+msgstr "Yükle"
+
+msgid "Message"
+msgstr "Mesaj"
+
+msgid "Mode"
+msgstr "Mod"
+
+msgid "Netclient"
+msgstr "Ağ kullanıcısı"
+
+msgid "Netclient hostname"
+msgstr "Ağ kullanıcısı aygıt adı"
+
+msgid "Netclient password"
+msgstr "Ağ kullanıcısı şifresi"
+
+msgid "Netclient user name"
+msgstr "Netclient kullanıcı adı"
+
+msgid "PID"
+msgstr "PID"
+
+msgid "Password"
+msgstr "Şifre"
+
+msgid "Powervalue"
+msgstr "Güç değeri"
+
+msgid "Program"
+msgstr "Program"
+
+msgid "Remote monitoring"
+msgstr "Uzaktan izleme"
+
+msgid "Service disabled"
+msgstr "Servis kapalı"
+
+msgid "Shutdown mode"
+msgstr "Kapanma modu"
+
+msgid "Shutdown timer"
+msgstr "Kapanma zamanlayıcısı"
+
+msgid "Standalone"
+msgstr "Bağımsız"
+
+msgid "Temperature"
+msgstr "Sıcaklık"
+
+msgid "The name used to uniquely identify your UPS on local or remote system."
+msgstr "Bu isim Kesintisiz Güç Kaynağınızı yerel ya da uzak sistemde benzersiz bir şekilde tanımlamakta kullanılacaktır."
+
+msgid ""
+"The number of power supplies that the UPS feeds on this system (usually 1), "
+"refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
+"target='_blank'>upsmon.conf(5)</a> for more information."
+msgstr "Kesintisiz Güç Kaynağının bu sistemde beslediği güç kaynaklarının sayısı (genellikle 1), daha ayrıntılı bilgi için <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf(5)</a> linkine başvurunuz."
+
+msgid ""
+"The time in seconds until shutdown is initiated. If the UPS happens to come "
+"back before the time is up the shutdown is canceled."
+msgstr "Kapanma başlatılana kadar geçecek saniye cinsinden zaman. Bu süre zarfında KGK geri gelir ise kapanma iptal edilir."
+
+msgid ""
+"To get more information how to configure your UPS please check the Network "
+"UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
+"target='_blank'>documentation</a>."
+msgstr "KGK konfigürasyonu ile ilgili daha fazla bilgi için lütfen <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>documentation</a> adresini ziyaret ediniz."
+
+msgid "UPS"
+msgstr "KGK"
+
+msgid "UPS goes on battery"
+msgstr "KGK batarya üzerinde"
+
+msgid "UPS reaches low battery"
+msgstr "KGK düşük batarya seviyesine ulaştı"
+
+msgid "Updated UPS settings."
+msgstr "Güncellenmiş UPS ayarları."
+
+msgid "Used for remote authentication."
+msgstr "uzaktan doğrulama için kullanıldı."
+
+msgid "User name"
+msgstr "Kullanıcı adı"
+
+msgid "Voltage"
+msgstr "Voltaj"

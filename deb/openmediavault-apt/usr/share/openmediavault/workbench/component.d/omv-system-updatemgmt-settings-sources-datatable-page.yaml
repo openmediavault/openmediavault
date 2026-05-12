@@ -1,0 +1,79 @@
+version: "1.0"
+type: component
+data:
+  name: omv-system-updatemgmt-settings-sources-datatable-page
+  type: datatablePage
+  config:
+    autoReload: false
+    remoteSorting: true
+    remotePaging: true
+    stateId: 9cb8c082-2a42-11ef-96f4-9f01516c7ae3
+    sorters:
+      - dir: asc
+        prop: uris
+    store:
+      proxy:
+        service: AptMgmt
+        get:
+          method: getSourceList
+    columns:
+      - name: _("Enabled")
+        prop: enable
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: checkIcon
+      - name: _("Types")
+        prop: types
+        flexGrow: 1
+        sortable: true
+      - name: _("URIs")
+        prop: uris
+        flexGrow: 1
+        sortable: true
+      - name: _("Suites")
+        prop: suites
+        flexGrow: 1
+        sortable: true
+      - name: _("Components")
+        prop: components
+        flexGrow: 1
+        sortable: true
+      - name: _("Signed-By")
+        prop: signedby
+        flexGrow: 1
+        sortable: true
+        hidden: true
+      - name: _("Tags")
+        prop: comment
+        cellTemplateName: chip
+        cellTemplateConfig:
+          separator: ","
+        flexGrow: 1
+        sortable: true
+    actions:
+      - template: create
+        execute:
+          type: url
+          url: "/system/updatemgmt/settings/sources/create"
+      - template: edit
+        execute:
+          type: url
+          url: "/system/updatemgmt/settings/sources/edit/{{ _selected[0].uuid }}"
+      - template: delete
+        execute:
+          type: request
+          request:
+            service: AptMgmt
+            method: deleteSource
+            params:
+              uuid: "{{ uuid }}"
+      - type: iconButton
+        icon: search
+        tooltip: _("Check for new packages")
+        execute:
+          type: request
+          request:
+            service: Apt
+            method: update
+            task: true
+            progressMessage: _("The package index files from the sources are downloaded and updated to get the latest information about available packages and their versions.")

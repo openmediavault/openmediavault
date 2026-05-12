@@ -1,0 +1,76 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-tftp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2017
+# zubr139, 2021
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-tftp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2017-03-31 07:22+0000\n"
+"Last-Translator: zubr139, 2021\n"
+"Language-Team: Ukrainian (https://app.transifex.com/openmediavault/teams/14254/uk/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+msgid "Allow new files to be created."
+msgstr "Дозволити створювати нові файли"
+
+msgid "Blocksize"
+msgstr "Розмір блоку"
+
+msgid "By default, only files that already exist are allowed to be uploaded."
+msgstr ""
+"Типово відображаються лише файли, які вже існують та доступні для "
+"завантаження."
+
+msgid ""
+"Determine the default timeout, in microseconds, before the first packet is "
+"retransmitted."
+msgstr ""
+"Визначити час очікування типово, в мікросекундах, перш ніж перший пакет "
+"передається повторно."
+
+msgid "Enabled"
+msgstr "Увімкнено"
+
+msgid "Extra options"
+msgstr "Додаткові опції"
+
+msgid "Port"
+msgstr "Порт"
+
+msgid "Retry timeout"
+msgstr "Очікування повтору"
+
+msgid "Shared folder"
+msgstr "Спільна тека"
+
+msgid ""
+"Specifies the maximum permitted block size. The permitted range for this "
+"parameter is from 512 to 65464."
+msgstr ""
+"Визначає максимальний дозволений розмір блоку. Допустимий діапазон значень "
+"для цього параметра від 512 до 65464."
+
+msgid "TFTP"
+msgstr "TFTP"
+
+msgid ""
+"The location of the files to share. Please make sure that the shared folder "
+"is publicly writable if new files are allowed."
+msgstr ""
+"Розташування файлів для спільного доступу. Переконайтеся, що спільна тека "
+"доступна для загального запису, якщо дозволено нові файли."
+
+msgid "Updated TFTP settings."
+msgstr "Оновлені налаштування TFTP."

@@ -1,0 +1,158 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-lvm2 package.
+# 
+# Translators:
+# Toshihiro Kan <kansuke4649@gmail.com>, 2014-2015,2017,2021-2022
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-03-17 01:49+0000\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2015,2017,2021-2022\n"
+"Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja_JP\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Active"
+msgstr "アクティブ"
+
+msgid "Available"
+msgstr "利用可能"
+
+msgid "Capacity"
+msgstr "容量"
+
+msgid "Create"
+msgstr "作成"
+
+msgid "Created logical volume '{{ name }}'."
+msgstr "論理ボリューム '{{ name }}' を作成しました。"
+
+msgid "Created physical volume {{ devicefile }}."
+msgstr "物理ボリューム {{ devicefile }} を作成しました。"
+
+msgid "Created snapshot of logical volume '{{ devicefile }}'."
+msgstr "論理ボリューム '{{ devicefile }}' のスナップショットを作成しました。"
+
+msgid "Created volume group '{{ name }}'."
+msgstr "ボリュームグループ '{{ name }}' を作成しました。"
+
+msgid "Device"
+msgstr "デバイス"
+
+msgid "Devices"
+msgstr "デバイス"
+
+msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
+msgstr "'{{devicefile}}'に物理ボリュームを作成しますか？"
+
+msgid "Do you really want to resize the selected physical volume?"
+msgstr "選択した物理ボリュームをリサイズしてもよろしいですか？"
+
+msgid "Edit"
+msgstr "編集"
+
+msgid "Extend"
+msgstr "拡張"
+
+msgid "Extended logical volume '{{ devicefile }}'."
+msgstr "拡張論理ボリューム '{{devicefile}}'。"
+
+msgid "Extended volume group '{{ devicefile }}'."
+msgstr "拡張ボリュームグループ '{{devicefile}}'。"
+
+msgid "Free"
+msgstr "空き"
+
+msgid "Invalid name"
+msgstr "不正な名前"
+
+msgid "LVM"
+msgstr ""
+
+msgid "Logical Volume Management"
+msgstr "論理ボリュームの管理(LVM)"
+
+msgid "Logical Volumes"
+msgstr "論理ボリューム"
+
+msgid "Name"
+msgstr "名前"
+
+msgid "Physical Volumes"
+msgstr "物理ボリューム"
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
+
+msgid "Reduce"
+msgstr "縮小"
+
+msgid "Reduced volume group '{{ devicefile }}'."
+msgstr "削減されたボリュームグループ '{{devicefile}}'。"
+
+msgid "Referenced"
+msgstr "参照先"
+
+msgid "Resize"
+msgstr "リサイズ"
+
+msgid "Select a device ..."
+msgstr "デバイスを選択 ..."
+
+msgid "Select a volume group ..."
+msgstr "ボリュームグループの選択 ..."
+
+msgid "Select devices ..."
+msgstr "デバイスを選択 ..."
+
+msgid "Select the devices used to extend the volume group."
+msgstr "ボリュームグループの拡張に使用するデバイスを選択します。"
+
+msgid "Select the devices used to reduce from the volume group."
+msgstr "ボリュームグループから削除するデバイスを選択します。"
+
+msgid "Size"
+msgstr "サイズ"
+
+msgid "Snapshot"
+msgstr "スナップショット"
+
+msgid "The name of the logical volume."
+msgstr "論理ボリュームの名前。"
+
+msgid "The name of the volume group."
+msgstr "ボリュームグループの名前。"
+
+msgid ""
+"The percentage of the total space in the volume group to allocate for the "
+"new logical volume."
+msgstr "新しい論理ボリュームに割り当てるボリュームグループ内の空き領域の割合。"
+
+msgid ""
+"The percentage of the total space in the volume group to use by the logical "
+"volume."
+msgstr "論理ボリュームが使用する、ボリュームグループ内の空き領域の割合。"
+
+msgid "Updated logical volume '{{ devicefile }}'."
+msgstr "論理ボリューム '{{ devicefile }}' を更新しました。"
+
+msgid "Updated volume group '{{ devicefile }}'."
+msgstr "ボリュームグループ '{{ devicefile }}' を更新しました。"
+
+msgid "Used"
+msgstr "使用済み"
+
+msgid "Volume Group"
+msgstr "ボリュームグループ"
+
+msgid "Volume Groups"
+msgstr "ボリュームグループ"
+
+msgid "Volume group"
+msgstr "ボリュームグループ"

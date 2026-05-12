@@ -1,0 +1,16 @@
+{%- set cache_devices = salt['omv_conf.get']('conf.service.bcache.cache') -%}
+{{ pillar['headers']['multiline'] }}
+{%- for device in cache_devices -%}
+w /sys/fs/bcache/{{ device.csetuuid }}/congested_read_threshold_us - - - - {{ device.congestedreadthreshold | int }}
+w /sys/fs/bcache/{{ device.csetuuid }}/congested_write_threshold_us - - - - {{ device.congestedwritethreshold | int }}
+{% endfor -%}
+
+{%- set backing_devices = salt['omv_conf.get_by_filter'](
+  'conf.service.bcache.backing',
+  {'operator': 'stringNotEquals', 'arg0': 'csetuuid', 'arg1': ''}) -%}
+{%- for device in backing_devices -%}
+w /sys/fs/bcache/{{ device.csetuuid }}/bdev{{ device.bindex }}/cache_mode - - - - {{ device.cachemode }}
+w /sys/fs/bcache/{{ device.csetuuid }}/bdev{{ device.bindex }}/sequential_cutoff - - - - {{ device.sequentialcutoff | int }}
+w /sys/fs/bcache/{{ device.csetuuid }}/bdev{{ device.bindex }}/writeback_delay - - - - {{ device.writebackdelay | int }}
+w /sys/fs/bcache/{{ device.csetuuid }}/bdev{{ device.bindex }}/writeback_percent - - - - {{ device.writebackpercent | int }}
+{% endfor -%}

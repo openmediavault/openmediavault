@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "system.plugins"
+  position: 80
+  text: _("Plugins")
+  icon: plugin
+  url: "/system/plugins"

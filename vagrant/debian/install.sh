@@ -1,0 +1,39 @@
+#!/bin/sh
+#
+# This file is part of openmediavault.
+#
+# @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2026 Volker Theile
+#
+# openmediavault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# openmediavault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with openmediavault. If not, see <https://www.gnu.org/licenses/>.
+
+set -e
+
+# Disable the Debian backport repositories.
+sed -i '/-backports/s/^/#/' /etc/apt/sources.list
+
+# Append user 'vagrant' to group 'ssh', otherwise the user is not allowed
+# to log in via SSH.
+# https://salsa.debian.org/ssh-team/openssh/-/commit/18da782ebe789d0cf107a550e474ba6352e68911
+usermod --groups _ssh --append vagrant
+
+# Set default password for the 'root' user. This is helpful if something
+# went wrong during the development.
+# Note, the 'Permit root login' checkbox must be checked to make this
+# working.
+yes openmediavault | passwd
+
+# Install openmediavault using the official installation script.
+wget --output-document=- https://get.openmediavault.io | sh -

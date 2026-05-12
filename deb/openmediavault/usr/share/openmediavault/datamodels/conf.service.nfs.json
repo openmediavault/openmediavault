@@ -1,0 +1,57 @@
+{
+	"type": "config",
+	"id": "conf.service.nfs",
+	"title": "NFS",
+	"queryinfo": {
+		"xpath": ".//services/nfs",
+		"iterable": false
+	},
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"versions": {
+			"type": "string",
+			"default": "3,4,4.1,4.2"
+		},
+		"shares": {
+			"type": "object",
+			"properties": {
+				"share": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"uuid": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"sharedfolderref": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"mntentref": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"client": {
+								"type": "string"
+							},
+							"options": {
+								"type": "string"
+							},
+							"comment": {
+								"type": "string"
+							},
+							"extraoptions": {
+								"type": "string",
+								"pattern": "^(([a-zA-Z_]+)(=([\\w@:\\/]+))?[,])*([a-zA-Z_]+)(=([\\w@:\\/]+))?$"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

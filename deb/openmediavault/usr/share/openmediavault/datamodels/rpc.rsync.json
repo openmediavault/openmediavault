@@ -1,0 +1,231 @@
+{
+	"type": "rpc",
+	"id": "rpc.rsync.set",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"enable": {
+				"type": "boolean",
+				"required": true
+			},
+			"sendemail": {
+				"type": "boolean",
+				"required": true
+			},
+			"comment": {
+				"type": "string",
+				"required": true
+			},
+			"type":{
+				"type": "string",
+				"enum": [ "local", "remote" ],
+				"required": true
+			},
+			"srcsharedfolderref": {
+				"type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "uuidv4"
+				},{
+					"type": "string",
+					"maxLength": 0
+				}],
+				"required": true
+			},
+			"srcuri": {
+				"type": "string",
+				"required": true
+			},
+			"destsharedfolderref": {
+				"type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "uuidv4"
+				},{
+					"type": "string",
+					"maxLength": 0
+				}],
+				"required": true
+			},
+			"desturi": {
+				"type": "string",
+				"required": true
+			},
+			"minute": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"oneOf": [{
+						"type": "string",
+						"enum": [ "*" ]
+					},{
+						"type": "string",
+						"pattern": "^[0-9]|[1-5][0-9]$"
+					}]
+				},
+				"required": true
+			},
+			"everynminute": {
+				"type": "boolean",
+				"required": true
+			},
+			"hour": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"oneOf": [{
+						"type": "string",
+						"enum": [ "*" ]
+					},{
+						"type": "string",
+						"pattern": "^[0-9]|1[0-9]|2[0-3]$"
+					}]
+				},
+				"required": true
+			},
+			"everynhour": {
+				"type":"boolean",
+				"required": true
+			},
+			"month": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"oneOf": [{
+						"type": "string",
+						"enum": [ "*" ]
+					},{
+						"type": "string",
+						"pattern": "^[1-9]|1[0-2]$"
+					}]
+				},
+				"required": true
+			},
+			"dayofmonth": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"oneOf": [{
+						"type": "string",
+						"enum": [ "*" ]
+					},{
+						"type": "string",
+						"pattern": "^[1-9]|[12][0-9]|3[01]$"
+					}]
+				},
+				"required": true
+			},
+			"everyndayofmonth": {
+				"type": "boolean",
+				"required": true
+			},
+			"dayofweek": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"oneOf": [{
+						"type": "string",
+						"enum": [ "*" ]
+					},{
+						"type": "string",
+						"pattern": "^[1-7]$"
+					}]
+				},
+				"required": true
+			},
+			"optionrecursive": {
+				"type": "boolean",
+				"required": true
+			},
+			"optiontimes": {
+				"type": "boolean",
+				"required": true
+			},
+			"optiongroup": {
+				"type": "boolean",
+				"required": true
+			},
+			"optionowner": {
+				"type": "boolean",
+				"required": true
+			},
+			"optioncompress": {
+				"type": "boolean",
+				"required": true
+			},
+			"optionarchive": {
+				"type": "boolean",
+				"required": true
+			},
+			"optiondelete": {
+				"type": "boolean",
+				"required": true
+			},
+			"optionquiet": {
+				"type":"boolean",
+				"required": true
+			},
+			"optionperms": {
+				"type": "boolean",
+				"required": true
+			},
+			"optionacls": {
+				"type": "boolean",
+				"required": true
+			},
+			"optionxattrs":{
+				"type": "boolean",
+				"required": true
+			},
+			"optiondryrun": {
+				"type": "boolean",
+				"required": true
+			},
+			"optionpartial": {
+				"type": "boolean",
+				"required": true
+			},
+			"extraoptions": {
+				"type": "string",
+				"required": true
+			},
+			"mode": {
+				"type": "string",
+				"enum": [ "push", "pull" ],
+				"required": true
+			},
+			"authentication": {
+				"type": "string",
+				"enum": [ "password", "pubkey" ],
+				"required": true
+			},
+			"password": {
+				"type": "string",
+				"format": "no-multi-line",
+				"required": true
+			},
+			"sshcertificateref": {
+				"type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "uuidv4"
+				},{
+					"type": "string",
+					"maxLength": 0
+				}],
+				"required": true
+			},
+			"sshport": {
+				"type": "integer",
+				"minimum": 1,
+				"maximum": 65535,
+				"required": true
+			}
+		}
+	}
+}

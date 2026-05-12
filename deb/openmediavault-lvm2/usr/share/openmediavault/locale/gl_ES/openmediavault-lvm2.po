@@ -1,0 +1,160 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-lvm2 package.
+# 
+# Translators:
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013-2014
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-03-17 01:49+0000\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013-2014\n"
+"Language-Team: Galician (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/gl_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: gl_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Active"
+msgstr ""
+
+msgid "Available"
+msgstr "Dispoñíbel"
+
+msgid "Capacity"
+msgstr "Capacidade"
+
+msgid "Create"
+msgstr "Crear"
+
+msgid "Created logical volume '{{ name }}'."
+msgstr ""
+
+msgid "Created physical volume {{ devicefile }}."
+msgstr ""
+
+msgid "Created snapshot of logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Created volume group '{{ name }}'."
+msgstr ""
+
+msgid "Device"
+msgstr "Dispositivo"
+
+msgid "Devices"
+msgstr "Dispositivos"
+
+msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
+msgstr ""
+
+msgid "Do you really want to resize the selected physical volume?"
+msgstr "Confirma que quere modificar o tamaño do volume físico seleccionado?"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Extend"
+msgstr "Estendido"
+
+msgid "Extended logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Extended volume group '{{ devicefile }}'."
+msgstr ""
+
+msgid "Free"
+msgstr "Libre"
+
+msgid "Invalid name"
+msgstr "Nome incorrecto"
+
+msgid "LVM"
+msgstr ""
+
+msgid "Logical Volume Management"
+msgstr "Xestión de volumes lóxicos"
+
+msgid "Logical Volumes"
+msgstr ""
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Physical Volumes"
+msgstr ""
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
+
+msgid "Reduce"
+msgstr "Reducir"
+
+msgid "Reduced volume group '{{ devicefile }}'."
+msgstr ""
+
+msgid "Referenced"
+msgstr "Referenciado"
+
+msgid "Resize"
+msgstr "Modificar o tamaño"
+
+msgid "Select a device ..."
+msgstr "Seleccione un dispositivo ..."
+
+msgid "Select a volume group ..."
+msgstr "Seleccionar un grupo de volumes ..."
+
+msgid "Select devices ..."
+msgstr ""
+
+msgid "Select the devices used to extend the volume group."
+msgstr ""
+
+msgid "Select the devices used to reduce from the volume group."
+msgstr ""
+
+msgid "Size"
+msgstr "Tamaño"
+
+msgid "Snapshot"
+msgstr ""
+
+msgid "The name of the logical volume."
+msgstr ""
+
+msgid "The name of the volume group."
+msgstr ""
+
+msgid ""
+"The percentage of the total space in the volume group to allocate for the "
+"new logical volume."
+msgstr ""
+
+msgid ""
+"The percentage of the total space in the volume group to use by the logical "
+"volume."
+msgstr ""
+
+msgid "Updated logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Updated volume group '{{ devicefile }}'."
+msgstr ""
+
+msgid "Used"
+msgstr "Usado"
+
+msgid "Volume Group"
+msgstr ""
+
+msgid "Volume Groups"
+msgstr ""
+
+msgid "Volume group"
+msgstr "Grupo de volumes"

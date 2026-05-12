@@ -1,0 +1,308 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-clamav package.
+# 
+# Translators:
+# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2014,2017,2020
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-05-18 22:06+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>, 2012-2014,2017,2020\n"
+"Language-Team: Danish (http://app.transifex.com/openmediavault/openmediavault/language/da/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Algorithmic detection"
+msgstr "Algoritmisk detektering"
+
+msgid ""
+"An email message with the command output (if any produced) is sent to the "
+"administrator."
+msgstr "En email besked med kommandoens output (hvis nogen produceret) er sendt administratoren."
+
+msgid "Antivirus"
+msgstr "Antivirus"
+
+msgid "April"
+msgstr "April"
+
+msgid "August"
+msgstr "August"
+
+msgid "Be verbose."
+msgstr "Vær detaljeret."
+
+msgid "Create"
+msgstr "Opret"
+
+msgid "Created on-access scan."
+msgstr ""
+
+msgid "Created scheduled scan."
+msgstr ""
+
+msgid "Database checks"
+msgstr "Database kontrol"
+
+msgid "Date & Time"
+msgstr "Dato & Tid"
+
+msgid "Day of month"
+msgstr "Månedsdag"
+
+msgid "Day of week"
+msgstr "Ugedag"
+
+msgid "December"
+msgstr "December"
+
+msgid "Delete immediately"
+msgstr ""
+
+msgid "Detect PUA"
+msgstr "Detektere PUA"
+
+msgid "Detect broken executables"
+msgstr "Detektere ødelagte eksekverbare filer"
+
+msgid "Detect broken media"
+msgstr ""
+
+msgid "Edit"
+msgstr "Rediger"
+
+msgid "Enable HTML detection and normalisation."
+msgstr "Aktiver HTML opdagelse og normalisering."
+
+msgid "Enable archive scanning."
+msgstr "Aktiver arkiv scanning."
+
+msgid "Enable scanning of ELF files."
+msgstr "Aktiver scanning af ELF filer."
+
+msgid ""
+"Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
+"files."
+msgstr "Aktiver scanning af OLE2 filer, såsom Microsoft Office dokumenter og .msi filer."
+
+msgid "Enable scanning within PDF files."
+msgstr "Aktiver scanning indeni PDF filer."
+
+msgid "Enable the algorithmic detection."
+msgstr "Aktiver algoritmiske opdagelse."
+
+msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr "Aktiver opdagelsen af ødelagte eksekverbare (både PE og ELF)."
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
+msgstr ""
+
+msgid "Enable the detection of possibly unwanted applications."
+msgstr "Aktiver opdagelsen af mulige uønskede programmer."
+
+msgid "Enabled"
+msgstr "Aktiveret"
+
+msgid "Every N day of month"
+msgstr "Hver N dag i måneden"
+
+msgid "Every N hour"
+msgstr "Hver N time"
+
+msgid "Every N minute"
+msgstr "Hver N minut"
+
+msgid "Execute scheduled scan"
+msgstr ""
+
+msgid "Extra options"
+msgstr "Ekstra valgmuligheder"
+
+msgid "February"
+msgstr "Februar"
+
+msgid "Follow directory symlinks"
+msgstr "Følg bibliotek symlinks"
+
+msgid "Follow directory symlinks."
+msgstr "Følg bibliotek symlinks."
+
+msgid "Follow file symlinks"
+msgstr "Følg fil symlinks"
+
+msgid "Follow regular file symlinks."
+msgstr "Følg regulær fil symlinks."
+
+msgid "Friday"
+msgstr "Fredag"
+
+msgid "Hour"
+msgstr "Time"
+
+msgid "Infected files"
+msgstr "Inficeret filer"
+
+msgid "January"
+msgstr "Januar"
+
+msgid "July"
+msgstr "Juli"
+
+msgid "June"
+msgstr "Juni"
+
+msgid "Log clean files"
+msgstr "Log rene filer"
+
+msgid "Log clean files. This drastically increases the log size."
+msgstr "Log rene filer. Dette vil øge log størrelsen dramatisk."
+
+msgid "March"
+msgstr "Marts"
+
+msgid "May"
+msgstr "Maj"
+
+msgid "Message"
+msgstr "Besked"
+
+msgid "Minute"
+msgstr "Minut"
+
+msgid "Monday"
+msgstr "Mandag"
+
+msgid "Month"
+msgstr "Måned"
+
+msgid "Move to quarantine"
+msgstr ""
+
+msgid "Multiscan"
+msgstr "Multiscan"
+
+msgid "November"
+msgstr "November"
+
+msgid "Number of database update checks per day. Set to 0 to disable."
+msgstr "Antal af database kontrol pr. dag. Sæt til 0 for at deaktivere."
+
+msgid "October"
+msgstr "Oktober"
+
+msgid "On Access Scans"
+msgstr "Ved Tilgang Scanninger"
+
+msgid "Perform a deeper analysis of executable files."
+msgstr "Udfør en dybere analyse af eksekverbare filer."
+
+msgid "Perform nothing"
+msgstr ""
+
+msgid ""
+"Please check the <a href='https://manpages.debian.org/stable/clamav-"
+"daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
+"details."
+msgstr ""
+
+msgid "Quarantine"
+msgstr "Karantæne"
+
+msgid "Run"
+msgstr "Kør"
+
+msgid "Saturday"
+msgstr "Lørdag"
+
+msgid "Scan ELF"
+msgstr "Scan ELF"
+
+msgid "Scan HTML"
+msgstr "Scan HTML"
+
+msgid "Scan OLE2"
+msgstr "Scan OLE2"
+
+msgid "Scan PDF"
+msgstr "Scan PDF"
+
+msgid "Scan Portable Executable"
+msgstr "Scan Flytbare Eksekverbar"
+
+msgid "Scan archives"
+msgstr "Scan arkiver"
+
+msgid "Scan the directory contents in parallel using available threads."
+msgstr "Scan biblioteks indholdet parallelt ved hjælp af tilgængelige tråde."
+
+msgid "Scheduled Scans"
+msgstr ""
+
+msgid "Scheduling"
+msgstr "Planlægning"
+
+msgid "Send email"
+msgstr "Send email"
+
+msgid "September"
+msgstr "September"
+
+msgid "Service disabled"
+msgstr "Tjeneste deaktiveret"
+
+msgid "Settings"
+msgstr "Indstillinger"
+
+msgid "Shared folder"
+msgstr "Delt mappe"
+
+msgid "Sunday"
+msgstr "Søndag"
+
+msgid "Tags"
+msgstr ""
+
+msgid "The field should only contain * or a comma separated list of values."
+msgstr ""
+
+msgid "The location of the files to scan on-access."
+msgstr "Placeringen af de filer der skal skannes ved tilgang."
+
+msgid "The location of the files to scan."
+msgstr "Placeringen af de filer der skal skannes."
+
+msgid "The location which is used as quarantine."
+msgstr "Placeringen, der skal bruges som karantæne."
+
+msgid "The option, how to handle infected files."
+msgstr "Valgmuligheden om hvordan inficeret filer skal håndteres."
+
+msgid "Thursday"
+msgstr "Torsdag"
+
+msgid "Time of execution"
+msgstr "Gennemførings tid"
+
+msgid "Tuesday"
+msgstr "Tirsdag"
+
+msgid "Updated on-access scan."
+msgstr ""
+
+msgid "Updated scheduled scan."
+msgstr ""
+
+msgid "Verbose"
+msgstr "Detaljeret"
+
+msgid "Wednesday"
+msgstr "Onsdag"
+
+msgid "n/a"
+msgstr "n/a"

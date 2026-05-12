@@ -1,0 +1,63 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-ftp-tls-settings-form-page
+  type: formPage
+  config:
+    request:
+      service: FTP
+      get:
+        method: getModTLSSettings
+      post:
+        method: setModTLSSettings
+    fields:
+      - type: checkbox
+        name: enable
+        label: _("Enabled")
+        hint: _("Enable SSL/TLS connections.")
+        value: false
+      - type: sslCertSelect
+        name: sslcertificateref
+        label: _("Certificate")
+        hint: _("The SSL certificate.")
+        hasEmptyOption: true
+        value: ''
+        modifiers:
+          - type: disabled
+            constraint:
+              operator: falsy
+              arg0:
+                prop: enable
+        validators:
+          requiredIf:
+            operator: truthy
+            arg0:
+              prop: enable
+      - type: divider
+        title: _("Advanced settings")
+      - type: checkbox
+        name: required
+        label: _("Required")
+        hint: _("This option requires clients to use FTP over TLS when talking to this server.")
+        value: false
+      - type: checkbox
+        name: nosessionreuserequired
+        label: _("No session reuse required")
+        hint: _("The requirement that the SSL session from the control connection is reused for data connections is not required.")
+        value: false
+      - type: checkbox
+        name: useimplicitssl
+        label: _("Implicit SSL")
+        hint: _("This option will handle all connections as if they are SSL connections implicitly.")
+        value: false
+      - type: textarea
+        name: extraoptions
+        label: _("Extra options")
+        hint: _("Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>manual page</a> for more details.")
+        value: ''
+    buttons:
+      - template: submit
+      - template: cancel
+        execute:
+          type: url
+          url: /services/ftp

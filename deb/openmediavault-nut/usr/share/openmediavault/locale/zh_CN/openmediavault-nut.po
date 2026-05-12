@@ -1,0 +1,143 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-nut package.
+# 
+# Translators:
+# songming <by@songming.me>, 2013-2014,2016,2020
+# LeeYang <150183966@qq.com>, 2021
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-03-17 01:51+0000\n"
+"Last-Translator: LeeYang <150183966@qq.com>, 2021\n"
+"Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
+msgstr "“单机版”是本地链接的 UPS，“网络版”是通过 NUT 服务连接的远程 UPS。"
+
+msgid "Charge"
+msgstr "充电量"
+
+msgid "Comment"
+msgstr "注释"
+
+msgid "Date & Time"
+msgstr "日期和时间"
+
+msgid "Defines when the shutdown is initiated."
+msgstr "设置何时开始关机。"
+
+msgid "Driver configuration directives"
+msgstr "驱动配置指令"
+
+msgid "Enable remote monitoring of the local connected UPS."
+msgstr "启用本地连接 UPS 的远程监控。"
+
+msgid "Enabled"
+msgstr "已启用"
+
+msgid "Identifier"
+msgstr "标识符"
+
+msgid "Invalid identifier"
+msgstr "标识符语法不符"
+
+msgid "Load"
+msgstr "负载"
+
+msgid "Message"
+msgstr "消息"
+
+msgid "Mode"
+msgstr "模式"
+
+msgid "Netclient"
+msgstr "网络版"
+
+msgid "Netclient hostname"
+msgstr "网络版主机名"
+
+msgid "Netclient password"
+msgstr "网络版密码"
+
+msgid "Netclient user name"
+msgstr "网络版用户名"
+
+msgid "PID"
+msgstr "PID"
+
+msgid "Password"
+msgstr "密码"
+
+msgid "Powervalue"
+msgstr "电源值"
+
+msgid "Program"
+msgstr "程序"
+
+msgid "Remote monitoring"
+msgstr "远程监控"
+
+msgid "Service disabled"
+msgstr "服务已停用"
+
+msgid "Shutdown mode"
+msgstr "关机模式"
+
+msgid "Shutdown timer"
+msgstr "关机计时器"
+
+msgid "Standalone"
+msgstr "单机版"
+
+msgid "Temperature"
+msgstr "温度"
+
+msgid "The name used to uniquely identify your UPS on local or remote system."
+msgstr "该名字将用来识别单机版或网络版的 UPS。"
+
+msgid ""
+"The number of power supplies that the UPS feeds on this system (usually 1), "
+"refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
+"target='_blank'>upsmon.conf(5)</a> for more information."
+msgstr "UPS在本系统中提供的电源数量（通常为1），更多信息请浏览<a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf(5)</a>查看。"
+
+msgid ""
+"The time in seconds until shutdown is initiated. If the UPS happens to come "
+"back before the time is up the shutdown is canceled."
+msgstr "多少秒后关机，如果 UPS 恢复供电则取消关机。"
+
+msgid ""
+"To get more information how to configure your UPS please check the Network "
+"UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
+"target='_blank'>documentation</a>."
+msgstr "获取更多UPS配置信息请查看 <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>Network UPS Tools文档</a>。"
+
+msgid "UPS"
+msgstr "UPS"
+
+msgid "UPS goes on battery"
+msgstr "UPS 使用电池供电"
+
+msgid "UPS reaches low battery"
+msgstr "UPS 电池电量低"
+
+msgid "Updated UPS settings."
+msgstr "已更新的UPS设置"
+
+msgid "Used for remote authentication."
+msgstr "用于远程验证。"
+
+msgid "User name"
+msgstr "用户名"
+
+msgid "Voltage"
+msgstr "电压"

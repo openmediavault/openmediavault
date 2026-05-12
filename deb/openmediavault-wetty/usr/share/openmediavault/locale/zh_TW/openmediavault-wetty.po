@@ -1,0 +1,48 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-wetty package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2022
+# songming <by@songming.me>, 2022
+# kochin <kochinc@outlook.com>, 2022
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-wetty\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2022-03-22 21:34+0000\n"
+"Last-Translator: kochin <kochinc@outlook.com>, 2022\n"
+"Language-Team: Chinese (Taiwan) (https://app.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Certificate"
+msgstr "憑證"
+
+msgid "Enabled"
+msgstr "已啟用"
+
+msgid "Open UI"
+msgstr "打開 UI"
+
+msgid "Port"
+msgstr "通訊埠"
+
+msgid "Port to listen on."
+msgstr "要監聽的通訊埠。"
+
+msgid "The SSL certificate."
+msgstr "SSL 憑證。"
+
+msgid "Updated WeTTY settings."
+msgstr "已更新 WeTTY 設定。"
+
+msgid "WeTTY"
+msgstr "WeTTY"

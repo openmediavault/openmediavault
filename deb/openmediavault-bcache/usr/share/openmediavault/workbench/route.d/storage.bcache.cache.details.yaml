@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/bcache/cache/details/:devicefile"
+  title: "{{ 'Details' | translate }} @ {{ _routeParams.devicefile }}"
+  editing: false
+  component: omv-storage-bcache-cache-details-tabs-page

@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/clamav/scans/edit/:uuid"
+  title: _("Edit")
+  editing: true
+  notificationTitle: _("Updated scheduled scan.")
+  component: omv-services-clamav-scan-form-page

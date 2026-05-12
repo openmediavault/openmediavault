@@ -1,0 +1,66 @@
+version: "1.0"
+type: component
+data:
+  name: omv-storage-bcache-cache-configuration-form-page
+  type: formPage
+  config:
+    request:
+      service: Bcache
+      get:
+        method: getCacheConfiguration
+        params:
+          devicefile: "{{ _routeParams.devicefile }}"
+      post:
+        method: setCacheConfiguration
+    fields:
+      - type: confObjUuid
+      - type: hidden
+        name: devicefile
+      - type: textInput
+        name: description
+        label: _("Device")
+        disabled: true
+      - type: checkbox
+        name: congesttracking
+        label: _("Congest Tracking")
+        hint: _("Allow bcache go around the cache when there's read / write congestion. (default:true)")
+        value: true
+      - type: container
+        fields:
+          - type: numberInput
+            name: congestedreadthreshold
+            label: _("Congested Read Threshold (us)")
+            hint: _("The default is 2000 us (2 milliseconds)")
+            value: 2000
+            validators:
+              min: 0
+              patternType: 'integer'
+            modifiers:
+              - type: hidden
+                constraint:
+                  operator: falsy
+                  arg0:
+                    prop: congesttracking
+          - type: numberInput
+            name: congestedwritethreshold
+            label: _("Congested Read Threshold (us)")
+            hint: _("The default is 20000 us (20 milliseconds)")
+            value: 20000
+            validators:
+              min: 0
+              patternType: 'integer'
+            modifiers:
+              - type: hidden
+                constraint:
+                  operator: falsy
+                  arg0:
+                    prop: congesttracking
+    buttons:
+      - template: submit
+        execute:
+          type: url
+          url: '/storage/bcache/cache'
+      - template: cancel
+        execute:
+          type: url
+          url: '/storage/bcache/cache'

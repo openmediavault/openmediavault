@@ -1,0 +1,67 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-wbprefs package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# M@T D., 2026
+# Francis Dhumes, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-wbprefs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-08 19:29+0100\n"
+"PO-Revision-Date: 2026-03-07 00:03+0000\n"
+"Last-Translator: Francis Dhumes, 2026\n"
+"Language-Team: French (France) (https://app.transifex.com/openmediavault/teams/14254/fr_FR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr_FR\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+msgid "Apply"
+msgstr "Appliquer"
+
+msgid "Login"
+msgstr "Connexion"
+
+msgid "Page"
+msgstr "Page"
+
+msgid "Reset"
+msgstr "Réinitialiser"
+
+msgid "Reset the wallpaper to the default image."
+msgstr "Restaurer l'image par défaut en tant que fond d'écran."
+
+msgid "Shutdown"
+msgstr "Arrêter"
+
+msgid "Standby"
+msgstr "Attente"
+
+msgid "The URL from which the image is to be fetched."
+msgstr "URL à partir de laquelle l'image doit être récupérée."
+
+msgid "The URL must start with http://, https:// or file://."
+msgstr "L'URL doit débuter par http://, https:// ou file://. "
+
+msgid "The page for which the wallpaper is to be set."
+msgstr "Page pour laquelle le fond d'écran doit être défini."
+
+msgid "The wallpaper has been updated."
+msgstr "Le fond d'écran a été mis à jour."
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Wallpaper"
+msgstr "Fond d'écran"
+
+msgid "You may need to clear your browser's cache to see your changes."
+msgstr ""
+"Vous devrez peut être effacer le cache de votre navigateur pour constater "
+"vos modifications."

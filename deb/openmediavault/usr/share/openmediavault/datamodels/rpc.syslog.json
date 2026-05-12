@@ -1,0 +1,28 @@
+[{
+	"type": "rpc",
+	"id": "rpc.syslog.setsettings",
+	"params": {
+		"type": "object",
+		"properties": {
+			"enable": {
+				"type": "boolean",
+				"required": true
+			},
+			"port":{
+				"type": "integer",
+				"minimum": 1,
+				"maximum": 65535,
+				"required": true
+			},
+			"host": {
+				"type": "string",
+				"required": true
+			},
+			"protocol": {
+				"type": "string",
+				"enum": [ "udp", "tcp" ],
+				"required": true
+			}
+		}
+	}
+}]

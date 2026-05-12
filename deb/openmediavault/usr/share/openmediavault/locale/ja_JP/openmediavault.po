@@ -1,0 +1,4279 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault package.
+# 
+# Translators:
+# Toshihiro Kan <kansuke4649@gmail.com>, 2014-2024,2026
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-30 21:52+0200\n"
+"PO-Revision-Date: 2012-03-17 01:48+0000\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2024,2026\n"
+"Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja_JP\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "# Members"
+msgstr "# Members"
+
+msgid "%CPU"
+msgstr "%CPU"
+
+msgid "%MEM"
+msgstr "%MEM"
+
+msgid "%d days"
+msgstr "%d 日"
+
+msgid "%d hours"
+msgstr "%d 時間"
+
+msgid "%d minutes"
+msgstr "%d 分"
+
+msgid "%d months"
+msgstr "%d か月"
+
+msgid "%d years"
+msgstr "%d 年"
+
+msgid "%s [%s, %s (%d%%) used, %s available]"
+msgstr "%s [%s, %s (%d%%) 使用中, %s 利用可能]"
+
+msgid "%s [%s]"
+msgstr "%s [%s]"
+
+msgid "%s [on %s, %s]"
+msgstr "%s [%s 上, %s]"
+
+msgid "%s [on N/A, %s]"
+msgstr "%s [on N/A, %s]"
+
+msgid "%s ago"
+msgstr "%s 前"
+
+msgid "1 - Minimum power usage with standby (spindown)"
+msgstr "1 - スタンバイ（スピンダウン）を使った最小の消費電力"
+
+msgid "1 GiB"
+msgstr "1 GiB"
+
+msgid "1 MiB"
+msgstr "1 MiB"
+
+msgid "1 day"
+msgstr "1 日"
+
+msgid "1 min"
+msgstr "1分"
+
+msgid "1 minute"
+msgstr "1分"
+
+msgid "1 month"
+msgstr "1 月"
+
+msgid "1 week"
+msgstr "1 週間"
+
+msgid "1 year"
+msgstr "1 年"
+
+msgid "10 MiB"
+msgstr "10 MiB"
+
+msgid "10 minutes"
+msgstr "10 分"
+
+msgid "10 years"
+msgstr "10 年"
+
+msgid "100 MiB"
+msgstr "100 MiB"
+
+msgid "120 minutes"
+msgstr "120 分"
+
+msgid "127 - Intermediate power usage with standby"
+msgstr "127 - スタンバイを使った中間的な電力消費"
+
+msgid "128 - Minimum power usage without standby (no spindown)"
+msgstr "128 - スタンバイ（スピンダウン）を使わない最小の消費電力"
+
+msgid "15 min"
+msgstr "15分"
+
+msgid "15 minutes"
+msgstr "15分"
+
+msgid "15 years"
+msgstr "15 年"
+
+msgid "180 minutes"
+msgstr "180 分"
+
+msgid "192 - Intermediate power usage without standby"
+msgstr "192 - スタンバイを使わない中間的な電力消費"
+
+msgid "2 GiB"
+msgstr "2 GiB"
+
+msgid "2 MiB"
+msgstr "2 MiB"
+
+msgid "2 days"
+msgstr "2 日"
+
+msgid "2 minutes"
+msgstr "2分"
+
+msgid "2 weeks"
+msgstr "2 週間"
+
+msgid "2 years"
+msgstr "2 年"
+
+msgid "20 minutes"
+msgstr "20 分"
+
+msgid "20 years"
+msgstr "20 年"
+
+msgid "240 minutes"
+msgstr "240 分"
+
+msgid "25 MiB"
+msgstr "25 MiB"
+
+msgid "25 years"
+msgstr "25 年"
+
+msgid "250 MiB"
+msgstr "250 MiB"
+
+msgid "254 - Maximum performance, maximum power usage"
+msgstr "254 - 最大のパフォーマンス、最大の消費電力"
+
+msgid "3 days"
+msgstr "3 日"
+
+msgid "3 minutes"
+msgstr "3分"
+
+msgid "3 months"
+msgstr "3 か月"
+
+msgid "3 weeks"
+msgstr "3 週刊"
+
+msgid "3 years"
+msgstr "3 年"
+
+msgid "30 minutes"
+msgstr "30 分"
+
+msgid "300 minutes"
+msgstr "300 分"
+
+msgid "330 minutes"
+msgstr "330 分"
+
+msgid "4 GiB"
+msgstr "4 GiB"
+
+msgid "4 days"
+msgstr "4 日"
+
+msgid "4 minutes"
+msgstr "4分"
+
+msgid "4 years"
+msgstr "4 年"
+
+msgid "5 MiB"
+msgstr "5 MiB"
+
+msgid "5 days"
+msgstr "5 日"
+
+msgid "5 min"
+msgstr "5分"
+
+msgid "5 minutes"
+msgstr "5 分"
+
+msgid "5 years"
+msgstr "5 年"
+
+msgid "50 MiB"
+msgstr "50 MiB"
+
+msgid "500 MiB"
+msgstr "500 MiB"
+
+msgid "6 days"
+msgstr "6 日"
+
+msgid "6 months"
+msgstr "6 か月"
+
+msgid "60 minutes"
+msgstr "60 分"
+
+msgid "64 - Intermediate power usage with standby"
+msgstr "64 - スタンバイを使った中間的な電力消費レベル"
+
+msgid "75 MiB"
+msgstr "75 MiB"
+
+msgid "750 MiB"
+msgstr "750 MiB"
+
+msgid "9 months"
+msgstr "9 か月"
+
+msgid "A (5 GHz)"
+msgstr "A (5 GHz)"
+
+msgid ""
+"A reboot is needed to fully apply the changes introduced by package "
+"installation or upgrade."
+msgstr "パッケージのインストールやアップグレードによる変更を完全に適用するには、再起動が必要です。"
+
+msgid "A running background task was detected."
+msgstr "実行中のバックグラウンドタスクが検出されました。"
+
+msgid "A scheduled task to create a snapshot has been created."
+msgstr "スナップショットを作成するスケジュールタスクが作成されました。"
+
+msgid "A secure shell (SSH) server."
+msgstr "セキュアシェル（SSH）サーバーです。"
+
+msgid "ACL"
+msgstr "ACL"
+
+msgid "About"
+msgstr "About"
+
+msgid "Absolute Path"
+msgstr "絶対パス"
+
+msgid "Abstract"
+msgstr "アブストラクト"
+
+msgid "Access control list"
+msgstr "アクセスコントロールリスト"
+
+msgid "Act as a WINS server."
+msgstr "WINSサーバとして機能します。"
+
+msgid ""
+"Acting as a WINS server and using a WINS server are mutually exclusive."
+msgstr "WINSサーバーとして動作させることと、WINSサーバーを使用することは同時に設定できません。"
+
+msgid "Action"
+msgstr "アクション"
+
+msgid ""
+"Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
+"devices are listed in the scheduled tasks. Monitoring cannot be switched off"
+" as long as there are scheduled tasks for this device."
+msgstr "このデバイスのS.M.A.R.T.モニタリングを有効にします。 スケジュールされたタスクには、モニターされたデバイスのみが表示されます。 このデバイスのスケジュールタスクがある限り、監視をオフにすることはできません。"
+
+msgid "Active"
+msgstr "アクティブ"
+
+msgid "Active or Idle"
+msgstr "アクティブまたはアイドル"
+
+msgid "Add"
+msgstr "追加"
+
+msgid "Address"
+msgstr "アドレス"
+
+msgid "Administrator: read/write, Users: no access, Others: no access"
+msgstr "Administrator: 読み込み/書き込み, Users: アクセス不可, Others: アクセス不可"
+
+msgid "Administrator: read/write, Users: read-only, Others: no access"
+msgstr "Administrator: 読み込み/書き込み, Users: 読み込み専用, Others: アクセス不可"
+
+msgid "Administrator: read/write, Users: read-only, Others: read-only"
+msgstr "Administrator: 読み込み/書き込み, Users: 読み込み専用, Others: 読み込み専用"
+
+msgid "Administrator: read/write, Users: read/write, Others: no access"
+msgstr "Administrator: 読み込み/書き込み, Users: 読み込み/書き込み, Others: アクセス不可"
+
+msgid "Administrator: read/write, Users: read/write, Others: read-only"
+msgstr "Administrator: 読み込み/書き込み, Users: 読み込み/書き込み, Others: 読み込み専用"
+
+msgid "Advanced Acoustic Management"
+msgstr "高度なアコースティック・マネジメント"
+
+msgid "Advanced Power Management"
+msgstr "高度な電源管理(APM)"
+
+msgid "Advanced settings"
+msgstr "高度な設定"
+
+msgid "Afghanistan"
+msgstr "アフガニスタン"
+
+msgid "Aland Islands"
+msgstr "オーランド諸島"
+
+msgid "Albania"
+msgstr "アルバニア"
+
+msgid "Algeria"
+msgstr "アルジェリア"
+
+msgid "All"
+msgstr "すべて"
+
+msgid "All Snapshots"
+msgstr "すべてのスナップショット"
+
+msgid "All packages will be upgraded. Do you want to proceed?"
+msgstr "すべてのパッケージがアップグレードされます。続行しますか？"
+
+msgid ""
+"Allow clients to attempt to access extended attributes on a share. The "
+"underlying filesystem exposed by the share must support extended attributes."
+msgstr "クライアントが共有上の拡張属性へのアクセスを可能にします。共有によって公開されるファイルシステムは、拡張属性をサポートしている必要があります。"
+
+msgid "Allow following symbolic links in the home directories."
+msgstr "ホームディレクトリ内でのシンボリックリンクを許可します。"
+
+msgid "Allow following symbolic links in the share."
+msgstr "共有内で以下のシンボリックリンクを許可します。"
+
+msgid "Allow symbolic links to areas that are outside the home directories."
+msgstr "ホームディレクトリ以外の領域へのシンボリックリンクを許可する。"
+
+msgid "Allow symbolic links to areas that are outside the share."
+msgstr ""
+
+msgid ""
+"Allow this server to advertise itself as a time server to Windows clients."
+msgstr "このサーバがWindowsクライアントへのタイムサーバとして自身を通知することを許可"
+
+msgid "Allowed clients"
+msgstr "許可するクライアント"
+
+msgid "American Samoa"
+msgstr "アメリカ領サモア"
+
+msgid ""
+"An attempt to send the test email has been made. Please check your mailbox. "
+"If the email does not arrive, check any spam folders and also check there "
+"are no Postfix related errors in the system log."
+msgstr "テストメールを送信しました。 メールボックスを確認してください。 電子メールが届かない場合は、スパムフォルダーを確認し、システムログにPostfix関連のエラーがないことを確認してください。"
+
+msgid ""
+"An email message with the command output (if any produced) is sent to the "
+"administrator."
+msgstr ""
+
+msgid ""
+"An email message with the command output (if any produced) is sent to the "
+"user who performs the job."
+msgstr ""
+
+msgid "Andorra"
+msgstr "アンドラ"
+
+msgid "Angola"
+msgstr "アンゴラ"
+
+msgid "Anguilla"
+msgstr "アンギラ"
+
+msgid "Antarctica"
+msgstr "南極大陸"
+
+msgid "Antigua and Barbuda"
+msgstr "アンチグアバーブーダ"
+
+msgid "Applied the configuration changes."
+msgstr "設定の変更を適用しました。"
+
+msgid "Apply"
+msgstr "適用"
+
+msgid "Apply permissions to files and subfolders."
+msgstr "ファイルやサブフォルダにパーミッションを適用します。"
+
+msgid "April"
+msgstr "4月"
+
+msgid "Architecture"
+msgstr "アーキテクチャー"
+
+msgid "Archive mode"
+msgstr "アーカイブモード"
+
+msgid "Argentina"
+msgstr "アルゼンチン"
+
+msgid "Armenia"
+msgstr "アルメニア"
+
+msgid "Aruba"
+msgstr "アルバ"
+
+msgid "Asynchronous I/O"
+msgstr "非同期I/O"
+
+msgid "At least four devices are required."
+msgstr "少なくとも4つのデバイスが必要です。"
+
+msgid "At least one device is required."
+msgstr "最低1台は必要です。"
+
+msgid "At least one network interface is required."
+msgstr "少なくとも1つのネットワークインターフェイスが必要です。"
+
+msgid "At least two devices are required."
+msgstr "少なくとも2つのデバイスが必要です。"
+
+msgid "At reboot"
+msgstr "再起動時に"
+
+msgid "Attach"
+msgstr "添付"
+
+msgid "Attributes"
+msgstr "属性"
+
+msgid "Audit file operations"
+msgstr "ファイル操作の監査"
+
+msgid "August"
+msgstr "8月"
+
+msgid "Australia"
+msgstr "オーストラリア"
+
+msgid "Austria"
+msgstr "オーストリア"
+
+msgid "Authenticate users"
+msgstr "ユーザー認証"
+
+msgid "Authentication"
+msgstr "認証"
+
+msgid "Authentication required"
+msgstr "認証の要求"
+
+msgid "Automatic"
+msgstr "自動"
+
+msgid "Automatic logout"
+msgstr "自動ログアウト"
+
+msgid "Available"
+msgstr "利用可能"
+
+msgid "Azerbaijan"
+msgstr "アゼルバイジャン"
+
+msgid "B/G (2.4 GHz)"
+msgstr "B/G (2.4 GHz)"
+
+msgid "Back"
+msgstr "戻る"
+
+msgid "Background image"
+msgstr ""
+
+msgid "Background task"
+msgstr "バックグラウンドタスク"
+
+msgid "Bad"
+msgstr "悪い"
+
+msgid "Bahamas"
+msgstr "な浜"
+
+msgid "Bahrain"
+msgstr "バーレーン"
+
+msgid "Band"
+msgstr "Band"
+
+msgid "Bangladesh"
+msgstr "バングラディシュ"
+
+msgid "Barbados"
+msgstr "バルバドス"
+
+msgid "Base path"
+msgstr "ベースパス"
+
+msgid "Belarus"
+msgstr "ベラルーシ"
+
+msgid "Belgium"
+msgstr "ベルギー"
+
+msgid "Belize"
+msgstr "ベリーズ"
+
+msgid "Benin"
+msgstr "ベナン"
+
+msgid "Bermuda"
+msgstr "バミューダ諸島"
+
+msgid "Bhutan"
+msgstr "ブータン"
+
+msgid "Block layer cache [%s, %s]"
+msgstr "ブロックレイヤキャッシュ [%s, %s]"
+
+msgid "Bolivia"
+msgstr "ボリビア"
+
+msgid "Bond"
+msgstr "ボンディング"
+
+msgid "Boot"
+msgstr "Boot"
+
+msgid "Bosnia and Herzegovina"
+msgstr "ボスニア·ヘルツェゴビナ"
+
+msgid "Botswana"
+msgstr "ボツワナ"
+
+msgid "Bouvet Island"
+msgstr "ブーベ島"
+
+msgid "Brazil"
+msgstr "ブラジル"
+
+msgid "Bridge"
+msgstr "ブリッジ"
+
+msgid "British Antarctic Territory"
+msgstr "イギリス領南極地域"
+
+msgid "British Indian Ocean Territory"
+msgstr "イギリス領インド洋地域"
+
+msgid "British Virgin Islands"
+msgstr "イギリス領ヴァージン諸島"
+
+msgid "Browse directory"
+msgstr "ディレクトリを参照"
+
+msgid "Browseable"
+msgstr "参照可能"
+
+msgid "Brunei"
+msgstr "ブルネイ"
+
+msgid "Bulgaria"
+msgstr "ブルガリア"
+
+msgid "Burkina Faso"
+msgstr "ブルキナファソ"
+
+msgid "Burundi"
+msgstr "ブルンジ"
+
+msgid "COMMAND"
+msgstr "COMMAND"
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "CPU Usage"
+msgstr "CPU使用率"
+
+msgid "CPU Utilization"
+msgstr "CPU 使用率"
+
+msgid "CPU frequency scaling"
+msgstr ""
+
+msgid "Cambodia"
+msgstr "カンボジア"
+
+msgid "Cameroon"
+msgstr "カメルーン"
+
+msgid "Canada"
+msgstr "カナダ"
+
+msgid "Cancel"
+msgstr "キャンセル"
+
+msgid "Canton and Enderbury Islands"
+msgstr "カントン島・エンダーバリ島"
+
+msgid "Capacity"
+msgstr "容量"
+
+msgid "Cape Verde"
+msgstr "カーボベルデ"
+
+msgid "Cayman Islands"
+msgstr "ケイマン諸島"
+
+msgid "Central African Republic"
+msgstr "中央アフリカ共和国"
+
+msgid "Certain date"
+msgstr "特定の日時"
+
+msgid "Certificate"
+msgstr "証明書"
+
+msgid "Certificate management."
+msgstr "証明書の管理。"
+
+msgid "Certificates"
+msgstr "証明書"
+
+msgid "Chad"
+msgstr "チャド"
+
+msgid "Change Password"
+msgstr "パスワードの変更"
+
+msgid "Changelog"
+msgstr "Changelog"
+
+msgid "Check for new plugins"
+msgstr "新しいプラグインの確認"
+
+msgid "Check for new updates"
+msgstr "新しいアップデートの確認"
+
+msgid "Check interval"
+msgstr "インターバルのチェック"
+
+msgid "Checking for new plugins ..."
+msgstr "新しいプラグインを確認しています ..."
+
+msgid "Chile"
+msgstr "チリ"
+
+msgid "China"
+msgstr "中国"
+
+msgid "Choose"
+msgstr "選択"
+
+msgid "Christmas Island"
+msgstr "クリスマス島"
+
+msgid "City"
+msgstr "市"
+
+msgid "Cleaning up recycle bin on the share."
+msgstr "共有のごみ箱をクリーンアップします。"
+
+msgid "Clear"
+msgstr "クリア"
+
+msgid "Client"
+msgstr "クライアント"
+
+msgid "Client NetBIOS name"
+msgstr "クライアントNetBIOS名"
+
+msgid "Client address"
+msgstr "クライアントアドレス"
+
+msgid "Close"
+msgstr "閉じる"
+
+msgid "Close the session on inactivity after the specified time."
+msgstr "指定された時間後に非アクティブだった場合、セッションを終了します。"
+
+msgid "Cocos (Keeling) Islands"
+msgstr "ココス（キーリング）諸島"
+
+msgid "Colombia"
+msgstr "コロンビア"
+
+msgid "Command"
+msgstr "コマンド"
+
+msgid "Comment"
+msgstr "コメント"
+
+msgid "Common Name"
+msgstr "コモンネーム"
+
+msgid "Community-maintained updates"
+msgstr "コミュニティーによるメンテナンスアップデート"
+
+msgid "Comoros"
+msgstr "コモロ"
+
+msgid "Compress"
+msgstr "圧縮"
+
+msgid "Compress file data during the transfer."
+msgstr "転送中にファイルデータを圧縮します。"
+
+msgid "Compression"
+msgstr "圧縮"
+
+msgid ""
+"Compression is worth using if your connection is slow. The efficiency of the"
+" compression depends on the type of the file, and varies widely. Useful for "
+"internet transfer only."
+msgstr "圧縮は、接続が遅い場合は使用する価値があります。圧縮率はファイルの種類に依存し、大きく異なります。インターネット経由の転送時に使用することをお勧めします。"
+
+msgid "Confirm"
+msgstr "確認"
+
+msgid "Confirm password"
+msgstr "パスワードの確認"
+
+msgid "Confirmation"
+msgstr "確認"
+
+msgid "Congo (Brazzaville)"
+msgstr "コンゴ（ブラザビル）"
+
+msgid "Congo (Kinshasa)"
+msgstr "コンゴ（キンシャサ）"
+
+msgid "Connect even if the network is not broadcasting its SSID name."
+msgstr "ネットワークがSSID名を公開していない場合でも接続します。"
+
+msgid "Connect to hidden network"
+msgstr "非公開ネットワークへの接続"
+
+msgid "Connections"
+msgstr "接続"
+
+msgid "Control and monitor storage systems using S.M.A.R.T."
+msgstr "S.M.A.R.T.によるストレージシステムの制御と監視。"
+
+msgid "Conveyance self-test"
+msgstr "コンベイアンスセルフテスト"
+
+msgid "Cook Islands"
+msgstr "クック諸島"
+
+msgid "Copied SSH certificate to {{ hostname }}."
+msgstr "SSH証明書を {{ hostname }} にコピーしました。"
+
+msgid "Copy"
+msgstr "コピー"
+
+msgid "Copy permissions"
+msgstr "パーミッションのコピー"
+
+msgid "Copy to clipboard"
+msgstr "クリップボードへコピー"
+
+msgid "Costa Rica"
+msgstr "コスタリカ"
+
+msgid "Country"
+msgstr "国"
+
+msgid "Create"
+msgstr "作成"
+
+msgid "Create and mount a file system."
+msgstr "ファイルシステムを作成し、マウントします。"
+
+msgid "Create file system"
+msgstr "ファイルシステムの作成"
+
+msgid "Create | Import"
+msgstr "作成 | インポート"
+
+msgid "Created NFS share."
+msgstr "NFS共有を作成しました。"
+
+msgid "Created Rsync server module \"{{ name }}\"."
+msgstr "Rsyncサーバーモジュール \"{{name}}\" を作成しました。"
+
+msgid "Created Rsync task."
+msgstr "Rsyncタスクを作成しました。"
+
+msgid "Created SMB/CIFS share."
+msgstr "SMB/CIFS 共有を作成しました。"
+
+msgid "Created SSH certificate."
+msgstr "SSH 証明書を作成しました。"
+
+msgid "Created SSL certificate."
+msgstr "SSL  証明書を作成しました。"
+
+msgid "Created VLAN network connection."
+msgstr "VLANネットワーク接続を作成しました。"
+
+msgid "Created bond network connection."
+msgstr "bondネットワーク接続を作成しました。"
+
+msgid "Created bridge network connection."
+msgstr "ブリッジネットワーク接続を作成しました。"
+
+msgid "Created firewall rule."
+msgstr "ファイアーウォールルールを作成しました。"
+
+msgid "Created group \"{{ name }}\"."
+msgstr "グループ \"{{ name }}\" を作成しました。"
+
+msgid "Created scheduled task."
+msgstr "スケジュールされたタスクを作成しました。"
+
+msgid "Created user \"{{ name }}\"."
+msgstr "ユーザー \"{{ name }}\" を作成しました。"
+
+msgid "Created wired network connection."
+msgstr "有線ネットワーク接続を作成しました。"
+
+msgid "Created wireless network connection."
+msgstr "無線ネットワーク接続を作成しました。"
+
+msgid "Creating"
+msgstr "作成中"
+
+msgid "Creation Time"
+msgstr "作成時間"
+
+msgid "Croatia"
+msgstr "クロアチア"
+
+msgid "Cuba"
+msgstr "キューバ"
+
+msgid "Currently logged in users"
+msgstr "現在のログインユーザー"
+
+msgid "Cyprus"
+msgstr "キプロス"
+
+msgid "Czech Republic"
+msgstr "チェコ"
+
+msgid "DHCP"
+msgstr "DHCP"
+
+msgid "DNS servers"
+msgstr "DNSサーバー"
+
+msgid "Daemon"
+msgstr "デーモン"
+
+msgid "Daily"
+msgstr "毎日"
+
+msgid "Dark mode"
+msgstr "ダークモード"
+
+msgid "Dashboard"
+msgstr "ダッシュボード"
+
+msgid "Database record not found."
+msgstr "データベースのレコードがありません。"
+
+msgid "Date & Time"
+msgstr "日付と時刻"
+
+msgid "Day of month"
+msgstr "月の日"
+
+msgid "Day of week"
+msgstr "曜日"
+
+msgid "Debug"
+msgstr "デバッグ"
+
+msgid "December"
+msgstr "12月"
+
+msgid "Delete"
+msgstr "削除"
+
+msgid "Delete files on the receiving side that don't exist on sender."
+msgstr "送信側に存在しないファイルは受信側で削除されます。"
+
+msgid "Denmark"
+msgstr "デンマーク"
+
+msgid "Description"
+msgstr "説明"
+
+msgid "Destination"
+msgstr "送信先"
+
+msgid ""
+"Destination address can be either a network IP address (with /mask), a IP "
+"range or a plain IP address. A \"!\" argument before the address "
+"specification inverts the sense of the address."
+msgstr "送信先アドレスは、ネットワークIPアドレス（/mask をつける）、IP範囲またはプレーンIPアドレスのいずれかになります。 '！'をアドレス指定の前に置くと、そのアドレスの意味を反転させることができます。"
+
+msgid "Destination port"
+msgstr "送信先ポート"
+
+msgid "Destination server"
+msgstr "送信先サーバ"
+
+msgid "Destination shared folder"
+msgstr "送信先共有フォルダ"
+
+msgid "Details"
+msgstr "詳細"
+
+msgid "Device"
+msgstr "デバイス"
+
+msgid "Device Information"
+msgstr "デバイス情報"
+
+msgid "Device Mapper %s [%s, %s]"
+msgstr "デバイスマッパー %s [%s, %s]"
+
+msgid "Device Symlinks"
+msgstr "デバイス シンボリックリンク"
+
+msgid "Device has a few bad sectors."
+msgstr "デバイスは、いくつかの不良セクタを持っています。"
+
+msgid "Device has many bad sectors."
+msgstr "デバイスは、たくさんの不良セクタを持っています。"
+
+msgid "Device is being used outside design parameters."
+msgstr "デバイスは、設計パラメータ外で使用されています。"
+
+msgid "Device was used outside of design parameters in the past."
+msgstr "デバイスは、過去に設計パラメータの外で使用しました。"
+
+msgid "Device(s)"
+msgstr "デバイス"
+
+msgid "Devices"
+msgstr "デバイス"
+
+msgid "Diagnostics"
+msgstr "診断"
+
+msgid "Difference"
+msgstr "差分"
+
+msgid "Direction"
+msgstr "方向"
+
+msgid "Directory does not exist."
+msgstr "ディレクトリが存在しません。"
+
+msgid "Disabled"
+msgstr "無効"
+
+msgid "Disallow account modification"
+msgstr "アカウントの変更を禁止する"
+
+msgid "Disallow the user to modify their own account."
+msgstr "ユーザーが自分のアカウントを変更することを禁止します。"
+
+msgid "Disk Temperatures"
+msgstr "ディスク温度"
+
+msgid "Disks"
+msgstr "ディスク"
+
+msgid "Dismiss"
+msgstr "取消"
+
+msgid "Dismiss all"
+msgstr "すべてを取消す"
+
+msgid "Displays information about the file systems in a grid."
+msgstr "グリッド内のファイルシステムに関する情報を表示します。"
+
+msgid "Displays information about the file systems in a table."
+msgstr "ファイルシステムに関する情報をテーブルで表示します。"
+
+msgid "Displays information about the network interfaces in a grid."
+msgstr "グリッド内のネットワークインターフェースの情報を表示します。"
+
+msgid "Displays information about the network interfaces in a table."
+msgstr "ネットワークインターフェースの情報をテーブル形式で表示します。"
+
+msgid "Displays information about the services in a grid."
+msgstr "グリッド内のサービスに関する情報を表示します。"
+
+msgid "Displays information about the services in a table."
+msgstr "サービスに関する情報をテーブルで表示します。"
+
+msgid "Displays links to help and support pages."
+msgstr "ヘルプとサポートページへのリンクを表示します。"
+
+msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
+msgstr "監視しているすべてのディスクデバイスの S.M.A.R.T. 情報を表示します。"
+
+msgid "Displays the system time."
+msgstr "システム時刻を表示します。"
+
+msgid "Displays the system uptime."
+msgstr "システムの稼働時間を表示します。"
+
+msgid "Displays the temperature of all disk devices."
+msgstr "すべてのディスクデバイスの温度を表示します。"
+
+msgid "Displays various system information."
+msgstr "各種システム情報を表示します。"
+
+msgid "Djibouti"
+msgstr "ジブチ"
+
+msgid "Do you really want to apply the configuration changes?"
+msgstr "設定の変更を適用してよろしいですか？"
+
+msgid "Do you really want to copy the permissions from the shared folder?"
+msgstr "共有フォルダのパーミッションをコピーしてよろしいですか？"
+
+msgid ""
+"Do you really want to delete the selected item(s) <strong>{{ items | "
+"join(\", \") }}</strong>?"
+msgstr "選択したアイテムを本当に削除しますか<strong>{{ items | join(\", \") }}</strong>？"
+
+msgid "Do you really want to delete the selected item(s)?"
+msgstr "選択されたアイテムを削除してもよろしいですか？"
+
+msgid "Do you really want to install the plugin?"
+msgstr "プラグインをインストールしてもよろしいですか？"
+
+msgid "Do you really want to log out?"
+msgstr ""
+
+msgid "Do you really want to put the system into standby?"
+msgstr "システムをスタンバイ状態にしてもよろしいですか？"
+
+msgid "Do you really want to reboot the system?"
+msgstr "システムを再起動してよろしいですか？"
+
+msgid "Do you really want to reset the UI settings to their default values?"
+msgstr "UI設定をデフォルト値にリセットしてもよろしいですか？"
+
+msgid ""
+"Do you really want to resize the file system? You have to do that after a "
+"RAID has been grown for example."
+msgstr "ファイルシステムをリサイズしてもよろしいですか？ RAIDの領域を拡張した後にこれを行う必要があります。"
+
+msgid "Do you really want to shutdown the system?"
+msgstr "システムをシャットダウンしてもよろしいですか？"
+
+msgid "Do you really want to undo the configuration changes?"
+msgstr "設定の変更を元に戻してもよろしいですか？"
+
+msgid "Do you really want to uninstall the plugin?"
+msgstr "プラグインをアンインストールしてもよろしいですか？"
+
+msgid ""
+"Do you really want to unmount this file system? Please make sure that the "
+"file system is not used by any service before unmounting. Note, the file "
+"system will not be deleted by this action."
+msgstr "このファイルシステムをアンマウントしますか？ アンマウントする前に、ファイルシステムがどのサービスでも使用されていないことを確認してください。 このアクションによってファイルシステムが削除されることはありません。"
+
+msgid ""
+"Do you really want to wipe the device {{ canonicaldevicefile }}? All data "
+"will be lost."
+msgstr "本当にデバイスをワイプしますか{{canonicaldevicefile}}？ すべてのデータが失われます。"
+
+msgid "Documentation"
+msgstr "ドキュメンテーション"
+
+msgid "Domain name"
+msgstr "ドメイン名"
+
+msgid "Domains used when resolving host names."
+msgstr "ホスト名を解決する際に使用するドメイン"
+
+msgid "Dominica"
+msgstr "ドミニカ"
+
+msgid "Dominican Republic"
+msgstr "ドミニカ共和国"
+
+msgid "Down"
+msgstr "下"
+
+msgid "Down delay"
+msgstr "ダウンディレイ"
+
+msgid "Download"
+msgstr "ダウンロード"
+
+msgid "Dronning Maud Land"
+msgstr "ドローニング・モード・ランド"
+
+msgid "Each line represents a group."
+msgstr "各行は1つのグループを表します。"
+
+msgid ""
+"Each line represents a user. Note, the password must be entered in plain "
+"text."
+msgstr "各行は1ユーザーを表します。 注意:パスワードはプレーンテキストで入力する必要があります。"
+
+msgid "East Timor"
+msgstr "東ティモール"
+
+msgid "Ecuador"
+msgstr "エクアドル"
+
+msgid "Edit"
+msgstr "編集"
+
+msgid "Egypt"
+msgstr "エジプト"
+
+msgid "El Salvador"
+msgstr "エルサルバドル"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Empty now"
+msgstr "今すぐ空にする"
+
+msgid ""
+"Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU "
+"performance based on system load. The CPU frequency governor determines how "
+"the CPU frequency is adjusted.<ul><li>schedutil - Balances performance and "
+"power efficiency by adjusting CPU frequency based on scheduler utilization. "
+"Recommended for most users as it provides good performance while saving "
+"energy when the system is idle.</li><li>powersave - Keeps the CPU running at"
+" minimum frequency at all times to maximize energy savings. Use this when "
+"power consumption is the primary concern and performance is not "
+"critical.</li><li>performance - Keeps the CPU running at maximum frequency "
+"at all times. Use this when you need consistent peak performance and power "
+"consumption is not a concern.</li></ul>"
+msgstr ""
+
+msgid "Enable NetBIOS"
+msgstr "NetBIOSを有効化"
+
+msgid "Enable Time Machine support for this share."
+msgstr "この共有でTime Machineサポートを有効にします。"
+
+msgid "Enable WINS server"
+msgstr "WINSサーバーを有効化"
+
+msgid "Enable automatic snapshot clean up."
+msgstr "スナップショットの自動クリーンアップを有効にする。"
+
+msgid "Enable keyboard-interactive authentication."
+msgstr "キーボードインタラクティブ認証を有効化します。"
+
+msgid "Enable public key authentication."
+msgstr "公開鍵認証を有効化します。"
+
+msgid "Enable recycle bin"
+msgstr "ごみ箱を有効化"
+
+msgid "Enable remote logging of syslog to the specified host."
+msgstr "指定されたホストへのsyslogリモートロギングを有効にします。"
+
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr "部分的に転送されたファイルを保持する場合はこのオプションを有効にします。それ以外の場合は転送が中断された場合、ファイルは削除されます。"
+
+msgid "Enable user home directories."
+msgstr "ユーザーホームディレクトリを有効にします。"
+
+msgid "Enable write-cache"
+msgstr "ライトキャッシュを有効化"
+
+msgid "Enabled"
+msgstr "有効"
+
+msgid "Enabled widgets"
+msgstr "ウィジェットを有効化"
+
+msgid "Encryption mode"
+msgstr "暗号化モード"
+
+msgid ""
+"Enforce transport encryption for this share. Clients that do not support "
+"encryption will be denied access to the share."
+msgstr "この共有のトランスポート暗号化を強制します。 暗号化に対応していないクライアントは、共有へのアクセスを拒否されます。"
+
+msgid "Equatorial Guinea"
+msgstr "赤道ギニア"
+
+msgid "Eritrea"
+msgstr "エリトリア"
+
+msgid "Error"
+msgstr "エラー"
+
+msgid "Estonia"
+msgstr "エストニア"
+
+msgid "Ethernet"
+msgstr "イーサネット"
+
+msgid "Ethiopia"
+msgstr "エチオピア"
+
+msgid "Events"
+msgstr "イベント"
+
+msgid "Every N day of month"
+msgstr "毎月N日"
+
+msgid "Every N hour"
+msgstr "毎N時"
+
+msgid "Every N minute"
+msgstr "毎N分"
+
+msgid "Everyone: read/write"
+msgstr "みんな:読み/書き"
+
+msgid "Execute only"
+msgstr "実行のみ"
+
+msgid "Extended Information"
+msgstr "拡張情報"
+
+msgid "Extended attributes"
+msgstr "拡張属性"
+
+msgid "Extra options"
+msgstr "追加オプション"
+
+msgid "FTP-Proxy"
+msgstr "FTP-プロキシ"
+
+msgid "Failed"
+msgstr "失敗"
+
+msgid "Failed to copy data to the clipboard."
+msgstr "データをクリップボードにコピーできませんでした。"
+
+msgid "Failed to start session."
+msgstr ""
+
+msgid "Failed to write session data."
+msgstr ""
+
+msgid "Falkland Islands"
+msgstr "フォークランド諸島"
+
+msgid "Family"
+msgstr "ファミリ"
+
+msgid "Faroe Islands"
+msgstr "フェロー諸島"
+
+msgid "Fatal error"
+msgstr "致命的なエラー"
+
+msgid "February"
+msgstr "2月"
+
+msgid "Fiji"
+msgstr "フィジー"
+
+msgid "File System Usage"
+msgstr "ファイルシステム使用率"
+
+msgid "File Systems"
+msgstr "ファイルシステム"
+
+msgid "File access control lists"
+msgstr ""
+
+msgid "File owner and group"
+msgstr ""
+
+msgid "File path"
+msgstr "ファイルのパス"
+
+msgid "File system"
+msgstr "ファイルシステム"
+
+msgid "Filename"
+msgstr "ファイル名"
+
+msgid ""
+"Files in the recycle bin will be deleted automatically after the specified "
+"number of days. Set to 0 for manual deletion."
+msgstr "ごみ箱内のファイルは、指定した日数後に自動的に削除されます。手動で削除する場合は0に設定します。"
+
+msgid ""
+"Files that are larger than the specified number will not be put into the "
+"recycle bin."
+msgstr "指定された数よりも大きいファイルは、ごみ箱に入れられません。"
+
+msgid "Filesystem is being created."
+msgstr ""
+
+msgid "Filesystem is detected."
+msgstr ""
+
+msgid "Filesystem is missing."
+msgstr ""
+
+msgid "Fingerprint (SHA-1)"
+msgstr "フィンガープリント（SHA-1）"
+
+msgid "Fingerprint (SHA-256)"
+msgstr "フィンガープリント（SHA-256）"
+
+msgid "Finland"
+msgstr "フィンランド"
+
+msgid "Firewall"
+msgstr "ファイアウォール"
+
+msgid "Firmware version"
+msgstr "ファームウェアのバージョン"
+
+msgid "Flags"
+msgstr "フラグ"
+
+msgid "Follow symlinks"
+msgstr ""
+
+msgid "Force SSL/TLS"
+msgstr "Force SSL/TLS"
+
+msgid "Force a specific MAC address on this interface."
+msgstr ""
+
+msgid "Force secure connection only."
+msgstr "セキュアコネクションを強制します。"
+
+msgid "Forum"
+msgstr "フォーラム"
+
+msgid "Framework for Multicast DNS Service Discovery."
+msgstr "マルチキャストDNSサービス検出のためのフレームワーク。"
+
+msgid "France"
+msgstr "フランス"
+
+msgid "Free"
+msgstr "空き"
+
+msgid "French Guiana"
+msgstr "フランス領ギアナ"
+
+msgid "French Polynesia"
+msgstr "フランス領ポリネシア"
+
+msgid "French Southern Territories"
+msgstr "フランス領極南諸島"
+
+msgid "French Southern and Antarctic Territories"
+msgstr "フランス領南方・南極地域"
+
+msgid "Friday"
+msgstr "金曜"
+
+msgid "Full"
+msgstr "フル"
+
+msgid "GID"
+msgstr "GID"
+
+msgid "Gabon"
+msgstr "ガボン"
+
+msgid "Gambia"
+msgstr "ガンビア"
+
+msgid "Gateway"
+msgstr "ゲートウェイ"
+
+msgid "General"
+msgstr "一般"
+
+msgid "Georgia"
+msgstr "グルジア"
+
+msgid "Germany"
+msgstr "ドイツ"
+
+msgid "Ghana"
+msgstr "ガーナ"
+
+msgid "Gibraltar"
+msgstr "ジブラルタル"
+
+msgid "Good"
+msgstr "良い"
+
+msgid "Greece"
+msgstr "ギリシャ"
+
+msgid "Greenland"
+msgstr "グリーンランド"
+
+msgid "Grenada"
+msgstr "グレナダ"
+
+msgid "Group"
+msgstr "グループ"
+
+msgid "Groups"
+msgstr "グループ"
+
+msgid "Grow"
+msgstr "Grow"
+
+msgid "Guadeloupe"
+msgstr "グアドループ"
+
+msgid "Guam"
+msgstr "グアム"
+
+msgid "Guatemala"
+msgstr "グアテマラ"
+
+msgid "Guests allowed"
+msgstr "ゲストに許可"
+
+msgid "Guests only"
+msgstr "ゲストオンリー"
+
+msgid "Guinea"
+msgstr "ギニア"
+
+msgid "Guinea-Bissau"
+msgstr "ギニアビサウ"
+
+msgid "Guyana"
+msgstr "ガイアナ"
+
+msgid "HTTP-Proxy"
+msgstr "HTTP-プロキシ"
+
+msgid "HTTPS-Proxy"
+msgstr "HTTPS-プロキシ"
+
+msgid "Haiti"
+msgstr "ハイチ"
+
+msgid "Hardware Address"
+msgstr "ハードウェアのアドレス"
+
+msgid "Heard Island and McDonald Islands"
+msgstr "ハード島とマクドナルド諸島"
+
+msgid "Help"
+msgstr "ヘルプ"
+
+msgid "Hibernate"
+msgstr "ハイバーネート"
+
+msgid "Hide"
+msgstr "隠す"
+
+msgid "Hide dot files"
+msgstr "ドットで始まるファイルを隠す"
+
+msgid "High-performance mail transport agent."
+msgstr "高性能なメール転送エージェント。"
+
+msgid "Home"
+msgstr "ホーム"
+
+msgid "Home directories"
+msgstr "ホームディレクトリ"
+
+msgid "Homepage"
+msgstr "ホームページ"
+
+msgid "Honduras"
+msgstr "ホンジュラス"
+
+msgid "Hong Kong S.A.R., China"
+msgstr "香港"
+
+msgid "Host"
+msgstr "ホスト"
+
+msgid "Hostname"
+msgstr "ホスト名"
+
+msgid "Hosts allow"
+msgstr "許可するホスト"
+
+msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr ""
+
+msgid "Hosts deny"
+msgstr "拒否するホスト"
+
+msgid "Hot-Pluggable"
+msgstr ""
+
+msgid "Hour"
+msgstr "時"
+
+msgid "Hourly"
+msgstr "毎時"
+
+msgid "Hungary"
+msgstr "ハンガリー"
+
+msgid "Hybrid sleep"
+msgstr "ハイブリッドスリープ"
+
+msgid "ID"
+msgstr "ID"
+
+msgid ""
+"IP addresses in CIDR notation or host names of clients that are allowed to "
+"access the NTP server."
+msgstr "NTPサーバーへのアクセスが許可されている、CIDR表記のIPアドレス、またはクライアントのホスト名。"
+
+msgid "IP addresses of domain name servers used to resolve host names."
+msgstr "ドメインネームサーバのIPアドレスがホスト名を解決するために使用されます。"
+
+msgid "IPv4"
+msgstr "IPv4"
+
+msgid "IPv6"
+msgstr "IPv6"
+
+msgid "Iceland"
+msgstr "アイスランド"
+
+msgid "Identify"
+msgstr "識別"
+
+msgid "Identify As"
+msgstr "証明"
+
+msgid "Identify network interface"
+msgstr "ネットワークインターフェイスを特定する"
+
+msgid "Idle"
+msgstr "Idle"
+
+msgid ""
+"If 'Guests allowed' is selected and no login credential is provided, then "
+"access as guest. Always access as guest when 'Guests only' is selecting; in "
+"this case no password is required to connect to the share."
+msgstr "'ゲスト許可'が選択されていて、ログイン資格情報が提供されていない場合は、ゲストとしてアクセスします。 'ゲストのみ'が選択されている場合は、常にゲストとしてアクセスします。 この場合、共有に接続するためにパスワードは必要ありません。"
+
+msgid ""
+"If a device is not listed here, it is usually because the device already "
+"contains a file system or partitions. With the former, the file system can "
+"be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, "
+"please <a href='#/storage/disks'>wipe</a> the device as partitions are not "
+"supported."
+msgstr ""
+
+msgid ""
+"If set then the client will be prompted to supply a user name and password "
+"to connect to the module."
+msgstr "設定されている場合、クライアントはモジュールに接続するためのユーザー名とパスワードを入力するように求められます。"
+
+msgid ""
+"If this option is set, the daemon will chroot to the shared folder path "
+"before starting the file transfer with the client. Then it is not possible "
+"to map users and groups by name and the daemon is not being able to follow "
+"symbolic links that are either absolute or outside of the new root path."
+msgstr "このオプションを設定すると、デーモンはクライアントとのファイル転送を開始する前に、共有フォルダのパスにchrootします。その場合、ユーザーとグループを名前でマップすることはできませんし、デーモンは絶対パスまたは新しいルートパスの外側にあるシンボリックリンクをたどることはできません。"
+
+msgid "If this option is set, then any attempted downloads will fail."
+msgstr "このオプションを設定すると、すべてのダウンロードの試みは失敗します。"
+
+msgid "If this option is set, then any attempted uploads will fail."
+msgstr "このオプションを設定すると、すべてのアップロードの試みは失敗します。"
+
+msgid ""
+"If this parameter is set, Samba attempts to first read DOS attributes "
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
+"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
+"DOS attributes will be stored onto an extended attribute in the UNIX file "
+"system, associated with the file or directory."
+msgstr "このパラメータを設定すると、SambaはDOSの属性をUNIXのパーミッションにマップする前に、最初にファイルシステムの拡張属性からDOSの属性(SYSTEM, HIDDEN, ARCHIVE または READ-ONLY)を読み込みます。設定されたとき、DOS属性はファイルまたはディレクトリに関連したUNIXファイルシステムの拡張属性に保存されます。"
+
+msgid ""
+"If this parameter is set, then users may not create or modify files in the "
+"share."
+msgstr "このパラメータを設定すると共有内のファイルを作成または変更することができません。"
+
+msgid "Import"
+msgstr "インポート"
+
+msgid "Imported SSH certificate."
+msgstr "SSH証明書のインポート。"
+
+msgid "Imported SSL certificate."
+msgstr "SSL証明書のインポート。"
+
+msgid "Imported groups."
+msgstr "グループのインポート。"
+
+msgid "Imported users."
+msgstr "ユーザーのインポート。"
+
+msgid "India"
+msgstr "インド"
+
+msgid "Indicates whether updates are available."
+msgstr "アップデートが可能かどうかを表示します。"
+
+msgid "Indonesia"
+msgstr "インドネシア"
+
+msgid "Information"
+msgstr "情報"
+
+msgid "Inherit ACLs"
+msgstr "ACLを継承"
+
+msgid "Inherit permissions"
+msgstr "パーミッションを継承"
+
+msgid "Install"
+msgstr "インストール"
+
+msgid "Install plugin"
+msgstr "プラグインのインストール"
+
+msgid "Install public key to remote machine"
+msgstr ""
+
+msgid "Install security updates unattended."
+msgstr ""
+
+msgid "Install updates"
+msgstr "アップデートのインストール"
+
+msgid "Install updates from"
+msgstr "アップデートのインストール方法"
+
+msgid "Installed"
+msgstr "インストール済み"
+
+msgid ""
+"Installs the public SSH key on a remote system as an authorized key. Make "
+"sure password authentication is enabled on that remote system."
+msgstr "公開鍵をリモートシステムにインストールします。 リモートシステムでパスワード認証が有効になっていることを確認してください。"
+
+msgid "Interfaces"
+msgstr "インタフェース"
+
+msgid "Invalid IP address."
+msgstr "不正なIPアドレスです。"
+
+msgid "Invalid NetBIOS name."
+msgstr "NetBIOS名が無効です。"
+
+msgid "Invalid PGP public key."
+msgstr "無効なPGP公開鍵です。"
+
+msgid "Invalid SSH public key (OpenSSH format)."
+msgstr "無効なSSH公開鍵 (OpenSSH形式)"
+
+msgid "Invalid SSH public key (OpenSSH or RFC 4716 format)"
+msgstr "無効なSSH公開鍵 (OpenSSHまたはRFC 4716形式)"
+
+msgid "Invalid SSH public key (RFC 4716 format)."
+msgstr "無効なSSH公開鍵 (RFC 4716形式)"
+
+msgid "Invalid User-Agent."
+msgstr "不正なUser-Agentです。"
+
+msgid "Invalid domain name."
+msgstr "ドメイン名が不正です。"
+
+msgid "Invalid group name."
+msgstr "グループ名が不正です。"
+
+msgid "Invalid host name."
+msgstr "ホスト名が不正です。"
+
+msgid "Invalid user name."
+msgstr "ユーザー名が不正です。"
+
+msgid "Invalid user."
+msgstr "不正なユーザーです。"
+
+msgid "Iran"
+msgstr "イラン"
+
+msgid "Iraq"
+msgstr "イラク"
+
+msgid "Ireland"
+msgstr "アイルランド"
+
+msgid "Israel"
+msgstr "イスラエル"
+
+msgid ""
+"It may take a while to detect the new devices, thus it might be necessary to"
+" reload the table several times. Do you want to proceed?"
+msgstr "新しいデバイスの検出には時間がかかる場合があるため、テーブルを数回リロードする必要がある場合があります。 続行しますか？"
+
+msgid "Italy"
+msgstr "イタリア"
+
+msgid "Ivory Coast"
+msgstr "コートジボワール"
+
+msgid "Jamaica"
+msgstr "ジャマイカ"
+
+msgid "January"
+msgstr "1月"
+
+msgid "Japan"
+msgstr "日本"
+
+msgid "Johnston Island"
+msgstr "ジョンストン島"
+
+msgid "Jordan"
+msgstr "ヨルダン"
+
+msgid "July"
+msgstr "7月"
+
+msgid "June"
+msgstr "6月"
+
+msgid "Kazakhstan"
+msgstr "カザフスタン"
+
+msgid "Keep partially transferred files"
+msgstr "部分的に転送されたファイルを保持する"
+
+msgid "Kenya"
+msgstr "ケニヤ"
+
+msgid "Kernel"
+msgstr "カーネル"
+
+msgid "Key size"
+msgstr "キーサイズ"
+
+msgid "Kiribati"
+msgstr "キリバス"
+
+msgid "Kuwait"
+msgstr "クウェート"
+
+msgid "Kyrgyzstan"
+msgstr "キルギスタン"
+
+msgid "LBA of first error"
+msgstr "LBA of first error"
+
+msgid "LVM logical volume %s [%s, %s]"
+msgstr "LVM 論理ボリューム %s [%s, %s]"
+
+msgid "Label"
+msgstr "ラベル"
+
+msgid "Language"
+msgstr "言語"
+
+msgid "Laos"
+msgstr "ラオス"
+
+msgid "Latvia"
+msgstr "ラトビア"
+
+msgid "Lebanon"
+msgstr "レバノン"
+
+msgid ""
+"Length of time in seconds to blink one or more LEDs on the specific ethernet"
+" port."
+msgstr "特定のイーサネットポート上の1つまたは複数のLEDを点滅させる秒単位の時間の長さ。"
+
+msgid "Lesotho"
+msgstr "レソト"
+
+msgid "Liberia"
+msgstr "リベリア"
+
+msgid "Libya"
+msgstr "リビア"
+
+msgid "Liechtenstein"
+msgstr "リヒテンシュタイン"
+
+msgid "Lifetime"
+msgstr "ライフタイム"
+
+msgid "Limit custom"
+msgstr "カスタムリミット"
+
+msgid "Limit daily"
+msgstr "1日間のリミット"
+
+msgid "Limit hourly"
+msgstr "1時間のリミット"
+
+msgid "Limit monthly"
+msgstr "1月間のリミット"
+
+msgid ""
+"Limit the reported disk size, thus preventing Time Machine from using the "
+"whole real disk space for backup."
+msgstr ""
+
+msgid "Limit weekly"
+msgstr "1週間のリミット"
+
+msgid "Limit yearly"
+msgstr "1年間のリミット"
+
+msgid "Link"
+msgstr "リンク"
+
+msgid "List module"
+msgstr "モジュールのリスト"
+
+msgid "Lithuania"
+msgstr "リトアニア"
+
+msgid "Load Average"
+msgstr "ロードアベレージ"
+
+msgid "Loading ..."
+msgstr "読み込み中 ..."
+
+msgid "Local"
+msgstr "ローカル"
+
+msgid "Location"
+msgstr "ロケーション"
+
+msgid "Log in"
+msgstr "ログイン"
+
+msgid "Log level"
+msgstr "ログレベル"
+
+msgid "Log out"
+msgstr ""
+
+msgid "Logged in as <strong>{{ username }}</strong>"
+msgstr ""
+
+msgid "Logout"
+msgstr "ログアウト"
+
+msgid "Logs"
+msgstr "ログ"
+
+msgid "Long self-test"
+msgstr "ロングセルフテスト"
+
+msgid "Loop device [%s, %s]"
+msgstr "Loop デバイス [%s, %s]"
+
+msgid "Luxembourg"
+msgstr "ルクセンブルク"
+
+msgid "MAC"
+msgstr "MAC"
+
+msgid "MAC address"
+msgstr "MACアドレス"
+
+msgid "MII monitoring frequency"
+msgstr "MII モニタリング頻度"
+
+msgid "MTU"
+msgstr "MTU"
+
+msgid "Macao S.A.R., China"
+msgstr "マカオ"
+
+msgid "Macedonia"
+msgstr "マケドニア"
+
+msgid "Madagascar"
+msgstr "マダガスカル"
+
+msgid "Maintainer"
+msgstr "メンテナ"
+
+msgid "Make sure that the guest user <em>nobody</em> can access the files."
+msgstr "ゲストユーザーである<em>nobody</em>がファイルにアクセスできることを確認します。"
+
+msgid "Malawi"
+msgstr "マラウイ"
+
+msgid "Malaysia"
+msgstr "マレーシア"
+
+msgid "Maldives"
+msgstr "モルディブ"
+
+msgid "Mali"
+msgstr "マリ"
+
+msgid "Malta"
+msgstr "マルタ"
+
+msgid "Management of CPU frequency scaling."
+msgstr ""
+
+msgid "Management of scheduled tasks."
+msgstr "スケジュールされたタスクの管理。"
+
+msgid "Management of the file systems to be mounted."
+msgstr "マウントするファイルシステムの管理。"
+
+msgid "March"
+msgstr "3月"
+
+msgid "Marshall Islands"
+msgstr "マーシャル諸島"
+
+msgid "Martinique"
+msgstr "マルティニーク島"
+
+msgid ""
+"Match if the destination port is one of the given ports, e.g. 21 or !443 or "
+"1024-65535."
+msgstr "宛先ポートが指定されたポートのうちのいずれかであれば一致しています。 例：21 または !443 または 1024-65535"
+
+msgid ""
+"Match if the source port is one of the given ports, e.g. 21 or !443 or "
+"1024-65535."
+msgstr "送信先ポートが指定されたポートのうちのいずれかであれば一致しています。 例：21 または !443 または 1024-65535"
+
+msgid "Mauritania"
+msgstr "モーリタニア"
+
+msgid "Mauritius"
+msgstr "モーリシャス"
+
+msgid "Max. connections"
+msgstr "最大コネクション"
+
+msgid "Maximum"
+msgstr "最大"
+
+msgid "Maximum disk size"
+msgstr "最大ディスクサイズ"
+
+msgid "Maximum file size"
+msgstr "最大ファイルサイズ"
+
+msgid "Maximum performance, maximum acoustic output"
+msgstr "最大のパフォーマンス、最大音響出力"
+
+msgid "May"
+msgstr "5月"
+
+msgid "Mayotte"
+msgstr "マヨット島"
+
+msgid "Members"
+msgstr "メンバー"
+
+msgid "Memory"
+msgstr "メモリ"
+
+msgid "Memory Usage"
+msgstr "メモリ使用量"
+
+msgid "Message"
+msgstr "メッセージ"
+
+msgid "Messages"
+msgstr "メッセージ"
+
+msgid "Method"
+msgstr "メソッド"
+
+msgid "Metric"
+msgstr "メトリック"
+
+msgid "Metropolitan France"
+msgstr "フランス・メトロポリテーヌ"
+
+msgid "Mexico"
+msgstr "メキシコ"
+
+msgid "MiB Mem"
+msgstr "MiB Mem"
+
+msgid "MiB Swap"
+msgstr "MiB Swap"
+
+msgid "Micronesia"
+msgstr "ミクロネシア"
+
+msgid "Midway Islands"
+msgstr "ミッドウェー諸島"
+
+msgid "Minimum"
+msgstr "最小"
+
+msgid "Minimum performance, minimum acoustic output"
+msgstr "最低限の性能、最小の音響出力"
+
+msgid "Minimum protocol version"
+msgstr "最小プロトコルバージョン"
+
+msgid "Minute"
+msgstr "分"
+
+msgid "Miscellaneous"
+msgstr "その他"
+
+msgid "Missing"
+msgstr "欠落"
+
+msgid "Mode"
+msgstr "モード"
+
+msgid "Model"
+msgstr "モデル"
+
+msgid "Modules"
+msgstr "モジュール"
+
+msgid "Moldova"
+msgstr "モルドバ"
+
+msgid "Monaco"
+msgstr "モナコ"
+
+msgid "Monday"
+msgstr "月曜"
+
+msgid "Mongolia"
+msgstr "モンゴル"
+
+msgid "Monitored"
+msgstr "モニタ中"
+
+msgid "Monitoring"
+msgstr "モニタリング"
+
+msgid "Monitoring - CPU usage"
+msgstr "モニタリング - CPU使用率"
+
+msgid "Monitoring - File systems"
+msgstr "モニタリング - ファイルシステム"
+
+msgid "Monitoring - Load average"
+msgstr "モニタリング - ロードアベレージ"
+
+msgid "Monitoring - Memory usage"
+msgstr "モニタリング - メモリ使用率"
+
+msgid "Monitoring - Processes"
+msgstr "モニタリング - プロセッサ"
+
+msgid "Monitoring enabled"
+msgstr "モリタリング有効"
+
+msgid "Month"
+msgstr "月"
+
+msgid "Monthly"
+msgstr "毎月"
+
+msgid "Montserrat"
+msgstr "モントセラト"
+
+msgid "Morocco"
+msgstr "モロッコ"
+
+msgid "Mount"
+msgstr "マウント"
+
+msgid "Mount Options"
+msgstr "マウントオプション"
+
+msgid "Mount Point"
+msgstr "マウントポイント"
+
+msgid "Mount an existing file system."
+msgstr "既存のファイルシステムをマウントします。"
+
+msgid "Mounted"
+msgstr "マウント済み"
+
+msgid "Mozambique"
+msgstr "モザンビーク"
+
+msgid "Myanmar"
+msgstr "ミャンマー"
+
+msgid "N/A"
+msgstr "N/A"
+
+msgid "NFS"
+msgstr "NFS"
+
+msgid "NI"
+msgstr "NI"
+
+msgid "NTP time servers, separated by comma."
+msgstr "NTPタイムサーバ、カンマ区切り"
+
+msgid "Name"
+msgstr "名前"
+
+msgid "Namibia"
+msgstr "ナミビア"
+
+msgid "Nauru"
+msgstr "ナウル"
+
+msgid "Nepal"
+msgstr "ネパール"
+
+msgid "Netherlands"
+msgstr "オランダ"
+
+msgid "Netherlands Antilles"
+msgstr "オランダ領アンティル"
+
+msgid "Netmask"
+msgstr "ネットマスク"
+
+msgid "Network"
+msgstr "ネットワーク"
+
+msgid "Network Interfaces"
+msgstr "ネットワークインタフェース"
+
+msgid "Neutral Zone"
+msgstr "ニュートラルゾーン"
+
+msgid "Never"
+msgstr "Never"
+
+msgid "New Caledonia"
+msgstr "ニューカレドニア"
+
+msgid "New Zealand"
+msgstr "ニュージーランド"
+
+msgid "New package updates are available for installation."
+msgstr "新しいパッケージのアップデートをインストールすることができます。"
+
+msgid "New password"
+msgstr "新しいパスワード"
+
+msgid "Nicaragua"
+msgstr "ニカラグア"
+
+msgid "Niger"
+msgstr "ニジェール"
+
+msgid "Nigeria"
+msgstr "ナイジェリア"
+
+msgid "Niue"
+msgstr "ニウエ"
+
+msgid "No"
+msgstr "いいえ"
+
+msgid "No access"
+msgstr "アクセスはありません"
+
+msgid "No connections"
+msgstr "接続はありません"
+
+msgid "No data to display."
+msgstr "表示するデータがありません。"
+
+msgid "No monitored devices."
+msgstr "マウントされたデバイスはありません。"
+
+msgid "No users connected"
+msgstr "ユーザーの接続はありません"
+
+msgid "None"
+msgstr "なし"
+
+msgid "Norfolk Island"
+msgstr "ノーフォーク島"
+
+msgid "Normal"
+msgstr "ノーマル"
+
+msgid "North Korea"
+msgstr "北朝鮮"
+
+msgid "North Vietnam"
+msgstr "北ベトナム"
+
+msgid "Northern Mariana Islands"
+msgstr "北マリアナ諸島連邦"
+
+msgid "Norway"
+msgstr "ノルウェー"
+
+msgid "Not ICMP"
+msgstr "Not ICMP"
+
+msgid "Not ICMPv6"
+msgstr "ICMPv6 無効"
+
+msgid "Not TCP"
+msgstr "Not TCP"
+
+msgid "Not UDP"
+msgstr "Not UDP"
+
+msgid "Not a directory."
+msgstr "ディレクトリではありません。"
+
+msgid "Not mounted"
+msgstr "マウントされていません"
+
+msgid "Not running"
+msgstr "実行されていません"
+
+msgid ""
+"Note that SMB1 is deprecated and should only be used in mandatory cases."
+msgstr ""
+
+msgid "Note, only one client can be configured per share."
+msgstr ""
+
+msgid "Nothing"
+msgstr "何もしない"
+
+msgid "Notification"
+msgstr "通知"
+
+msgid "Notification schedule"
+msgstr ""
+
+msgid "Notifications"
+msgstr "通知"
+
+msgid "November"
+msgstr "11月"
+
+msgid "Num"
+msgstr "番号"
+
+msgid "OK"
+msgstr "はい"
+
+msgid ""
+"Obsolete cached data found. Page will be reloaded. If the problem persists, "
+"press Ctrl-Shift-R or Ctrl-F5 to force a hard reload of the page."
+msgstr "古いキャッシュデータが見つかりました。ページが再読み込みされます。問題が解決しない場合は、Ctrl-Shift-RまたはCtrl-F5を押して、ページを強制的に再読み込みしてください。"
+
+msgid "October"
+msgstr "10月"
+
+msgid "Offline immediate test"
+msgstr "オフライン即時テスト"
+
+msgid "Old Version"
+msgstr "旧バージョン"
+
+msgid "Old-age"
+msgstr "Old-age"
+
+msgid "Oman"
+msgstr "オマーン"
+
+msgid "Operation"
+msgstr "オペレーション"
+
+msgid "Options"
+msgstr "オプション"
+
+msgid "Organization Name"
+msgstr "組織名(ON)"
+
+msgid "Organization Unit"
+msgstr "組織単位"
+
+msgid "Others"
+msgstr "その他"
+
+msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
+msgstr "SMTPサーバアドレス 例）smtp.mycorp.com"
+
+msgid "Outlying Oceania"
+msgstr "離島オセアニア"
+
+msgid "Owner"
+msgstr "オーナー"
+
+msgid "PID"
+msgstr "PID"
+
+msgid "PR"
+msgstr "PR"
+
+msgid "Pacific Islands Trust Territory"
+msgstr "太平洋諸島信託統治領"
+
+msgid "Package Information"
+msgstr "パッケージ情報"
+
+msgid "Package management."
+msgstr "パッケージの管理。"
+
+msgid "Pakistan"
+msgstr "パキスタン"
+
+msgid "Palau"
+msgstr "パラオ"
+
+msgid "Palestinian Territory"
+msgstr "パレスチナ自治区"
+
+msgid "Panama"
+msgstr "パナマ"
+
+msgid "Panama Canal Zone"
+msgstr "パナマ運河地帯"
+
+msgid "Papua New Guinea"
+msgstr "パプアニューギニア"
+
+msgid "Paraguay"
+msgstr "パラグアイ"
+
+msgid "Parent Device"
+msgstr "親デバイス"
+
+msgid "Parent UUID"
+msgstr "Parent UUID"
+
+msgid "Parent device"
+msgstr "親デバイス"
+
+msgid "Password"
+msgstr "パスワード"
+
+msgid "Password authentication"
+msgstr "パスワード認証"
+
+msgid "Password does not match."
+msgstr "パスワードが一致しません。"
+
+msgid "Password doesn't match."
+msgstr "パスワードが一致しません。"
+
+msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
+msgstr "ここにX.509 PEM形式のRSAまたはECC証明書を貼り付けます"
+
+msgid "Paste a RSA or ECC private key in X.509 PEM format here."
+msgstr "ここにX.509 PEM形式のRSAまたはECCプライベートキーを貼り付けます。"
+
+msgid "Pending configuration changes"
+msgstr "保留中の構成変更"
+
+msgid "People's Democratic Republic of Yemen"
+msgstr "イエメン人民民主共和国"
+
+msgid "Perform a trial run with no changes made"
+msgstr "設定を変更せずにテスト実行します"
+
+msgid "Performance Statistics"
+msgstr "パフォーマンス統計"
+
+msgid "Period of validity"
+msgstr "有効期間"
+
+msgid "Permission"
+msgstr "パーミッション"
+
+msgid "Permissions"
+msgstr "パーミッション"
+
+msgid "Permissions of group."
+msgstr "グループのパーミッション。"
+
+msgid "Permissions of others (e.g. anonymous FTP users)."
+msgstr "その他のパーミッション。例）anonymous FTP のユーザー"
+
+msgid "Permissions of owner."
+msgstr "オーナーのパーミッション。"
+
+msgid "Permit root login"
+msgstr "rootアカウントでのログインの許可"
+
+msgid "Permit to do SSH tunneling."
+msgstr "SSHトンネリングを行うことを許可します。"
+
+msgid "Peru"
+msgstr "ペルー"
+
+msgid "Philippines"
+msgstr "フィリピン"
+
+msgid "Pitcairn"
+msgstr "ピトケアン諸島"
+
+msgid ""
+"Please check the <a href=\"https://download.samba.org/pub/rsync/rsync.1\" "
+"target=\"_blank\">manual page</a> for more details."
+msgstr ""
+
+msgid ""
+"Please check the <a "
+"href=\"https://download.samba.org/pub/rsync/rsyncd.conf.5\" "
+"target=\"_blank\">manual page</a> for more details."
+msgstr ""
+
+msgid ""
+"Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
+"target=\"_blank\">manual page</a> for more details."
+msgstr "詳しくは、<a href=\"https://man.openbsd.org/sshd_config.5\" target=\"_blank\">マニュアルページ</a>をご覧ください。"
+
+msgid ""
+"Please check the <a "
+"href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "詳細については <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>マニュアルページ</a> を確認してください。"
+
+msgid ""
+"Please check the <a href='https://manpages.debian.org/nfs-kernel-"
+"server/exports.5.html' target='_blank'>manual page</a> for more details."
+msgstr "詳しくは、<a href='https://manpages.debian.org/nfs-kernel-server/exports.5.html' target='_blank'>マニュアルページ</a>をご覧ください。"
+
+msgid "Please choose the method to wipe the device."
+msgstr "端末のワイプ方法を選択してください。"
+
+msgid "Please note that values >= 128 do not permit the disk to spin down."
+msgstr ""
+
+msgid "Please wait ..."
+msgstr "お待ちください ..."
+
+msgid "Please wait, a shared folder will be created ..."
+msgstr ""
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
+
+msgid "Please wait, deleting selected item(s) ..."
+msgstr "選択した項目を削除しているため、しばらくお待ちください ..."
+
+msgid "Please wait, identifying network device ..."
+msgstr "ネットワークデバイスを特定中です ..."
+
+msgid "Please wait, installing public SSH key on remote system ..."
+msgstr "リモートシステムに公開SSH鍵をインストールしているため、しばらくお待ちください ..."
+
+msgid "Please wait, processing selected item(s) ..."
+msgstr "選択されたアイテムを処理中です ..."
+
+msgid "Please wait, reverting configuration changes ..."
+msgstr "設定変更を元に戻しているため、しばらくお待ちください ..."
+
+msgid "Please wait, sending a test email ..."
+msgstr "テストメールを送信しているため、お待ちください ..."
+
+msgid "Please wait, the configuration changes are being applied ..."
+msgstr "設定の変更を適用中ですので、しばらくお待ちください ..."
+
+msgid "Please wait, the data is being loaded ..."
+msgstr "データを読み込んでいますので、しばらくお待ちください ..."
+
+msgid "Please wait, the statistic graphs will be regenerated ..."
+msgstr "統計グラフが再生成されますので、しばらくお待ちください ..."
+
+msgid "Please wait, unmounting the file system ..."
+msgstr "ファイルシステムをアンマウントしているため、しばらくお待ちください ..."
+
+msgid "Please wait, updating access control lists ..."
+msgstr "アクセス制御リストを更新しているため、しばらくお待ちください ..."
+
+msgid "Please wait, updating the permissions ..."
+msgstr "パーミッションを更新しているため、お待ちください ..."
+
+msgid "Plugins"
+msgstr "プラグイン"
+
+msgid "Poland"
+msgstr "ポーランド"
+
+msgid "Port"
+msgstr "ポート"
+
+msgid "Portugal"
+msgstr "ポルトガル"
+
+msgid "Power"
+msgstr "電源"
+
+msgid "Power Management"
+msgstr "電源管理"
+
+msgid "Power Mode"
+msgstr "電源モード"
+
+msgid "Power Off"
+msgstr "パワーオフ"
+
+msgid "Power button"
+msgstr "電源ボタン"
+
+msgid "Power cycle count"
+msgstr "パワーサイクル数"
+
+msgid "Power mode"
+msgstr "電源モード"
+
+msgid "Powered on"
+msgstr "パワーオン"
+
+msgid "Pre-release updates"
+msgstr "プレリリースアップデート"
+
+msgid "Prefail"
+msgstr "Prefail"
+
+msgid "Prefix address"
+msgstr "プレフィックスアドレス"
+
+msgid "Prefix length"
+msgstr "プレフィックス長"
+
+msgid "Preserve ACLs"
+msgstr "ACLを保存"
+
+msgid "Preserve extended attributes"
+msgstr "拡張属性を保存"
+
+msgid "Preserve group"
+msgstr "グループを維持"
+
+msgid "Preserve modification times"
+msgstr "修正時刻を保存"
+
+msgid "Preserve owner"
+msgstr "オーナーを維持"
+
+msgid "Preserve permissions"
+msgstr "パーミッションを保存"
+
+msgid ""
+"Prevent a disk from being spun-up when it is periodically "
+"polled.<ul><li>Never - Poll (check) the device regardless of its power mode."
+" This may cause a disk which is spun-down to be spun-up when it is "
+"checked.</li><li>Sleep - Check the device unless it is in SLEEP "
+"mode.</li><li>Standby - Check the device unless it is in SLEEP or STANDBY "
+"mode. In these modes most disks are not spinning, so if you want to prevent "
+"a disk from spinning up each poll, this is probably what you "
+"want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
+" mode. In the IDLE state, most disks are still spinning, so this is probably"
+" not what you want.</li></ul>"
+msgstr "ディスクが定期的にポーリングされたときに、ディスクがスピンアップしないようにします。<ul><li>Never - デバイスの電源モードに関係なくポーリング(チェック)します。この設定により、回転停止中のディスクがチェックされたときに回転が停止してしまうことがあります。</li><li>スリープ - SLEEPモードでない限り、デバイスをチェックします。</li><li>スタンバイ-SLEEPまたはSTANDBYモードでない限り、デバイスをチェックします。これらのモードでは、ほとんどのディスクは回転していないため、ポーリングごとにディスクが回転するのを防ぎたい場合は、このモードを使用します。</li><li>アイドル - SLEEP、STANDBYまたはIDLEモードでない限り、デバイスをチェックします。IDLE状態では、ほとんどのディスクは回転しているため、選択する必要はないでしょう。</li></ul>"
+
+msgid "Primary"
+msgstr "プライマリ"
+
+msgid "Primary email"
+msgstr "プライマリメール"
+
+msgid "Private key"
+msgstr "プライベートキー"
+
+msgid "Processes"
+msgstr "プロセス"
+
+msgid "Processor"
+msgstr "プロセッサ"
+
+msgid "Profile"
+msgstr "プロファイル"
+
+msgid "Protocol"
+msgstr "プロトコル"
+
+msgid "Proxy"
+msgstr "プロキシ"
+
+msgid "Public"
+msgstr "パブリック"
+
+msgid "Public key"
+msgstr "公開鍵"
+
+msgid "Public key authentication"
+msgstr "公開鍵認証"
+
+msgid "Puerto Rico"
+msgstr "プエルトリコ"
+
+msgid "Pull"
+msgstr "プル"
+
+msgid "Push"
+msgstr "プッシュ"
+
+msgid "Qatar"
+msgstr "カタール"
+
+msgid "Quick"
+msgstr "クイック"
+
+msgid "Quota"
+msgstr "クォータ"
+
+msgid "RES"
+msgstr "RES"
+
+msgid "RSync server"
+msgstr "RSyncサーバー"
+
+msgid "Raw value"
+msgstr "生値"
+
+msgid "Read only"
+msgstr "読み込み専用"
+
+msgid "Read-only"
+msgstr "読み込み専用"
+
+msgid "Read/Execute"
+msgstr "読み込み/実行"
+
+msgid "Read/Write"
+msgstr "読み/書き"
+
+msgid "Read/Write/Execute"
+msgstr "読み込み/書き込み/実行"
+
+msgid "Reboot"
+msgstr "再起動"
+
+msgid "Recipient"
+msgstr "レシピエント"
+
+msgid "Recurse into directories"
+msgstr "ディレクトリを再帰的に"
+
+msgid "Recursive"
+msgstr "再帰的"
+
+msgid "Referenced"
+msgstr "参照先"
+
+msgid "Relative Path"
+msgstr "相対パス"
+
+msgid "Relative path"
+msgstr "相対パス"
+
+msgid "Reliable system and kernel logging daemon."
+msgstr ""
+
+msgid "Reload"
+msgstr "再読み込み"
+
+msgid "Remaining"
+msgstr "残り"
+
+msgid "Remote"
+msgstr "リモート"
+
+msgid "Replace"
+msgstr "置換"
+
+msgid "Replace all existing permissions."
+msgstr "既存のパーミッションをすべて置き換える。"
+
+msgid "Report"
+msgstr "レポート"
+
+msgid ""
+"Report if the temperature had changed by at least N degrees Celsius since "
+"last report."
+msgstr "前回の報告から温度がN℃以上変化していた場合に報告します。"
+
+msgid ""
+"Report if the temperature is greater than or equal to N degrees Celsius."
+msgstr "温度がN℃以上であれば報告します。"
+
+msgid "Repository"
+msgstr "リポジトリ"
+
+msgid "Reset UI to defaults"
+msgstr "UIをデフォルトにリセット"
+
+msgid "Result"
+msgstr "結果"
+
+msgid "Retention period"
+msgstr ""
+
+msgid "Retention time"
+msgstr "保持時間"
+
+msgid "Reunion"
+msgstr "レユニオン"
+
+msgid "Reverted the configuration changes."
+msgstr "コンフィグレーションの変更を元に戻しました。"
+
+msgid "Romania"
+msgstr "ルーマニア"
+
+msgid "Row No."
+msgstr "行番号"
+
+msgid "Rsync"
+msgstr "Rsync"
+
+msgid "Rsync - Jobs"
+msgstr "Rsync - ジョブ"
+
+msgid "Rsync - Server"
+msgstr "Rsync - サーバー"
+
+msgid "Rules"
+msgstr "ルール"
+
+msgid "Run"
+msgstr "実行"
+
+msgid "Run rsync task"
+msgstr "rsyncタスクの実行"
+
+msgid "Run scheduled task"
+msgstr "スケジュールされたタスクの実行"
+
+msgid "Running"
+msgstr "実行中"
+
+msgid "Russia"
+msgstr "ロシア"
+
+msgid "Rwanda"
+msgstr "ルワンダ"
+
+msgid "S"
+msgstr "S"
+
+msgid "S.M.A.R.T."
+msgstr "S.M.A.R.T."
+
+msgid "S.M.A.R.T. Status"
+msgstr "S.M.A.R.T. ステータス"
+
+msgid "S.M.A.R.T. monitoring must be activated for the selected device."
+msgstr "S.M.A.R.T.モニタリングは、選択したデバイスのために活性化されなければならない。"
+
+msgid "SHR"
+msgstr "SHR"
+
+msgid "SMB/CIFS"
+msgstr "SMB/CIFS"
+
+msgid "SMB/CIFS - Audit"
+msgstr "SMB/CIFS - 監査"
+
+msgid "SMB/CIFS file, print, and login server for Unix."
+msgstr "Unix用SMB/CIFSファイル・プリント・ログイン・サーバー。"
+
+msgid "SMTP port"
+msgstr "SMTP ポート"
+
+msgid "SMTP server"
+msgstr "SMTP サーバー"
+
+msgid "SSH"
+msgstr "SSH"
+
+msgid "SSH certificate"
+msgstr "SSH証明書"
+
+msgid "SSH port"
+msgstr "SSH ポート"
+
+msgid "SSH public key"
+msgstr "SSH 公開鍵"
+
+msgid "SSH public keys"
+msgstr "SSH 公開鍵"
+
+msgid "SSID"
+msgstr "SSID"
+
+msgid "SSL"
+msgstr "SSL"
+
+msgid "SSL/TLS"
+msgstr "SSL/TLS"
+
+msgid "SSL/TLS enabled"
+msgstr "SSL/TLS有効"
+
+msgid "STARTTLS"
+msgstr "STARTTLS"
+
+msgid "Saint Helena"
+msgstr "セント·ヘレナ島"
+
+msgid "Saint Kitts and Nevis"
+msgstr "セントクリストファー・ネイビス"
+
+msgid "Saint Lucia"
+msgstr "セントルシア"
+
+msgid "Saint Pierre and Miquelon"
+msgstr "サンピエール島·ミクロン島"
+
+msgid "Saint Vincent and the Grenadines"
+msgstr "セントビンセントおよびグレナディーン諸島"
+
+msgid "Samoa"
+msgstr "サモア"
+
+msgid "San Marino"
+msgstr "サン·マリノ"
+
+msgid "Sao Tome and Principe"
+msgstr "サントメプリンシペ"
+
+msgid "Saturday"
+msgstr "土曜"
+
+msgid "Saudi Arabia"
+msgstr "サウジアラビア"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Scan for new devices"
+msgstr "新しいデバイスのスキャン"
+
+msgid "Scanning for new devices ..."
+msgstr "新しいデバイスをスキャンしています ..."
+
+msgid "Scheduled Tasks"
+msgstr "スケジュールされたタスク"
+
+msgid "Scheduling"
+msgstr "スケジューリング"
+
+msgid "Search domains"
+msgstr "検索するドメイン"
+
+msgid "Secondary email"
+msgstr "セカンダリメール"
+
+msgid "Seconds"
+msgstr "秒"
+
+msgid "Section"
+msgstr "セクション"
+
+msgid "Secure"
+msgstr "セキュア"
+
+msgid "Secure connection"
+msgstr "セキュアコネクション"
+
+msgid "Security"
+msgstr "セキュリティ"
+
+msgid "Select a country ..."
+msgstr "国を選択 ..."
+
+msgid "Select a device ..."
+msgstr "デバイスを選択 ..."
+
+msgid "Select a file system ..."
+msgstr "ファイルシステムを選択 ..."
+
+msgid "Select a group ..."
+msgstr "グループを選択 ..."
+
+msgid "Select a shared folder ..."
+msgstr "共有フォルダを選択 ..."
+
+msgid "Select a shell ..."
+msgstr "シェルを選択 ..."
+
+msgid "Select a system log ..."
+msgstr "システムログを選択する ..."
+
+msgid "Select all"
+msgstr "すべて選択"
+
+msgid "Select an authentication mode ..."
+msgstr "認証モードを選択 ..."
+
+msgid "Select an user ..."
+msgstr "ユーザーを選択する ..."
+
+msgid "Select devices ..."
+msgstr "デバイスを選択 ..."
+
+msgid "Select groups ..."
+msgstr "グループを選択 ..."
+
+msgid "Select interface devices ..."
+msgstr "インターフェイスデバイスを選択する ..."
+
+msgid "Select members ..."
+msgstr "メンバーを選択 ..."
+
+msgid "Select permissions ..."
+msgstr "パーミッションの選択 ..."
+
+msgid "Select slave devices ..."
+msgstr "スレーブデバイスの選択 ..."
+
+msgid "Select the device that will be used to create the file system."
+msgstr "ファイルシステムの作成に使用するデバイスを選択します。"
+
+msgid "Select the devices that will be used to create the file system."
+msgstr "ファイルシステムの作成に使用するデバイスを選択します。"
+
+msgid "Self-Test Logs"
+msgstr "Self-Test ログ"
+
+msgid ""
+"Send a notification when the used file system capacity exceeds the specified"
+" threshold."
+msgstr "ファイルシステムの使用容量が指定した閾値を超えた場合に、通知を送信します。"
+
+msgid "Send command output via email"
+msgstr "電子メールを介してコマンドの出力を送る"
+
+msgid "Send notifications about pending package updates."
+msgstr ""
+
+msgid "Sender email"
+msgstr "送信者のメールアドレス"
+
+msgid "Senegal"
+msgstr "セネガル"
+
+msgid "September"
+msgstr "9月"
+
+msgid "Serbia And Montenegro"
+msgstr "セルビア·モンテネグロ"
+
+msgid "Serial Number"
+msgstr "シリアルナンバー"
+
+msgid "Serial number"
+msgstr "シリアルナンバー"
+
+msgid "Server"
+msgstr "サーバ"
+
+msgid "Service"
+msgstr "サービス"
+
+msgid "Service disabled"
+msgstr "サービス無効化"
+
+msgid "Services"
+msgstr "サービス"
+
+msgid "Session expired."
+msgstr "セッションの期限が切れました。"
+
+msgid "Session not authenticated."
+msgstr "セッションは認証されていません。"
+
+msgid ""
+"Set the destination permissions to be the same as the source permissions."
+msgstr "元のアクセス権と同じになるように先のアクセス権を設定します。"
+
+msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr "宛先ファイルのグループを元のファイルと同じになるように設定します。"
+
+msgid ""
+"Set the owner of the destination file to be the same as the source file, but"
+" only if the receiving rsync is being run as the super-user."
+msgstr "受信側のrsyncがスーパーユーザーとして実行されている場合のみ、送信先ファイルの所有者を送信元ファイルと同じに設定します。"
+
+msgid ""
+"Sets the interval between disk checks to N seconds. Take caution when "
+"setting this polling interval to more than sixty minutes. The poll times may"
+" fail to coincide with any of the scheduled test that have been specified. "
+"In this case the scheduled test will be run following the next device "
+"polling."
+msgstr ""
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Seychelles"
+msgstr "セイシェル"
+
+msgid "Share"
+msgstr "共有"
+
+msgid "Shared Folders"
+msgstr "共有フォルダ"
+
+msgid "Shared folder"
+msgstr "共有フォルダ"
+
+msgid "Shared folder name"
+msgstr "共有フォルダ名"
+
+msgid "Shared folder path"
+msgstr "共有フォルダのパス"
+
+msgid "Shared folder permissions"
+msgstr "共有フォルダのパーミッション"
+
+msgid "Shared folder permissions have been copied."
+msgstr "共有フォルダのパーミッションがコピーされました。"
+
+msgid "Shares"
+msgstr "共有"
+
+msgid "Shell"
+msgstr "シェル"
+
+msgid "Short self-test"
+msgstr "ショートセルフテスト"
+
+msgid "Show changelog"
+msgstr "Changelogの表示"
+
+msgid "Show details"
+msgstr "詳細の表示"
+
+msgid "Show/Hide columns"
+msgstr "カラムの表示/非表示"
+
+msgid "Show/Hide navigation"
+msgstr "ナビゲーションの表示/非表示"
+
+msgid "Shutdown"
+msgstr "シャットダウン"
+
+msgid "Sierra Leone"
+msgstr "シエラレオネ"
+
+msgid "Singapore"
+msgstr "シンガポール"
+
+msgid "Size"
+msgstr "サイズ"
+
+msgid "Slaves"
+msgstr "スレーブ"
+
+msgid "Sleep"
+msgstr "Sleep"
+
+msgid "Sleeping"
+msgstr ""
+
+msgid "Slovakia"
+msgstr "スロバキア"
+
+msgid "Slovenia"
+msgstr "スロベニア"
+
+msgid "Snapshots"
+msgstr "スナップショット"
+
+msgid "Software"
+msgstr ""
+
+msgid "Software Failure.   Press left mouse button to continue."
+msgstr "ソフトウェアの不具合。   マウスの左ボタンで続行します。"
+
+msgid "Solomon Islands"
+msgstr "ソロモン諸島"
+
+msgid "Somalia"
+msgstr "ソマリア"
+
+msgid "Source"
+msgstr "ソース"
+
+msgid ""
+"Source address can be either a network IP address (with /mask), a IP range "
+"or a plain IP address. A \"!\" argument before the address specification "
+"inverts the sense of the address."
+msgstr "送信元アドレスは、ネットワークIPアドレス（/mask付き）、IPレンジ、またはプレーンなIPアドレスのいずれかを指定することができます。アドレス指定の前に\"!\"を付けると、アドレスの意味が反転します。"
+
+msgid "Source port"
+msgstr "ソースポート"
+
+msgid "Source server"
+msgstr "ソースサーバ"
+
+msgid "Source shared folder"
+msgstr "ソース共有フォルダ"
+
+msgid "South Africa"
+msgstr "南アフリカ"
+
+msgid "South Georgia and the South Sandwich Islands"
+msgstr "サウスジョージア・サウスサンドウィッチ諸島"
+
+msgid "South Korea"
+msgstr "大韓民国"
+
+msgid "Spain"
+msgstr "スペイン"
+
+msgid "Specifies the MII link monitoring frequency in milliseconds."
+msgstr "ミリ秒単位でMIIリンク監視頻度を指定します。"
+
+msgid "Specifies the interface devices."
+msgstr "インターフェース機器を指定します。"
+
+msgid "Specifies the slave devices."
+msgstr "スレーブデバイスを指定します。"
+
+msgid ""
+"Specifies the time, in milliseconds, to wait before disabling a slave after "
+"a link failure has been detected."
+msgstr "リンク障害が検出された後、スレーブを無効にする前に待機する時間をミリ秒単位で指定します。"
+
+msgid ""
+"Specifies the time, in milliseconds, to wait before enabling a slave after a"
+" link recovery has been detected."
+msgstr "リンクリカバリーが検出された後、スレーブを有効にする前に待機する時間をミリ秒単位で指定します。"
+
+msgid "Specifies the type of key to create."
+msgstr ""
+
+msgid "Specifies whether it is allowed to login as superuser."
+msgstr "スーパーユーザーとしてログインすることを許可するかを指定します。"
+
+msgid ""
+"Specifies whether the system performance statistics are collected "
+"periodically."
+msgstr "システムのパフォーマンス統計を定期的に収集するかどうかを指定します。"
+
+msgid "Specifies which slave is the primary device."
+msgstr "どのスレーブがプライマリデバイスかを指定します。"
+
+msgid ""
+"Specify how often to receive notifications about available package updates."
+msgstr ""
+
+msgid "Speed"
+msgstr "スピード"
+
+msgid "Spindown time"
+msgstr "スピンダウンタイム"
+
+msgid "Sri Lanka"
+msgstr "スリランカ"
+
+msgid "Standby"
+msgstr "スタンバイ"
+
+msgid "Standby mode"
+msgstr "スタンバイモード"
+
+msgid "Start"
+msgstr "スタート"
+
+msgid "State"
+msgstr "状態"
+
+msgid "State/Province"
+msgstr "州/地方"
+
+msgid "Static"
+msgstr "スタティック"
+
+msgid "Statistics collection and monitoring daemon."
+msgstr "統計情報の収集と監視を行うデーモンです。"
+
+msgid "Status"
+msgstr "ステータス"
+
+msgid "Stop"
+msgstr "ストップ"
+
+msgid "Stopped by debugger during trace"
+msgstr ""
+
+msgid "Stopped by job control signal"
+msgstr ""
+
+msgid "Storage"
+msgstr "ストレージ"
+
+msgid "Store DOS attributes"
+msgstr "DOS属性を書き込む"
+
+msgid "Success"
+msgstr "成功"
+
+msgid "Sudan"
+msgstr "スーダン"
+
+msgid "Summary"
+msgstr "サマリー"
+
+msgid "Sunday"
+msgstr "日曜"
+
+msgid "Support name resolution and network discovery for legacy systems."
+msgstr ""
+
+msgid "Suppress non-error messages"
+msgstr "非エラーメッセージを抑制する"
+
+msgid "Suriname"
+msgstr "スリナム"
+
+msgid "Suspend"
+msgstr "サスペンド"
+
+msgid "Svalbard and Jan Mayen"
+msgstr "スヴァールバル諸島およびヤンマイエン島"
+
+msgid "Swaziland"
+msgstr "スワジランド"
+
+msgid "Sweden"
+msgstr "スウェーデン"
+
+msgid "Switzerland"
+msgstr "スイス"
+
+msgid "Syria"
+msgstr "シリア"
+
+msgid "Syslog"
+msgstr "Syslog"
+
+msgid "System"
+msgstr "システム"
+
+msgid "System Information"
+msgstr "システム情報"
+
+msgid "System Logs"
+msgstr "システムログ"
+
+msgid "System Time"
+msgstr "システム時刻"
+
+msgid "System account"
+msgstr "システムアカウント"
+
+msgid "System clock synchronization client and server."
+msgstr "システムクロックの同期を行うクライアントとサーバー。"
+
+msgid ""
+"System monitoring is disabled. To enable it, please go to the <a "
+"href='#/system/monitoring'>settings page</a>."
+msgstr "システム監視が無効になっています。有効にするには、<a href='#/system/monitoring'>設定ページ</a>に移動してください。"
+
+msgid "System restart required"
+msgstr "システムの再起動が必要"
+
+msgid "System time"
+msgstr "システム時間"
+
+msgid "TCP"
+msgstr "TCP"
+
+msgid "TCP forwarding"
+msgstr "TCP転送"
+
+msgid "TIME+"
+msgstr "TIME+"
+
+msgid "Tags"
+msgstr "Tags"
+
+msgid "Taiwan"
+msgstr "台湾"
+
+msgid "Tajikistan"
+msgstr "タジキスタン"
+
+msgid "Tanzania"
+msgstr "タンザニア"
+
+msgid "Tasks"
+msgstr "タスク"
+
+msgid "Temperature"
+msgstr "温度"
+
+msgid "Temperature monitoring"
+msgstr "温度監視"
+
+msgid "Test"
+msgstr "テスト"
+
+msgid "Thailand"
+msgstr "タイ"
+
+msgid "The HTTP and HTTPS ports must not be the same."
+msgstr ""
+
+msgid "The NFS versions provided by the service."
+msgstr ""
+
+msgid "The NT description field."
+msgstr "NTの説明フィールド。"
+
+msgid "The RSA key length."
+msgstr "RSAキーの長さ。"
+
+msgid "The SSH certificate used for authentication."
+msgstr "SSH証明書が認証に使用されます。"
+
+msgid "The SSH public key in OpenSSH or RFC 4716 format."
+msgstr "OpenSSHまたはRFC4716形式のSSH公開鍵。"
+
+msgid "The action to be done when pressing the power button."
+msgstr "電源ボタンを押したときに実行されるアクション。"
+
+msgid ""
+"The dashboard has not yet been configured. To personalize it, please go to "
+"the <a href='#/dashboard/settings'>settings page</a>."
+msgstr "ダッシュボードはまだ設定されていません。パーソナライズするには、<a href='#/dashboard/settings'>設定ページ</a> にアクセスしてください。"
+
+msgid "The data has been copied to the clipboard."
+msgstr "データがクリップボードにコピーされました。"
+
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr "デフォルトのSMTPメールサーバーポート。 例：25、465、587"
+
+msgid ""
+"The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
+"rsync://[USER@]HOST[:PORT]/DEST."
+msgstr "送信先のリモートサーバ 例） [USER@]HOST:DEST, [USER@]HOST::DEST または rsync://[USER@]HOST[:PORT]/DEST。"
+
+msgid ""
+"The documentation page provides helpful information about your storage "
+"system."
+msgstr ""
+
+msgid ""
+"The domain name of the system. If your system is part of a private network "
+"without a registered domain, use <em>internal</em> as suggested by <a "
+"href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
+"target=\"_blank\">ICANN</a>."
+msgstr ""
+
+msgid "The field should only contain * or a comma separated list of values."
+msgstr "フィールドには、* またはカンマで区切られた値のリストのみを含める必要があります。"
+
+msgid "The file mode of the shared folder path."
+msgstr "共有フォルダパスのファイルモード。"
+
+msgid "The file system on which the shared folder is to be created."
+msgstr "共有フォルダーを作成するファイルシステム。"
+
+msgid "The file system to mount."
+msgstr "マウントするファイルシステム。"
+
+msgid "The following modules have been updated: {{ modules }}"
+msgstr ""
+
+msgid "The following modules will be updated:"
+msgstr "以下のモジュールが更新されます:"
+
+msgid "The forum page is the best place to ask questions and find answers."
+msgstr ""
+
+msgid "The home of the project and source of news and updates."
+msgstr ""
+
+msgid "The hostname is a label that identifies the system to the network."
+msgstr "ホスト名はネットワーク上でシステムを識別するためのラベルです。"
+
+msgid "The hostname of the remote system."
+msgstr "リモートシステムのホスト名。"
+
+msgid ""
+"The information about available software is out-of-date. Do you want to "
+"reload this information?"
+msgstr "利用可能なソフトウェアの情報が古くなっています。情報を再取得しますか？"
+
+msgid "The location of the files to share."
+msgstr "共有するファイルの場所。"
+
+msgid ""
+"The location of the files to share. The share will be accessible at "
+"/export/<name>."
+msgstr "共有するファイルの場所。共有は /export/<名前> でアクセスできるようになります。"
+
+msgid "The location of the user home directories."
+msgstr "ユーザーのホームディレクトリの場所。"
+
+msgid ""
+"The maximum transmission unit in bytes to set for the device. Set to 0 to "
+"use the default value."
+msgstr "デバイスに設定するバイト単位での最大転送単位。 デフォルト値を使用するには、0に設定します。"
+
+msgid "The name of the share."
+msgstr "共有の名前。"
+
+msgid "The number of custom snapshots to keep."
+msgstr ""
+
+msgid "The number of daily snapshots to keep."
+msgstr ""
+
+msgid "The number of days the certificate is valid for."
+msgstr "この日数だけ証明書は有効です。"
+
+msgid "The number of hourly snapshots to keep."
+msgstr ""
+
+msgid "The number of monthly snapshots to keep."
+msgstr ""
+
+msgid "The number of weekly snapshots to keep."
+msgstr ""
+
+msgid "The number of yearly snapshots to keep."
+msgstr ""
+
+msgid ""
+"The password that is used for access via rsync daemon. Note, this is not "
+"used for remote shell transport such as SSH."
+msgstr "rsync デーモン経由のアクセスに使用されるパスワードです。SSHのようなリモートシェル転送では使用されないことに注意してください。"
+
+msgid ""
+"The permissions on new files and directories are normally governed by create"
+" mask and directory mask but the inherit permissions parameter overrides "
+"this. This can be particularly useful on systems with many users to allow a "
+"single share to be used flexibly by each user."
+msgstr "新しいファイルとディレクトリのパーミッションは通常、Create mask と Directory mask によって制御されていますが、パーミッションパラメータはこれを無効にします。これは、1つの共有が各ユーザによって柔軟に利用される事を可能にし、多くのユーザとシステムで有益です。"
+
+msgid "The port on which SSH is running on the remote system."
+msgstr "リモートシステム上で実行されているSSHのポート。"
+
+msgid "The private key in PEM format."
+msgstr ""
+
+msgid ""
+"The protocol is not supported in conjunction with a source/destination port."
+msgstr "ソース/デスティネーションポートと組み合わせたプロトコルはサポートされていません。"
+
+msgid "The public key in OpenSSH format."
+msgstr ""
+
+msgid ""
+"The relative path of the folder to share. Use '/' to share the root of the "
+"file system. The specified folder will be created if it does not exist."
+msgstr ""
+
+msgid ""
+"The repository will be checked for new, removed or upgraded software "
+"packages."
+msgstr "新規、削除またはアップデートされたソフトウェアパッケージが無いか、リポジトリをチェックします。"
+
+msgid "The requested page was not found."
+msgstr "要求されたページはありません。"
+
+msgid ""
+"The retention period (in seconds) before a snapshot can be deleted. This "
+"ensures that a snapshot that has just been created cannot be deleted again "
+"immediately."
+msgstr ""
+
+msgid "The server is unavailable to handle this request right now."
+msgstr "サーバーは現在、このリクエストを処理することができません。"
+
+msgid "The shared folder from which the permissions are copied."
+msgstr "パーミッションのコピー元となる共有フォルダーです。"
+
+msgid "The shared folder {{ _selected[0].name }} was successfully created."
+msgstr "共有フォルダ{{ _selected[0].name }}が正常に作成されました。"
+
+msgid ""
+"The snapshot '{{ _response.name }}' has been created for the shared folder "
+"'{{ _response.sharedfolder }}'."
+msgstr "共有フォルダ '{{ _response.sharedfolder }} 'に対してスナップショット '{{ _response.name }}' が作成されました。"
+
+msgid ""
+"The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
+"rsync://[USER@]HOST[:PORT]/SRC."
+msgstr "送信元リモートサーバ 例） [USER@]HOST:SRC, [USER@]HOST::SRC または rsync://[USER@]HOST[:PORT]/SRC。"
+
+msgid "The system will reboot now. This may take some time ..."
+msgstr "システムが再起動されます。これにはしばらく時間がかかることがあります..."
+
+msgid "The users that are allowed to access this module."
+msgstr "このモジュールへのアクセスを許可されたユーザー。"
+
+msgid "The value does not match the pattern /{{ pattern }}/."
+msgstr "値がパターンに一致しない /{{ pattern }}/。"
+
+msgid ""
+"The value must be on of the slave network interfaces {{ slaves | join(\", "
+"\") }}."
+msgstr "値は、スレーブ ネットワーク インターフェイスのいずれかでなければなりません {{ slaves | join(\", \") }}"
+
+msgid "The value must be one of the slave network interfaces."
+msgstr ""
+
+msgid "The workgroup the server will appear to be in when queried by clients."
+msgstr "ワークグループはサーバがクライアントから参照される際に表示されます。"
+
+msgid "There are no notifications."
+msgstr "通知はありません。"
+
+msgid ""
+"These settings are used by the services to configure the access rights for "
+"the group \"{{ _routeParams.name }}\". Please note that these settings have "
+"no effect on file system permissions."
+msgstr "これらの設定は、各サービスがグループ\"{{ _routeParams.name }}\"のアクセス権を設定するために使用されます。これらの設定は、ファイルシステムのパーミッションには影響しないことに注意してください。"
+
+msgid ""
+"These settings are used by the services to configure the access rights for "
+"the user \"{{ _routeParams.name }}\". Please note that these settings have "
+"no effect on file system permissions."
+msgstr "これらの設定は、各サービスがユーザ\"{{ _routeParams.name }}\"のアクセス権を設定するために使用されます。これらの設定は、ファイルシステムのパーミッションには影響しないことに注意してください。"
+
+msgid ""
+"These settings are used by the services to configure the user and group "
+"access rights. Please note that these settings have no effect on file system"
+" permissions."
+msgstr "これらの設定は、ユーザーとグループのアクセス権を構成するためにサービスによって使用されます。これらの設定は、ファイルシステムのパーミッションには影響しないことに注意してください。"
+
+msgid ""
+"This controls whether this share is seen in the list of available shares in "
+"a net view and in the browse list."
+msgstr "共有が、net viewとブラウズリストで利用可能な共有の一覧に表示されるかを制御します。"
+
+msgid ""
+"This field contains invalid characters, e.g. a blank or \"/[]:+|<>=;,*? "
+"character."
+msgstr "このフィールドには、無効な文字が含まれています。例えば、空白または\"/[]:+|<>=;,*? 文字 \"などです。"
+
+msgid ""
+"This field contains invalid characters, only alphanumeric characters and "
+"underscore are allowed."
+msgstr "このフィールドには無効な文字が含まれています。英数字とアンダースコアのみが使用可能です。"
+
+msgid ""
+"This field is automatically filled with the subject of the certificate if "
+"left blank."
+msgstr ""
+
+msgid "This field is required."
+msgstr "このフィールドは必須です。"
+
+msgid "This field must have the format <hh:mm:ss>."
+msgstr "このフィールドは <hh:mm:ss>のフォーマットで記述する必要があります。"
+
+msgid "This field must match the format SIZE[K|M|G|T|P]."
+msgstr ""
+
+msgid "This field should be a IP network address in CIDR notation."
+msgstr "このフィールドは、CIDR記法によるIPネットワークアドレスである必要があります。"
+
+msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
+msgstr ""
+
+msgid "This field should be a domain name or an IP address."
+msgstr "このフィールドは、ドメイン名またはIPアドレスである必要があります。"
+
+msgid "This field should be a host name or an IP address in CIDR notation."
+msgstr "このフィールドには、ホスト名またはCIDR表記のIPアドレスを指定します。"
+
+msgid "This field should be a list of IP addresses separated by <,> or <;>."
+msgstr "このフィールドは、IPアドレスを<,>または<;>で区切ったリストである必要があります。"
+
+msgid ""
+"This field should be a list of domain names or IP addresses separated by <,>"
+" or <;>."
+msgstr "このフィールドは、ドメイン名またはIPアドレスを<,>または<;>で区切ったリストである必要があります。"
+
+msgid "This field should be a list of domain names or IP addresses."
+msgstr "このフィールドは、ドメイン名またはIPアドレスのリストである必要があります。"
+
+msgid ""
+"This field should be a list of host names or IP addresses in CIDR notation "
+"separated by <,> or <;>."
+msgstr "このフィールドは、ホスト名またはIPアドレスをCIDR表記で<,>または<;>で区切ったリストである必要があります。"
+
+msgid ""
+"This field should be a netmask within the range 128.0.0.0 - 255.255.255.252."
+msgstr "このフィールドには、128.0.0.0 - 255.255.252の範囲内のネットマスクを指定する必要があります。"
+
+msgid "This field should be a network port in the range of 1 to 65535."
+msgstr "このフィールドには、1～65535の範囲のネットワークポートを指定する必要があります。"
+
+msgid ""
+"This field should be a port or port range (e.g. 21 or !443 or 1024-65535)."
+msgstr "このフィールドには、ポートまたはポート範囲（例：21または!443または1024-65535）を指定する必要があります。"
+
+msgid "This field should be an IP address."
+msgstr "このフィールドは、IPアドレスである必要があります。"
+
+msgid "This field should be an IPv4 address."
+msgstr "このフィールドは、IPv4アドレスである必要があります。"
+
+msgid "This field should be an IPv6 address."
+msgstr "このフィールドは、IPv6アドレスである必要があります。"
+
+msgid "This field should be an email address."
+msgstr "このフィールドは、電子メールアドレスである必要があります。"
+
+msgid "This field should contain a decimal value."
+msgstr "このフィールドには、10 進数の値を含める必要があります。"
+
+msgid "This field should contain a number with a binary prefix."
+msgstr "このフィールドには、2 進数の接頭辞を持つ数値を格納する必要があります。"
+
+msgid "This field should contain a numeric value."
+msgstr "このフィールドは数値を含む必要があります。"
+
+msgid "This function is effective only if the hard drive supports it."
+msgstr "この機能は、ハードドライブがサポートしている場合にのみ有効です。"
+
+msgid ""
+"This is a text field that is seen next to a share when a client queries the "
+"server."
+msgstr "これはテキストフィールドです。クライアントがサーバに照会するとき、共有の隣に表示されます。"
+
+msgid ""
+"This option determines if this module should be listed when the client asks "
+"for a listing of available modules."
+msgstr "このオプションはクライアントが利用可能なモジュールの一覧を要求したときにモジュールがリストに含まれるかを決定します。"
+
+msgid ""
+"This option is a comma, space, or tab delimited set of host which are NOT "
+"permitted to access this module. Where the lists conflict, the allow list "
+"takes precedence. In the event that it is necessary to deny all by default, "
+"use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
+"to the hosts allow parameter those hosts that should be permitted access. "
+"Leave this field empty to use default settings."
+msgstr "このオプションはこのモジュールへのアクセスを拒否するホストをカンマ、半角スペース、タブで区切り入力します。リストが矛盾している場合は有効にするリストが優先します。デフォルトで全てを拒否し、キーワード ALL (またはネットマスク 0.0.0.0/0)を使用し、その後アクセスが許可されるホストを明示的に指定します。デフォルトの設定を使用する場合はこのフィールドを空のままにして下さい。"
+
+msgid ""
+"This option is a comma, space, or tab delimited set of host which are NOT "
+"permitted to access this share. Where the lists conflict, the allow list "
+"takes precedence. In the event that it is necessary to deny all by default, "
+"use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
+"to the hosts allow parameter those hosts that should be permitted access. "
+"Leave this field empty to use default settings."
+msgstr "このオプションはこの共有へのアクセスを拒否するホストをカンマ、半角スペース、タブで区切り入力します。リストが矛盾している場合は有効にするリストが優先します。デフォルトで全てを拒否し、キーワード ALL (またはネットマスク 0.0.0.0/0)を使用し、その後アクセスが許可されるホストを明示的に指定します。デフォルトの設定を使用する場合はこのフィールドを空のままにして下さい。"
+
+msgid ""
+"This option is a comma, space, or tab delimited set of hosts which are "
+"permitted to access this module. You can specify the hosts by name or IP "
+"number. Leave this field empty to use default settings."
+msgstr "このオプションはこのモジュールへのアクセスを許可するホストをカンマ、半角スペース、タブで区切り入力します。ホスト名、IPアドレスどちらの形式でも可能です。空にすると標準の設定を使用します。"
+
+msgid ""
+"This option is a comma, space, or tab delimited set of hosts which are "
+"permitted to access this share. You can specify the hosts by name or IP "
+"number. Leave this field empty to use default settings."
+msgstr "このオプションはこの共有へのアクセスを許可するホストをカンマ、半角スペース、タブで区切り入力します。ホスト名、IPアドレスどちらの形式でも可能です。空にすると標準の設定を使用します。"
+
+msgid ""
+"This option specifies the group name that file transfers to and from that "
+"module should take place."
+msgstr "このオプションはモジュールへの、またモジュールからのファイル転送時のグループ名を指定します。"
+
+msgid ""
+"This option specifies the maximum number of simultaneous connections. 0 "
+"means no limit."
+msgstr "このオプションでは、同時接続の最大数を指定します。 0は無制限を意味します。"
+
+msgid ""
+"This option specifies the user name that file transfers to and from that "
+"module should take place."
+msgstr "このオプションはモジュールへの、またモジュールからのファイル転送時のユーザ名を指定します。"
+
+msgid ""
+"This parameter can be used to ensure that if default acls exist on parent "
+"directories, they are always honored when creating a new file or "
+"subdirectory in these parent directories."
+msgstr "このパラメータは、親ディレクトリにデフォルトのACLが存在する場合、これらの親ディレクトリに新しいファイルやサブディレクトリを作成する際に引き継がれることを確実にするために使用することができる。"
+
+msgid ""
+"This parameter controls whether files starting with a dot appear as hidden "
+"files"
+msgstr "このパラメータは、ドットで始まるファイルは隠しファイルとして表示されるかどうかを制御します"
+
+msgid ""
+"This setting controls the minimum protocol version that the server will "
+"allow the client to use."
+msgstr ""
+
+msgid "This specifies what to do if the packet matches."
+msgstr "パケットが一致した場合にどうするかを指定します。"
+
+msgid "This will create a recycle bin for each user home directory."
+msgstr "各ユーザーのホームディレクトリにごみ箱が作成されます。"
+
+msgid "This will create a recycle bin for the share."
+msgstr "共有のごみ箱が作成されます。"
+
+msgid "Threshold"
+msgstr "閾値"
+
+msgid "Thursday"
+msgstr "木曜"
+
+msgid "Time Machine support"
+msgstr "Time Machineサポート"
+
+msgid "Time of execution"
+msgstr "実行時刻"
+
+msgid "Time server"
+msgstr "時刻サーバ"
+
+msgid "Time servers"
+msgstr "時刻サーバ"
+
+msgid "Time zone"
+msgstr "タイムゾーン"
+
+msgid "Tip"
+msgstr "Tip"
+
+msgid "Togo"
+msgstr "トーゴ"
+
+msgid "Tokelau"
+msgstr "トケラウ"
+
+msgid "Tonga"
+msgstr "トンガ"
+
+msgid "Total"
+msgstr "トータル"
+
+msgid ""
+"Transfer modification times along with the files and update them on the "
+"remote system."
+msgstr "変更時間をファイルとともに転送し、リモートシステムで更新します。"
+
+msgid "Transmit Hash Policy"
+msgstr "送信ハッシュポリシー"
+
+msgid "Transport encryption"
+msgstr "通信の暗号化"
+
+msgid "Trial run"
+msgstr "テスト実行"
+
+msgid "Trinidad and Tobago"
+msgstr "トリニダード·トバゴ"
+
+msgid "Tuesday"
+msgstr "火曜"
+
+msgid "Tunisia"
+msgstr "チュニジア"
+
+msgid "Turkey"
+msgstr "トルコ"
+
+msgid "Turkmenistan"
+msgstr "トルクメニスタン"
+
+msgid "Turks and Caicos Islands"
+msgstr "タークス・カイコス諸島"
+
+msgid "Tuvalu"
+msgstr "ツバル"
+
+msgid "Type"
+msgstr "タイプ"
+
+msgid "U.S. Miscellaneous Pacific Islands"
+msgstr "米領太平洋諸島"
+
+msgid "U.S. Virgin Islands"
+msgstr "アメリカ領ヴァージン諸島"
+
+msgid "UDP"
+msgstr "UDP"
+
+msgid "UID"
+msgstr "UID"
+
+msgid "UNKNOWN"
+msgstr "UNKNOWN"
+
+msgid "USER"
+msgstr "USER"
+
+msgid "UUID"
+msgstr "UUID"
+
+msgid "Uganda"
+msgstr "ウガンダ"
+
+msgid "Ukraine"
+msgstr "ウクライナ"
+
+msgid "Unavailable"
+msgstr "利用不可"
+
+msgid "Undo"
+msgstr "もとに戻す"
+
+msgid "Uninstall"
+msgstr "アンインストール"
+
+msgid "Uninstall plugin"
+msgstr "プラグインのアンインストール"
+
+msgid "Uninterruptible sleep"
+msgstr "Uninterruptible sleep"
+
+msgid "Union of Soviet Socialist Republics"
+msgstr "ソビエト連邦"
+
+msgid "Unit"
+msgstr "ユニット"
+
+msgid "United Arab Emirates"
+msgstr "アラブ首長国連邦"
+
+msgid "United Kingdom"
+msgstr "イギリス"
+
+msgid "United States"
+msgstr "アメリカ合衆国"
+
+msgid "United States Minor Outlying Islands"
+msgstr "合衆国領有小離島"
+
+msgid "Unknown"
+msgstr "不明"
+
+msgid "Unmount"
+msgstr "アンマウント"
+
+msgid "Unrestricted"
+msgstr "制限なし"
+
+msgid "Up"
+msgstr "上"
+
+msgid "Up delay"
+msgstr "Up delay"
+
+msgid "Update Management"
+msgstr "アップデート管理"
+
+msgid "Update management"
+msgstr "アップデート管理"
+
+msgid "Update the destination ACLs to be the same as the source ACLs."
+msgstr "元のACLと同じになるように先のACLを更新します。"
+
+msgid ""
+"Update the destination extended attributes to be the same as the local ones."
+msgstr "元の拡張属性と同じになるように先の拡張属性を更新します。"
+
+msgid "Updated NFS settings."
+msgstr "NFSの設定を更新しました。"
+
+msgid "Updated NFS share."
+msgstr "NFS共有を更新しました。"
+
+msgid "Updated Rsync Server settings."
+msgstr "Rsync Server の設定を更新しました。"
+
+msgid "Updated Rsync server module \"{{ name }}\"."
+msgstr "Rsyncサーバーモジュール\"{{ name }}\"を更新しました。"
+
+msgid "Updated Rsync task."
+msgstr "Rsyncタスクをアップデートしました。"
+
+msgid "Updated SMB/CIFS settings."
+msgstr "SMB/CIFSの設定をアップデートしました。"
+
+msgid "Updated SMB/CIFS share."
+msgstr "SMB/CIFS 共有をアップデートしました。"
+
+msgid "Updated SSH certificate."
+msgstr "SSH 証明書をアップデートしました。"
+
+msgid "Updated SSH settings."
+msgstr "SSHの設定をアップデートしました。"
+
+msgid "Updated VLAN network connection \"{{ devicename }}\"."
+msgstr "VLANネットワーク接続 \"{{ devicename }}\" を更新しました。"
+
+msgid "Updated access control list of shared folder."
+msgstr "共有フォルダのアクセスコントロールリストを更新しました。"
+
+msgid "Updated bond network connection \"{{ devicename }}\"."
+msgstr "bondネットワーク接続 \"{{devicename }}\" を更新しました。"
+
+msgid "Updated bridge network connection \"{{ devicename }}\"."
+msgstr "ブリッジネットワーク接続 \"{{ devicename }}\" を更新しました。"
+
+msgid "Updated dashboard settings."
+msgstr "ダッシュボードの設定を更新しました。"
+
+msgid "Updated date & time settings."
+msgstr "日付と時刻の設定を更新しました。"
+
+msgid "Updated file system settings."
+msgstr "ファイルシステムの設定を更新しました。"
+
+msgid "Updated firewall rule."
+msgstr "ファイアウォール のルールを更新しました。"
+
+msgid "Updated firewall rules."
+msgstr "ファイアウォールのルールを更新しました。"
+
+msgid "Updated group \"{{ name }}\"."
+msgstr "グループ \"{{ name }}\" を更新しました。"
+
+msgid "Updated monitoring settings."
+msgstr "モニタリングの設定を更新しました。"
+
+msgid "Updated network settings."
+msgstr "ネットワーク設定を更新しました。"
+
+msgid "Updated notification event settings."
+msgstr "通知イベント設定を更新しました。"
+
+msgid "Updated notification settings."
+msgstr "通知設定を更新しました。"
+
+msgid "Updated password."
+msgstr "パスワードを更新しました。"
+
+msgid "Updated permissions of group \"{{ name }}\"."
+msgstr "グループ \"{{ name }}\" のパーミッションを更新しました。"
+
+msgid "Updated permissions of shared folder."
+msgstr "共有フォルダのパーミッションを更新しました。"
+
+msgid "Updated permissions of user \"{{ name }}\"."
+msgstr "ユーザー \"{{ name }}\" のパーミッションを更新しました。"
+
+msgid "Updated power management settings."
+msgstr "パワーマネージメントの設定を更新しました。"
+
+msgid "Updated proxy settings."
+msgstr "プロキシ設定を更新しました。"
+
+msgid "Updated quota."
+msgstr "クォータを更新しました。"
+
+msgid "Updated remote system-logs settings."
+msgstr "リモートシステムログの設定を更新しました。"
+
+msgid "Updated scheduled task."
+msgstr "スケジュールタスクを更新しました。"
+
+msgid "Updated settings."
+msgstr "設定を更新しました。"
+
+msgid "Updated shared folder."
+msgstr "共有フォルダーを更新しました。"
+
+msgid "Updated update management settings."
+msgstr "アップデート管理設定を更新しました。"
+
+msgid "Updated user \"{{ name }}\"."
+msgstr "ユーザー \"{{ name }}\" を更新しました。"
+
+msgid "Updated user profile."
+msgstr "ユーザープロフィールを更新しました。"
+
+msgid "Updated wired network connection \"{{ devicename }}\"."
+msgstr "有線ネットワーク接続 \"{{ devicename }}\" を更新しました。"
+
+msgid "Updated wireless network connection \"{{ devicename }}\"."
+msgstr "ワイヤレスネットワーク接続 \"{{ devicename }}\" を更新しました。"
+
+msgid "Updated workbench settings."
+msgstr "ワークベンチの設定を更新しました。"
+
+msgid "Updates"
+msgstr "アップデート"
+
+msgid "Updates Available"
+msgstr "アップデートが利用可能です"
+
+msgid "Updates available"
+msgstr "アップデートが利用可能です"
+
+msgid "Upgrade system"
+msgstr "システムのアップグレード"
+
+msgid "Uptime"
+msgstr "起動時間"
+
+msgid "Uruguay"
+msgstr "ウルグアイ"
+
+msgid "Usage Warning Threshold"
+msgstr "使用量警告のしきい値"
+
+msgid "Use NTP server"
+msgstr "NTPサーバを使用する"
+
+msgid "Use chroot"
+msgstr "Chrootを利用する"
+
+msgid "Use global settings"
+msgstr "グローバル設定を使用"
+
+msgid "Use sendfile"
+msgstr "Sendfileを使用する"
+
+msgid ""
+"Use the more efficient sendfile system call for files that are exclusively "
+"oplocked. This may make more efficient use of the system CPU's and cause "
+"Samba to be faster. Samba automatically turns this off for clients that use "
+"protocol levels lower than NT LM 0.12 and when it detects a client is "
+"Windows 9x."
+msgstr "排他的にoplockされたファイルに対して、より効率的な sendfile システムコールを使用します。これは、システムCPUをより効率的に使用し、Sambaをより速くする可能性があります。Sambaは、NT LM 0.12より低いプロトコルレベルを使うクライアントと、 クライアントがWindows 9xであることを検知すると、自動的にこの設定をオフにします。"
+
+msgid "Use the specified WINS server."
+msgstr "指定されたWINSサーバを使用します。"
+
+msgid "Used"
+msgstr "使用済み"
+
+msgid "Used capacity"
+msgstr "使用済み容量"
+
+msgid "User"
+msgstr "ユーザー"
+
+msgid "User Management"
+msgstr "ユーザーマネジメント"
+
+msgid "User Settings"
+msgstr "ユーザー設定"
+
+msgid "User home directory"
+msgstr "ユーザーのホームディレクトリ"
+
+msgid "User name"
+msgstr "ユーザー名"
+
+msgid "User/Group permissions"
+msgstr "ユーザー/グループのパーミッション"
+
+msgid "Users"
+msgstr "ユーザー"
+
+msgid ""
+"Users must be assigned to the <em>_ssh</em> group to be able to log in via "
+"SSH."
+msgstr ""
+
+msgid "Utilization"
+msgstr "使用率"
+
+msgid "Uzbekistan"
+msgstr "ウズベキスタン"
+
+msgid "VIRT"
+msgstr "VIRT"
+
+msgid "VLAN"
+msgstr "VLAN"
+
+msgid "VLAN id"
+msgstr "VLAN id"
+
+msgid "Valid from"
+msgstr "有効期限"
+
+msgid "Valid to"
+msgstr "有効期限"
+
+msgid "Value"
+msgstr "値"
+
+msgid "Vanuatu"
+msgstr "バヌアツ"
+
+msgid "Vatican"
+msgstr "バチカン"
+
+msgid "Vendor"
+msgstr "ベンダ"
+
+msgid "Venezuela"
+msgstr "ベネズエラ"
+
+msgid "Version"
+msgstr "バージョン"
+
+msgid "Versions"
+msgstr "バージョン"
+
+msgid "Vietnam"
+msgstr "ベトナム"
+
+msgid "VirtIO device"
+msgstr "VirtIO デバイス"
+
+msgid "WINS server"
+msgstr "WINSサーバー"
+
+msgid "WOL"
+msgstr "WOL"
+
+msgid "WPA2-Personal"
+msgstr "WPA2-Personal"
+
+msgid "WPA3-Personal"
+msgstr "WPA3-Personal"
+
+msgid "WWN"
+msgstr "WWN"
+
+msgid "Wake Island"
+msgstr "ウェーク島"
+
+msgid "Wake-on-LAN"
+msgstr "Wake-on-LAN"
+
+msgid "Wallis and Futuna"
+msgstr "ウォリス・フツナ"
+
+msgid "Warning"
+msgstr "警告"
+
+msgid "Wednesday"
+msgstr "水曜"
+
+msgid "Weekly"
+msgstr "毎週"
+
+msgid "Welcome to openmediavault"
+msgstr "openmediavaultへようこそ"
+
+msgid "Western Sahara"
+msgstr "西サハラ"
+
+msgid ""
+"While the background task is still running, you can attach the Workbench "
+"terminal dialog to it in the notification bar."
+msgstr ""
+
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+msgid "Wide links"
+msgstr "Wide links"
+
+msgid "Wipe"
+msgstr "ワイプ"
+
+msgid "Wiping device"
+msgstr "デバイスのワイプ"
+
+msgid "Workbench"
+msgstr "ワークベンチ"
+
+msgid "Workgroup"
+msgstr "ワークグループ"
+
+msgid "Worst"
+msgstr "ワースト"
+
+msgid "Write only"
+msgstr "書き込み専用"
+
+msgid "Write-only"
+msgstr "書き込み専用"
+
+msgid "Write/Execute"
+msgstr "書き込み/実行"
+
+msgid "Xen virtual disk device"
+msgstr "Xen仮想ディスクデバイス"
+
+msgid "Yearly"
+msgstr "毎年"
+
+msgid "Yemen"
+msgstr "イエメン"
+
+msgid "Yes"
+msgstr "はい"
+
+msgid ""
+"You have made changes that have not yet been saved. Do you want to discard "
+"them?"
+msgstr "変更は保存されていません。変更内容を破棄しますか？"
+
+msgid "You must apply these changes in order for them to take effect."
+msgstr "これらの変更を有効にするためには、適用する必要があります。"
+
+msgid "You will be logged out due to inactivity in {{ n }} seconds."
+msgstr ""
+
+msgid "Your profile"
+msgstr "あなたのプロファイル"
+
+msgid "Zambia"
+msgstr "ザンビア"
+
+msgid "Zimbabwe"
+msgstr "ジンバブエ"
+
+msgid "Zombie"
+msgstr "Zombie"
+
+msgid "a day"
+msgstr "日"
+
+msgid "a few seconds"
+msgstr "数秒"
+
+msgid "a minute"
+msgstr "分"
+
+msgid "a month"
+msgstr "月"
+
+msgid "a year"
+msgstr "年"
+
+msgid "an hour"
+msgstr "1時間"
+
+msgid "in %s"
+msgstr "%s の中"
+
+msgid "selected"
+msgstr "選択済み"
+
+msgid "total"
+msgstr "合計"
+
+msgid "{{ percent }}% of {{ total }}"
+msgstr "{{ percent }}% of {{ total }}"

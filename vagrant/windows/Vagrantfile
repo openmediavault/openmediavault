@@ -1,0 +1,3 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "valengus/windows-11-23h2"
+end

@@ -1,0 +1,230 @@
+[{
+	"type": "rpc",
+	"id": "rpc.ftp.setsettings",
+	"params": {
+		"type": "object",
+		"properties": {
+		    "enable": {
+		        "type": "boolean",
+		        "required": true
+		    },
+		    "port": {
+		        "type": "integer",
+		        "minimum": 1,
+		        "maximum": 65535,
+		        "required": true
+		    },
+		    "maxclients": {
+		        "type": "integer",
+		        "minimum": 0,
+		        "required": true
+		    },
+		    "maxconnectionsperhost": {
+		        "type": "integer",
+		        "minimum": 0,
+		        "required": true
+		    },
+		    "maxloginattempts": {
+		        "type": "integer",
+		        "minimum": 0,
+		        "required": true
+		    },
+		    "timeoutidle": {
+		        "type": "integer",
+		        "minimum": 0,
+		        "required": true
+		    },
+		    "displaylogin": {
+		        "type": "string",
+		        "required": true
+		    },
+		    "allowforeignaddress": {
+		        "type": "boolean",
+		        "required": true
+		    },
+		    "allowrestart": {
+		        "type": "boolean",
+		        "required": true
+		    },
+		    "identlookups": {
+		        "type": "boolean",
+		        "required": true
+		    },
+		    "usereversedns": {
+		        "type": "boolean",
+		        "required": true
+		    },
+		    "rootlogin": {
+		        "type": "boolean",
+		        "required": true
+		    },
+		    "masqueradeaddress": {
+		        "type": "string",
+		        "required": true
+		    },
+		    "dynmasqrefresh": {
+		        "type": "integer",
+		        "minimum": 0,
+		        "required": true
+		    },
+		    "usepassiveports": {
+		        "type": "boolean",
+		        "required": true
+		    },
+		    "minpassiveports": {
+		        "type": "integer",
+		        "minimum": 1025,
+		        "maximum": 65535,
+		        "required": true
+		    },
+		    "maxpassiveports": {
+		        "type": "integer",
+		        "minimum": 1025,
+		        "maximum": 65535,
+		        "required": true
+		    },
+		    "limittransferrate": {
+		        "type": "boolean",
+		        "required": true
+		    },
+		    "maxuptransferrate": {
+		        "type": "integer",
+		        "minimum": 0,
+		        "required": true
+		    },
+		    "maxdowntransferrate": {
+		        "type": "integer",
+		        "minimum": 0,
+		        "required": true
+		    },
+		    "anonymous": {
+		        "type": "boolean",
+		        "required": true
+		    },
+		    "requirevalidshell": {
+		        "type": "boolean",
+		        "required": true
+		    },
+		    "transferlog": {
+		        "type": "boolean",
+		        "required": true
+		    },
+		    "extraoptions": {
+		        "type": "string",
+		        "required": true
+		    }
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.ftp.setshare",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"enable": {
+			    "type": "boolean",
+				"required": true
+			},
+			"sharedfolderref": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"extraoptions":{
+				"type": "string",
+				"required": true
+			},
+			"comment": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.ftp.setmodbanrule",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"event": {
+				"type": "string",
+				"enum": [
+					"AnonRejectPasswords",
+					"ClientConnectRate",
+					"MaxClientsPerClass",
+					"MaxClientsPerHost",
+					"MaxClientsPerUser",
+					"MaxConnectionsPerHost",
+					"MaxHostsPerUser",
+					"MaxLoginAttempts",
+					"TimeoutIdle",
+					"TimeoutNoTransfer"
+				],
+				"required": true
+			},
+			"occurrence": {
+				"type": "integer",
+				"minimum": 1,
+				"required": true
+			},
+			"timeinterval": {
+				"type": "string",
+				"format": "time",
+				"required": true
+			},
+			"expire": {
+				"type": "string",
+				"format": "time",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.ftp.setmodtlssettings",
+	"params": {
+		"type": "object",
+		"properties": {
+			"enable": {
+				"type": "boolean",
+				"required": true
+			},
+			"required": {
+				"type": "boolean",
+				"required": true
+			},
+			"sslcertificateref": {
+				"type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "uuidv4"
+				},{
+					"type": "string"
+				}],
+				"required": true
+			},
+			"nosessionreuserequired": {
+				"type": "boolean",
+				"required": true
+			},
+			"useimplicitssl": {
+				"type": "boolean",
+				"required": true
+			},
+			"extraoptions": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+}]

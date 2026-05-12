@@ -1,0 +1,151 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-podman package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Stephan Paternotte <stephan@paternottes.net>, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-podman\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2023-10-11 19:57+0000\n"
+"Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2026\n"
+"Language-Team: Dutch (Netherlands) (https://app.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl_NL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Block I/O"
+msgstr "I/O blokkeren"
+
+msgid "CID"
+msgstr "CID"
+
+msgid "CPU %"
+msgstr "CPU %"
+
+msgid "Command"
+msgstr "Opdracht"
+
+msgid "Containers"
+msgstr "Containers"
+
+msgid "Created"
+msgstr "Aangemaakt"
+
+msgid "Digest"
+msgstr "Samenvatting"
+
+msgid "Do you really want to restart this container?"
+msgstr "Wilt u echt deze container opnieuw opstarten?"
+
+msgid "Do you really want to restart this pod?"
+msgstr "Wilt u echt deze pod opnieuw opstarten?"
+
+msgid "Driver"
+msgstr "Stuurprogramma"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Image"
+msgstr "Image"
+
+msgid "Images"
+msgstr "Images"
+
+msgid "Infra ID"
+msgstr "Infra-ID"
+
+msgid "Inspect"
+msgstr "Inspecteren"
+
+msgid "Logs"
+msgstr "Logboeken"
+
+msgid "Mem %"
+msgstr "Mem %"
+
+msgid "Mem Usage / Limit"
+msgstr "Mem gebruik / limiet"
+
+msgid "Mount Point"
+msgstr "Aankoppelpunt"
+
+msgid "Mounts"
+msgstr "Aankoppelingen"
+
+msgid "Name"
+msgstr "Naam"
+
+msgid "Names"
+msgstr "Namen"
+
+msgid "Network I/O"
+msgstr "Netwerk I/O"
+
+msgid "Networks"
+msgstr "Netwerken"
+
+msgid "PIDs"
+msgstr "PID's"
+
+msgid "Pod"
+msgstr "Pod"
+
+msgid "Podman"
+msgstr "Podman"
+
+msgid "Pods"
+msgstr "Pods"
+
+msgid "Ports"
+msgstr "Poorten"
+
+msgid "Pull"
+msgstr "Ophalen"
+
+msgid "Pull image"
+msgstr "Image ophalen"
+
+msgid "Repository"
+msgstr "Opslagplaats"
+
+msgid "Restart"
+msgstr "Opnieuw starten"
+
+msgid "Size"
+msgstr "Grootte"
+
+msgid "Started"
+msgstr "Gestart"
+
+msgid "State"
+msgstr "Toestand"
+
+msgid "Statistics"
+msgstr "Statistieken"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Tag"
+msgstr "Label"
+
+msgid "The tag of the image to pull."
+msgstr "Het label van de image."
+
+msgid "Updated Podman settings."
+msgstr "Instellingen voor Podman bijgewerkt."
+
+msgid "Used"
+msgstr "Gebruikt"
+
+msgid "Volumes"
+msgstr "Volumes"

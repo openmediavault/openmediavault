@@ -1,0 +1,49 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-envvars package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-envvars\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-23 20:04+0200\n"
+"PO-Revision-Date: 2026-04-23 18:04+0000\n"
+"Language-Team: Danish (https://app.transifex.com/openmediavault/teams/14254/da/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Apply"
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid "Created environment variable."
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Environment Variables"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid ""
+"Please wait, applying environment variables. This can take some time ..."
+msgstr ""
+
+msgid "Select an environment variable ..."
+msgstr ""
+
+msgid "Updated environment variable."
+msgstr ""
+
+msgid "Value"
+msgstr ""

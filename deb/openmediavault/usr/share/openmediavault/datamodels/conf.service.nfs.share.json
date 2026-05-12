@@ -1,0 +1,37 @@
+{
+	"type": "config",
+	"id": "conf.service.nfs.share",
+	"title": "NFS share",
+	"queryinfo": {
+		"xpath": ".//services/nfs/shares/share",
+		"iterable": true,
+		"idproperty": "uuid"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"sharedfolderref": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"mntentref": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"client": {
+			"type": "string"
+		},
+		"options": {
+			"type": "string"
+		},
+		"comment": {
+			"type": "string"
+		},
+		"extraoptions": {
+			"type": "string",
+			"pattern": "^(([a-zA-Z_]+)(=([\\w@:\\/]+))?[,])*([a-zA-Z_]+)(=([\\w@:\\/]+))?$"
+		}
+	}
+}

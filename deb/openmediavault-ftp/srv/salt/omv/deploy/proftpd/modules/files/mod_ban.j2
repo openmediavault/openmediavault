@@ -1,0 +1,14 @@
+{%- set ban_controls_acls = salt['pillar.get']('default:OMV_PROFTPD_MODBAN_BANCONTROLSACLS', 'all allow user root') -%}
+{%- set ban_log = salt['pillar.get']('default:OMV_PROFTPD_MODBAN_BANLOG', '/var/log/proftpd/ban.log') -%}
+{%- set ban_message = salt['pillar.get']('default:OMV_PROFTPD_MODBAN_BANMESSAGE', 'Host %a has been banned') -%}
+{%- set ban_table = salt['pillar.get']('default:OMV_PROFTPD_MODBAN_BANTABLE', '/run/proftpd/ban.tab') -%}
+<IfModule mod_ban.c>
+  BanEngine {{ (config.rule | length > 0) | yesno('on,off') }}
+  BanControlsACLs {{ ban_controls_acls }}
+  BanLog {{ ban_log }}
+  BanMessage {{ ban_message }}
+{%- for rule in config.rule %}
+  BanOnEvent {{ rule.event }} {{ rule.occurrence }}/{{ rule.timeinterval }} {{ rule.expire }}
+{%- endfor %}
+  BanTable {{ ban_table }}
+</IfModule>

@@ -1,0 +1,34 @@
+@use 'scss/defaults/colors' as dc;
+@use 'scss/defaults/variables' as dv;
+@use 'scss/theme';
+
+.mat-list-item {
+  border-left: 3px solid transparent;
+  color: dc.$omv-color-white;
+  min-width: dv.$omv-navigation-bar-width;
+  max-width: dv.$omv-navigation-bar-width;
+
+  &.active {
+    border-left: 3px solid theme.$omv-color-primary;
+  }
+
+  &:hover:not(.active) {
+    border-left: 3px solid theme.$omv-color-accent;
+  }
+
+  .omv-list-item-indent-z1 {
+    width: 32px;
+  }
+
+  .omv-list-item-indent-z2 {
+    width: 64px;
+  }
+
+  .omv-list-item-indent-z3 {
+    width: 96px;
+  }
+
+  .mat-icon {
+    margin-right: dv.$omv-margin-icon-text;
+  }
+}

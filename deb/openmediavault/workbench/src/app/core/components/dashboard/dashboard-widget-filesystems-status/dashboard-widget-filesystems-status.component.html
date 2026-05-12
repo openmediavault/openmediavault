@@ -1,0 +1,35 @@
+<omv-dashboard-widget [config]="config"
+                      [loadData]="loadData.bind(this)"
+                      (dataChangedEvent)="dataChanged($event)">
+  <div *ngIf="data"
+       class="widget-content omv-grid omv-gap-2">
+    <div *ngIf="!data.total">
+      <span>{{ 'No data to display.' | transloco }}</span>
+    </div>
+    <div *ngFor="let item of data.data"
+         class="item omv-display-flex omv-flex-column omv-align-content-stretch omv-justify-content-start omv-align-items-stretch"
+         [ngClass]="{'error': item.status === 3, 'warning': (item.status === 1) && !item.mounted}">
+      <div class="item-text omv-text-truncate">
+        {{ item.canonicaldevicefile }}
+      </div>
+      <div *ngIf="item.mounted"
+           class="item-subtext omv-text-truncate">
+        {{ item.size | binaryUnit }}
+      </div>
+      <omv-progress-bar *ngIf="item.mounted"
+                        class="item-subtext"
+                        [value]="item.percentage | max:0"
+                        [warningThreshold]="item.usagewarnthreshold | defaultTo:0"
+                        decimalPlaces="0">
+      </omv-progress-bar>
+      <div *ngIf="(item.status === 1) && !item.mounted"
+           class="item-subtext omv-text-truncate">
+        {{ 'Not mounted' | transloco }}
+      </div>
+      <div *ngIf="item.status === 3"
+           class="item-subtext omv-text-truncate">
+        {{ 'Missing' | transloco }}
+      </div>
+    </div>
+  </div>
+</omv-dashboard-widget>

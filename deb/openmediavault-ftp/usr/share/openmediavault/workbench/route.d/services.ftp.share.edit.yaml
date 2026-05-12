@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/ftp/shares/edit/:uuid"
+  title: _("Edit")
+  editing: true
+  notificationTitle: _("Updated FTP share.")
+  component: omv-services-ftp-share-form-page

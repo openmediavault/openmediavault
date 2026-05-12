@@ -1,0 +1,31 @@
+{
+	"type": "config",
+	"id": "conf.system.time",
+	"queryinfo": {
+		"xpath": ".//system/time",
+		"iterable": false
+	},
+	"properties": {
+		"timezone": {
+			"type": "string",
+			"default": "Etc/UTC"
+		},
+		"ntp": {
+			"type": "object",
+			"properties": {
+				"enable": {
+					"type": "boolean",
+					"default": false
+				},
+				"timeservers": {
+					"type": "string",
+					"default": "pool.ntp.org,pool1.ntp.org;pool2.ntp.org"
+				},
+				"clients": {
+					"type": "string",
+					"default": ""
+				}
+			}
+		}
+	}
+}

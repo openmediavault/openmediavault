@@ -1,0 +1,144 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-nut package.
+# 
+# Translators:
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-03-17 01:51+0000\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2014\n"
+"Language-Team: Galician (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/gl_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: gl_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid ""
+"'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
+msgstr ""
+
+msgid "Charge"
+msgstr "Carga"
+
+msgid "Comment"
+msgstr "Comentario"
+
+msgid "Date & Time"
+msgstr "Data e hora"
+
+msgid "Defines when the shutdown is initiated."
+msgstr "Define cando se inicia a apagado."
+
+msgid "Driver configuration directives"
+msgstr "Directivas de configuración do controlador"
+
+msgid "Enable remote monitoring of the local connected UPS."
+msgstr "Activar a supervisión remota do SAI local conectado."
+
+msgid "Enabled"
+msgstr "Activado"
+
+msgid "Identifier"
+msgstr "Identificador"
+
+msgid "Invalid identifier"
+msgstr ""
+
+msgid "Load"
+msgstr "Cargar"
+
+msgid "Message"
+msgstr "Mensaxe"
+
+msgid "Mode"
+msgstr "Modo"
+
+msgid "Netclient"
+msgstr ""
+
+msgid "Netclient hostname"
+msgstr ""
+
+msgid "Netclient password"
+msgstr ""
+
+msgid "Netclient user name"
+msgstr ""
+
+msgid "PID"
+msgstr "PID"
+
+msgid "Password"
+msgstr "Contrasinal"
+
+msgid "Powervalue"
+msgstr ""
+
+msgid "Program"
+msgstr "Programa"
+
+msgid "Remote monitoring"
+msgstr "Supervisión remota"
+
+msgid "Service disabled"
+msgstr "Servizo desactivado"
+
+msgid "Shutdown mode"
+msgstr "Modo de apagado"
+
+msgid "Shutdown timer"
+msgstr "Temporizador de apagado"
+
+msgid "Standalone"
+msgstr ""
+
+msgid "Temperature"
+msgstr "Temperatura"
+
+msgid "The name used to uniquely identify your UPS on local or remote system."
+msgstr ""
+
+msgid ""
+"The number of power supplies that the UPS feeds on this system (usually 1), "
+"refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
+"target='_blank'>upsmon.conf(5)</a> for more information."
+msgstr ""
+
+msgid ""
+"The time in seconds until shutdown is initiated. If the UPS happens to come "
+"back before the time is up the shutdown is canceled."
+msgstr "O tempo en segundos ata que se inicie o apagado. Se acontece que o SAI volve antes de que se acabe o tempo cancelase o apagado."
+
+msgid ""
+"To get more information how to configure your UPS please check the Network "
+"UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
+"target='_blank'>documentation</a>."
+msgstr "Para obter máis información sobre como configurar o seu SAI revise a documentación na rede sobre as <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>ferramentas SAI</a>."
+
+msgid "UPS"
+msgstr "SAI"
+
+msgid "UPS goes on battery"
+msgstr "O SAI continúa coa batería"
+
+msgid "UPS reaches low battery"
+msgstr "O SAI ten a batería baixa"
+
+msgid "Updated UPS settings."
+msgstr ""
+
+msgid "Used for remote authentication."
+msgstr "Utilizase para a autenticación remota."
+
+msgid "User name"
+msgstr ""
+
+msgid "Voltage"
+msgstr "Voltaxe"

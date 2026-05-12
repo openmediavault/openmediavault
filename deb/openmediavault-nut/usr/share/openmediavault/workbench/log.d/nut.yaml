@@ -1,0 +1,33 @@
+version: "1.0"
+type: log
+data:
+  id: nut
+  text: _("UPS")
+  columns:
+  - name: _("Date & Time")
+    sortable: true
+    prop: ts
+    cellTemplateName: localeDateTime
+    flexGrow: 1
+  - name: _("Program")
+    sortable: true
+    prop: program
+    flexGrow: 1
+  - name: _("PID")
+    sortable: true
+    hidden: true
+    prop: pid
+    flexGrow: 1
+  - name: _("Message")
+    sortable: true
+    prop: message
+    flexGrow: 2
+    cellTemplateName: text
+  sorters:
+  - dir: desc
+    prop: ts
+  request:
+    service: LogFile
+    method: getList
+    params:
+      id: nut

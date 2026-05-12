@@ -1,0 +1,145 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-nut package.
+# 
+# Translators:
+# Giovanni Scafora <scafora.giovanni@gmail.com>, 2025
+# maurorulli <mauro.rulli@gmail.com>, 2012
+# d5316b6b4d283a9cbe4ea704ae8abe02_b972f24 <bd82b27c045fcb3aa6bd04640e5224c5_36908>, 2013-2015,2021
+# Volker Theile <votdev@gmx.de>, 2012
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-03-17 01:51+0000\n"
+"Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
+"Language-Team: Italian (http://app.transifex.com/openmediavault/openmediavault/language/it/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+msgid ""
+"'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
+msgstr "‘Standalone’ per UPS locale, ‘Netclient’ per UPS remoto su un server NUT."
+
+msgid "Charge"
+msgstr "Carica"
+
+msgid "Comment"
+msgstr "Commento"
+
+msgid "Date & Time"
+msgstr "Data e ora"
+
+msgid "Defines when the shutdown is initiated."
+msgstr "Definisce quando viene avviato lo spegnimento."
+
+msgid "Driver configuration directives"
+msgstr "Direttive di configurazione del driver"
+
+msgid "Enable remote monitoring of the local connected UPS."
+msgstr "Abilita monitoraggio remoto dell'UPS collegato localmente."
+
+msgid "Enabled"
+msgstr "Abilitato"
+
+msgid "Identifier"
+msgstr "Identificatore"
+
+msgid "Invalid identifier"
+msgstr "Identificatore non valido"
+
+msgid "Load"
+msgstr "Carico"
+
+msgid "Message"
+msgstr "Messaggio"
+
+msgid "Mode"
+msgstr "Modalità"
+
+msgid "Netclient"
+msgstr "Netclient"
+
+msgid "Netclient hostname"
+msgstr "Nome host del Netclient"
+
+msgid "Netclient password"
+msgstr "Password del Netclient"
+
+msgid "Netclient user name"
+msgstr "Nome utente del Netclient"
+
+msgid "PID"
+msgstr "PID"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Powervalue"
+msgstr "Valore di potenza"
+
+msgid "Program"
+msgstr "Programma"
+
+msgid "Remote monitoring"
+msgstr "Monitoraggio remoto"
+
+msgid "Service disabled"
+msgstr "Servizio disabilitato"
+
+msgid "Shutdown mode"
+msgstr "Modalità di spegnimento"
+
+msgid "Shutdown timer"
+msgstr "Timer di spegnimento"
+
+msgid "Standalone"
+msgstr "Autonomo"
+
+msgid "Temperature"
+msgstr "Temperatura"
+
+msgid "The name used to uniquely identify your UPS on local or remote system."
+msgstr "Il nome utilizzato per identificare univocamente il tuo UPS sul sistema locale o remoto."
+
+msgid ""
+"The number of power supplies that the UPS feeds on this system (usually 1), "
+"refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
+"target='_blank'>upsmon.conf(5)</a> for more information."
+msgstr "Il numero di alimentatori che l’UPS alimenta su questo sistema (di solito 1). Consulta <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf(5)</a> per maggiori informazioni."
+
+msgid ""
+"The time in seconds until shutdown is initiated. If the UPS happens to come "
+"back before the time is up the shutdown is canceled."
+msgstr "Il tempo in secondi fino all’avvio dello spegnimento. Se l’UPS si ripristina prima della scadenza, lo spegnimento viene annullato."
+
+msgid ""
+"To get more information how to configure your UPS please check the Network "
+"UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
+"target='_blank'>documentation</a>."
+msgstr "Per maggiori informazioni su come configurare il tuo UPS, consulta la <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>documentazione</a> di Network UPS Tools."
+
+msgid "UPS"
+msgstr "UPS"
+
+msgid "UPS goes on battery"
+msgstr "L’UPS passa alla batteria"
+
+msgid "UPS reaches low battery"
+msgstr "L’UPS segnala che la batteria è quasi scarica"
+
+msgid "Updated UPS settings."
+msgstr "Le impostazioni dell'UPS sono state aggiornate."
+
+msgid "Used for remote authentication."
+msgstr "Utilizzato per l’autenticazione remota."
+
+msgid "User name"
+msgstr "Nome utente"
+
+msgid "Voltage"
+msgstr "Voltaggio"

@@ -1,0 +1,109 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-apt package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Karl Jonatan Nyberg, 2024
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-apt\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2024-06-14 17:38+0000\n"
+"Last-Translator: Karl Jonatan Nyberg, 2024\n"
+"Language-Team: Swedish (https://app.transifex.com/openmediavault/teams/14254/sv/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Check for new packages"
+msgstr "Kontrollera om det finns nya paket"
+
+msgid "Components"
+msgstr "Komponenter"
+
+msgid ""
+"Components specify different sections of one distribution version present in"
+" a suite, e.g. 'main', 'contrib' or 'non-free'. Configure multiple "
+"components at once by separating them with a blank."
+msgstr ""
+"Komponenter specificerar olika sektioner av en distributionsversion som "
+"finns i en svit, t.ex. 'main', 'contrib' eller 'icke-free'. Konfigurera "
+"flera komponenter samtidigt genom att separera dem med ett tomrum."
+
+msgid "Create"
+msgstr "Skapa"
+
+msgid "Created APT source."
+msgstr "Skapade APT-källa. "
+
+msgid ""
+"Defines which types of packages to look for from a given source, e.g. 'deb' "
+"or 'deb-src'."
+msgstr ""
+"Definierar vilka typer av paket som ska letas efter från en given källa, "
+"t.ex. 'deb' eller 'deb-src'."
+
+msgid "Edit"
+msgstr "Redigera"
+
+msgid "Enabled"
+msgstr "Aktiverad"
+
+msgid "Other Software"
+msgstr "Annan programvara"
+
+msgid "Signed-By"
+msgstr "Signerad av"
+
+msgid "Suites"
+msgstr "Sviter"
+
+msgid "Tags"
+msgstr "Taggar"
+
+msgid ""
+"The GPG/PGP key used to verify packages and repository metadata. This "
+"increases security by ensuring that only packages signed with a specific key"
+" are accepted."
+msgstr ""
+"GPG/PGP-nyckeln som används för att verifiera paket och arkivmetadata. Detta"
+" ökar säkerheten genom att säkerställa att endast paket signerade med en "
+"specifik nyckel accepteras."
+
+msgid ""
+"The URI must specify the base of the package repository, e.g. "
+"'https://ftp.debian.org/debian'. Configure multiple URIs at once by "
+"separating them with a blank."
+msgstr ""
+"URI:n måste ange basen för paketförrådet, t.ex. "
+"'https://ftp.debian.org/debian'. Konfigurera flera URI:er samtidigt genom "
+"att separera dem med en tom."
+
+msgid ""
+"The package index files from the sources are downloaded and updated to get "
+"the latest information about available packages and their versions."
+msgstr ""
+"Paketindexfilerna från källorna laddas ner och uppdateras för att få den "
+"senaste informationen om tillgängliga paket och deras versioner."
+
+msgid ""
+"The suite is the name of the release, e.g. 'stable', 'testing', 'unstable' "
+"or 'sandworm'."
+msgstr ""
+"Sviten är namnet på utgåvan, t.ex. 'stable', 'testing', 'unstable' eller "
+"'sandworm'."
+
+msgid "Types"
+msgstr "Typer"
+
+msgid "URIs"
+msgstr "URI:er"
+
+msgid "Updated APT source."
+msgstr "Uppdaterad APT-källa."

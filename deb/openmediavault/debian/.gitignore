@@ -1,0 +1,9 @@
+openmediavault/
+openmediavault-installer/
+openmediavault-salt/
+files
+*.debhelper.log
+*.debhelper
+*.substvars
+*-stamp
+doxygen/

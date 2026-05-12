@@ -1,0 +1,51 @@
+@use 'scss/defaults/variables' as dv;
+@use 'scss/theme';
+
+.widget-content {
+  padding: 0 dv.$omv-padding dv.$omv-padding;
+
+  .chart {
+    position: relative;
+
+    .gauge-label {
+      position: absolute;
+      font-size: var(--mat-font-size-body-1);
+      font-weight: var(--mat-font-weight-title);
+    }
+  }
+
+  .advanced-label {
+    margin-left: 8px;
+
+    .total {
+      margin-bottom: 8px;
+
+      .total-value {
+        font-size: var(--mat-font-size-body-1);
+      }
+
+      .total-label {
+        font-size: var(--mat-font-size-caption);
+      }
+    }
+
+    .items {
+      .item {
+        border-left: 3px solid;
+        padding-left: 8px;
+
+        .item-value {
+          font-size: var(--mat-font-size-body-1);
+        }
+
+        .item-label {
+          font-size: var(--mat-font-size-caption);
+        }
+
+        .item-percent {
+          font-size: var(--mat-font-size-body-1);
+        }
+      }
+    }
+  }
+}

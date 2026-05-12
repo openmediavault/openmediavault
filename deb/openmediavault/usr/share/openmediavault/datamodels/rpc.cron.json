@@ -1,0 +1,165 @@
+[{
+	"type": "rpc",
+	"id": "rpc.cron.getlist",
+	"params": {
+		"type": "object",
+		"properties": {
+			"start": {
+				"type": "integer",
+				"required": true
+			},
+			"limit": {
+				"type": [ "integer", "null" ],
+				"required": true
+			},
+			"sortfield": {
+				"type": [ "string", "null" ]
+			},
+			"sortdir": {
+				"type": [ "string", "null" ],
+				"enum": [ "asc", "ASC", "desc", "DESC" ]
+			},
+			"type": {
+				"type": "array",
+				"required": true,
+				"items": {
+					"type": "string",
+					"enum": [ "reboot", "shutdown", "standby", "userdefined" ]
+				}
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.cron.set",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"enable": {
+				"type": "boolean",
+				"required": true
+			},
+			"execution":{
+				"type": "string",
+				"enum": [
+					"exactly",
+					"hourly",
+					"daily",
+					"weekly",
+					"monthly",
+					"yearly",
+					"reboot"
+				],
+				"required": true
+			},
+			"sendemail": {
+				"type": "boolean",
+				"required": true
+			},
+			"comment": {
+				"type": "string",
+				"required": true
+			},
+			"type":{
+				"type": "string",
+				"enum": [ "reboot", "shutdown", "standby", "userdefined" ],
+				"required": true
+			},
+			"minute": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"oneOf": [{
+						"type": "string",
+						"enum": [ "*" ]
+					},{
+						"type": "string",
+						"pattern": "^[0-9]|[1-5][0-9]$"
+					}]
+				},
+				"required": true
+			},
+			"everynminute": {
+				"type": "boolean",
+				"required": true
+			},
+			"hour": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"oneOf": [{
+						"type": "string",
+						"enum": [ "*" ]
+					},{
+						"type": "string",
+						"pattern": "^[0-9]|1[0-9]|2[0-3]$"
+					}]
+				},
+				"required": true
+			},
+			"everynhour": {
+				"type":"boolean",
+				"required": true
+			},
+			"month": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"oneOf": [{
+						"type": "string",
+						"enum": [ "*" ]
+					},{
+						"type": "string",
+						"pattern": "^[1-9]|1[0-2]$"
+					}]
+				},
+				"required": true
+			},
+			"dayofmonth": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"oneOf": [{
+						"type": "string",
+						"enum": [ "*" ]
+					},{
+						"type": "string",
+						"pattern": "^[1-9]|[12][0-9]|3[01]$"
+					}]
+				},
+				"required": true
+			},
+			"everyndayofmonth": {
+				"type": "boolean",
+				"required": true
+			},
+			"dayofweek": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"oneOf": [{
+						"type": "string",
+						"enum": [ "*" ]
+					},{
+						"type": "string",
+						"pattern": "^[1-7]$"
+					}]
+				},
+				"required": true
+			},
+			"username": {
+				"type": "string",
+				"required": true
+			},
+			"command": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+}]

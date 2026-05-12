@@ -1,0 +1,18 @@
+Source: openmediavault-owntone
+Section: sound
+XB-Plugin-Section: multimedia
+XB-Plugin-Architecture: amd64, armhf, arm64
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>= 12), gettext
+Standards-Version: 3.9.6
+Homepage: https://www.openmediavault.org
+
+Package: openmediavault-owntone
+Architecture: all
+Conflicts: openmediavault-owntone (<< 7.1.0)
+Depends: openmediavault (>= 8.0), podman
+Priority: optional
+Description: openmediavault OwnTone plugin
+ OwnTone is a DAAP (iTunes), MPD (Music Player Daemon) and RSP (Roku)
+ media server.

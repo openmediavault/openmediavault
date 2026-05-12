@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "network.firewall"
+  position: 40
+  text: _("Firewall")
+  icon: "mdi:shield-half-full"
+  url: "/network/firewall"

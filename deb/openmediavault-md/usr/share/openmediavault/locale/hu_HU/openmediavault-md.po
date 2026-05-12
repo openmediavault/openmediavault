@@ -1,0 +1,129 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-md package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2025
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-md\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2023-11-06 09:08+0000\n"
+"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2025\n"
+"Language-Team: Hungarian (Hungary) (https://app.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu_HU\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A maximum of one device can be removed."
+msgstr "Legfeljebb egy eszköz távolítható el. "
+
+msgid "A maximum of two devices can be removed."
+msgstr "Legfeljebb két eszköz távolítható el."
+
+msgid "Add hot spares / recover RAID device."
+msgstr "Tartalék kapacitás hozzáadása / RAID tömb helyreállítása."
+
+msgid "At least four devices are required."
+msgstr "Legalább négy eszközre van szükség."
+
+msgid "At least three devices are required."
+msgstr "Legalább három eszközre van szükség."
+
+msgid "At least two devices are required."
+msgstr "Legalább két eszközre van szükség."
+
+msgid "Capacity"
+msgstr "Kapacitás"
+
+msgid "Create"
+msgstr "Létrehozás"
+
+msgid "Device"
+msgstr "Eszköz"
+
+msgid "Devices"
+msgstr "Eszközök"
+
+msgid "Displays information about MD (Software RAID) devices."
+msgstr ""
+"Az MD (szoftveres RAID) eszközökkel kapcsolatos információkat jeleníti meg."
+
+msgid "Grow"
+msgstr "Növelés"
+
+msgid "Level"
+msgstr "Szint"
+
+msgid "MD Devices"
+msgstr "MD eszközök"
+
+msgid "Mirror"
+msgstr "Tükör"
+
+msgid "Multiple Device"
+msgstr "Többszörös eszköz"
+
+msgid "Name"
+msgstr "Név"
+
+msgid "RAID 10"
+msgstr "RAID 10"
+
+msgid "RAID 2"
+msgstr "RAID 2"
+
+msgid "RAID 3"
+msgstr "RAID 3"
+
+msgid "RAID 4"
+msgstr "RAID 4"
+
+msgid "RAID 5"
+msgstr "RAID 5"
+
+msgid "RAID 6"
+msgstr "RAID 6"
+
+msgid "Recover"
+msgstr "Helyreállítás"
+
+msgid "Referenced"
+msgstr "Hivatkozott"
+
+msgid "Remove"
+msgstr "Eltávolítás"
+
+msgid "Select devices ..."
+msgstr "Eszközök kiválasztása…"
+
+msgid "Select devices to be added to the RAID device."
+msgstr "Kiválasztott meghajtók hozzáadása a RAID tömbhöz."
+
+msgid "Select devices to be removed from the RAID device."
+msgstr "Kiválasztott meghajtók eltávolítása a RAID tömbből."
+
+msgid ""
+"Select the devices that will be used to create the RAID device. Devices "
+"connected via USB will not be listed (too unreliable)."
+msgstr ""
+"Jelölje ki a RAID-eszköz létrehozásához használt eszközöket. Az USB-s "
+"eszközök nem szerepelnek a listán (túl megbízhatatlan)."
+
+msgid "Show details"
+msgstr "Részletek megjelenítése"
+
+msgid "Software RAID"
+msgstr "Szoftveres RAID"
+
+msgid "State"
+msgstr "Állapot"
+
+msgid "Stripe"
+msgstr "Sáv"

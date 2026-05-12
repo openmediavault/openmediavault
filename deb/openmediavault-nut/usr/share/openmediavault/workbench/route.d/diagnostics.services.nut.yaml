@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/diagnostics/services/nut"
+  title: _("UPS")
+  component: omv-diagnostics-services-nut-text-page

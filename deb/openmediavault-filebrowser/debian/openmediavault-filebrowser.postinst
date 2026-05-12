@@ -1,0 +1,105 @@
+#!/usr/bin/env dash
+#
+# This file is part of OpenMediaVault.
+#
+# @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2026 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_FILEBROWSER_APP_CONTAINER_IMAGE=${OMV_FILEBROWSER_APP_CONTAINER_IMAGE:-"docker.io/gtstef/filebrowser:stable"}
+OMV_FILEBROWSER_PROXY_CONTAINER_IMAGE=${OMV_FILEBROWSER_PROXY_CONTAINER_IMAGE:-"docker.io/library/caddy:latest"}
+
+case "$1" in
+	configure)
+		####################################################################
+		# Create the user 'filebrowser' which is used to run the container.
+		# Use a 'system' user because of the following reasons:
+		# - These users are not managed in the UI, thus it can't be deleted
+		#   by accident.
+		# - The user is nevertheless listed in the ACL dialog.
+		####################################################################
+		if ! omv_user_id_exists filebrowser; then
+			echo "Adding 'filebrowser' user ..."
+			useradd --system --no-user-group --no-create-home \
+				--shell '/usr/sbin/nologin' --groups 'users' \
+				filebrowser
+		fi
+
+    ########################################################################
+    # Download the latest container image(s) when the package is installed
+    # the first time.
+    ########################################################################
+		if [ -z "$2" ]; then
+		  podman pull "${OMV_FILEBROWSER_APP_CONTAINER_IMAGE}" || :
+		  podman pull "${OMV_FILEBROWSER_PROXY_CONTAINER_IMAGE}" || :
+		fi
+
+		########################################################################
+		# Activate trigger to rebuild workbench configuration files.
+		########################################################################
+		dpkg-trigger update-workbench
+
+		########################################################################
+		# Initialize and migrate configuration database.
+		########################################################################
+		echo "Updating configuration database ..."
+		omv-confdbadm create "conf.service.filebrowser"
+		if [ -n "$2" ]; then
+			omv-confdbadm migrate "conf.service.filebrowser" "${2}"
+		fi
+
+		########################################################################
+		# Action to be done depending on the previous version.
+		########################################################################
+		echo "Updating configuration ..."
+		if dpkg --compare-versions "$2" lt-nl "6.0.1"; then
+			deb-systemd-invoke stop container-filebrowser.service || :
+			rm -rf /etc/systemd/system/container-filebrowser.service
+			systemctl --system daemon-reload || true
+			omv_module_set_dirty filebrowser
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.4"; then
+			omv_module_set_dirty filebrowser
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.0"; then
+			omv_module_set_dirty filebrowser
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.0.1"; then
+			omv_module_set_dirty filebrowser
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.0.4"; then
+			omv_module_set_dirty filebrowser
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.0.5"; then
+			omv_module_set_dirty filebrowser
+		fi
+	;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+
+	*)
+		echo "postinst called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac
+
+exit 0

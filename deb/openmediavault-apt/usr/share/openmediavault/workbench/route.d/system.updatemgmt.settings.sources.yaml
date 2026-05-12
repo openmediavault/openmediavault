@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/system/updatemgmt/settings/sources"
+  title: _("Other Software")
+  component: omv-system-updatemgmt-settings-sources-datatable-page

@@ -1,0 +1,189 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-usbbackup package.
+# 
+# Translators:
+# Pavel Borecki <pavel.borecki@gmail.com>, 2014-2017,2019,2021
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2013-02-15 12:55+0000\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2014-2017,2019,2021\n"
+"Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+
+msgid ""
+"An email message with the command output (if any produced) is sent to the "
+"administrator."
+msgstr ""
+
+msgid "Archive"
+msgstr "Archivní režim"
+
+msgid "Compress"
+msgstr "Komprimovat"
+
+msgid "Compress file data during the transfer."
+msgstr "Komprimovat data během přenosu."
+
+msgid "Create"
+msgstr "Vytvořit"
+
+msgid "Created USB backup job."
+msgstr "Vytvořena úloha zálohování na USB zařízení."
+
+msgid "Delete"
+msgstr "Smazat"
+
+msgid "Delete files on the receiving side that don't exist on sender."
+msgstr "V cíli smazat ty soubory, které neexistují na straně zdroje."
+
+msgid "Device"
+msgstr "Zařízení"
+
+msgid "Edit"
+msgstr "Upravit"
+
+msgid "Enable archive mode."
+msgstr "Zajistit zachování vlastnictví, oprávnění a atributů, dále symbolických odkazů, atd."
+
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr "Tuto volbu zapněte, pokud si přejete zachovávat i ty přijaté soubory, jejichž přenos nebyl úspěšně dokončen a část dat v nich tak chybí. Takové jinak budou v případě přerušení přenosu mazány."
+
+msgid "Enabled"
+msgstr "Zapnuto"
+
+msgid "External Storage Device"
+msgstr "Vnější úložné zařízení"
+
+msgid "Extra options"
+msgstr "Rozšířené předvolby"
+
+msgid "From external storage to shared folder"
+msgstr "Z vnějšího úložiště do sdílené složky"
+
+msgid "From shared folder to external storage"
+msgstr "Ze sdílené složky na vnější úložiště"
+
+msgid "Keep partially transferred files"
+msgstr "Zachovat nedopřenesené soubory"
+
+msgid "Mode"
+msgstr "Režim"
+
+msgid ""
+"Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Podrobnosti naleznete v <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manuálové stránce</a>."
+
+msgid "Preserve ACLs"
+msgstr "Zachovat ACL seznamy"
+
+msgid "Preserve extended attributes"
+msgstr "Zachovat rozšířené atributy"
+
+msgid "Preserve group"
+msgstr "Zachovat skupinu"
+
+msgid "Preserve modification times"
+msgstr "Zachovat časy úprav"
+
+msgid "Preserve owner"
+msgstr "Zachovat vlastníka"
+
+msgid "Preserve permissions"
+msgstr "Zachovat oprávnění"
+
+msgid "Quiet"
+msgstr "Tiché"
+
+msgid "Recurse into directories."
+msgstr "Včetně vnořených složek."
+
+msgid "Recursive"
+msgstr "Rekurzivní"
+
+msgid "Relative path"
+msgstr "Vztažený popis umístění"
+
+msgid "Run"
+msgstr "Spustit"
+
+msgid "Run backup job"
+msgstr "Spustit zálohovací úlohu"
+
+msgid "Select a device ..."
+msgstr "Vyberte zařízení…"
+
+msgid "Send email"
+msgstr "Zaslat e-mail"
+
+msgid ""
+"Set the destination permissions to be the same as the source permissions."
+msgstr "Nastavit oprávnění v cíli tak, aby byla stejná jako na zdroji."
+
+msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr "Nastavit skupinu cílového souboru tak, aby byla stejná, jako na zdrojovém souboru."
+
+msgid ""
+"Set the owner of the destination file to be the same as the source file, but"
+" only if the receiving rsync is being run as the super-user."
+msgstr "Nastavit vlastníka cílového souboru tak, aby byla stejná jako na zdrojovém souboru, ale pouze pokud je přijímající rsync spuštěn pod účtem s právy správy."
+
+msgid "Shared folder"
+msgstr "Sdílená složka"
+
+msgid "Suppress non-error messages."
+msgstr "Hlásit pouze chyby, ostatní potlačit."
+
+msgid "Tags"
+msgstr "Štítky"
+
+msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
+msgstr ""
+
+msgid ""
+"The external storage device. Please make sure that the device has only one "
+"file system."
+msgstr ""
+
+msgid ""
+"The relative directory path on the external storage device from/to which the"
+" content of the shared folder is to be synchronized. The directory is "
+"created if it does not exist."
+msgstr ""
+
+msgid ""
+"The shared folder to synchronise when the external storage device is "
+"connected."
+msgstr "Sdílená složka, jejíž obsah synchronizovat s vnějším úložným zařízením, jakmile je připojeno."
+
+msgid ""
+"Transfer modification times along with the files and update them on the "
+"remote system."
+msgstr "Přenést společně se soubory časy okamžiku úprav a aktualizovat je na protějšku."
+
+msgid "USB Backup"
+msgstr "Záloha na/z USB úložiště"
+
+msgid "Update the destination ACLs to be the same as the source ACLs."
+msgstr "Aktualizovat ACL seznamy v cíli tak, aby byly stejné jako na zdroji."
+
+msgid ""
+"Update the destination extended attributes to be the same as the local ones."
+msgstr "Aktualizovat rozšířené atributy v cíli tak, aby byly stejné jako ty místní."
+
+msgid "Updated USB backup job."
+msgstr "Aktualizována úloha zálohování na USB médium"
+
+msgid "n/a"
+msgstr "n/a"

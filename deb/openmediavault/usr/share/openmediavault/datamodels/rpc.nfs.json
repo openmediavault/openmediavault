@@ -1,0 +1,66 @@
+[{
+	"type": "rpc",
+	"id": "rpc.nfs.setsettings",
+	"params": {
+		"type": "object",
+		"properties": {
+			"enable": {
+				"type": "boolean",
+				"required": true
+			},
+			"versions": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"enum": [
+						"2",
+						"3",
+						"4",
+						"4.1",
+						"4.2"
+					]
+				},
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.nfs.setshare",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"sharedfolderref": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"mntentref": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"client": {
+				"type": "string",
+				"required": true
+			},
+			"options": {
+				"type": "string",
+				"required": true
+			},
+			"extraoptions": {
+				"type": "string",
+				"required": true
+			},
+			"comment": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+}]

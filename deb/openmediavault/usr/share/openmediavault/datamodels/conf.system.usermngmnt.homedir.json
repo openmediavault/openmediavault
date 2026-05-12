@@ -1,0 +1,25 @@
+{
+	"type": "config",
+	"id": "conf.system.usermngmnt.homedir",
+	"title": "User home directory",
+	"queryinfo": {
+		"xpath": ".//system/usermanagement/homedirectory",
+		"iterable": false
+	},
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"sharedfolderref": {
+			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "uuidv4"
+			},{
+				"type": "string",
+				"maxLength": 0
+			}]
+		}
+	}
+}

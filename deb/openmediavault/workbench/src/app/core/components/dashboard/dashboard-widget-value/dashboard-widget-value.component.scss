@@ -1,0 +1,6 @@
+@use 'scss/defaults/variables' as dv;
+
+.widget-content {
+  padding: dv.$omv-padding;
+  max-height: 300px;
+}

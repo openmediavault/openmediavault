@@ -1,0 +1,231 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-bcache package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2024
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-bcache\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2024-11-20 12:26+0000\n"
+"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2024\n"
+"Language-Team: Hungarian (Hungary) (https://app.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu_HU\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "5 Minutes"
+msgstr "5 perc"
+
+msgid ""
+"A sequential IO will bypass the cache once it passes this threshold. "
+"(default:4.0M, max:3.9G)"
+msgstr ""
+"A szekvenciális IO megkerüli a gyorsítótárat, amint átlépi ezt a "
+"küszöbértéket. (alapértelmezett: 4.0M, max: 3.9G)"
+
+msgid ""
+"Allow bcache go around the cache when there's read / write congestion. "
+"(default:true)"
+msgstr ""
+"Engedélyezi, hogy a bcache megkerülje a gyorsítótárat, ha olvasási/írási "
+"torlódás van. (alapértelmezett: igaz)"
+
+msgid "Backing Devices"
+msgstr "Háttéreszközök"
+
+msgid "Bcache"
+msgstr "Bcache"
+
+msgid "Bcache Device"
+msgstr "Bcache eszköz"
+
+msgid "Cache Device"
+msgstr "Gyorsítótáreszköz"
+
+msgid "Cache Devices"
+msgstr "Gyorsítótáreszközök"
+
+msgid "Cache Mode"
+msgstr "Gyorsítótárazás módja"
+
+msgid "Capacity"
+msgstr "Kapacitás"
+
+msgid "Clean"
+msgstr "Tiszta"
+
+msgid "Clear total statistics"
+msgstr "Teljes statisztika törlése"
+
+msgid "Configuration"
+msgstr "Beállítás"
+
+msgid "Congest Tracking"
+msgstr "Torlódáskövetés"
+
+msgid "Congested Read Threshold (us)"
+msgstr "Olvasási torlódásküszöb (µs)"
+
+msgid "Create"
+msgstr "Létrehozás"
+
+msgid "Day"
+msgstr "Nap"
+
+msgid "Device"
+msgstr "Eszköz"
+
+msgid "Dirty"
+msgstr "Piszkos"
+
+msgid "Dirty Data"
+msgstr "Piszkos adatok"
+
+msgid "Docs"
+msgstr "Dokumentáció"
+
+msgid "Hour"
+msgstr "Óra"
+
+msgid ""
+"If nonzero, bcache tries to keep around this percentage of the cache dirty "
+"by throttling background writeback and using a PD controller to smoothly "
+"adjust the rate. (default:10)"
+msgstr ""
+"Ha nem nulla, a bcache megpróbálja a gyorsítótárnak körülbelül ezt a "
+"százalékát szennyezettként tartani a háttérben történő visszaírás "
+"korlátozásával és a PD-vezérlő használatával, hogy a sebességet simán "
+"beállítsa. (alapértelmezett: 10)"
+
+msgid "Inconsistent"
+msgstr "Inkonzisztens"
+
+msgid "Metadata"
+msgstr "Metaadat"
+
+msgid "Missing"
+msgstr "Hiányzik"
+
+msgid "Missing Cache"
+msgstr "Hiányzó gyorsítótár"
+
+msgid "Mounted"
+msgstr "Csatolva"
+
+msgid "Name"
+msgstr "Név"
+
+msgid "No Cache"
+msgstr "Nincs gyorsítótár"
+
+msgid "Online"
+msgstr "Online"
+
+msgid ""
+"Please note that creating a file system on a Bcache device can take longer. "
+"It is therefore possible that the file system is not immediately available "
+"for mounting."
+msgstr ""
+"Vegye figyelembe, hogy a Bcache eszközön egy fájlrendszer létrehozása "
+"hosszabb időt vehet igénybe. Előfordulhat, hogy a fájlrendszer nem lesz "
+"azonnal elérhető a csatoláshoz."
+
+msgid "Recovery Actions"
+msgstr "Helyreállítási művelet"
+
+msgid "Register"
+msgstr "Regisztrálás"
+
+msgid "Select a cache device ..."
+msgstr "Gyorsítótár eszköz kijelölése…"
+
+msgid "Select a device ..."
+msgstr "Eszköz kijelölése…"
+
+msgid "Select the device that will be formatted as Bcache backing device."
+msgstr "Jelölje ki a formázandó Bcache háttértáreszközt."
+
+msgid "Select the device that will be formatted as Bcache cache device."
+msgstr "Jelölje ki a formázandó Bcache gyorsítótáreszközt."
+
+msgid "Select the device that will be used as cache device."
+msgstr "Jelölje ki a gyorsítótárként használt eszközt."
+
+msgid "Sequential Cutoff"
+msgstr "Szekvenciális lezárás"
+
+msgid "Show details"
+msgstr "Részletek megjelenítése"
+
+msgid "Start without cache"
+msgstr "Indulás gyorsítótár nélkül"
+
+msgid "State"
+msgstr "Állapot"
+
+msgid "Statistics"
+msgstr "Statisztika"
+
+msgid "Superblock"
+msgstr "Szuper blokk"
+
+msgid "The default is 2000 us (2 milliseconds)"
+msgstr "Az alapértelmezett érték 2000 µs (2 milliszekundum)"
+
+msgid "The default is 20000 us (20 milliseconds)"
+msgstr "Az alapértelmezett érték 20000 µs (20 milliszekundum)"
+
+msgid "Total"
+msgstr "Teljes"
+
+msgid "Unit"
+msgstr "Egység"
+
+msgid "Unregister"
+msgstr "Regisztráció törlése"
+
+msgid "Unregistered"
+msgstr "Regisztrálatlan"
+
+msgid "Unused"
+msgstr "Használaton kívül"
+
+msgid "Updated backing device '{{ devicefile }}'."
+msgstr "'{{ devicefile }}' háttéreszköz frissítve."
+
+msgid "Updated cache device '{{ devicefile }}'."
+msgstr "'{{ devicefile }}' gyorsítótáreszköz frissítve."
+
+msgid ""
+"When dirty data is written to the cache and it previously did not contain "
+"any, waits some number of seconds before initiating writeback. (default:30)"
+msgstr ""
+"Amikor piszkos adatok íródnak a gyorsítótárba, melyeket az korábban nem "
+"tartalmazott, néhány másodperc várakozás után kezdődik csak a visszaírás. "
+"(alapértelmezett: 30)"
+
+msgid "Writeback Delay"
+msgstr "Visszaírási késleltetés"
+
+msgid "Writeback Percent"
+msgstr "Visszaírási százalék"
+
+msgid "none"
+msgstr "nincs"
+
+msgid "writearound"
+msgstr "körbeírás"
+
+msgid "writeback"
+msgstr "visszaírás"
+
+msgid "writethrough"
+msgstr "átírás"

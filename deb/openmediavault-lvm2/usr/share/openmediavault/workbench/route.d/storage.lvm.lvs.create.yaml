@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/lvm/lvs/create"
+  title: _("Create")
+  notificationTitle: _("Created logical volume '{{ name }}'.")
+  component: omv-storage-lvm-lv-create-form-page

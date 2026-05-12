@@ -1,0 +1,29 @@
+version: "1.0"
+type: dashboard-widget
+data:
+  id: 20ac67db-b6b5-429c-a304-9a1a4fbb9ea9
+  title: _("Memory")
+  type: chart
+  permissions:
+    role:
+    - admin
+  chart:
+    type: advanced-doughnut
+    maxHeight: "150px"
+    maxWidth: "150px"
+    request:
+      service: System
+      method: getInformation
+      transform:
+        memUsed: '{{ memTotal - memAvailable }}'
+    label:
+      display: true
+      formatter: template
+      formatterConfig: "{{ value | binaryunit }}"
+    dataConfig:
+    - label: _("Used")
+      prop: memUsed
+      backgroundColor: "#ff3b30"
+    - label: _("Free")
+      prop: memAvailable
+      backgroundColor: "#4cd964"

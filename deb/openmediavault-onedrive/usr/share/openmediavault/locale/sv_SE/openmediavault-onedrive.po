@@ -1,0 +1,179 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-onedrive package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# efef6ec5b435a041fce803c7f8af77d2_2341d43, 2022
+# d8527209fb8c70c5b5fcb33678ff7c94_64a2687 <02f319e914d16f5dcdd2de15d3144927_23340>, 2022
+# Karl Jonatan Nyberg, 2025
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-onedrive\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2022-04-13 15:28+0000\n"
+"Last-Translator: Karl Jonatan Nyberg, 2025\n"
+"Language-Team: Swedish (https://app.transifex.com/openmediavault/teams/14254/sv/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "1 MiB/s"
+msgstr "1 MiB/s"
+
+msgid "10 MiB/s"
+msgstr "10 MiB/s"
+
+msgid "10 minutes"
+msgstr "10 minuter"
+
+msgid "100 MiB/s"
+msgstr "100 MiB/s"
+
+msgid "12 hours"
+msgstr "12 timmar"
+
+msgid "128 KiB/s"
+msgstr "128 KiB/s"
+
+msgid "15 minutes"
+msgstr "15 minuter"
+
+msgid "24 hours"
+msgstr "24 timmar"
+
+msgid "256 KiB/s"
+msgstr "256 KiB/s"
+
+msgid "30 minutes"
+msgstr "30 minuter"
+
+msgid "5 minutes"
+msgstr "5 minuter"
+
+msgid "512 KiB/s"
+msgstr "512 KiB/s"
+
+msgid "6 hours"
+msgstr "6 timmar"
+
+msgid "60 minutes"
+msgstr "60 minuter"
+
+msgid ""
+"<ul><li>Full - Replicate changes from and to OneDrive.</li><li>Download only"
+" - Replicate the OneDrive online state locally, by only downloading changes "
+"from OneDrive. Do not upload local changes to OneDrive.</li><li>Upload only "
+"- Replicate the local state to OneDrive, by only uploading local changes to "
+"OneDrive. Do not download changes from OneDrive.</li></ul>"
+msgstr ""
+"<ul><li>Fullständig - Replikera ändringar från och till "
+"OneDrive.</li><li>Endast hämtning - Replikera OneDrive-onlinetillståndet "
+"lokalt, genom att endast hämta ändringar från OneDrive. Ladda inte upp "
+"lokala ändringar till OneDrive.</li><li>Ladda endast upp - Replikera det "
+"lokala tillståndet till OneDrive genom att bara ladda upp lokala ändringar "
+"till OneDrive. Hämta inte ändringar från OneDrive.</li></ul>"
+
+msgid ""
+"After enabling and deploying this service the first time please run the "
+"command <em>omv-onedrive-auth</em> as <em>root</em> user in the CLI to "
+"authenticate the application in Microsoft OneDrive."
+msgstr ""
+"Efter att ha aktiverat och distribuerat den här tjänsten första gången, kör "
+"kommandot <em>omv-onedrive-auth</em> som <em>rot</em>användare i CLI för att"
+" autentisera applikationen i Microsoft OneDrive."
+
+msgid "Clean up local files"
+msgstr "Rensa upp lokala filer"
+
+msgid "Clean up local files that have been removed online."
+msgstr "Rensa upp lokala filer som har tagits bort från nätet."
+
+msgid "Date & Time"
+msgstr "Datum & tid"
+
+msgid "Disabled"
+msgstr "Inaktiverad"
+
+msgid "Do not delete local file deletions from OneDrive."
+msgstr "Ta inte bort lokala filborttagningar från OneDrive."
+
+msgid "Download only"
+msgstr "Endast hämtning"
+
+msgid "Enabled"
+msgstr "Aktiverad"
+
+msgid "Extra options"
+msgstr "Extra tillval"
+
+msgid "Full"
+msgstr "Fullständig"
+
+msgid "Local first"
+msgstr "Lokala först"
+
+msgid "Message"
+msgstr "Meddelande"
+
+msgid "Monitor interval"
+msgstr "Övervakningsintervall"
+
+msgid "No remote delete"
+msgstr "Ingen fjärrborttagning"
+
+msgid "OneDrive"
+msgstr "OneDrive"
+
+msgid "Rate limit"
+msgstr "Hastighetsgräns"
+
+msgid "Replicate local state first, before downloading changes from OneDrive."
+msgstr ""
+"Replikera det lokala tillståndet först innan du hämtar ändringar från "
+"OneDrive."
+
+msgid "Replication mode"
+msgstr "Replikeringsläge"
+
+msgid "Shared folder"
+msgstr "Delad mapp"
+
+msgid "Skip dot files and folders from syncing."
+msgstr "Hoppa över punktfiler och mappar från synkronisering."
+
+msgid "Skip dotfiles"
+msgstr "Hoppa över punktfiler"
+
+msgid "The location to which the files are synchronised."
+msgstr "Platsen till vilken filerna synkroniseras."
+
+msgid "The synchronised files and directories are owned by this user."
+msgstr "De synkroniserade filerna och katalogerna ägs av denna användare."
+
+msgid "The wait time between each sync operation."
+msgstr "Väntetiden mellan varje synkroniseringsåtgärd."
+
+msgid "Updated OneDrive settings."
+msgstr "Uppdaterade OneDrive-inställningar."
+
+msgid "Upload only"
+msgstr "Ladda endast upp"
+
+msgid "Upload/Download rate limit."
+msgstr "Uppladdnings-/hämtningshastighetsgräns."
+
+msgid ""
+"Use the <em>omv-onedrive</em> command in the CLI to perform additional "
+"actions according to the documentation of the OneDrive Linux client."
+msgstr ""
+"Använd kommandot <em>omv-onedrive</em> i CLI för att utföra ytterligare "
+"åtgärder enligt dokumentationen för OneDrive Linux-klienten."
+
+msgid "User"
+msgstr "Användare"

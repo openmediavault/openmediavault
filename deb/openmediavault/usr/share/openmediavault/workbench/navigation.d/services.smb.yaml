@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.smb"
+  text: _("SMB/CIFS")
+  icon: smb
+  url: "/services/smb"

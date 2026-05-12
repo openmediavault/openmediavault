@@ -1,0 +1,59 @@
+[{
+	"type": "rpc",
+	"id": "rpc.exec.stop",
+	"params": {
+		"type": "object",
+		"properties": {
+			"filename": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.exec.getoutput",
+	"params": {
+		"type": "object",
+		"properties": {
+			"filename": {
+				"type": "string",
+				"required": true
+			},
+			"pos": {
+				"type": "integer",
+				"minimum": 0,
+				"required": true
+			},
+			"length": {
+				"type": "integer",
+				"minimum": 1024,
+				"required": false
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.exec.isrunning",
+	"params": {
+		"type": "object",
+		"properties": {
+			"filename": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.exec.attach",
+	"params": {
+		"type": "object",
+		"properties": {
+			"filename": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+}]

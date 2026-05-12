@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.k8s.resources.ingressroute"
+  text: _("Ingress Routes")
+  icon: "mdi:shuffle-variant"
+  url: "/services/k8s/resources/ingressroute"

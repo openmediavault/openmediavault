@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/usbbackup"
+  title: _("USB Backup")
+  component: omv-services-usbbackup-job-datatable-page

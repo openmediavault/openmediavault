@@ -1,0 +1,47 @@
+{% set databaseowner = salt['pillar.get']('default:OMV_CLAMAV_FRESHCLAM_DATABASEOWNER', 'clamav') -%}
+{% set updatelogfile = salt['pillar.get']('default:OMV_CLAMAV_FRESHCLAM_UPDATELOGFILE', '/var/log/clamav/freshclam.log') -%}
+{% set logverbose = salt['pillar.get']('default:OMV_CLAMAV_FRESHCLAM_LOGVERBOSE', 'false') -%}
+{% set logsyslog = salt['pillar.get']('default:OMV_CLAMAV_FRESHCLAM_LOGSYSLOG', 'false') -%}
+{% set logfacility = salt['pillar.get']('default:OMV_CLAMAV_FRESHCLAM_LOGFACILITY', 'LOG_LOCAL6') -%}
+{% set logfilemaxsize = salt['pillar.get']('default:OMV_CLAMAV_FRESHCLAM_LOGFILEMAXSIZE', '0') -%}
+{% set logrotate = salt['pillar.get']('default:OMV_CLAMAV_FRESHCLAM_LOGROTATE', 'false') -%}
+{% set databasedirectory = salt['pillar.get']('default:OMV_CLAMAV_FRESHCLAM_DATABASEDIRECTORY', '/var/lib/clamav') -%}
+{% set dnsdatabaseinfo = salt['pillar.get']('default:OMV_CLAMAV_FRESHCLAM_DNSDATABASEINFO', 'current.cvd.clamav.net') -%}
+{% set compresslocaldatabase = salt['pillar.get']('default:OMV_CLAMAV_FRESHCLAM_COMPRESSLOCALDATABASE', 'no') -%}
+{% set notifyclamd = salt['pillar.get']('default:OMV_CLAMAV_FRESHCLAM_NOTIFYCLAMD', '/etc/clamav/clamd.conf') -%}
+{% set databasemirror = salt['pillar.get']('default:OMV_CLAMAV_FRESHCLAM_DATABASEMIRROR', 'database.clamav.net') -%}
+{% set connecttimeout = salt['pillar.get']('default:OMV_CLAMAV_FRESHCLAM_CONNECTTIMEOUT', '30') -%}
+{% set receivetimeout = salt['pillar.get']('default:OMV_CLAMAV_FRESHCLAM_RECEIVETIMEOUT', '0') -%}
+
+{{ pillar['headers']['multiline'] }}
+
+DatabaseOwner {{ databaseowner }}
+UpdateLogFile {{ updatelogfile }}
+LogVerbose {{ logverbose }}
+LogSyslog {{ logsyslog }}
+LogFacility {{ logfacility }}
+LogFileMaxSize {{ logfilemaxsize }}
+LogRotate {{ logrotate }}
+LogTime true
+Foreground false
+Debug false
+MaxAttempts 5
+DatabaseDirectory {{ databasedirectory }}
+DNSDatabaseInfo {{ dnsdatabaseinfo }}
+ConnectTimeout {{ connecttimeout }}
+ReceiveTimeout {{ receivetimeout }}
+TestDatabases yes
+ScriptedUpdates yes
+CompressLocalDatabase {{ compresslocaldatabase }}
+Bytecode true
+NotifyClamd {{ notifyclamd }}
+Checks {{ clamav_config.freshclam.checks }}
+DatabaseMirror {{ databasemirror }}
+{%- if proxy_config.http.enable | to_bool and proxy_config.http.host | length > 0 %}
+HTTPProxyServer {{ proxy_config.http.host }}
+HTTPProxyPort {{ proxy_config.http.port }}
+{%- if proxy_config.http.username | length > 0 %}
+HTTPProxyUsername {{ proxy_config.http.username }}
+HTTPProxyPassword {{ proxy_config.http.password }}
+{%- endif %}
+{%- endif %}

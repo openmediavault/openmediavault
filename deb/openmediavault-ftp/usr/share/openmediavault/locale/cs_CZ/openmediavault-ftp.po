@@ -1,0 +1,417 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-ftp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2023
+# Jan Štourač <wormsik666@gmail.com>, 2023
+# Pavel Borecki <pavel.borecki@gmail.com>, 2023
+# Marek Pavelka, 2025
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-ftp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2023-01-30 10:17+0000\n"
+"Last-Translator: Marek Pavelka, 2025\n"
+"Language-Team: Czech (Czech Republic) (https://app.transifex.com/openmediavault/teams/14254/cs_CZ/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+
+msgid "0 KiB/s means unlimited."
+msgstr "0 KiB/s znamená neomezené."
+
+msgid "A powerful modular FTP/SFTP/FTPS server."
+msgstr "Výkonný modulární server FTP/SFTP/FTPS."
+
+msgid "Access mode"
+msgstr ""
+
+msgid "Advanced settings"
+msgstr "Pokročilá nastavení"
+
+msgid "Allow clients to resume interrupted uploads and downloads."
+msgstr "Umožnit klientům obnovit přerušené nahrávání nebo stahování."
+
+msgid ""
+"Allow users to log in without a password. Make sure the user <em>ftp</em> or"
+" group <em>nogroup</em> can access the files."
+msgstr ""
+
+msgid "Anonymous FTP"
+msgstr "Anonymní FTP"
+
+msgid "Authenticated user ID"
+msgstr ""
+
+msgid "Authentication method"
+msgstr ""
+
+msgid "Ban Rules"
+msgstr "Pravidla vyloučení"
+
+msgid "Ban statistics:"
+msgstr "Statistiky vyloučení:"
+
+msgid "Bandwidth restriction"
+msgstr "Omezení šířky pásma"
+
+msgid "Certificate"
+msgstr "Certifikát"
+
+msgid "Completion status"
+msgstr ""
+
+msgid "Create"
+msgstr "Vytvořit"
+
+msgid "Created FTP ban rule."
+msgstr "Vytvořeno pravidlo vyloučení z FTP."
+
+msgid "Created FTP share."
+msgstr "Vytvořena sdílená složka FTP."
+
+msgid "Currently logged in users:"
+msgstr "Aktuálně přihlášení uživatelé:"
+
+msgid "Date & Time"
+msgstr "Datum a čas"
+
+msgid "Deny logins which do not have a valid shell."
+msgstr "Odmítnout přihlášení, která nemají platný shell."
+
+msgid "Direction"
+msgstr ""
+
+msgid "Display the home directory of the user in the browse list."
+msgstr "Zobrazit domovský adresář uživatele v seznamu procházení."
+
+msgid "Edit"
+msgstr "Upravit"
+
+msgid "Enable SSL/TLS connections."
+msgstr "Povolit připojení SSL/TLS."
+
+msgid "Enable file transfer logging."
+msgstr "Povolit protokolování přenosu souborů."
+
+msgid ""
+"Enable reverse DNS lookup performed on the remote host's IP address for "
+"incoming active mode data connections and outgoing passive mode data "
+"connections."
+msgstr ""
+"Povolit reverzní vyhledávání DNS prováděné na IP adrese vzdáleného hostitele"
+" pro příchozí datová připojení v aktivním režimu a odchozí datová připojení "
+"v pasivním režimu."
+
+msgid "Enabled"
+msgstr "Povoleno"
+
+msgid "Event"
+msgstr "Událost"
+
+msgid "Expire"
+msgstr "Vyprší"
+
+msgid "Extra options"
+msgstr "Dodatečné volby"
+
+msgid "FTP"
+msgstr "FTP"
+
+msgid "FTP - Transfer log"
+msgstr ""
+
+msgid "FXP"
+msgstr "FXP"
+
+msgid ""
+"FXP allows transfers between two remote servers without any file data going "
+"to the client asking for the transfer."
+msgstr ""
+"FXP umožňuje přenosy mezi dvěma vzdálenými servery, aniž by se data souborů "
+"dostala ke klientovi, který o přenos žádá."
+
+msgid "Filename"
+msgstr ""
+
+msgid "Filesize"
+msgstr ""
+
+msgid "Home directories"
+msgstr "Domovské adresáře"
+
+msgid "Ident protocol"
+msgstr "Protokol ident"
+
+msgid ""
+"If your host is acting as a NAT gateway or port forwarder for the server, "
+"this option is useful in order to allow passive tranfers to work. You have "
+"to use your public address and opening the passive ports used on your "
+"firewall as well."
+msgstr ""
+"Pokud váš hostitel funguje jako brána NAT nebo předávač portů pro server, je"
+" tato volba užitečná pro umožnění fungování pasivních přenosů. Musíte použít"
+" svou veřejnou adresu a otevřít také pasivní porty používané na bráně "
+"firewall."
+
+msgid "Implicit SSL"
+msgstr "Implicitní SSL"
+
+msgid ""
+"In some cases you have to specify passive ports range to by-pass firewall "
+"limitations. Passive ports restricts the range of ports from which the "
+"server will select when sent the PASV command from a client. The server will"
+" randomly choose a number from within the specified range until an open port"
+" is found. The port range selected must be in the non-privileged range (eg. "
+"greater than or equal to 1024). It is strongly recommended that the chosen "
+"range be large enough to handle many simultaneous passive connections (for "
+"example, 49152-65534, the IANA-registered ephemeral port range)."
+msgstr ""
+"V některých případech je nutné zadat rozsah pasivních portů pro obejití "
+"omezení brány firewall. Pasivní porty omezují rozsah portů, ze kterých "
+"server vybere, když mu klient pošle příkaz PASV. Server náhodně volí číslo "
+"ze zadaného rozsahu, dokud nenajde otevřený port. Vybraný rozsah portů musí "
+"být v neprivilegovaném rozsahu (např. větší nebo roven 1024). Důrazně se "
+"doporučuje, aby zvolený rozsah byl dostatečně velký, aby zvládl mnoho "
+"současných pasivních připojení (například 49152-65534, rozsah dočasných "
+"portů registrovaných organizací IANA)."
+
+msgid "Masquerade address"
+msgstr "Maskovací adresa"
+
+msgid "Max. clients"
+msgstr "Maximálně klientů"
+
+msgid "Max. connections per host"
+msgstr "Maximum připojení na hostitele"
+
+msgid "Max. login attempts"
+msgstr "Maximum pokusů o přihlášení"
+
+msgid "Max. passive port"
+msgstr "Maximální pasivní port"
+
+msgid "Maximum download rate (KiB/s)"
+msgstr "Maximální rychlost stahování (KiB/s)"
+
+msgid ""
+"Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
+"timer completely (clients can stay connected for ever, without sending "
+"data)."
+msgstr ""
+"Maximální doba nečinnosti v sekundách. Nastavením časového limitu nečinnosti"
+" na 0 se časovač nečinnosti úplně vypne (klienti mohou zůstat připojeni po "
+"celou dobu, aniž by odesílali data)."
+
+msgid "Maximum number of allowed password attempts before disconnection."
+msgstr "Maximální počet povolených pokusů o zadání hesla před odpojením."
+
+msgid "Maximum number of connections per IP (0 = unlimited)."
+msgstr "Maximální počet připojení na jednu IP adresu (0 = neomezeně)."
+
+msgid "Maximum number of simultaneous clients."
+msgstr "Maximální počet souběžně připojených klientů."
+
+msgid "Maximum upload rate (KiB/s)"
+msgstr "Maximální rychlost nahrávání (KiB/s)"
+
+msgid "Message"
+msgstr "Zpráva"
+
+msgid "Min. passive port"
+msgstr "Minimální pasivní port"
+
+msgid "N/A"
+msgstr ""
+
+msgid "No session reuse required"
+msgstr "Není vyžadováno opakované použití relace"
+
+msgid "Occurrence"
+msgstr "Výskyt"
+
+msgid "Passive FTP"
+msgstr "Pasivní FTP"
+
+msgid "Permit root login"
+msgstr "Povolit přihlášení uživatele root"
+
+msgid ""
+"Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+"Další podrobnosti naleznete na <a "
+"href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
+"target='_blank'>stránce s příručkou</a>."
+
+msgid ""
+"Please check the <a "
+"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+"Další podrobnosti naleznete na <a "
+"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
+"target='_blank'>stránce s příručkou</a>."
+
+msgid ""
+"Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
+"name.html' target='_blank'>manual page</a> for more details."
+msgstr ""
+"Další podrobnosti naleznete na <a "
+"href='http://www.proftpd.org/docs/directives/linked/by-name.html' "
+"target='_blank'>stránce s příručkou</a>."
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Refresh time"
+msgstr "Čas obnovení"
+
+msgid "Remote host"
+msgstr ""
+
+msgid "Require valid shell"
+msgstr "Vyžadovat platný shell"
+
+msgid "Required"
+msgstr "Požadováno"
+
+msgid "Resume"
+msgstr "Pokračovat"
+
+msgid "Reverse DNS lookup"
+msgstr "Reverzní vyhledávání DNS"
+
+msgid "SSL/TLS Settings"
+msgstr "Nastavení SSL/TLS"
+
+msgid "Service disabled"
+msgstr "Služba zakázána"
+
+msgid "Settings"
+msgstr "Nastavení"
+
+msgid "Shared folder"
+msgstr "Sdílená složka"
+
+msgid "Shares"
+msgstr "Sdílení"
+
+msgid "Special action flag"
+msgstr ""
+
+msgid ""
+"Specifies the amount of time, in seconds, between checking and updating the "
+"masquerade address by resolving the IP address. Set this value to 0 to "
+"disable this option."
+msgstr ""
+"Určuje dobu v sekundách mezi kontrolou a aktualizací maskovací adresy pomocí"
+" překladu IP adresy. Nastavením této hodnoty na 0 tuto volbu zakážete."
+
+msgid "Specifies the time in hh:mm:ss after which the ban expires."
+msgstr "Určuje čas ve formátu hh:mm:ss, po kterém vyloučení vyprší."
+
+msgid ""
+"Specifies the time interval in hh:mm:ss in which the given number of "
+"occurrences must happen to add the ban."
+msgstr ""
+"Určuje časový interval ve formátu hh:mm:ss, ve kterém musí nastat daný počet"
+" výskytů, aby bylo vyloučení uděleno."
+
+msgid "Specifies whether it is allowed to login as superuser directly."
+msgstr "Určuje, zda je povoleno přihlášení přímo jako superuživatel."
+
+msgid "Tags"
+msgstr "Štítky"
+
+msgid "The SSL certificate."
+msgstr "Certifikát SSL."
+
+msgid "The location of the files to share."
+msgstr "Umístění souborů pro sdílení."
+
+msgid ""
+"The requirement that the SSL session from the control connection is reused "
+"for data connections is not required."
+msgstr ""
+"Požadavek, aby relace SSL z řídicího připojení byla znovu použita pro datová"
+" připojení, není vyžadován."
+
+msgid ""
+"The welcome message will be displayed to the user at login. Please check the"
+" <a href='http://www.proftpd.org/docs/howto/DisplayFiles.html' "
+"target='_blank'>manual page</a> how to use variables. Leave this field empty"
+" to disable the welcome message."
+msgstr ""
+"Při přihlášení se uživateli zobrazí uvítací zpráva. Podívejte se na <a "
+"href='http://www.proftpd.org/docs/howto/DisplayFiles.html' "
+"target='_blank'>stránku s příručkou</a>, jak používat proměnné. Pro zakázání"
+" uvítací zprávy ponechte toto pole prázdné."
+
+msgid ""
+"This option requires clients to use FTP over TLS when talking to this "
+"server."
+msgstr ""
+"Tato volba vyžaduje, aby klienti při komunikaci s tímto serverem používali "
+"protokol FTP přes TLS."
+
+msgid ""
+"This option will handle all connections as if they are SSL connections "
+"implicitly."
+msgstr ""
+"Tato volba implicitně zpracuje všechna připojení, jako by se jednalo o "
+"připojení SSL."
+
+msgid ""
+"This parameter says that if N occurrences of the event happen within the "
+"given time interval, then a ban is automatically added."
+msgstr ""
+"Tento parametr říká, že pokud v daném časovém intervalu dojde k N výskytům "
+"události, je automaticky uděleno vyloučení."
+
+msgid "This rule is triggered whenever the selected event directive occurs."
+msgstr "Toto pravidlo se spustí vždy, když nastane vybraná směrnice události."
+
+msgid "Time interval"
+msgstr "Časové rozmezí"
+
+msgid "Timeout"
+msgstr "Časový limit"
+
+msgid "Transfer log"
+msgstr "Protokol přenosu"
+
+msgid "Transfer time"
+msgstr ""
+
+msgid "Transfer type"
+msgstr ""
+
+msgid "Updated FTP ban rule."
+msgstr "Aktualizováno pravidlo vyloučení z FTP."
+
+msgid "Updated FTP share."
+msgstr "Aktualizováno sdílení FTP."
+
+msgid "Use the following bandwidth restriction."
+msgstr "Použít následující omezení šířky pásma."
+
+msgid "User name"
+msgstr ""
+
+msgid "Welcome message"
+msgstr "Uvítací zpráva"
+
+msgid ""
+"When a client initially connects to the server the ident protocol is used to"
+" attempt to identify the remote user name."
+msgstr ""
+"Při prvním připojení klienta k serveru se k identifikaci vzdáleného "
+"uživatelského jména použije protokol ident."

@@ -1,0 +1,24 @@
+{%- set root_usage_warn_threshold = salt['pillar.get']('default:OMV_MONIT_SERVICE_FILESYSTEM_ROOT_USAGEWARNTHRESHOLD', '85') -%}
+# Alert if disk space of root filesystem gets low
+check filesystem rootfs with path /
+    if space usage > {{ root_usage_warn_threshold }}% for 5 times within 15 cycles
+        then alert else if succeeded for 10 cycles then alert
+
+{% for mountpoint in mountpoints %}
+{%- set check_id = mountpoint.dir | replace('/', '_') | replace(' ', '_') | replace(':', '_') %}
+{%- if mountpoint.usagewarnthreshold > 0 %}
+{%- if mountpoint.type | check_whitelist_blacklist(blacklist=['iso9660', 'udf']) %}
+check filesystem filesystem{{ check_id }} with path "{{ mountpoint.dir }}"
+    if space usage > {{ mountpoint.usagewarnthreshold }}% for 5 times within 15 cycles
+        then alert else if succeeded for 10 cycles then alert
+
+{% endif %}
+{% endif %}
+# Try to auto-mount a filesystem if it is missing. Alert if the filesystem
+# is still missing after a given time period.
+check program mountpoint{{ check_id }} with path "/bin/mountpoint '{{ mountpoint.dir }}'"
+    if status != 0
+        then alert
+    if status != 0 for 2 cycles
+        then exec "/usr/bin/mount '{{ mountpoint.dir }}'"
+{% endfor %}

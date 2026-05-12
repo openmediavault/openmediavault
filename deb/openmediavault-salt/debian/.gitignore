@@ -1,0 +1,6 @@
+openmediavault-salt/
+files
+*.debhelper.log
+*.debhelper
+*.substvars
+*-stamp

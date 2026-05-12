@@ -1,0 +1,95 @@
+[{
+	"type": "rpc",
+	"id": "rpc.mdmgmt.create",
+	"params": {
+		"type": "object",
+		"properties": {
+			"devices": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"format": "devicefile"
+				},
+				"required": true
+			},
+			"name": {
+				"type": "string",
+				"required": true
+			},
+			"level": {
+				"type": "string",
+				"enum": [
+					"stripe",
+					"mirror",
+					"raid10",
+					"raid5",
+					"raid6"
+				],
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.mdmgmt.grow",
+	"params": {
+		"type": "object",
+		"properties": {
+			"devicefile": {
+				"type": "string",
+				"format": "devicefile",
+				"required": true
+			},
+			"devices": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"format": "devicefile"
+				},
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.mdmgmt.add",
+	"params": {
+		"type": "object",
+		"properties": {
+			"devicefile": {
+				"type": "string",
+				"format": "devicefile",
+				"required": true
+			},
+			"devices": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"format": "devicefile"
+				},
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.mdmgmt.remove",
+	"params": {
+		"type": "object",
+		"properties": {
+			"devicefile": {
+				"type": "string",
+				"format": "devicefile",
+				"required": true
+			},
+			"devices": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"format": "devicefile"
+				},
+				"required": true
+			}
+		}
+	}
+}]

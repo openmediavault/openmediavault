@@ -1,0 +1,44 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-clamav-onaccess-scan-datatable-page
+  type: datatablePage
+  config:
+    autoReload: false
+    stateId: ff76df7a-8cf5-11e7-8a62-0800278dc04d
+    sorters:
+      - dir: asc
+        prop: sharedfoldername
+    store:
+      proxy:
+        service: ClamAV
+        get:
+          method: getOnAccessPathList
+    rowEnumFmt: "{{ sharedfoldername }}"
+    columns:
+      - name: _("Enabled")
+        prop: enable
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: checkIcon
+      - name: _("Shared folder")
+        prop: sharedfoldername
+        flexGrow: 1
+        sortable: true
+    actions:
+      - template: create
+        execute:
+          type: url
+          url: "/services/clamav/onaccess-scans/create"
+      - template: edit
+        execute:
+          type: url
+          url: "/services/clamav/onaccess-scans/edit/{{ _selected[0].uuid }}"
+      - template: delete
+        execute:
+          type: request
+          request:
+            service: ClamAV
+            method: deleteOnAccessPath
+            params:
+              uuid: "{{ uuid }}"

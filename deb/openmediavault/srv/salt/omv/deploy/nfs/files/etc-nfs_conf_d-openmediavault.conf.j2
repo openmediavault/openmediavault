@@ -1,0 +1,12 @@
+{%- set nfs_versions = config.versions.split(',') -%}
+{{ pillar['headers']['multiline'] }}
+[nfsd]
+threads={{ grains['num_cpus'] * 4 }}
+udp={{ (['2', '3'] | intersect(nfs_versions) | length > 0) | yesno }}
+tcp=yes
+vers2={{ ('2' in nfs_versions) | yesno }}
+vers3={{ ('3' in nfs_versions) | yesno }}
+vers4={{ (['4', '4.1', '4.2'] | intersect(nfs_versions) | length > 0) | yesno }}
+vers4.0={{ ('4' in nfs_versions) | yesno }}
+vers4.1={{ ('4.1' in nfs_versions) | yesno }}
+vers4.2={{ ('4.2' in nfs_versions) | yesno }}

@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.ftp.ban-rules"
+  position: 30
+  text: _("Ban Rules")
+  icon: "mdi:shield-half-full"
+  url: "/services/ftp/ban-rules"

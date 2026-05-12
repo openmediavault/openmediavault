@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "network.firewall.rules"
+  position: 10
+  text: _("Rules")
+  icon: "mdi:format-list-numbered"
+  url: "/network/firewall/rules"

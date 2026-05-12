@@ -1,0 +1,29 @@
+.message {
+  background-color: #000000;
+  padding: 12px;
+  border: solid 6px #ff0000;
+  color: #f72000;
+  font-family: courier, 'Courier New', monospace;
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+  animation: guru-meditation-flash 2s infinite;
+}
+
+@keyframes guru-meditation-flash {
+  0% {
+    border-color: #ff0000;
+  }
+
+  50% {
+    border-color: #ff0000;
+  }
+
+  51% {
+    border-color: #000000;
+  }
+
+  100% {
+    border-color: #000000;
+  }
+}

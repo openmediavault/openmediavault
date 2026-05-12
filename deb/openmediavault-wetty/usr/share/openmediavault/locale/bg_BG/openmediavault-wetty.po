@@ -1,0 +1,46 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-wetty package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Plamen Vasilev <p.vasileff@gmail.com>, 2022
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-wetty\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2022-03-22 21:34+0000\n"
+"Last-Translator: Plamen Vasilev <p.vasileff@gmail.com>, 2022\n"
+"Language-Team: Bulgarian (Bulgaria) (https://app.transifex.com/openmediavault/teams/14254/bg_BG/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: bg_BG\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Certificate"
+msgstr "Сертификат"
+
+msgid "Enabled"
+msgstr "Разрешено"
+
+msgid "Open UI"
+msgstr ""
+
+msgid "Port"
+msgstr "Порт"
+
+msgid "Port to listen on."
+msgstr "Порт за слушане."
+
+msgid "The SSL certificate."
+msgstr "SSL сертификатът."
+
+msgid "Updated WeTTY settings."
+msgstr ""
+
+msgid "WeTTY"
+msgstr ""

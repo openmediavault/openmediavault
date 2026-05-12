@@ -1,0 +1,104 @@
+{%- set dns_config = salt['omv_conf.get']('conf.system.network.dns') -%}
+{%- set mode_map = {0: "balance-rr", 1: "active-backup", 2: "balance-xor", 3: "broadcast", 4: "802.3ad", 5: "balance-tlb", 6: "balance-alb"} -%}
+{%- set primary_reselect_policy = salt['pillar.get']('default:OMV_SYSTEMD_NETWORKD_BOND_PRIMARYRESELECTPOLICY', 'always') -%}
+network:
+{%- for type in ['ethernet'] %}
+{%- set slaves = interface.slaves.split(',') | select('match_netif_type', type) | list %}
+{%- if slaves | length > 0 %}
+  {{ type }}s:
+{%- for slave in slaves %}
+    {{ slave }}:
+      addresses: []
+      dhcp4: false
+      dhcp6: false
+{%- if interface.wol | to_bool %}
+      wakeonlan: true
+{%- endif %}
+{%- endfor %}
+{%- endif %}
+{%- endfor %}
+  bonds:
+    {{ interface.devicename }}:
+{%- if interface.method == "static" or interface.method6 == "static" %}
+      addresses:
+{%- if interface.method == "static" %}
+      - {{ interface.address }}/{{ interface.netmask | network_prefix_len }}
+{%- endif %}
+{%- if interface.method6 == "static" %}
+      - {{ interface.address6 }}/{{ interface.netmask6 }}
+{%- endif %}
+{%- endif %}
+{%- if (interface.method == "static" and interface.gateway | is_ipv4) or (interface.method6 == "static" and interface.gateway6 | is_ipv6) %}
+      routes:
+{%- if interface.method == "static" and interface.gateway | is_ipv4 %}
+      - to: 0.0.0.0/0
+        via: {{ interface.gateway }}
+{%- if interface.routemetric > 0 %}
+        metric: {{ interface.routemetric }}
+{%- endif %}
+{%- endif %}
+{%- if interface.method6 == "static" and interface.gateway6 | is_ipv6 %}
+      - to: "::/0"
+        via: "{{ interface.gateway6 }}"
+{%- if interface.routemetric6 != 1 %}
+        metric: {{ interface.routemetric6 }}
+{%- endif %}
+{%- endif %}
+{%- endif %}
+{%- if interface.method6 in ["auto", "dhcp"] %}
+      accept-ra: true
+{%- endif %}
+{%- if interface.method6 == "static" %}
+      accept-ra: false
+{%- endif %}
+{%- if interface.method == "manual" and interface.method6 == "manual" %}
+      addresses: []
+{%- endif %}
+      dhcp4: {{ (interface.method == "dhcp") | yesno }}
+{%- if interface.method == "dhcp" %}
+      dhcp4-overrides:
+        use-dns: {{ (interface.dnsnameservers == "") | yesno('true,false') }}
+        use-domains: {{ (interface.dnssearch == "") | yesno('true,false') }}
+{%- endif %}
+      dhcp6: {{ (interface.method6 == "dhcp") | yesno }}
+{%- if interface.method6 == "dhcp" %}
+      dhcp6-overrides:
+        use-dns: {{ (interface.dnsnameservers == "") | yesno('true,false') }}
+        use-domains: {{ (interface.dnssearch == "") | yesno('true,false') }}
+{%- endif %}
+{%- if interface.method6 == "manual" %}
+      link-local: []
+{%- endif %}
+{%- if not interface.dnsnameservers == "" %}
+      nameservers:
+        addresses:
+{%- for dnsserver in interface.dnsnameservers.split(' ') %}
+        - {{ dnsserver }}
+{%- endfor %}
+{%- if interface.dnssearch | length > 0 %}
+        search: [{{ interface.dnssearch }}]
+{%- else %}
+{%- if dns_config.domainname | length > 0 and dns_config.domainname != "local" %}
+        search: [{{ dns_config.domainname }}]
+{%- endif %}
+{%- endif %}
+{%- endif %}
+{%- if interface.mtu > 0 %}
+      mtu: {{ interface.mtu }}
+{%- endif %}
+      interfaces:
+{%- for slave in interface.slaves.split(',') %}
+      - {{ slave }}
+{%- endfor %}
+      parameters:
+        mode: {{ mode_map[interface.bondmode] }}
+{%- if interface.bondmode in [2, 4, 5] %}
+        transmit-hash-policy: {{ interface.bondtransmithashpolicy }}
+{%- endif %}
+{%- if interface.bondprimary | length > 0 and interface.bondmode in [1, 5, 6] %}
+        primary: {{ interface.bondprimary }}
+        primary-reselect-policy: {{ primary_reselect_policy }}
+{%- endif %}
+        mii-monitor-interval: {{ interface.bondmiimon }}
+        up-delay: {{ interface.bondupdelay }}
+        down-delay: {{ interface.bonddowndelay }}

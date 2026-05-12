@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "diagnostics.services.clamav"
+  text: _("Antivirus")
+  icon: "mdi:biohazard"
+  url: "/diagnostics/services/clamav"

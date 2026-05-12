@@ -1,0 +1,142 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-nut package.
+# 
+# Translators:
+# Kostas Moho, 2012-2014,2020-2021
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-03-17 01:51+0000\n"
+"Last-Translator: Kostas Moho, 2012-2014,2020-2021\n"
+"Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid ""
+"'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
+msgstr "'Αυτόνομο' για τοπικό UPS ή 'Πελάτης δικτύου' για απομακρυσμένο UPS σε διακομιστή NUT."
+
+msgid "Charge"
+msgstr "Φόρτιση"
+
+msgid "Comment"
+msgstr "Σχόλιο"
+
+msgid "Date & Time"
+msgstr "Ημερομηνία & Ώρα"
+
+msgid "Defines when the shutdown is initiated."
+msgstr "Ορίζει πότε θα εκκινηθεί ο τερματισμός"
+
+msgid "Driver configuration directives"
+msgstr "Οδηγίες ρύθμισης προγράμματος οδήγησης"
+
+msgid "Enable remote monitoring of the local connected UPS."
+msgstr "Ενεργοποίηση απομακρυσμένης επίβλεψης του τοπικά συνδεδεμένου UPS."
+
+msgid "Enabled"
+msgstr "Ενεργοποιημένο"
+
+msgid "Identifier"
+msgstr "Αναγνωριστικό"
+
+msgid "Invalid identifier"
+msgstr "Άκυρο αναγνωριστικό"
+
+msgid "Load"
+msgstr "Φόρτωση"
+
+msgid "Message"
+msgstr "Μήνυμα"
+
+msgid "Mode"
+msgstr "Κατάσταση λειτουργίας"
+
+msgid "Netclient"
+msgstr "Πελάτης δικτύου"
+
+msgid "Netclient hostname"
+msgstr "Όνομα δικτύου του πελάτη"
+
+msgid "Netclient password"
+msgstr "Κωδικός του πελάτη"
+
+msgid "Netclient user name"
+msgstr "Όνομα χρήστη του πελάτη"
+
+msgid "PID"
+msgstr "PID"
+
+msgid "Password"
+msgstr "Κωδικός"
+
+msgid "Powervalue"
+msgstr "Τιμή ισχύος"
+
+msgid "Program"
+msgstr "Πρόγραμμα"
+
+msgid "Remote monitoring"
+msgstr "Απομακρυσμένη επίβλεψη"
+
+msgid "Service disabled"
+msgstr "Υπηρεσία ανενεργή"
+
+msgid "Shutdown mode"
+msgstr "Κατάσταση τερματισμού"
+
+msgid "Shutdown timer"
+msgstr "Χρονοδιακόπτης τερματισμού"
+
+msgid "Standalone"
+msgstr "Αυτόνομο"
+
+msgid "Temperature"
+msgstr "Θερμοκρασία"
+
+msgid "The name used to uniquely identify your UPS on local or remote system."
+msgstr "Το όνομα που προσδιορίζει αποκλειστικά το UPS στο τοπικό ή απομακρυσμένο σύστημα."
+
+msgid ""
+"The number of power supplies that the UPS feeds on this system (usually 1), "
+"refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
+"target='_blank'>upsmon.conf(5)</a> for more information."
+msgstr "Ο αριθμός των παροχών ρεύματος που δίνει το UPS σε αυτό το σύστημα (συνήθως 1) - περισσότερες λεπτομέρειες στο <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf(5)</a>."
+
+msgid ""
+"The time in seconds until shutdown is initiated. If the UPS happens to come "
+"back before the time is up the shutdown is canceled."
+msgstr "Ο χρόνος σε δευτερόλεπτα μέχρι να εκκινηθεί ο τερματισμός. Αν το UPS επανέλθει μέσα σε αυτό το διάστημα, ο τερματισμός ακυρώνεται."
+
+msgid ""
+"To get more information how to configure your UPS please check the Network "
+"UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
+"target='_blank'>documentation</a>."
+msgstr "Για περισσότερες πληροφορίες σχετικά με την ρύθμιση του UPS, δες εδώ <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>documentation</a>."
+
+msgid "UPS"
+msgstr "UPS"
+
+msgid "UPS goes on battery"
+msgstr "Το UPS τροφοδοτείται από την μπαταρία"
+
+msgid "UPS reaches low battery"
+msgstr "Η μπαταρία του UPS εξαντλείται"
+
+msgid "Updated UPS settings."
+msgstr "Ενημέρωση ρυθμίσεων UPS."
+
+msgid "Used for remote authentication."
+msgstr "Χρησιμεύει για απομακρυσμένη πιστοποίηση"
+
+msgid "User name"
+msgstr "Όνομα χρήστη"
+
+msgid "Voltage"
+msgstr "Τάση"

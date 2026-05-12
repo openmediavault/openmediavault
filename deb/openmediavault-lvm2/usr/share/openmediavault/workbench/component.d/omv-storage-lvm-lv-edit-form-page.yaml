@@ -1,0 +1,36 @@
+version: "1.0"
+type: component
+data:
+  name: omv-storage-lvm-lv-edit-form-page
+  type: formPage
+  config:
+    request:
+      service: LogicalVolumeMgmt
+      get:
+        method: getLogicalVolume
+        params:
+          name: "{{ _routeParams.devicefile }}"
+      post:
+        method: renameLogicalVolume
+    fields:
+      - type: hidden
+        name: devicefile
+      - type: textInput
+        name: name
+        label: _("Name")
+        hint: _("The name of the logical volume.")
+        value: ""
+        validators:
+          required: true
+          pattern:
+            pattern: "^[a-zA-Z0-9+_\\.\\-]+$"
+            errorData: _("Invalid name")
+    buttons:
+      - template: submit
+        execute:
+          type: url
+          url: "/storage/lvm/lvs"
+      - template: cancel
+        execute:
+          type: url
+          url: "/storage/lvm/lvs"

@@ -1,0 +1,35 @@
+{%- set admin_username = salt['pillar.get']('default:OMV_FILEBROWSER_APP_ADMIN_USERNAME', 'admin') -%}
+{%- set create_file_permission = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CREATEFILEPERMISSION', '664') -%}
+{%- set create_directory_permission = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CREATEDIRECTORYPERMISSION', '775') -%}
+server:
+  disableUpdateCheck: true
+  port: 8080
+  baseURL: "/"
+  logging:
+    - levels: "info|warning|error"
+  cacheDir: "./data/tmp/"
+  database: "./data/database.db"
+  sources:
+    - path: "/srv/"
+      config:
+        defaultEnabled: true
+  filesystem:
+    createFilePermission: "{{ create_file_permission }}"
+    createDirectoryPermission: "{{ create_directory_permission }}"
+auth:
+  adminUsername: {{ admin_username }}
+userDefaults:
+  preview:
+    image: true
+    popup: true
+    video: false
+    office: false
+    highQuality: false
+  darkMode: true
+  disableSettings: false
+  singleClick: false
+  permissions:
+    admin: false
+    modify: false
+    share: false
+    api: false

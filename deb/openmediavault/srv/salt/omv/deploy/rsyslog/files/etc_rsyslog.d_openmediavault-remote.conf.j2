@@ -1,0 +1,4 @@
+{{ pillar['headers']['multiline'] -}}
+{%- if config.enable | to_bool -%}
+*.* @{% if config.protocol == 'tcp' %}@{% endif %}{{ config.host }}:{{ config.port }}
+{%- endif -%}

@@ -1,0 +1,28 @@
+<mat-sidenav-container *ngIf="!loading"
+                       class="omv-flex-fill"
+                       autosize>
+  <mat-sidenav #navigationSidenav
+               id="omv-workbench-navigation"
+               position="start"
+               [mode]="sideNavMode"
+               [opened]="sideNavOpened">
+    <omv-navigation-bar></omv-navigation-bar>
+  </mat-sidenav>
+  <mat-sidenav-content class="omv-display-flex omv-flex-column">
+    <omv-top-bar (navigationToggleChange)="onToggleNavigation()"
+                 (notificationToggleChange)="onToggleNotification()">
+    </omv-top-bar>
+    <omv-welcome-panel *ngIf="displayWelcomeMessage"></omv-welcome-panel>
+    <omv-apply-config-panel></omv-apply-config-panel>
+    <omv-breadcrumb class="omv-mx omv-my-q"></omv-breadcrumb>
+    <div id="omv-workbench-router-outlet"
+         class="omv-scrollable-y">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+  <mat-sidenav #notificationSidenav
+               mode="over"
+               position="end">
+    <omv-notification-bar [sidenav]="notificationSidenav"></omv-notification-bar>
+  </mat-sidenav>
+</mat-sidenav-container>

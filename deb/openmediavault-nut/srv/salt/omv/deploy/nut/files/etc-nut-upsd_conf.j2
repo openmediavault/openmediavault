@@ -1,0 +1,22 @@
+{%- set ipv6_enabled = salt['omv_utils.is_ipv6_enabled']() -%}
+{%- set max_age = salt['pillar.get']('default:OMV_NUT_UPSD_MAXAGE', '15') -%}
+{%- set max_conn = salt['pillar.get']('default:OMV_NUT_UPSD_MAXCONN', '1024') -%}
+{%- set port = salt['pillar.get']('default:OMV_NUT_UPSD_PORT', '3493') -%}
+{{ pillar['headers']['multiline'] -}}
+MAXAGE {{ max_age }}
+MAXCONN {{ max_conn }}
+{%- if config.remotemonitor | to_bool %}
+# To simplify setup and the fact the system has no 'primary' interface,
+# we are listening on ANY network address. To enhance security this can
+# be limited via iptables rules.
+LISTEN 0.0.0.0 {{ port }}
+{%- if ipv6_enabled | to_bool %}
+LISTEN 0:0:0:0:0:0:0:0 {{ port }}
+{%- endif %}
+{%- else %}
+# If remote monitoring is disabled then only listen on localhost.
+LISTEN 127.0.0.1 {{ port }}
+{%- if ipv6_enabled | to_bool %}
+LISTEN ::1 {{ port }}
+{%- endif %}
+{%- endif %}

@@ -1,0 +1,38 @@
+{%- set secrets_dir = salt['pillar.get']('default:OMV_RSYNCD_SECRETSFILE_DIR', '/var/lib/openmediavault') -%}
+{%- set lockfile_dir = salt['pillar.get']('default:OMV_RSYNCD_LOCKFILE_DIR', '/run/lock') -%}
+{{ pillar['headers']['multiline'] -}}
+port = {{ config.port }}
+{% if config.extraoptions | length > 0 %}{{ config.extraoptions }}{%- endif %}
+{% for module in config.modules.module | selectattr('enable') %}
+[{{ module.name }}]
+{%- if module.comment | length > 0 %}comment = {{ module.comment }}{% endif %}
+{#- Specify a dot-dir in the module's path to indicate the point where the #}
+{#- chroot should occur, e.g. /var/rsync/./module1 #}
+{#- Note, this is a really bad workaround in Jinja2, but it works #}
+{%- set path = salt['omv_conf.get_sharedfolder_path'](module.sharedfolderref).rstrip('/').split('/') -%}
+{%- set last_item = path.pop() %}
+{%- set _ = path.append('.') %}
+{%- set _ = path.append(last_item) %}
+path = {{ path | join('/') }}
+uid = {{ module.uid }}
+gid = {{ module.gid }}
+list = {{ module.list | to_bool | yesno }}
+read only = {{ module.readonly | to_bool | yesno }}
+write only = {{ module.writeonly | to_bool | yesno }}
+use chroot = {{ module.usechroot | to_bool | yesno }}
+{%- if module.maxconnections > 0 %}
+max connections = {{ module.maxconnections }}
+{%- endif %}
+{%- if module.hostsallow | length > 0 %}
+hosts allow = {{ module.hostsallow }}
+{%- endif %}
+{%- if module.hostsdeny | length > 0 %}
+hosts deny = {{ module.hostsdeny }}
+{%- endif %}
+{%- if module.authusers | to_bool %}
+auth users = {{ module | get('users.user', []) | join(',', attribute='name') }}
+secrets file = {{ secrets_dir | path_join('rsyncd-' ~ module.name ~ '.secrets') }}
+{%- endif %}
+lock file = {{ lockfile_dir | path_join('rsyncd-' ~ module.name) }}
+{% if module.extraoptions | length > 0 %}{{ module.extraoptions }}{%- endif %}
+{% endfor -%}

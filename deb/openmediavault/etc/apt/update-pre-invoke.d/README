@@ -1,0 +1,1 @@
+Put your APT::Update::Pre-Invoke hook scripts here.

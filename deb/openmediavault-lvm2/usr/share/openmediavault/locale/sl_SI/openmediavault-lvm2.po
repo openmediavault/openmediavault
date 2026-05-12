@@ -1,0 +1,159 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-lvm2 package.
+# 
+# Translators:
+# Miha Bezjak <miha@bezjak.info>, 2017
+# Valentin Korenjak <valentin@korenjak.si>, 2025
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-03-17 01:49+0000\n"
+"Last-Translator: Valentin Korenjak <valentin@korenjak.si>, 2025\n"
+"Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sl_SI\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+msgid "Active"
+msgstr "Aktivno"
+
+msgid "Available"
+msgstr "Na voljo"
+
+msgid "Capacity"
+msgstr "Kapaciteta"
+
+msgid "Create"
+msgstr "Ustvari"
+
+msgid "Created logical volume '{{ name }}'."
+msgstr ""
+
+msgid "Created physical volume {{ devicefile }}."
+msgstr ""
+
+msgid "Created snapshot of logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Created volume group '{{ name }}'."
+msgstr ""
+
+msgid "Device"
+msgstr "Naprava"
+
+msgid "Devices"
+msgstr "Naprave"
+
+msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
+msgstr ""
+
+msgid "Do you really want to resize the selected physical volume?"
+msgstr ""
+
+msgid "Edit"
+msgstr "Uredi"
+
+msgid "Extend"
+msgstr "Razširi"
+
+msgid "Extended logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Extended volume group '{{ devicefile }}'."
+msgstr ""
+
+msgid "Free"
+msgstr "Prosto"
+
+msgid "Invalid name"
+msgstr "Neveljavno ime"
+
+msgid "LVM"
+msgstr ""
+
+msgid "Logical Volume Management"
+msgstr ""
+
+msgid "Logical Volumes"
+msgstr ""
+
+msgid "Name"
+msgstr "Ime"
+
+msgid "Physical Volumes"
+msgstr ""
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr "Počakajte, posnetek bo ustvarjen ..."
+
+msgid "Reduce"
+msgstr ""
+
+msgid "Reduced volume group '{{ devicefile }}'."
+msgstr ""
+
+msgid "Referenced"
+msgstr "Referenciran(-a)"
+
+msgid "Resize"
+msgstr "Spremeni velikost"
+
+msgid "Select a device ..."
+msgstr "Izberi napravo ..."
+
+msgid "Select a volume group ..."
+msgstr ""
+
+msgid "Select devices ..."
+msgstr "Izberi naprave ..."
+
+msgid "Select the devices used to extend the volume group."
+msgstr ""
+
+msgid "Select the devices used to reduce from the volume group."
+msgstr ""
+
+msgid "Size"
+msgstr "Velikost"
+
+msgid "Snapshot"
+msgstr "Posnetek"
+
+msgid "The name of the logical volume."
+msgstr ""
+
+msgid "The name of the volume group."
+msgstr ""
+
+msgid ""
+"The percentage of the total space in the volume group to allocate for the "
+"new logical volume."
+msgstr ""
+
+msgid ""
+"The percentage of the total space in the volume group to use by the logical "
+"volume."
+msgstr ""
+
+msgid "Updated logical volume '{{ devicefile }}'."
+msgstr ""
+
+msgid "Updated volume group '{{ devicefile }}'."
+msgstr ""
+
+msgid "Used"
+msgstr "Porabljeno"
+
+msgid "Volume Group"
+msgstr ""
+
+msgid "Volume Groups"
+msgstr ""
+
+msgid "Volume group"
+msgstr ""

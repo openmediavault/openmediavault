@@ -1,0 +1,58 @@
+{%- set usbbackup_scripts_dir = salt['pillar.get']('default:OMV_USBBACKUP_SCRIPTS_DIR', '/var/lib/openmediavault/usbbackup.d') -%}
+{%- set usbbackup_rsync_script_prefix = salt['pillar.get']('default:OMV_USBBACKUP_RSYNC_SCRIPT_PREFIX', 'rsync-') -%}
+{%- set usbbackup_systemd_unitfile_prefix = salt['pillar.get']('default:OMV_USBBACKUP_SYSTEMD_UNITFILE_PREFIX', 'openmediavault-usbbackup-') -%}
+{%- set usbbackup_cleanup_smartctl_args = salt['pillar.get']('default:OMV_USBBACKUP_CLEANUP_SMARTCTL_ARGS', '-s standby,now') -%}
+{%- set id = devicefile | md5 -%}
+{%- set mount_path = id | make_mount_path -%}
+{%- set runfile = '/run' | path_join(usbbackup_systemd_unitfile_prefix ~ id) -%}
+{%- set jobs = salt['omv_conf.get_by_filter'](
+  'conf.service.usbbackup.job',
+  {'operator': 'and', 'arg0': {'operator': 'stringEquals', 'arg0': 'devicefile', 'arg1': devicefile}, 'arg1': {'operator': 'equals', 'arg0': 'enable', 'arg1': '1'}}) -%}
+#!/bin/sh
+{{ pillar['headers']['multiline'] -}}
+. /usr/share/openmediavault/scripts/helper-functions
+outfile=$(mktemp)
+cleanup() {
+    # Kill all child processes.
+    omv_kill_children $$
+    # Remove temporary files.
+    rm -f "{{ runfile }}"
+    rm -f "${outfile}"
+    # Umount the storage device.
+    umount "{{ devicefile }}" || true
+    rmdir "{{ mount_path }}" || true
+    # Spin down the disk.
+    smartctl {{ usbbackup_cleanup_smartctl_args }} "{{ devicefile }}" || true
+    exit
+}
+if [ -e "{{ runfile }}" ]; then
+    omv_error "The sync job is already running."
+    omv_beep_error
+    exit 1
+fi
+# Check if the storage device exists.
+if [ ! -b "{{ devicefile }}" ]; then
+    omv_error "External storage device '{{ devicefile }}' not found!"
+    omv_beep_error
+    exit 1
+fi
+# Mount the storage device.
+mkdir --mode=755 --parent "{{ mount_path }}"
+mount "{{ devicefile }}" "{{ mount_path }}"
+# Make sure the storage device is mounted.
+if ! omv_is_mounted "{{ mount_path }}"; then
+    omv_error "External storage device '{{ devicefile }}' not mounted!"
+    omv_beep_error
+    exit 1
+fi
+trap cleanup 0 1 2 5 15
+touch "{{ runfile }}"
+# Execute the rsync backup scripts.
+omv_beep_start
+{%- for job in jobs %}
+{{ usbbackup_scripts_dir | path_join(usbbackup_rsync_script_prefix ~ job.uuid) }} | tee ${outfile}
+{%- if job.sendemail | to_bool %}
+mail -E -s "USB Backup (shared folder={{ salt['omv_conf.get_sharedfolder_name'](job.sharedfolderref) }}, device={{ devicefile }}){{ ' - ' ~ job.comment | replace('\n', ' ') if job.comment | length > 0 else '' }}" -a "From: USB Backup <root>" root <${outfile}
+{%- endif %}
+{%- endfor %}
+omv_beep_ok

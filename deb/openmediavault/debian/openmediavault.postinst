@@ -1,0 +1,723 @@
+#!/usr/bin/env dash
+#
+# This file is part of OpenMediaVault.
+#
+# @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2026 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+. /usr/share/debconf/confmodule
+
+OMV_CACHE_DIR=${OMV_CACHE_DIR:-"/var/cache/openmediavault"}
+OMV_WEBGUI_ADMINUSER_NAME=${OMV_WEBGUI_ADMINUSER_NAME:-"admin"}
+OMV_WEBGUI_ADMINGROUP_NAME=${OMV_WEBGUI_ADMINGROUP_NAME:-"openmediavault-admin"}
+OMV_WEBGUI_FILE_OWNERGROUP_NAME=${OMV_WEBGUI_FILE_OWNERGROUP_NAME:-"openmediavault-webgui"}
+OMV_DPKGARCHIVE_DIR=${OMV_DPKGARCHIVE_DIR:-"/var/cache/openmediavault/archives"}
+
+# Disable the `DeprecationWarning` warnings temporary until SaltStack is
+# adapted to Debian 12.
+export PYTHONWARNINGS="ignore::DeprecationWarning"
+
+case "$1" in
+	configure)
+		########################################################################
+		# Set the default settings when the package is installed the first time.
+		########################################################################
+		if [ -z "$2" ]; then
+			####################################################################
+			# Create various users/groups.
+			####################################################################
+			echo "Creating users/groups ..."
+			####################################################################
+			# Create the group 'openmediavault-config' which is only allowed
+			# to access the configuration database.
+			####################################################################
+			if ! omv_group_id_exists openmediavault-config; then
+				groupadd --system openmediavault-config
+			fi
+			####################################################################
+			# Create the group 'openmediavault-engined' which is used to
+			# allow group members to execute RPC's.
+			####################################################################
+			if ! omv_group_id_exists openmediavault-engined; then
+				groupadd --system openmediavault-engined
+			fi
+			####################################################################
+			# Create the group 'openmediavault-admin' which is used for
+			# web interface administrators.
+			# Use a 'system' group because of the following reasons:
+			# - Such groups are not managed via the UI but a user can
+			#   still be assigned to them.
+			# - The group can't be deleted by the user by accident.
+			####################################################################
+			if ! omv_group_id_exists ${OMV_WEBGUI_ADMINGROUP_NAME}; then
+				groupadd --system ${OMV_WEBGUI_ADMINGROUP_NAME}
+			fi
+			####################################################################
+			# Create the user/group 'openmediavault-webgui' which is used to
+			# run the web interface.
+			# !!! Do NOT use this except for PHP-FPM. !!!
+			####################################################################
+			if ! omv_user_id_exists openmediavault-webgui; then
+				useradd --system --user-group --no-create-home \
+					--groups openmediavault-config,openmediavault-engined \
+					--shell '/usr/sbin/nologin' \
+					openmediavault-webgui
+			fi
+			####################################################################
+			# Create the user 'admin' which is used as the web interface
+			# administrator account. Default password is 'openmediavault'.
+			####################################################################
+			if ! omv_user_id_exists ${OMV_WEBGUI_ADMINUSER_NAME}; then
+				useradd --system --no-user-group --no-create-home \
+					--password '$1$PjiW4uIZ$agjyA0foLeAcHClwOuad1.' \
+					--shell '/usr/sbin/nologin' \
+					--comment 'WebGUI administrator' \
+					--groups ${OMV_WEBGUI_ADMINGROUP_NAME} \
+					${OMV_WEBGUI_ADMINUSER_NAME}
+			fi
+			####################################################################
+			# Create the user/group 'openmediavault-notify' which is used by
+			# the notification backend.
+			####################################################################
+			if ! omv_user_id_exists openmediavault-notify; then
+				useradd --system --user-group --no-create-home \
+					--shell '/usr/sbin/nologin' \
+					openmediavault-notify
+			fi
+
+			####################################################################
+			# Create various required files.
+			####################################################################
+			touch /var/lib/openmediavault/display_welcome_message
+			touch /var/log/tallylog
+
+			####################################################################
+			# Setup various file permissions.
+			####################################################################
+			chmod 775 "${OMV_CACHE_DIR}"
+			chown -R "${OMV_WEBGUI_FILE_OWNERGROUP_NAME}:${OMV_WEBGUI_FILE_OWNERGROUP_NAME}" \
+				"${OMV_DOCUMENTROOT_DIR}"
+
+			####################################################################
+			# Update the local plugin packages archive. The 'packages' command
+			# should be run in the root of the tree.
+			####################################################################
+			echo "Updating local package archive ..."
+			cd "${OMV_DPKGARCHIVE_DIR}" && apt-ftparchive packages . > Packages
+
+			####################################################################
+			# Setup all services.
+			####################################################################
+			echo "Updating service units ..."
+			# Reload systemd unit files.
+			systemctl daemon-reload || :
+
+			# Stop and disable various services that are disabled by default.
+			deb-systemd-helper disable smartmontools.service
+			deb-systemd-invoke stop smartmontools.service || :
+			deb-systemd-helper disable rsync.service
+			deb-systemd-invoke stop rsync.service || :
+			deb-systemd-helper disable nfs-server.service
+			deb-systemd-invoke stop nfs-server.service || :
+			deb-systemd-helper disable smbd.service
+			deb-systemd-invoke stop smbd.service || :
+			deb-systemd-helper disable nmbd.service
+			deb-systemd-invoke stop nmbd.service || :
+			deb-systemd-helper disable wsdd-server.service
+			deb-systemd-invoke stop wsdd-server.service || :
+			deb-systemd-helper disable postfix.service
+			deb-systemd-invoke stop postfix.service || :
+
+			# Disable socket activation of various services.
+			deb-systemd-helper disable ssh.socket
+
+			# The salt-minion service does not need to be running when
+			# running a masterless minion setup.
+			deb-systemd-helper disable salt-minion.service
+			deb-systemd-invoke stop salt-minion.service || :
+
+			# Enable and start various services that are enabled by default.
+			deb-systemd-helper enable ssh.service
+			deb-systemd-invoke start ssh.service || :
+
+			# Enable and start various services that are necessary for
+			# openmediavault to work correct.
+			deb-systemd-helper unmask systemd-networkd.service || :
+			deb-systemd-helper enable systemd-networkd.service
+			deb-systemd-helper systemd-networkd-wait-online.service || :
+			deb-systemd-helper systemd-networkd-wait-online.service
+			deb-systemd-invoke start systemd-networkd.service || :
+			deb-systemd-helper unmask systemd-resolved.service || :
+			deb-systemd-helper enable systemd-resolved.service
+			deb-systemd-invoke start systemd-resolved.service || :
+			deb-systemd-helper enable systemd-journald.service
+			deb-systemd-invoke start systemd-journald.service || :
+			deb-systemd-helper enable unattended-upgrades.service
+			deb-systemd-invoke start unattended-upgrades.service || :
+		fi
+
+		# Create public/private SSH key pair for user root.
+		if [ ! -e "/root/.ssh/id_rsa" ]; then
+			ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa
+		fi
+
+		# Always ensure various services that are replaced by others
+		# are stopped, disabled and masked.
+		deb-systemd-helper disable ntp.service || :
+		deb-systemd-invoke stop ntp.service || :
+		deb-systemd-invoke mask ntp.service || :
+		deb-systemd-helper disable systemd-timesyncd.service || :
+		deb-systemd-invoke stop systemd-timesyncd.service || :
+		deb-systemd-invoke mask systemd-timesyncd.service || :
+
+		# Disable services that are not used.
+		deb-systemd-invoke stop nfs-blkmap.service || :
+		deb-systemd-invoke mask nfs-blkmap.service || :
+
+		# Enable and start various services that are necessary for
+		# openmediavault to work correct.
+		deb-systemd-helper enable smartctl-hdparm.service
+
+		# Ensure all openmediavault systemd units are enabled.
+		deb-systemd-helper enable openmediavault-beep-up.service
+		deb-systemd-helper enable openmediavault-beep-down.service
+		deb-systemd-helper enable openmediavault-cleanup-monit.service
+		deb-systemd-helper enable openmediavault-cleanup-php.service
+		deb-systemd-helper enable openmediavault-engined.service
+		deb-systemd-helper enable openmediavault-issue.service
+
+		########################################################################
+		# Activate trigger to rebuild workbench configuration files.
+		########################################################################
+		dpkg-trigger update-workbench
+
+		########################################################################
+		# Migrate configuration database.
+		########################################################################
+		echo "Creating configuration database ..."
+		omv-confdbadm create "conf"
+		if [ -n "$2" ]; then
+			omv-confdbadm migrate "conf" "${2}"
+		fi
+
+		########################################################################
+		# Initialize Salt environment.
+		########################################################################
+		echo "Setting up Salt environment ..."
+		salt-call --local --retcode-passthrough --no-color state.orchestrate \
+			omv.stage.prepare >/dev/null
+
+		if [ -z "$2" ]; then
+			########################################################################
+			# Apply default system configuration.
+			########################################################################
+			echo "Setting up system ..."
+			# Don't use omv-salt here, because the locale is not setup correct.
+			salt-call --local --retcode-passthrough --no-color state.orchestrate \
+				omv.stage.setup >/dev/null
+		fi
+
+		########################################################################
+		# Deploy various services when the package is installed the first time.
+		########################################################################
+		if [ -z "$2" ]; then
+			# Disable default nginx site.
+			nginx_dissite default || :
+
+			# Deploy the configuration for various services.
+			echo "Deploying service configurations ..."
+			LC_ALL=C.UTF-8 omv-salt deploy run --no-color --quiet \
+				apt apticron cpupower chrony rsyslog postfix \
+				watchdog monit rrdcached avahi ssh nginx collectd \
+				phpfpm issue sysctl systemd systemd-journald \
+				systemd-logind || :
+		fi
+
+		########################################################################
+		# Action to be done depending on the previous version.
+		########################################################################
+		echo "Processing system modifications ..."
+		if dpkg --compare-versions "$2" lt-nl "5.0"; then
+			# The salt-minion service does not need to be running when
+			# running a masterless minion setup.
+			deb-systemd-helper disable salt-minion.service
+			deb-systemd-invoke stop salt-minion.service || :
+			# Use chrony instead of ntp. Make sure all services are disabled.
+			# Finally enable chrony if necessary.
+			deb-systemd-helper disable ntp.service
+			deb-systemd-invoke stop ntp.service || :
+			# Deploy various services.
+			# - collectd: uptime plugin has been added
+			# - chrony: The ntp replacement
+			# - postfix: Config must be recreated
+			LC_ALL=C.UTF-8 omv-salt deploy run --no-color --quiet collectd chrony postfix || :
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.1.3"; then
+			omv_module_set_dirty monit
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.3.8"; then
+			omv_module_set_dirty nginx
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.4.6"; then
+			# The salt-minion service does not need to be running when
+			# running a masterless minion setup.
+			deb-systemd-helper disable salt-minion.service
+			deb-systemd-invoke stop salt-minion.service || :
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.5.3"; then
+			omv_module_set_dirty cronapt
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.5.5"; then
+			omv_set_default "OMV_WEBGUI_ADMINUSER_NAME" ${OMV_WEBGUI_ADMINUSER_NAME} 0
+			omv_set_default "OMV_WEBGUI_ADMINGROUP_NAME" ${OMV_WEBGUI_ADMINGROUP_NAME} 0
+			groupadd --system ${OMV_WEBGUI_ADMINGROUP_NAME} || :
+			usermod -a -G ${OMV_WEBGUI_ADMINGROUP_NAME} ${OMV_WEBGUI_ADMINUSER_NAME} || :
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.5.9"; then
+			omv_module_set_dirty proftpd
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.5.13"; then
+			omv_module_set_dirty proftpd
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.5.14"; then
+			omv_module_set_dirty cron
+			omv_module_set_dirty rsync
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.5.15"; then
+			omv_module_set_dirty avahi
+			omv_module_set_dirty samba
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.5.16"; then
+			omv_module_set_dirty initramfs
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.5.17"; then
+			omv_module_set_dirty iptables
+			omv_module_set_dirty samba
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.5.20"; then
+			omv_module_set_dirty cron
+			omv_module_set_dirty initramfs
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.5.21"; then
+			omv_module_set_dirty initramfs
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.5.22"; then
+			rm -f /etc/udev/rules.d/99-openmediavault-dev-disk-by-id.rules
+			omv_module_set_dirty monit
+			omv_module_set_dirty initramfs
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.5.23"; then
+			omv_module_set_dirty cronapt
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.6.0"; then
+			omv_module_set_dirty samba
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.6.3"; then
+			LC_ALL=C.UTF-8 omv-salt deploy run --no-color --quiet apt cronapt || :
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.6.6"; then
+			useradd --system --user-group --no-create-home \
+				--shell '/usr/sbin/nologin' openmediavault-notify || :
+			omv_module_set_dirty postfix
+			omv_module_set_dirty nginx
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.6.7"; then
+			omv_module_set_dirty apt
+			omv_module_set_dirty cronapt
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.6.8"; then
+			omv_module_set_dirty hostname
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.6.9"; then
+		  omv_module_set_dirty postfix
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.6.10"; then
+			omv_module_set_dirty hosts
+			omv_module_set_dirty ssh
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.6.20"; then
+			omv_module_set_dirty nfs
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.6.21"; then
+			omv_module_set_dirty hosts
+			omv_module_set_dirty nginx
+			omv_module_set_dirty postfix
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.6.22"; then
+			omv_module_set_dirty monit
+		fi
+		if dpkg --compare-versions "$2" lt-nl "5.6.25"; then
+			omv_module_set_dirty samba
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0"; then
+			LC_ALL=C.UTF-8 omv-salt deploy run --no-color --quiet nginx rsyslog phpfpm || :
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.1"; then
+			omv_module_set_dirty nfs
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.5"; then
+			omv_module_set_dirty hosts
+			omv_module_set_dirty nginx
+			omv_module_set_dirty postfix
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.6"; then
+			omv_module_set_dirty monit
+			omv_module_set_dirty samba
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.9"; then
+			deb-systemd-helper disable watchdog.service
+			deb-systemd-invoke stop watchdog.service || :
+			omv_module_set_dirty watchdog
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.10"; then
+			omv_module_set_dirty samba
+			omv_module_set_dirty smartmontools
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.11"; then
+			omv_module_set_dirty samba
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.16"; then
+			omv_module_set_dirty collectd
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.17"; then
+			omv_module_set_dirty postfix
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.19"; then
+			omv_module_set_dirty samba
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.25"; then
+			omv_module_set_dirty avahi
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.29"; then
+			omv_module_set_dirty proftpd
+			omv_module_set_dirty hosts
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.31"; then
+			omv_module_set_dirty systemd-logind
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.33"; then
+			omv_module_set_dirty rsyncd
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.34"; then
+			omv_module_set_dirty samba
+			omv_module_set_dirty monit
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.35"; then
+			omv_module_set_dirty cron
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.36"; then
+			omv_module_set_dirty samba
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.38"; then
+			omv_module_set_dirty proftpd
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.39"; then
+			omv_module_set_dirty proftpd
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.41"; then
+			omv_module_set_dirty postfix
+			omv_module_set_dirty samba
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.42"; then
+			omv_module_set_dirty avahi
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.44"; then
+			omv_module_set_dirty hostname hosts
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.46"; then
+			omv_module_set_dirty proftpd
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.1.3"; then
+			touch /var/lib/openmediavault/display_welcome_message
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.1.5"; then
+			omv_module_set_dirty proftpd
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.1.7"; then
+			omv_set_default "OMV_WEBGUI_LOCALSTORAGE_DIR" \
+				"/var/lib/openmediavault/workbench/localstorage.d/" 0 || :
+			mkdir -p /var/lib/openmediavault/workbench/localstorage.d/
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.2.0"; then
+		  # The proftpd.service unit is automatically masked by APT
+		  # when the removed dependencies are uninstalled. To prevent
+		  # an error while installing the openmediavault-ftp plugin
+		  # the unit file must be unmasked.
+			systemctl unmask proftpd.service || :
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.3.0"; then
+			omv_module_set_dirty samba
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.3.2"; then
+			omv_module_set_dirty samba
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.3.5"; then
+			omv_module_set_dirty monit
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.3.7"; then
+			omv_module_set_dirty hosts
+			# The file should have been deleted automatically.
+			rm -f /etc/cron.weekly/openmediavault-scrub_btrfs
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.3.9"; then
+			omv_module_set_dirty cron
+			omv_module_set_dirty hdparm
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.4.0"; then
+			omv_module_set_dirty samba
+			omv_module_set_dirty systemd-networkd
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.4.1"; then
+			omv_module_set_dirty samba
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.4.2"; then
+			omv_module_set_dirty apt
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.4.4"; then
+			omv_module_set_dirty samba
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.4.5"; then
+		  omv_module_set_dirty apt
+			omv_module_set_dirty postfix
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.4.6"; then
+			omv_module_set_dirty postfix
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.4.8"; then
+			omv_module_set_dirty ssh
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.5.5"; then
+			omv_module_set_dirty samba
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.5.6"; then
+			omv_module_set_dirty apt
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.5.7"; then
+			omv_module_set_dirty nfs
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.8.0"; then
+			omv_module_set_dirty cpufrequtils
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.9.2"; then
+			omv_module_set_dirty nginx
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.9.3"; then
+			omv_module_set_dirty samba
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.9.11"; then
+			omv_module_set_dirty nfs
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.1.1"; then
+			omv_module_set_dirty nfs
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.1.2"; then
+			omv_module_set_dirty nfs
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.3.0"; then
+			omv_module_set_dirty smartmontools
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.3.1"; then
+			rm -f /etc/apt/apt.conf.d/50unattended-upgrades
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.4.1"; then
+			omv_module_set_dirty apt
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.4.2"; then
+			rm -f /etc/apt/apt.conf.d/99openmediavault-default-release
+			omv_module_set_dirty apt
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.4.5"; then
+			omv_module_set_dirty apticron
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.4.6"; then
+			omv_module_set_dirty nfs
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.4.12"; then
+			# Convert existing diversions created by the `divert_add` Salt state.
+			for file in $(LC_ALL=C.UTF-8 dpkg-divert --list | grep -oP '(?<=local diversion of )[^\s]+'); do
+				dpkg-divert --local --no-rename --remove "${file}" || :
+				_divert_to="/tmp/$(echo "${file}" | sed 's|/|_|g')"
+				dpkg-divert --add --local --no-rename --divert "${_divert_to}" "${file}" || :
+			done
+			omv_module_set_dirty apt
+			omv_module_set_dirty apticron
+			omv_module_set_dirty monit
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.4.13"; then
+			omv_module_set_dirty apticron
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.4.16"; then
+			omv_module_set_dirty iptables
+			omv_module_set_dirty postfix
+			omv_module_set_dirty rsync
+			omv_module_set_dirty samba
+			omv_module_set_dirty smartmontools
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.4.17"; then
+			omv_module_set_dirty samba
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.5.0"; then
+			omv_module_set_dirty systemd-networkd
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.6.0"; then
+			omv_module_set_dirty apt
+			rm -rf /etc/apt/apt.conf.d/98openmediavault-unattended-upgrades-mail
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.7.0"; then
+			omv_module_set_dirty apt
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.7.3"; then
+			udevadm control --reload-rules || :
+			udevadm trigger || :
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.7.14"; then
+			deb-systemd-invoke restart chrony.service || :
+			salt-call --local --retcode-passthrough --no-color state.orchestrate \
+				omv.setup.shell >/dev/null || :
+			omv_module_set_dirty samba
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.7.15"; then
+			rm -f /etc/default/wsdd
+			rm -rf /etc/systemd/system/wsdd.service.d/
+			deb-systemd-invoke stop wsdd.service || :
+			omv_module_set_dirty samba
+			rm -f /etc/rsyslog.d/openmediavault-pamtally2.conf
+			omv_module_set_dirty rsyslog
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.7.16"; then
+			omv_module_set_dirty nfs
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.7.22"; then
+			omv_module_set_dirty issue
+			omv_module_set_dirty nfs
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.0"; then
+			deb-systemd-invoke stop cpufrequtils.service || :
+			deb-systemd-invoke stop loadcpufreq.service || :
+			deb-systemd-helper disable cpufrequtils.service || :
+			deb-systemd-helper disable loadcpufreq.service || :
+			deb-systemd-invoke mask cpufrequtils.service || :
+			deb-systemd-invoke mask loadcpufreq.service || :
+			rm -rf /etc/default/cpufrequtils
+			rm -rf /etc/default/loadcpufreq
+			omv_module_set_dirty cpupower
+			omv_module_set_dirty monit
+			omv_module_set_dirty nginx
+			omv_module_set_dirty phpfpm
+			omv_module_set_dirty issue
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.0.2"; then
+			rm -rf /usr/libexec/cpupower/
+			omv_module_set_dirty cpupower
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.0.6"; then
+			# References:
+			# - https://forum.openmediavault.org/index.php?thread/58000-mesg-command-not-found
+			# - https://bugs-devel.debian.org/cgi-bin/bugreport.cgi?bug=1088009
+			# - https://bugs-devel.debian.org/cgi-bin/bugreport.cgi?bug=1088011
+			sed -i '/mesg n/d' /root/.profile || :
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.0.9"; then
+			omv_module_set_dirty cpupower
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.0.10"; then
+			omv_module_set_dirty cpupower
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.1.0"; then
+			omv_module_set_dirty cpupower
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.1.1"; then
+			omv_module_set_dirty systemd-journald
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.1.2"; then
+			omv_module_set_dirty nginx
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.2.0"; then
+			omv_module_set_dirty apticron
+			omv_module_set_dirty ssh
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.2.1"; then
+			omv_module_set_dirty smartmontools
+			omv_module_set_dirty systemd-networkd
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.2.3"; then
+			omv_module_set_dirty systemd-networkd
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.2.7"; then
+			omv_module_set_dirty avahi
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.2.9"; then
+			omv_module_set_dirty apt
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.2.10"; then
+			omv_module_set_dirty apt
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.2.11"; then
+			omv_module_set_dirty apt
+		fi
+
+		########################################################################
+		# Trigger the restart of the omv-engined daemon to load and use the
+		# latest configuration database.
+		########################################################################
+		dpkg-trigger restart-engined || :
+
+		########################################################################
+		# Show help text.
+		########################################################################
+		if [ -z "$2" ]; then
+			db_input high openmediavault/run-initsystem || :
+			db_go
+			db_stop
+		fi
+	;;
+
+	triggered)
+		########################################################################
+		# Execute triggers
+		########################################################################
+		for trigger in $2; do
+			case "${trigger}" in
+				update-workbench)
+					echo "Updating workbench configuration files ..."
+					omv-mkworkbench all || :
+				;;
+
+				restart-engined)
+					echo "Restarting engine daemon ..."
+					monit restart omv-engined || ( \
+						deb-systemd-helper unmask openmediavault-engined.service; \
+						deb-systemd-invoke restart openmediavault-engined.service)
+				;;
+			esac
+		done
+	;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+
+	*)
+		echo "postinst called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac
+
+exit 0

@@ -1,0 +1,20 @@
+This package was debianized by Volker Theile <volker.theile@openmediavault.org> using dh-make-pecl
+on Wed, 09 Jun 2021 07:02:51 +0000.
+
+It was downloaded from http://pecl.php.net/package/pam
+
+Upstream Author(s):
+
+    Amish M
+
+Copyright:
+
+    Copyright (C) 2021 Amish M
+
+License:
+
+    PHP
+
+The Debian packaging is copyright 2021, Volker Theile <volker.theile@openmediavault.org> and
+is licensed under the GPL, see `/usr/share/common-licenses/GPL'.
+

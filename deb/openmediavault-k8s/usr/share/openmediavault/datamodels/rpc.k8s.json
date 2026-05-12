@@ -1,0 +1,30 @@
+[{
+	"type": "rpc",
+	"id": "rpc.k8s.applyrecipe",
+	"params": {
+		"type": "object",
+		"properties": {
+			"manifest": {
+				"type": "string",
+				"required": true
+			},
+			"namespace": {
+				"type": "string",
+				"required": false
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.k8s.getrecipe",
+	"params": {
+		"type": "object",
+		"properties": {
+			"id": {
+				"type": "string",
+				"pattern": "^[\\w-]+$",
+				"required": true
+			}
+		}
+	}
+}]

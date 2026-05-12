@@ -1,0 +1,69 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-tftp-form-page
+  type: formPage
+  config:
+    request:
+      service: TFTP
+      get:
+        method: get
+      post:
+        method: set
+    fields:
+      - type: checkbox
+        name: enable
+        label: _("Enabled")
+        value: false
+      - type: numberInput
+        name: port
+        label: _("Port")
+        value: 69
+        validators:
+          min: 0
+          max: 65535
+          patternType: port
+          required: true
+      - type: sharedFolderSelect
+        name: sharedfolderref
+        label: _("Shared folder")
+        hint: _("The location of the files to share. Please make sure that the shared folder is publicly writable if new files are allowed.")
+        hasEmptyOption: true
+        value: ""
+        validators:
+          requiredIf:
+            operator: truthy
+            arg0:
+              prop: enable
+      - type: numberInput
+        name: blocksize
+        label: _("Blocksize")
+        value: 512
+        hint: _("Specifies the maximum permitted block size. The permitted range for this parameter is from 512 to 65464.")
+        validators:
+          min: 512
+          max: 65464
+          required: true
+      - type: numberInput
+        name: retransmit
+        label: _("Retry timeout")
+        value: 1000000
+        hint: _("Determine the default timeout, in microseconds, before the first packet is retransmitted.")
+        validators:
+          min: 0
+          required: true
+      - type: checkbox
+        name: allownewfiles
+        label: _("Allow new files to be created.")
+        value: false
+        hint: _("By default, only files that already exist are allowed to be uploaded.")
+      - type: textInput
+        name: extraoptions
+        label: _("Extra options")
+        value: ""
+    buttons:
+      - template: submit
+      - template: cancel
+        execute:
+          type: url
+          url: "/services"

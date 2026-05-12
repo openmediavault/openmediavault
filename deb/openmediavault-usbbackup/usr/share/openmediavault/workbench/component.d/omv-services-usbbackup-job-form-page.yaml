@@ -1,0 +1,185 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-usbbackup-job-form-page
+  type: formPage
+  config:
+    request:
+      service: UsbBackup
+      get:
+        method: get
+        params:
+          uuid: "{{ _routeParams.uuid }}"
+      post:
+        method: set
+    fields:
+      - type: confObjUuid
+      - type: checkbox
+        name: enable
+        label: _("Enabled")
+        value: false
+      - type: select
+        name: mode
+        label: _("Mode")
+        value: "push"
+        store:
+          data:
+            - - "push"
+              - _("From shared folder to external storage")
+            - - "pull"
+              - _("From external storage to shared folder")
+      - type: sharedFolderSelect
+        name: sharedfolderref
+        value: ""
+        label: _("Shared folder")
+        hint: _("The shared folder to synchronise when the external storage device is connected.")
+        validators:
+          required: true
+      - type: select
+        name: devicefile
+        label: _("Device")
+        placeholder: _("Select a device ...")
+        hint: _("The external storage device. Please make sure that the device has only one file system.")
+        value: ""
+        valueField: devicefile
+        textField: description
+        store:
+          proxy:
+            service: UsbBackup
+            get:
+              method: getCandidates
+          sorters:
+            - dir: asc
+              prop: devicefile
+        validators:
+          required: true
+      - type: textInput
+        name: reldirpath
+        label: _("Relative path")
+        hint: _("The relative directory path on the external storage device from/to which the content of the shared folder is to be synchronized. The directory is created if it does not exist.")
+        value: '/'
+        validators:
+          required: true
+      - type: checkbox
+        name: sendemail
+        label: _("Send email")
+        value: true
+        hint: _("An email message with the command output (if any produced) is sent to the administrator.")
+        validators:
+          custom:
+            - constraint:
+                operator: or
+                arg0:
+                  operator: falsy
+                  arg0:
+                    prop: sendemail
+                arg1:
+                  operator: falsy
+                  arg0:
+                    prop: optionquiet
+              errorData: _("The 'Send email' and 'Quiet' options are mutually exclusive.")
+      - type: checkbox
+        name: optionquiet
+        label: _("Quiet")
+        hint: _("Suppress non-error messages.")
+        value: false
+        validators:
+          custom:
+            - constraint:
+                operator: or
+                arg0:
+                  operator: falsy
+                  arg0:
+                    prop: sendemail
+                arg1:
+                  operator: falsy
+                  arg0:
+                    prop: optionquiet
+              errorData: _("The 'Send email' and 'Quiet' options are mutually exclusive.")
+      - type: checkbox
+        name: optionarchive
+        label: _("Archive")
+        hint: _("Enable archive mode.")
+        value: true
+      - type: checkbox
+        name: optionrecursive
+        label: _("Recursive")
+        hint: _("Recurse into directories.")
+        value: true
+        modifiers:
+          - type: checked
+            opposite: false
+            constraint:
+              operator: truthy
+              arg0:
+                prop: optionarchive
+      - type: checkbox
+        name: optionperms
+        label: _("Preserve permissions")
+        hint: _("Set the destination permissions to be the same as the source permissions.")
+        value: true
+      - type: checkbox
+        name: optiontimes
+        label: _("Preserve modification times")
+        hint: _("Transfer modification times along with the files and update them on the remote system.")
+        value: true
+        modifiers:
+          - type: checked
+            opposite: false
+            constraint:
+              operator: truthy
+              arg0:
+                prop: optionarchive
+      - type: checkbox
+        name: optiongroup
+        label: _("Preserve group")
+        hint: _("Set the group of the destination file to be the same as the source file.")
+        value: true
+      - type: checkbox
+        name: optionowner
+        label: _("Preserve owner")
+        hint: _("Set the owner of the destination file to be the same as the source file, but only if the receiving rsync is being run as the super-user.")
+        value: true
+      - type: checkbox
+        name: optioncompress
+        label: _("Compress")
+        hint: _("Compress file data during the transfer.")
+        value: false
+      - type: checkbox
+        name: optionacls
+        label: _("Preserve ACLs")
+        hint: _("Update the destination ACLs to be the same as the source ACLs.")
+        value: false
+      - type: checkbox
+        name: optionxattrs
+        label: _("Preserve extended attributes")
+        hint: _("Update the destination extended attributes to be the same as the local ones.")
+        value: false
+      - type: checkbox
+        name: optionpartial
+        label: _("Keep partially transferred files")
+        hint: _("Enable this option to keep partially transferred files, otherwise they will be deleted if the transfer is interrupted.")
+        value: false
+      - type: checkbox
+        name: optiondelete
+        label: _("Delete")
+        hint: _("Delete files on the receiving side that don't exist on sender.")
+        value: false
+      - type: textInput
+        name: extraoptions
+        label: _("Extra options")
+        hint: _("Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manual page</a> for more details.")
+        value: ""
+      - type: tagInput
+        name: comment
+        label: _("Tags")
+        value: ""
+    buttons:
+      - template: submit
+        execute:
+          type: url
+          url: "/services/usbbackup"
+      - template: cancel
+        execute:
+          type: url
+          url: "/services/usbbackup"

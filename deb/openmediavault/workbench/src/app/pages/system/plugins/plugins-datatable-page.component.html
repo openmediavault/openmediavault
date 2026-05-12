@@ -1,0 +1,43 @@
+<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>
+
+<ng-template #pluginInfoTpl
+             let-row="row">
+  <div class="omv-datatable-cell-package-info">
+    <div class="omv-datatable-cell-header">
+      <div class="omv-datatable-cell-header-text">
+        <div class="omv-font-weight-title omv-font-size-title">{{ row.name }} {{ row.version }}</div>
+        <div class="omv-font-size-subheading-2">{{ row.summary }}</div>
+      </div>
+      <mat-chip-list *ngIf="row.installed"
+                     class="installed"
+                     [tabIndex]="-1">
+        <mat-chip class="omv-background-color-pair-green"
+                  [selectable]="false"
+                  [disableRipple]="true">
+          {{ 'Installed' | transloco }}
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+    <div *ngIf="row.pluginarchitecture.length"
+         class="architecture">
+      <mat-chip-list [tabIndex]="-1">
+        <mat-chip *ngFor="let item of row.pluginarchitecture | sort"
+                  [selectable]="false"
+                  [disableRipple]="true">
+          {{ item }}
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+    <br>
+    <ng-container *ngIf="row.extendeddescription"><span>{{ row.extendeddescription }}</span><br><br></ng-container>
+    <ng-container *ngIf="row.pluginsection"><span>{{ 'Section' | transloco }}: {{ row.pluginsection | titlecase }}</span><br></ng-container>
+    <ng-container *ngIf="row.maintainer"><span>{{ 'Maintainer' | transloco }}: {{ row.maintainer }}</span><br></ng-container>
+    <ng-container *ngIf="row.homepage">
+      <span>
+        {{ 'Homepage' | transloco }}: <a href="{{ row.homepage }}">{{ row.homepage }}</a>
+      </span><br>
+    </ng-container>
+    <ng-container *ngIf="row.repository"><span>{{ 'Repository' | transloco }}: {{ row.repository }}</span><br></ng-container>
+    <ng-container *ngIf="row.size"><span>{{ 'Size' | transloco }}: {{ row.size | binaryUnit }}</span><br></ng-container>
+  </div>
+</ng-template>

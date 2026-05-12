@@ -1,0 +1,11 @@
+@use 'scss/defaults/colors' as dc;
+
+omv-form-button {
+  .mat-flat-button {
+    color: dc.$omv-color-white;
+  }
+
+  .mat-form-field .mat-form-field-underline {
+    display: none;
+  }
+}

@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "dashboard"
+  position: 10
+  text: _("Dashboard")
+  icon: apps
+  url: "/dashboard"

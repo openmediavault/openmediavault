@@ -1,0 +1,30 @@
+@use 'scss/defaults/colors' as dc;
+@use 'scss/defaults/variables' as dv;
+
+.omv-navigation-bar {
+  min-width: dv.$omv-navigation-bar-width;
+  max-width: dv.$omv-navigation-bar-width;
+  height: 100%;
+
+  .header {
+    background-color: dc.$omv-color-transparent;
+    border-left: 3px solid dc.$omv-color-transparent;
+    height: dv.$omv-top-bar-height;
+    padding-left: dv.$omv-padding;
+
+    .logo {
+      width: 100%;
+      height: 100%;
+      background-image: url('^./assets/images/openmediavault_logo_simple.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position-y: center;
+    }
+  }
+
+  .content {
+    .mat-nav-list {
+      padding-top: unset;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-clamav-onaccess-scan-form-page
+  type: formPage
+  config:
+    request:
+      service: ClamAV
+      get:
+        method: getOnAccessPath
+        params:
+          uuid: "{{ _routeParams.uuid }}"
+      post:
+        method: setOnAccessPath
+    fields:
+      - type: confObjUuid
+      - type: checkbox
+        name: enable
+        label: _("Enabled")
+        value: false
+      - type: sharedFolderSelect
+        name: sharedfolderref
+        value: ""
+        label: _("Shared folder")
+        hint: _("The location of the files to scan on-access.")
+        validators:
+          required: true
+    buttons:
+      - template: submit
+        execute:
+          type: url
+          url: "/services/clamav/onaccess-scans"
+      - template: cancel
+        execute:
+          type: url
+          url: "/services/clamav/onaccess-scans"

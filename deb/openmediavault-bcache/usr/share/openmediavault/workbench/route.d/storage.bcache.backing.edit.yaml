@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/bcache/backing/edit/:devicefile"
+  title: "{{ 'Edit' | translate }} @ {{ _routeParams.devicefile }}"
+  editing: true
+  notificationTitle: _("Updated backing device '{{ devicefile }}'.")
+  component: omv-storage-bcache-backing-edit-form-page

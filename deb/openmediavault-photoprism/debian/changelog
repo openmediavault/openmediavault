@@ -1,0 +1,103 @@
+openmediavault-photoprism (8.0.2-1) stable; urgency=medium
+
+  * Issue #2176: Increase mDNS/Zeroconf compatibility for MacOS.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 15 Apr 2026 19:08:55 +0200
+
+openmediavault-photoprism (8.0.1-1) stable; urgency=medium
+
+  * Issue #2110: Modify MariaDB image version to `11` as suggested
+    in the PhotoPrism documentation.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 20 Jan 2026 17:05:16 +0100
+
+openmediavault-photoprism (8.0-5) stable; urgency=medium
+
+  * Adapt to openmediavault 8.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 10 Aug 2025 12:49:38 +0200
+
+openmediavault-photoprism (7.0.1-1) stable; urgency=medium
+
+  * Update locale files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 03 Jun 2025 19:44:36 +0200
+
+openmediavault-photoprism (7.0-4) unstable; urgency=low
+
+  * Adapt to openmediavault 7 (Sandworm).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Jul 2023 17:08:59 +0200
+
+openmediavault-photoprism (6.0.10-1) stable; urgency=low
+
+  * Update locale files.
+  * Add catatonit as package dependency to prevent failures
+    when starting the pod.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 07 Nov 2023 20:38:21 +0100
+
+openmediavault-photoprism (6.0.9-1) stable; urgency=low
+
+  * Enhance cleanup after removing the plugin.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 01 Aug 2023 17:41:07 +0200
+
+openmediavault-photoprism (6.0.8-1) stable; urgency=low
+
+  * Update locale files.
+  * Update package dependency.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 26 Jul 2023 21:27:51 +0200
+
+openmediavault-photoprism (6.0.7-1) stable; urgency=low
+
+  * Make sure the container is started after the file systems of
+    the shared folder is mounted.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 07 Oct 2022 17:31:32 +0200
+
+openmediavault-photoprism (6.0.6-1) stable; urgency=low
+
+  * Update locale files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 17 Sep 2022 10:02:02 +0200
+
+openmediavault-photoprism (6.0.5-2) stable; urgency=low
+
+  * Update locale files.
+  * Download container images during first package installation.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 24 Jul 2022 23:14:02 +0200
+
+openmediavault-photoprism (6.0.4-1) stable; urgency=low
+
+  * Store proxy configuration file in /var.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 24 May 2022 19:19:47 +0200
+
+openmediavault-photoprism (6.0.3-1) stable; urgency=low
+
+  * Update locale files.
+  * Write correct Avahi service configuration when HTTPS is enabled.
+  * Use proxy container only when HTTPS is enabled.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 07 May 2022 09:15:00 +0200
+
+openmediavault-photoprism (6.0.2-5) unstable; urgency=low
+
+  * Add 'Public' and 'Filesize limit' options.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 20 Apr 2022 17:17:36 +0200
+
+openmediavault-photoprism (6.0.1-4) unstable; urgency=low
+
+  * Add SSL support.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 28 Mar 2022 19:04:45 +0200
+
+openmediavault-photoprism (6.0-3) unstable; urgency=low
+
+  * Initial release.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 19 Mar 2022 19:49:23 +0100

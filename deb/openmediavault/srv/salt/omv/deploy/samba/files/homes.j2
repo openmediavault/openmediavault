@@ -1,0 +1,75 @@
+{%- set comment = salt['pillar.get']('default:OMV_SAMBA_HOMES_COMMENT', 'Home directories') -%}
+{%- set writable = salt['pillar.get']('default:OMV_SAMBA_HOMES_WRITABLE', 'yes') -%}
+{%- set create_mask = salt['pillar.get']('default:OMV_SAMBA_HOMES_CREATEMASK', '0600') -%}
+{%- set force_create_mode = salt['pillar.get']('default:OMV_SAMBA_HOMES_FORCECREATEMODE', '0600') -%}
+{%- set directory_mask = salt['pillar.get']('default:OMV_SAMBA_HOMES_DIRECTORYMASK', '0700') -%}
+{%- set force_directory_mode = salt['pillar.get']('default:OMV_SAMBA_HOMES_FORCEDIRECTORYMODE', '0700') -%}
+{%- set valid_users = salt['pillar.get']('default:OMV_SAMBA_HOMES_VALIDUSERS', '%S') -%}
+{%- set hide_special_files = salt['pillar.get']('default:OMV_SAMBA_HOMES_HIDESPECIALFILES', 'yes') -%}
+{%- set vfs_objects = salt['pillar.get']('default:OMV_SAMBA_HOMES_VFSOBJECTS', '') -%}
+{%- set recycle_repository = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_REPOSITORY', '.recycle/%U') -%}
+{%- set recycle_keeptree = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_KEEPTREE', 'yes') -%}
+{%- set recycle_versions = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_VERSIONS', 'yes') -%}
+{%- set recycle_touch = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_TOUCH', 'yes') -%}
+{%- set recycle_touch_mtime = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_TOUCH_MTIME', 'no') -%}
+{%- set recycle_directory_mode = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_DIRECTORYMODE', '0777') -%}
+{%- set recycle_subdir_mode = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_SUBDIRMODE', '0700') -%}
+{%- set recycle_exclude = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_EXCLUDE', '*.tmp, *.TMP, *.temp, *.TEMP, *.~lock*, *.o, *.obj, ~$*, ~*.*') -%}
+{%- set recycle_exclude_dir = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_EXCLUDEDIR', '/cache, /CACHE, /recycle, /RECYCLE, /tmp, /TMP, /temp, /TEMP') -%}
+{%- set recycle_noversions = salt['pillar.get']('default:OMV_SAMBA_HOMES_RECYCLE_NOVERSIONS', '*.tmp, *.TMP, *.temp, *.TEMP, *.o, *.obj, ~*.*') -%}
+{%- set shadow_sort = salt['pillar.get']('default:OMV_SAMBA_HOMES_SHADOW_SORT', 'desc') -%}
+{%- set dfree_command = salt['pillar.get']('default:OMV_SAMBA_HOMES_DFREECOMMAND', '/usr/sbin/omv-btrfs-dfree') -%}
+{%- set dfree_cache_time = salt['pillar.get']('default:OMV_SAMBA_HOMES_DFREECACHETIME', '30') -%}
+#======================= Home Directories =======================
+[homes]
+comment = {{ comment }}
+browseable = {{ config.homesbrowseable | to_bool | yesno }}
+inherit acls = {{ config.homesinheritacls | to_bool | yesno }}
+inherit permissions = {{ config.homesinheritpermissions | to_bool | yesno }}
+writable = {{ writable }}
+create mask = {{ create_mask }}
+force create mode = {{ force_create_mode }}
+directory mask = {{ directory_mask }}
+force directory mode = {{ force_directory_mode }}
+valid users = {{ valid_users }}
+hide special files = {{ hide_special_files }}
+follow symlinks = {{ config.homesfollowsymlinks | to_bool | yesno }}
+wide links = {{ config.homeswidelinks | to_bool | yesno }}
+{%- set vfs_objects = vfs_objects.split(' ') %}
+{%- if config.homesrecyclebin | to_bool %}
+{%- set _ = vfs_objects.append('recycle') %}
+recycle:repository = {{ recycle_repository }}
+recycle:keeptree = {{ recycle_keeptree }}
+recycle:versions = {{ recycle_versions }}
+recycle:touch = {{ recycle_touch }}
+recycle:touch_mtime = {{ recycle_touch_mtime }}
+recycle:directory_mode = {{ recycle_directory_mode }}
+recycle:subdir_mode = {{ recycle_subdir_mode }}
+recycle:exclude = {{ recycle_exclude }}
+recycle:exclude_dir = {{ recycle_exclude_dir }}
+recycle:noversions = {{ recycle_noversions }}
+{%- endif %}
+{%- if enable_timemachine_vfs | to_bool %}
+{%- set _ = vfs_objects.append('fruit') %}
+{%- set _ = vfs_objects.append('streams_xattr') %}
+{%- endif %}
+{%- if homedir_config.sharedfolderref | omv_conf_get_by_identifier('conf.system.sharedfolder') | attr('mntentref') | omv_conf_get_by_identifier('conf.system.filesystem.mountpoint') | attr('type') == 'btrfs' %}
+{%- set _ = vfs_objects.append('btrfs') %}
+{%- set _ = vfs_objects.append('shadow_copy2') %}
+{%- set sf_path = salt['omv_conf.get_sharedfolder_path'](homedir_config.sharedfolderref) %}
+{%- set sf_mount_path = salt['omv_conf.get_sharedfolder_mount_path'](homedir_config.sharedfolderref) %}
+shadow:mountpoint = {{ sf_mount_path }}
+shadow:snapdir = {{ sf_mount_path | path_join('.snapshots') | path_prettify }}
+shadow:basedir = {{ sf_path }}
+shadow:sort = {{ shadow_sort }}
+shadow:format = _%Y%m%dT%H%M%S
+shadow:delimiter = _
+shadow:snapprefix = ^homes\(@hourly\)\{0,1\}\(@daily\)\{0,1\}\(@weekly\)\{0,1\}\(@monthly\)\{0,1\}\(@yearly\)\{0,1\}$
+shadow:localtime = no
+dfree command = {{ dfree_command }}
+dfree cache time = {{ dfree_cache_time }}
+{%- endif %}
+vfs objects = {{ vfs_objects | unique | join(' ') }}
+{%- if config.homesextraoptions | length > 0 %}
+{{ config.homesextraoptions }}
+{%- endif %}

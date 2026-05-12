@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="10.240999mm"
+   height="9.3493166mm"
+   viewBox="0 0 36.287006 33.127499"
+   id="svg4578"
+   version="1.1"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="openmediavault_logo_small.svg"
+   inkscape:export-filename="./header_logo.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title
+     id="title4144">OpenMediaVault logo</title>
+  <defs
+     id="defs4580" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#98b7cf"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.018853"
+     inkscape:cx="189.71168"
+     inkscape:cy="8.6682884"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1142"
+     inkscape:window-x="0"
+     inkscape:window-y="364"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:pagecheckerboard="0" />
+  <metadata
+     id="metadata4583">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>OpenMediaVault logo</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Volker Theile</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>Volker Theile</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:date>15.09.2016</dc:date>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-139.51472,-591.83551)">
+    <g
+       id="g4192"
+       transform="matrix(0.7894192,0,0,0.7894192,36.354866,125.15774)">
+      <rect
+         ry="1.8566352"
+         y="592.18445"
+         x="131.69664"
+         height="39.927456"
+         width="43.929771"
+         id="rect3772-1-2-9-1-9"
+         style="fill:none;stroke:#ffffff;stroke-width:2.03694;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g4372"
+         transform="translate(-26.507754,-88.860304)">
+        <path
+           inkscape:connector-curvature="0"
+           id="path23-4-1-6-9-0"
+           d="m 163.94765,686.42298 c -0.38058,0 -0.68819,0.2853 -0.68819,0.6388 v 7.0865 c 0,0.3535 0.30762,0.6392 0.68819,0.6392 h 32.44367 c 0.37849,0 0.68778,-0.2877 0.68778,-0.6392 v -7.0865 c 0,-0.3535 -0.3072,-0.6388 -0.68778,-0.6388 z m 3.93921,1.6958 a 2.4863311,2.4863311 0 0 1 2.48647,2.4865 2.4863311,2.4863311 0 0 1 -2.48647,2.4864 2.4863311,2.4863311 0 0 1 -2.48605,-2.4864 2.4863311,2.4863311 0 0 1 2.48605,-2.4865 z m 0,1.1881 a 1.29858,1.29858 0 0 0 -1.29836,1.2984 1.29858,1.29858 0 0 0 1.29836,1.2987 1.29858,1.29858 0 0 0 1.29878,-1.2987 1.29858,1.29858 0 0 0 -1.29878,-1.2984 z"
+           style="fill:#ffffff;fill-opacity:1" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path23-4-1-8-7-5"
+           d="m 163.94765,696.82628 c -0.38058,0 -0.68819,0.2853 -0.68819,0.6388 v 7.0865 c 0,0.3534 0.30762,0.6392 0.68819,0.6392 h 32.44367 c 0.37849,0 0.68778,-0.2877 0.68778,-0.6392 v -7.0865 c 0,-0.3535 -0.3072,-0.6388 -0.68778,-0.6388 z m 3.93921,1.6958 a 2.4863311,2.4863311 0 0 1 2.48647,2.4864 2.4863311,2.4863311 0 0 1 -2.48647,2.4865 2.4863311,2.4863311 0 0 1 -2.48605,-2.4865 2.4863311,2.4863311 0 0 1 2.48605,-2.4864 z m 0,1.1881 a 1.29858,1.29858 0 0 0 -1.29836,1.2983 1.29858,1.29858 0 0 0 1.29836,1.2988 1.29858,1.29858 0 0 0 1.29878,-1.2988 1.29858,1.29858 0 0 0 -1.29878,-1.2983 z"
+           style="fill:#ffffff;fill-opacity:1" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path23-4-1-8-3-8-73"
+           d="m 163.94765,707.22958 c -0.38058,0 -0.68819,0.2853 -0.68819,0.6388 v 7.0865 c 0,0.3534 0.30762,0.6391 0.68819,0.6391 h 32.44367 c 0.37849,0 0.68778,-0.2876 0.68778,-0.6391 v -7.0865 c 0,-0.3535 -0.3072,-0.6388 -0.68778,-0.6388 z m 3.93921,1.6957 a 2.4863311,2.4863311 0 0 1 2.48647,2.4865 2.4863311,2.4863311 0 0 1 -2.48647,2.4865 2.4863311,2.4863311 0 0 1 -2.48605,-2.4865 2.4863311,2.4863311 0 0 1 2.48605,-2.4865 z m 0,1.1881 a 1.29858,1.29858 0 0 0 -1.29836,1.2984 1.29858,1.29858 0 0 0 1.29836,1.2988 1.29858,1.29858 0 0 0 1.29878,-1.2988 1.29858,1.29858 0 0 0 -1.29878,-1.2984 z"
+           style="fill:#ffffff;fill-opacity:1" />
+      </g>
+    </g>
+  </g>
+</svg>

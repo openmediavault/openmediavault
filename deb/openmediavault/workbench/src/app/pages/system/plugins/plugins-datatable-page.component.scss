@@ -1,0 +1,15 @@
+@use 'scss/defaults/variables' as dv;
+
+.omv-datatable-cell-package-info {
+  .omv-datatable-cell-header {
+    align-items: center;
+
+    .installed {
+      margin-left: dv.$omv-margin;
+    }
+  }
+
+  .architecture {
+    margin-top: 0.5rem;
+  }
+}

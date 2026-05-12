@@ -1,0 +1,155 @@
+[{
+	"type": "rpc",
+	"id": "rpc.certificatemgmt.set",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"certificate": {
+				"type": "string",
+				"required": true
+			},
+			"privatekey": {
+				"type": "string",
+				"required": false
+			},
+			"comment": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.certificatemgmt.create",
+	"params": {
+		"type": "object",
+		"properties": {
+			"size": {
+				"type": "integer",
+				"enum": [ 512, 1024, 2048, 4096 ],
+				"required": true
+			},
+			"days": {
+				"type": "integer",
+				"required": true
+			},
+			"c": {
+				"type": "string",
+				"maxLength": 2,
+				"required": true
+			},
+			"st": {
+				"type": "string",
+				"required": true
+			},
+			"l": {
+				"type": "string",
+				"required": true
+			},
+			"o": {
+				"type":"string",
+				"required": true
+			},
+			"ou": {
+				"type": "string",
+				"required": true
+			},
+			"cn": {
+				"type": "string",
+				"minLength": 1,
+				"required": true
+			},
+			"email": {
+				"type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "email"
+				},{
+					"type": "string",
+					"maxLength": 0
+				}],
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.certificatemgmt.createssh",
+	"params": {
+		"type": "object",
+		"properties": {
+			"type":{
+				"type": "string",
+				"enum": [ "rsa", "ed25519" ],
+				"required": true
+			},
+			"comment": {
+				"type": "string"
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.certificatemgmt.setssh",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"publickey": {
+				"type": "string",
+				"format": "sshpubkey-openssh",
+				"required": true
+			},
+			"privatekey": {
+				"type": "string",
+				"format": "sshprivkey-pem",
+				"required": false
+			},
+			"comment": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.certificatemgmt.copySshId",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"hostname": {
+				"type": "string",
+				"required": true
+			},
+			"port":{
+				"type": "integer",
+				"minimum": 1,
+				"maximum": 65535,
+				"required": true
+			},
+			"username": {
+				"type": "string",
+				"required": true
+			},
+			"password": {
+				"type": "string",
+				"format": "no-multi-line",
+				"required": true
+			}
+		}
+	}
+}]

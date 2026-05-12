@@ -1,0 +1,16 @@
+{%- set default_root = salt['pillar.get']('default:OMV_PROFTPD_MODAUTH_DEFAULTROOT', '/srv/ftp') -%}
+{%- set use_ftp_users = salt['pillar.get']('default:OMV_PROFTPD_MODAUTH_USEFTPUSERS', 'off') -%}
+<IfModule mod_auth.c>
+  DefaultRoot {{ default_root }}
+  MaxClients {{ config.maxclients }}
+{%- if config.maxloginattempts > 0 %}
+  MaxLoginAttempts {{ config.maxloginattempts }}
+{%- endif %}
+  RequireValidShell {{ config.requirevalidshell | to_bool | yesno('on,off') }}
+{%- if config.rootlogin | to_bool %}
+  RootLogin on
+{%- endif %}
+  # This option is useless because this is handled via the PAM
+  # pam_listfile.so module, so set it to 'off' by default.
+  UseFtpUsers {{ use_ftp_users }}
+</IfModule>

@@ -1,0 +1,15 @@
+<div class="omv-navigation-page omv-grid omv-gap-3">
+  <mat-card *ngFor="let item of menuItems"
+            class="omv-box-border omv-display-flex omv-flex-column omv-align-content-center omv-justify-content-center omv-align-items-center"
+            mat-ripple
+            tabindex="0"
+            (keyup.space)="onClick(item)"
+            (keyup.enter)="onClick(item)"
+            (click)="onClick(item)">
+    <mat-icon *ngIf="item.icon"
+              svgIcon="{{ item.icon }}"></mat-icon>
+    <div class="omv-text-center omv-text-truncate omv-w-100">
+      {{ item.text | transloco }}
+    </div>
+  </mat-card>
+</div>

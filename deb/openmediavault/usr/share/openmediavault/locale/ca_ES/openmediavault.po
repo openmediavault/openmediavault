@@ -1,0 +1,4281 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault package.
+# 
+# Translators:
+# Quim Farriol <qfarriol@valette.cat>, 2020-2025
+# Quim Farriol <qfarriol@valette.cat>, 2017-2018,2020
+# Quim Farriol <qfarriol@valette.cat>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-30 21:52+0200\n"
+"PO-Revision-Date: 2012-03-17 01:48+0000\n"
+"Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2025\n"
+"Language-Team: Catalan (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ca_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "# Members"
+msgstr ""
+
+msgid "%CPU"
+msgstr ""
+
+msgid "%MEM"
+msgstr ""
+
+msgid "%d days"
+msgstr "dies"
+
+msgid "%d hours"
+msgstr "hores"
+
+msgid "%d minutes"
+msgstr "minuts"
+
+msgid "%d months"
+msgstr "mesos"
+
+msgid "%d years"
+msgstr "anys"
+
+msgid "%s [%s, %s (%d%%) used, %s available]"
+msgstr "%s [%s (%d%%) usat, %s disponible]"
+
+msgid "%s [%s]"
+msgstr "%s [%s]"
+
+msgid "%s [on %s, %s]"
+msgstr "%s [en %s, %s]"
+
+msgid "%s [on N/A, %s]"
+msgstr ""
+
+msgid "%s ago"
+msgstr "fa"
+
+msgid "1 - Minimum power usage with standby (spindown)"
+msgstr "1 - Consum mínim en repos (spindown)"
+
+msgid "1 GiB"
+msgstr "1 GiB"
+
+msgid "1 MiB"
+msgstr "1 MiB"
+
+msgid "1 day"
+msgstr "1 dia"
+
+msgid "1 min"
+msgstr "1 minut"
+
+msgid "1 minute"
+msgstr "1 minut"
+
+msgid "1 month"
+msgstr "1 mes"
+
+msgid "1 week"
+msgstr "1 setmana"
+
+msgid "1 year"
+msgstr "1 any"
+
+msgid "10 MiB"
+msgstr "10 MiB"
+
+msgid "10 minutes"
+msgstr "10 minuts"
+
+msgid "10 years"
+msgstr "10 anys"
+
+msgid "100 MiB"
+msgstr "100 MiB"
+
+msgid "120 minutes"
+msgstr "120 minuts"
+
+msgid "127 - Intermediate power usage with standby"
+msgstr "127 - Consum mig en repòs"
+
+msgid "128 - Minimum power usage without standby (no spindown)"
+msgstr "128 - Consum mínim sense repòs (no spindown)"
+
+msgid "15 min"
+msgstr "15 minuts"
+
+msgid "15 minutes"
+msgstr "15 minuts"
+
+msgid "15 years"
+msgstr "15 anys"
+
+msgid "180 minutes"
+msgstr "180 minuts"
+
+msgid "192 - Intermediate power usage without standby"
+msgstr "192 - Consum mig sense repòs"
+
+msgid "2 GiB"
+msgstr "2 GiB"
+
+msgid "2 MiB"
+msgstr "2 MiB"
+
+msgid "2 days"
+msgstr "2 dies"
+
+msgid "2 minutes"
+msgstr "2 minuts"
+
+msgid "2 weeks"
+msgstr "2 setmanes"
+
+msgid "2 years"
+msgstr "2 anys"
+
+msgid "20 minutes"
+msgstr "20 minuts"
+
+msgid "20 years"
+msgstr "20 anys"
+
+msgid "240 minutes"
+msgstr "240 minuts"
+
+msgid "25 MiB"
+msgstr "25 MiB"
+
+msgid "25 years"
+msgstr "25 anys"
+
+msgid "250 MiB"
+msgstr "250 MiB"
+
+msgid "254 - Maximum performance, maximum power usage"
+msgstr "254 - Màxim rendiment, màxim consum"
+
+msgid "3 days"
+msgstr "3 dies"
+
+msgid "3 minutes"
+msgstr "3 minuts"
+
+msgid "3 months"
+msgstr "3 mesos"
+
+msgid "3 weeks"
+msgstr "3 setmanes"
+
+msgid "3 years"
+msgstr "3 anys"
+
+msgid "30 minutes"
+msgstr "30 minuts"
+
+msgid "300 minutes"
+msgstr "300 minuts"
+
+msgid "330 minutes"
+msgstr "330 minuts"
+
+msgid "4 GiB"
+msgstr "4 GiB"
+
+msgid "4 days"
+msgstr "4 dies"
+
+msgid "4 minutes"
+msgstr "4 minuts"
+
+msgid "4 years"
+msgstr "4 anys"
+
+msgid "5 MiB"
+msgstr "5 MiB"
+
+msgid "5 days"
+msgstr "5 dies"
+
+msgid "5 min"
+msgstr "5 minuts"
+
+msgid "5 minutes"
+msgstr "5 minuts"
+
+msgid "5 years"
+msgstr "5 anys"
+
+msgid "50 MiB"
+msgstr "50 MiB"
+
+msgid "500 MiB"
+msgstr "500 MiB"
+
+msgid "6 days"
+msgstr "6 dies"
+
+msgid "6 months"
+msgstr "6 mesos"
+
+msgid "60 minutes"
+msgstr "60 minuts"
+
+msgid "64 - Intermediate power usage with standby"
+msgstr "64 - Consum mig en repòs"
+
+msgid "75 MiB"
+msgstr "75 MiB"
+
+msgid "750 MiB"
+msgstr "750 MiB"
+
+msgid "9 months"
+msgstr "9 mesos"
+
+msgid "A (5 GHz)"
+msgstr "A (5 GHz)"
+
+msgid ""
+"A reboot is needed to fully apply the changes introduced by package "
+"installation or upgrade."
+msgstr "Cal que reinicieu per aplicar completament els canvis introduïts per la instal·lació o l'actualització del paquet."
+
+msgid "A running background task was detected."
+msgstr "S'ha detectat una tasca en segon pla en execució."
+
+msgid "A scheduled task to create a snapshot has been created."
+msgstr "S'ha creat una tasca programada per crear una instantània."
+
+msgid "A secure shell (SSH) server."
+msgstr "Un servidor shell segur (SSH)."
+
+msgid "ACL"
+msgstr "ACL"
+
+msgid "About"
+msgstr "Respecte de"
+
+msgid "Absolute Path"
+msgstr "Ruta absoluta"
+
+msgid "Abstract"
+msgstr "Extracte"
+
+msgid "Access control list"
+msgstr "Llista de control d’accés "
+
+msgid "Act as a WINS server."
+msgstr "Funcionar com a servidor WINS."
+
+msgid ""
+"Acting as a WINS server and using a WINS server are mutually exclusive."
+msgstr " Actuar com a servidor WINS i utilitzar un servidor WINS són mútuament excloents."
+
+msgid "Action"
+msgstr "Acció"
+
+msgid ""
+"Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
+"devices are listed in the scheduled tasks. Monitoring cannot be switched off"
+" as long as there are scheduled tasks for this device."
+msgstr "Activa S.M.A.R.T. monitorització d'aquest dispositiu. Tingueu en compte que només s'enumeren els dispositius supervisats a les tasques programades. La supervisió no es pot desactivar mentre hi hagi tasques programades per a aquest dispositiu."
+
+msgid "Active"
+msgstr "Actiu"
+
+msgid "Active or Idle"
+msgstr "Activa o inactiva"
+
+msgid "Add"
+msgstr "Afegir"
+
+msgid "Address"
+msgstr "Adreça"
+
+msgid "Administrator: read/write, Users: no access, Others: no access"
+msgstr "Administrador: Lectura/Escriptura, Usuaris: Sense accés, Altres: Sense accés"
+
+msgid "Administrator: read/write, Users: read-only, Others: no access"
+msgstr "Administrador: Lectura/Escriptura, Usuaris: Només lectura, Altres: Sense accés"
+
+msgid "Administrator: read/write, Users: read-only, Others: read-only"
+msgstr "Administrador: Lectura/Escriptura, Usuaris:Només lectura, Altres: Només lectura"
+
+msgid "Administrator: read/write, Users: read/write, Others: no access"
+msgstr "Administrador: Lectura/Escriptura, Usuaris:Lectura/Escriptura, Altres:Sense accés"
+
+msgid "Administrator: read/write, Users: read/write, Others: read-only"
+msgstr "Administrador: Lectura/Escriptura, Usuaris:Lectura/Escriptura, Altres: Només lectura"
+
+msgid "Advanced Acoustic Management"
+msgstr "Gestió acústica avançada"
+
+msgid "Advanced Power Management"
+msgstr "APM – Ús avançat d’Energia"
+
+msgid "Advanced settings"
+msgstr "Propietats avançades"
+
+msgid "Afghanistan"
+msgstr "Afganistan"
+
+msgid "Aland Islands"
+msgstr "Illes Aland"
+
+msgid "Albania"
+msgstr "Albània"
+
+msgid "Algeria"
+msgstr "Algèria"
+
+msgid "All"
+msgstr "Tots"
+
+msgid "All Snapshots"
+msgstr "Totes les instantànies"
+
+msgid "All packages will be upgraded. Do you want to proceed?"
+msgstr "Tots els paquets s'actualitzaran. Vols continuar?"
+
+msgid ""
+"Allow clients to attempt to access extended attributes on a share. The "
+"underlying filesystem exposed by the share must support extended attributes."
+msgstr "Permet als clients intentar accedir als atributs ampliats d'una compartició. El sistema de fitxers subjacent exposat per la compartició ha de suportar atributs ampliats."
+
+msgid "Allow following symbolic links in the home directories."
+msgstr "Permet seguir els enllaços simbòlics als directoris d'inici."
+
+msgid "Allow following symbolic links in the share."
+msgstr "Permet seguir els enllaços simbòlics a la compartició."
+
+msgid "Allow symbolic links to areas that are outside the home directories."
+msgstr "Permet enllaços simbòlics a àrees que es troben fora dels directoris d'inici."
+
+msgid "Allow symbolic links to areas that are outside the share."
+msgstr "Permet enllaços simbòlics a àrees que es troben fora de la compartició."
+
+msgid ""
+"Allow this server to advertise itself as a time server to Windows clients."
+msgstr "Permet que aquest servidor s'anunciï com a servidor de temps als clients de Windows. "
+
+msgid "Allowed clients"
+msgstr "Clients permesos"
+
+msgid "American Samoa"
+msgstr "Samoa"
+
+msgid ""
+"An attempt to send the test email has been made. Please check your mailbox. "
+"If the email does not arrive, check any spam folders and also check there "
+"are no Postfix related errors in the system log."
+msgstr "S'ha intentat enviar el correu electrònic de prova. Comproveu la vostra bústia. Si el correu electrònic no arriba, comproveu les carpetes de correu brossa i també comproveu que no hi hagi errors relacionats amb la correcció de correus al registre del sistema."
+
+msgid ""
+"An email message with the command output (if any produced) is sent to the "
+"administrator."
+msgstr ""
+
+msgid ""
+"An email message with the command output (if any produced) is sent to the "
+"user who performs the job."
+msgstr ""
+
+msgid "Andorra"
+msgstr "Andorra"
+
+msgid "Angola"
+msgstr "Angola"
+
+msgid "Anguilla"
+msgstr "Anguilla"
+
+msgid "Antarctica"
+msgstr "Antàrtida"
+
+msgid "Antigua and Barbuda"
+msgstr "Antigua i Barbados"
+
+msgid "Applied the configuration changes."
+msgstr "S'han aplicat els canvis de configuració. "
+
+msgid "Apply"
+msgstr "Aplicar"
+
+msgid "Apply permissions to files and subfolders."
+msgstr "Apliqueu permisos a fitxers i subcarpetes. "
+
+msgid "April"
+msgstr "Abril"
+
+msgid "Architecture"
+msgstr "Arquitectura"
+
+msgid "Archive mode"
+msgstr "Mode d'arxiu "
+
+msgid "Argentina"
+msgstr "Argentina"
+
+msgid "Armenia"
+msgstr "Armènia"
+
+msgid "Aruba"
+msgstr "Aruba (Països Baixos)"
+
+msgid "Asynchronous I/O"
+msgstr "E/S asíncrona"
+
+msgid "At least four devices are required."
+msgstr "Es requereixen almenys quatre dispositius. "
+
+msgid "At least one device is required."
+msgstr "Es requereix almenys un dispositiu."
+
+msgid "At least one network interface is required."
+msgstr "Es requereix almenys una interfície de xarxa. "
+
+msgid "At least two devices are required."
+msgstr "Es requereixen almenys dos dispositius. "
+
+msgid "At reboot"
+msgstr "Al Reiniciar"
+
+msgid "Attach"
+msgstr "Adjuntar"
+
+msgid "Attributes"
+msgstr "Atributs"
+
+msgid "Audit file operations"
+msgstr "Auditar accions amb els arxius"
+
+msgid "August"
+msgstr "Agost"
+
+msgid "Australia"
+msgstr "Austràlia"
+
+msgid "Austria"
+msgstr "Àustria"
+
+msgid "Authenticate users"
+msgstr "Usuaris autenticats"
+
+msgid "Authentication"
+msgstr "Autentificació"
+
+msgid "Authentication required"
+msgstr "Cal autentificació"
+
+msgid "Automatic"
+msgstr "Automàtic"
+
+msgid "Automatic logout"
+msgstr "Tancament de sessió automàtic"
+
+msgid "Available"
+msgstr "Disponible"
+
+msgid "Azerbaijan"
+msgstr "Azerbaidjan"
+
+msgid "B/G (2.4 GHz)"
+msgstr "B/G (2.4 GHz)"
+
+msgid "Back"
+msgstr "Enrere"
+
+msgid "Background image"
+msgstr ""
+
+msgid "Background task"
+msgstr "Tasca en segon pla"
+
+msgid "Bad"
+msgstr "Dolen"
+
+msgid "Bahamas"
+msgstr "Bahames"
+
+msgid "Bahrain"
+msgstr "Bahrain"
+
+msgid "Band"
+msgstr "Banda"
+
+msgid "Bangladesh"
+msgstr "Bangla Desh"
+
+msgid "Barbados"
+msgstr "Barbados"
+
+msgid "Base path"
+msgstr "Camí base "
+
+msgid "Belarus"
+msgstr "Bielorússia"
+
+msgid "Belgium"
+msgstr "Bèlgica"
+
+msgid "Belize"
+msgstr "Belize"
+
+msgid "Benin"
+msgstr "Benín"
+
+msgid "Bermuda"
+msgstr "Bermudes"
+
+msgid "Bhutan"
+msgstr "Bhutan"
+
+msgid "Block layer cache [%s, %s]"
+msgstr "Block layer cache [%s, %s]"
+
+msgid "Bolivia"
+msgstr "Bolívia"
+
+msgid "Bond"
+msgstr "Bond = acoblades"
+
+msgid "Boot"
+msgstr "Boot (Arrancada)"
+
+msgid "Bosnia and Herzegovina"
+msgstr "Bòsnia i Hercegovina"
+
+msgid "Botswana"
+msgstr "Botswana"
+
+msgid "Bouvet Island"
+msgstr "Illa Bouvet (Noruega)"
+
+msgid "Brazil"
+msgstr "Brasil"
+
+msgid "Bridge"
+msgstr "Pont"
+
+msgid "British Antarctic Territory"
+msgstr "Territori Britànic Antàrtic"
+
+msgid "British Indian Ocean Territory"
+msgstr "Territori Britànic de l’Oceà Índic"
+
+msgid "British Virgin Islands"
+msgstr "Illes Verges Britàniques"
+
+msgid "Browse directory"
+msgstr "Directori de navegació"
+
+msgid "Browseable"
+msgstr "Navegable"
+
+msgid "Brunei"
+msgstr "Brunei"
+
+msgid "Bulgaria"
+msgstr "Bulgària"
+
+msgid "Burkina Faso"
+msgstr "Burkina Faso"
+
+msgid "Burundi"
+msgstr "Burundi"
+
+msgid "COMMAND"
+msgstr ""
+
+msgid "CPU"
+msgstr "CPU"
+
+msgid "CPU Usage"
+msgstr "Ús de la CPU"
+
+msgid "CPU Utilization"
+msgstr "Ús de la CPU"
+
+msgid "CPU frequency scaling"
+msgstr ""
+
+msgid "Cambodia"
+msgstr "Cambodja"
+
+msgid "Cameroon"
+msgstr "Camerun"
+
+msgid "Canada"
+msgstr "Canada"
+
+msgid "Cancel"
+msgstr "Cancel·lar"
+
+msgid "Canton and Enderbury Islands"
+msgstr "Illes Cantó i Enderbury"
+
+msgid "Capacity"
+msgstr "Capacitat"
+
+msgid "Cape Verde"
+msgstr "Cap Verd"
+
+msgid "Cayman Islands"
+msgstr "Illes Caiman"
+
+msgid "Central African Republic"
+msgstr "República Centreafricana"
+
+msgid "Certain date"
+msgstr "En una data concreta"
+
+msgid "Certificate"
+msgstr "Certificat"
+
+msgid "Certificate management."
+msgstr "Gestió de certificats."
+
+msgid "Certificates"
+msgstr "Certificats"
+
+msgid "Chad"
+msgstr "Txad"
+
+msgid "Change Password"
+msgstr "Canvia la contrasenya "
+
+msgid "Changelog"
+msgstr "Registre de canvis"
+
+msgid "Check for new plugins"
+msgstr "Comproveu si hi ha connectors nous "
+
+msgid "Check for new updates"
+msgstr "Comproveu si hi ha connectors nous "
+
+msgid "Check interval"
+msgstr "Validar interval"
+
+msgid "Checking for new plugins ..."
+msgstr "Buscant plugins nous ..."
+
+msgid "Chile"
+msgstr "Xile"
+
+msgid "China"
+msgstr "Xina"
+
+msgid "Choose"
+msgstr "Tria"
+
+msgid "Christmas Island"
+msgstr "Illa de Navidad"
+
+msgid "City"
+msgstr "Ciutat"
+
+msgid "Cleaning up recycle bin on the share."
+msgstr "Netejant la paperera en el recurs compartit. "
+
+msgid "Clear"
+msgstr "Netejar"
+
+msgid "Client"
+msgstr "Client"
+
+msgid "Client NetBIOS name"
+msgstr "Nom NetBIOS del client"
+
+msgid "Client address"
+msgstr "Adreça del client"
+
+msgid "Close"
+msgstr "Tancar"
+
+msgid "Close the session on inactivity after the specified time."
+msgstr "Tanqueu la sessió en inactivitat després del temps especificat."
+
+msgid "Cocos (Keeling) Islands"
+msgstr "Illes Cocos (Keeling)"
+
+msgid "Colombia"
+msgstr "Colòmbia"
+
+msgid "Command"
+msgstr "Comando"
+
+msgid "Comment"
+msgstr "Comentari"
+
+msgid "Common Name"
+msgstr "Nom propi"
+
+msgid "Community-maintained updates"
+msgstr "Actualitzacions de la comunitat"
+
+msgid "Comoros"
+msgstr "Comores"
+
+msgid "Compress"
+msgstr "Comprimir"
+
+msgid "Compress file data during the transfer."
+msgstr "Comprimir les dades durant la transferència."
+
+msgid "Compression"
+msgstr "Compressió"
+
+msgid ""
+"Compression is worth using if your connection is slow. The efficiency of the"
+" compression depends on the type of the file, and varies widely. Useful for "
+"internet transfer only."
+msgstr "La compressió val la pena si la seva connexió es lenta. L’eficiència de la compressió depèn del tipus d’arxiu i varia molt. Només és util per a transferències per Internet."
+
+msgid "Confirm"
+msgstr "Confirmar"
+
+msgid "Confirm password"
+msgstr "Confirmar contrasenya"
+
+msgid "Confirmation"
+msgstr "Confirmació"
+
+msgid "Congo (Brazzaville)"
+msgstr "Congo (Brazzaville)"
+
+msgid "Congo (Kinshasa)"
+msgstr "Congo (Kinshasa)"
+
+msgid "Connect even if the network is not broadcasting its SSID name."
+msgstr "Connecteu-vos encara que la xarxa no estigui emetent el seu nom SSID."
+
+msgid "Connect to hidden network"
+msgstr "Connecta't a una xarxa oculta"
+
+msgid "Connections"
+msgstr "Connexions"
+
+msgid "Control and monitor storage systems using S.M.A.R.T."
+msgstr "Controlar i supervisar els sistemes d'emmagatzematge mitjançant S.M.A.R.T."
+
+msgid "Conveyance self-test"
+msgstr "Auto prova de transferència"
+
+msgid "Cook Islands"
+msgstr "Illes Cook"
+
+msgid "Copied SSH certificate to {{ hostname }}."
+msgstr "S'ha copiat el certificat SSH a {{hostname}}. "
+
+msgid "Copy"
+msgstr "Còpia"
+
+msgid "Copy permissions"
+msgstr "Permisos de còpia"
+
+msgid "Copy to clipboard"
+msgstr "Copiar al porta-papers"
+
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+msgid "Country"
+msgstr "País"
+
+msgid "Create"
+msgstr "Crear"
+
+msgid "Create and mount a file system."
+msgstr "Crear i muntar un sistema de fitxers."
+
+msgid "Create file system"
+msgstr "Crear un sistema d'arxius"
+
+msgid "Create | Import"
+msgstr "Crear | Importar "
+
+msgid "Created NFS share."
+msgstr "Creat NFS compartit."
+
+msgid "Created Rsync server module \"{{ name }}\"."
+msgstr "S'ha creat el mòdul de servidor Rsync \"{{name}}\". "
+
+msgid "Created Rsync task."
+msgstr "S'ha creat una tasca Rsync. "
+
+msgid "Created SMB/CIFS share."
+msgstr "Creat SMB/CIFS compartit."
+
+msgid "Created SSH certificate."
+msgstr "Creat un certificat SSH."
+
+msgid "Created SSL certificate."
+msgstr "Creat un certificat SSL."
+
+msgid "Created VLAN network connection."
+msgstr "S'ha creat la connexió de xarxa VLAN."
+
+msgid "Created bond network connection."
+msgstr "Creada la connexió a la xarxa."
+
+msgid "Created bridge network connection."
+msgstr "Creat pont de connexió a la xarxa."
+
+msgid "Created firewall rule."
+msgstr "S'ha creat una regla del tallafoc. "
+
+msgid "Created group \"{{ name }}\"."
+msgstr "S'ha creat el grup \"{{name}}\". "
+
+msgid "Created scheduled task."
+msgstr "S'ha creat una tasca programada. "
+
+msgid "Created user \"{{ name }}\"."
+msgstr "S'ha creat l'usuari \"{{name}}\". "
+
+msgid "Created wired network connection."
+msgstr "S'ha creat la connexió de xarxa per cable. "
+
+msgid "Created wireless network connection."
+msgstr "S'ha creat la connexió de xarxa sense fils. "
+
+msgid "Creating"
+msgstr ""
+
+msgid "Creation Time"
+msgstr "Temps de Creació"
+
+msgid "Croatia"
+msgstr "Croàcia"
+
+msgid "Cuba"
+msgstr "Cuba"
+
+msgid "Currently logged in users"
+msgstr "Usuaris registrats en el sistema:"
+
+msgid "Cyprus"
+msgstr "Xipre"
+
+msgid "Czech Republic"
+msgstr "República Txeca"
+
+msgid "DHCP"
+msgstr "DHCP"
+
+msgid "DNS servers"
+msgstr "Servidors DNS"
+
+msgid "Daemon"
+msgstr "Dimoni"
+
+msgid "Daily"
+msgstr "diari"
+
+msgid "Dark mode"
+msgstr "Mode fosc"
+
+msgid "Dashboard"
+msgstr "Panell"
+
+msgid "Database record not found."
+msgstr ""
+
+msgid "Date & Time"
+msgstr "Data i hora"
+
+msgid "Day of month"
+msgstr "Dia del mes"
+
+msgid "Day of week"
+msgstr "Dia de la setmana"
+
+msgid "Debug"
+msgstr "Depurar"
+
+msgid "December"
+msgstr "Desembre"
+
+msgid "Delete"
+msgstr "Esborrar"
+
+msgid "Delete files on the receiving side that don't exist on sender."
+msgstr "Eliminar arxius en la banda receptora, que no existeixen en el remitent."
+
+msgid "Denmark"
+msgstr "Dinamarca"
+
+msgid "Description"
+msgstr "Descripció"
+
+msgid "Destination"
+msgstr "Destí"
+
+msgid ""
+"Destination address can be either a network IP address (with /mask), a IP "
+"range or a plain IP address. A \"!\" argument before the address "
+"specification inverts the sense of the address."
+msgstr "L'adreça de destinació pot ser una adreça IP de xarxa (amb / màscara), un interval IP o una adreça IP simple. Un \"!\" argument abans de l'especificació de l'adreça inverteix el sentit de l'adreça. "
+
+msgid "Destination port"
+msgstr "Port destí"
+
+msgid "Destination server"
+msgstr "Servidor destí"
+
+msgid "Destination shared folder"
+msgstr "Carpeta compartida de destí"
+
+msgid "Details"
+msgstr "Detalls"
+
+msgid "Device"
+msgstr "Dispositiu"
+
+msgid "Device Information"
+msgstr "Informació del dispositiu "
+
+msgid "Device Mapper %s [%s, %s]"
+msgstr "Dispositiu de mapatge %s [%s, %s]"
+
+msgid "Device Symlinks"
+msgstr "Enllaços al dispositiu"
+
+msgid "Device has a few bad sectors."
+msgstr "El dispositiu té alguns sectors defectuosos"
+
+msgid "Device has many bad sectors."
+msgstr "El dispositiu té molts sectors defectuosos"
+
+msgid "Device is being used outside design parameters."
+msgstr "El dispositiu ha sobrepassat els paràmetres de disseny"
+
+msgid "Device was used outside of design parameters in the past."
+msgstr "En el passat, el dispositiu es va utilitzar fora dels paràmetres de disseny. "
+
+msgid "Device(s)"
+msgstr "Disc(s)"
+
+msgid "Devices"
+msgstr "Dispositius"
+
+msgid "Diagnostics"
+msgstr "Diagnòstic"
+
+msgid "Difference"
+msgstr "Diferencia"
+
+msgid "Direction"
+msgstr "Direcció"
+
+msgid "Directory does not exist."
+msgstr ""
+
+msgid "Disabled"
+msgstr "Deshabilitat"
+
+msgid "Disallow account modification"
+msgstr "No permetre la modificació del compte"
+
+msgid "Disallow the user to modify their own account."
+msgstr "No permetre que l'usuari modifiqui el seu propi compte."
+
+msgid "Disk Temperatures"
+msgstr "Temperatures del disc"
+
+msgid "Disks"
+msgstr "Discs"
+
+msgid "Dismiss"
+msgstr "Descartar"
+
+msgid "Dismiss all"
+msgstr "Descartar tot"
+
+msgid "Displays information about the file systems in a grid."
+msgstr "Mostra la informació sobre els sistemes de fitxers en una graella."
+
+msgid "Displays information about the file systems in a table."
+msgstr "Mostra la informació sobre els sistemes de fitxers en una taula."
+
+msgid "Displays information about the network interfaces in a grid."
+msgstr "Mostra la informació sobre les interfícies de xarxa en una graella."
+
+msgid "Displays information about the network interfaces in a table."
+msgstr "Mostra la informació sobre les interfícies de xarxa en una taula."
+
+msgid "Displays information about the services in a grid."
+msgstr "Mostra la informació sobre els serveis en una graella."
+
+msgid "Displays information about the services in a table."
+msgstr "Mostra la informació sobre els serveis en una taula."
+
+msgid "Displays links to help and support pages."
+msgstr ""
+
+msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
+msgstr "Mostra l'estat S.M.A.R.T. de tots els dispositius de disc supervisats."
+
+msgid "Displays the system time."
+msgstr "Mostra l'hora del sistema."
+
+msgid "Displays the system uptime."
+msgstr "Displays the system uptime."
+
+msgid "Displays the temperature of all disk devices."
+msgstr "Mostra la temperatura de tots els dispositius de disc."
+
+msgid "Displays various system information."
+msgstr "Mostra informació diversa del sistema."
+
+msgid "Djibouti"
+msgstr "Djibouti"
+
+msgid "Do you really want to apply the configuration changes?"
+msgstr "Segur que vol aplicar els canvis a la configuració?"
+
+msgid "Do you really want to copy the permissions from the shared folder?"
+msgstr "Realment voleu copiar els permisos de la carpeta compartida?"
+
+msgid ""
+"Do you really want to delete the selected item(s) <strong>{{ items | "
+"join(\", \") }}</strong>?"
+msgstr "Confirmes que vols suprimir els element(s) seleccionats {{ items | join(\", \") }}?"
+
+msgid "Do you really want to delete the selected item(s)?"
+msgstr "Realment desitja esborrar els elements seleccionats?"
+
+msgid "Do you really want to install the plugin?"
+msgstr "Segur que voleu instal·lar el connector? "
+
+msgid "Do you really want to log out?"
+msgstr ""
+
+msgid "Do you really want to put the system into standby?"
+msgstr "Realment desitja posar el sistema en standby?"
+
+msgid "Do you really want to reboot the system?"
+msgstr "Realment desitja reiniciar el sistema?"
+
+msgid "Do you really want to reset the UI settings to their default values?"
+msgstr "Confirmes que vols restablir la configuració de la interfície d’usuari als valors predeterminats? "
+
+msgid ""
+"Do you really want to resize the file system? You have to do that after a "
+"RAID has been grown for example."
+msgstr "Segur que voleu canviar la mida del sistema de fitxers?\nCal fer-ho després d'ampliar un RAID, per exemple. "
+
+msgid "Do you really want to shutdown the system?"
+msgstr "Realment desitges apagar l’equip?"
+
+msgid "Do you really want to undo the configuration changes?"
+msgstr "Confirmes que vols desfer els canvis de configuració? "
+
+msgid "Do you really want to uninstall the plugin?"
+msgstr "Confirmes que vols desinstal·lar el connector? "
+
+msgid ""
+"Do you really want to unmount this file system? Please make sure that the "
+"file system is not used by any service before unmounting. Note, the file "
+"system will not be deleted by this action."
+msgstr "Confirmes que vols desmuntar aquest sistema de fitxers? Assegureu-vos que el servei de fitxers no és utilitzat per cap servei abans de desmuntar-lo. Tingueu en compte que aquesta acció no suprimirà el sistema de fitxers. "
+
+msgid ""
+"Do you really want to wipe the device {{ canonicaldevicefile }}? All data "
+"will be lost."
+msgstr "Confirmes que vols esborrar el dispositiu {{canonicaldevicefile}}? Es perdran totes les dades. "
+
+msgid "Documentation"
+msgstr "Documentació "
+
+msgid "Domain name"
+msgstr "Nom de domini"
+
+msgid "Domains used when resolving host names."
+msgstr "Dominis usats per a resoldre els noms de host."
+
+msgid "Dominica"
+msgstr "Dominica"
+
+msgid "Dominican Republic"
+msgstr "República Dominicana"
+
+msgid "Down"
+msgstr "Baixar"
+
+msgid "Down delay"
+msgstr "Retard baixada"
+
+msgid "Download"
+msgstr "Descàrrega"
+
+msgid "Dronning Maud Land"
+msgstr "Terra de la Reina Maud (Noruega)"
+
+msgid "Each line represents a group."
+msgstr "Cada línia representa un grup. "
+
+msgid ""
+"Each line represents a user. Note, the password must be entered in plain "
+"text."
+msgstr "Cada línia representa un usuari. Tingueu en compte que la contrasenya s’ha d’introduir en text pla. "
+
+msgid "East Timor"
+msgstr "Timor Oriental"
+
+msgid "Ecuador"
+msgstr "Equador"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Egypt"
+msgstr "Egipte"
+
+msgid "El Salvador"
+msgstr "El Salvador"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Empty now"
+msgstr "Buidant ara"
+
+msgid ""
+"Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU "
+"performance based on system load. The CPU frequency governor determines how "
+"the CPU frequency is adjusted.<ul><li>schedutil - Balances performance and "
+"power efficiency by adjusting CPU frequency based on scheduler utilization. "
+"Recommended for most users as it provides good performance while saving "
+"energy when the system is idle.</li><li>powersave - Keeps the CPU running at"
+" minimum frequency at all times to maximize energy savings. Use this when "
+"power consumption is the primary concern and performance is not "
+"critical.</li><li>performance - Keeps the CPU running at maximum frequency "
+"at all times. Use this when you need consistent peak performance and power "
+"consumption is not a concern.</li></ul>"
+msgstr ""
+
+msgid "Enable NetBIOS"
+msgstr "Habilita NetBIOS"
+
+msgid "Enable Time Machine support for this share."
+msgstr "Activa el suport de la màquina de temps per a aquest recurs."
+
+msgid "Enable WINS server"
+msgstr "Habilitar servidor WINS"
+
+msgid "Enable automatic snapshot clean up."
+msgstr "Activa la neteja automàtica de les instantànies."
+
+msgid "Enable keyboard-interactive authentication."
+msgstr "Habilitar autenticació interactiva"
+
+msgid "Enable public key authentication."
+msgstr "Habilitar l'autenticació de clau pública. "
+
+msgid "Enable recycle bin"
+msgstr "Habilitar paperera de reciclatge"
+
+msgid "Enable remote logging of syslog to the specified host."
+msgstr "Habiliteu el registre remot del syslog a l'amfitrió especificat."
+
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr "Habiliti aquesta opció per mantenir els arxius parcialment transferits, si no, seran esborrats en cas d'interrompre la transmissió."
+
+msgid "Enable user home directories."
+msgstr "Habilita els directoris d'inici dels usuaris."
+
+msgid "Enable write-cache"
+msgstr "Habilitar l'escriptura a la memòria cau -cache-"
+
+msgid "Enabled"
+msgstr "Habilitat"
+
+msgid "Enabled widgets"
+msgstr "Ginys activats "
+
+msgid "Encryption mode"
+msgstr "Mode de xifrat"
+
+msgid ""
+"Enforce transport encryption for this share. Clients that do not support "
+"encryption will be denied access to the share."
+msgstr "Aplica el xifratge de transport per a aquesta compartició. Els clients que no admetin el xifratge se'ls negarà l'accés a la compartició."
+
+msgid "Equatorial Guinea"
+msgstr "Guinea Equatorial"
+
+msgid "Eritrea"
+msgstr "Eritrea"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Estonia"
+msgstr "Estònia"
+
+msgid "Ethernet"
+msgstr "Ethernet"
+
+msgid "Ethiopia"
+msgstr "Etiòpia"
+
+msgid "Events"
+msgstr "Esdeveniments"
+
+msgid "Every N day of month"
+msgstr "El dia seleccionat"
+
+msgid "Every N hour"
+msgstr "A l’hora seleccionada"
+
+msgid "Every N minute"
+msgstr "Cada minut N"
+
+msgid "Everyone: read/write"
+msgstr "Tots i totes: Lectura/Escriptura"
+
+msgid "Execute only"
+msgstr "Executar sol"
+
+msgid "Extended Information"
+msgstr "Informació ampliada "
+
+msgid "Extended attributes"
+msgstr "Atributs estesos"
+
+msgid "Extra options"
+msgstr "Opcions extra"
+
+msgid "FTP-Proxy"
+msgstr "FTP-Proxy"
+
+msgid "Failed"
+msgstr "Ha fallat"
+
+msgid "Failed to copy data to the clipboard."
+msgstr "No s'han pogut copiar les dades al porta-retalls. "
+
+msgid "Failed to start session."
+msgstr "No s'ha pogut iniciar la sessió."
+
+msgid "Failed to write session data."
+msgstr "No s'han pogut escriure les dades de la sessió."
+
+msgid "Falkland Islands"
+msgstr "Illes Malvines"
+
+msgid "Family"
+msgstr "Família"
+
+msgid "Faroe Islands"
+msgstr "Illes Faroe"
+
+msgid "Fatal error"
+msgstr "Error fatal"
+
+msgid "February"
+msgstr "Febrer"
+
+msgid "Fiji"
+msgstr "Fiji"
+
+msgid "File System Usage"
+msgstr "Ús del sistema de fitxers"
+
+msgid "File Systems"
+msgstr "Sistemes d'arxius"
+
+msgid "File access control lists"
+msgstr "Llistes de control d'accés a fitxers"
+
+msgid "File owner and group"
+msgstr "Propietari i grup del fitxer"
+
+msgid "File path"
+msgstr "Adreça del fitxer"
+
+msgid "File system"
+msgstr "Sistema d'arxius"
+
+msgid "Filename"
+msgstr "Nom d’arxiu"
+
+msgid ""
+"Files in the recycle bin will be deleted automatically after the specified "
+"number of days. Set to 0 for manual deletion."
+msgstr "Els arxius de la paperera s’esborraran automàticament desprès d’un núm. determinat de dies. 0 per a esborrat manual."
+
+msgid ""
+"Files that are larger than the specified number will not be put into the "
+"recycle bin."
+msgstr "Els fitxers que siguin més grans que el nombre especificat no es posaran a la paperera de reciclatge."
+
+msgid "Filesystem is being created."
+msgstr ""
+
+msgid "Filesystem is detected."
+msgstr ""
+
+msgid "Filesystem is missing."
+msgstr ""
+
+msgid "Fingerprint (SHA-1)"
+msgstr "Empremta digital (SHA-1)"
+
+msgid "Fingerprint (SHA-256)"
+msgstr "Empremta digital (SHA-256)"
+
+msgid "Finland"
+msgstr "Finlàndia"
+
+msgid "Firewall"
+msgstr "Tallafoc"
+
+msgid "Firmware version"
+msgstr "Versió del Firmware"
+
+msgid "Flags"
+msgstr "Banderes"
+
+msgid "Follow symlinks"
+msgstr "Seguiu els enllaços simbòlics"
+
+msgid "Force SSL/TLS"
+msgstr "Forçar SSL/TLS"
+
+msgid "Force a specific MAC address on this interface."
+msgstr "Força una adreça MAC específica en aquesta interfície."
+
+msgid "Force secure connection only."
+msgstr "Forçar connexió segura"
+
+msgid "Forum"
+msgstr "Fòrum "
+
+msgid "Framework for Multicast DNS Service Discovery."
+msgstr "Marc per al Multicast DNS Service Discovery."
+
+msgid "France"
+msgstr "França"
+
+msgid "Free"
+msgstr "Lliure"
+
+msgid "French Guiana"
+msgstr "Guinea Francesa"
+
+msgid "French Polynesia"
+msgstr "Polinèsia Francesa"
+
+msgid "French Southern Territories"
+msgstr "Territoris Francesos del Sur"
+
+msgid "French Southern and Antarctic Territories"
+msgstr "Territoris Francesos del Sur i Antàrtics"
+
+msgid "Friday"
+msgstr "Dimecres"
+
+msgid "Full"
+msgstr "Ple"
+
+msgid "GID"
+msgstr "GID"
+
+msgid "Gabon"
+msgstr "Gabon"
+
+msgid "Gambia"
+msgstr "Gàmbia"
+
+msgid "Gateway"
+msgstr "Gateway"
+
+msgid "General"
+msgstr "General"
+
+msgid "Georgia"
+msgstr "Geòrgia"
+
+msgid "Germany"
+msgstr "Alemanya"
+
+msgid "Ghana"
+msgstr "Ghana"
+
+msgid "Gibraltar"
+msgstr "Gibraltar"
+
+msgid "Good"
+msgstr "Bé"
+
+msgid "Greece"
+msgstr "Grècia"
+
+msgid "Greenland"
+msgstr "Groenlàndia"
+
+msgid "Grenada"
+msgstr "Granada"
+
+msgid "Group"
+msgstr "Grup"
+
+msgid "Groups"
+msgstr "Grups"
+
+msgid "Grow"
+msgstr "Créixer / Ampliar"
+
+msgid "Guadeloupe"
+msgstr "Guadalupe"
+
+msgid "Guam"
+msgstr "Guam"
+
+msgid "Guatemala"
+msgstr "Guatemala"
+
+msgid "Guests allowed"
+msgstr "Es permet convidats"
+
+msgid "Guests only"
+msgstr "Només convidats "
+
+msgid "Guinea"
+msgstr "Guinea"
+
+msgid "Guinea-Bissau"
+msgstr "Guinea-Bissau"
+
+msgid "Guyana"
+msgstr "República Cooperativa de Guyana"
+
+msgid "HTTP-Proxy"
+msgstr "HTTP-Proxy"
+
+msgid "HTTPS-Proxy"
+msgstr "HTTPS-Proxy"
+
+msgid "Haiti"
+msgstr "Haití"
+
+msgid "Hardware Address"
+msgstr "Adreça de maquinari "
+
+msgid "Heard Island and McDonald Islands"
+msgstr "Illes Heard i McDonald (Austràlia)"
+
+msgid "Help"
+msgstr "Ajuda"
+
+msgid "Hibernate"
+msgstr "Hibernar"
+
+msgid "Hide"
+msgstr "Amaga"
+
+msgid "Hide dot files"
+msgstr "Amagar arxius dot\".\""
+
+msgid "High-performance mail transport agent."
+msgstr "Agent de transport de correu d'alt rendiment."
+
+msgid "Home"
+msgstr "Inici"
+
+msgid "Home directories"
+msgstr "Directoris Home"
+
+msgid "Homepage"
+msgstr "Pàgina d’inici"
+
+msgid "Honduras"
+msgstr "Hondures"
+
+msgid "Hong Kong S.A.R., China"
+msgstr "Hong Kong R.A.E, China"
+
+msgid "Host"
+msgstr "Equip"
+
+msgid "Hostname"
+msgstr "Nom d’equip"
+
+msgid "Hosts allow"
+msgstr "Equips permesos"
+
+msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr "Amfitrions amb permís per muntar el sistema de fitxers, p. ex. 192.168.178.0/24."
+
+msgid "Hosts deny"
+msgstr "Equips no permesos"
+
+msgid "Hot-Pluggable"
+msgstr "Connectable en calent"
+
+msgid "Hour"
+msgstr "Hora"
+
+msgid "Hourly"
+msgstr "Cada hora"
+
+msgid "Hungary"
+msgstr "Hongria"
+
+msgid "Hybrid sleep"
+msgstr "Repòs híbrid"
+
+msgid "ID"
+msgstr "ID"
+
+msgid ""
+"IP addresses in CIDR notation or host names of clients that are allowed to "
+"access the NTP server."
+msgstr "Adreces IP en notació CIDR o noms d'amfitrió de clients als quals se'ls permet accedir al servidor NTP."
+
+msgid "IP addresses of domain name servers used to resolve host names."
+msgstr "Adreça IP dels servidors DNS que han de resoldre els noms de host."
+
+msgid "IPv4"
+msgstr "IPv4"
+
+msgid "IPv6"
+msgstr "IPv6"
+
+msgid "Iceland"
+msgstr "Islàndia"
+
+msgid "Identify"
+msgstr "Identificar"
+
+msgid "Identify As"
+msgstr "Identificat com"
+
+msgid "Identify network interface"
+msgstr "Identifiqueu la interfície de xarxa "
+
+msgid "Idle"
+msgstr "Inactivo"
+
+msgid ""
+"If 'Guests allowed' is selected and no login credential is provided, then "
+"access as guest. Always access as guest when 'Guests only' is selecting; in "
+"this case no password is required to connect to the share."
+msgstr "Si està seleccionat \"Convidats permesos\" i no es proporciona cap credencial d'inici de sessió, accediu-hi com a convidat. Accediu sempre com a convidat quan està seleccionat \"Només convidats\"; en aquest cas no es requereix cap contrasenya per connectar-se al recurs compartit. "
+
+msgid ""
+"If a device is not listed here, it is usually because the device already "
+"contains a file system or partitions. With the former, the file system can "
+"be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, "
+"please <a href='#/storage/disks'>wipe</a> the device as partitions are not "
+"supported."
+msgstr "Si un dispositiu no apareix aquí, normalment és perquè el dispositiu ja conté un sistema de fitxers o particions. Amb el primer, el sistema de fitxers es pot muntar <a href='#/storage/filesystems/mount'>aquí</a>. Per a aquest últim, si us plau, <a href='#/storage/disks'>esborreu</a> el dispositiu, ja que les particions no són compatibles."
+
+msgid ""
+"If set then the client will be prompted to supply a user name and password "
+"to connect to the module."
+msgstr "Si s’estableix, es demanarà al client que proporcioni un nom d’usuari i una contrasenya per connectar-se al mòdul. "
+
+msgid ""
+"If this option is set, the daemon will chroot to the shared folder path "
+"before starting the file transfer with the client. Then it is not possible "
+"to map users and groups by name and the daemon is not being able to follow "
+"symbolic links that are either absolute or outside of the new root path."
+msgstr "Si es marca aquesta opció, el dimoni farà chroot a la ruta de la carpeta compartida abans de començar la transferència amb el client. Por tant, no serà possible relacionar usuaris i grups per nom i el demoni no podrà seguir els enllaços simbòlics que siguin absoluts ni els que surtin del nou directori arrel."
+
+msgid "If this option is set, then any attempted downloads will fail."
+msgstr "Si es marca aquesta opció, qualsevol intent de descarregar fallarà."
+
+msgid "If this option is set, then any attempted uploads will fail."
+msgstr "Si es marca aquesta opció, qualsevol intent de pujada fallarà."
+
+msgid ""
+"If this parameter is set, Samba attempts to first read DOS attributes "
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
+"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
+"DOS attributes will be stored onto an extended attribute in the UNIX file "
+"system, associated with the file or directory."
+msgstr "Si aquest paràmetre s’habilita, SAMBA intentarà llegir primer els atributs DOS (SYSTEM, HIDDEN, ARCHIVE o READ-ONLY) i després els mapejarà com bit de permisos UNIX, és a dir s'emmagatzemaran com atributs estesos del sistema UNIX associats a l'arxiu o carpeta accedit."
+
+msgid ""
+"If this parameter is set, then users may not create or modify files in the "
+"share."
+msgstr "Si es marca aquesta opció, els usuaris no podran crear o modificar arxius en el compartit."
+
+msgid "Import"
+msgstr "Importar"
+
+msgid "Imported SSH certificate."
+msgstr "Certificat SSH importat. "
+
+msgid "Imported SSL certificate."
+msgstr "Certificat SSL importat. "
+
+msgid "Imported groups."
+msgstr "Grups importats."
+
+msgid "Imported users."
+msgstr "Usuaris importats."
+
+msgid "India"
+msgstr "Índia"
+
+msgid "Indicates whether updates are available."
+msgstr "Indica si hi ha actualitzacions disponibles."
+
+msgid "Indonesia"
+msgstr "Indonèsia"
+
+msgid "Information"
+msgstr "Informació"
+
+msgid "Inherit ACLs"
+msgstr "Heretar ACL"
+
+msgid "Inherit permissions"
+msgstr "Heretar permisos"
+
+msgid "Install"
+msgstr "Instal·lar"
+
+msgid "Install plugin"
+msgstr "Instal·la el connector "
+
+msgid "Install public key to remote machine"
+msgstr "Instal·leu la clau pública a la màquina remota"
+
+msgid "Install security updates unattended."
+msgstr "Instal·leu les actualitzacions de seguretat sense vigilància."
+
+msgid "Install updates"
+msgstr "Instal·la les actualitzacions"
+
+msgid "Install updates from"
+msgstr "Instal·lar actualitzacions de"
+
+msgid "Installed"
+msgstr "Instal·lades"
+
+msgid ""
+"Installs the public SSH key on a remote system as an authorized key. Make "
+"sure password authentication is enabled on that remote system."
+msgstr "Instal·la la clau pública SSH en un sistema remot com a clau autoritzada. Assegureu-vos que l’autenticació de contrasenya estigui habilitada en aquest sistema remot."
+
+msgid "Interfaces"
+msgstr "Interfícies"
+
+msgid "Invalid IP address."
+msgstr "Adreça IP no vàlida."
+
+msgid "Invalid NetBIOS name."
+msgstr "Nom NetBIOS no vàlid."
+
+msgid "Invalid PGP public key."
+msgstr "Clau pública PGP no vàlida."
+
+msgid "Invalid SSH public key (OpenSSH format)."
+msgstr "Clau pública SSH no vàlida (format OpenSSH). "
+
+msgid "Invalid SSH public key (OpenSSH or RFC 4716 format)"
+msgstr "Clau pública SSH no vàlida (format OpenSSH o RFC 4716) "
+
+msgid "Invalid SSH public key (RFC 4716 format)."
+msgstr "Clau pública SSH no vàlida (format RFC 4716). "
+
+msgid "Invalid User-Agent."
+msgstr "Usuari-agent no vàlid."
+
+msgid "Invalid domain name."
+msgstr "Nom de domini no vàlid. "
+
+msgid "Invalid group name."
+msgstr "Nom de grup no vàlid. "
+
+msgid "Invalid host name."
+msgstr "Nom de servidor no vàlid. "
+
+msgid "Invalid user name."
+msgstr "Nom d'usuari no vàlid. "
+
+msgid "Invalid user."
+msgstr "Usuari no vàlid."
+
+msgid "Iran"
+msgstr "Iran"
+
+msgid "Iraq"
+msgstr "Iraq"
+
+msgid "Ireland"
+msgstr "Irlanda"
+
+msgid "Israel"
+msgstr "Israel"
+
+msgid ""
+"It may take a while to detect the new devices, thus it might be necessary to"
+" reload the table several times. Do you want to proceed?"
+msgstr "Es pot trigar una estona a detectar els nous dispositius, per la qual cosa pot ser necessari tornar a carregar la taula diverses vegades. Voleu continuar? "
+
+msgid "Italy"
+msgstr "Itàlia"
+
+msgid "Ivory Coast"
+msgstr "Costa d'Ivori"
+
+msgid "Jamaica"
+msgstr "Jamaica"
+
+msgid "January"
+msgstr "Gener"
+
+msgid "Japan"
+msgstr "Japó"
+
+msgid "Johnston Island"
+msgstr "Atol Johnston (EEUU)"
+
+msgid "Jordan"
+msgstr "Jordània"
+
+msgid "July"
+msgstr "Juliol"
+
+msgid "June"
+msgstr "Juny"
+
+msgid "Kazakhstan"
+msgstr "Kazakhstan"
+
+msgid "Keep partially transferred files"
+msgstr "Mantenir els arxius parcialment transferits"
+
+msgid "Kenya"
+msgstr "Kènia"
+
+msgid "Kernel"
+msgstr "Nucli (Kernel)"
+
+msgid "Key size"
+msgstr "Mida de la clau"
+
+msgid "Kiribati"
+msgstr "República de Kiribati"
+
+msgid "Kuwait"
+msgstr "Kuwait"
+
+msgid "Kyrgyzstan"
+msgstr "Kirguizistan"
+
+msgid "LBA of first error"
+msgstr "LBA del primer error"
+
+msgid "LVM logical volume %s [%s, %s]"
+msgstr "LVM Volum Lògic %s [%s, %s]"
+
+msgid "Label"
+msgstr "Etiqueta"
+
+msgid "Language"
+msgstr "Idioma"
+
+msgid "Laos"
+msgstr "Laos"
+
+msgid "Latvia"
+msgstr "Letònia"
+
+msgid "Lebanon"
+msgstr "Líban"
+
+msgid ""
+"Length of time in seconds to blink one or more LEDs on the specific ethernet"
+" port."
+msgstr "Durada del temps en segons que parpelleja un o més LEDs al port ethernet especificat"
+
+msgid "Lesotho"
+msgstr "Lesotho"
+
+msgid "Liberia"
+msgstr "Libèria"
+
+msgid "Libya"
+msgstr "Líbia"
+
+msgid "Liechtenstein"
+msgstr "Liechtenstein"
+
+msgid "Lifetime"
+msgstr "Temps de vida"
+
+msgid "Limit custom"
+msgstr "Límit personalitzat"
+
+msgid "Limit daily"
+msgstr "Límit diari"
+
+msgid "Limit hourly"
+msgstr "Límit a l'hora"
+
+msgid "Limit monthly"
+msgstr "Límit al mes"
+
+msgid ""
+"Limit the reported disk size, thus preventing Time Machine from using the "
+"whole real disk space for backup."
+msgstr ""
+
+msgid "Limit weekly"
+msgstr "Límit a la setmana"
+
+msgid "Limit yearly"
+msgstr "Límit a l'any"
+
+msgid "Link"
+msgstr "Enllaç"
+
+msgid "List module"
+msgstr "Llista mòdul"
+
+msgid "Lithuania"
+msgstr "Lituània"
+
+msgid "Load Average"
+msgstr "Mitjana de càrrega "
+
+msgid "Loading ..."
+msgstr "Carregant ..."
+
+msgid "Local"
+msgstr "Local"
+
+msgid "Location"
+msgstr "Ubicació"
+
+msgid "Log in"
+msgstr "Iniciar Sessió"
+
+msgid "Log level"
+msgstr "Nivell de Log"
+
+msgid "Log out"
+msgstr ""
+
+msgid "Logged in as <strong>{{ username }}</strong>"
+msgstr ""
+
+msgid "Logout"
+msgstr "Sortir"
+
+msgid "Logs"
+msgstr "Logs"
+
+msgid "Long self-test"
+msgstr "Auto prova llarga"
+
+msgid "Loop device [%s, %s]"
+msgstr "Dispositiu de Loop [%s, %s]"
+
+msgid "Luxembourg"
+msgstr "Luxemburg"
+
+msgid "MAC"
+msgstr "MAC"
+
+msgid "MAC address"
+msgstr "Adreça MAC"
+
+msgid "MII monitoring frequency"
+msgstr "Freqüència de monitoratge (ethernet)"
+
+msgid "MTU"
+msgstr "MTU"
+
+msgid "Macao S.A.R., China"
+msgstr "Macau R.A.S., Xina"
+
+msgid "Macedonia"
+msgstr "Macedònia"
+
+msgid "Madagascar"
+msgstr "Madagascar"
+
+msgid "Maintainer"
+msgstr "Mantenidor"
+
+msgid "Make sure that the guest user <em>nobody</em> can access the files."
+msgstr "Assegureu-vos que l'usuari convidat  <em>ningú</em> pugui accedir als fitxers."
+
+msgid "Malawi"
+msgstr "Malawi"
+
+msgid "Malaysia"
+msgstr "Malàsia"
+
+msgid "Maldives"
+msgstr "Maldives"
+
+msgid "Mali"
+msgstr "Mali"
+
+msgid "Malta"
+msgstr "Malta"
+
+msgid "Management of CPU frequency scaling."
+msgstr ""
+
+msgid "Management of scheduled tasks."
+msgstr "Gestió de les tasques programades."
+
+msgid "Management of the file systems to be mounted."
+msgstr "Gestió dels sistemes de fitxers a muntar."
+
+msgid "March"
+msgstr "Març"
+
+msgid "Marshall Islands"
+msgstr "Illes Marshall"
+
+msgid "Martinique"
+msgstr "Martinica"
+
+msgid ""
+"Match if the destination port is one of the given ports, e.g. 21 or !443 or "
+"1024-65535."
+msgstr "Coincideix si el port de destinació és un dels ports indicats, p. e. 21 o !443 o 1024-65535. "
+
+msgid ""
+"Match if the source port is one of the given ports, e.g. 21 or !443 or "
+"1024-65535."
+msgstr "Coincideix si el port d'origen és un dels ports indicats, p. e. 21 o !443 o 1024-65535. "
+
+msgid "Mauritania"
+msgstr "Mauritània"
+
+msgid "Mauritius"
+msgstr "Maurici"
+
+msgid "Max. connections"
+msgstr "Núm. màx. de connexions"
+
+msgid "Maximum"
+msgstr "Màxim"
+
+msgid "Maximum disk size"
+msgstr ""
+
+msgid "Maximum file size"
+msgstr "Mida màxima del fitxer "
+
+msgid "Maximum performance, maximum acoustic output"
+msgstr "Màx. rendiment, màx. soroll."
+
+msgid "May"
+msgstr "Maig"
+
+msgid "Mayotte"
+msgstr "Mayotte (França)"
+
+msgid "Members"
+msgstr "Membres"
+
+msgid "Memory"
+msgstr "Memòria"
+
+msgid "Memory Usage"
+msgstr "Ús de la memòria "
+
+msgid "Message"
+msgstr "Missatge"
+
+msgid "Messages"
+msgstr "Missatges"
+
+msgid "Method"
+msgstr "Mètode"
+
+msgid "Metric"
+msgstr "Mètrica"
+
+msgid "Metropolitan France"
+msgstr "França Metropolitana"
+
+msgid "Mexico"
+msgstr "Mèxic"
+
+msgid "MiB Mem"
+msgstr ""
+
+msgid "MiB Swap"
+msgstr ""
+
+msgid "Micronesia"
+msgstr "Micronèsia"
+
+msgid "Midway Islands"
+msgstr "Illes Midway"
+
+msgid "Minimum"
+msgstr "Mínim"
+
+msgid "Minimum performance, minimum acoustic output"
+msgstr "Rendiment mínim, sortida acústica mínima "
+
+msgid "Minimum protocol version"
+msgstr "Versió mínima del protocol"
+
+msgid "Minute"
+msgstr "Minuts"
+
+msgid "Miscellaneous"
+msgstr ""
+
+msgid "Missing"
+msgstr "Perdut"
+
+msgid "Mode"
+msgstr "Mode"
+
+msgid "Model"
+msgstr "Model"
+
+msgid "Modules"
+msgstr "Mòduls"
+
+msgid "Moldova"
+msgstr "Moldàvia"
+
+msgid "Monaco"
+msgstr "Mònaco"
+
+msgid "Monday"
+msgstr "Dilluns"
+
+msgid "Mongolia"
+msgstr "Mongòlia"
+
+msgid "Monitored"
+msgstr "Monitoritzat "
+
+msgid "Monitoring"
+msgstr "Monitoratge"
+
+msgid "Monitoring - CPU usage"
+msgstr ""
+
+msgid "Monitoring - File systems"
+msgstr ""
+
+msgid "Monitoring - Load average"
+msgstr ""
+
+msgid "Monitoring - Memory usage"
+msgstr ""
+
+msgid "Monitoring - Processes"
+msgstr ""
+
+msgid "Monitoring enabled"
+msgstr "Monitorització activada"
+
+msgid "Month"
+msgstr "Mes"
+
+msgid "Monthly"
+msgstr "Cada mes"
+
+msgid "Montserrat"
+msgstr "Montserrat"
+
+msgid "Morocco"
+msgstr "Marroc"
+
+msgid "Mount"
+msgstr "Muntar"
+
+msgid "Mount Options"
+msgstr "Opcions de muntatge"
+
+msgid "Mount Point"
+msgstr "Punt de muntatge"
+
+msgid "Mount an existing file system."
+msgstr "Munta un sistema de fitxers existent."
+
+msgid "Mounted"
+msgstr "Muntats"
+
+msgid "Mozambique"
+msgstr "Moçambic"
+
+msgid "Myanmar"
+msgstr "Myanmar"
+
+msgid "N/A"
+msgstr ""
+
+msgid "NFS"
+msgstr "NFS"
+
+msgid "NI"
+msgstr ""
+
+msgid "NTP time servers, separated by comma."
+msgstr "Servidors de temps NTP, separats per comes."
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "Namibia"
+msgstr "Namíbia"
+
+msgid "Nauru"
+msgstr "República de Nauru"
+
+msgid "Nepal"
+msgstr "Nepal"
+
+msgid "Netherlands"
+msgstr "Països Baixos"
+
+msgid "Netherlands Antilles"
+msgstr "Antilles Holandeses"
+
+msgid "Netmask"
+msgstr "Mascara de Xarxa"
+
+msgid "Network"
+msgstr "Xarxa"
+
+msgid "Network Interfaces"
+msgstr "Interfícies de xarxa"
+
+msgid "Neutral Zone"
+msgstr "Zona neutral"
+
+msgid "Never"
+msgstr "Mai"
+
+msgid "New Caledonia"
+msgstr "Nova Caledònia"
+
+msgid "New Zealand"
+msgstr "Nova Zelanda"
+
+msgid "New package updates are available for installation."
+msgstr "Hi ha noves actualitzacions de paquets disponibles per a la instal·lació."
+
+msgid "New password"
+msgstr "Nova contrasenya"
+
+msgid "Nicaragua"
+msgstr "Nicaragua"
+
+msgid "Niger"
+msgstr "Niger"
+
+msgid "Nigeria"
+msgstr "Nigèria"
+
+msgid "Niue"
+msgstr "Niue"
+
+msgid "No"
+msgstr "No"
+
+msgid "No access"
+msgstr "Sense accés"
+
+msgid "No connections"
+msgstr "Sense connexions"
+
+msgid "No data to display."
+msgstr "No hi ha dades per mostrar. "
+
+msgid "No monitored devices."
+msgstr "No hi ha dispositius monitoritzats."
+
+msgid "No users connected"
+msgstr "No hi ha usuaris connectats"
+
+msgid "None"
+msgstr "Cap"
+
+msgid "Norfolk Island"
+msgstr "Illa Norfolk"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "North Korea"
+msgstr "Corea del Nord"
+
+msgid "North Vietnam"
+msgstr "Vietnam del Nord"
+
+msgid "Northern Mariana Islands"
+msgstr "Illes Marianes del Nord"
+
+msgid "Norway"
+msgstr "Noruega"
+
+msgid "Not ICMP"
+msgstr "No ICMP"
+
+msgid "Not ICMPv6"
+msgstr "No ICMPv6"
+
+msgid "Not TCP"
+msgstr "No TCP"
+
+msgid "Not UDP"
+msgstr "No UDP"
+
+msgid "Not a directory."
+msgstr ""
+
+msgid "Not mounted"
+msgstr "No muntat "
+
+msgid "Not running"
+msgstr "No s’executa "
+
+msgid ""
+"Note that SMB1 is deprecated and should only be used in mandatory cases."
+msgstr "Tingueu en compte que SMB1 està obsolet i només s'ha d'utilitzar en casos obligatoris."
+
+msgid "Note, only one client can be configured per share."
+msgstr "Tingueu en compte que només es pot configurar un client per recurs compartit."
+
+msgid "Nothing"
+msgstr "Res"
+
+msgid "Notification"
+msgstr "Avis"
+
+msgid "Notification schedule"
+msgstr ""
+
+msgid "Notifications"
+msgstr "Avisos"
+
+msgid "November"
+msgstr "Novembre"
+
+msgid "Num"
+msgstr "Número"
+
+msgid "OK"
+msgstr "OK"
+
+msgid ""
+"Obsolete cached data found. Page will be reloaded. If the problem persists, "
+"press Ctrl-Shift-R or Ctrl-F5 to force a hard reload of the page."
+msgstr "S'han trobat dades obsoletes a la memòria cau. La pàgina es tornarà a carregar. Si el problema persisteix, premeu Ctrl-Shift-R o Ctrl-F5 per forçar una recàrrega dura de la pàgina."
+
+msgid "October"
+msgstr "Octubre"
+
+msgid "Offline immediate test"
+msgstr "Prova immediata sense connexió"
+
+msgid "Old Version"
+msgstr ""
+
+msgid "Old-age"
+msgstr "Edat"
+
+msgid "Oman"
+msgstr "Oman"
+
+msgid "Operation"
+msgstr "Operació"
+
+msgid "Options"
+msgstr "Opcions"
+
+msgid "Organization Name"
+msgstr "Nom de la Organització"
+
+msgid "Organization Unit"
+msgstr "Unitat d’Organització "
+
+msgid "Others"
+msgstr "Altres"
+
+msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
+msgstr "Adreça del servidor de correu SMTP de sortida, p.e. smtp.lamevaempresa.com"
+
+msgid "Outlying Oceania"
+msgstr "Oceania"
+
+msgid "Owner"
+msgstr "Propietari"
+
+msgid "PID"
+msgstr "PID"
+
+msgid "PR"
+msgstr ""
+
+msgid "Pacific Islands Trust Territory"
+msgstr "Territori en Fideïcomís de les Illes del Pacífic"
+
+msgid "Package Information"
+msgstr "Informació del paquet "
+
+msgid "Package management."
+msgstr "Gestió de paquets."
+
+msgid "Pakistan"
+msgstr "Pakistan"
+
+msgid "Palau"
+msgstr "República de Palau"
+
+msgid "Palestinian Territory"
+msgstr "Palestina"
+
+msgid "Panama"
+msgstr "Panamà"
+
+msgid "Panama Canal Zone"
+msgstr "Canal de Panamà"
+
+msgid "Papua New Guinea"
+msgstr "Papua i nova Guinea"
+
+msgid "Paraguay"
+msgstr "Paraguai"
+
+msgid "Parent Device"
+msgstr "Dispositiu pare"
+
+msgid "Parent UUID"
+msgstr "UUID pare"
+
+msgid "Parent device"
+msgstr "Dispositiu pare"
+
+msgid "Password"
+msgstr "Contrasenya"
+
+msgid "Password authentication"
+msgstr "Autentificació per contrasenya"
+
+msgid "Password does not match."
+msgstr "La contrasenya no coincideix."
+
+msgid "Password doesn't match."
+msgstr "La contrasenya no coincideix. "
+
+msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
+msgstr "Enganxeu aquí un certificat RSA o ECC en format PEM X.509."
+
+msgid "Paste a RSA or ECC private key in X.509 PEM format here."
+msgstr "Enganxeu una clau privada RSA o ECC en format PEM X.509 aquí."
+
+msgid "Pending configuration changes"
+msgstr "Canvis de configuració pendents"
+
+msgid "People's Democratic Republic of Yemen"
+msgstr "República Democràtica del Iemen"
+
+msgid "Perform a trial run with no changes made"
+msgstr "Realitzar una prova sense realitzar canvis"
+
+msgid "Performance Statistics"
+msgstr "Estadístiques de rendiment "
+
+msgid "Period of validity"
+msgstr "Període de validesa"
+
+msgid "Permission"
+msgstr "Permís"
+
+msgid "Permissions"
+msgstr "Permisos"
+
+msgid "Permissions of group."
+msgstr "Permisos del grup."
+
+msgid "Permissions of others (e.g. anonymous FTP users)."
+msgstr "Permisos d’altres (ex.: Usuaris anònims FTP)"
+
+msgid "Permissions of owner."
+msgstr "Permisos del propietari."
+
+msgid "Permit root login"
+msgstr "Permetre accés root"
+
+msgid "Permit to do SSH tunneling."
+msgstr "Permís per fer túnels SSH. "
+
+msgid "Peru"
+msgstr "Perú"
+
+msgid "Philippines"
+msgstr "Filipines"
+
+msgid "Pitcairn"
+msgstr "Illa Pitcairn"
+
+msgid ""
+"Please check the <a href=\"https://download.samba.org/pub/rsync/rsync.1\" "
+"target=\"_blank\">manual page</a> for more details."
+msgstr "Consulteu la <a href=\"https://download.samba.org/pub/rsync/rsync.1\" target=\"_blank\">pàgina del manual</a> per obtenir més detalls."
+
+msgid ""
+"Please check the <a "
+"href=\"https://download.samba.org/pub/rsync/rsyncd.conf.5\" "
+"target=\"_blank\">manual page</a> for more details."
+msgstr "Consulteu la <a href=\"https://download.samba.org/pub/rsync/rsyncd.conf.5\" target=\"_blank\">pàgina del manual</a> per obtenir més detalls."
+
+msgid ""
+"Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
+"target=\"_blank\">manual page</a> for more details."
+msgstr "Consulteu la <a href=\"https://man.openbsd.org/sshd_config.5\" target=\"_blank\">pàgina del manual</a> per obtenir més informació. "
+
+msgid ""
+"Please check the <a "
+"href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Per favor vegi: <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>pàgina del manual</a> per a més detalls."
+
+msgid ""
+"Please check the <a href='https://manpages.debian.org/nfs-kernel-"
+"server/exports.5.html' target='_blank'>manual page</a> for more details."
+msgstr "Consulteu la pàgina <a href='https://manpages.debian.org/nfs-kernel-server/exports.5.html' target='_blank'>manual page</a> del manual per obtenir més detalls."
+
+msgid "Please choose the method to wipe the device."
+msgstr "Trieu el mètode per netejar el dispositiu. "
+
+msgid "Please note that values >= 128 do not permit the disk to spin down."
+msgstr "Tingueu en compte que els valors >= 128 no permeten que el disc giri cap avall."
+
+msgid "Please wait ..."
+msgstr "Per favor esperis ..."
+
+msgid "Please wait, a shared folder will be created ..."
+msgstr "Espereu, es crearà una carpeta compartida..."
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr "Espereu, es crearà una instantània..."
+
+msgid "Please wait, deleting selected item(s) ..."
+msgstr "Espereu, suprimint els element(s) seleccionats ... "
+
+msgid "Please wait, identifying network device ..."
+msgstr "Espereu, identificant el dispositiu de xarxa ... "
+
+msgid "Please wait, installing public SSH key on remote system ..."
+msgstr "Espereu, instal·lant la clau SSH pública al sistema remot ... "
+
+msgid "Please wait, processing selected item(s) ..."
+msgstr "Espereu, processant els element(s) seleccionats ..."
+
+msgid "Please wait, reverting configuration changes ..."
+msgstr "Espereu, revertint els canvis de configuració ... "
+
+msgid "Please wait, sending a test email ..."
+msgstr "Espereu, enviant un correu electrònic de prova ... "
+
+msgid "Please wait, the configuration changes are being applied ..."
+msgstr "Espereu, s’estan aplicant els canvis de configuració ... "
+
+msgid "Please wait, the data is being loaded ..."
+msgstr "Espereu, s’estan carregant les dades ..."
+
+msgid "Please wait, the statistic graphs will be regenerated ..."
+msgstr "Espereu, es regeneraran els gràfics estadístics ... "
+
+msgid "Please wait, unmounting the file system ..."
+msgstr "Espereu, desmuntant el sistema de fitxers ... "
+
+msgid "Please wait, updating access control lists ..."
+msgstr "Espereu, actualitzant les llistes de control d’accés ... "
+
+msgid "Please wait, updating the permissions ..."
+msgstr "Si us plau, espereu, actualitzant els permisos..."
+
+msgid "Plugins"
+msgstr "Plugins"
+
+msgid "Poland"
+msgstr "Polònia"
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Portugal"
+msgstr "Portugal"
+
+msgid "Power"
+msgstr "Potència "
+
+msgid "Power Management"
+msgstr "Maneig d'energia."
+
+msgid "Power Mode"
+msgstr "Mode d'alimentació"
+
+msgid "Power Off"
+msgstr "Apagar"
+
+msgid "Power button"
+msgstr "Boto d’encesa"
+
+msgid "Power cycle count"
+msgstr "Recompte de cicles d'energia"
+
+msgid "Power mode"
+msgstr "Mode d’energia"
+
+msgid "Powered on"
+msgstr "Encès"
+
+msgid "Pre-release updates"
+msgstr "Actualitzacions prèvies a la versió "
+
+msgid "Prefail"
+msgstr "Prefalla "
+
+msgid "Prefix address"
+msgstr "Prefix d'adreça"
+
+msgid "Prefix length"
+msgstr "Longitud del prefix"
+
+msgid "Preserve ACLs"
+msgstr "Mantenir ACLs"
+
+msgid "Preserve extended attributes"
+msgstr "Mantenir atributs estesos"
+
+msgid "Preserve group"
+msgstr "Conserveu el grup"
+
+msgid "Preserve modification times"
+msgstr "Mantenir l’hora de modificació"
+
+msgid "Preserve owner"
+msgstr "Conserveu el propietari"
+
+msgid "Preserve permissions"
+msgstr "Conservar permisos"
+
+msgid ""
+"Prevent a disk from being spun-up when it is periodically "
+"polled.<ul><li>Never - Poll (check) the device regardless of its power mode."
+" This may cause a disk which is spun-down to be spun-up when it is "
+"checked.</li><li>Sleep - Check the device unless it is in SLEEP "
+"mode.</li><li>Standby - Check the device unless it is in SLEEP or STANDBY "
+"mode. In these modes most disks are not spinning, so if you want to prevent "
+"a disk from spinning up each poll, this is probably what you "
+"want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
+" mode. In the IDLE state, most disks are still spinning, so this is probably"
+" not what you want.</li></ul>"
+msgstr "Eviteu que el disc no s’encengui quan s’interroga periòdicament. <ul><li>Mai-enquesteu (comproveu) el dispositiu independentment del seu mode d’alimentació. Això pot provocar que un disc que estigui girat cap avall es comprengui quan estigui marcat. </li><li>Sleep-comproveu el dispositiu tret que estigui en mode SLEEP. </li><li>Standby-comproveu el dispositiu tret que estigui en mode SLEEP o STANDBY. En aquests modes, la majoria dels discs no giren, de manera que si voleu evitar que un disc faci girar cada enquesta, probablement és el que vulgueu. </li><li>Idle-comproveu el dispositiu tret que estigui en mode SLEEP, STANDBY o IDLE. En estat inactiu, la majoria dels discs encara giren, de manera que probablement no sigui el que voleu. </li></ul>"
+
+msgid "Primary"
+msgstr "Primari"
+
+msgid "Primary email"
+msgstr "E-mail principal"
+
+msgid "Private key"
+msgstr "Clau privada"
+
+msgid "Processes"
+msgstr "Processos"
+
+msgid "Processor"
+msgstr "Processador"
+
+msgid "Profile"
+msgstr "Perfil"
+
+msgid "Protocol"
+msgstr "Protocol"
+
+msgid "Proxy"
+msgstr "Proxy"
+
+msgid "Public"
+msgstr "Públic"
+
+msgid "Public key"
+msgstr "Clau pública"
+
+msgid "Public key authentication"
+msgstr "Autentificació de clau pública"
+
+msgid "Puerto Rico"
+msgstr "Puerto Rico"
+
+msgid "Pull"
+msgstr "Tiva"
+
+msgid "Push"
+msgstr "Empeny"
+
+msgid "Qatar"
+msgstr "Qatar"
+
+msgid "Quick"
+msgstr "Ràpid"
+
+msgid "Quota"
+msgstr "Quota"
+
+msgid "RES"
+msgstr ""
+
+msgid "RSync server"
+msgstr "Servidor rsync"
+
+msgid "Raw value"
+msgstr "Valor en brut"
+
+msgid "Read only"
+msgstr "Només lectura"
+
+msgid "Read-only"
+msgstr "Només lectura"
+
+msgid "Read/Execute"
+msgstr "Lectura/Execució"
+
+msgid "Read/Write"
+msgstr "Lectura/Escriptura"
+
+msgid "Read/Write/Execute"
+msgstr "Lectura/Escriptura/Execució"
+
+msgid "Reboot"
+msgstr "Reiniciar"
+
+msgid "Recipient"
+msgstr "Destinatari"
+
+msgid "Recurse into directories"
+msgstr "Navegar recursivament entre els directoris"
+
+msgid "Recursive"
+msgstr "Recursiu"
+
+msgid "Referenced"
+msgstr "Referenciat"
+
+msgid "Relative Path"
+msgstr "Ruta relativa"
+
+msgid "Relative path"
+msgstr "Ruta relativa "
+
+msgid "Reliable system and kernel logging daemon."
+msgstr ""
+
+msgid "Reload"
+msgstr "Recarregar"
+
+msgid "Remaining"
+msgstr "Pendent"
+
+msgid "Remote"
+msgstr "Remot"
+
+msgid "Replace"
+msgstr "Reemplaça"
+
+msgid "Replace all existing permissions."
+msgstr "Substitueix tots els permisos existents. "
+
+msgid "Report"
+msgstr "Informe"
+
+msgid ""
+"Report if the temperature had changed by at least N degrees Celsius since "
+"last report."
+msgstr "Informeu si la temperatura ha canviat almenys N graus centígrads des de l'últim informe."
+
+msgid ""
+"Report if the temperature is greater than or equal to N degrees Celsius."
+msgstr "Informeu si la temperatura és superior o igual a N graus centígrads."
+
+msgid "Repository"
+msgstr "Repositori"
+
+msgid "Reset UI to defaults"
+msgstr "Reinicia WebGUI per defecte"
+
+msgid "Result"
+msgstr "Resultat"
+
+msgid "Retention period"
+msgstr "Període de retenció"
+
+msgid "Retention time"
+msgstr "Temps de retenció"
+
+msgid "Reunion"
+msgstr "Reunió"
+
+msgid "Reverted the configuration changes."
+msgstr "S'han revertit els canvis de configuració. "
+
+msgid "Romania"
+msgstr "Romania"
+
+msgid "Row No."
+msgstr " Fila núm."
+
+msgid "Rsync"
+msgstr "Rsync"
+
+msgid "Rsync - Jobs"
+msgstr "Treballs-Rsync"
+
+msgid "Rsync - Server"
+msgstr "Servidor-Rsync"
+
+msgid "Rules"
+msgstr "Normes"
+
+msgid "Run"
+msgstr "Executar"
+
+msgid "Run rsync task"
+msgstr "Executa la tasca rsync "
+
+msgid "Run scheduled task"
+msgstr "Executa la tasca programada "
+
+msgid "Running"
+msgstr "Executant-se"
+
+msgid "Russia"
+msgstr "Rússia"
+
+msgid "Rwanda"
+msgstr "Ruanda"
+
+msgid "S"
+msgstr ""
+
+msgid "S.M.A.R.T."
+msgstr "S.M.A.R.T."
+
+msgid "S.M.A.R.T. Status"
+msgstr "S.M.A.R.T. Estat"
+
+msgid "S.M.A.R.T. monitoring must be activated for the selected device."
+msgstr "La monitoratge S.M.A.R.T. ha de ser activada per al dispositiu seleccionat."
+
+msgid "SHR"
+msgstr ""
+
+msgid "SMB/CIFS"
+msgstr "SMB/CIFS"
+
+msgid "SMB/CIFS - Audit"
+msgstr "Auditar SMB/CIFS"
+
+msgid "SMB/CIFS file, print, and login server for Unix."
+msgstr "Fitxers SMB/CIFS, impressió i inici de sessió per al servidor  Unix."
+
+msgid "SMTP port"
+msgstr "Port SMTP"
+
+msgid "SMTP server"
+msgstr "Servidor SMTP"
+
+msgid "SSH"
+msgstr "SSH"
+
+msgid "SSH certificate"
+msgstr "Certificat SSH"
+
+msgid "SSH port"
+msgstr "Port SSH"
+
+msgid "SSH public key"
+msgstr "Clau pública SSH "
+
+msgid "SSH public keys"
+msgstr "Claus públiques SSH "
+
+msgid "SSID"
+msgstr "SSID"
+
+msgid "SSL"
+msgstr "SSL"
+
+msgid "SSL/TLS"
+msgstr "SSL/TLS"
+
+msgid "SSL/TLS enabled"
+msgstr "SSL / TLS habilitat"
+
+msgid "STARTTLS"
+msgstr "STARTTLS"
+
+msgid "Saint Helena"
+msgstr "Santa Helena"
+
+msgid "Saint Kitts and Nevis"
+msgstr "Sant Cristòfol i Neus"
+
+msgid "Saint Lucia"
+msgstr "Santa Llúcia"
+
+msgid "Saint Pierre and Miquelon"
+msgstr "Sant Pere i Miquelon"
+
+msgid "Saint Vincent and the Grenadines"
+msgstr "Sant Vincent i les Grenadines"
+
+msgid "Samoa"
+msgstr "Samoa"
+
+msgid "San Marino"
+msgstr "Sant Marino"
+
+msgid "Sao Tome and Principe"
+msgstr "Sant Tomé i Príncipe"
+
+msgid "Saturday"
+msgstr "Dissabte"
+
+msgid "Saudi Arabia"
+msgstr "Aràbia Saudita"
+
+msgid "Save"
+msgstr "Salvar"
+
+msgid "Scan for new devices"
+msgstr "Cerca de dispositius nous "
+
+msgid "Scanning for new devices ..."
+msgstr "Cercant nous dispositius ..."
+
+msgid "Scheduled Tasks"
+msgstr "Tasques programades"
+
+msgid "Scheduling"
+msgstr "Programació"
+
+msgid "Search domains"
+msgstr "Cercar dominis"
+
+msgid "Secondary email"
+msgstr "E-mail secundari"
+
+msgid "Seconds"
+msgstr "Segons"
+
+msgid "Section"
+msgstr "Secció"
+
+msgid "Secure"
+msgstr "Segur"
+
+msgid "Secure connection"
+msgstr "Connexió segura"
+
+msgid "Security"
+msgstr "Seguretat"
+
+msgid "Select a country ..."
+msgstr "Seleccionar un país ..."
+
+msgid "Select a device ..."
+msgstr "Seleccionar un dispositiu ..."
+
+msgid "Select a file system ..."
+msgstr "Seleccionar un sistema d'arxius ..."
+
+msgid "Select a group ..."
+msgstr "Selecciona un grup ... "
+
+msgid "Select a shared folder ..."
+msgstr "Seleccionar una carpeta compartida ..."
+
+msgid "Select a shell ..."
+msgstr "Seleccionar una Shell ..."
+
+msgid "Select a system log ..."
+msgstr "Seleccioneu un registre del sistema ..."
+
+msgid "Select all"
+msgstr "Seleccionar tot"
+
+msgid "Select an authentication mode ..."
+msgstr "Seleccionar un mode d’autentificació ..."
+
+msgid "Select an user ..."
+msgstr "Selecciona un usuari ... "
+
+msgid "Select devices ..."
+msgstr "Selecciona dispositius ... "
+
+msgid "Select groups ..."
+msgstr "Selecciona grups ... "
+
+msgid "Select interface devices ..."
+msgstr "Selecciona dispositius d'interfície ..."
+
+msgid "Select members ..."
+msgstr "Selecciona membres ..."
+
+msgid "Select permissions ..."
+msgstr "Selecciona permisos ..."
+
+msgid "Select slave devices ..."
+msgstr "Selecciona dispositius esclaus ..."
+
+msgid "Select the device that will be used to create the file system."
+msgstr "Seleccioneu el dispositiu que s'utilitzarà per crear el sistema de fitxers. "
+
+msgid "Select the devices that will be used to create the file system."
+msgstr "Seleccioneu els dispositius que s'utilitzaran per crear el sistema de fitxers."
+
+msgid "Self-Test Logs"
+msgstr "Registres d’autotest "
+
+msgid ""
+"Send a notification when the used file system capacity exceeds the specified"
+" threshold."
+msgstr "Envieu una notificació quan la capacitat del sistema de fitxers utilitzada supera el llindar especificat."
+
+msgid "Send command output via email"
+msgstr "Enviar la sortida de la comanda per email"
+
+msgid "Send notifications about pending package updates."
+msgstr "Envia notificacions sobre actualitzacions de paquets pendents."
+
+msgid "Sender email"
+msgstr "E-mail enviat"
+
+msgid "Senegal"
+msgstr "Senegal"
+
+msgid "September"
+msgstr "Setembre"
+
+msgid "Serbia And Montenegro"
+msgstr "Sèrbia i Montenegro"
+
+msgid "Serial Number"
+msgstr "Número de Serie"
+
+msgid "Serial number"
+msgstr "Número de Serie"
+
+msgid "Server"
+msgstr "Servidor"
+
+msgid "Service"
+msgstr "Servei"
+
+msgid "Service disabled"
+msgstr "Servei desactivat"
+
+msgid "Services"
+msgstr "Serveis"
+
+msgid "Session expired."
+msgstr "Sessió expirada"
+
+msgid "Session not authenticated."
+msgstr "Sesió no autenticada"
+
+msgid ""
+"Set the destination permissions to be the same as the source permissions."
+msgstr "Establiu els permisos de destinació perquè siguin els mateixos que els permisos d'origen. "
+
+msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr "Definiu el grup del fitxer de destinació al mateix que el fitxer font."
+
+msgid ""
+"Set the owner of the destination file to be the same as the source file, but"
+" only if the receiving rsync is being run as the super-user."
+msgstr "Definiu el propietari del fitxer de destinació al mateix que el fitxer font, però només si s'executa l'rsync receptor com a super-usuari."
+
+msgid ""
+"Sets the interval between disk checks to N seconds. Take caution when "
+"setting this polling interval to more than sixty minutes. The poll times may"
+" fail to coincide with any of the scheduled test that have been specified. "
+"In this case the scheduled test will be run following the next device "
+"polling."
+msgstr ""
+
+msgid "Settings"
+msgstr "Configuració"
+
+msgid "Seychelles"
+msgstr "Seychelles"
+
+msgid "Share"
+msgstr "Compartir"
+
+msgid "Shared Folders"
+msgstr "Carpetes compartides"
+
+msgid "Shared folder"
+msgstr "Carpeta compartida"
+
+msgid "Shared folder name"
+msgstr "Nom de la carpeta compartida"
+
+msgid "Shared folder path"
+msgstr "Ruta de la carpeta compartida"
+
+msgid "Shared folder permissions"
+msgstr "Permisos de carpeta compartida"
+
+msgid "Shared folder permissions have been copied."
+msgstr "S'han copiat els permisos de la carpeta compartida."
+
+msgid "Shares"
+msgstr "Compartits"
+
+msgid "Shell"
+msgstr "Shell"
+
+msgid "Short self-test"
+msgstr "Auto prova curta"
+
+msgid "Show changelog"
+msgstr "Mostrar canvis"
+
+msgid "Show details"
+msgstr "Mostrar detalls"
+
+msgid "Show/Hide columns"
+msgstr "Mostra / Amaga columnes "
+
+msgid "Show/Hide navigation"
+msgstr "Mostra/amaga la navegació"
+
+msgid "Shutdown"
+msgstr "Apagar"
+
+msgid "Sierra Leone"
+msgstr "Sierra Leone"
+
+msgid "Singapore"
+msgstr "Singapur"
+
+msgid "Size"
+msgstr "Mida"
+
+msgid "Slaves"
+msgstr "Esclaus"
+
+msgid "Sleep"
+msgstr "Sleep"
+
+msgid "Sleeping"
+msgstr ""
+
+msgid "Slovakia"
+msgstr "Eslovàquia"
+
+msgid "Slovenia"
+msgstr "Eslovènia"
+
+msgid "Snapshots"
+msgstr "Imatges instantànies"
+
+msgid "Software"
+msgstr "Programari"
+
+msgid "Software Failure.   Press left mouse button to continue."
+msgstr "Error de programari.    Premeu el botó esquerre del ratolí per continuar. "
+
+msgid "Solomon Islands"
+msgstr "Illes Salomó"
+
+msgid "Somalia"
+msgstr "Somàlia"
+
+msgid "Source"
+msgstr "Origen"
+
+msgid ""
+"Source address can be either a network IP address (with /mask), a IP range "
+"or a plain IP address. A \"!\" argument before the address specification "
+"inverts the sense of the address."
+msgstr "L'adreça d'origen pot ser una adreça IP de xarxa (amb / màscara), un interval d'IP o una adreça IP simple. Un \"!\" argument abans que l'especificació de l'adreça inverteix el sentit de l'adreça. "
+
+msgid "Source port"
+msgstr "Port d’origen"
+
+msgid "Source server"
+msgstr "Servidor origen"
+
+msgid "Source shared folder"
+msgstr "Carpeta compartida origen"
+
+msgid "South Africa"
+msgstr "Sud-àfrica"
+
+msgid "South Georgia and the South Sandwich Islands"
+msgstr "Illes Geòrgia del Sud i Sandwich del Sud"
+
+msgid "South Korea"
+msgstr "Corea del Sud"
+
+msgid "Spain"
+msgstr "Espanya"
+
+msgid "Specifies the MII link monitoring frequency in milliseconds."
+msgstr "Especifica la freqüència de monitoratge de l’enllaç MII en mil·lisegons."
+
+msgid "Specifies the interface devices."
+msgstr "Especifica els dispositius d'interfície. "
+
+msgid "Specifies the slave devices."
+msgstr "Especifica els dispositius esclaus. "
+
+msgid ""
+"Specifies the time, in milliseconds, to wait before disabling a slave after "
+"a link failure has been detected."
+msgstr "Especifica el temps, en mil·lisegons, d’espera abans de desactivar un esclau després que s’hagi detectat una caiguda de l’enllaç."
+
+msgid ""
+"Specifies the time, in milliseconds, to wait before enabling a slave after a"
+" link recovery has been detected."
+msgstr "Especifica el temps, en mil·lisegons, d’espera abans d’activar un esclau després que s’hagi detectat la recuperació d’un enllaç ."
+
+msgid "Specifies the type of key to create."
+msgstr "Especifica el tipus de clau que cal crear."
+
+msgid "Specifies whether it is allowed to login as superuser."
+msgstr "Especifica si està permès el login com a superusuari"
+
+msgid ""
+"Specifies whether the system performance statistics are collected "
+"periodically."
+msgstr "Habilita que las estadístiques de rendiment s'emmagatzemin periòdicament."
+
+msgid "Specifies which slave is the primary device."
+msgstr "Especifica quin esclau és el dispositiu primari."
+
+msgid ""
+"Specify how often to receive notifications about available package updates."
+msgstr ""
+
+msgid "Speed"
+msgstr "Velocitat"
+
+msgid "Spindown time"
+msgstr "Temps per a parar el disc"
+
+msgid "Sri Lanka"
+msgstr "Sri Lanka"
+
+msgid "Standby"
+msgstr "Repòs"
+
+msgid "Standby mode"
+msgstr "Mode d'espera"
+
+msgid "Start"
+msgstr "Inici"
+
+msgid "State"
+msgstr "Estat"
+
+msgid "State/Province"
+msgstr "Estat/Província"
+
+msgid "Static"
+msgstr "Estàtic"
+
+msgid "Statistics collection and monitoring daemon."
+msgstr "Robot de recollida i seguiment d'estadístiques."
+
+msgid "Status"
+msgstr "Estat"
+
+msgid "Stop"
+msgstr "Parat"
+
+msgid "Stopped by debugger during trace"
+msgstr ""
+
+msgid "Stopped by job control signal"
+msgstr ""
+
+msgid "Storage"
+msgstr "Emmagatzematge"
+
+msgid "Store DOS attributes"
+msgstr "Guardar atributs DOS"
+
+msgid "Success"
+msgstr "Èxit"
+
+msgid "Sudan"
+msgstr "Sudan"
+
+msgid "Summary"
+msgstr "Resum "
+
+msgid "Sunday"
+msgstr "Diumenge"
+
+msgid "Support name resolution and network discovery for legacy systems."
+msgstr "Admet la resolució de noms i la descoberta de xarxes per a sistemes heretats."
+
+msgid "Suppress non-error messages"
+msgstr "Suprimeix missatges que no siguin d’error"
+
+msgid "Suriname"
+msgstr "Surinam"
+
+msgid "Suspend"
+msgstr "Suspensió"
+
+msgid "Svalbard and Jan Mayen"
+msgstr "Illes de Svalbard i Jan Mayen"
+
+msgid "Swaziland"
+msgstr "Regne de Swazilàndia"
+
+msgid "Sweden"
+msgstr "Suècia"
+
+msgid "Switzerland"
+msgstr "Suïssa"
+
+msgid "Syria"
+msgstr "Síria"
+
+msgid "Syslog"
+msgstr "Syslog"
+
+msgid "System"
+msgstr "Sistema"
+
+msgid "System Information"
+msgstr "Informació del sistema"
+
+msgid "System Logs"
+msgstr "Logs del sistema"
+
+msgid "System Time"
+msgstr "Hora del sistema "
+
+msgid "System account"
+msgstr "Compte del sistema "
+
+msgid "System clock synchronization client and server."
+msgstr "Sincronització del rellotge del sistema client/servidor."
+
+msgid ""
+"System monitoring is disabled. To enable it, please go to the <a "
+"href='#/system/monitoring'>settings page</a>."
+msgstr "La supervisió del sistema està desactivada. Per activar-lo, aneu a la pàgina <a href='#/system/monitoring'>settings page</a> de configuració. "
+
+msgid "System restart required"
+msgstr "Cal reiniciar el sistema"
+
+msgid "System time"
+msgstr "Hora del sistema"
+
+msgid "TCP"
+msgstr "TCP"
+
+msgid "TCP forwarding"
+msgstr "Reenviament TCP"
+
+msgid "TIME+"
+msgstr ""
+
+msgid "Tags"
+msgstr "Etiquetes"
+
+msgid "Taiwan"
+msgstr "Taiwan"
+
+msgid "Tajikistan"
+msgstr "Tadjikistan"
+
+msgid "Tanzania"
+msgstr "Tanzània"
+
+msgid "Tasks"
+msgstr "Tasques"
+
+msgid "Temperature"
+msgstr "Temperatura"
+
+msgid "Temperature monitoring"
+msgstr "Monitoratge de temperatura"
+
+msgid "Test"
+msgstr "Prova "
+
+msgid "Thailand"
+msgstr "Tailàndia"
+
+msgid "The HTTP and HTTPS ports must not be the same."
+msgstr ""
+
+msgid "The NFS versions provided by the service."
+msgstr "Les versions NFS proporcionades pel servei."
+
+msgid "The NT description field."
+msgstr "El camp NT de descripció"
+
+msgid "The RSA key length."
+msgstr "Longitud de la clau RSA"
+
+msgid "The SSH certificate used for authentication."
+msgstr "El certificat SSH usat per a autentificació."
+
+msgid "The SSH public key in OpenSSH or RFC 4716 format."
+msgstr "La clau pública SSH en format OpenSSH o RFC 4716. "
+
+msgid "The action to be done when pressing the power button."
+msgstr "Acció a realitzar quant es premi el botó de \"power\""
+
+msgid ""
+"The dashboard has not yet been configured. To personalize it, please go to "
+"the <a href='#/dashboard/settings'>settings page</a>."
+msgstr "El tauler encara no s'ha configurat. Per personalitzar-lo, aneu a la pàgina <a href='#/dashboard/settings'>settings page</a> de configuració."
+
+msgid "The data has been copied to the clipboard."
+msgstr "Les dades s’han copiat al porta-retalls."
+
+msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
+msgstr "El port predeterminat del servidor de correu SMTP, p ex 25, 465 o 587."
+
+msgid ""
+"The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
+"rsync://[USER@]HOST[:PORT]/DEST."
+msgstr "El servidor remot de destí, p.e. [USER@]HOST:DEST, [USER@]HOST::DEST o rsync://[USER@]HOST[:PORT]/DEST."
+
+msgid ""
+"The documentation page provides helpful information about your storage "
+"system."
+msgstr ""
+
+msgid ""
+"The domain name of the system. If your system is part of a private network "
+"without a registered domain, use <em>internal</em> as suggested by <a "
+"href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
+"target=\"_blank\">ICANN</a>."
+msgstr "El nom de domini del sistema. Si el vostre sistema forma part d'una xarxa privada sense un domini registrat, feu servir l' <em>interna</em> tal com us suggeria la <a href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" target=\"_blank\">ICANN</a>."
+
+msgid "The field should only contain * or a comma separated list of values."
+msgstr "El camp només ha de contenir * o una llista de valors separats per comes."
+
+msgid "The file mode of the shared folder path."
+msgstr "Mode d’arxiu de la ruta a les carpetes compartides."
+
+msgid "The file system on which the shared folder is to be created."
+msgstr "El sistema de fitxers on s'ha de crear la carpeta compartida. "
+
+msgid "The file system to mount."
+msgstr "El sistema de fitxers a muntar. "
+
+msgid "The following modules have been updated: {{ modules }}"
+msgstr ""
+
+msgid "The following modules will be updated:"
+msgstr "S'actualitzaran els mòduls següents:"
+
+msgid "The forum page is the best place to ask questions and find answers."
+msgstr ""
+
+msgid "The home of the project and source of news and updates."
+msgstr ""
+
+msgid "The hostname is a label that identifies the system to the network."
+msgstr "El nom de host es una etiqueta que identifica al sistema a la xarxa."
+
+msgid "The hostname of the remote system."
+msgstr "El nom d'amfitrió del sistema remot."
+
+msgid ""
+"The information about available software is out-of-date. Do you want to "
+"reload this information?"
+msgstr "La informació sobre el programari disponible no està actualitzada. Voleu tornar a carregar aquesta informació? "
+
+msgid "The location of the files to share."
+msgstr "La ubicació dels arxius a compartir."
+
+msgid ""
+"The location of the files to share. The share will be accessible at "
+"/export/<name>."
+msgstr "La ubicació dels arxius a compartir. El compartit serà accessible en /export/<name>."
+
+msgid "The location of the user home directories."
+msgstr "La ubicació dels directoris home dels usuaris"
+
+msgid ""
+"The maximum transmission unit in bytes to set for the device. Set to 0 to "
+"use the default value."
+msgstr "La unitat màxima de transmissió en bytes a configurar per al dispositiu. Estableix el valor 0 per utilitzar el valor predeterminat."
+
+msgid "The name of the share."
+msgstr "El nom del compartit"
+
+msgid "The number of custom snapshots to keep."
+msgstr "El nombre d'instantànies personalitzades que cal conservar."
+
+msgid "The number of daily snapshots to keep."
+msgstr "El nombre de instantànies diàries que cal conservar."
+
+msgid "The number of days the certificate is valid for."
+msgstr "El número de dies de validesa del certificat."
+
+msgid "The number of hourly snapshots to keep."
+msgstr "El nombre d'instantànies per hora a conservar."
+
+msgid "The number of monthly snapshots to keep."
+msgstr "El nombre de instantànies mensuals que cal conservar."
+
+msgid "The number of weekly snapshots to keep."
+msgstr "El nombre de instantànies setmanals que cal conservar."
+
+msgid "The number of yearly snapshots to keep."
+msgstr "El nombre d'instantànies anuals que cal conservar."
+
+msgid ""
+"The password that is used for access via rsync daemon. Note, this is not "
+"used for remote shell transport such as SSH."
+msgstr "La contrasenya que s'utilitza per accedir mitjançant el dimoni rsync. Tingueu en compte que això no s’utilitza per al transport de shell remot com SSH. "
+
+msgid ""
+"The permissions on new files and directories are normally governed by create"
+" mask and directory mask but the inherit permissions parameter overrides "
+"this. This can be particularly useful on systems with many users to allow a "
+"single share to be used flexibly by each user."
+msgstr "Els permisos sobre els nous arxius i directoris s’estableixen per la màscara de creació i la màscara de directori, però el paràmetre d’herència de permisos preval. Pot ser útil especialment en sistemes amb molts usuaris per a permetre una utilització d’una mateixa compartició d’una forma flexible per a cada usuari."
+
+msgid "The port on which SSH is running on the remote system."
+msgstr "El port en el qual s’executa SSH al sistema remot."
+
+msgid "The private key in PEM format."
+msgstr "La clau privada en format PEM."
+
+msgid ""
+"The protocol is not supported in conjunction with a source/destination port."
+msgstr "El protocol no s'admet amb una conjunció de port d'origen / destinació. "
+
+msgid "The public key in OpenSSH format."
+msgstr "La clau pública en format OpenSSH."
+
+msgid ""
+"The relative path of the folder to share. Use '/' to share the root of the "
+"file system. The specified folder will be created if it does not exist."
+msgstr ""
+
+msgid ""
+"The repository will be checked for new, removed or upgraded software "
+"packages."
+msgstr "El repositori serà recarregat per a cercar nous, eliminats o millorats paquets de software."
+
+msgid "The requested page was not found."
+msgstr "No s'ha trobat la pàgina sol·licitada."
+
+msgid ""
+"The retention period (in seconds) before a snapshot can be deleted. This "
+"ensures that a snapshot that has just been created cannot be deleted again "
+"immediately."
+msgstr "El període de retenció (en segons) abans que es pugui suprimir una instantània. Això garanteix que una instantània que s'acaba de crear no es pugui suprimir de nou immediatament."
+
+msgid "The server is unavailable to handle this request right now."
+msgstr "El servidor no està disponible per gestionar aquesta sol·licitud ara mateix. "
+
+msgid "The shared folder from which the permissions are copied."
+msgstr "La carpeta compartida des de la qual es copien els permisos."
+
+msgid "The shared folder {{ _selected[0].name }} was successfully created."
+msgstr "La carpeta compartida {{ _selected[0].name }} s'ha creat correctament."
+
+msgid ""
+"The snapshot '{{ _response.name }}' has been created for the shared folder "
+"'{{ _response.sharedfolder }}'."
+msgstr "S'ha creat la instantània '{{ _response.name }}' per a la carpeta compartida '{{ _response.sharedfolder }}'."
+
+msgid ""
+"The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
+"rsync://[USER@]HOST[:PORT]/SRC."
+msgstr "El servidor remot, p.e. [USER@]HOST:SRC, [USER@]HOST::SRC o rsync://[USER@]HOST[:PORT]/SRC."
+
+msgid "The system will reboot now. This may take some time ..."
+msgstr "El sistema es reiniciarà ara. Pot tardar una mica ..."
+
+msgid "The users that are allowed to access this module."
+msgstr "Els usuaris que tenen permís per accedir a aquest mòdul. "
+
+msgid "The value does not match the pattern /{{ pattern }}/."
+msgstr "El valor no coincideix amb el patró / {{pattern}} /. "
+
+msgid ""
+"The value must be on of the slave network interfaces {{ slaves | join(\", "
+"\") }}."
+msgstr "El valor ha d'estar activat a les interfícies de xarxa esclaves {{ slaves | join(\", \") }}."
+
+msgid "The value must be one of the slave network interfaces."
+msgstr "El valor ha de ser una de les interfícies de xarxa esclava."
+
+msgid "The workgroup the server will appear to be in when queried by clients."
+msgstr "El grup de treball en el que apareixerà el servidor quan l’examinin els clients."
+
+msgid "There are no notifications."
+msgstr "No hi ha notificacions. "
+
+msgid ""
+"These settings are used by the services to configure the access rights for "
+"the group \"{{ _routeParams.name }}\". Please note that these settings have "
+"no effect on file system permissions."
+msgstr "Aquesta configuració l’utilitzen els serveis per configurar els drets d’accés al grup \"{{_routeParams.name}}\". Tingueu en compte que aquests paràmetres no afecten els permisos del sistema de fitxers. "
+
+msgid ""
+"These settings are used by the services to configure the access rights for "
+"the user \"{{ _routeParams.name }}\". Please note that these settings have "
+"no effect on file system permissions."
+msgstr "Aquesta configuració l’utilitzen els serveis per configurar els drets d’accés de l’usuari \"{{_routeParams.name}}\". Tingueu en compte que aquests paràmetres no afecten els permisos del sistema de fitxers. "
+
+msgid ""
+"These settings are used by the services to configure the user and group "
+"access rights. Please note that these settings have no effect on file system"
+" permissions."
+msgstr "Aquests paràmetres els utilitzen els serveis per configurar els drets d’accés de l’usuari i del grup. Tingueu en compte que aquests paràmetres no afecten els permisos del sistema de fitxers. "
+
+msgid ""
+"This controls whether this share is seen in the list of available shares in "
+"a net view and in the browse list."
+msgstr "Controla si la compartició serà visible a la llista de comparticions disponibles a la vista de xarxa de la llista de navegació."
+
+msgid ""
+"This field contains invalid characters, e.g. a blank or \"/[]:+|<>=;,*? "
+"character."
+msgstr "Aquest camp conté caràcters no vàlids, p. e. un caràcter en blanc o \"/ []: + | <> =;, *? "
+
+msgid ""
+"This field contains invalid characters, only alphanumeric characters and "
+"underscore are allowed."
+msgstr "Aquest camp conté caràcters no vàlids, només es permeten caràcters alfanumèrics i guió baix. "
+
+msgid ""
+"This field is automatically filled with the subject of the certificate if "
+"left blank."
+msgstr "Aquest camp s'omple automàticament amb l'assumpte del certificat si es deixa en blanc."
+
+msgid "This field is required."
+msgstr "Aquest camp és obligatori."
+
+msgid "This field must have the format <hh:mm:ss>."
+msgstr "Aquest camp ha de tenir el format<hh:mm:ss>. "
+
+msgid "This field must match the format SIZE[K|M|G|T|P]."
+msgstr ""
+
+msgid "This field should be a IP network address in CIDR notation."
+msgstr "Aquest camp hauria de ser una adreça de xarxa IP a la notació CIDR. "
+
+msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
+msgstr "Aquest camp hauria de ser una adreça MAC, p e 00:80:41:ae:fd:7e."
+
+msgid "This field should be a domain name or an IP address."
+msgstr "Aquest camp hauria de ser un nom de domini o una adreça IP. "
+
+msgid "This field should be a host name or an IP address in CIDR notation."
+msgstr "Aquest camp hauria de ser un nom d'amfitrió o una adreça IP a la notació CIDR. "
+
+msgid "This field should be a list of IP addresses separated by <,> or <;>."
+msgstr "Aquest camp hauria de ser una llista d'adreces IP separades per <,> o <;>. "
+
+msgid ""
+"This field should be a list of domain names or IP addresses separated by <,>"
+" or <;>."
+msgstr "Aquest camp hauria de ser una llista de noms de domini o adreces IP separades per <,> o <;>. "
+
+msgid "This field should be a list of domain names or IP addresses."
+msgstr "Aquest camp hauria de ser una llista de noms de domini o adreces IP. "
+
+msgid ""
+"This field should be a list of host names or IP addresses in CIDR notation "
+"separated by <,> or <;>."
+msgstr "Aquest camp hauria de ser una llista de noms de servidor o adreces IP en notació CIDR separats per <,> o <;>. "
+
+msgid ""
+"This field should be a netmask within the range 128.0.0.0 - 255.255.255.252."
+msgstr "Aquest camp hauria de ser una màscara de xarxa dins del rang 128.0.0.0 - 255.255.255.252. "
+
+msgid "This field should be a network port in the range of 1 to 65535."
+msgstr "Aquest camp hauria de ser un port de xarxa en el rang d'1 a 65535."
+
+msgid ""
+"This field should be a port or port range (e.g. 21 or !443 or 1024-65535)."
+msgstr "Aquest camp hauria de ser un port o un interval de ports (per exemple, 21 o !443 o 1024-65535). "
+
+msgid "This field should be an IP address."
+msgstr "Aquest camp hauria de ser una adreça IP. "
+
+msgid "This field should be an IPv4 address."
+msgstr "Aquest camp hauria de ser una adreça IPv4. "
+
+msgid "This field should be an IPv6 address."
+msgstr "Aquest camp hauria de ser una adreça IPv6. "
+
+msgid "This field should be an email address."
+msgstr "Aquest camp hauria de ser una adreça de correu electrònic. "
+
+msgid "This field should contain a decimal value."
+msgstr "Aquest camp ha de contenir un valor decimal."
+
+msgid "This field should contain a number with a binary prefix."
+msgstr "Aquest camp ha de contenir un número amb un prefix binari."
+
+msgid "This field should contain a numeric value."
+msgstr "Aquest camp ha de contenir un valor numèric."
+
+msgid "This function is effective only if the hard drive supports it."
+msgstr "Aquesta opció és efectiva només si la suporta el dispositiu."
+
+msgid ""
+"This is a text field that is seen next to a share when a client queries the "
+"server."
+msgstr "Camp de text que apareixerà al costat d’una compartició quan els clients examinin el servidor."
+
+msgid ""
+"This option determines if this module should be listed when the client asks "
+"for a listing of available modules."
+msgstr "Determina si un mòdul serà llistat quan els clients demanin una llista de mòduls disponibles."
+
+msgid ""
+"This option is a comma, space, or tab delimited set of host which are NOT "
+"permitted to access this module. Where the lists conflict, the allow list "
+"takes precedence. In the event that it is necessary to deny all by default, "
+"use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
+"to the hosts allow parameter those hosts that should be permitted access. "
+"Leave this field empty to use default settings."
+msgstr "Una llista separada per comes, espais o tabuladors de hosts als que no es permet l’accés a aquest mòdul. Preval la llista de hosts permesos quan hi hagi conflictes. En el cas que sigui necessari denegar a tots per defecte, utilitzi la paraula ALL (o la màscara 0.0.0.0/0) i llavors especifiqui a la llista de permesos els hosts qui hi tindran accés. Deixi aquest camp en blanc per a utilitzar la configuració por defecte."
+
+msgid ""
+"This option is a comma, space, or tab delimited set of host which are NOT "
+"permitted to access this share. Where the lists conflict, the allow list "
+"takes precedence. In the event that it is necessary to deny all by default, "
+"use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
+"to the hosts allow parameter those hosts that should be permitted access. "
+"Leave this field empty to use default settings."
+msgstr "Una llista separada per comes, espais o tabuladors de hosts als que no es permet l’accés a aquesta compartició. Preval la llista de hosts permesos quan hi hagi conflictes. En el cas que sigui necessari denegar a tots per defecte, utilitzi la paraula ALL (o la màscara 0.0.0.0/0) i llavors especifiqui a la llista de permesos els hosts que hi tindran accés. Deixi aquest camp en blanc per a utilitzar la configuració por defecte."
+
+msgid ""
+"This option is a comma, space, or tab delimited set of hosts which are "
+"permitted to access this module. You can specify the hosts by name or IP "
+"number. Leave this field empty to use default settings."
+msgstr "Una llista separada per comes, espacis o tabuladors de hosts als que es permet l’accés a aquest mòdul. Pot indicar els hosts per nom o adreça IP. Deixi aquest camp en blanc per a utilitzar la configuració per defecte."
+
+msgid ""
+"This option is a comma, space, or tab delimited set of hosts which are "
+"permitted to access this share. You can specify the hosts by name or IP "
+"number. Leave this field empty to use default settings."
+msgstr "Una llista separada per comes, espais o tabuladors de hosts als que es permet l’accés a aquesta compartició. Pot indicar els hosts per nom o adreça IP. Deixi aquest camp en blanc per a utilitzar la configuració per defecte."
+
+msgid ""
+"This option specifies the group name that file transfers to and from that "
+"module should take place."
+msgstr "Especifica el nom de grup que utilitzaran les transferències cap a o des d’aquest mòdul."
+
+msgid ""
+"This option specifies the maximum number of simultaneous connections. 0 "
+"means no limit."
+msgstr "Especifica el número màxim de connexions simultànies. 0 significa sense límit."
+
+msgid ""
+"This option specifies the user name that file transfers to and from that "
+"module should take place."
+msgstr "Especifica el nom d'usuari que utilitzaran les transferències cap a o  des d’aquest mòdul."
+
+msgid ""
+"This parameter can be used to ensure that if default acls exist on parent "
+"directories, they are always honored when creating a new file or "
+"subdirectory in these parent directories."
+msgstr "Aquest paràmetre assegura que, si existeixen acls per defecte en els directoris pare, seran respectades quan es creïn nous arxius o subdirectoris."
+
+msgid ""
+"This parameter controls whether files starting with a dot appear as hidden "
+"files"
+msgstr "Aquest paràmetre indica si els arxius que comencin per \".\" seran tractats com arxius amagats."
+
+msgid ""
+"This setting controls the minimum protocol version that the server will "
+"allow the client to use."
+msgstr "Aquesta configuració controla la versió mínima del protocol que el servidor permetrà utilitzar el client."
+
+msgid "This specifies what to do if the packet matches."
+msgstr "Que s’ha de fer si el paquet coincideix."
+
+msgid "This will create a recycle bin for each user home directory."
+msgstr "Això crearà una paperera de reciclatge per al directori d'inici de cada usuari."
+
+msgid "This will create a recycle bin for the share."
+msgstr "Això crearà una paperera de reciclatge per compartir."
+
+msgid "Threshold"
+msgstr "Llindar"
+
+msgid "Thursday"
+msgstr "Dijous"
+
+msgid "Time Machine support"
+msgstr "Time Machine support"
+
+msgid "Time of execution"
+msgstr "S’executarà:"
+
+msgid "Time server"
+msgstr "Servidor d’hora"
+
+msgid "Time servers"
+msgstr "Servidors d’hora"
+
+msgid "Time zone"
+msgstr "Zona horària"
+
+msgid "Tip"
+msgstr "Consell"
+
+msgid "Togo"
+msgstr "Togo"
+
+msgid "Tokelau"
+msgstr "Tokelau (Nova Zelanda)"
+
+msgid "Tonga"
+msgstr "Tonga"
+
+msgid "Total"
+msgstr "Total"
+
+msgid ""
+"Transfer modification times along with the files and update them on the "
+"remote system."
+msgstr "Transferiu els temps de modificació juntament amb els fitxers i actualitzeu-los al sistema remot."
+
+msgid "Transmit Hash Policy"
+msgstr "Transmet la política de hash"
+
+msgid "Transport encryption"
+msgstr "Xifratge de transport"
+
+msgid "Trial run"
+msgstr "Prova"
+
+msgid "Trinidad and Tobago"
+msgstr "Trinitat i Tobago"
+
+msgid "Tuesday"
+msgstr "Dimarts"
+
+msgid "Tunisia"
+msgstr "Tunísia"
+
+msgid "Turkey"
+msgstr "Turquia"
+
+msgid "Turkmenistan"
+msgstr "Turkmenistan"
+
+msgid "Turks and Caicos Islands"
+msgstr "Illes Turcs i Caicos"
+
+msgid "Tuvalu"
+msgstr "Tuvalu"
+
+msgid "Type"
+msgstr "Tipus"
+
+msgid "U.S. Miscellaneous Pacific Islands"
+msgstr "Illes Ultramarines d’EEUU"
+
+msgid "U.S. Virgin Islands"
+msgstr "Illes Verges (EEUU)"
+
+msgid "UDP"
+msgstr "UDP"
+
+msgid "UID"
+msgstr "UID"
+
+msgid "UNKNOWN"
+msgstr "Desconegut"
+
+msgid "USER"
+msgstr ""
+
+msgid "UUID"
+msgstr "UUID"
+
+msgid "Uganda"
+msgstr "Uganda"
+
+msgid "Ukraine"
+msgstr "Ucrània"
+
+msgid "Unavailable"
+msgstr ""
+
+msgid "Undo"
+msgstr "Desfés "
+
+msgid "Uninstall"
+msgstr "Desinstal·lar"
+
+msgid "Uninstall plugin"
+msgstr "Desinstal·la el connector "
+
+msgid "Uninterruptible sleep"
+msgstr ""
+
+msgid "Union of Soviet Socialist Republics"
+msgstr "Unió de Repúbliques Socialistes Soviètiques"
+
+msgid "Unit"
+msgstr "Unitats"
+
+msgid "United Arab Emirates"
+msgstr "Emirats Àrabs Units"
+
+msgid "United Kingdom"
+msgstr "Regne Unit"
+
+msgid "United States"
+msgstr "EEUU"
+
+msgid "United States Minor Outlying Islands"
+msgstr "Illes Ultramarines d’EEUU"
+
+msgid "Unknown"
+msgstr "Desconegut"
+
+msgid "Unmount"
+msgstr "Desmuntar"
+
+msgid "Unrestricted"
+msgstr "Sense restriccions"
+
+msgid "Up"
+msgstr "Pujada"
+
+msgid "Up delay"
+msgstr "Retard de pujada"
+
+msgid "Update Management"
+msgstr "Gestió d’actualitzacions"
+
+msgid "Update management"
+msgstr "Gestió d'actualitzacions"
+
+msgid "Update the destination ACLs to be the same as the source ACLs."
+msgstr "Actualitzeu les ACL de destinació perquè siguin les mateixes que les ACL d'origen. "
+
+msgid ""
+"Update the destination extended attributes to be the same as the local ones."
+msgstr "Actualitzeu els atributs ampliats de destinació perquè siguin els mateixos que els locals. "
+
+msgid "Updated NFS settings."
+msgstr "Configuració NFS actualitzada. "
+
+msgid "Updated NFS share."
+msgstr "Actualitzat NFS compartit. "
+
+msgid "Updated Rsync Server settings."
+msgstr "Configuració del servidor Rsync actualitzada. "
+
+msgid "Updated Rsync server module \"{{ name }}\"."
+msgstr "S'ha actualitzat el mòdul del servidor Rsync \"{{name}}\". "
+
+msgid "Updated Rsync task."
+msgstr "Tasca Rsync actualitzada. "
+
+msgid "Updated SMB/CIFS settings."
+msgstr "S'ha actualitzat la configuració de SMB / CIFS. "
+
+msgid "Updated SMB/CIFS share."
+msgstr "S'ha actualitzat el recurs compartit SMB / CIFS. "
+
+msgid "Updated SSH certificate."
+msgstr "S'ha actualitzat el certificat SSH. "
+
+msgid "Updated SSH settings."
+msgstr "Configuració SSH actualitzada. "
+
+msgid "Updated VLAN network connection \"{{ devicename }}\"."
+msgstr "S'ha actualitzat la connexió de xarxa VLAN \"{{devicename}}\". "
+
+msgid "Updated access control list of shared folder."
+msgstr "S'ha actualitzat la llista de control d'accés de la carpeta compartida. "
+
+msgid "Updated bond network connection \"{{ devicename }}\"."
+msgstr "S'ha actualitzat la connexió de xarxa \"{{devicename}}\". "
+
+msgid "Updated bridge network connection \"{{ devicename }}\"."
+msgstr "S'ha actualitzat el pont de connexió de xarxa \"{{devicename}}\". "
+
+msgid "Updated dashboard settings."
+msgstr "S'ha actualitzat la configuració del tauler. "
+
+msgid "Updated date & time settings."
+msgstr "Configuració de data i hora actualitzada. "
+
+msgid "Updated file system settings."
+msgstr "Configuració del sistema de fitxers actualitzada."
+
+msgid "Updated firewall rule."
+msgstr "S'ha actualitzat la regla del tallafoc. "
+
+msgid "Updated firewall rules."
+msgstr "S'han actualitzat les regles del tallafoc. "
+
+msgid "Updated group \"{{ name }}\"."
+msgstr "S'ha actualitzat el grup \"{{name}}\". "
+
+msgid "Updated monitoring settings."
+msgstr "Configuració de control actualitzada. "
+
+msgid "Updated network settings."
+msgstr "Configuració de xarxa actualitzada. "
+
+msgid "Updated notification event settings."
+msgstr "Configuració d'esdeveniments de notificació actualitzada."
+
+msgid "Updated notification settings."
+msgstr "Configuració de notificacions actualitzada. "
+
+msgid "Updated password."
+msgstr "Contrasenya actualitzada. "
+
+msgid "Updated permissions of group \"{{ name }}\"."
+msgstr "S'han actualitzat els permisos del grup \"{{ nom }}\"."
+
+msgid "Updated permissions of shared folder."
+msgstr "S'han actualitzat els permisos de la carpeta compartida."
+
+msgid "Updated permissions of user \"{{ name }}\"."
+msgstr "S'han actualitzat els permisos de l'usuari \"{{ nom }}\"."
+
+msgid "Updated power management settings."
+msgstr "Configuració actualitzada de gestió d'energia. "
+
+msgid "Updated proxy settings."
+msgstr "Configuració del servidor intermediari actualitzada. "
+
+msgid "Updated quota."
+msgstr "Quota actualitzada. "
+
+msgid "Updated remote system-logs settings."
+msgstr "Actualitzar la configuració del sistema de registres remot."
+
+msgid "Updated scheduled task."
+msgstr "Tasca programada actualitzada. "
+
+msgid "Updated settings."
+msgstr "Configuració actualitzada."
+
+msgid "Updated shared folder."
+msgstr "Carpeta compartida actualitzada."
+
+msgid "Updated update management settings."
+msgstr "Configuració de gestió d'actualitzacions actualitzada."
+
+msgid "Updated user \"{{ name }}\"."
+msgstr "Usuari actualitzat \"{{name}}\"."
+
+msgid "Updated user profile."
+msgstr "Perfil d'usuari actualitzat."
+
+msgid "Updated wired network connection \"{{ devicename }}\"."
+msgstr "S'ha actualitzat la connexió de xarxa per cable \"{{devicename}}\"."
+
+msgid "Updated wireless network connection \"{{ devicename }}\"."
+msgstr "S'ha actualitzat la connexió de xarxa sense fils \"{{devicename}}\"."
+
+msgid "Updated workbench settings."
+msgstr "Configuració del banc de treball actualitzada. "
+
+msgid "Updates"
+msgstr "Actualitzacions"
+
+msgid "Updates Available"
+msgstr "Actualitzacions disponibles"
+
+msgid "Updates available"
+msgstr "Actualitzacions disponibles"
+
+msgid "Upgrade system"
+msgstr "Sistema actualitzat"
+
+msgid "Uptime"
+msgstr "Temps en funcionament"
+
+msgid "Uruguay"
+msgstr "Uruguai"
+
+msgid "Usage Warning Threshold"
+msgstr "Llindar d'advertència d'ús"
+
+msgid "Use NTP server"
+msgstr "Usar el servidor NTP"
+
+msgid "Use chroot"
+msgstr "Habilitar chroot."
+
+msgid "Use global settings"
+msgstr "Utilitzeu la configuració global"
+
+msgid "Use sendfile"
+msgstr "Usar Sendfile"
+
+msgid ""
+"Use the more efficient sendfile system call for files that are exclusively "
+"oplocked. This may make more efficient use of the system CPU's and cause "
+"Samba to be faster. Samba automatically turns this off for clients that use "
+"protocol levels lower than NT LM 0.12 and when it detects a client is "
+"Windows 9x."
+msgstr "Utilitzeu el sistema de trucada d'enviament de fitxers més eficient per als fitxers exclusivament bloquejats. Això pot fer un ús més eficient de la CPU del sistema i fer que Samba sigui més ràpid. Samba ho desactiva automàticament per als clients que utilitzen nivells de protocol inferiors a NT LM 0,12 i quan detecta que un client és Windows 9x."
+
+msgid "Use the specified WINS server."
+msgstr "Usar el servidor WINS especificat."
+
+msgid "Used"
+msgstr "Usat"
+
+msgid "Used capacity"
+msgstr "Capacitat"
+
+msgid "User"
+msgstr "Usuari"
+
+msgid "User Management"
+msgstr "Gestió d’usuaris"
+
+msgid "User Settings"
+msgstr "Configuració d'usuari"
+
+msgid "User home directory"
+msgstr "Directori Home d'usuari"
+
+msgid "User name"
+msgstr "Nom d'usuari"
+
+msgid "User/Group permissions"
+msgstr "Permisos d’Usuari o Grup"
+
+msgid "Users"
+msgstr "Usuaris"
+
+msgid ""
+"Users must be assigned to the <em>_ssh</em> group to be able to log in via "
+"SSH."
+msgstr "Els usuaris han d'estar assignats al <em>_ssh</em> grup per poder iniciar sessió mitjançant SSH."
+
+msgid "Utilization"
+msgstr "Ús"
+
+msgid "Uzbekistan"
+msgstr "Uzbekistan"
+
+msgid "VIRT"
+msgstr ""
+
+msgid "VLAN"
+msgstr "VLAN"
+
+msgid "VLAN id"
+msgstr "VLAN id"
+
+msgid "Valid from"
+msgstr "Vàlid des de"
+
+msgid "Valid to"
+msgstr "Vàlid fins"
+
+msgid "Value"
+msgstr "Valor"
+
+msgid "Vanuatu"
+msgstr "Vanuatu"
+
+msgid "Vatican"
+msgstr "Vaticà"
+
+msgid "Vendor"
+msgstr "Venedor"
+
+msgid "Venezuela"
+msgstr "Veneçuela"
+
+msgid "Version"
+msgstr "Versió"
+
+msgid "Versions"
+msgstr "Versions"
+
+msgid "Vietnam"
+msgstr "Vietnam"
+
+msgid "VirtIO device"
+msgstr "Dispositiu VirtIO."
+
+msgid "WINS server"
+msgstr "Servidor WINS"
+
+msgid "WOL"
+msgstr "WOL"
+
+msgid "WPA2-Personal"
+msgstr "WPA2-Personal"
+
+msgid "WPA3-Personal"
+msgstr "WPA3-Personal"
+
+msgid "WWN"
+msgstr "WWN"
+
+msgid "Wake Island"
+msgstr "Illa Wake"
+
+msgid "Wake-on-LAN"
+msgstr "WOL"
+
+msgid "Wallis and Futuna"
+msgstr "Wallis i Futuna"
+
+msgid "Warning"
+msgstr "Advertència"
+
+msgid "Wednesday"
+msgstr "Dimecres"
+
+msgid "Weekly"
+msgstr "Setmanalment"
+
+msgid "Welcome to openmediavault"
+msgstr "Benvingut a openmediavault"
+
+msgid "Western Sahara"
+msgstr "Sàhara Occidental"
+
+msgid ""
+"While the background task is still running, you can attach the Workbench "
+"terminal dialog to it in the notification bar."
+msgstr ""
+
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+msgid "Wide links"
+msgstr "Enllaços amplis"
+
+msgid "Wipe"
+msgstr "Esborrar"
+
+msgid "Wiping device"
+msgstr "Dispositiu de neteja"
+
+msgid "Workbench"
+msgstr "Banc de treball"
+
+msgid "Workgroup"
+msgstr "Workgroup"
+
+msgid "Worst"
+msgstr "Pitjor"
+
+msgid "Write only"
+msgstr "Només escriptura"
+
+msgid "Write-only"
+msgstr "Només d'escriptura"
+
+msgid "Write/Execute"
+msgstr "Escriure/Executar"
+
+msgid "Xen virtual disk device"
+msgstr "Dispositiu de disc virtual Xen"
+
+msgid "Yearly"
+msgstr "Anualment"
+
+msgid "Yemen"
+msgstr "Iemen"
+
+msgid "Yes"
+msgstr "Si"
+
+msgid ""
+"You have made changes that have not yet been saved. Do you want to discard "
+"them?"
+msgstr "Heu fet canvis que encara no s'han desat. Vols descartar-los?"
+
+msgid "You must apply these changes in order for them to take effect."
+msgstr "Heu d'aplicar aquests canvis perquè tinguin efecte."
+
+msgid "You will be logged out due to inactivity in {{ n }} seconds."
+msgstr ""
+
+msgid "Your profile"
+msgstr "El teu perfil"
+
+msgid "Zambia"
+msgstr "Zàmbia"
+
+msgid "Zimbabwe"
+msgstr "Zimbabwe"
+
+msgid "Zombie"
+msgstr ""
+
+msgid "a day"
+msgstr "un dia"
+
+msgid "a few seconds"
+msgstr "pocs segons"
+
+msgid "a minute"
+msgstr "un minut"
+
+msgid "a month"
+msgstr "un mes"
+
+msgid "a year"
+msgstr "un any"
+
+msgid "an hour"
+msgstr "una hora"
+
+msgid "in %s"
+msgstr "en %s"
+
+msgid "selected"
+msgstr "seleccionat"
+
+msgid "total"
+msgstr "total"
+
+msgid "{{ percent }}% of {{ total }}"
+msgstr ""

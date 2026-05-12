@@ -1,0 +1,106 @@
+{
+	"type": "config",
+	"id": "conf.service.smb.share",
+	"title": "SMB/CIFS share",
+	"queryinfo": {
+		"xpath": ".//services/smb/shares/share",
+		"iterable": true,
+		"idproperty": "uuid"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"sharedfolderref": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"comment": {
+			"type": "string"
+		},
+		"guest": {
+			"type": "string",
+			"enum": [ "no", "allow", "only" ],
+			"default": "no"
+		},
+		"readonly": {
+			"type": "boolean",
+			"default": false
+		},
+		"browseable": {
+			"type": "boolean",
+			"default": true
+		},
+		"recyclebin": {
+			"type": "boolean",
+			"default": false
+		},
+		"recyclemaxsize": {
+			"type": "integer",
+			"minimum": 0
+		},
+		"recyclemaxage": {
+			"type": "integer",
+			"minimum": 0
+		},
+		"hidedotfiles": {
+			"type": "boolean",
+			"default": true
+		},
+		"inheritacls": {
+			"type": "boolean",
+			"default": true
+		},
+		"inheritpermissions": {
+			"type": "boolean",
+			"default": false
+		},
+		"easupport": {
+			"type": "boolean",
+			"default": true
+		},
+		"storedosattributes": {
+			"type": "boolean",
+			"default": false
+		},
+		"hostsallow": {
+			"type": "string"
+		},
+		"hostsdeny": {
+			"type": "string"
+		},
+		"audit": {
+			"type": "boolean",
+			"default": false
+		},
+		"timemachine": {
+			"type": "boolean",
+			"default": false
+		},
+		"timemachinemaxsize": {
+			"type": "string",
+			"pattern": "^(\\d+[KMGTP]?)?$",
+			"default": ""
+		},
+		"transportencryption": {
+			"type": "boolean",
+			"default": false
+		},
+		"followsymlinks": {
+			"type": "boolean",
+			"default": true
+		},
+		"widelinks": {
+			"type": "boolean",
+			"default": false
+		},
+		"extraoptions": {
+			"type": "string"
+		}
+	}
+}

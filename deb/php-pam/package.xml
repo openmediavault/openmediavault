@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.10.13" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>pam</name>
+ <channel>pecl.php.net</channel>
+ <summary>PAM integration</summary>
+ <description>This extension provides PAM (Pluggable Authentication Modules) integration. PAM is a system of libraries that handle the authentication tasks of applications and services. The library provides a stable API for applications to defer to for authentication tasks.</description>
+ <lead>
+  <name>Amish M</name>
+  <user>anonamish</user>
+  <email>anonamish AT gmail DOT com</email>
+  <active>yes</active>
+ </lead>
+ <date>2023-09-22</date>
+ <time>15:03:18</time>
+ <version>
+  <release>2.2.5</release>
+  <api>2.2.0</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license uri="http://www.php.net/license">PHP</license>
+ <notes>
+Remove PAM_DISALLOW_NULL_AUTHTOK from pam_chauthtok()
+ </notes>
+ <contents>
+  <dir name="/">
+   <file md5sum="5adffca5ea647910bc360907d9e47cc0" name="config.m4" role="src" />
+   <file md5sum="bdb1e119a407fa3aae202537378bce3b" name="CREDITS" role="doc" />
+   <file md5sum="7e571b888d585b31f9ef5edcc647fa30" name="LICENSE" role="doc" />
+   <file md5sum="5cca8e971156b8d2bfee8df90cce674a" name="pam_arginfo.h" role="src" />
+   <file md5sum="bfbabebf4d374f53ff5d2b83ee632473" name="pam.c" role="src" />
+   <file md5sum="657c141fa1ef6147aecd6a040551188c" name="pam_legacy_arginfo.h" role="src" />
+   <file md5sum="c271a5050f9632d8efffb97274fcca89" name="pam.stub.php" role="src" />
+   <file md5sum="0bf8edd24fcc6fd6e238270842b670ea" name="php_pam.h" role="src" />
+   <file md5sum="8f9e1de50efc40a815ec5193259f811a" name="README" role="doc" />
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>7.3.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.10</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <providesextension>pam</providesextension>
+ <extsrcrelease />
+ <changelog>
+  <release>
+   <date>2023-09-22</date>
+   <time>20:00:00</time>
+   <version>
+    <release>2.2.5</release>
+    <api>2.2.5</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://www.php.net/license">PHP</license>
+   <notes>
+Remove PAM_DISALLOW_NULL_AUTHTOK from pam_chauthtok()
+   </notes>
+  </release>
+  <release>
+   <date>2022-01-19</date>
+   <time>20:04:23</time>
+   <version>
+    <release>2.2.4</release>
+    <api>2.2.4</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://www.php.net/license">PHP</license>
+   <notes>
+Update TSRMLS_CACHE in RINIT_FUNCTION and MINIT_FUNCTION
+   </notes>
+  </release>
+  <release>
+   <date>2021-06-08</date>
+   <time>14:08:27</time>
+   <version>
+    <release>2.2.3</release>
+    <api>2.2.3</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://www.php.net/license">PHP</license>
+   <notes>
+Fix minimum version of php and pear installer
+   </notes>
+  </release>
+  <release>
+   <date>2021-06-07</date>
+   <time>14:08:27</time>
+   <version>
+    <release>2.2.2</release>
+    <api>2.2.2</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://www.php.net/license">PHP</license>
+   <notes>
+Add missing globals init and other minor fixes
+   </notes>
+  </release>
+  <release>
+   <date>2021-01-30</date>
+   <time>12:39:00</time>
+   <version>
+    <release>2.2.1</release>
+    <api>2.2.1</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://www.php.net/license">PHP</license>
+   <notes>
+Allow to call pam_auth() and pam_chpass() with a different PAM service name, at runtime
+Introduce new php.ini boolean pam.force_servicename to force to always use pam.servicename
+Optimize a bit and fix rare case memory leak
+Fix status parameter passing by reference
+Remove TSRMLS_* for php 8
+Fix PHP_PAM_VERSION
+   </notes>
+  </release>
+  <release>
+   <date>2009-11-05</date>
+   <time>13:13:59</time>
+   <version>
+    <release>1.0.2</release>
+    <api>1.0.2</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://www.php.net/license">PHP</license>
+   <notes>
+Added PAM_RHOST param to facilitate RHOST auth (using $_SERVER[&apos;REMOTE_ADDR&apos;])
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.1</release>
+    <api>1.0.1</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2007-09-22</date>
+   <license uri="http://www.php.net/license">PHP</license>
+   <notes>
+Error messages specify which pam_* function failed
+Fixed build on lib64 type systems
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.0</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2006-11-13</date>
+   <license uri="http://www.php.net/license">PHP</license>
+   <notes>
+Initial PECL release
+   </notes>
+  </release>
+ </changelog>
+</package>

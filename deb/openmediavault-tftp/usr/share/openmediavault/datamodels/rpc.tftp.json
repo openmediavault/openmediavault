@@ -1,0 +1,49 @@
+[{
+	"type": "rpc",
+	"id": "rpc.tftp.set",
+	"params": {
+		"type": "object",
+		"properties": {
+			"enable": {
+				"type": "boolean",
+				"required": true
+			},
+			"port":{
+				"type": "integer",
+				"minimum": 1,
+				"maximum": 65535,
+				"required": true
+			},
+			"retransmit":{
+				"type": "integer",
+				"minimum": 0,
+				"required": true
+			},
+			"blocksize":{
+				"type": "integer",
+				"minimum": 512,
+				"maximum": 65464,
+				"required": true
+			},
+			"allownewfiles": {
+				"type": "boolean",
+				"required": true
+			},
+			"sharedfolderref": {
+				"type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "uuidv4"
+				},{
+					"type": "string",
+					"maxLength": 0
+				}],
+				"required": true
+			},
+			"extraoptions": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+}]

@@ -1,0 +1,29 @@
+<mat-card class="alert-{{ type }}"
+          [ngClass]="{'omv-m': hasMargin}">
+  <div class="omv-display-flex omv-flex-row">
+    <mat-icon *ngIf="icon"
+              class="alert-icon omv-icon-lg"
+              svgIcon="{{ icon }}"></mat-icon>
+    <div class="content-wrapper omv-flex-column omv-flex-1 omv-justify-content-center omv-align-items-start">
+      <mat-card-title *ngIf="hasTitle && title">
+        {{ title | transloco }}
+      </mat-card-title>
+      <mat-card-content>
+        <ng-content></ng-content>
+      </mat-card-content>
+    </div>
+    <mat-card-actions *ngIf="buttons.length"
+                      class="omv-display-flex omv-flex-row omv-flex-column-reverse-lt-sm omv-justify-content-end omv-align-items-start">
+      <button *ngFor="let button of buttons"
+              class="alert-action-button omv-ml-q"
+              [class]="button.class"
+              mat-icon-button
+              [attr.aria-label]="button.tooltip | transloco"
+              matTooltip="{{ button.tooltip | transloco }}"
+              tabindex="0"
+              (click)="button.click && button.click(button)">
+        <mat-icon svgIcon="{{ button.icon }}"></mat-icon>
+      </button>
+    </mat-card-actions>
+  </div>
+</mat-card>

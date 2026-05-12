@@ -1,0 +1,243 @@
+[{
+	"type": "rpc",
+	"id": "rpc.clamav.setsettings",
+	"params": {
+		"type": "object",
+		"properties": {
+			"enable": {
+				"type": "boolean",
+				"required": true
+			},
+			"checks": {
+				"type": "integer",
+				"minimum": 0,
+				"maximum": 50,
+				"required": true
+			},
+			"quarantine_sharedfolderref": {
+				"type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "uuidv4"
+				},{
+					"type": "string",
+					"maxLength": 0
+				}],
+				"required": true
+			},
+			"logclean": {
+				"type": "boolean",
+				"required": true
+			},
+			"scanpe": {
+				"type": "boolean",
+				"required": true
+			},
+			"scanole2": {
+				"type": "boolean",
+				"required": true
+			},
+			"scanhtml": {
+				"type": "boolean",
+				"required": true
+			},
+			"scanpdf": {
+				"type": "boolean",
+				"required": true
+			},
+			"scanelf": {
+				"type": "boolean",
+				"required": true
+			},
+			"scanarchive": {
+				"type": "boolean",
+				"required": true
+			},
+			"detectbrokenexecutables": {
+				"type": "boolean",
+				"required": true
+			},
+			"alertbrokenmedia": {
+				"type": "boolean",
+				"required": true
+			},
+			"algorithmicdetection": {
+				"type": "boolean",
+				"required": true
+			},
+			"followdirectorysymlinks": {
+				"type": "boolean",
+				"required": true
+			},
+			"followfilesymlinks": {
+				"type": "boolean",
+				"required": true
+			},
+			"detectpua": {
+				"type": "boolean",
+				"required": true
+			},
+			"extraoptions": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.clamav.setjob",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"enable": {
+				"type": "boolean",
+				"required": true
+			},
+			"sharedfolderref": {
+				"type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "uuidv4"
+				},{
+					"type": "string",
+					"maxLength": 0
+				}],
+				"required": true
+			},
+			"minute": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"oneOf": [{
+						"type": "string",
+						"enum": [ "*" ]
+					},{
+						"type": "string",
+						"pattern": "^[0-9]|[1-5][0-9]$"
+					}]
+				},
+				"required": true
+			},
+			"everynminute": {
+				"type": "boolean",
+				"required": true
+			},
+			"hour": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"oneOf": [{
+						"type": "string",
+						"enum": [ "*" ]
+					},{
+						"type": "string",
+						"pattern": "^[0-9]|1[0-9]|2[0-3]$"
+					}]
+				},
+				"required": true
+			},
+			"everynhour": {
+				"type": "boolean",
+				"required": true
+			},
+			"month": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"oneOf": [{
+						"type": "string",
+						"enum": [ "*" ]
+					},{
+						"type": "string",
+						"pattern": "^[1-9]|1[0-2]$"
+					}]
+				},
+				"required": true
+			},
+			"dayofmonth": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"oneOf": [{
+						"type": "string",
+						"enum": [ "*" ]
+					},{
+						"type": "string",
+						"pattern": "^[1-9]|[12][0-9]|3[01]$"
+					}]
+				},
+				"required": true
+			},
+			"everyndayofmonth": {
+				"type": "boolean",
+				"required": true
+			},
+			"dayofweek": {
+				"type": "array",
+				"items": {
+					"type": "string",
+					"oneOf": [{
+						"type": "string",
+						"enum": [ "*" ]
+					},{
+						"type": "string",
+						"pattern": "^[1-7]$"
+					}]
+				},
+				"required": true
+			},
+			"sendemail": {
+				"type": "boolean",
+				"required": true
+			},
+			"onaccess": {
+				"type": "boolean",
+				"required": true
+			},
+			"virusaction": {
+				"type": "string",
+				"enum":[ "nothing", "quarantine", "delete" ],
+				"required": true
+			},
+			"multiscan": {
+				"type": "boolean",
+				"required": true
+			},
+			"verbose": {
+				"type": "boolean",
+				"required": true
+			},
+			"comment": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.clamav.setOnAccessPath",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"enable": {
+				"type": "boolean",
+				"required": true
+			},
+			"sharedfolderref": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			}
+		}
+	}
+}]

@@ -1,0 +1,28 @@
+<div *ngIf="config.title"
+     class="omv-display-flex omv-flex-row omv-align-items-center omv-gap-4"
+     mat-dialog-title>
+  <mat-icon *ngIf="config.icon"
+            class="omv-icon-lg"
+            svgIcon="{{ config.icon }}">
+  </mat-icon>
+  <div>{{ config.title | transloco }}</div>
+</div>
+<mat-dialog-content>
+  <span [innerHTML]="config.message | transloco | sanitizeHtml"></span>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <ng-container *ngIf="showConfirmCheckbox">
+    <mat-checkbox (change)="onConfirmCheckboxChange()">
+      {{ 'Confirm' | transloco }}
+    </mat-checkbox>
+    <span class="omv-flex-1"></span>
+  </ng-container>
+  <button *ngFor="let button of config.buttons"
+          mat-flat-button
+          [ngClass]="button.class"
+          [mat-dialog-close]="button.dialogResult"
+          [disabled]="button.disabled"
+          [autofocus]="button.autofocus">
+    {{ button.text | transloco }}
+  </button>
+</mat-dialog-actions>

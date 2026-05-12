@@ -1,0 +1,114 @@
+{
+	"type": "config",
+	"id": "conf.service.rsyncd",
+	"title": "Rsync server",
+	"queryinfo": {
+		"xpath": ".//services/rsync/server",
+		"iterable": false
+	},
+	"properties": {
+		"enable": {
+			"type": "boolean",
+			"default": false
+		},
+		"port":{
+			"type": "integer",
+			"minimum": 1,
+			"maximum": 65535,
+			"default": 21
+		},
+		"extraoptions": {
+			"type": "string"
+		},
+		"modules": {
+			"type": "object",
+			"properties": {
+				"module": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"uuid": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"enable": {
+								"type": "boolean",
+								"default": false
+							},
+							"sharedfolderref": {
+								"type": "string",
+								"format": "uuidv4"
+							},
+							"uid": {
+								"type": "string"
+							},
+							"gid": {
+								"type": "string"
+							},
+							"name": {
+								"type": "string"
+							},
+							"comment": {
+								"type": "string"
+							},
+							"readonly": {
+								"type": "boolean",
+								"default": false
+							},
+							"writeonly": {
+								"type": "boolean",
+								"default": false
+							},
+							"maxconnections": {
+								"type": "integer",
+								"minimum": 0,
+								"default": 0
+							},
+							"list": {
+								"type": "boolean",
+								"default": true
+							},
+							"hostsallow": {
+								"type": "string"
+							},
+							"hostsdeny": {
+								"type": "string"
+							},
+							"extraoptions": {
+								"type": "string"
+							},
+							"authusers": {
+								"type": "boolean",
+								"default": false
+							},
+							"usechroot": {
+								"type": "boolean",
+								"default": false
+							},
+							"users": {
+								"type": "object",
+								"properties": {
+									"user": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"name": {
+													"type": "string"
+												},
+												"password": {
+													"type": "string"
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

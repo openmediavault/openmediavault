@@ -1,0 +1,308 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-clamav package.
+# 
+# Translators:
+# Kostas Moho, 2012-2014,2017,2021-2022,2025
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-05-18 22:06+0000\n"
+"Last-Translator: Kostas Moho, 2012-2014,2017,2021-2022,2025\n"
+"Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Algorithmic detection"
+msgstr "Αλγοριθμική ανίχνευση"
+
+msgid ""
+"An email message with the command output (if any produced) is sent to the "
+"administrator."
+msgstr "Το αποτέλεσμα της εντολής (εφόσον υπάρχει) αποστέλεται στον διαχειριστή με μήνυμα."
+
+msgid "Antivirus"
+msgstr "Αντιβιωτικό"
+
+msgid "April"
+msgstr "Απρίλιος"
+
+msgid "August"
+msgstr "Αύγουστος"
+
+msgid "Be verbose."
+msgstr "Αναλυτική παράθεση."
+
+msgid "Create"
+msgstr "Δημιουργία"
+
+msgid "Created on-access scan."
+msgstr "Δημιουργία σάρωσης κατά την πρόσβαση"
+
+msgid "Created scheduled scan."
+msgstr "Δημιουργία προγραμματισμένης σάρωσης."
+
+msgid "Database checks"
+msgstr "Έλεγχος βάσης δεδομένων"
+
+msgid "Date & Time"
+msgstr "Ημερομηνία & Ώρα"
+
+msgid "Day of month"
+msgstr "Ημέρα του μήνα"
+
+msgid "Day of week"
+msgstr "Ημέρα της εβδομάδας"
+
+msgid "December"
+msgstr "Δεκέμβριος"
+
+msgid "Delete immediately"
+msgstr "Άμεση διαγραφή"
+
+msgid "Detect PUA"
+msgstr "Ανίχνευση PUA"
+
+msgid "Detect broken executables"
+msgstr "Ανίχνευση χαλασμένων εκτελέσιμων"
+
+msgid "Detect broken media"
+msgstr "Ανίχνευση χαλασμένων εικόνων"
+
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+msgid "Enable HTML detection and normalisation."
+msgstr "Ανίχνευση και ρύθμιση HTML."
+
+msgid "Enable archive scanning."
+msgstr "Ανίχνευση συμπιεσμένων αρχείων ενεργή."
+
+msgid "Enable scanning of ELF files."
+msgstr "Ενεργοποίηση ελέγχου σε αρχεία ELF."
+
+msgid ""
+"Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
+"files."
+msgstr "Ενεργοποίηση ελέγχου μέσα σε αρχεία OLE2."
+
+msgid "Enable scanning within PDF files."
+msgstr "Ενεργοποίηση ελέγχου μέσα σε αρχεία PDF."
+
+msgid "Enable the algorithmic detection."
+msgstr "Ενεργοποίηση αλγοριθμικής ανίχνευσης."
+
+msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr "Ενεργοποίηση ανίχνευσης ελλατωματικών εκτελέσιμων (PE και ELF)."
+
+msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
+msgstr "Ενεργοποίηση ανίχνευσης χαλασμένων αρχείων εικόνας (JPEG, TIFF, PNG, GIF)."
+
+msgid "Enable the detection of possibly unwanted applications."
+msgstr "Ενεργοποίηση ελέγχου για πιθανές ανεπιθύμητες εφαρμογές."
+
+msgid "Enabled"
+msgstr "Ενεργό"
+
+msgid "Every N day of month"
+msgstr "Κάθε Ν ημέρα του μήνα"
+
+msgid "Every N hour"
+msgstr "Κάθε Ν ώρα"
+
+msgid "Every N minute"
+msgstr "Κάθε Ν λεπτό"
+
+msgid "Execute scheduled scan"
+msgstr "Εκτέλεση προγραμματισμένης σάρωσης."
+
+msgid "Extra options"
+msgstr "Πρόσθετες επιλογές"
+
+msgid "February"
+msgstr "Φεβρουάριος"
+
+msgid "Follow directory symlinks"
+msgstr "Ακολούθηση συμβολικών συνδέσμων σε φακέλους"
+
+msgid "Follow directory symlinks."
+msgstr "Να ακολουθούνται οι συμβολικοί σύνδεσμοι των φακέλων."
+
+msgid "Follow file symlinks"
+msgstr "Ακολούθηση συμβολικών συνδέσμων σε αρχεία"
+
+msgid "Follow regular file symlinks."
+msgstr "Να ακολουθούνται οι συμβολικοί σύνδεσμοι των αρχείων."
+
+msgid "Friday"
+msgstr "Παρασκευή"
+
+msgid "Hour"
+msgstr "Ώρα"
+
+msgid "Infected files"
+msgstr "Μολυσμένα αρχεία"
+
+msgid "January"
+msgstr "Ιανουάριος"
+
+msgid "July"
+msgstr "Ιούλιος"
+
+msgid "June"
+msgstr "Ιούνιος"
+
+msgid "Log clean files"
+msgstr "Καταγραφή καθαρών αρχείων"
+
+msgid "Log clean files. This drastically increases the log size."
+msgstr "Καταγραφή καθαρών αρχείων. Αυξάνει δραστικά το μέγεθος της καταγραφής."
+
+msgid "March"
+msgstr "Μάρτιος"
+
+msgid "May"
+msgstr "Μάιος"
+
+msgid "Message"
+msgstr "Μήνυμα"
+
+msgid "Minute"
+msgstr "Λεπτό"
+
+msgid "Monday"
+msgstr "Δευτέρα"
+
+msgid "Month"
+msgstr "Μήνας"
+
+msgid "Move to quarantine"
+msgstr "Μεταφορά στην καραντίνα"
+
+msgid "Multiscan"
+msgstr "Πολλαπλή ανίχνευση"
+
+msgid "November"
+msgstr "Νοέμβριος"
+
+msgid "Number of database update checks per day. Set to 0 to disable."
+msgstr "Αριθμός ελέγχου ενημερώσεων ημερησίως. 0 για καμία."
+
+msgid "October"
+msgstr "Οκτώβριος"
+
+msgid "On Access Scans"
+msgstr "Σάρωση κατά την πρόσβαση"
+
+msgid "Perform a deeper analysis of executable files."
+msgstr "Να γίνεται ενδελεχής ανάλυση των εκτελέσιμων αρχείων."
+
+msgid "Perform nothing"
+msgstr "Καμία δράση"
+
+msgid ""
+"Please check the <a href='https://manpages.debian.org/stable/clamav-"
+"daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
+"details."
+msgstr "Διαβάστε το <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'>εγχειρίδιο</a> για περισσότερες πληροφορίες."
+
+msgid "Quarantine"
+msgstr "Απομόνωση"
+
+msgid "Run"
+msgstr "Εκτέλεση"
+
+msgid "Saturday"
+msgstr "Σάββατο"
+
+msgid "Scan ELF"
+msgstr "Ανίχνευση σε ELF"
+
+msgid "Scan HTML"
+msgstr "Ανίχνευση σε HTML"
+
+msgid "Scan OLE2"
+msgstr "Ανίχνευση σε OLE2"
+
+msgid "Scan PDF"
+msgstr "Ανίχνευση σε PDF"
+
+msgid "Scan Portable Executable"
+msgstr "Έλεγχος Φορητού Εκτελέσιμου"
+
+msgid "Scan archives"
+msgstr "Έλεγχος συμπιεσμένων αρχείων"
+
+msgid "Scan the directory contents in parallel using available threads."
+msgstr "Ανίχνευση των περιεχομένων των φακέλων με χρήση παράλληλων διαθέσιμων νημάτων διεργασίας."
+
+msgid "Scheduled Scans"
+msgstr "Προγραμματισμένες Σαρώσεις"
+
+msgid "Scheduling"
+msgstr "Προγραμματισμός"
+
+msgid "Send email"
+msgstr "Αποστολή μηνύματος"
+
+msgid "September"
+msgstr "Σεπτέμβριος"
+
+msgid "Service disabled"
+msgstr "Ανενεργή υπηρεσία"
+
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+msgid "Shared folder"
+msgstr "Κοινόχρηστος φάκελος"
+
+msgid "Sunday"
+msgstr "Κυριακή"
+
+msgid "Tags"
+msgstr "Ετικέτες"
+
+msgid "The field should only contain * or a comma separated list of values."
+msgstr "Αυτό το πεδίο πρέπει να περιέχει μόνο * ή μια λίστα τιμών χωρισμένες με κόμμα."
+
+msgid "The location of the files to scan on-access."
+msgstr "Η τοποθεσία των αρχείων για σάρωση κατά την πρόσβαση"
+
+msgid "The location of the files to scan."
+msgstr "Η τοποθεσία των αρχείων προς έλεγχο."
+
+msgid "The location which is used as quarantine."
+msgstr "Η τοποθεσία που θα λειτουργεί ως απομόνωση."
+
+msgid "The option, how to handle infected files."
+msgstr "Πώς να χειρίζονται τα μολυσμένα αρχεία."
+
+msgid "Thursday"
+msgstr "Πέμπτη"
+
+msgid "Time of execution"
+msgstr "Χρόνος εκτέλεσης"
+
+msgid "Tuesday"
+msgstr "Τρίτη"
+
+msgid "Updated on-access scan."
+msgstr "Ενημέρωση σάρωσης κατά την πρόσβαση"
+
+msgid "Updated scheduled scan."
+msgstr "Ενημέρωση προγραμματισμένης σάρωσης."
+
+msgid "Verbose"
+msgstr "Αναλυτικότητα"
+
+msgid "Wednesday"
+msgstr "Τετάρτη"
+
+msgid "n/a"
+msgstr "n/a"

@@ -1,0 +1,189 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-usbbackup package.
+# 
+# Translators:
+# Kostas Moho, 2013-2014,2017,2019,2021,2023-2024
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2013-02-15 12:55+0000\n"
+"Last-Translator: Kostas Moho, 2013-2014,2017,2019,2021,2023-2024\n"
+"Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid ""
+"An email message with the command output (if any produced) is sent to the "
+"administrator."
+msgstr "Το αποτέλεσμα της εντολής (εφόσον υπάρχει) αποστέλεται στον διαχειριστή με μήνυμα."
+
+msgid "Archive"
+msgstr "Αρχειοθέτηση"
+
+msgid "Compress"
+msgstr "Συμπίεση"
+
+msgid "Compress file data during the transfer."
+msgstr "Συμπίεση δεδομένων κατά την μεταφορά"
+
+msgid "Create"
+msgstr "Δημιουργία"
+
+msgid "Created USB backup job."
+msgstr "Δημιουργία εργασίας."
+
+msgid "Delete"
+msgstr "Διαγραφή"
+
+msgid "Delete files on the receiving side that don't exist on sender."
+msgstr "Διαγραφή αρχείων του παραλήπτη που δεν διαθέτει ο αποστολέας."
+
+msgid "Device"
+msgstr "Συσκευή"
+
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+msgid "Enable archive mode."
+msgstr "Ενεργοποίηση αρχειοθέτησης."
+
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr "Όταν είναι ενεργό, τα ημιτελή αρχεία διατηρούνται, αλλιώς διαγράφονται εφόσον έχει διακοπεί η μεταφορά τους."
+
+msgid "Enabled"
+msgstr "Ενεργοποιημένο"
+
+msgid "External Storage Device"
+msgstr "Εξωτερική Συσκευή Αποθήκευσης"
+
+msgid "Extra options"
+msgstr "Πρόσθετες επιλογές"
+
+msgid "From external storage to shared folder"
+msgstr "Από εξωτερική αποθήκευση προς κοινόχρηστο φάκελο"
+
+msgid "From shared folder to external storage"
+msgstr "Από κοινόχρηστο φάκελο προς εξωτερική αποθήκευση"
+
+msgid "Keep partially transferred files"
+msgstr "Διατήρηση ημιτελών αρχείων"
+
+msgid "Mode"
+msgstr "Κατάσταση"
+
+msgid ""
+"Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Περισσότερες λεπτομέρειες στο <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>εγχειρίδιο</a>."
+
+msgid "Preserve ACLs"
+msgstr "Διατήρηση ACLs"
+
+msgid "Preserve extended attributes"
+msgstr "Διατήρηση εκτεταμένων ιδιοτήτων"
+
+msgid "Preserve group"
+msgstr "Διατήρηση ομάδας"
+
+msgid "Preserve modification times"
+msgstr "Διατήρηση χρόνων μεταβολής"
+
+msgid "Preserve owner"
+msgstr "Διατήρηση ιδιοκτήτη"
+
+msgid "Preserve permissions"
+msgstr "Διατήρηση δικαιωμάτων"
+
+msgid "Quiet"
+msgstr "Αθόρυβα"
+
+msgid "Recurse into directories."
+msgstr "Να περιληφθούν και οι υποφάκελοι."
+
+msgid "Recursive"
+msgstr "Αναδρομικά"
+
+msgid "Relative path"
+msgstr "Σχετική διαδρομή"
+
+msgid "Run"
+msgstr "Εκκίνηση"
+
+msgid "Run backup job"
+msgstr "Εκτέλεση εργασίας αντιγράφων ασφαλείας"
+
+msgid "Select a device ..."
+msgstr "Επιλογή συσκευής..."
+
+msgid "Send email"
+msgstr "Αποστολή μηνύματος"
+
+msgid ""
+"Set the destination permissions to be the same as the source permissions."
+msgstr "Να τεθούν τα δικαιώματα των αρχείων στον προορισμό όπως είναι στην πηγή."
+
+msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr "Να τεθεί η ομάδα των αρχείων στον προορισμό όπως είναι στην πηγή."
+
+msgid ""
+"Set the owner of the destination file to be the same as the source file, but"
+" only if the receiving rsync is being run as the super-user."
+msgstr "Να τεθεί ο ιδιοκτήτης των αρχείων στον προορισμό όπως είναι στην πηγή, αλλά μόνο όταν ο αποδέκτης λειτουργεί ως υπερ-χρήστης."
+
+msgid "Shared folder"
+msgstr "Κοινόχρηστος φάκελος"
+
+msgid "Suppress non-error messages."
+msgstr "Παράλειψη μηνυμάτων που δεν αφορούν σφάλματα."
+
+msgid "Tags"
+msgstr "Ετικέτες"
+
+msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
+msgstr "Οι επιλογές \"Αποστολή μηνύματος\" και \"Αθόρυβα\" δεν μπορούν να συνδυαστούν.."
+
+msgid ""
+"The external storage device. Please make sure that the device has only one "
+"file system."
+msgstr "Η εξωτερική συσκευή αποθήκευσης. Βεβαιωθείτε πως η συσκευή έχει ένα μόνο σύστημα αρχείων."
+
+msgid ""
+"The relative directory path on the external storage device from/to which the"
+" content of the shared folder is to be synchronized. The directory is "
+"created if it does not exist."
+msgstr "Η σχετική διαδρομή καταλόγου στην εξωτερική συσκευή από/προς την οποία θα συγχρονιστεί το περιεχόμενο του κοινόχρηστου φακέλου. Ο κατάλογος δημιουργείται αν δεν υπάρχει."
+
+msgid ""
+"The shared folder to synchronise when the external storage device is "
+"connected."
+msgstr "Ο κοινόχρηστος φάκελος για συγχρονισμό όταν συνδέεται η εξωτερική συσκευή αποθήκευσης."
+
+msgid ""
+"Transfer modification times along with the files and update them on the "
+"remote system."
+msgstr "Να μεταφερθούν οι χρόνοι μεταβολής μαζί με τα αρχεία και να ενημερωθούν στο απομακρυσμένο σύστημα."
+
+msgid "USB Backup"
+msgstr "Αντίγραφα ασφαλείας σε USB"
+
+msgid "Update the destination ACLs to be the same as the source ACLs."
+msgstr "Ενημέρωση των ACL του προορισμού όπως είναι τα ACL της πηγής."
+
+msgid ""
+"Update the destination extended attributes to be the same as the local ones."
+msgstr "Ενημέρωση των απομακρυσμένων εκτεταμένων ιδιοτήτων όπως τα τοπικά."
+
+msgid "Updated USB backup job."
+msgstr "Ενημέρωση εργασίας."
+
+msgid "n/a"
+msgstr "n/a"

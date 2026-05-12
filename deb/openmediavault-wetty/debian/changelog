@@ -1,0 +1,83 @@
+openmediavault-wetty (8.0.2-1) stable; urgency=medium
+
+  * Issue #2176: Increase mDNS/Zeroconf compatibility for MacOS.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 15 Apr 2026 19:10:12 +0200
+
+openmediavault-wetty (8.0.1-1) stable; urgency=medium
+
+  * Add the environment variable `OMV_WETTY_APP_CONTAINER_START_OPTIONS` to
+    set additional options for the WeTTY container.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 31 Jan 2026 17:00:51 +0100
+
+openmediavault-wetty (8.0-6) stable; urgency=medium
+
+  * Adapt to openmediavault 8.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 10 Aug 2025 12:50:58 +0200
+
+openmediavault-wetty (7.0.1-1) stable; urgency=medium
+
+  * Update locale files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 03 Jun 2025 19:47:19 +0200
+
+openmediavault-wetty (7.0-2) unstable; urgency=low
+
+  * Adapt to openmediavault 7 (Sandworm).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Jul 2023 17:10:14 +0200
+
+openmediavault-wetty (6.0.7-1) stable; urgency=low
+
+  * Enhance cleanup after removing the plugin.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 01 Aug 2023 17:43:26 +0200
+
+openmediavault-wetty (6.0.6-1) stable; urgency=low
+
+  * Update locale files.
+  * Update package dependency.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 26 Jul 2023 21:32:48 +0200
+
+openmediavault-wetty (6.0.5-1) stable; urgency=low
+
+  * Add the environment variable `OMV_WETTY_APP_CONTAINER_BASE` to
+    customize the `--base` parameter of WeTTY. Note, the plugin UI
+    will not take care about this and will not redirect you to the
+    correct URL anymore after the customization.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 06 Apr 2023 17:03:19 +0200
+
+openmediavault-wetty (6.0.4-1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 17 Sep 2022 10:08:03 +0200
+
+openmediavault-wetty (6.0.3-1) stable; urgency=low
+
+  * Update locale files.
+  * Download container images during first package installation.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 24 Jul 2022 23:20:22 +0200
+
+openmediavault-wetty (6.0.2-4) unstable; urgency=low
+
+  * Internal enhancements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 20 Apr 2022 22:18:54 +0200
+
+openmediavault-wetty (6.0.1-4) unstable; urgency=low
+
+  * Fix 'Connection refused' issue.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 31 Mar 2022 17:00:18 +0200
+
+openmediavault-wetty (6.0-3) unstable; urgency=low
+
+  * Initial release.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 21 Mar 2022 23:45:47 +0100

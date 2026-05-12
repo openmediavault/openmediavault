@@ -1,0 +1,11 @@
+[Unit]
+Description=Beep before system shutdown
+DefaultDependencies=no
+Before=exit.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/beep -f 3000 -l 100 -r 2 -n -f 2000 -l 150
+
+[Install]
+WantedBy=reboot.target halt.target poweroff.target

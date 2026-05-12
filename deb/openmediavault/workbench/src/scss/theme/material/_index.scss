@@ -1,0 +1,44 @@
+// This file is part of OpenMediaVault.
+//
+// @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
+// @author    Volker Theile <volker.theile@openmediavault.org>
+// @copyright Copyright (c) 2009-2026 Volker Theile
+//
+// OpenMediaVault is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// any later version.
+//
+// OpenMediaVault is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+@use 'button';
+@use 'card';
+@use 'checkbox';
+@use 'chip';
+@use 'css-variables';
+@use 'dialog';
+@use 'forms';
+@use 'icon';
+@use 'menu';
+@use 'select';
+@use 'sidenav';
+@use 'tab';
+@use 'toolbar';
+
+@mixin all-component-themes($mode, $theme-config, $typography-config) {
+  @include button.theme($mode, $theme-config, $typography-config);
+  @include card.theme($mode, $theme-config, $typography-config);
+  @include checkbox.theme($mode, $theme-config, $typography-config);
+  @include chip.theme($mode, $theme-config, $typography-config);
+  @include css-variables.theme($mode, $theme-config, $typography-config);
+  @include dialog.theme($mode, $theme-config, $typography-config);
+  @include forms.theme($mode, $theme-config, $typography-config);
+  @include icon.theme($mode, $theme-config, $typography-config);
+  @include menu.theme($mode, $theme-config, $typography-config);
+  @include select.theme($mode, $theme-config, $typography-config);
+  @include sidenav.theme($mode, $theme-config, $typography-config);
+  @include tab.theme($mode, $theme-config, $typography-config);
+  @include toolbar.theme($mode, $theme-config, $typography-config);
+}

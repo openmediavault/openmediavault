@@ -1,0 +1,158 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-lvm2 package.
+# 
+# Translators:
+# Kostas Moho, 2012-2015,2017,2019,2021,2024
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-03-17 01:49+0000\n"
+"Last-Translator: Kostas Moho, 2012-2015,2017,2019,2021,2024\n"
+"Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Active"
+msgstr "Ενεργό"
+
+msgid "Available"
+msgstr "Διαθέσιμο"
+
+msgid "Capacity"
+msgstr "Χωρητικότητα"
+
+msgid "Create"
+msgstr "Δημιουργία"
+
+msgid "Created logical volume '{{ name }}'."
+msgstr "Δημιουργία λογικού τόμου '{{ name }}'."
+
+msgid "Created physical volume {{ devicefile }}."
+msgstr "Δημιουργία φυσικού τόμου '{{ devicefile }}'."
+
+msgid "Created snapshot of logical volume '{{ devicefile }}'."
+msgstr "Δημιουργία στιγμιότυπου του λογικού τόμου '{{ devicefile }}'."
+
+msgid "Created volume group '{{ name }}'."
+msgstr "Δημιουργία ομάδας τόμων '{{ name }}'."
+
+msgid "Device"
+msgstr "Συσκευή"
+
+msgid "Devices"
+msgstr "Συσκευές"
+
+msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
+msgstr "Δημιουργία φυσικού τόμου στο  '{{ devicefile }}' ?"
+
+msgid "Do you really want to resize the selected physical volume?"
+msgstr "Προσαρμογή του επιλεγμένου φυσικού τόμου;"
+
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+msgid "Extend"
+msgstr "Επέκταση"
+
+msgid "Extended logical volume '{{ devicefile }}'."
+msgstr "Επέκταση λογικού τόμου '{{ devicefile }}'."
+
+msgid "Extended volume group '{{ devicefile }}'."
+msgstr "Επέκταση ομάδας τόμων '{{ devicefile }}'."
+
+msgid "Free"
+msgstr "Διαθέσιμο"
+
+msgid "Invalid name"
+msgstr "Άκυρο όνομα"
+
+msgid "LVM"
+msgstr "LVM"
+
+msgid "Logical Volume Management"
+msgstr "Διαχείριση Λογικών Τόμων"
+
+msgid "Logical Volumes"
+msgstr "Λογικοί Τόμοι"
+
+msgid "Name"
+msgstr "Όνομα"
+
+msgid "Physical Volumes"
+msgstr "Φυσικοί Τόμοι"
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr "Αναμείνατε για δημιουργία του στιγμιότυπου ..."
+
+msgid "Reduce"
+msgstr "Μείωση"
+
+msgid "Reduced volume group '{{ devicefile }}'."
+msgstr "Ελάττωση ομάδας τόμων '{{ devicefile }}'."
+
+msgid "Referenced"
+msgstr "Αναφερόμενα"
+
+msgid "Resize"
+msgstr "Προσαρμογή μεγέθους"
+
+msgid "Select a device ..."
+msgstr "Επιλογή συσκευής..."
+
+msgid "Select a volume group ..."
+msgstr "Επιλογή ομάδας τόμων ..."
+
+msgid "Select devices ..."
+msgstr "Επιλογή συσκευών ..."
+
+msgid "Select the devices used to extend the volume group."
+msgstr "Επιλογή συσκευών για προσθήκη ως επέκταση της ομάδας τόμων."
+
+msgid "Select the devices used to reduce from the volume group."
+msgstr "Επιλογή συσκευών για αφαίρεση ως ελάττωση της ομάδας τόμων."
+
+msgid "Size"
+msgstr "Μέγεθος"
+
+msgid "Snapshot"
+msgstr "Στιγμιότυπο"
+
+msgid "The name of the logical volume."
+msgstr "Το όνομα του λογικού τόμου."
+
+msgid "The name of the volume group."
+msgstr "Το όνομα της ομάδας τόμων."
+
+msgid ""
+"The percentage of the total space in the volume group to allocate for the "
+"new logical volume."
+msgstr "Το ποσοστό  του συνολικού χώρου της ομάδας τόμων που θα αποδοθεί στον νέο λογικό τόμο."
+
+msgid ""
+"The percentage of the total space in the volume group to use by the logical "
+"volume."
+msgstr "Το ποσοστό του συνολικού χώρου της ομάδας τόμων προς χρήση από τον λογικό τόμο."
+
+msgid "Updated logical volume '{{ devicefile }}'."
+msgstr "Ενημέρωση λογικού τόμου '{{ devicefile }}'."
+
+msgid "Updated volume group '{{ devicefile }}'."
+msgstr "Ενημέρωση ομάδας τόμων '{{ devicefile }}'."
+
+msgid "Used"
+msgstr "Χρησιμοποιημένο"
+
+msgid "Volume Group"
+msgstr "Ομάδα Τόμων"
+
+msgid "Volume Groups"
+msgstr "Ομάδες Τόμων"
+
+msgid "Volume group"
+msgstr "Ομάδα τόμων"

@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.photoprism"
+  text: _("PhotoPrism")
+  icon: "mdi:triangle-outline"
+  url: "/services/photoprism"

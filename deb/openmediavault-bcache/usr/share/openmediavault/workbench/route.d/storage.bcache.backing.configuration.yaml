@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/storage/bcache/backing/configuration/:devicefile"
+  title: "{{ 'Configuration' | translate }} @ {{ _routeParams.devicefile }}"
+  editing: true
+  notificationTitle: _("Updated backing device '{{ devicefile }}'.")
+  component: omv-storage-bcache-backing-configuration-form-page

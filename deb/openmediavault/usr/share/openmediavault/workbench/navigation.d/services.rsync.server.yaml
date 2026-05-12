@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.rsync.server"
+  position: 20
+  text: _("Server")
+  icon: "mdi:lan-connect"
+  url: "/services/rsync/server"

@@ -1,0 +1,43 @@
+@use 'scss/defaults/variables' as dv;
+@use 'scss/theme';
+
+.mat-list-base {
+  padding-top: unset;
+
+  .mat-list-option {
+    font-size: var(--mat-font-size-body-1);
+  }
+}
+
+.mat-form-field + .mat-form-field {
+  padding-left: 12px;
+}
+
+.cdk-overlay-pane {
+  .mat-toolbar.omv-selection-header {
+    .mat-form-field {
+      font-size: var(--mat-font-size-body-1);
+
+      &.mat-focused {
+        color: theme.$omv-color-primary;
+      }
+
+      .mat-form-field-infix {
+        padding-bottom: unset;
+      }
+    }
+  }
+}
+
+.omv-selection-actions {
+  font-size: var(--mat-font-size-body-1);
+  padding: dv.$omv-padding;
+
+  .mat-button-base:not(:last-child) {
+    margin-right: 0.5rem;
+  }
+}
+
+.mat-select-panel {
+  max-height: 50vh;
+}

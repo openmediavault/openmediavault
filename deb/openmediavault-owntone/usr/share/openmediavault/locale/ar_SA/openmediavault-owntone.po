@@ -1,0 +1,68 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-owntone package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# omv nas <myomv100@gmail.com>, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-owntone\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2022-03-22 21:34+0000\n"
+"Last-Translator: omv nas <myomv100@gmail.com>, 2023\n"
+"Language-Team: Arabic (Saudi Arabia) (https://app.transifex.com/openmediavault/teams/14254/ar_SA/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar_SA\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "Enabled"
+msgstr "ممكن"
+
+msgid "Library name"
+msgstr "اسم المكتبة"
+
+msgid "Open UI"
+msgstr "افتح واجهة المستخدم"
+
+msgid "OwnTone"
+msgstr "OwnTone"
+
+msgid "Password"
+msgstr "كلمة المرور"
+
+msgid "Port"
+msgstr "المنفذ"
+
+msgid "Port to listen on."
+msgstr "المنفذ المراد مراقبته"
+
+msgid "Shared folder"
+msgstr "مجلد مشترك"
+
+msgid ""
+"The location of the media files to share. Make sure the user "
+"<em>owntone</em> or group <em>users</em> can access the files."
+msgstr ""
+"موقع ملفات الوسائط المراد مشاركتها. تأكد من أن المستخدم <em> owntone </em>  "
+"أو المجموعة <em> users  </em>يمكنهم الوصول إلى الملفات."
+
+msgid "The name of the library as displayed by the clients."
+msgstr "اسم المكتبة كما يظهر لدى العميل"
+
+msgid "The password for the user <em>admin</em> to access the web interface."
+msgstr ""
+
+msgid "The password to access the library."
+msgstr "كلمة المرور للوصول إلى المكتبة."
+
+msgid "Updated OwnTone settings."
+msgstr "تم تحديث إعدادات OwnTone."
+
+msgid "Web interface"
+msgstr "واجهة ويب"

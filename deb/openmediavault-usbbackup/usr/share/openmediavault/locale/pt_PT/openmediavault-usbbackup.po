@@ -1,0 +1,189 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-usbbackup package.
+# 
+# Translators:
+# Nelson Rosado <nelsontrosado@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2013-02-15 12:55+0000\n"
+"Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>, 2014\n"
+"Language-Team: Portuguese (Portugal) (http://app.transifex.com/openmediavault/openmediavault/language/pt_PT/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_PT\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+msgid ""
+"An email message with the command output (if any produced) is sent to the "
+"administrator."
+msgstr ""
+
+msgid "Archive"
+msgstr "Arquivo"
+
+msgid "Compress"
+msgstr "Comprimir"
+
+msgid "Compress file data during the transfer."
+msgstr "Comprimir ficheiro durante transferência"
+
+msgid "Create"
+msgstr "Criar"
+
+msgid "Created USB backup job."
+msgstr ""
+
+msgid "Delete"
+msgstr "Apagar"
+
+msgid "Delete files on the receiving side that don't exist on sender."
+msgstr "Excluir arquivos no lado do receptor que não existem no remetente"
+
+msgid "Device"
+msgstr "Dispositivo"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Enable archive mode."
+msgstr "Ativar modo de arquivo"
+
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr "Active essa opção para manter os arquivos parcialmente transferidos, caso contrário, eles serão excluídos se a transferência for interrompida."
+
+msgid "Enabled"
+msgstr "Ativar"
+
+msgid "External Storage Device"
+msgstr ""
+
+msgid "Extra options"
+msgstr "Opções extra"
+
+msgid "From external storage to shared folder"
+msgstr "De dispositivo de armazenamento externo para pasta partilhada"
+
+msgid "From shared folder to external storage"
+msgstr "De uma pasta partilhada para dispositivo de armazenamento externo"
+
+msgid "Keep partially transferred files"
+msgstr "Manter arquivos parcialmente transferidos"
+
+msgid "Mode"
+msgstr "Modo"
+
+msgid ""
+"Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Verifique a <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>página do manual</a> para mais detalhes."
+
+msgid "Preserve ACLs"
+msgstr "Preservar ACLs"
+
+msgid "Preserve extended attributes"
+msgstr "Preservar atributos avançados"
+
+msgid "Preserve group"
+msgstr ""
+
+msgid "Preserve modification times"
+msgstr "Preservar o tempo das alterações"
+
+msgid "Preserve owner"
+msgstr ""
+
+msgid "Preserve permissions"
+msgstr "Preservar as permissões"
+
+msgid "Quiet"
+msgstr "Silêncio"
+
+msgid "Recurse into directories."
+msgstr "Recursivamente também nos diretórios"
+
+msgid "Recursive"
+msgstr "Recursivo"
+
+msgid "Relative path"
+msgstr ""
+
+msgid "Run"
+msgstr "Executar"
+
+msgid "Run backup job"
+msgstr ""
+
+msgid "Select a device ..."
+msgstr "Selecionar dispositivo..."
+
+msgid "Send email"
+msgstr "Enviar email"
+
+msgid ""
+"Set the destination permissions to be the same as the source permissions."
+msgstr "Definir as permissões de destino para serem as mesmas que as de origem"
+
+msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr ""
+
+msgid ""
+"Set the owner of the destination file to be the same as the source file, but"
+" only if the receiving rsync is being run as the super-user."
+msgstr ""
+
+msgid "Shared folder"
+msgstr "Pasta partilhada"
+
+msgid "Suppress non-error messages."
+msgstr "Suprimir mensagens de falsos erros"
+
+msgid "Tags"
+msgstr ""
+
+msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
+msgstr ""
+
+msgid ""
+"The external storage device. Please make sure that the device has only one "
+"file system."
+msgstr ""
+
+msgid ""
+"The relative directory path on the external storage device from/to which the"
+" content of the shared folder is to be synchronized. The directory is "
+"created if it does not exist."
+msgstr ""
+
+msgid ""
+"The shared folder to synchronise when the external storage device is "
+"connected."
+msgstr "A pasta partilhada para sincronizar quando o dispositivo de armazenamento externo está ligado."
+
+msgid ""
+"Transfer modification times along with the files and update them on the "
+"remote system."
+msgstr ""
+
+msgid "USB Backup"
+msgstr "USB Backup"
+
+msgid "Update the destination ACLs to be the same as the source ACLs."
+msgstr "Atualizar os destinos ACLs para serem os mesmo que as origens ACLs"
+
+msgid ""
+"Update the destination extended attributes to be the same as the local ones."
+msgstr "Actualizar os atributos de destino avançados para serem os mesmos que os locais."
+
+msgid "Updated USB backup job."
+msgstr ""
+
+msgid "n/a"
+msgstr "n/a"

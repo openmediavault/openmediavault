@@ -1,0 +1,12 @@
+{%- if email_config.enable | to_bool -%}
+root {{ email_config.primaryemail }}
+admin {{ email_config.primaryemail }}
+{%- for user in users %}
+{{ user.name }} {{ user.email }}
+{%- endfor %}
+{%- if dns_config['domainname'] | length > 0 %}
+@{{ [dns_config.hostname, dns_config.domainname] | join('.') }} {{ email_config.primaryemail }}
+{%- else %}
+@{{ dns_config['hostname'] }}.localdomain {{ email_config.primaryemail }}
+{%- endif -%}
+{%- endif -%}

@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.tftp"
+  text: _("TFTP")
+  icon: "mdi:server-network"
+  url: "/services/tftp"

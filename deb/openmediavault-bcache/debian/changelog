@@ -1,0 +1,17 @@
+openmediavault-bcache (8.0-4) stable; urgency=medium
+
+  * Adapt to openmediavault 8.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 10 Aug 2025 12:44:35 +0200
+
+openmediavault-bcache (7.0.1-2) stable; urgency=medium
+
+  * Update locale files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 03 Jun 2025 19:33:04 +0200
+
+openmediavault-bcache (7.0-2) stable; urgency=low
+
+  * Initial release
+
+ -- Michael Myrcik <michael.myrcik@web.de>  Mon, 18 Nov 2024 15:44:31 +0100

@@ -1,0 +1,127 @@
+#!/usr/bin/env dash
+#
+# This file is part of OpenMediaVault.
+#
+# @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2026 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+case "$1" in
+	configure)
+		########################################################################
+		# Set the default settings of the nut package to those expected
+		# by OpenMediaVault.
+		########################################################################
+		if [ -z "$2" ]; then
+			echo "Updating service units ..."
+			deb-systemd-invoke stop nut-server || :
+			deb-systemd-helper disable nut-server || :
+			deb-systemd-invoke stop nut-monitor || :
+			deb-systemd-helper disable nut-monitor || :
+		fi
+
+		########################################################################
+		# Generate configurations
+		########################################################################
+		#if [ -z "$2" ]; then
+		#fi
+
+		########################################################################
+		# Restart services
+		########################################################################
+		if [ -z "$2" ]; then
+			echo "Restarting services ..."
+			if deb-systemd-helper is-enabled collectd.service; then
+				deb-systemd-invoke restart collectd.service || :
+			fi
+		fi
+
+		########################################################################
+		# Activate trigger to rebuild workbench configuration files.
+		########################################################################
+		dpkg-trigger update-workbench
+
+		########################################################################
+		# Initialize and migrate configuration database.
+		########################################################################
+		echo "Updating configuration database ..."
+		omv-confdbadm create "conf.service.nut"
+		if [ -n "$2" ]; then
+			omv-confdbadm migrate "conf.service.nut" "${2}"
+		fi
+
+		########################################################################
+		# Append notification configuration.
+		# Note, we are not using the `omv-confdbadm create "conf.service.xxx"`
+		# mechanism here because data is added to an existing configuration.
+		########################################################################
+		if ! omv-confdbadm exists --filter "{\"operator\":\"stringEquals\",\"arg0\":\"id\",\"arg1\":\"nut\"}" \
+			  "conf.system.notification.notification"; then
+			echo "Append notification configuration ..."
+			omv-confdbadm read --defaults "conf.system.notification.notification" | \
+			  jq ".id = \"nut\"" | \
+			  omv-confdbadm update "conf.system.notification.notification" -
+		fi
+
+		########################################################################
+		# Action to be done depending on the previous version.
+		########################################################################
+		echo "Updating configuration ..."
+		if dpkg --compare-versions "$2" lt-nl "0.1.4"; then
+			udevadm trigger
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.1.6"; then
+			omv-mkconf nut
+			udevadm trigger
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.5.5"; then
+			omv-mkconf collectd
+			monit restart collectd
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.5.9"; then
+			invoke-rc.d rsyslog restart
+		fi
+		if dpkg --compare-versions "$2" lt-nl "3.0.2"; then
+			omv-mkconf nut
+			omv-mkconf monit
+			monit reload
+		fi
+		if dpkg --compare-versions "$2" lt-nl "6.0.5"; then
+			omv_module_set_dirty nut
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.0.9"; then
+			omv_module_set_dirty nut
+		fi
+		if dpkg --compare-versions "$2" lt-nl "7.0.10"; then
+			omv_module_set_dirty nut
+		fi
+	;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+
+	*)
+		echo "postinst called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac
+
+exit 0

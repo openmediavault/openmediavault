@@ -1,0 +1,81 @@
+{%- set dns_proxy = salt['pillar.get']('default:OMV_SAMBA_DNSPROXY', 'no') -%}
+{%- set log_file = salt['pillar.get']('default:OMV_SAMBA_LOGFILE', '/var/log/samba/log.%m') -%}
+{%- set max_log_size = salt['pillar.get']('default:OMV_SAMBA_MAXLOGSIZE', '1000') -%}
+{%- set logging = salt['pillar.get']('default:OMV_SAMBA_LOGGING', 'syslog') -%}
+{%- set panic_action = salt['pillar.get']('default:OMV_SAMBA_PANICACTION', '/usr/share/samba/panic-action %d') -%}
+{%- set passdb_backend = salt['pillar.get']('default:OMV_SAMBA_PASSDBBACKEND', 'tdbsam') -%}
+{%- set obey_pam_restrictions = salt['pillar.get']('default:OMV_SAMBA_OBEYPAMRESTRICTIONS', 'no') -%}
+{%- set unix_password_sync = salt['pillar.get']('default:OMV_SAMBA_UNIXPASSWORDSYNC', 'no') -%}
+{%- set passwd_program = salt['pillar.get']('default:OMV_SAMBA_PASSWDPROGRAM', '/usr/bin/passwd %u') -%}
+{%- set passwd_chat = salt['pillar.get']('default:OMV_SAMBA_PASSWDCHAT', '*Enter\snew\s*\spassword:* %n\\n *Retype\snew\s*\spassword:* %n\\n *password\supdated\ssuccessfully* .') -%}
+{%- set pam_password_change = salt['pillar.get']('default:OMV_SAMBA_PAMPASSWORDCHANGE', 'yes') -%}
+{%- set socket_options = salt['pillar.get']('default:OMV_SAMBA_SOCKETOPTIONS', 'TCP_NODELAY IPTOS_LOWDELAY') -%}
+{%- set guest_account = salt['pillar.get']('default:OMV_SAMBA_GUESTACCOUNT', 'nobody') -%}
+{%- set load_printers = salt['pillar.get']('default:OMV_SAMBA_LOADPRINTERS', 'no') -%}
+{%- set disable_spoolss = salt['pillar.get']('default:OMV_SAMBA_DISABLESPOOLSS', 'yes') -%}
+{%- set printing = salt['pillar.get']('default:OMV_SAMBA_PRINTING', 'bsd') -%}
+{%- set printcap_name = salt['pillar.get']('default:OMV_SAMBA_PRINTCAPNAME', '/dev/null') -%}
+{%- set unix_extensions = salt['pillar.get']('default:OMV_SAMBA_UNIXEXTENSIONS', 'yes') -%}
+{%- set create_mask = salt['pillar.get']('default:OMV_SAMBA_CREATEMASK', '0777') -%}
+{%- set directory_mask = salt['pillar.get']('default:OMV_SAMBA_DIRECTORYMASK', '0777') -%}
+{%- set map_to_guest = salt['pillar.get']('default:OMV_SAMBA_MAPTOGUEST', 'Bad User') -%}
+{%- set aio_read_size = salt['pillar.get']('default:OMV_SAMBA_AIOREADSIZE', '1') -%}
+{%- set aio_write_size = salt['pillar.get']('default:OMV_SAMBA_AIOWRITESIZE', '1') -%}
+{%- set fruit_aapl = salt['pillar.get']('default:OMV_SAMBA_FRUIT_AAPL', 'yes') -%}
+{%- set fruit_nfs_aces = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_NFSACES', 'no') -%}
+{%- set fruit_copyfile = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_COPYFILE', 'yes') -%}
+{%- set server_min_protocols = {'SMB1': 'NT1', 'SMB2': 'SMB2_02', 'SMB3': 'SMB3_00'} -%}
+{{ pillar['headers']['multiline'] -}}
+#======================= Global Settings =======================
+[global]
+workgroup = {{ config.workgroup }}
+server string = {{ config.serverstring }}
+dns proxy = {{ dns_proxy }}
+log level = {{ config.loglevel }}
+log file = {{ log_file }}
+max log size = {{ max_log_size }}
+logging = {{ logging }}
+panic action = {{ panic_action }}
+passdb backend = {{ passdb_backend }}
+obey pam restrictions = {{ obey_pam_restrictions }}
+unix password sync = {{ unix_password_sync }}
+passwd program = {{ passwd_program }}
+passwd chat = {{ passwd_chat }}
+pam password change = {{ pam_password_change }}
+socket options = {{ socket_options }}
+guest account = {{ guest_account }}
+load printers = {{ load_printers }}
+disable spoolss = {{ disable_spoolss }}
+printing = {{ printing }}
+printcap name = {{ printcap_name }}
+unix extensions = {{ unix_extensions }}
+{%- if config.shares.share | selectattr('widelinks') | list | length > 0 or config.homeswidelinks %}
+allow insecure wide links = yes
+{%- endif %}
+create mask = {{ create_mask }}
+directory mask = {{ directory_mask }}
+{%- if config.shares.share | rejectattr('guest', 'equalto', 'no') | list | length > 0 %}
+map to guest = {{ map_to_guest }}
+{%- endif %}
+use sendfile = {{ config.usesendfile | to_bool | yesno }}
+aio read size = {{ config.aio | to_bool | yesno(aio_read_size + ',0') }}
+aio write size = {{ config.aio | to_bool | yesno(aio_write_size + ',0') }}
+time server = {{ config.timeserver | to_bool | yesno }}
+wins support = {{ config.winssupport | to_bool | yesno }}
+{%- if config.winsserver | length > 0 %}
+wins server = {{ config.winsserver }}
+{%- endif %}
+disable netbios = {{ config.netbios | to_bool | not | yesno }}
+multicast dns register = no
+server min protocol = {{ server_min_protocols | get(config.minprotocol) }}
+{%- if config.minprotocol == 'SMB1' %}
+ntlm auth = ntlmv1-permitted
+{%- endif %}
+# Special configuration for Apple's Time Machine
+fruit:aapl = {{ fruit_aapl }}
+fruit:copyfile = {{ fruit_copyfile }}
+fruit:nfs_aces = {{ fruit_nfs_aces }}
+{%- if config.extraoptions | length > 0 %}
+# Extra options
+{{ config.extraoptions }}
+{%- endif %}

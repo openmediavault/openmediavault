@@ -1,0 +1,28 @@
+{%- set tls_log = salt['pillar.get']('default:OMV_PROFTPD_MODTLS_TLSLOG', '/var/log/proftpd/tls.log') -%}
+{%- set tls_protocol = salt['pillar.get']('default:OMV_PROFTPD_MODTLS_TLSPROTOCOL', 'TLSv1.2') -%}
+{%- set cert_dir = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_DIR', '/etc/ssl') -%}
+{%- set cert_prefix = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_PREFIX', 'openmediavault-') -%}
+{%- set tls_verify_client = salt['pillar.get']('default:OMV_PROFTPD_MODTLS_TLSVERIFYCLIENT', 'off') -%}
+{%- set tls_renegotiate = salt['pillar.get']('default:OMV_PROFTPD_MODTLS_TLSRENEGOTIATE', 'required off') -%}
+<IfModule mod_tls.c>
+  TLSEngine {{ config.enable | to_bool | yesno('on,off') }}
+  TLSLog {{ tls_log }}
+  TLSProtocol {{ tls_protocol }}
+{%- if config.nosessionreuserequired | to_bool or config.useimplicitssl | to_bool %}
+  TLSOptions
+{%- if config.nosessionreuserequired | to_bool %} NoSessionReuseRequired{% endif -%}
+{%- if config.useimplicitssl | to_bool %} UseImplicitSSL{% endif -%}
+{%- endif %}
+{%- if config.sslcertificateref | length > 0 %}
+{%- set cert_config = salt['omv_conf.get']('conf.system.certificate.ssl', config.sslcertificateref) %}
+{%- set cert_info = salt['x509.read_certificate'](cert_config.certificate) %}
+  TLS{{ cert_info['key_type'] | upper() }}CertificateFile {{ cert_dir | path_join('certs', cert_prefix ~ cert_config.uuid ~ '.crt') }}
+  TLS{{ cert_info['key_type'] | upper() }}CertificateKeyFile {{ cert_dir | path_join('private', cert_prefix ~ cert_config.uuid ~ '.key') }}
+{%- endif %}
+  TLSVerifyClient {{ tls_verify_client }}
+  TLSRenegotiate {{ tls_renegotiate }}
+  TLSRequired {{ config.required | to_bool | yesno('on,off') }}
+{%- if config.extraoptions | length > 0 %}
+{{ config.extraoptions | indent(2, True) }}
+{%- endif %}
+</IfModule>

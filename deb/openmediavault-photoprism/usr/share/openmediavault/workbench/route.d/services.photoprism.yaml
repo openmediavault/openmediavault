@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/photoprism"
+  title: _("PhotoPrism")
+  editing: true
+  notificationTitle: _("Updated PhotoPrism settings.")
+  component: omv-services-photoprism-form-page

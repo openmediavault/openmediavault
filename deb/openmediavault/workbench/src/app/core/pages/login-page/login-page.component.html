@@ -1,0 +1,57 @@
+<div class="omv-overflow-hidden omv-position-relative omv-display-flex omv-flex-fill">
+  <div class="background omv-position-absolute omv-flex-fill"
+       [ngClass]="{'omv-display-none': hideBackgroundImage}">
+  </div>
+  <omv-green-rain class="omv-position-absolute omv-flex-fill"
+                  delay="30000"
+                  primaryColor="#5dacdf"
+                  secondaryColor="#f8d400">
+  </omv-green-rain>
+  <div class="omv-position-absolute omv-w-100">
+    <mat-toolbar class="topbar omv-background-color-transparent omv-display-flex omv-justify-content-between">
+      <div></div>
+      <div class="logo"></div>
+      <button mat-icon-button
+              matTooltip="{{ 'Settings' | transloco }}"
+              [attr.aria-label]="'Settings' | transloco"
+              [matMenuTriggerFor]="settingsMenu">
+        <mat-icon svgIcon="{{ icon.settings }}"
+                  class="omv-color-white">
+        </mat-icon>
+      </button>
+    </mat-toolbar>
+  </div>
+  <div class="content omv-flex-fill">
+    <omv-intuition-form-page class="omv-h-100 omv-display-flex omv-justify-content-center omv-align-items-center"
+                             [config]="this.config">
+    </omv-intuition-form-page>
+  </div>
+</div>
+
+<mat-menu #settingsMenu="matMenu">
+  <ng-template matMenuContent>
+    <button mat-menu-item
+            [ngClass]="{'active': !hideBackgroundImage}"
+            (click)="onToggleHideBackgroundImage()">
+      <mat-icon svgIcon="mdi:image"></mat-icon>
+      <mat-slide-toggle [checked]="!hideBackgroundImage">{{ 'Background image' | transloco }}</mat-slide-toggle>
+    </button>
+    <button mat-menu-item
+            [matMenuTriggerFor]="localeMenu">
+      <mat-icon svgIcon="mdi:earth"></mat-icon>
+      <span>{{ 'Language' | transloco }}</span>
+    </button>
+  </ng-template>
+</mat-menu>
+
+<mat-menu #localeMenu="matMenu">
+  <ng-template matMenuContent>
+    <button *ngFor="let locale of locales | keyvalue"
+            mat-menu-item
+            [ngClass]="{'active': locale.key === currentLocale}"
+            [disabled]="locale.key === currentLocale"
+            (click)="onSelectLocale(locale.key)">
+      <span>{{ locale.value }}</span>
+    </button>
+  </ng-template>
+</mat-menu>

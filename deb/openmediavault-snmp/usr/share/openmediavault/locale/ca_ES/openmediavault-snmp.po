@@ -1,0 +1,98 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-snmp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Quim Farriol <qfarriol@valette.cat>, 2021
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-snmp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2017-09-24 18:47+0000\n"
+"Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2021\n"
+"Language-Team: Catalan (Spain) (https://app.transifex.com/openmediavault/teams/14254/ca_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ca_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Authentication and no privacy"
+msgstr "Autenticació i sense privadesa"
+
+msgid "Authentication and privacy"
+msgstr "Autenticació i amb privadesa"
+
+msgid "Authentication passphrase"
+msgstr "Contrasenya d'autenticació"
+
+msgid "Authentication type"
+msgstr "Tipus d'autenticació"
+
+msgid "Community"
+msgstr "Comunitat"
+
+msgid "Contact"
+msgstr "Contacte"
+
+msgid ""
+"Contact information, e.g. name or email address of the person responsible "
+"for this system."
+msgstr ""
+"Informació de contacte, p.e. nom o adreça de correu electrònic de la persona"
+" responsable d'aquest sistema."
+
+msgid "Enabled"
+msgstr "Activat"
+
+msgid "Extra options"
+msgstr "Opcions addicionals"
+
+msgid "Host"
+msgstr "Amfitrió"
+
+msgid "Location"
+msgstr "Ubicació"
+
+msgid "Location information, e.g. physical location of this system."
+msgstr "Informació d'ubicació, p.e. ubicació física d'aquest sistema."
+
+msgid "No authentication and no privacy"
+msgstr "No hi ha autenticació ni privadesa"
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Privacy passphrase"
+msgstr "Contrasenya de privacitat"
+
+msgid "Privacy type"
+msgstr "Tipus de privacitat"
+
+msgid "SNMP"
+msgstr "SNMP"
+
+msgid "SNMP version 1/2c"
+msgstr "SNMP versió 1/2c"
+
+msgid "SNMP version 3"
+msgstr "SNMP versió 3"
+
+msgid "Security level"
+msgstr "Nivell de seguretat"
+
+msgid "Traps"
+msgstr "Trampes"
+
+msgid "Updated SNMP settings."
+msgstr "Configuració SNMP actualitzada."
+
+msgid "User name"
+msgstr "Nom d'usuari"
+
+msgid "Version"
+msgstr "Versió"

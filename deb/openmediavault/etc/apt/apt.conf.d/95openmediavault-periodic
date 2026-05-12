@@ -1,0 +1,8 @@
+// See /usr/lib/apt/apt.systemd.daily
+APT::Periodic::Enable "1";
+APT::Periodic::Update-Package-Lists "1";
+APT::Periodic::Unattended-Upgrade "0";
+APT::Periodic::Download-Upgradeable-Packages "1";
+APT::Periodic::CleanInterval "7";
+APT::Periodic::AutocleanInterval "7";
+APT::Periodic::Verbose "1";

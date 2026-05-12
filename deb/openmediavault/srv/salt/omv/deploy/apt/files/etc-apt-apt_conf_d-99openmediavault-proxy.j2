@@ -1,0 +1,9 @@
+{%- if config.http.enable | to_bool and config.http.host | length > 0 %}
+Acquire::http::Proxy "{{ config.http.host | urlparse | get('scheme') | default('http', true) }}://{% if config.http.username | length > 0 %}{{ config.http.username }}:{{ config.http.password }}@{% endif %}{{ config.http.host | regex_replace('^.+://', '') }}:{{ config.http.port }}";
+{%- endif %}
+{%- if config.https.enable | to_bool and config.https.host | length > 0 %}
+Acquire::https::Proxy "{{ config.https.host | urlparse | get('scheme') | default('https', true) }}://{% if config.https.username | length > 0 %}{{ config.https.username }}:{{ config.https.password }}@{% endif %}{{ config.https.host | regex_replace('^.+://', '') }}:{{ config.https.port }}";
+{%- endif %}
+{%- if config.ftp.enable | to_bool and config.ftp.host | length > 0 %}
+Acquire::ftp::Proxy "{{ config.ftp.host | urlparse | get('scheme') | default('ftp', true) }}://{% if config.ftp.username | length > 0 %}{{ config.ftp.username }}:{{ config.ftp.password }}@{% endif %}{{ config.ftp.host | regex_replace('^.+://', '') }}:{{ config.ftp.port }}";
+{%- endif %}

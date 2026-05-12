@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "storage.bcache.backing"
+  text: _("Backing Devices")
+  icon: "mdi:harddisk"
+  url: "/storage/bcache/backing"
+  position: 20

@@ -1,0 +1,62 @@
+{
+	"type": "config",
+	"id": "conf.system.filesystem.mountpoint",
+	"title": "Mount point",
+	"queryinfo": {
+		"xpath": ".//system/fstab/mntent",
+		"iterable": true,
+		"idproperty": "uuid",
+		"refproperty": "mntentref"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"fsname": {
+			"type": "string",
+			"oneOf": [{
+				"type": "string",
+				"format": "fsuuid"
+			},{
+				"type": "string",
+				"format": "devicefile"
+			},{
+				"type": "string",
+				"format": "dirpath"
+			}]
+		},
+		"dir": {
+			"type": "string"
+		},
+		"type": {
+			"type": "string",
+			"minLength": 1
+		},
+		"opts": {
+			"type": "string"
+		},
+		"freq": {
+			"type": "integer"
+		},
+		"passno": {
+			"type": "integer",
+			"enum": [ 0, 1, 2 ],
+			"default": 0
+		},
+		"hidden": {
+			"type": "boolean",
+			"default": false
+		},
+		"usagewarnthreshold": {
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 100,
+			"default": 0
+		},
+		"comment": {
+			"type": "string",
+			"default": ""
+		}
+	}
+}

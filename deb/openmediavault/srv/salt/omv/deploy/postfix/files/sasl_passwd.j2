@@ -1,0 +1,4 @@
+{%- set relayhost_mxlookup_enable = salt['pillar.get']('default:OMV_POSTFIX_MAIN_RELAYHOST_MXLOOKUP_ENABLE', 'no') -%}
+{%- if config.authentication.enable | to_bool -%}
+{% if not relayhost_mxlookup_enable | to_bool %}[{% endif %}{{ config.server }}{% if not relayhost_mxlookup_enable | to_bool %}]{% endif %}:{{ config.port }} {{ config.authentication.username }}:{{ config.authentication.password }}
+{%- endif -%}

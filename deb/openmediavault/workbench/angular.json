@@ -1,0 +1,146 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "cli": {
+    "analytics": false
+  },
+  "projects": {
+    "openmediavault-workbench": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {
+        "@schematics/angular:component": {
+          "prefix": "omv",
+          "style": "scss"
+        },
+        "@schematics/angular:directive": {
+          "prefix": "omv"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "allowedCommonJsDependencies": [
+              "lodash",
+              "strip-ansi",
+              "chart.js",
+              "chartjs-plugin-datalabels",
+              "cronstrue",
+              "validator",
+              "bezier-easing",
+              "dayjs",
+              "@ngneat/transloco-keys-manager/marker",
+              "nunjucks",
+              "flat"
+            ],
+            "outputPath": "dist/openmediavault-workbench",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/favicon.ico",
+              "src/favicon.svg",
+              "src/favicon_180x180.png",
+              "src/assets",
+              {
+                "glob": "mdi.svg",
+                "input": "node_modules/@mdi/angular-material",
+                "output": "./assets"
+              }
+            ],
+            "styles": [
+              "node_modules/@fontsource/inter/index.css",
+              "node_modules/@fontsource/roboto-mono/index.css",
+              "node_modules/@siemens/ngx-datatable/index.scss",
+              "node_modules/@siemens/ngx-datatable/assets/icons.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "src/styles.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src"]
+            },
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "8mb",
+                  "maximumError": "8.5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "160kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "openmediavault-workbench:build",
+            "proxyConfig": "proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "openmediavault-workbench:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "openmediavault-workbench:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-builders/jest:run",
+          "options": {
+            "tsConfig": "tsconfig.spec.json",
+            "styles": ["src/styles.scss"],
+            "scripts": [],
+            "assets": [
+              "src/favicon.ico",
+              "src/favicon.svg",
+              "src/favicon_180x180.png",
+              "src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["cypress/**/*.ts", "src/**/*.ts", "src/**/*.html"]
+          }
+        }
+      }
+    }
+  }
+}

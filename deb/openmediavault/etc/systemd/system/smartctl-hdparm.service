@@ -1,0 +1,10 @@
+# This file is part of OpenMediaVault.
+[Unit]
+Description=Tune hard disk parameters
+
+[Service]
+Type=oneshot
+ExecStart=-run-parts /etc/smartmontools/hdparm.d/
+
+[Install]
+WantedBy=multi-user.target

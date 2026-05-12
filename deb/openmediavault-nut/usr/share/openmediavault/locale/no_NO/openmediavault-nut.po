@@ -1,0 +1,143 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-nut package.
+# 
+# Translators:
+# runesudden <runesudden@gmail.com>, 2013
+# runesudden <runesudden@gmail.com>, 2012
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-03-17 01:51+0000\n"
+"Last-Translator: runesudden <runesudden@gmail.com>, 2013\n"
+"Language-Team: Norwegian (http://app.transifex.com/openmediavault/openmediavault/language/no/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: no\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid ""
+"'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
+msgstr ""
+
+msgid "Charge"
+msgstr "Lade"
+
+msgid "Comment"
+msgstr "Kommentar"
+
+msgid "Date & Time"
+msgstr "Dato & Tid"
+
+msgid "Defines when the shutdown is initiated."
+msgstr "Definerer når avstengning startes."
+
+msgid "Driver configuration directives"
+msgstr "Driverkonfigurasjonsdirektiver"
+
+msgid "Enable remote monitoring of the local connected UPS."
+msgstr "Aktiver ekstern overvåkning av lokalt tilkoblet UPS."
+
+msgid "Enabled"
+msgstr "Aktivert"
+
+msgid "Identifier"
+msgstr "Identifikator"
+
+msgid "Invalid identifier"
+msgstr ""
+
+msgid "Load"
+msgstr "Last"
+
+msgid "Message"
+msgstr ""
+
+msgid "Mode"
+msgstr "Modus"
+
+msgid "Netclient"
+msgstr ""
+
+msgid "Netclient hostname"
+msgstr ""
+
+msgid "Netclient password"
+msgstr ""
+
+msgid "Netclient user name"
+msgstr ""
+
+msgid "PID"
+msgstr ""
+
+msgid "Password"
+msgstr "Passord"
+
+msgid "Powervalue"
+msgstr ""
+
+msgid "Program"
+msgstr ""
+
+msgid "Remote monitoring"
+msgstr "Ekstern overvåkning"
+
+msgid "Service disabled"
+msgstr "Tjeneste deaktivert"
+
+msgid "Shutdown mode"
+msgstr "Avstengningsmodus"
+
+msgid "Shutdown timer"
+msgstr "Avstengningstimer"
+
+msgid "Standalone"
+msgstr ""
+
+msgid "Temperature"
+msgstr "Tempereatur"
+
+msgid "The name used to uniquely identify your UPS on local or remote system."
+msgstr ""
+
+msgid ""
+"The number of power supplies that the UPS feeds on this system (usually 1), "
+"refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
+"target='_blank'>upsmon.conf(5)</a> for more information."
+msgstr ""
+
+msgid ""
+"The time in seconds until shutdown is initiated. If the UPS happens to come "
+"back before the time is up the shutdown is canceled."
+msgstr "Tiden i sekunder inntill en avstengning er iverksatt. Hvis UPS'en skulle komme opp igjen før avstengningen er iverksatt blir den avbrutt. "
+
+msgid ""
+"To get more information how to configure your UPS please check the Network "
+"UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
+"target='_blank'>documentation</a>."
+msgstr "For å få mer informasjon om hvordan du konfigurerer UPS vennligst sjekk Network UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>dokumentasjon </a>."
+
+msgid "UPS"
+msgstr "UPS"
+
+msgid "UPS goes on battery"
+msgstr "UPS går på batteri"
+
+msgid "UPS reaches low battery"
+msgstr "UPS når lavt batterinivå"
+
+msgid "Updated UPS settings."
+msgstr ""
+
+msgid "Used for remote authentication."
+msgstr "Brukt for ekstern autentisering"
+
+msgid "User name"
+msgstr ""
+
+msgid "Voltage"
+msgstr "Volt"

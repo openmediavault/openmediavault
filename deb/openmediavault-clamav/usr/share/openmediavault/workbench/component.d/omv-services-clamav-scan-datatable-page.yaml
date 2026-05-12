@@ -1,0 +1,80 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-clamav-scan-datatable-page
+  type: datatablePage
+  config:
+    autoReload: false
+    stateId: f8a8cf1c-a107-11e1-a5a0-00221568ca88
+    sorters:
+      - dir: asc
+        prop: sharedfoldername
+    store:
+      proxy:
+        service: ClamAV
+        get:
+          method: getJobList
+    rowEnumFmt: "{{ sharedfoldername }}"
+    columns:
+      - name: _("Enabled")
+        prop: enable
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: checkIcon
+      - name: _("Shared folder")
+        prop: sharedfoldername
+        flexGrow: 1
+        sortable: true
+      - name: _("Scheduling")
+        prop: ""
+        flexGrow: 1
+        cellTemplateName: template
+        cellTemplateConfig: |
+          {% set _minute = minute %}
+          {% set _hour = hour %}
+          {% set _dayofmonth = dayofmonth %}
+          {% if everynminute %}{% set _minute %}*/{{ minute }}{% endset %}{% endif %}
+          {% if everynhour %}{% set _hour %}*/{{ hour }}{% endset %}{% endif %}
+          {% if everyndayofmonth %}{% set _dayofmonth %}*/{{ dayofmonth }}{% endset %}{% endif %}
+          {{ [_minute, _hour, _dayofmonth, month, dayofweek] | join(" ") | cron2human }}
+      - name: _("Tags")
+        prop: comment
+        cellTemplateName: chip
+        cellTemplateConfig:
+          separator: ','
+        flexGrow: 1
+        sortable: true
+    actions:
+      - template: create
+        execute:
+          type: url
+          url: "/services/clamav/scans/create"
+      - template: edit
+        execute:
+          type: url
+          url: "/services/clamav/scans/edit/{{ _selected[0].uuid }}"
+      - type: iconButton
+        icon: start
+        tooltip: _("Run")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: taskDialog
+          taskDialog:
+            config:
+              title: _("Execute scheduled scan")
+              startOnInit: true
+              request:
+                service: ClamAV
+                method: executeJob
+                params:
+                  uuid: "{{ _selected[0].uuid }}"
+      - template: delete
+        execute:
+          type: request
+          request:
+            service: ClamAV
+            method: deleteJob
+            params:
+              uuid: "{{ uuid }}"

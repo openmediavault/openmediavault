@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/k8s/recipes/readme/:id"
+  title: _("README")
+  breadcrumb:
+    text: '{{ "README" | translate }} @ {{ _routeParams.id }}'
+  component: omv-services-k8s-recipes-readme-text-page

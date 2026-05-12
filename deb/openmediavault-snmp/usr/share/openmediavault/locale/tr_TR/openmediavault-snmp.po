@@ -1,0 +1,98 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-snmp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Serhat SUT <serhat.sut@gmail.com>, 2021
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-snmp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2017-09-24 18:47+0000\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>, 2021\n"
+"Language-Team: Turkish (Turkey) (https://app.transifex.com/openmediavault/teams/14254/tr_TR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: tr_TR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Authentication and no privacy"
+msgstr "Gizlilik olmadan kimlik denetimi"
+
+msgid "Authentication and privacy"
+msgstr "Gizlilik sağlanarak kimlik denetimi"
+
+msgid "Authentication passphrase"
+msgstr "Kimlik doğrulama paralosı"
+
+msgid "Authentication type"
+msgstr "Kimlik doğrulama tipi"
+
+msgid "Community"
+msgstr "Topluluk"
+
+msgid "Contact"
+msgstr "İletişim"
+
+msgid ""
+"Contact information, e.g. name or email address of the person responsible "
+"for this system."
+msgstr ""
+"İletişim bilgisi, örneğin bu sistemden sorumlu kişinin adı ya da e-posta "
+"adresi."
+
+msgid "Enabled"
+msgstr "Etkin"
+
+msgid "Extra options"
+msgstr "İlave seçenekler"
+
+msgid "Host"
+msgstr "Sistem"
+
+msgid "Location"
+msgstr "Yerleşim"
+
+msgid "Location information, e.g. physical location of this system."
+msgstr "Yerleşim bilgisi, örneğin bu sistemin fiziksel yeri."
+
+msgid "No authentication and no privacy"
+msgstr "Kimlik denetimi ve gizlilik yok"
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Privacy passphrase"
+msgstr "Gizlilik parolası"
+
+msgid "Privacy type"
+msgstr "Gizlilik tipi"
+
+msgid "SNMP"
+msgstr "SNMP"
+
+msgid "SNMP version 1/2c"
+msgstr "SNMP sürüm 1/2c"
+
+msgid "SNMP version 3"
+msgstr "SNMP sürüm 3"
+
+msgid "Security level"
+msgstr "Güvenlik seviyesi"
+
+msgid "Traps"
+msgstr "Yakalayıcılar"
+
+msgid "Updated SNMP settings."
+msgstr "Güncellenmiş SNMP ayarları."
+
+msgid "User name"
+msgstr "Kullanıcı adı"
+
+msgid "Version"
+msgstr "Sürüm"

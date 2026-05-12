@@ -1,0 +1,145 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-nut package.
+# 
+# Translators:
+# Christophe Lherieau <skimpax@gmail.com>, 2013-2014
+# Kevin Leclercq <nuklearstriker@gmail.com>, 2020
+# Pierre Girard <pierre4012@hotmail.com>, 2021
+# Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-03-17 01:51+0000\n"
+"Last-Translator: Pierre Girard <pierre4012@hotmail.com>, 2021\n"
+"Language-Team: French (France) (http://app.transifex.com/openmediavault/openmediavault/language/fr_FR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr_FR\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+msgid ""
+"'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
+msgstr "'Autonome' pour un onduleur local, 'Client Réseau' pour un onduleur distant sur un serveur NUT."
+
+msgid "Charge"
+msgstr "Charge"
+
+msgid "Comment"
+msgstr "Commentaire"
+
+msgid "Date & Time"
+msgstr "Date & Heure"
+
+msgid "Defines when the shutdown is initiated."
+msgstr "Défini quand l'arrêt du système est initié."
+
+msgid "Driver configuration directives"
+msgstr "Directives de configuration du pilote"
+
+msgid "Enable remote monitoring of the local connected UPS."
+msgstr "Surveiller à distance l'onduleur local."
+
+msgid "Enabled"
+msgstr "Activé"
+
+msgid "Identifier"
+msgstr "Identifiant"
+
+msgid "Invalid identifier"
+msgstr "Identifiant invalide"
+
+msgid "Load"
+msgstr "Charge"
+
+msgid "Message"
+msgstr "Message"
+
+msgid "Mode"
+msgstr "Mode"
+
+msgid "Netclient"
+msgstr "Client Réseau"
+
+msgid "Netclient hostname"
+msgstr "Nom d'hôte du client réseau"
+
+msgid "Netclient password"
+msgstr "Mot de passe du client réseau"
+
+msgid "Netclient user name"
+msgstr "Nom d'utilisateur Netclient"
+
+msgid "PID"
+msgstr "PID"
+
+msgid "Password"
+msgstr "Mot de passe"
+
+msgid "Powervalue"
+msgstr "Valeur de puissance"
+
+msgid "Program"
+msgstr "Programme"
+
+msgid "Remote monitoring"
+msgstr "Surveillance à distance"
+
+msgid "Service disabled"
+msgstr "Service inactif"
+
+msgid "Shutdown mode"
+msgstr "Mode d'arrêt"
+
+msgid "Shutdown timer"
+msgstr "Minuterie d'arrêt"
+
+msgid "Standalone"
+msgstr "Autonome"
+
+msgid "Temperature"
+msgstr "Température"
+
+msgid "The name used to uniquely identify your UPS on local or remote system."
+msgstr "Nom utilisé pour identifier l'onduleur de manière unique que ce soit en local ou sur un système distant."
+
+msgid ""
+"The number of power supplies that the UPS feeds on this system (usually 1), "
+"refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
+"target='_blank'>upsmon.conf(5)</a> for more information."
+msgstr "Nombre de prise alimenté par l'onduleur pour ce système (généralement 1), se référer à <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf(5)</a> pour plus d'information."
+
+msgid ""
+"The time in seconds until shutdown is initiated. If the UPS happens to come "
+"back before the time is up the shutdown is canceled."
+msgstr "Temps en secondes avant l'initialisation de l'arrêt du système. Si l'onduleur revient en ligne avant la fin de cette période, l'arrêt sera annulé."
+
+msgid ""
+"To get more information how to configure your UPS please check the Network "
+"UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
+"target='_blank'>documentation</a>."
+msgstr "Pour plus d'information sur la configuration de votre onduleur, consulter la documentation <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>Network UPS Tool</a>."
+
+msgid "UPS"
+msgstr "Onduleur"
+
+msgid "UPS goes on battery"
+msgstr "Bascule sur batterie"
+
+msgid "UPS reaches low battery"
+msgstr "Seuil de batterie faible"
+
+msgid "Updated UPS settings."
+msgstr "Paramètres UPS mis à jour."
+
+msgid "Used for remote authentication."
+msgstr "Utilisé pour l'identification à distance."
+
+msgid "User name"
+msgstr "Nom d'utilisateur"
+
+msgid "Voltage"
+msgstr "Tension"

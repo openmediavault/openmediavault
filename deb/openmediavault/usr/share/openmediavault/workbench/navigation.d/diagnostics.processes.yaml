@@ -1,0 +1,11 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "diagnostics.processes"
+  position: 30
+  text: _("Processes")
+  icon: cogs
+  url: "/diagnostics/processes"
+  permissions:
+    role:
+    - admin

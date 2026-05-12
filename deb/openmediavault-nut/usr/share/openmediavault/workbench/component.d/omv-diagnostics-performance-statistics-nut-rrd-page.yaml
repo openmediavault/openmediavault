@@ -1,0 +1,15 @@
+version: "1.0"
+type: component
+data:
+  name: omv-diagnostics-performance-statistics-nut-rrd-page
+  type: rrdPage
+  config:
+    graphs:
+      - name: "nut-charge"
+        label: _("Charge")
+      - name: "nut-load"
+        label: _("Load")
+      - name: "nut-temperature"
+        label: _("Temperature")
+      - name: "nut-voltage"
+        label: _("Voltage")

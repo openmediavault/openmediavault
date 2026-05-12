@@ -1,0 +1,100 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-snmp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Sári Gábor <sari.gabor@gmail.com>, 2017
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2017
+# Grawens <szabolcs.szanyi@gmail.com>, 2021
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-snmp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2017-09-24 18:47+0000\n"
+"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>, 2021\n"
+"Language-Team: Hungarian (Hungary) (https://app.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu_HU\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Authentication and no privacy"
+msgstr "Hitelesítés, de titkosítás nélkül"
+
+msgid "Authentication and privacy"
+msgstr "Hitelesítés és titkosítás"
+
+msgid "Authentication passphrase"
+msgstr "Hitelesítési jelszó"
+
+msgid "Authentication type"
+msgstr "Hitelesítés típusa"
+
+msgid "Community"
+msgstr "Közösség"
+
+msgid "Contact"
+msgstr "Kapcsolat"
+
+msgid ""
+"Contact information, e.g. name or email address of the person responsible "
+"for this system."
+msgstr ""
+"Kapcsolatinformáció, pl. a rendszerért felelős személy neve vagy e-mail "
+"címe."
+
+msgid "Enabled"
+msgstr "Engedélyezve"
+
+msgid "Extra options"
+msgstr "Extra beállítások"
+
+msgid "Host"
+msgstr "Gép"
+
+msgid "Location"
+msgstr "Hely"
+
+msgid "Location information, e.g. physical location of this system."
+msgstr "Helyinformáció, pl. a rendszer fizikai helye."
+
+msgid "No authentication and no privacy"
+msgstr "Nincs hitelesítés és nincs titkosítás"
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Privacy passphrase"
+msgstr "Adatvédelmi jelszó"
+
+msgid "Privacy type"
+msgstr "Adatvédelem típusa"
+
+msgid "SNMP"
+msgstr "SNMP"
+
+msgid "SNMP version 1/2c"
+msgstr "SNMP v. 1/2c"
+
+msgid "SNMP version 3"
+msgstr "SNMP v. 3"
+
+msgid "Security level"
+msgstr "Biztonsági szint"
+
+msgid "Traps"
+msgstr "Csapdák"
+
+msgid "Updated SNMP settings."
+msgstr "SNMP beállításai frissítve."
+
+msgid "User name"
+msgstr "Felhasználói név"
+
+msgid "Version"
+msgstr "Verzió"

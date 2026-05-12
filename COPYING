@@ -1,0 +1,8 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: openmediavault
+Upstream-Contact: Volker Theile <volker.theile@openmediavault.org>
+Source: https://www.openmediavault.org
+
+Files: *
+Copyright: (c) 2009-2026 Volker Theile <volker.theile@openmediavault.org>
+License: GPL-3 (see LICENSE-GPL3), unless otherwise specified

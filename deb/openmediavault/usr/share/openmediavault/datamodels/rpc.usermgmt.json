@@ -1,0 +1,289 @@
+[{
+	"type": "rpc",
+	"id": "rpc.usermgmt.authuser",
+	"params": {
+		"type": "object",
+		"properties": {
+			"username": {
+				"type": "string",
+				"required": true
+			},
+			"password": {
+				"type": "string",
+				"format": "no-multi-line",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermgmt.getuser",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermgmt.setuser",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+	            "type": "string",
+				"format": "username",
+				"required": true
+	        },
+	        "uid": {
+	            "type": "integer",
+	            "required": false
+	        },
+	        "groups": {
+	            "type": "array",
+	            "items": {
+	                "type": "string"
+	            },
+				"required": true
+	        },
+	        "shell": {
+	            "type": "string",
+	            "required": false
+	        },
+	        "password": {
+	            "type": "string",
+				"format": "no-multi-line",
+				"required": true
+	        },
+	        "email": {
+	            "type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "email"
+				},{
+					"type": "string",
+					"maxLength": 0
+				}],
+				"required": true
+	        },
+	        "comment": {
+	            "type": "string",
+	            "required": false
+	        },
+	        "disallowusermod": {
+	            "type": "boolean",
+	            "required": true
+	        },
+	        "sshpubkeys": {
+	            "type": "array",
+	            "items": {
+	                "type": "string",
+	                "oneOf": [{
+	                    "type": "string",
+	                    "format": "sshpubkey-rfc4716"
+	                },{
+	                    "type": "string",
+	                    "format": "sshpubkey-openssh"
+	                }]
+	            },
+	            "required": true
+	        }
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermgmt.setuserbycontext",
+	"params": {
+		"type": "object",
+		"properties": {
+			"password": {
+				"type": "string",
+				"format": "no-multi-line",
+				"required": false
+			},
+			"email": {
+				"type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "email"
+				},{
+					"type": "string",
+					"maxLength": 0
+				}],
+				"required": true
+			},
+			"comment": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermgmt.deleteuser",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermgmt.importuser",
+	"params": {
+		"type": "object",
+		"properties": {
+			"csv": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermgmt.getgroup",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermgmt.setgroup",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+	            "type": "string",
+				"required": true
+	        },
+	        "gid": {
+	            "type": "integer",
+				"required": false
+	        },
+	        "comment": {
+	            "type": "string",
+				"required": true
+	        },
+	        "members": {
+	            "type": "array",
+	            "items": {
+	                "type": "string"
+	            },
+				"required": true
+	        }
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermgmt.deletegroup",
+	"params": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermgmt.importgroup",
+	"params": {
+		"type": "object",
+		"properties": {
+			"csv": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermgmt.setsettings",
+	"params": {
+		"type": "object",
+		"properties": {
+			"enable": {
+				"type": "boolean",
+				"required": true
+			},
+			"sharedfolderref": {
+				"type": "string",
+				"oneOf": [{
+					"type": "string",
+					"format": "uuidv4"
+				},{
+					"type": "string",
+					"maxLength": 0
+				}],
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermgmt.setpasswordbycontext",
+	"params": {
+		"type": "object",
+		"properties": {
+			"password":{
+				"type": "string",
+				"format": "no-multi-line",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermgmt.getuserlist",
+	"params": {
+		"type": "object",
+		"properties": {
+			"start": {
+				"type": "integer",
+				"required": true
+			},
+			"limit": {
+				"type": [ "integer", "null" ],
+				"required": true
+			},
+			"sortfield": {
+				"type": [ "string", "null" ]
+			},
+			"sortdir": {
+				"type": [ "string", "null" ],
+				"enum": [ "asc", "ASC", "desc", "DESC" ]
+			},
+			"search": {
+				"type": [ "string", "integer", "null" ]
+			},
+			"detail": {
+				"type": "string",
+				"enum": [ "basic", "full" ]
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermgmt.enumerate",
+	"params": {
+		"type": "object",
+		"properties": {
+			"detail": {
+				"type": "string",
+				"enum": [ "basic", "full" ]
+			}
+		}
+	}
+}]

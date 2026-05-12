@@ -1,0 +1,88 @@
+[{
+	"type": "rpc",
+	"id": "rpc.webgui.setsettings",
+	"params": {
+		"type": "object",
+		"properties": {
+			"port":{
+				"type": "integer",
+				"minimum": 1,
+				"maximum": 65535,
+				"required": true
+			},
+			"enablessl": {
+				"type": "boolean",
+				"required": true
+			},
+			"sslport": {
+				"type": "integer",
+				"minimum": 1,
+				"maximum": 65535,
+				"required": true
+			},
+			"forcesslonly": {
+				"type": "boolean",
+				"required": true
+			},
+			"sslcertificateref": {
+				"type": "string",
+				"required": true
+			},
+			"timeout": {
+				"type": "integer",
+				"minimum": 0,
+				"maximum": 1440,
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.webgui.getlocalstorageitems",
+	"params": {
+		"type": "object",
+		"properties": {
+			"devicetype": {
+				"type": "string",
+				"enum": [ "desktop", "mobile" ],
+				"required": true
+			}
+		}
+	}
+},
+{
+	"type": "rpc",
+	"id": "rpc.webgui.setlocalstorageitem",
+	"params": {
+		"type": "object",
+		"properties": {
+			"devicetype": {
+				"type": "string",
+				"enum": [ "desktop", "mobile" ],
+				"required": true
+			},
+			"key": {
+				"type": "string",
+				"required": true
+			},
+			"value": {
+				"type": "any",
+				"required": true
+			}
+		}
+	}
+},
+{
+	"type": "rpc",
+	"id": "rpc.webgui.clearlocalstorageitems",
+	"params": {
+		"type": "object",
+		"properties": {
+			"devicetype": {
+				"type": "string",
+				"enum": [ "desktop", "mobile" ],
+				"required": true
+			}
+		}
+	}
+}]

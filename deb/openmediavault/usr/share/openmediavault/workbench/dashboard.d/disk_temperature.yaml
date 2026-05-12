@@ -1,0 +1,31 @@
+version: "1.0"
+type: dashboard-widget
+data:
+  id: 7c088bf6-fc6f-4592-9308-3d2e760e0491
+  type: grid
+  reloadPeriod: 60000
+  permissions:
+    role:
+      - admin
+  title: _("Disk Temperatures")
+  description: _("Displays the temperature of all disk devices.")
+  i18n:
+    - _("N/A")
+  grid:
+    item:
+      content: '{{ canonicaldevicefile }}<br>{{ temperature | notavailable }}{% if temperature %}°C{% endif %}'
+      class: 'omv-cursor-pointer omv-text-center omv-text-nowrap omv-background-color-muted'
+      tooltip: '{{ devicefile }}'
+      url: '/storage/smart/devices/details/{{ devicefile | encodeuricomponent }}'
+    store:
+      proxy:
+        service: Smart
+        get:
+          method: getListBg
+          params:
+            start: 0
+            limit: -1
+          task: true
+      sorters:
+        - prop: canonicaldevicefile
+          dir: asc

@@ -1,0 +1,11 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "diagnostics.system-information"
+  position: 10
+  text: _("System Information")
+  icon: information
+  url: "/diagnostics/system-information"
+  permissions:
+    role:
+    - admin

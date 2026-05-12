@@ -1,0 +1,12 @@
+[Unit]
+Description=Cleanup PHP session files
+DefaultDependencies=no
+After=local-fs.target
+Before=nginx.service php8.4-fpm.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/find /var/lib/php/sessions -type f -exec rm -rf {} \;
+
+[Install]
+WantedBy=multi-user.target

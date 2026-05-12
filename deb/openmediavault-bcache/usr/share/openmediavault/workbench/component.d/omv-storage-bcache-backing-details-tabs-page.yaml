@@ -1,0 +1,59 @@
+version: "1.0"
+type: component
+data:
+  name: omv-storage-bcache-backing-details-tabs-page
+  type: tabsPage
+  config:
+    tabs:
+      - type: text
+        label: _("Superblock")
+        config:
+          hasReloadButton: true
+          request:
+            service: Bcache
+            get:
+              method: getSuperBlock
+              params:
+                devicefile: '{{ _routeParams.devicefile }}'
+      - type: datatable
+        label: _("Statistics")
+        config:
+          autoReload: false
+          hasFooter: false
+          columns:
+            - name: _("Name")
+              prop: "name"
+              flexGrow: 1
+            - name: _("5 Minutes")
+              prop: "fiveminutes"
+              flexGrow: 1
+            - name: _("Hour")
+              prop: "hour"
+              flexGrow: 1
+            - name: _("Day")
+              prop: "day"
+              flexGrow: 1
+            - name: _("Total")
+              prop: "total"
+              flexGrow: 1
+          store:
+            proxy:
+              service: Bcache
+              get:
+                method: getBackingStatistic
+                params:
+                  devicefile: '{{ _routeParams.devicefile }}'
+          sorters:
+            - dir: asc
+              prop: name
+          actions:
+            - type: iconButton
+              icon: mdi:broom
+              tooltip: _("Clear total statistics")
+              execute:
+                type: request
+                request:
+                  service: Bcache
+                  method: clearBackingStatistic
+                  params:
+                    devicefile: '{{ _routeParams.devicefile }}'

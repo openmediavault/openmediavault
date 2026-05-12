@@ -1,0 +1,47 @@
+<omv-dashboard-widget [config]="config"
+                      [loadData]="loadData.bind(this)"
+                      (dataChangedEvent)="dataChanged($event)">
+  <div *ngIf="data"
+       class="widget-content omv-grid omv-gap-2 omv-grid-cols-2">
+    <div class="omv-grid-cell">
+      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Hostname' | transloco }}</div>
+      <div>{{ data?.hostname }}</div>
+    </div>
+    <div class="omv-grid-cell">
+      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Version' | transloco }}</div>
+      <div>{{ data?.version | notAvailable }}</div>
+    </div>
+    <div class="omv-grid-cell">
+      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Processor' | transloco }}</div>
+      <div>{{ data?.cpuModelName | notAvailable }}</div>
+    </div>
+    <div class="omv-grid-cell">
+      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Kernel' | transloco }}</div>
+      <div>{{ data?.kernel | notAvailable }}</div>
+    </div>
+    <div class="omv-grid-cell">
+      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'System time' | transloco }}</div>
+      <div>{{ data?.time }}</div>
+    </div>
+    <div class="omv-grid-cell">
+      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Uptime' | transloco }}</div>
+      <div>{{ data?.uptime | localeDate:'relative':true }}</div>
+    </div>
+    <div *ngIf="data?.availablePkgUpdates > 0"
+         class="omv-grid-cell">
+      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Updates available' | transloco }}</div>
+      <div matTooltip="{{ 'New package updates are available for installation.' | transloco }}">
+        <a routerLink="/system/updatemgmt/updates">
+          <mat-icon svgIcon="mdi:check"></mat-icon>
+        </a>
+      </div>
+    </div>
+    <div *ngIf="data?.rebootRequired"
+         class="omv-grid-cell">
+      <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'System restart required' | transloco }}</div>
+      <div matTooltip="{{ 'A reboot is needed to fully apply the changes introduced by package installation or upgrade.' | transloco }}">
+        <mat-icon svgIcon="mdi:check"></mat-icon>
+      </div>
+    </div>
+  </div>
+</omv-dashboard-widget>

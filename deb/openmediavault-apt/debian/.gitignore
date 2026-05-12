@@ -1,0 +1,8 @@
+/files
+/*.debhelper.log
+/*.postinst.debhelper
+/*.postrm.debhelper
+/*.substvars
+/*-stamp
+/openmediavault-apt/
+/.debhelper/

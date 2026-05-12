@@ -1,0 +1,132 @@
+<mat-form-field *ngIf="config.dirVisible"
+                class="omv-flex-initial omv-w-25"
+                [formGroup]="formGroup">
+  <mat-label>{{ 'Base path' | transloco | template:pageContext }}</mat-label>
+  <input *ngIf="config.dirVisible"
+         matInput
+         type="text"
+         class="omv-text-truncate"
+         [ngClass]="{'omv-text-monospace': config.monospace}"
+         disabled="true"
+         [matTooltip]="dirPath"
+         [value]="dirPath">
+</mat-form-field>
+<mat-form-field #origin="cdkOverlayOrigin"
+                #trigger
+                cdkOverlayOrigin
+                class="omv-flex-1"
+                [formGroup]="formGroup">
+  <div *ngIf="config.icon"
+       matPrefix>
+    <mat-icon [svgIcon]="config.icon"></mat-icon>&nbsp;
+  </div>
+  <mat-label>{{ config.label | transloco | template:pageContext }}</mat-label>
+  <input matInput
+         type="text"
+         [ngClass]="{'omv-text-monospace': config.monospace}"
+         [formControlName]="config.name"
+         [placeholder]="config.placeholder | transloco"
+         [readonly]="config.readonly"
+         [autocapitalize]="config.autocapitalize"
+         [autofocus]="config.autofocus"
+         [required]="config.validators?.required"
+         [minlength]="config.validators?.minLength"
+         [maxlength]="config.validators?.maxLength">
+  <mat-icon *ngIf="formGroup.controls[config.dirRefIdField].value"
+            matSuffix
+            matTooltip="{{ 'Browse directory' | transloco }}"
+            (click)="open()"
+            svgIcon="mdi:file-tree">
+  </mat-icon>
+  <mat-error *ngIf="formGroup.invalid">
+    <span *ngIf="formGroup.hasError('required', config.name)">
+      {{ 'This field is required.' | transloco }}
+    </span>
+    <span *ngIf="formGroup.hasError('minlength', config.name)"
+          transloco="The value must be at least {{ config.validators.minLength }} characters long.">
+    </span>
+    <span *ngIf="formGroup.hasError('maxlength', config.name)"
+          transloco="The value cannot exceed {{ config.validators.maxLength }} characters.">
+    </span>
+    <span *ngIf="formGroup.hasError('constraint', config.name)">
+      {{ formGroup.getError('constraint', config.name) | transloco }}
+    </span>
+    <span *ngIf="formGroup.hasError('pattern', config.name)">
+      {{ formGroup.getError('pattern', config.name) | transloco }}
+    </span>
+  </mat-error>
+  <mat-hint *ngIf="config.hint?.length > 0"
+            [innerHTML]="config.hint | transloco | template:pageContext | sanitizeHtml">
+  </mat-hint>
+</mat-form-field>
+
+<ng-template cdkConnectedOverlay
+             cdkConnectedOverlayLockPosition
+             cdkConnectedOverlayHasBackdrop
+             cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop"
+             [cdkConnectedOverlayPositions]="positions"
+             [cdkConnectedOverlayOrigin]="origin"
+             [cdkConnectedOverlayOpen]="isOpen"
+             [cdkConnectedOverlayMinWidth]="triggerRect?.width!"
+             (backdropClick)="close()"
+             (detach)="close()">
+  <div class="mat-select-panel-wrap">
+    <div class="mat-select-panel mat-primary omv-display-flex omv-flex-column">
+      <mat-toolbar class="omv-selection-header omv-display-flex omv-flex-row omv-justify-content-end">
+        <mat-form-field>
+          <button mat-icon-button
+                  matPrefix>
+            <mat-icon svgIcon="{{ icon.search }}"></mat-icon>
+          </button>
+          <input matInput
+                 type="search"
+                 [formControl]="searchFilter">
+          <button mat-icon-button
+                  matSuffix
+                  matTooltip="{{ 'Clear' | transloco }}"
+                  [attr.aria-label]="'Clear' | transloco"
+                  (click)="searchFilter.setValue('')">
+            <mat-icon svgIcon="{{ icon.clear }}"></mat-icon>
+          </button>
+        </mat-form-field>
+      </mat-toolbar>
+      <div class="omv-scrollable-y omv-flex-1">
+        <mat-selection-list [multiple]="false"
+                            (selectionChange)="onSelectionChange($event)">
+          <mat-list-option *ngIf="!folders.length"
+                           disabled>
+            <mat-icon matListIcon
+                      svgIcon="{{ icon.folder }}"></mat-icon>
+            <span class="mat-option-text">.</span>
+          </mat-list-option>
+          <mat-list-option *ngFor="let folder of filteredFolders$ | async"
+                           [value]="folder">
+            <mat-icon *ngIf="'..' === folder"
+                      matListIcon
+                      svgIcon="{{ icon.chevronUp }}"></mat-icon>
+            <mat-icon *ngIf="!['..'].includes(folder)"
+                      matListIcon
+                      svgIcon="{{ icon.folder }}"></mat-icon>
+            <span class="mat-option-text">{{ folder }}</span>
+          </mat-list-option>
+        </mat-selection-list>
+      </div>
+      <div class="omv-selection-actions omv-display-flex omv-flex-row omv-justify-content-start omv-align-items-center">
+        <mat-icon class="omv-text-muted omv-mr-q"
+                  svgIcon="mdi:folder-open">
+        </mat-icon>
+        <div class="omv-text-muted">
+          {{ currentPath }}
+        </div>
+        <div class="omv-flex-1"></div>
+        <button mat-flat-button
+                (click)="close()">
+          {{ 'Cancel' | transloco }}
+        </button>
+        <omv-submit-button (buttonClick)="choose()">
+          {{ 'Choose' | transloco }}
+        </omv-submit-button>
+      </div>
+    </div>
+  </div>
+</ng-template>

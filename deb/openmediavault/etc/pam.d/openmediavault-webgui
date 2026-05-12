@@ -1,0 +1,17 @@
+#
+# The PAM configuration file for the openmediavault WebGUI.
+#
+
+# openmediavault standard authentication.
+@include openmediavault-common-auth
+
+# Standard Un*x authentication.
+@include common-auth
+
+account     required        pam_faillock.so
+
+# Standard Un*x authorization.
+@include common-account
+
+# Standard Un*x session setup and teardown.
+@include common-session

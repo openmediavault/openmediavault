@@ -1,0 +1,3 @@
+// Ensure that the local package repository files exists.
+APT::Update::Pre-Invoke { ". /etc/default/openmediavault; if [ ! -e ${OMV_DPKGARCHIVE_DIR}/Packages ]; then echo Building local package repository ...; cd ${OMV_DPKGARCHIVE_DIR} && apt-ftparchive packages . > Packages && apt-ftparchive release . > Release; fi"; };
+DPkg::Pre-Invoke { ". /etc/default/openmediavault; if [ ! -e ${OMV_DPKGARCHIVE_DIR}/Packages ]; then echo Building local package repository ...; cd ${OMV_DPKGARCHIVE_DIR} && apt-ftparchive packages . > Packages && apt-ftparchive release . > Release; fi"; };

@@ -1,0 +1,67 @@
+{%- set use_ipv4 = salt['pillar.get']('default:OMV_AVAHIDAEMON_USE_IPV4', 'yes') -%}
+{%- set use_ipv6 = salt['pillar.get']('default:OMV_AVAHIDAEMON_USE_IPV6', 'yes') -%}
+{%- set allow_interfaces = salt['pillar.get']('default:OMV_AVAHIDAEMON_ALLOW_INTERFACES', '') -%}
+{%- set allow_point_to_point = salt['pillar.get']('default:OMV_AVAHIDAEMON_ALLOW_POINT_TO_POINT', 'no') -%}
+{%- set enable_reflector = salt['pillar.get']('default:OMV_AVAHIDAEMON_ENABLE_REFLECTOR', 'no') -%}
+{%- set rlimit_nproc = salt['pillar.get']('default:OMV_AVAHIDAEMON_RLIMIT_NPROC', '3') -%}
+{%- set publish_hinfo = salt['pillar.get']('default:OMV_AVAHIDAEMON_PUBLISH_HINFO', 'no') -%}
+{%- set publish_workstation = salt['pillar.get']('default:OMV_AVAHIDAEMON_PUBLISH_WORKSTATION', 'no') -%}
+{%- if allow_interfaces | length == 0 %}
+{%- set allow_interfaces = salt['omv_conf.get_by_filter']('conf.system.network.interface',
+  {'operator': 'and', 'arg0': {'operator': 'stringEnum', 'arg0': 'type', 'arg1': ['ethernet', 'bond', 'bridge', 'wifi']}, 'arg1': {'operator': 'or', 'arg0': {'operator': 'stringNotEquals', 'arg0': 'method', 'arg1': 'manual'}, 'arg1': {'operator': 'stringNotEquals', 'arg0': 'method6', 'arg1': 'manual'}}}) |
+  map(attribute='devicename') | join(',') -%}
+{%- endif %}
+{{ pillar['headers']['multiline'] }}
+[server]
+#host-name=foo
+#domain-name=local
+#browse-domains=0pointer.de, zeroconf.org
+use-ipv4={{ use_ipv4 }}
+use-ipv6={{ use_ipv6 }}
+{%- if allow_interfaces | length > 0 %}
+allow-interfaces={{ allow_interfaces }}
+{%- else %}
+#allow-interfaces=
+{%- endif %}
+#deny-interfaces=eth1
+#check-response-ttl=no
+#use-iff-running=no
+#enable-dbus=yes
+#disallow-other-stacks=no
+allow-point-to-point={{ allow_point_to_point }}
+#cache-entries-max=4096
+#clients-max=4096
+#objects-per-client-max=1024
+#entries-per-entry-group-max=32
+ratelimit-interval-usec=1000000
+ratelimit-burst=1000
+
+[wide-area]
+enable-wide-area=yes
+
+[publish]
+#disable-publishing=no
+#disable-user-service-publishing=no
+#add-service-cookie=no
+#publish-addresses=yes
+publish-hinfo={{ publish_hinfo }}
+publish-workstation={{ publish_workstation }}
+#publish-domain=yes
+#publish-dns-servers=192.168.50.1, 192.168.50.2
+#publish-resolv-conf-dns-servers=yes
+#publish-aaaa-on-ipv4=yes
+#publish-a-on-ipv6=no
+
+[reflector]
+enable-reflector={{ enable_reflector }}
+#reflect-ipv=no
+#reflect-filters=_airplay._tcp.local,_raop._tcp.local
+
+[rlimits]
+#rlimit-as=
+#rlimit-core=0
+#rlimit-data=8388608
+#rlimit-fsize=0
+#rlimit-nofile=768
+#rlimit-stack=8388608
+#rlimit-nproc={{ rlimit_nproc }}

@@ -1,0 +1,195 @@
+#!/usr/bin/phpunit -c/etc/openmediavault
+<?php
+/**
+ * This file is part of OpenMediaVault.
+ *
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @author    Volker Theile <volker.theile@openmediavault.org>
+ * @copyright Copyright (c) 2009-2026 Volker Theile
+ *
+ * OpenMediaVault is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * OpenMediaVault is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
+ */
+require_once("openmediavault/autoloader.inc");
+require_once("openmediavault/globals.inc");
+
+class test_openmediavault_config_configobject extends \PHPUnit\Framework\TestCase {
+	protected function setUp(): void {
+		// Tell the database implementation to use the test database.
+		\OMV\Environment::set("OMV_CONFIG_FILE", sprintf(
+			"%s/../data/config.xml", getcwd()));
+		// Setup the model manager.
+		$modelMngr = \OMV\DataModel\Manager::getInstance();
+		$modelMngr->load();
+	}
+
+	/**
+	 * @doesNotPerformAssertions
+	 */
+	public function testConstructor() {
+		$object = new \OMV\Config\ConfigObject("conf.service.ftp.share");
+	}
+
+	public function testGetDefaults() {
+		$object = new \OMV\Config\ConfigObject("conf.service.ftp.share");
+		$defaults = $object->getDefaultsAssoc();
+		$this->assertEquals($defaults, [
+			'comment' => '',
+			'enable' => FALSE,
+			'uuid' => 'fa4b1c66-ef79-11e5-87a0-0002b3a176b4',
+			'sharedfolderref' => '',
+			'extraoptions' => ''
+		]);
+	}
+
+	public function testGetSet1() {
+		$object = new \OMV\Config\ConfigObject("conf.service.ftp.share");
+		$object->set("comment", "test");
+		$this->assertEquals($object->get("comment"), "test");
+	}
+
+	public function testGetSet2() {
+		$object = new \OMV\Config\ConfigObject("conf.system.time");
+		$this->assertEquals($object->get("timezone"), "Etc/UTC");
+		$this->assertFalse($object->get("ntp.enable"));
+		$this->assertEquals($object->get("ntp.timeservers"),
+			"pool.ntp.org,pool1.ntp.org;pool2.ntp.org");
+		$this->assertEquals($object->get("ntp.clients"), "");
+	}
+
+	public function testGetSet3() {
+		$object = new \OMV\Config\ConfigObject("conf.system.sharedfolder");
+		$privileges = $object->get("privileges.privilege");
+		$this->assertIsArray($privileges);
+		$this->assertEquals($privileges, []);
+	}
+
+	public function testSetAssoc() {
+		$object = new \OMV\Config\ConfigObject("conf.service.ftp.share");
+		$object->setAssoc([
+			"comment" => "test",
+			"enable" => TRUE
+		]);
+		$this->assertTrue($object->get("enable"));
+	}
+
+	public function testIsEmpty() {
+		$object = new \OMV\Config\ConfigObject("conf.service.ftp.share");
+		$this->assertTrue($object->isEmpty("comment"));
+	}
+
+	public function testNotIsEmpty() {
+		$object = new \OMV\Config\ConfigObject("conf.service.ftp.share");
+		$object->set("comment", "test");
+		$this->assertFalse($object->isEmpty("comment"));
+	}
+
+	public function testSetBooleanStringFalse() {
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("enable", "false");
+		$this->assertIsBool($object->get("enable"));
+		$this->assertFalse($object->get("enable"));
+	}
+
+	public function testSetBooleanStringTrue() {
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("enable", "true");
+		$this->assertIsBool($object->get("enable"));
+		$this->assertTrue($object->get("enable"));
+	}
+
+	public function testSetBooleanString0() {
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("enable", "0");
+		$this->assertIsBool($object->get("enable"));
+		$this->assertFalse($object->get("enable"));
+	}
+
+	public function testSetBooleanString1() {
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("enable", "1");
+		$this->assertIsBool($object->get("enable"));
+		$this->assertTrue($object->get("enable"));
+	}
+
+	public function testSetIntegerString() {
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("port", "2222");
+		$this->assertIsInt($object->get("port"));
+		$this->assertEquals(2222, $object->get("port"));
+	}
+
+	public function testSetIntegerInt() {
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("port", 8022);
+		$this->assertIsInt($object->get("port"));
+		$this->assertEquals(8022, $object->get("port"));
+	}
+
+	public function testSetString() {
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("extraoptions", "AcceptEnv LANG");
+		$this->assertIsString($object->get("extraoptions"));
+		$this->assertEquals("AcceptEnv LANG", $object->get("extraoptions"));
+	}
+
+	public function testSetAssocCoerceMixedTypes() {
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->setAssoc([
+			"enable" => "true",
+			"port" => "2222",
+			"extraoptions" => "AcceptEnv LANG"
+		]);
+		$this->assertIsBool($object->get("enable"));
+		$this->assertTrue($object->get("enable"));
+		$this->assertIsInt($object->get("port"));
+		$this->assertEquals(2222, $object->get("port"));
+		$this->assertEquals("AcceptEnv LANG", $object->get("extraoptions"));
+	}
+
+	public function testSetIntegerBelowMinimumFails() {
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("port", 0);
+	}
+
+	public function testSetIntegerAboveMaximumFails() {
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("port", 65536);
+	}
+
+	public function testSetIntegerStringBelowMinimumFails() {
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("port", "0");
+	}
+
+	public function testSetIntegerFloatStringFails() {
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("port", "0.5");
+	}
+
+	public function testSetIntegerNullFails() {
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
+		$object = new \OMV\Config\ConfigObject("conf.service.ssh");
+		$object->set("port", NULL);
+	}
+
+	public function testSetStringInvalidEnumFails() {
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
+		$object = new \OMV\Config\ConfigObject("conf.service.smartmontools");
+		$object->set("powermode", "invalid");
+	}
+}

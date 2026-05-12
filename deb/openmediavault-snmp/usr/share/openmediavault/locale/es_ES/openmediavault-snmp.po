@@ -1,0 +1,98 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-snmp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2021
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-snmp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2017-09-24 18:47+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2021\n"
+"Language-Team: Spanish (Spain) (https://app.transifex.com/openmediavault/teams/14254/es_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+msgid "Authentication and no privacy"
+msgstr "Autentificación sin privacidad"
+
+msgid "Authentication and privacy"
+msgstr "Autentificación y privacidad"
+
+msgid "Authentication passphrase"
+msgstr "Contraseña de autentificación"
+
+msgid "Authentication type"
+msgstr "Tipo de autentificación"
+
+msgid "Community"
+msgstr "Comunidad"
+
+msgid "Contact"
+msgstr "Contacto"
+
+msgid ""
+"Contact information, e.g. name or email address of the person responsible "
+"for this system."
+msgstr ""
+"Información de contacto, Ej: Nombre y dirección de e-mail de la persona "
+"responsable del sistema."
+
+msgid "Enabled"
+msgstr "Habilitado"
+
+msgid "Extra options"
+msgstr "Opciones Extra"
+
+msgid "Host"
+msgstr "Host"
+
+msgid "Location"
+msgstr "Ubicación"
+
+msgid "Location information, e.g. physical location of this system."
+msgstr "Información de la ubicación, p.ej: casa, despacho"
+
+msgid "No authentication and no privacy"
+msgstr "Sin autenticación y sin privacidad"
+
+msgid "Port"
+msgstr "Puerto"
+
+msgid "Privacy passphrase"
+msgstr "Contraseña de privacidad"
+
+msgid "Privacy type"
+msgstr "Tipo de privacidad"
+
+msgid "SNMP"
+msgstr "SNMP"
+
+msgid "SNMP version 1/2c"
+msgstr "SNMP versión 1/2c"
+
+msgid "SNMP version 3"
+msgstr "SNMP versión 3"
+
+msgid "Security level"
+msgstr "Nivel de seguridad"
+
+msgid "Traps"
+msgstr "Excepción"
+
+msgid "Updated SNMP settings."
+msgstr "Actualizar opciones SNMP."
+
+msgid "User name"
+msgstr "Usuario"
+
+msgid "Version"
+msgstr "Versión"

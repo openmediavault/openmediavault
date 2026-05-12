@@ -1,0 +1,184 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-onedrive package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2022
+# Sári Gábor <sari.gabor@gmail.com>, 2022
+# Ádám Balajti <balajtiadam@gmail.com>, 2022
+# Grawens <szabolcs.szanyi@gmail.com>, 2022
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2025
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-onedrive\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2022-04-13 15:28+0000\n"
+"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2025\n"
+"Language-Team: Hungarian (Hungary) (https://app.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu_HU\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "1 MiB/s"
+msgstr "1 MiB/s"
+
+msgid "10 MiB/s"
+msgstr "10 MiB/s"
+
+msgid "10 minutes"
+msgstr "10 perc"
+
+msgid "100 MiB/s"
+msgstr "100 MiB/s"
+
+msgid "12 hours"
+msgstr "12 óra"
+
+msgid "128 KiB/s"
+msgstr "128 KiB/s"
+
+msgid "15 minutes"
+msgstr "15 perc"
+
+msgid "24 hours"
+msgstr "24 óra"
+
+msgid "256 KiB/s"
+msgstr "256 KiB/s"
+
+msgid "30 minutes"
+msgstr "30 perc"
+
+msgid "5 minutes"
+msgstr "5 perc"
+
+msgid "512 KiB/s"
+msgstr "512 KiB/s"
+
+msgid "6 hours"
+msgstr "6 óra"
+
+msgid "60 minutes"
+msgstr "60 perc"
+
+msgid ""
+"<ul><li>Full - Replicate changes from and to OneDrive.</li><li>Download only"
+" - Replicate the OneDrive online state locally, by only downloading changes "
+"from OneDrive. Do not upload local changes to OneDrive.</li><li>Upload only "
+"- Replicate the local state to OneDrive, by only uploading local changes to "
+"OneDrive. Do not download changes from OneDrive.</li></ul>"
+msgstr ""
+"<ul><li>Teljes - A változtatások replikálása a OneDrive-ról és a OneDrive-"
+"ra.</li><li>Csak letöltés - Replikálja a OneDrive online állapotát helyileg,"
+" és csak a OneDrive-ról töltse le a módosításokat. Ne töltsön fel helyi "
+"módosításokat a OneDrive-ra.</li><li>Csak feltöltés - Replikálja a helyi "
+"állapotot a OneDrive-ra úgy, hogy csak a helyi módosításokat töltse fel. Ne "
+"töltse le a módosításokat a OneDrive-ról.</li></ul>"
+
+msgid ""
+"After enabling and deploying this service the first time please run the "
+"command <em>omv-onedrive-auth</em> as <em>root</em> user in the CLI to "
+"authenticate the application in Microsoft OneDrive."
+msgstr ""
+"A szolgáltatás első alkalommal történő engedélyezése és üzembe helyezése "
+"után futtassa az <em>omv-onedrive-auth</em> parancsot <em>root</em> "
+"felhasználóként a CLI-ben az alkalmazás hitelesítéséhez a Microsoft "
+"OneDrive-ban."
+
+msgid "Clean up local files"
+msgstr "Helyi fájlok megtisztítása"
+
+msgid "Clean up local files that have been removed online."
+msgstr "Az online eltávolított fájlok helyi tisztítása."
+
+msgid "Date & Time"
+msgstr "Dátum és idő"
+
+msgid "Disabled"
+msgstr "Letiltva"
+
+msgid "Do not delete local file deletions from OneDrive."
+msgstr "Ne törölje a helyileg törölt fájlokat a OneDrive-ról."
+
+msgid "Download only"
+msgstr "Csak letöltés"
+
+msgid "Enabled"
+msgstr "Engedélyezve"
+
+msgid "Extra options"
+msgstr "További beállítások"
+
+msgid "Full"
+msgstr "Teljes"
+
+msgid "Local first"
+msgstr "Először a helyi"
+
+msgid "Message"
+msgstr "Üzenet"
+
+msgid "Monitor interval"
+msgstr "Monitor intervallum"
+
+msgid "No remote delete"
+msgstr "Nincs távoli törlés"
+
+msgid "OneDrive"
+msgstr "OneDrive"
+
+msgid "Rate limit"
+msgstr "Sebességkorlát"
+
+msgid "Replicate local state first, before downloading changes from OneDrive."
+msgstr ""
+"Először replikálja a helyi állapotot, mielőtt letölti a változtatásokat a "
+"OneDrive-ról."
+
+msgid "Replication mode"
+msgstr "Replikációs mód"
+
+msgid "Shared folder"
+msgstr "Megosztott mappa"
+
+msgid "Skip dot files and folders from syncing."
+msgstr "A ponttal kezdődő fájlok és mappák kihagyása a szinkronizálásból."
+
+msgid "Skip dotfiles"
+msgstr "Ponttal kezdődő fájlok kihagyása"
+
+msgid "The location to which the files are synchronised."
+msgstr "A hely, ahová a fájlok szinkronizálása történik."
+
+msgid "The synchronised files and directories are owned by this user."
+msgstr ""
+"A szinkronizált fájlok és könyvtárak ennek a felhasználónak a tulajdonában "
+"vannak."
+
+msgid "The wait time between each sync operation."
+msgstr "Az egyes szinkronizálási műveletek közötti várakozási idő."
+
+msgid "Updated OneDrive settings."
+msgstr "OneDrive beállítások frissítve."
+
+msgid "Upload only"
+msgstr "Csak feltöltés"
+
+msgid "Upload/Download rate limit."
+msgstr "Feltöltési/letöltési sebességkorlát."
+
+msgid ""
+"Use the <em>omv-onedrive</em> command in the CLI to perform additional "
+"actions according to the documentation of the OneDrive Linux client."
+msgstr ""
+"Az <em>omv-onedrive</em> paranccsal CLI-ben további műveleteket végezhet a "
+"OneDrive Linux kliens dokumentációjának megfelelően."
+
+msgid "User"
+msgstr "Felhasználó"

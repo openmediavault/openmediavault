@@ -1,0 +1,159 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-lvm2 package.
+# 
+# Translators:
+# omv nas <myomv100@gmail.com>, 2020,2023
+# omv nas <myomv100@gmail.com>, 2023
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-03-17 01:49+0000\n"
+"Last-Translator: omv nas <myomv100@gmail.com>, 2023\n"
+"Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar_SA\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "Active"
+msgstr "نشط"
+
+msgid "Available"
+msgstr "متاح"
+
+msgid "Capacity"
+msgstr "السعة"
+
+msgid "Create"
+msgstr "إنشاء"
+
+msgid "Created logical volume '{{ name }}'."
+msgstr "تم إنشاء وحدة تخزين منطقية '{{ name }}'."
+
+msgid "Created physical volume {{ devicefile }}."
+msgstr "تم إنشاء وحدة تخزين حقيقية {{ devicefile }}."
+
+msgid "Created snapshot of logical volume '{{ devicefile }}'."
+msgstr "تم إنشاء نسخة Snapshot لوحدة تخزين منطقية '{{ devicefile }}'."
+
+msgid "Created volume group '{{ name }}'."
+msgstr "تم إنشاء مجموعة وحدات التخزين \"{{ name }}\"."
+
+msgid "Device"
+msgstr "الجهاز"
+
+msgid "Devices"
+msgstr "الأجهزة"
+
+msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
+msgstr "هل تريد بالفعل إنشاء مجلد حقيقي على \"{{ devicefile }}\"؟"
+
+msgid "Do you really want to resize the selected physical volume?"
+msgstr "هل تريد فعلا تغيير حجم وحدة التخزين الفعلية المحددة؟"
+
+msgid "Edit"
+msgstr "تحرير"
+
+msgid "Extend"
+msgstr "توسيع"
+
+msgid "Extended logical volume '{{ devicefile }}'."
+msgstr "تم توسيع وحدة تخزين حقيقية {{ devicefile }}."
+
+msgid "Extended volume group '{{ devicefile }}'."
+msgstr "مجموعة وحدات التخزين الموسعة '{{ devicefile }}'."
+
+msgid "Free"
+msgstr "إفراغ"
+
+msgid "Invalid name"
+msgstr "اسم غير صالح"
+
+msgid "LVM"
+msgstr ""
+
+msgid "Logical Volume Management"
+msgstr "إدارة وحدات التخزين المنطقية"
+
+msgid "Logical Volumes"
+msgstr "وحدات تخزين منطقية"
+
+msgid "Name"
+msgstr "الاسم"
+
+msgid "Physical Volumes"
+msgstr "وحدات تخزين حقيقية"
+
+msgid "Please wait, a snapshot will be created ..."
+msgstr ""
+
+msgid "Reduce"
+msgstr "تقليص"
+
+msgid "Reduced volume group '{{ devicefile }}'."
+msgstr "مجموعة وحدات التخزين التي تم تقليصها '{{ devicefile }}'."
+
+msgid "Referenced"
+msgstr "مشار إليه"
+
+msgid "Resize"
+msgstr "تغيير الحجم"
+
+msgid "Select a device ..."
+msgstr "تحديد جهاز ..."
+
+msgid "Select a volume group ..."
+msgstr "اختر مجموعة وحدة تخزين"
+
+msgid "Select devices ..."
+msgstr "تحديد أجهزة ..."
+
+msgid "Select the devices used to extend the volume group."
+msgstr "حدد الأجهزة المستخدمة لتوسيع مجموعة وحدات التخزين."
+
+msgid "Select the devices used to reduce from the volume group."
+msgstr "حدد الأجهزة المستخدمة لتقليلها من مجموعة وحدات التخزين."
+
+msgid "Size"
+msgstr "الحجم"
+
+msgid "Snapshot"
+msgstr "صوره لحظية Snapshot"
+
+msgid "The name of the logical volume."
+msgstr "اسم وحدة التخزين المنطقية٠"
+
+msgid "The name of the volume group."
+msgstr "اسم مجموعة وحدات التخزين المنطقية٠"
+
+msgid ""
+"The percentage of the total space in the volume group to allocate for the "
+"new logical volume."
+msgstr "النسبة المئوية لإجمالي المساحة في مجموعة وحدة التخزين المراد تخصيصها لوحدة التخزين المنطقية الجديدة٠"
+
+msgid ""
+"The percentage of the total space in the volume group to use by the logical "
+"volume."
+msgstr "النسبة المئوية لإجمالي المساحة في مجموعة وحدات التخزين المراد استخدامها بواسطة وحدات التخزين المنطقية٠"
+
+msgid "Updated logical volume '{{ devicefile }}'."
+msgstr "تم تحديث وحدة تخزين منطقية '{{ name }}'."
+
+msgid "Updated volume group '{{ devicefile }}'."
+msgstr "تم تحديث وحدة تخزين حقيقية {{ devicefile }}."
+
+msgid "Used"
+msgstr "مستعمل"
+
+msgid "Volume Group"
+msgstr "مجموعة وحدات التخزين"
+
+msgid "Volume Groups"
+msgstr "مجموعات وحدات تخزين"
+
+msgid "Volume group"
+msgstr " مجموعة وحدة تخزين  "

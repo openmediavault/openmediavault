@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/owntone"
+  title: _("OwnTone")
+  editing: true
+  notificationTitle: _("Updated OwnTone settings.")
+  component: omv-services-owntone-form-page

@@ -1,0 +1,190 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-usbbackup package.
+# 
+# Translators:
+# Miha Bezjak <miha@bezjak.info>, 2017
+# Valentin Korenjak <valentin@korenjak.si>, 2025
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2013-02-15 12:55+0000\n"
+"Last-Translator: Valentin Korenjak <valentin@korenjak.si>, 2025\n"
+"Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sl_SI\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+msgid ""
+"An email message with the command output (if any produced) is sent to the "
+"administrator."
+msgstr ""
+
+msgid "Archive"
+msgstr "Arhiviraj"
+
+msgid "Compress"
+msgstr "Stisni"
+
+msgid "Compress file data during the transfer."
+msgstr "Stisni podatke med prenosom."
+
+msgid "Create"
+msgstr "Ustvari"
+
+msgid "Created USB backup job."
+msgstr "Ustvarjeno opravilo varnostnega kopiranja USB."
+
+msgid "Delete"
+msgstr "Izbriši"
+
+msgid "Delete files on the receiving side that don't exist on sender."
+msgstr "Izbriši datoteke, ki obstajajo na strani naslovnika in ne obstajajo na strani pošiljatelja"
+
+msgid "Device"
+msgstr "Naprava"
+
+msgid "Edit"
+msgstr "Uredi"
+
+msgid "Enable archive mode."
+msgstr "Omogoči način arhiviranja."
+
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr "Omogočite to možnost, da shranite delno prenesene datoteke, sicer bodo v primeru prekinjenega prenosa izbrisane."
+
+msgid "Enabled"
+msgstr "Omogočeno"
+
+msgid "External Storage Device"
+msgstr "Zunanja naprava za shranjevanje"
+
+msgid "Extra options"
+msgstr "Dodatne nastavitve"
+
+msgid "From external storage to shared folder"
+msgstr "Iz zunanje naprave v deljeno mapo"
+
+msgid "From shared folder to external storage"
+msgstr "Iz deljene mape v zunanjo napravo"
+
+msgid "Keep partially transferred files"
+msgstr "Obdrži delno prenesene datoteke"
+
+msgid "Mode"
+msgstr "Način"
+
+msgid ""
+"Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Prosimo oglejte si <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>stran v priročniku</a> za več informacij."
+
+msgid "Preserve ACLs"
+msgstr "Ohrani ACL-je"
+
+msgid "Preserve extended attributes"
+msgstr "Ohrani razširjene atribute"
+
+msgid "Preserve group"
+msgstr "Ohrani skupino"
+
+msgid "Preserve modification times"
+msgstr "Ohrani čas spreminjanja"
+
+msgid "Preserve owner"
+msgstr "Ohrani lastnika"
+
+msgid "Preserve permissions"
+msgstr "Ohrani pravice"
+
+msgid "Quiet"
+msgstr "Tiho"
+
+msgid "Recurse into directories."
+msgstr "Rekurzivno v mape"
+
+msgid "Recursive"
+msgstr "Rekurzivno"
+
+msgid "Relative path"
+msgstr "Relativna pot"
+
+msgid "Run"
+msgstr "Zaženi"
+
+msgid "Run backup job"
+msgstr "Zaženi opravilo varnostnega kopiranja"
+
+msgid "Select a device ..."
+msgstr "Izberi napravo ..."
+
+msgid "Send email"
+msgstr "Pošlji elektronsko sporočilo"
+
+msgid ""
+"Set the destination permissions to be the same as the source permissions."
+msgstr "Nastavi dovoljenja na cilju na enaka, kot so na izvorni strani."
+
+msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr "Skupina ciljne datoteke mora biti enaka skupini izvorne datoteke."
+
+msgid ""
+"Set the owner of the destination file to be the same as the source file, but"
+" only if the receiving rsync is being run as the super-user."
+msgstr "Nastavi lastnika ciljne datoteke, da je enak lastniku izvorne datoteke, vendar le, če je prejemni rsync zagnan kot super-uporabnik."
+
+msgid "Shared folder"
+msgstr "Deljena mapa"
+
+msgid "Suppress non-error messages."
+msgstr "Ne prikaži sporočil, ki niso napake."
+
+msgid "Tags"
+msgstr "Oznake"
+
+msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
+msgstr "Možnosti \"Pošlji e-pošto\" in \"Tiho\" se med seboj izključujeta."
+
+msgid ""
+"The external storage device. Please make sure that the device has only one "
+"file system."
+msgstr "Zunanja pomnilniška naprava. Prepričajte se, da ima naprava samo en datotečni sistem."
+
+msgid ""
+"The relative directory path on the external storage device from/to which the"
+" content of the shared folder is to be synchronized. The directory is "
+"created if it does not exist."
+msgstr "Relativna pot do mape na zunanji pomnilniški napravi, iz katere ali v katero se bo sinhronizirala vsebina deljene mape. Mapa bo ustvarjena, če ne obstaja."
+
+msgid ""
+"The shared folder to synchronise when the external storage device is "
+"connected."
+msgstr "Deljena mapa, ki se sinhronizira, ko je priklopljena zunanja naprava za shranjevanje."
+
+msgid ""
+"Transfer modification times along with the files and update them on the "
+"remote system."
+msgstr "Skupaj z datotekami prenesite čase spreminjanja in jih posodobite v oddaljenem sistemu."
+
+msgid "USB Backup"
+msgstr "USB Varnostna kopija"
+
+msgid "Update the destination ACLs to be the same as the source ACLs."
+msgstr "Posodobi ACL-je na cilju na enake kot so ACL-ji na izvorni strani."
+
+msgid ""
+"Update the destination extended attributes to be the same as the local ones."
+msgstr "Posodobi zunanje atribute na cilju na enake, kot so na lokalni strani."
+
+msgid "Updated USB backup job."
+msgstr "Posodobljeno opravilo varnostnega kopiranja USB."
+
+msgid "n/a"
+msgstr "n/a"

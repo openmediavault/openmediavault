@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-md package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kostas Moho, 2025
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-md\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2023-11-06 09:08+0000\n"
+"Last-Translator: Kostas Moho, 2025\n"
+"Language-Team: Greek (Greece) (https://app.transifex.com/openmediavault/teams/14254/el_GR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A maximum of one device can be removed."
+msgstr "Μπορεί να αφαιρεθεί μέχρι μία συσκευή."
+
+msgid "A maximum of two devices can be removed."
+msgstr "Μπορούν να αφαιρεθούν μέχρι δύο συσκευές."
+
+msgid "Add hot spares / recover RAID device."
+msgstr "Προσθήκη εφεδρείας / ανάκτηση συσκευής RAID."
+
+msgid "At least four devices are required."
+msgstr "Απαιτούνται τουλάχιστον τέσσερις συσκευές."
+
+msgid "At least three devices are required."
+msgstr "Απαιτούνται τουλάχιστον τρείς συσκευές."
+
+msgid "At least two devices are required."
+msgstr "Απαιτούνται τουλάχιστον δύο συσκευές."
+
+msgid "Capacity"
+msgstr "Χωρητικότητα"
+
+msgid "Create"
+msgstr "Δημιουργία"
+
+msgid "Device"
+msgstr "Συσκευή"
+
+msgid "Devices"
+msgstr "Συσκευές"
+
+msgid "Displays information about MD (Software RAID) devices."
+msgstr "Εμφάνιση πληροφοριών για τις συσκευές MD (RAID λογισμικού)."
+
+msgid "Grow"
+msgstr "Μεγέθυνση"
+
+msgid "Level"
+msgstr "Επίπεδο"
+
+msgid "MD Devices"
+msgstr "Συσκευές MD"
+
+msgid "Mirror"
+msgstr "Καθρεφτισμός"
+
+msgid "Multiple Device"
+msgstr "Πολλαπλή Συσκευή"
+
+msgid "Name"
+msgstr "Όνομα"
+
+msgid "RAID 10"
+msgstr "RAID 10"
+
+msgid "RAID 2"
+msgstr "RAID 2"
+
+msgid "RAID 3"
+msgstr "RAID 3"
+
+msgid "RAID 4"
+msgstr "RAID 4"
+
+msgid "RAID 5"
+msgstr "RAID 5"
+
+msgid "RAID 6"
+msgstr "RAID 6"
+
+msgid "Recover"
+msgstr "Ανάκτηση"
+
+msgid "Referenced"
+msgstr "Αναφερόμενα"
+
+msgid "Remove"
+msgstr "Αφαίρεση"
+
+msgid "Select devices ..."
+msgstr "Επιλογή συσκευών"
+
+msgid "Select devices to be added to the RAID device."
+msgstr "Επιλογή συσκευών για προσθήκη στην συσκευή RAID."
+
+msgid "Select devices to be removed from the RAID device."
+msgstr "Επιλογή συσκευών για αφαίρεση από την συσκευή RAID."
+
+msgid ""
+"Select the devices that will be used to create the RAID device. Devices "
+"connected via USB will not be listed (too unreliable)."
+msgstr ""
+"Επιλογή συσκευών για την δημιουργία της συσκευής RAID. Οι συσκευές που "
+"συνδέονται μέσω USB είναι αναξιόπιστες και δεν θα εμφανίζονται."
+
+msgid "Show details"
+msgstr "Εμφάνιση λεπτομερειών"
+
+msgid "Software RAID"
+msgstr "RAID με λογισμικό"
+
+msgid "State"
+msgstr "Καθεστώς"
+
+msgid "Stripe"
+msgstr "Μοίρασμα"

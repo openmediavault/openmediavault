@@ -1,0 +1,7 @@
+{%- set email_recipients = salt['pillar.get']('default:OMV_NUT_UPSSCHEDCMD_EMAIL_RECIPIENTS', 'root') -%}
+{%- set email_subject = salt['pillar.get']('default:OMV_NUT_UPSSCHEDCMD_EMAIL_SUBJECT', 'UPS notification from %h') -%}
+{{ pillar['headers']['multiline'] }}
+OMV_NUT_UPSSCHEDCMD_EMAIL_ENABLE="{{ "YES" if email_config.enable | to_bool and notification_config.enable | to_bool else "NO" }}"
+OMV_NUT_UPSSCHEDCMD_EMAIL_RECIPIENTS="{{ email_recipients }}"
+OMV_NUT_UPSSCHEDCMD_EMAIL_SUBJECT="{{ email_subject }}"
+OMV_NUT_UPSSCHEDCMD_SHUTDOWNTIMER={{ nut_config.shutdowntimer }}

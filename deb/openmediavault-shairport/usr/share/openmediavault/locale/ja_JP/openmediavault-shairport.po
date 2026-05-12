@@ -1,0 +1,45 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-shairport package.
+# 
+# Translators:
+# Toshihiro Kan <kansuke4649@gmail.com>, 2014-2016,2021
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2014-06-23 16:18+0000\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2016,2021\n"
+"Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja_JP\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "A password is required to stream audio."
+msgstr "ストリームオーディオでパスワードを要求されます。"
+
+msgid "Authentication"
+msgstr "認証"
+
+msgid "Enabled"
+msgstr "有効"
+
+msgid "Name"
+msgstr "名前"
+
+msgid "Password"
+msgstr "パスワード"
+
+msgid "Shairport"
+msgstr "Shairport"
+
+msgid ""
+"The name the service will advertise to clients. Leave this field empty to "
+"use the hostname by default."
+msgstr "この名前はサービスがクライアントに通知するのに使用します。空欄にするとデフォルトでホスト名を使用します。"
+
+msgid "Updated Shairport settings."
+msgstr "共有ポートの設定をアップデートしました。"

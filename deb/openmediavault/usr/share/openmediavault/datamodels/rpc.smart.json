@@ -1,0 +1,105 @@
+[{
+	"type": "rpc",
+	"id": "rpc.smart.setsettings",
+	"params": {
+		"type": "object",
+		"properties": {
+			"enable": {
+			    "type": "boolean",
+				"required": true
+			},
+			"interval": {
+			    "type": "integer",
+			    "minimum": 10,
+				"required": true
+			},
+			"powermode": {
+			    "type": "string",
+			    "enum": [ "never", "sleep", "standby", "idle" ],
+				"required": true
+			},
+			"tempdiff": {
+			    "type": "integer",
+			    "minimum": 0,
+				"required": true
+			},
+			"tempmax": {
+			    "type": "integer",
+			    "minimum": 0,
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.smart.setdevicesettings",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4"
+			},
+			"devicefile": {
+			    "type": "string",
+				"format": "devicefile",
+				"required": true
+			},
+			"enable": {
+			    "type": "boolean",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.smart.setscheduledtest",
+	"params": {
+		"type": "object",
+		"properties": {
+			"uuid": {
+				"type": "string",
+				"format": "uuidv4",
+				"required": true
+			},
+			"enable": {
+				"type": "boolean",
+				"required": true
+			},
+			"devicefile":{
+				"type": "string",
+				"format": "devicefile",
+				"required": true
+			},
+			"comment": {
+				"type": "string",
+				"required": true
+			},
+			"type":{
+				"type": "string",
+				"enum": [ "S", "L", "C", "O" ],
+				"required": true
+			},
+			"hour": {
+				"type": "string",
+				"pattern": "^0[0-9]|1[0-9]|2[0-3]|[*]$",
+				"required": true
+			},
+			"month": {
+				"type": "string",
+				"pattern": "^0[1-9]|1[0-2]|[*]$",
+				"required": true
+			},
+			"dayofmonth": {
+				"type": "string",
+				"pattern": "^0[1-9]|1[0-9]|2[0-9]|3[0-1]|[*]$",
+				"required": true
+			},
+			"dayofweek": {
+				"type": "string",
+				"pattern": "^[1-7]|[*]$",
+				"required": true
+			}
+		}
+	}
+}]

@@ -1,0 +1,25 @@
+{%- if nut_config.mode != 'netclient' %}
+check process nut-server with matching upsd
+    group nut
+    start program = "/bin/systemctl start nut-server"
+    stop program = "/bin/systemctl stop nut-server"
+    mode active
+{%- if email_config.enable | to_bool and not notification_config.enable | to_bool %}
+    noalert {{ email_config.primaryemail }}
+{%- endif %}
+{%- endif %}
+check process nut-monitor with matching upsmon
+    group nut
+    start program = "/bin/systemctl start nut-monitor"
+    stop program = "/bin/systemctl stop nut-monitor"
+    mode active
+{%- if email_config.enable | to_bool and not notification_config.enable | to_bool %}
+    noalert {{ email_config.primaryemail }}
+{%- endif %}
+
+{%- if nut_config.mode != 'netclient' %}
+check program nut-upsc-{{ nut_config.upsname }} with path "/usr/bin/upsc {{ nut_config.upsname }}"
+    group nut
+    start program = "/usr/sbin/upsdrvctl start"
+    if status != 0 for 2 cycles then restart
+{%- endif %}

@@ -1,0 +1,18 @@
+<mat-chip-list #chipList>
+  <mat-chip *ngFor="let tag of (value | split:separator)"
+            removable
+            (removed)="onRemove(tag)">
+    {{ tag | transloco }}
+    <button *ngIf="!disabled"
+            matChipRemove>
+      <mat-icon [svgIcon]="icon.close"></mat-icon>
+    </button>
+  </mat-chip>
+  <input *ngIf="!disabled"
+         [placeholder]="empty && placeholder"
+         [matChipInputFor]="chipList"
+         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+         matChipInputAddOnBlur
+         (blur)="onBlur($event)"
+         (matChipInputTokenEnd)="onAdd($event)">
+</mat-chip-list>

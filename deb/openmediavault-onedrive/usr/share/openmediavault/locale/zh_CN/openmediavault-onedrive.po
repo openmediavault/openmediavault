@@ -1,0 +1,176 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-onedrive package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2022
+# LeeYang <150183966@qq.com>, 2022
+# 黃柏諺 <s8321414@gmail.com>, 2022
+# Herald Yu <yuhr123@gmail.com>, 2022
+# songming <by@songming.me>, 2022
+# kochin <kochinc@outlook.com>, 2022
+# 王大山, 2023
+# irrelevant91, 2025
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-onedrive\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2022-04-13 15:28+0000\n"
+"Last-Translator: irrelevant91, 2025\n"
+"Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "1 MiB/s"
+msgstr "1 MiB/s"
+
+msgid "10 MiB/s"
+msgstr "10 MiB/s"
+
+msgid "10 minutes"
+msgstr "10 分钟"
+
+msgid "100 MiB/s"
+msgstr "100 MiB/s"
+
+msgid "12 hours"
+msgstr "12 小时"
+
+msgid "128 KiB/s"
+msgstr "128 KiB/s"
+
+msgid "15 minutes"
+msgstr "15 分钟"
+
+msgid "24 hours"
+msgstr "24 小时"
+
+msgid "256 KiB/s"
+msgstr "256 KiB/s"
+
+msgid "30 minutes"
+msgstr "30 分钟"
+
+msgid "5 minutes"
+msgstr "5 分钟"
+
+msgid "512 KiB/s"
+msgstr "512 KiB/s"
+
+msgid "6 hours"
+msgstr "6 小时"
+
+msgid "60 minutes"
+msgstr "60 分钟"
+
+msgid ""
+"<ul><li>Full - Replicate changes from and to OneDrive.</li><li>Download only"
+" - Replicate the OneDrive online state locally, by only downloading changes "
+"from OneDrive. Do not upload local changes to OneDrive.</li><li>Upload only "
+"- Replicate the local state to OneDrive, by only uploading local changes to "
+"OneDrive. Do not download changes from OneDrive.</li></ul>"
+msgstr ""
+"<ul><li>完整 - 从 OneDrive 双向同步修改。</li><li>仅下载 - 从 OneDrive 复制最新的文件至本地。仅从 "
+"OneDrive 下载变更，不将本地修改上传至 OneDrive。</li><li>仅上传 - 上传本地修改到 OneDrive。仅上传本地修改到 "
+"OneDrive，不从 OneDrive 下载变更。</li></ul>"
+
+msgid ""
+"After enabling and deploying this service the first time please run the "
+"command <em>omv-onedrive-auth</em> as <em>root</em> user in the CLI to "
+"authenticate the application in Microsoft OneDrive."
+msgstr ""
+"在首次启用并部署此服务后，请在命令行中 <em>root</em> 用户执行命令 <em>omv-onedrive-auth</em> 以在 "
+"Microsoft OneDrive 中验证应用。"
+
+msgid "Clean up local files"
+msgstr "清理本地文件"
+
+msgid "Clean up local files that have been removed online."
+msgstr "清理已经从线上移除的本地文件。"
+
+msgid "Date & Time"
+msgstr "日期与时间"
+
+msgid "Disabled"
+msgstr "禁用"
+
+msgid "Do not delete local file deletions from OneDrive."
+msgstr "不要将本地文件删除同步到 OneDrive。"
+
+msgid "Download only"
+msgstr "只下载"
+
+msgid "Enabled"
+msgstr "已启用"
+
+msgid "Extra options"
+msgstr "附加选项"
+
+msgid "Full"
+msgstr "全部"
+
+msgid "Local first"
+msgstr "本地优先"
+
+msgid "Message"
+msgstr "信息"
+
+msgid "Monitor interval"
+msgstr "监测间隔"
+
+msgid "No remote delete"
+msgstr "不要远程删除"
+
+msgid "OneDrive"
+msgstr "OneDrive"
+
+msgid "Rate limit"
+msgstr "速率限制"
+
+msgid "Replicate local state first, before downloading changes from OneDrive."
+msgstr "首先复制本地状态，然后再从 OneDrive 下载变更。"
+
+msgid "Replication mode"
+msgstr "复制模式"
+
+msgid "Shared folder"
+msgstr "共享文件夹"
+
+msgid "Skip dot files and folders from syncing."
+msgstr "在同步时，跳过点开头的文件和文件夹。"
+
+msgid "Skip dotfiles"
+msgstr "跳过点文件"
+
+msgid "The location to which the files are synchronised."
+msgstr "被同步文件的存储位置。"
+
+msgid "The synchronised files and directories are owned by this user."
+msgstr "被同步的文件和目录为此用户所有。"
+
+msgid "The wait time between each sync operation."
+msgstr "在每次同步操作之间的等待时间。"
+
+msgid "Updated OneDrive settings."
+msgstr "已更新 OneDrive 设置。"
+
+msgid "Upload only"
+msgstr "只上传"
+
+msgid "Upload/Download rate limit."
+msgstr "上传/下载速率限制。"
+
+msgid ""
+"Use the <em>omv-onedrive</em> command in the CLI to perform additional "
+"actions according to the documentation of the OneDrive Linux client."
+msgstr "在命令行使用 <em>omv-onedrive</em> 命令以根据 OneDrive Linux 客户端的文档进行额外操作。"
+
+msgid "User"
+msgstr "用户"

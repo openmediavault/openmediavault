@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "system.monitoring"
+  position: 50
+  text: _("Monitoring")
+  icon: heartPulse
+  url: "/system/monitoring"

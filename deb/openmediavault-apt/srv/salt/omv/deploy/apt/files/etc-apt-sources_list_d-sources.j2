@@ -1,0 +1,8 @@
+Enabled: {{ config.enable | to_bool | yesno }}
+Types: {{ config.types }}
+URIs: {{ config.uris }}
+Suites: {{ config.suites }}
+Components: {{ config.components }}
+{%- if config.signedby | length > 0 %}
+Signed-By: {{ config.signedby | indent(1) }}
+{%- endif %}

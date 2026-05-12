@@ -1,0 +1,146 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-nut package.
+# 
+# Translators:
+# Ádám Balajti <balajtiadam@gmail.com>, 2012
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2020
+# Gábor Majoros <mersaint@gmail.com>, 2012
+# Sári Gábor <sari.gabor@gmail.com>, 2018
+# Grawens <szabolcs.szanyi@gmail.com>, 2014,2021
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2012-03-17 01:51+0000\n"
+"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>, 2014,2021\n"
+"Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu_HU\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid ""
+"'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
+msgstr "Helyi UPS esetén „önálló”, NUT-kizsolgálón lévő távoli UPS esetén „hálózati kliens”."
+
+msgid "Charge"
+msgstr "Töltés"
+
+msgid "Comment"
+msgstr "Megjegyzés"
+
+msgid "Date & Time"
+msgstr "Dátum és idő"
+
+msgid "Defines when the shutdown is initiated."
+msgstr "Leállítási szabályok."
+
+msgid "Driver configuration directives"
+msgstr "Illesztőprogrambeállítási direktívák"
+
+msgid "Enable remote monitoring of the local connected UPS."
+msgstr "A helyileg csatlakoztatott UPS távfelügyeletének bekapcsolása"
+
+msgid "Enabled"
+msgstr "Engedélyezve"
+
+msgid "Identifier"
+msgstr "Azonosító"
+
+msgid "Invalid identifier"
+msgstr "Érvénytelen azonosító"
+
+msgid "Load"
+msgstr "Terhelés"
+
+msgid "Message"
+msgstr "Üzenet"
+
+msgid "Mode"
+msgstr "Mód"
+
+msgid "Netclient"
+msgstr "Hálózati kliens"
+
+msgid "Netclient hostname"
+msgstr "Hálózati kliens gépneve"
+
+msgid "Netclient password"
+msgstr "Hálózati kliens jelszava"
+
+msgid "Netclient user name"
+msgstr "Netclient felhasználói név"
+
+msgid "PID"
+msgstr "PID"
+
+msgid "Password"
+msgstr "Jelszó"
+
+msgid "Powervalue"
+msgstr "Áramérték"
+
+msgid "Program"
+msgstr "Program"
+
+msgid "Remote monitoring"
+msgstr "Távfelügyelet"
+
+msgid "Service disabled"
+msgstr "Szolgáltatás letiltva"
+
+msgid "Shutdown mode"
+msgstr "Leállítási mód"
+
+msgid "Shutdown timer"
+msgstr "Leállítás időzítése"
+
+msgid "Standalone"
+msgstr "Önálló"
+
+msgid "Temperature"
+msgstr "Hőmérséklet"
+
+msgid "The name used to uniquely identify your UPS on local or remote system."
+msgstr "Az UPS egyedi azonosításához használt név a helyi vagy a távoli rendszeren."
+
+msgid ""
+"The number of power supplies that the UPS feeds on this system (usually 1), "
+"refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
+"target='_blank'>upsmon.conf(5)</a> for more information."
+msgstr "Az tápegységek száma, melyet az UPS táplál a rendszeren (általában 1). További információk az <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf(5)</a> leírásában találhatóak."
+
+msgid ""
+"The time in seconds until shutdown is initiated. If the UPS happens to come "
+"back before the time is up the shutdown is canceled."
+msgstr "A leállításig hátralévő idő másodpercben. Ha az idő lejárta előtt az UPS ismét online lesz, a leállítás megszakad."
+
+msgid ""
+"To get more information how to configure your UPS please check the Network "
+"UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
+"target='_blank'>documentation</a>."
+msgstr "További információkért a UPS beállításáról, nézze meg a hálózati UPS eszközök <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>dokumentumot</a>."
+
+msgid "UPS"
+msgstr "UPS"
+
+msgid "UPS goes on battery"
+msgstr "Akkumulátoros üzemmód"
+
+msgid "UPS reaches low battery"
+msgstr "Alacsony töltés"
+
+msgid "Updated UPS settings."
+msgstr "UPS beállítási frissítve."
+
+msgid "Used for remote authentication."
+msgstr "Távoli hitelesítéshez."
+
+msgid "User name"
+msgstr "Felhasználói név"
+
+msgid "Voltage"
+msgstr "Feszültség"

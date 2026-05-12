@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.usbbackup"
+  text: _("USB Backup")
+  icon: "mdi:backup-restore"
+  url: "/services/usbbackup"

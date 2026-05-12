@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/podman/pods/stats/:id"
+  title: "{{ 'Statistics' | translate }} @ {{ _routeParams.id | substr(0, 12) }}"
+  component: omv-services-podman-pods-stats-datatable-page

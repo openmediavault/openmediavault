@@ -1,0 +1,16 @@
+{%- set usbbackup_scripts_dir = salt['pillar.get']('default:OMV_USBBACKUP_SCRIPTS_DIR', '/var/lib/openmediavault/usbbackup.d') -%}
+{%- set usbbackup_systemd_script_prefix = salt['pillar.get']('default:OMV_USBBACKUP_SYSTEMD_SCRIPT_PREFIX', 'systemd-') -%}
+{%- set devicefile_escaped = salt['cmd.run']('systemd-escape --path "' ~ devicefile ~ '"') -%}
+[Unit]
+Description=Execute the rsync backup jobs when {{ devicefile }} is plugged in
+BindsTo={{ devicefile_escaped }}.device
+After=local-fs.target {{ devicefile_escaped }}.device
+Requisite=local-fs.target {{ devicefile_escaped }}.device
+
+[Service]
+Type=oneshot
+RemainAfterExit=false
+ExecStart={{ usbbackup_scripts_dir | path_join(usbbackup_systemd_script_prefix ~ devicefile | md5) }}
+
+[Install]
+WantedBy={{ devicefile_escaped }}.device

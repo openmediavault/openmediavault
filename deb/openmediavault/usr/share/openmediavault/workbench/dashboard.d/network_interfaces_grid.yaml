@@ -1,0 +1,36 @@
+version: "1.0"
+type: dashboard-widget
+data:
+  id: 860b55ef-a4fd-4fc8-8153-b79bdf0bbc2a
+  type: grid
+  reloadPeriod: 10000
+  permissions:
+    role:
+      - admin
+  title: _("Network Interfaces")
+  description: _("Displays information about the network interfaces in a grid.")
+  grid:
+    item:
+      class: '{% if link %}omv-background-color-pair-success{% else %}omv-background-color-muted{% endif %}'
+      title: '{{ devicename }}'
+      titleClass: 'omv-text-truncate'
+      content: '{{ address | default("-", true) }}{% if address %}/{{ prefix }}{% endif %}<br>{{ address6 | default("-", true) }}{% if address6 %}/{{ prefix6 }}{% endif %}'
+      contentClass: 'omv-text-truncate omv-font-size-small'
+      tooltip: '{{ "Address" | translate }}:<br>{{ address | default("-", true) }}{% if address %}/{{ prefix }}{% endif %}<br>{{ address6 | default("-", true) }}{% if address6 %}/{{ prefix6 }}{% endif %}<br>{{ "Gateway" | translate }}:<br>{{ gateway | default("-", true) }}<br>{{ gateway6 | default("-", true) }}<br>MTU: {{ mtu | default("-", true) }}<br>{{ "State" | translate }}: {{ state }}'
+      minWidth: '180px'
+    store:
+      proxy:
+        service: Network
+        get:
+          method: enumerateDevicesList
+          params:
+            start: 0
+            limit: -1
+      filters:
+        - operator: ne
+          arg0:
+            prop: devicename
+          arg1: lo
+      sorters:
+        - prop: devicefile
+          dir: asc

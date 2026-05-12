@@ -1,0 +1,72 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-usbbackup-job-datatable-page
+  type: datatablePage
+  config:
+    autoReload: false
+    stateId: 5547d1de-3801-11eb-8281-3f7783c98f8d
+    sorters:
+      - dir: asc
+        prop: sharedfoldername
+    store:
+      proxy:
+        service: UsbBackup
+        get:
+          method: getList
+    rowEnumFmt: "{{ sharedfoldername }}"
+    columns:
+      - name: _("Enabled")
+        prop: enable
+        flexGrow: 1
+        sortable: true
+        cellTemplateName: checkIcon
+      - name: _("Shared folder")
+        prop: sharedfoldername
+        flexGrow: 1
+        sortable: true
+      - name: _("External Storage Device")
+        prop: devicefile
+        flexGrow: 1
+        sortable: true
+      - name: _("Tags")
+        prop: comment
+        cellTemplateName: chip
+        cellTemplateConfig:
+          separator: ','
+        flexGrow: 1
+        sortable: true
+    actions:
+      - template: create
+        execute:
+          type: url
+          url: "/services/usbbackup/create"
+      - template: edit
+        execute:
+          type: url
+          url: "/services/usbbackup/edit/{{ _selected[0].uuid }}"
+      - type: iconButton
+        icon: start
+        tooltip: _("Run")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+        execute:
+          type: taskDialog
+          taskDialog:
+            config:
+              title: _("Run backup job")
+              startOnInit: true
+              request:
+                service: UsbBackup
+                method: execute
+                params:
+                  uuid: "{{ _selected[0].uuid }}"
+      - template: delete
+        execute:
+          type: request
+          request:
+            service: UsbBackup
+            method: delete
+            params:
+              uuid: "{{ uuid }}"

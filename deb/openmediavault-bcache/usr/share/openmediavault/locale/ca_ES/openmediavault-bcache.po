@@ -1,0 +1,238 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-bcache package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Quim Farriol <qfarriol@valette.cat>, 2025
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-bcache\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2024-11-20 12:26+0000\n"
+"Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2025\n"
+"Language-Team: Catalan (Spain) (https://app.transifex.com/openmediavault/teams/14254/ca_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ca_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "5 Minutes"
+msgstr "5 minuts"
+
+msgid ""
+"A sequential IO will bypass the cache once it passes this threshold. "
+"(default:4.0M, max:3.9G)"
+msgstr ""
+"Una IO seqüencial evitarà la memòria cau un cop superi aquest llindar. (per "
+"defecte: 4,0 M, màxim: 3,9 G)"
+
+msgid ""
+"Allow bcache go around the cache when there's read / write congestion. "
+"(default:true)"
+msgstr ""
+"Permet que bcache circuli per la memòria cau quan hi hagi congestió de "
+"lectura/escriptura. (per defecte: cert)"
+
+msgid "Backing Devices"
+msgstr "Dispositius de suport"
+
+msgid "Bcache"
+msgstr "Bcache"
+
+msgid "Bcache Device"
+msgstr "Dispositiu Bcache"
+
+msgid "Cache Device"
+msgstr "Dispositiu de memòria cau"
+
+msgid "Cache Devices"
+msgstr "Dispositius de memòria cau"
+
+msgid "Cache Mode"
+msgstr "Mode de memòria cau"
+
+msgid "Capacity"
+msgstr "Capacitat"
+
+msgid "Clean"
+msgstr "Neteja"
+
+msgid "Clear total statistics"
+msgstr "Esborra les estadístiques totals"
+
+msgid "Configuration"
+msgstr "Configuració"
+
+msgid "Congest Tracking"
+msgstr "Seguiment de congestions"
+
+msgid "Congested Read Threshold (us)"
+msgstr "Llindar de lectura congestionat (us)"
+
+msgid "Create"
+msgstr "Crea"
+
+msgid "Day"
+msgstr "Dia"
+
+msgid "Device"
+msgstr "Dispositiu"
+
+msgid "Dirty"
+msgstr "Brut"
+
+msgid "Dirty Data"
+msgstr "Dades brutes"
+
+msgid "Docs"
+msgstr "Docs"
+
+msgid "Hour"
+msgstr "Hora"
+
+msgid ""
+"If nonzero, bcache tries to keep around this percentage of the cache dirty "
+"by throttling background writeback and using a PD controller to smoothly "
+"adjust the rate. (default:10)"
+msgstr ""
+"Si no és zero, bcache intenta mantenir brut aquest percentatge de la memòria"
+" cau limitant l'escriptura en segon pla i utilitzant un controlador PD per "
+"ajustar la velocitat sense problemes. (per defecte: 10)"
+
+msgid "Inconsistent"
+msgstr "Incoherent"
+
+msgid "Metadata"
+msgstr "Metadata"
+
+msgid "Missing"
+msgstr "Perdut"
+
+msgid "Missing Cache"
+msgstr "Memòria cau perduda"
+
+msgid "Mounted"
+msgstr "Muntat"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "No Cache"
+msgstr "Sense memòria cau"
+
+msgid "Online"
+msgstr "Online"
+
+msgid ""
+"Please note that creating a file system on a Bcache device can take longer. "
+"It is therefore possible that the file system is not immediately available "
+"for mounting."
+msgstr ""
+"Tingueu en compte que la creació d'un sistema de fitxers en un dispositiu "
+"Bcache pot trigar més temps. Per tant, és possible que el sistema de fitxers"
+" no estigui disponible immediatament per al muntatge."
+
+msgid "Recovery Actions"
+msgstr "Accions de recuperació"
+
+msgid "Register"
+msgstr "Registre"
+
+msgid "Select a cache device ..."
+msgstr "Seleccioneu un dispositiu de memòria cau..."
+
+msgid "Select a device ..."
+msgstr "Seleccioneu un dispositiu..."
+
+msgid "Select the device that will be formatted as Bcache backing device."
+msgstr ""
+"Seleccioneu el dispositiu que es formatarà com a dispositiu de còpia de "
+"seguretat de Bcache."
+
+msgid "Select the device that will be formatted as Bcache cache device."
+msgstr ""
+"Seleccioneu el dispositiu que es formatarà com a dispositiu de memòria cau "
+"Bcache."
+
+msgid "Select the device that will be used as cache device."
+msgstr ""
+"Seleccioneu el dispositiu que s'utilitzarà com a dispositiu de memòria cau."
+
+msgid "Sequential Cutoff"
+msgstr "Tall seqüencial"
+
+msgid "Show details"
+msgstr "Mostra els detalls"
+
+msgid "Start without cache"
+msgstr "Comença sense memòria cau"
+
+msgid "State"
+msgstr "Estat"
+
+msgid "Statistics"
+msgstr "Estadístiques"
+
+msgid "Superblock"
+msgstr "Superblock"
+
+msgid "The default is 2000 us (2 milliseconds)"
+msgstr "El valor predeterminat és 2000 us (2 mil·lisegons)"
+
+msgid "The default is 20000 us (20 milliseconds)"
+msgstr ""
+" \n"
+"El valor predeterminat és 20000 us (20 mil·lisegons)"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Unit"
+msgstr "Unitat"
+
+msgid "Unregister"
+msgstr "Cancel·la el registre"
+
+msgid "Unregistered"
+msgstr "No registrat"
+
+msgid "Unused"
+msgstr "Sense utilitzar"
+
+msgid "Updated backing device '{{ devicefile }}'."
+msgstr ""
+"S'ha actualitzat el dispositiu de còpia de seguretat '{{ devicefile }}'."
+
+msgid "Updated cache device '{{ devicefile }}'."
+msgstr "S'ha actualitzat el dispositiu de memòria cau '{{ devicefile }}'."
+
+msgid ""
+"When dirty data is written to the cache and it previously did not contain "
+"any, waits some number of seconds before initiating writeback. (default:30)"
+msgstr ""
+"Quan s'escriuen dades brutes a la memòria cau i anteriorment no en contenien"
+" cap, s'espera uns quants segons abans d'iniciar la reescriptura. (per "
+"defecte: 30)"
+
+msgid "Writeback Delay"
+msgstr "Retard de recuperació"
+
+msgid "Writeback Percent"
+msgstr "Percentatge de recuperació"
+
+msgid "none"
+msgstr "cap"
+
+msgid "writearound"
+msgstr "redacció"
+
+msgid "writeback"
+msgstr "reescriptura"
+
+msgid "writethrough"
+msgstr "escrit"

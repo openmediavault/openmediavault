@@ -1,0 +1,11 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "diagnostics.system-logs"
+  position: 20
+  text: _("System Logs")
+  icon: "mdi:file-document-edit"
+  url: "/diagnostics/system-logs"
+  permissions:
+    role:
+    - admin

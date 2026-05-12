@@ -1,0 +1,30 @@
+{
+	"type": "config",
+	"id": "conf.system.certificate.ssl",
+	"title": "SSL certificate",
+	"queryinfo": {
+		"xpath": ".//system/certificates/sslcertificate",
+		"iterable": true,
+		"idproperty": "uuid",
+		"refproperty": "sslcertificateref"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4",
+			"default": ""
+		},
+		"certificate": {
+			"type": "string",
+			"default": ""
+		},
+		"privatekey": {
+			"type": "string",
+			"default": ""
+		},
+		"comment": {
+			"type": "string",
+			"default": ""
+		}
+	}
+}

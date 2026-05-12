@@ -1,0 +1,70 @@
+version: "1.0"
+type: component
+data:
+  name: omv-storage-lvm-lv-extend-form-page
+  type: formPage
+  config:
+    request:
+      service: LogicalVolumeMgmt
+      get:
+        method: getLogicalVolume
+        params:
+          name: "{{ _routeParams.devicefile }}"
+        transform:
+          capacity: "{{ size | binaryunit }}"
+        filter:
+          mode: omit
+          props:
+            - size
+      post:
+        method: extendLogicalVolume
+    fields:
+      - type: hidden
+        name: devicefile
+      - type: textInput
+        name: name
+        label: _("Name")
+        hint: _("The name of the logical volume.")
+        value: ""
+        disabled: true
+        submitValue: false
+      - type: select
+        name: vgname
+        label: _("Volume group")
+        placeholder: _("Select a volume group ...")
+        value: ""
+        valueField: name
+        textField: description
+        disabled: true
+        submitValue: false
+        store:
+          proxy:
+            service: LogicalVolumeMgmt
+            get:
+              method: getLogicalVolumeCandidates
+          sorters:
+            - dir: asc
+              prop: name
+      - type: textInput
+        name: capacity
+        label: _("Capacity")
+        value: ""
+        disabled: true
+        submitValue: false
+      - type: slider
+        name: size
+        label: _("Size")
+        hint: _("The percentage of the total space in the volume group to use by the logical volume.")
+        value: 100,
+        validators:
+          min: 1
+          max: 100
+    buttons:
+      - template: submit
+        execute:
+          type: url
+          url: "/storage/lvm/lvs"
+      - template: cancel
+        execute:
+          type: url
+          url: "/storage/lvm/lvs"

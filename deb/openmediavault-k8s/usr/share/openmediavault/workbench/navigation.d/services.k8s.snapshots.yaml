@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.k8s.snapshots"
+  position: 50
+  text: _("Snapshots")
+  icon: "mdi:camera"
+  url: "/services/k8s/snapshots"

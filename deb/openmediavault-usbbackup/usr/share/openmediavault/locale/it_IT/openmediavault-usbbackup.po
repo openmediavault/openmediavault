@@ -1,0 +1,191 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-usbbackup package.
+# 
+# Translators:
+# Giovanni Scafora <scafora.giovanni@gmail.com>, 2025
+# d5316b6b4d283a9cbe4ea704ae8abe02_b972f24 <bd82b27c045fcb3aa6bd04640e5224c5_36908>, 2013-2015,2017,2021
+# Roberto Bellingeri <bellingeri@netguru.it>, 2025
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"PO-Revision-Date: 2013-02-15 12:55+0000\n"
+"Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
+"Language-Team: Italian (http://app.transifex.com/openmediavault/openmediavault/language/it/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+msgid ""
+"An email message with the command output (if any produced) is sent to the "
+"administrator."
+msgstr "Un messaggio email con l’output del comando (se presente) viene inviato all’amministratore."
+
+msgid "Archive"
+msgstr "Archivia"
+
+msgid "Compress"
+msgstr "Comprimi"
+
+msgid "Compress file data during the transfer."
+msgstr "Comprimi i file durante il trasferimento."
+
+msgid "Create"
+msgstr "Crea"
+
+msgid "Created USB backup job."
+msgstr "È stata creata l’attività di backup USB."
+
+msgid "Delete"
+msgstr "Elimina"
+
+msgid "Delete files on the receiving side that don't exist on sender."
+msgstr "Elimina i file dalla cartella di destinazione se non presenti nella cartella del mittente."
+
+msgid "Device"
+msgstr "Dispositivo"
+
+msgid "Edit"
+msgstr "Modifica"
+
+msgid "Enable archive mode."
+msgstr "Abilita la modalità di archiviazione."
+
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr "Abilita questa opzione per mantenere i file parzialmente trasferiti, altrimenti verranno eliminati se il trasferimento viene interrotto."
+
+msgid "Enabled"
+msgstr "Abilitato"
+
+msgid "External Storage Device"
+msgstr "Dispositivo di archiviazione esterno"
+
+msgid "Extra options"
+msgstr "Opzioni extra"
+
+msgid "From external storage to shared folder"
+msgstr "Dal dispositivo di archiviazione esterno alla cartella condivisa"
+
+msgid "From shared folder to external storage"
+msgstr "Dalla cartella condivisa al dispositivo di archiviazione esterno"
+
+msgid "Keep partially transferred files"
+msgstr "Mantieni i i file parzialmente trasferiti"
+
+msgid "Mode"
+msgstr "Modalità"
+
+msgid ""
+"Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Controlla il <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manuale</a> per maggiori dettagli."
+
+msgid "Preserve ACLs"
+msgstr "Mantieni le ACL"
+
+msgid "Preserve extended attributes"
+msgstr "Mantieni gli attributi estesi"
+
+msgid "Preserve group"
+msgstr "Mantieni il gruppo"
+
+msgid "Preserve modification times"
+msgstr "Mantieni l'orario delle modifiche"
+
+msgid "Preserve owner"
+msgstr "Mantieni il proprietario"
+
+msgid "Preserve permissions"
+msgstr "Mantieni i permessi"
+
+msgid "Quiet"
+msgstr "Silenzioso"
+
+msgid "Recurse into directories."
+msgstr "Esegui la ricorsione nelle directory."
+
+msgid "Recursive"
+msgstr "Ricorsivo"
+
+msgid "Relative path"
+msgstr "Percorso relativo"
+
+msgid "Run"
+msgstr "Esegui adesso"
+
+msgid "Run backup job"
+msgstr "Esegui attività di backup"
+
+msgid "Select a device ..."
+msgstr "Seleziona un dispositivo..."
+
+msgid "Send email"
+msgstr "Invia email"
+
+msgid ""
+"Set the destination permissions to be the same as the source permissions."
+msgstr "Imposta i permessi di destinazione uguali a quelli di origine."
+
+msgid ""
+"Set the group of the destination file to be the same as the source file."
+msgstr "Imposta il gruppo del file di destinazione uguale a quello del file di origine."
+
+msgid ""
+"Set the owner of the destination file to be the same as the source file, but"
+" only if the receiving rsync is being run as the super-user."
+msgstr "Imposta il proprietario del file di destinazione uguale a quello del file di origine, ma solo se rsync in ricezione viene eseguito con i privilegi di superutente."
+
+msgid "Shared folder"
+msgstr "Cartella condivisa"
+
+msgid "Suppress non-error messages."
+msgstr "Nascondi i messaggi non di errore."
+
+msgid "Tags"
+msgstr "Tag"
+
+msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
+msgstr "Le opzioni 'Invia email' e 'Silenzioso' si escludono a vicenda."
+
+msgid ""
+"The external storage device. Please make sure that the device has only one "
+"file system."
+msgstr "Dispositivo di archiviazione esterno. Assicurati che il dispositivo abbia un solo file system."
+
+msgid ""
+"The relative directory path on the external storage device from/to which the"
+" content of the shared folder is to be synchronized. The directory is "
+"created if it does not exist."
+msgstr "Il percorso relativo della directory sul dispositivo di archiviazione esterno da cui o verso cui sincronizzare il contenuto della cartella condivisa. La directory viene creata se non esiste."
+
+msgid ""
+"The shared folder to synchronise when the external storage device is "
+"connected."
+msgstr "La cartella condivisa da sincronizzare quando la periferica di archiviazione esterna è connessa."
+
+msgid ""
+"Transfer modification times along with the files and update them on the "
+"remote system."
+msgstr "Trasferisci le date di modifica con i file e aggiornale sul sistema remoto."
+
+msgid "USB Backup"
+msgstr "Backup USB"
+
+msgid "Update the destination ACLs to be the same as the source ACLs."
+msgstr "Aggiorna le ACL di destinazione per renderle uguali a quelle di origine."
+
+msgid ""
+"Update the destination extended attributes to be the same as the local ones."
+msgstr "Aggiorna gli attributi estesi di destinazione per renderli uguali a quelli locali."
+
+msgid "Updated USB backup job."
+msgstr "L'attività di backup USB è stata aggiornata."
+
+msgid "n/a"
+msgstr "non disponibile"

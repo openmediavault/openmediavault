@@ -1,0 +1,7 @@
+check process collectd with matching collectd
+    start program = "/bin/systemctl start collectd"
+    stop program = "/bin/systemctl stop collectd"
+    mode active
+{%- if email_config.enable | to_bool and not notification_config.enable | to_bool %}
+    noalert {{ email_config.primaryemail }}
+{%- endif %}

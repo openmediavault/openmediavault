@@ -1,0 +1,39 @@
+@use 'sass:color';
+@use 'scss/defaults/colors' as dc;
+
+:host {
+  .background {
+    content: url('^./assets/images/shutdown.jpg');
+    object-fit: cover;
+  }
+
+  .topbar {
+    background-color: hsla(
+      color.hue(dc.$omv-color-corporate-darker),
+      color.saturation(dc.$omv-color-corporate-darker),
+      color.lightness(dc.$omv-color-corporate-darker),
+      54%
+    );
+    backdrop-filter: blur(4px);
+
+    .logo {
+      content: url('^./assets/images/openmediavault_logo.svg');
+      width: auto;
+      height: auto;
+    }
+  }
+
+  .icon,
+  .icon-background {
+    width: 4rem;
+    height: 4rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .icon-background {
+    width: 5rem;
+    height: 5rem;
+  }
+}

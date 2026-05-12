@@ -1,0 +1,27 @@
+Source: openmediavault-keyring
+Priority: important
+Section: misc
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>= 12), gnupg
+Standards-Version: 3.7.3
+Homepage: https://www.openmediavault.org
+
+Package: openmediavault-keyring
+Priority: important
+Architecture: all
+Depends: gpgv, ${misc:Depends}
+Recommends: gnupg
+Description: GnuPG archive keys of the openmediavault archive
+ The openmediavault project digitally signs its Release files. This package
+ contains the archive keys used for that.
+
+Package: openmediavault-keyring-udeb
+Package-Type: udeb
+Architecture: all
+Section: debian-installer
+Depends: ${misc:Depends}
+Recommends: gpgv-udeb
+Description: GnuPG archive keys of the openmediavault archive
+ The openmediavault project digitally signs its Release files. This package
+ contains the archive keys used for that, in a minimal form for use
+ in the installer.

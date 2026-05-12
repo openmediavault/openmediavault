@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "system.certificate"
+  position: 70
+  text: _("Certificates")
+  icon: "mdi:certificate"
+  url: "/system/certificate"
