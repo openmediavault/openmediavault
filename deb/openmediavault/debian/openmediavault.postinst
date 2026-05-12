@@ -673,6 +673,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "8.2.11"; then
 			omv_module_set_dirty apt
 		fi
+		if dpkg --compare-versions "$2" lt-nl "8.2.13"; then
+			omv_module_set_dirty nginx
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the
