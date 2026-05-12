@@ -1083,7 +1083,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 		}
 		// Create the background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
-		  use ($params, $context) {
+				use ($params, $context) {
 			// Get the absolute shared folder path.
 			$sfpath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath", [
 				"uuid" => $params['uuid']
@@ -1093,17 +1093,20 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			////////////////////////////////////////////////////////////////////
 			// Set the directory owner and group.
 			if (array_key_exists("owner", $params) || array_key_exists(
-			  "group", $params)) {
+					"group", $params)) {
 				$ownerGroupArg = "";
-				if (array_key_exists("owner", $params))
+				if (array_key_exists("owner", $params)) {
 					$ownerGroupArg = str_replace(' ', '\ ', $params['owner']);
-				if (array_key_exists("group", $params))
+				}
+				if (array_key_exists("group", $params)) {
 					$ownerGroupArg = sprintf("%s:%s", $ownerGroupArg,
-					  str_replace(' ', '\ ', $params['group']));
+						str_replace(' ', '\ ', $params['group']));
+				}
 				// Build the command arguments list.
 				$cmdArgs = [];
-				if (TRUE === boolvalEx($params['recursive']))
+				if (TRUE === boolvalEx($params['recursive'])) {
 					$cmdArgs[] = "--recursive";
+				}
 				$cmdArgs[] = $ownerGroupArg;
 				$cmdArgs[] = escapeshellarg(build_path(DIRECTORY_SEPARATOR,
 				  $sfpath, $params['file']));
@@ -1120,36 +1123,46 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Build the ACL specifications.
 			$aclSpec = [];
 			$aclSpecFile = new \OMV\System\TmpFile();
-			// Set permissions of a named users and groups.
+			$hasNamedAcl = FALSE;
+			// Set permissions of named users and groups.
 			foreach ([ "user", "group" ] as $typek => $typev) {
 				foreach ($params["{$typev}s"] as $entryk => $entryv) {
 					$aclSpec[] = sprintf("default:%s:%s:%d", $typev,
 						$entryv['name'], $entryv['perms']);
 					$aclSpec[] = sprintf("%s:%s:%d", $typev,
 						$entryv['name'], $entryv['perms']);
+					$hasNamedAcl = TRUE;
 				}
 			}
 			// Set default owner permissions.
 			if (array_key_exists("userperms", $params)) {
-				$aclSpec[] = sprintf("default:user::%d", $params['userperms']);
+				if (TRUE === $hasNamedAcl) {
+					$aclSpec[] = sprintf("default:user::%d", $params['userperms']);
+				}
 				$aclSpec[] = sprintf("user::%d", $params['userperms']);
 			}
 			// Set default owning group permissions.
 			if (array_key_exists("groupperms", $params)) {
-				$aclSpec[] = sprintf("default:group::%d", $params['groupperms']);
+				if (TRUE === $hasNamedAcl) {
+					$aclSpec[] = sprintf("default:group::%d", $params['groupperms']);
+				}
 				$aclSpec[] = sprintf("group::%d", $params['groupperms']);
 			}
 			// Set default permissions of others.
 			if (array_key_exists("otherperms", $params)) {
-				$aclSpec[] = sprintf("default:other::%d", $params['otherperms']);
+				if (TRUE === $hasNamedAcl) {
+					$aclSpec[] = sprintf("default:other::%d", $params['otherperms']);
+				}
 				$aclSpec[] = sprintf("other::%d", $params['otherperms']);
 			}
 			// Build the command arguments list.
 			$cmdArgs = [];
-			if (TRUE === boolvalEx($params['replace']))
+			if (TRUE === boolvalEx($params['replace'])) {
 				$cmdArgs[] = "--remove-all";
-			if (TRUE === boolvalEx($params['recursive']))
+			}
+			if (TRUE === boolvalEx($params['recursive'])) {
 				$cmdArgs[] = "--recursive";
+			}
 			if (!empty($aclSpec)) {
 				if (FALSE === $aclSpecFile->write(implode("\n", $aclSpec))) {
 					throw new \OMV\Exception(
@@ -1160,6 +1173,11 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract {
 				// list is too large.
 				$cmdArgs[] = sprintf("-M %s", escapeshellarg(
 					$aclSpecFile->getFileName()));
+			}
+			if (empty($cmdArgs)) {
+				// Abort here to prevent a syntax error when executing
+				// `setfacl` without parameters.
+				return [];
 			}
 			$cmdArgs[] = "--";
 			$cmdArgs[] = escapeshellarg(build_path(DIRECTORY_SEPARATOR,
