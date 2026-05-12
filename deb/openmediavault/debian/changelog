@@ -2,6 +2,7 @@ openmediavault (8.2.13-1) stable; urgency=medium
 
   * Hardening omv-env tool.
   * Fix a bug related to searching on datatable pages.
+  * Improve setting ACL permission on shared folders.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 08 May 2026 17:48:59 +0200
 
