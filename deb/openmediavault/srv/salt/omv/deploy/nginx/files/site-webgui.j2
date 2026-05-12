@@ -35,6 +35,7 @@ server {
         add_header Cache-Control "no-cache, must-revalidate";
         add_header Pragma "no-cache";
         expires 0;
+        include {{ include_dir }}/headers.conf;
     }
     location ~* \.php$ {
         fastcgi_split_path_info ^(.+\.php)(/.+)$;

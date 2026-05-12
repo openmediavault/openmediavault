@@ -39,6 +39,18 @@ configure_nginx_site_webgui:
     - group: root
     - mode: 644
 
+configure_nginx_headers:
+  file.managed:
+    - name: "{{ include_dir }}/headers.conf"
+    - source:
+      - salt://{{ tpldir }}/files/headers.conf.j2
+    - template: jinja
+    - context:
+        config: {{ config | json }}
+    - user: root
+    - group: root
+    - mode: 644
+
 configure_nginx_security:
   file.managed:
     - name: "{{ include_dir }}/security.conf"
