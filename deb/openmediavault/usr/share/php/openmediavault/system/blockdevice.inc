@@ -265,6 +265,7 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface {
 			$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
 			$cmd->setRedirect2to1();
+			$cmd->setRequireOutput();
 			$cmd->execute($output);
 			$this->size = $output[0]; // Do not convert to long.
 		}
@@ -281,6 +282,7 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface {
 			$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
 			$cmd->setRedirect2to1();
+			$cmd->setRequireOutput();
 			$cmd->execute($output);
 			$this->blockSize = intval($output[0]);
 		}
@@ -297,6 +299,7 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface {
 			$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
 			$cmd->setRedirect2to1();
+			$cmd->setRequireOutput();
 			$cmd->execute($output);
 			$this->sectorSize = intval($output[0]);
 		}

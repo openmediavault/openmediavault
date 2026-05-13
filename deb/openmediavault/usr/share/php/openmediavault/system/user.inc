@@ -68,8 +68,9 @@ class User {
 	private function getData($type) {
 		switch ($type) {
 		case "shadow":
-			if (!is_null($this->password))
+			if (!is_null($this->password)) {
 				return;
+			}
 			// http://www.cyberciti.biz/faq/understanding-etcshadow-file
 			try {
 				$cmdArgs = [];
@@ -77,6 +78,7 @@ class User {
 				$cmdArgs[] = escapeshellarg($this->getName());
 				$cmd = new \OMV\System\Process("getent", $cmdArgs);
 				$cmd->setRedirect2to1();
+				$cmd->setRequireOutput();
 				$cmd->execute($output);
 			} catch(\OMV\ExecException $e) {
 				// Re-raise the exception if exit status is not 2 (one or
@@ -86,7 +88,7 @@ class User {
 				// Otherwise continue with empty values.
 				$output = [ "::::::::" ];
 			}
-			$output = explode(":", $output[0]);
+			$output = explode_safe(":", $output[0]);
 			$this->password = $output[1];
 			$this->lastChanged = $output[2];
 			$this->minimum = $output[3];
@@ -135,7 +137,7 @@ class User {
 			$cmd = new \OMV\System\Process("id", $cmdArgs);
 			$cmd->setRedirect2to1();
 			$cmd->execute($output);
-			$gids = explode(" ", $output[0]);
+			$gids = explode_safe(" ", $output[0]);
 			// Resolve the group names.
 			$this->groups = [];
 			foreach ($gids as $gidk => $gidv) {

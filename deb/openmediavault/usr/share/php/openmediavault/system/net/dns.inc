@@ -32,6 +32,7 @@ class Dns {
 	final public static function getHostname() {
 		$cmd = new \OMV\System\Process("hostname");
 		$cmd->setRedirect2to1();
+		$cmd->setRequireOutput();
 		$cmd->execute($output);
 		return $output[0];
 	}
@@ -44,6 +45,7 @@ class Dns {
 	final public static function getShortHostname() {
 		$cmd = new \OMV\System\Process("hostname", ["--short"]);
 		$cmd->setRedirect2to1();
+		$cmd->setRequireOutput();
 		$cmd->execute($output);
 		return $output[0];
 	}
@@ -57,6 +59,7 @@ class Dns {
 	final public static function getFqdn() {
 		$cmd = new \OMV\System\Process("hostname", ["--fqdn"]);
 		$cmd->setRedirect2to1();
+		$cmd->setRequireOutput();
 		$cmd->execute($output);
 		return $output[0];
 	}

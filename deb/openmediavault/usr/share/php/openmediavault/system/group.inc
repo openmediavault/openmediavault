@@ -279,7 +279,7 @@ class Group {
 		// openmediavault:x:999:
 		// nut:x:114:
 		// foo:x:1002:vagrant,vot
-		$fields = explode(":", $line);
+		$fields = explode_safe(":", $line);
 		if (4 != count($fields)) {
 			throw new \OMV\ValueException("Invalid group line '%s'.", $line);
 		}

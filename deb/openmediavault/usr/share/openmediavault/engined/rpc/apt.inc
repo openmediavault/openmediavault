@@ -391,9 +391,9 @@ class Apt extends \OMV\Rpc\ServiceAbstract {
 //				throw new \OMV\ExecException($cmd, $output);
 //			return $output;
 			// Extract the changelog from the Debian package.
-			if (FALSE === ($tmpDir = mkdtemp())) {
+			if (is_null($tmpDir = mkdtemp())) {
 				throw new \OMV\Exception(
-				  "Failed to created a temporary directory.");
+				  "Failed to create a temporary directory.");
 			}
 			$cmd = sprintf("export LC_ALL=C.UTF-8; dpkg-deb --fsys-tarfile %s | ".
 			  "tar --extract --wildcards --directory=%s ".

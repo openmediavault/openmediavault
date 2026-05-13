@@ -754,7 +754,7 @@ abstract class ServiceAbstract {
 					$data = "";
 					// Read data from socket and decode it.
 					while (TRUE) {
-						$buf = @socket_read($procv['socket'], 4096, PHP_BINARY_READ);
+						$buf = @socket_read($procv['socket'], 4096);
 						if (FALSE === $buf) {
 							throw new Exception("Failed to read from socket: %s",
 								socket_strerror(socket_last_error()));

@@ -86,7 +86,7 @@ class ConfigObject {
 		if ($this->get($name) !== $value) {
 			$message = is_null($message) ? sprintf(
 				"The property '%s' does not match the value '%s'.",
-				$name, strval($value)) : $error;
+				$name, strval($value)) : $message;
 			throw new \OMV\AssertException($message);
 		}
 	}

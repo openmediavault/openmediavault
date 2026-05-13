@@ -334,13 +334,16 @@ class DatabaseBackend {
 	 *   boolean FALSE is returned.
 	 */
 	public function compare($xpath, $data) {
-		if (is_null($result = $this->get($xpath)))
+		if (is_null($result = $this->get($xpath))) {
 			return FALSE;
+		}
 		// Convert everything into an array.
-		if (!is_array($result))
+		if (!is_array($result)) {
 			$result = array($result);
-		if (!is_array($data))
-			$result = array($data);
+		}
+		if (!is_array($data)) {
+			$data = array($data);
+		}
 		// Convert all values to strings before comparison. This is necessary
 		// because the values returned from the configuration database are
 		// strings.
@@ -565,7 +568,7 @@ class DatabaseBackend {
 	 */
 	private function nodeToArray(\DOMNode $domNode = null) {
 		$result = "";
-		if (is_null($domNode) && !$this->hasChildNodes()) {
+		if (is_null($domNode)) {
 			return $result;
 		}
 		if ($domNode->nodeType == XML_TEXT_NODE) {

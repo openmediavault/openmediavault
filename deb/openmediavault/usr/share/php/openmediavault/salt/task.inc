@@ -36,10 +36,14 @@ class Task {
 		$filename = \OMV\Environment::get("OMV_SALT_TASKS_FILE",
 			"/srv/pillar/omv/tasks.sls");
 		// Open the file and load the content if it exists.
-		if (file_exists($filename))
-			$tasks = yaml_parse_file($filename);
+		if (file_exists($filename)) {
+			$data = yaml_parse_file($filename);
+			if (is_array($data)) {
+				$tasks = $data;
+			}
+		}
 		// Make sure the data is valid and the key 'tasks' exists.
-		if (!array_key_exists("tasks", $tasks))
+		if (!array_key_exists("tasks", $tasks) || !is_array($tasks['tasks']))
 			$tasks['tasks'] = [];
 		// Append a new task.
 		$tasks['tasks'][] = [
@@ -54,12 +58,24 @@ class Task {
 		//   pillar: xxx
 		// ...
 		$tasks = yaml_emit($tasks, YAML_UTF8_ENCODING, YAML_LN_BREAK);
+		if (FALSE === $tasks) {
+			return FALSE;
+		}
 		$tasks = explode("\n", $tasks);
-		while ("---" !== array_shift($tasks));
-		while ("..." !== array_pop($tasks));
+		while (!empty($tasks) && ("" === end($tasks))) {
+			array_pop($tasks);
+		}
+		if (!empty($tasks) && ("---" === $tasks[0])) {
+			array_shift($tasks);
+		}
+		if (!empty($tasks) && ("..." === end($tasks))) {
+			array_pop($tasks);
+		}
 		$tasks = implode("\n", $tasks);
 		// Update the pillar file.
-		file_put_contents($filename, $tasks, LOCK_EX);
+		if (FALSE === file_put_contents($filename, $tasks, LOCK_EX)) {
+			return FALSE;
+		}
 		// Finally mark the 'Task' module as dirty.
 		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
 		return $moduleMngr->setModuleDirty("task");

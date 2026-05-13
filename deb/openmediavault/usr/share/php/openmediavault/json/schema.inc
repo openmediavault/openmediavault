@@ -562,7 +562,7 @@ class Schema {
 			}
 			break;
 		case "ipv6":
-			if (filter_var($value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+			if (!filter_var($value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
 				throw new SchemaValidationException(
 				  "%s: The value '%s' is not an IPv6 address.",
 				  $name, $value);
@@ -624,7 +624,8 @@ class Schema {
 		// Note, this is a workaround to process empty objects
 		// correctly that are submitted as arrays because of
 		// historical reasons.
-		$valueProps = !empty($value) ? get_object_vars($value) : [];
+		$valueProps = is_object($value) ? get_object_vars($value) :
+			(is_array($value) ? $value : []);
 		foreach ($schema['properties'] as $propk => $propv) {
 			// Build the new path. Strip empty parts.
 			$parts = [ $name, $propk ];

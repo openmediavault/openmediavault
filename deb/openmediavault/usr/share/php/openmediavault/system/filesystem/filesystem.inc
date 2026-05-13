@@ -93,6 +93,7 @@ class Filesystem extends \OMV\System\BlockDevice
 			$cmdArgs[] = sprintf("UUID=%s", escapeshellarg($this->uuid));
 			$cmd = new \OMV\System\Process("findfs", $cmdArgs);
 			$cmd->setRedirect2to1();
+			$cmd->setRequireOutput();
 			$cmd->execute($output);
 			$this->deviceFile = $output[0];
 			unset($cmdArgs, $output);
@@ -113,6 +114,7 @@ class Filesystem extends \OMV\System\BlockDevice
 		$cmdArgs[] = escapeshellarg($this->deviceFile);
 		$cmd = new \OMV\System\Process("blkid", $cmdArgs);
 		$cmd->setRedirect2to1();
+		$cmd->setRequireOutput();
 		$cmd->execute($output);
 
 		// Parse command output:
@@ -122,8 +124,11 @@ class Filesystem extends \OMV\System\BlockDevice
 		// /dev/sdc1: LABEL="xfs" UUID="83d116e4-8b95-4e49-86e4-369615079b33" TYPE="xfs" USAGE="filesystem" PART_ENTRY_SCHEME="gpt" PART_ENTRY_UUID="8856f019-67da-4813-ab75-9fc3c3fe056f" PART_ENTRY_TYPE="0fc63daf-8483-4772-8e79-3d69d8477de4" PART_ENTRY_NUMBER="1" PART_ENTRY_OFFSET="2048" PART_ENTRY_SIZE="206815" PART_ENTRY_DISK="8:32"
 		// /dev/sdg1: LABEL="Traveller" UUID="2218-DF1C" VERSION="FAT32" TYPE="vfat" USAGE="filesystem" PART_ENTRY_SCHEME="dos" PART_ENTRY_TYPE="0xc" PART_ENTRY_FLAGS="0x80" PART_ENTRY_NUMBER="1" PART_ENTRY_OFFSET="62" PART_ENTRY_SIZE="15635532" PART_ENTRY_DISK="8:96"
 		$regex = '/^(\S+): (.+)$/i';
-		if (1 !== preg_match($regex, $output[0], $matches))
-			return FALSE;
+		if (1 !== preg_match($regex, $output[0], $matches)) {
+			throw new \OMV\Exception(
+				"Failed to parse file system information for '%s'.",
+				$this->deviceFile);
+		}
 		// Set default values and extract key/value pairs.
 		$data = [
 			"devicefile" => $matches[1],
@@ -505,6 +510,7 @@ class Filesystem extends \OMV\System\BlockDevice
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
 		$cmd->setRedirect2to1();
+		$cmd->setRequireOutput();
 		$cmd->execute($output);
 		return intval($output[0]);
 	}
@@ -931,9 +937,12 @@ class Filesystem extends \OMV\System\BlockDevice
 		$cmdArgs[] = "--format=%T";
 		$cmdArgs[] = escapeshellarg($filename);
 		$cmd = new \OMV\System\Process("stat", $cmdArgs);
+		$cmd->setQuiet();
+		$cmd->setRequireOutput();
 		$cmd->execute($output, $exitStatus);
-		if ($exitStatus !== 0)
+		if ($exitStatus !== 0) {
 			return FALSE;
+		}
 		return $output[0];
 	}
 }

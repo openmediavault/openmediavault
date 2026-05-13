@@ -31,7 +31,8 @@ class Os {
 	 * without requirements on components existence.
 	 * @param path The symbolic link path.
 	 * @return Returns the value of the symbolic link.
-	 * @throw \OMV\ExecException
+	 * @throws \OMV\Exception
+	 * @throws \OMV\ExecException
 	 */
 	final public static function readlink($path) {
 		$cmdArgs = [];
@@ -39,6 +40,7 @@ class Os {
 		$cmdArgs[] = "-n";
 		$cmdArgs[] = escapeshellarg($path);
 		$cmd = new \OMV\System\Process("readlink", $cmdArgs);
+		$cmd->setRequireOutput();
 		$cmd->execute($output);
 		return $output[0];
 	}

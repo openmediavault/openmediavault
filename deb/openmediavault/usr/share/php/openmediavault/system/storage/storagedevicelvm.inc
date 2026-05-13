@@ -81,6 +81,7 @@ class StorageDeviceLvm extends StorageDeviceDM {
 		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("lvdisplay", $cmdArgs);
 		$cmd->setRedirect2toFile("/dev/null");
+		$cmd->setRequireOutput();
 		$cmd->execute($output);
 
 		// Parse command output:

@@ -33,6 +33,7 @@ class Process {
 	private $inputFromFile = FALSE;
 	private $inputFromHereString = FALSE;
 	private $quiet = FALSE;
+	private $requireOutput = FALSE;
 	private $background = FALSE;
 	private $env = [
 		"PATH" => [
@@ -130,6 +131,16 @@ class Process {
 	 */
 	public function setQuiet($quiet = TRUE) {
 		$this->quiet = $quiet;
+	}
+
+	/**
+	 *  Fail if the executed command does not produce any output.
+	 * @param bool $require Set to TRUE to throw an exception if the output is empty.
+	 *   Defaults to TRUE.
+	 * @return void
+	 */
+	public function setRequireOutput($require = TRUE) {
+		$this->requireOutput = $require;
 	}
 
 	/**
@@ -231,7 +242,7 @@ class Process {
 
 	/**
 	 * Execute the command.
-	 * @param array | null $output If the output argument is present, then
+	 * @param array|null $output If the output argument is present, then
 	 *   the specified array will be filled with every line of output from
 	 *   the command.
 	 *   Trailing whitespace, such as \n, is not included in this array.
@@ -240,10 +251,12 @@ class Process {
 	 * @param int $exitStatus If the argument is present along with the output
 	 *   argument, then the return status of the executed command will be
 	 *   written to this variable.
-	 * @return string The last line from the result of the command.
+	 * @return string|false The last line from the result of the command,
+	 *   or FALSE on failure.
+	 * @throws \OMV\Exception
 	 * @throws \OMV\ExecException
 	 */
-	public function execute(array &$output = NULL, &$exitStatus = NULL): string {
+	public function execute(array &$output = NULL, &$exitStatus = NULL): string|false {
 		// Build the command line.
 		$cmdLine = $this->getCommandLine();
 		// Execute the command.
@@ -251,6 +264,10 @@ class Process {
 		$result = exec($cmdLine, $output, $exitStatus);
 		if ((FALSE === $this->quiet) && (0 !== $exitStatus)) {
 			throw new \OMV\ExecException($cmdLine, $output, $exitStatus);
+		}
+		if (TRUE === $this->requireOutput && empty($output)) {
+			throw new \OMV\Exception("The command '%s' returned empty output.",
+				$cmdLine);
 		}
 		return $result;
 	}
