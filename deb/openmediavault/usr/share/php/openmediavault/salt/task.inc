@@ -43,8 +43,9 @@ class Task {
 			}
 		}
 		// Make sure the data is valid and the key 'tasks' exists.
-		if (!array_key_exists("tasks", $tasks) || !is_array($tasks['tasks']))
+		if (!array_key_exists("tasks", $tasks) || !is_array($tasks['tasks'])) {
 			$tasks['tasks'] = [];
+		}
 		// Append a new task.
 		$tasks['tasks'][] = [
 			"sls" => $sls,
@@ -61,7 +62,7 @@ class Task {
 		if (FALSE === $tasks) {
 			return FALSE;
 		}
-		$tasks = explode("\n", $tasks);
+		$tasks = explode_safe("\n", $tasks);
 		while (!empty($tasks) && ("" === end($tasks))) {
 			array_pop($tasks);
 		}
