@@ -20,7 +20,7 @@
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 __all__ = ["bool", "getenv", "setenv"]
 
-from typing import Any, Optional
+from typing import Any, Literal, Optional
 
 import openmediavault.settings
 import openmediavault.utils
@@ -35,7 +35,11 @@ def bool(value):  # pylint: disable=redefined-builtin
     return openmediavault.utils.to_bool(value)
 
 
-def getenv(key: str, default: Optional[Any] = None, return_type: Optional[str] = "str"):
+def getenv(
+    key: str,
+    default: Optional[Any] = None,
+    return_type: Literal["str", "int", "float", "bool"] = "str",
+):
     """
     Get an environment variable, return None if it doesn't exist.
     :param key: The name of the variable.

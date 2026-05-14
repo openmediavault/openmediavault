@@ -71,13 +71,6 @@ class TopologicalSort {
 		if (!is_array($deps)) {
 			$deps = [ $deps ];
 		}
-		// Do a simple check to prevent circular dependencies.
-		foreach ($deps as $depk => $depv) {
-			if (array_key_exists($depv, $this->dependencies)) {
-				if (in_array($node, $this->dependencies[$depv]))
-					return FALSE;
-			}
-		}
 		// Add node to internal structures.
 		$this->nodes[] = $node;
 		foreach ($deps as $depk => $depv) {
@@ -89,29 +82,66 @@ class TopologicalSort {
 	}
 
 	/**
+	 * Check whether the dependency graph is acyclic.
+	 * Uses a classic DFS with three node colours:
+	 *   0 = white (not yet visited)
+	 *   1 = gray  (currently on the recursion stack)
+	 *   2 = black (fully explored, no cycle found below)
+	 * @return bool TRUE if the graph contains no cycles, otherwise FALSE.
+	 */
+	public function isAcyclic(): bool {
+		$color = array_fill_keys($this->nodes, 0);
+		$dfs = function(string $u) use (&$dfs, &$color): bool {
+			$color[$u] = 1; // mark as in-progress
+			foreach ($this->dependencies[$u] ?? [] as $dep) {
+				if (!array_key_exists($dep, $color)) continue;
+				if ($color[$dep] === 1) return TRUE; // back edge — cycle detected
+				if ($color[$dep] === 0 && $dfs($dep)) return TRUE;
+			}
+			$color[$u] = 2; // mark as fully explored
+			return FALSE;
+		};
+
+		foreach ($this->nodes as $node) {
+			if ($color[$node] === 0 && $dfs($node)) {
+				return FALSE;
+			}
+		}
+
+		return TRUE;
+	}
+
+	/**
 	 * @param bool $ignoreMissing Ignore dependency nodes that do not exist.
 	 *   Defaults to TRUE.
 	 * @return array|bool Returns the sorted nodes based on the given
 	 *   dependencies, otherwise FALSE if the dependencies can not be solved.
 	 */
 	public function sort($ignoreMissing = TRUE) {
-		$sorted = [];
+		// Work with local copies so that sort() can be called multiple times
+		// without corrupting the internal graph state.
+		$nodes = $this->nodes;
+		$dependencies = $this->dependencies;
+
 		// Remove dependencies that do not exist.
 		if (TRUE === $ignoreMissing) {
-			foreach ($this->nodes as $nodek => $nodev) {
-				if (array_key_exists($nodev, $this->dependencies))
+			foreach ($nodes as $nodek => $nodev) {
+				if (array_key_exists($nodev, $dependencies))
 					continue;
-				foreach ($this->dependencies as $depsk => &$depsv) {
+				foreach ($dependencies as $depsk => &$depsv) {
 					$depsv = array_values(array_diff($depsv, [ $nodev ]));
 				}
-				unset($this->nodes[$nodek]);
+				unset($depsv);
+				unset($nodes[$nodek]);
 			}
 		}
+
 		// Sort the nodes.
+		$sorted = [];
 		$abort = FALSE;
-		while ((FALSE === $abort) && (count($this->nodes) > count($sorted))) {
+		while ((FALSE === $abort) && (count($nodes) > count($sorted))) {
 			$abort = TRUE;
-			foreach ($this->dependencies as $node => $deps) {
+			foreach ($dependencies as $node => $deps) {
 				$found = TRUE;
 				foreach ($deps as $depk => $depv) {
 					if (!in_array($depv, $sorted)) {
@@ -121,13 +151,12 @@ class TopologicalSort {
 				}
 				if (TRUE === $found) {
 					$sorted[] = $node;
-					unset($this->dependencies[$node]);
+					unset($dependencies[$node]);
 					$abort = FALSE;
 				}
 			}
 		}
-		// Sucessful?
-		if ((TRUE === $abort) && (count($this->nodes) > count($sorted)))
+		if ((TRUE === $abort) && (count($nodes) > count($sorted)))
 			return FALSE;
 		return $sorted;
 	}

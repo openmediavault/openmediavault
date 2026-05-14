@@ -20,6 +20,7 @@
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 __all__ = ["ProductInfo"]
 
+import subprocess
 import xml.etree.ElementTree
 
 import openmediavault.procutils
@@ -70,7 +71,7 @@ class ProductInfo:
                 ['dpkg-query', '-W', '-f=${Version}', self.package_name],
                 text=True
             )
-        except KeyError:
+        except (KeyError, subprocess.SubprocessError, OSError):
             return 'n/a'
 
     @property

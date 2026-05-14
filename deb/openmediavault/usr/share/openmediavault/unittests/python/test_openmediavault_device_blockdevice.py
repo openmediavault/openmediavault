@@ -50,6 +50,10 @@ class MockedPyUdevDevice:
 
 
 class BlockDeviceTestCase(unittest.TestCase):
+    @staticmethod
+    def _realpath_map(mapping):
+        return lambda path: mapping.get(path, path)
+
     def test_device_file(self):
         bd = openmediavault.device.BlockDevice('/dev/sda')
         self.assertIsInstance(bd.device_file, str)
@@ -134,50 +138,86 @@ class BlockDeviceTestCase(unittest.TestCase):
             lambda: bd.udev_property('ID_FS_LABEL'),
         )
 
+    @mock.patch('os.path.realpath')
     @mock.patch('pyudev.Devices.from_device_file')
-    def test_get_device_files(self, mock_from_device_file):
+    def test_get_device_files(self, mock_from_device_file, mock_realpath):
         device = MockedPyUdevDevice()
         device.set_links(['/dev/disk/by-id/foo', '/dev/bar'])
         mock_from_device_file.return_value = device
+        mock_realpath.side_effect = self._realpath_map(
+            {
+                '/dev/sda': '/dev/sda',
+                '/dev/disk/by-id/foo': '/dev/sda',
+                '/dev/bar': '/dev/sda',
+            }
+        )
         bd = openmediavault.device.BlockDevice('/dev/sda')
         dev_links = bd.device_links
         self.assertIsInstance(dev_links, list)
         self.assertEqual(dev_links[0], '/dev/disk/by-id/foo')
         self.assertEqual(dev_links[1], '/dev/bar')
 
+    @mock.patch('os.path.realpath')
     @mock.patch('pyudev.Devices.from_device_file')
-    def test_device_file_by_id(self, mock_from_device_file):
+    def test_device_file_by_id(self, mock_from_device_file, mock_realpath):
         device = MockedPyUdevDevice()
         device.set_links(['/dev/disk/by-id/foo'])
         mock_from_device_file.return_value = device
+        mock_realpath.side_effect = self._realpath_map(
+            {
+                '/dev/sda': '/dev/sda',
+                '/dev/disk/by-id/foo': '/dev/sda',
+            }
+        )
         bd = openmediavault.device.BlockDevice('/dev/sda')
         self.assertTrue(bd.has_device_file_by_id())
         self.assertFalse(bd.has_device_file_by_path())
         self.assertEqual(bd.device_file_by_id, '/dev/disk/by-id/foo')
         self.assertIsNone(bd.device_file_by_path)
 
+    @mock.patch('os.path.realpath')
     @mock.patch('pyudev.Devices.from_device_file')
-    def test_device_file_by_path(self, mock_from_device_file):
+    def test_device_file_by_path(self, mock_from_device_file, mock_realpath):
         device = MockedPyUdevDevice()
         device.set_links(['/dev/disk/by-path/xyz'])
         mock_from_device_file.return_value = device
+        mock_realpath.side_effect = self._realpath_map(
+            {
+                '/dev/sda': '/dev/sda',
+                '/dev/disk/by-path/xyz': '/dev/sda',
+            }
+        )
         bd = openmediavault.device.BlockDevice('/dev/sda')
         self.assertFalse(bd.has_device_file_by_id())
         self.assertTrue(bd.has_device_file_by_path())
         self.assertIsNone(bd.device_file_by_id)
         self.assertEqual(bd.device_file_by_path, '/dev/disk/by-path/xyz')
 
+    @mock.patch('os.path.realpath')
     @mock.patch('pyudev.Devices.from_device_file')
-    def test_predictable_device_file_1(self, mock_from_device_file):
+    def test_predictable_device_file_1(
+        self, mock_from_device_file, mock_realpath
+    ):
         device = MockedPyUdevDevice()
         device.set_links(['/dev/disk/by-path/xyz'])
         mock_from_device_file.return_value = device
+        mock_realpath.side_effect = self._realpath_map(
+            {
+                '/dev/sda': '/dev/sda',
+                '/dev/disk/by-path/xyz': '/dev/sda',
+            }
+        )
         bd = openmediavault.device.BlockDevice('/dev/sda')
         self.assertEqual(bd.predictable_device_file, '/dev/disk/by-path/xyz')
 
+    @mock.patch('os.path.realpath')
     @mock.patch('pyudev.Devices.from_device_file')
-    def test_predictable_device_file_2(self, mock_from_device_file):
+    def test_predictable_device_file_2(
+        self, mock_from_device_file, mock_realpath
+    ):
         mock_from_device_file.return_value = MockedPyUdevDevice()
+        mock_realpath.side_effect = self._realpath_map(
+            {'/dev/sda': '/dev/sda'})
         bd = openmediavault.device.BlockDevice('/dev/sda')
         self.assertEqual(bd.predictable_device_file, '/dev/sda')
 

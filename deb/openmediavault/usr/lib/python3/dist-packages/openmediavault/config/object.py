@@ -20,6 +20,7 @@
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 __all__ = ["Object"]
 
+import copy
 import json
 import uuid
 
@@ -37,8 +38,8 @@ class Object:
         """
         :param id: The data model identifier, e.g. 'conf.service.ftp.share'.
         """
-        # Set the data model.
         self._model = openmediavault.config.Datamodel(id)
+        self._properties = openmediavault.collectiontools.DotDict()
         # Set the default values.
         self.reset_all()
 
@@ -169,7 +170,7 @@ class Object:
         :returns: Returns the properties of the configuration object as
                   openmediavault.collectiontools.DotDict dictionary.
         """
-        return self.properties
+        return copy.deepcopy(self.properties)
 
     def set(self, name, value, validate=True):
         """
@@ -224,7 +225,9 @@ class Object:
                   does not exist an exception is thrown.
         """
         value = self.get(name)
-        return not bool(value and value.strip())
+        if isinstance(value, str):
+            return not value.strip()
+        return not bool(value)
 
     def validate(self):
         """

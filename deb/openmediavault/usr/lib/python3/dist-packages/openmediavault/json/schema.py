@@ -243,7 +243,7 @@ class Schema:
 
     # lgtm[py/similar-function]
     def _validate_integer(self, value, schema, name):
-        if not isinstance(value, int):
+        if isinstance(value, bool) or not isinstance(value, int):
             raise SchemaValidationException(
                 name,
                 "The value '%s' is not an integer."
@@ -384,7 +384,7 @@ class Schema:
     def _check_pattern(self, value, schema, name):
         if "pattern" not in schema:
             return
-        if not re.match(schema['pattern'], value):
+        if not re.search(schema['pattern'], value):
             raise SchemaValidationException(
                 name,
                 "The value '%s' doesn't match the pattern '%s'."

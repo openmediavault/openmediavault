@@ -62,8 +62,8 @@ class User {
 	 * Get the system group data.
 	 * @private
 	 * @return void
-	 * @throw \OMV\Exception
-	 * @throw \OMV\ExecException
+	 * @throws \OMV\Exception
+	 * @throws \OMV\ExecException
 	 */
 	private function getData($type) {
 		switch ($type) {
@@ -83,8 +83,9 @@ class User {
 			} catch(\OMV\ExecException $e) {
 				// Re-raise the exception if exit status is not 2 (one or
 				// more supplied key could not be found in the database).
-				if (2 != $e->getExitStatus())
+				if (2 != $e->getExitStatus()) {
 					throw $e;
+				}
 				// Otherwise continue with empty values.
 				$output = [ "::::::::" ];
 			}
@@ -140,7 +141,9 @@ class User {
 			$cmd->execute($output);
 			$gids = preg_split('/\s+/', trim($output[0]));
 			if (FALSE === $gids) {
-				$gids = [];
+				throw new \OMV\Exception(
+					"Failed to parse group IDs for user '%s'.",
+					$this->getName());
 			}
 			// Resolve the group names.
 			$this->groups = [];
@@ -319,7 +322,7 @@ class User {
 		$result = [];
 		foreach ($output as $outputk => $outputv) {
 			if (preg_match("/^\s+(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+".
-			  "(\d+)\s+(\d+)$/i", $outputv, $matches)) {
+					"(\d+)\s+(\d+)$/i", $outputv, $matches)) {
 				$result[$matches[1]] = [
 					"devicefile" => $matches[1],
 					"blocks" => $matches[2],

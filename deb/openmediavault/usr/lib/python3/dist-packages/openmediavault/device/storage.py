@@ -25,6 +25,7 @@ import pkgutil
 import re
 from typing import List, Optional
 
+import openmediavault.procutils
 import openmediavault.stringutils
 import pyudev
 from cached_property import cached_property
@@ -257,7 +258,7 @@ class StorageDevice(BlockDevice):
         """
         Wipe the storage device.
         """
-        _ = openmediavault.subprocess.check_output(
+        _ = openmediavault.procutils.check_output(
             ['sgdisk', '--zap-all', self.device_file]
         )
 

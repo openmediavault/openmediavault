@@ -333,6 +333,20 @@ class SchemaTestCase(unittest.TestCase):
             lambda: schema.validate({"name": "Eggs", "slaves": "xyz0"}),
         )
 
+    def test_check_pattern_unanchored_matches_substring(self):
+        schema = openmediavault.json.Schema({})
+        schema._check_pattern("prefix-eth0-suffix",
+                              {"pattern": r"eth\d+"}, "field")
+
+    def test_check_pattern_anchored_requires_full_match(self):
+        schema = openmediavault.json.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_pattern(
+                "prefix-eth0-suffix", {"pattern": r"^eth\d+$"}, "field"
+            ),
+        )
+
     def test_check_items_1(self):
         schema = openmediavault.json.Schema({})
         schema._check_items(

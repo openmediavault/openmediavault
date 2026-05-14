@@ -47,37 +47,39 @@ def call(service, method, params=None):
         "OMV_ENGINED_SO_SNDTIMEO", return_type="int")
     rcvtimeo = openmediavault.getenv(
         "OMV_ENGINED_SO_RCVTIMEO", return_type="int")
-    s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-    s.setsockopt(
-        socket.SOL_SOCKET, socket.SO_SNDTIMEO, struct.pack("ll", sndtimeo, 0)
-    )
-    s.setsockopt(
-        socket.SOL_SOCKET, socket.SO_RCVTIMEO, struct.pack("ll", rcvtimeo, 0)
-    )
-    try:
-        s.connect(address)
-    except socket.error as e:
-        raise RuntimeError("Failed to connect {}: {}".format(address, e))
-    request = json.dumps(
-        {
-            "service": service,
-            "method": method,
-            "params": params,
-            "context": {"username": "admin", "role": 0x1},
-        }
-    )
-    request = request + "\0"
-    s.sendall(request.encode())
-    chunks = []
-    success = False
-    while not success:
-        chunk = s.recv(4096)
-        if chunk == "":
-            raise RuntimeError("Socket connection broken")
-        if chunk.endswith(b"\0"):
-            chunk = chunk[:-1]
-            success = True
-        chunks.append(chunk.decode())
+    with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as s:
+        s.setsockopt(
+            socket.SOL_SOCKET, socket.SO_SNDTIMEO,
+            struct.pack("ll", sndtimeo, 0)
+        )
+        s.setsockopt(
+            socket.SOL_SOCKET, socket.SO_RCVTIMEO,
+            struct.pack("ll", rcvtimeo, 0)
+        )
+        try:
+            s.connect(address)
+        except socket.error as e:
+            raise RuntimeError("Failed to connect {}: {}".format(address, e))
+        request = json.dumps(
+            {
+                "service": service,
+                "method": method,
+                "params": params,
+                "context": {"username": "admin", "role": 0x1},
+            }
+        )
+        request = request + "\0"
+        s.sendall(request.encode())
+        chunks = []
+        success = False
+        while not success:
+            chunk = s.recv(4096)
+            if not chunk:
+                raise RuntimeError("Socket connection broken")
+            if chunk.endswith(b"\0"):
+                chunk = chunk[:-1]
+                success = True
+            chunks.append(chunk.decode())
     response = json.loads("".join(chunks))
     if response["error"] is not None:
         print(response)

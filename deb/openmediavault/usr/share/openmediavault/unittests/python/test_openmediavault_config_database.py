@@ -118,6 +118,69 @@ class DatabaseTestCase(unittest.TestCase):
         self.assertIsInstance(objs, list)
         self.assertEqual(len(objs), 2)
 
+    def test_get_by_filter_min_result_success(self):
+        db = openmediavault.config.Database()
+        objs = db.get_by_filter(
+            "conf.system.notification.notification",
+            openmediavault.config.DatabaseFilter(
+                {'operator': 'stringContains', 'arg0': 'id', 'arg1': 'monit'}
+            ),
+            min_result=3,
+        )
+        self.assertIsInstance(objs, list)
+        self.assertEqual(len(objs), 5)
+
+    def test_get_by_filter_min_result_fail(self):
+        db = openmediavault.config.Database()
+        self.assertRaises(
+            openmediavault.config.database.DatabaseException,
+            lambda: db.get_by_filter(
+                "conf.system.notification.notification",
+                openmediavault.config.DatabaseFilter(
+                    {'operator': 'stringContains', 'arg0': 'id', 'arg1': 'monit'}
+                ),
+                min_result=10,
+            ),
+        )
+
+    def test_get_by_filter_max_result_success(self):
+        db = openmediavault.config.Database()
+        objs = db.get_by_filter(
+            "conf.system.notification.notification",
+            openmediavault.config.DatabaseFilter(
+                {'operator': 'stringContains', 'arg0': 'id', 'arg1': 'monit'}
+            ),
+            max_result=10,
+        )
+        self.assertIsInstance(objs, list)
+        self.assertEqual(len(objs), 5)
+
+    def test_get_by_filter_max_result_fail(self):
+        db = openmediavault.config.Database()
+        self.assertRaises(
+            openmediavault.config.database.DatabaseException,
+            lambda: db.get_by_filter(
+                "conf.system.notification.notification",
+                openmediavault.config.DatabaseFilter(
+                    {'operator': 'stringContains', 'arg0': 'id', 'arg1': 'monit'}
+                ),
+                max_result=3,
+            ),
+        )
+
+    def test_get_by_filter_min_max_result_success(self):
+        db = openmediavault.config.Database()
+        objs = db.get_by_filter(
+            "conf.system.notification.notification",
+            openmediavault.config.DatabaseFilter(
+                {'operator': 'stringContains', 'arg0': 'id', 'arg1': 'monit'}
+            ),
+            min_result=3,
+            max_result=10,
+        )
+        self.assertIsInstance(objs, list)
+        self.assertEqual(len(objs), 5)
+
     def test_exists(self):
         db = openmediavault.config.Database()
         self.assertTrue(
@@ -201,6 +264,30 @@ class DatabaseTestCase(unittest.TestCase):
         )
         self.assertEqual(
             query.xpath, ".//system/network/proxy[(port=8080 or " "port=4443)]"
+        )
+
+    def test_filter_query_3(self):
+        query = openmediavault.config.DatabaseGetByFilterQuery(
+            "conf.system.notification.notification",
+            openmediavault.config.DatabaseFilter(
+                {'operator': 'stringNotEquals', 'arg0': 'id', 'arg1': 'monit'}
+            ),
+        )
+        self.assertEqual(
+            query.xpath,
+            ".//system/notification/notifications/notification[id!='monit']",
+        )
+
+    def test_filter_query_4(self):
+        query = openmediavault.config.DatabaseGetByFilterQuery(
+            "conf.system.notification.notification",
+            openmediavault.config.DatabaseFilter(
+                {'operator': '!==', 'arg0': 'id', 'arg1': 'monit'}
+            ),
+        )
+        self.assertEqual(
+            query.xpath,
+            ".//system/notification/notifications/notification[id!='monit']",
         )
 
     def test_is_unique(self):

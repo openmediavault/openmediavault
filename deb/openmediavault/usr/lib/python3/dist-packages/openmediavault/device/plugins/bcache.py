@@ -47,7 +47,7 @@ class StorageDevice(openmediavault.device.StorageDevice):
         """
         # Make sure the canonical device file is used to extract the
         # name of the device.
-        path = '/sys/block/{}/slaves'.format(self.canonical_device_file)
+        path = '/sys/block/{}/slaves'.format(self.device_name(True))
         if not os.path.exists(path):
             return []
         result = []

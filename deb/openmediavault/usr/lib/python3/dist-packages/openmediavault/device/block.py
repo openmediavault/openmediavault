@@ -349,7 +349,7 @@ class BlockDevice:
         """
         try:
             return self.udev_properties[name]
-        except KeyError as e:
+        except KeyError:
             if default is not None:
                 return default
-            raise e
+            raise

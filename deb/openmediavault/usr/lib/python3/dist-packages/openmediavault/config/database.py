@@ -125,15 +125,15 @@ class Database:
         query = openmediavault.config.DatabaseGetByFilterQuery(id, filter)
         query.execute()
         if "min_result" in kwargs:
-            min_result = kwargs.get("min_result")
-            if min_result is not None and len(query.response) < min_result:
+            min_result = int(kwargs.get("min_result"))  # type: ignore
+            if len(query.response) < min_result:
                 raise DatabaseException(
                     "The query '{}' does not return the "
                     "minimum number of {} object(s).".format(
                         query.xpath, min_result))
         if "max_result" in kwargs:
-            max_result = kwargs.get("max_result")
-            if max_result is not None and len(query.response) > max_result:
+            max_result = int(kwargs.get("max_result"))  # type: ignore
+            if len(query.response) > max_result:
                 raise DatabaseException(
                     "The query '{}' returns more than the "
                     "maximum number of {} object(s).".format(
@@ -308,6 +308,8 @@ class DatabaseQuery(abc.ABC):
     def __init__(self, id):
         """
         :param id: The data model identifier, e.g. 'conf.service.ftp.share'.
+        :raises FileNotFoundError: If the configuration database file does not
+                                   exist.
         """
         # Get the path to the database.
         self._database_file = openmediavault.getenv("OMV_CONFIG_FILE")
@@ -389,15 +391,17 @@ class DatabaseQuery(abc.ABC):
         # Save the XML configuration file.
         with open(self._database_file, "wb") as f:
             fcntl.flock(f, fcntl.LOCK_EX)
-            f.write(
-                lxml.etree.tostring(
-                    self._root_element,
-                    pretty_print=True,
-                    xml_declaration=True,
-                    encoding="UTF-8",
+            try:
+                f.write(
+                    lxml.etree.tostring(
+                        self._root_element,
+                        pretty_print=1,  # type: ignore
+                        xml_declaration=1,  # type: ignore
+                        encoding="UTF-8",
+                    )
                 )
-            )
-            fcntl.flock(f, fcntl.LOCK_UN)
+            finally:
+                fcntl.flock(f, fcntl.LOCK_UN)
 
     def _get_root_element(self):
         """
@@ -647,7 +651,7 @@ class DatabaseQuery(abc.ABC):
             result = "(%s)" % " or ".join(parts)
         elif filter['operator'] in ['==', 'stringEquals']:
             result = "%s='%s'" % (filter['arg0'], filter['arg1'])
-        elif filter['operator'] in ['!==', '!=', 'stringNotEquals']:
+        elif filter['operator'] in ['!==', 'stringNotEquals']:
             result = "%s!='%s'" % (filter['arg0'], filter['arg1'])
         elif "stringContains" == filter['operator']:
             result = "contains(%s,'%s')" % (filter['arg0'], filter['arg1'])
@@ -693,10 +697,10 @@ class DatabaseGetByFilterQuery(DatabaseQuery):
 
     @property
     def xpath(self):
-        if self.filter:
+        if self.filter is not None:
             return "%s[%s]" % (
                 self.model.queryinfo['xpath'],
-                self._build_predicate(self.filter),
+                self._build_predicate(self.filter),  # type: ignore
             )
         return self.model.queryinfo['xpath']
 
@@ -894,7 +898,7 @@ class DatabaseDeleteQuery(DatabaseQuery):
         self._response = self._elements_to_object(elements)
         try:
             self._response = self._response[0]
-        except Exception:
+        except (IndexError, TypeError):
             self._response = None
         for element in elements:
             parent = element.getparent()

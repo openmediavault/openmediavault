@@ -18,6 +18,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
+import copy
 import unittest
 
 import openmediavault.collectiontools
@@ -91,6 +92,18 @@ class DotDictTestCase(unittest.TestCase):
         d = self._get_dict()
         self.assertFalse("a.x" in d)
 
+    def test_in_list_index(self):
+        d = self._get_dict()
+        self.assertTrue("k[2]" in d)
+
+    def test_in_list_index_fail(self):
+        d = self._get_dict()
+        self.assertFalse("k[9]" in d)
+
+    def test_in_list_key_fail(self):
+        d = self._get_dict()
+        self.assertFalse("unknown[0]" in d)
+
     def test_set_1(self):
         d = self._get_dict()
         d.y.z[0].bb = "bb"
@@ -143,6 +156,66 @@ class DotDictTestCase(unittest.TestCase):
         self.assertIsInstance(d['modules.module[0].users.user'], list)
         self.assertEqual(len(d.modules.module[0].users.user), 1)
         self.assertIsInstance(d['modules.module.0.users.user[0].name'], str)
+
+    def test_set_7(self):
+        d = openmediavault.collectiontools.DotDict({'foo': 'bar'})
+        d['foo.baz'] = 1
+        self.assertEqual(d['foo'], {'baz': 1})
+        self.assertEqual(d['foo.baz'], 1)
+
+    def test_setdefault_without_default(self):
+        d = openmediavault.collectiontools.DotDict()
+        self.assertIsNone(d.setdefault('newkey'))
+        self.assertTrue('newkey' in d)
+
+    def test_setdefault_existing_key_unchanged(self):
+        d = openmediavault.collectiontools.DotDict({'x': 3})
+        self.assertEqual(d.setdefault('x', 99), 3)
+        self.assertEqual(d['x'], 3)
+
+    def test_copy_is_dotdict(self):
+        d = self._get_dict()
+        d_copy = copy.copy(d)
+        self.assertIsInstance(d_copy, openmediavault.collectiontools.DotDict)
+
+    def test_copy_top_level_is_independent(self):
+        d = self._get_dict()
+        d_copy = copy.copy(d)
+        d_copy['x'] = 999
+        self.assertEqual(d['x'], 3)
+        self.assertEqual(d_copy['x'], 999)
+
+    def test_copy_nested_shares_reference(self):
+        d = self._get_dict()
+        d_copy = copy.copy(d)
+        # Shallow copy: nested objects remain shared.
+        self.assertIs(d_copy['y']['z'], d['y']['z'])
+        d_copy['y']['z'][0]['aa'] = "changed"
+        self.assertEqual(d['y.z.0.aa'], "changed")
+
+    def test_deepcopy_is_dotdict(self):
+        d = self._get_dict()
+        d_copy = copy.deepcopy(d)
+        self.assertIsInstance(d_copy, openmediavault.collectiontools.DotDict)
+
+    def test_deepcopy_scalar_is_independent(self):
+        d = self._get_dict()
+        d_copy = copy.deepcopy(d)
+        d_copy['x'] = 999
+        self.assertEqual(d['x'], 3)
+        self.assertEqual(d_copy['x'], 999)
+
+    def test_deepcopy_nested_dict_is_independent(self):
+        d = self._get_dict()
+        d_copy = copy.deepcopy(d)
+        d_copy['a.b.c'] = 999
+        self.assertEqual(d['a.b.c'], 100)
+
+    def test_deepcopy_nested_list_is_independent(self):
+        d = self._get_dict()
+        d_copy = copy.deepcopy(d)
+        d_copy['y.z.0.aa'] = 'changed'
+        self.assertEqual(d['y']['z'][0]['aa'], '1')
 
     def test_flatten(self):
         d = self._get_dict()
