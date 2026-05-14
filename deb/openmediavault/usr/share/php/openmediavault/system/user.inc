@@ -111,9 +111,9 @@ class User {
 			}
 			if (FALSE === $userInfo) {
 				throw new \OMV\Exception(
-				  "Failed to get information about the user '%s': %s",
-				  !is_null($this->uid) ? strval($this->uid) : $this->name,
-				  posix_strerror(posix_errno()));
+					"Failed to get information about the user '%s': %s",
+					!is_null($this->uid) ? strval($this->uid) : $this->name,
+					posix_strerror(posix_errno()));
 			}
 			[$uidMin, $uidMax] = self::getUidMinMax();
 			$this->name = $userInfo['name'];
@@ -136,12 +136,21 @@ class User {
 			$cmdArgs[] = escapeshellarg($this->getName());
 			$cmd = new \OMV\System\Process("id", $cmdArgs);
 			$cmd->setRedirect2to1();
+			$cmd->setRequireOutput();
 			$cmd->execute($output);
-			$gids = explode_safe(" ", $output[0]);
+			$gids = preg_split('/\s+/', trim($output[0]));
+			if (FALSE === $gids) {
+				$gids = [];
+			}
 			// Resolve the group names.
 			$this->groups = [];
 			foreach ($gids as $gidk => $gidv) {
-				$groupInfo = posix_getgrgid($gidv);
+				$gid = intval($gidv);
+				if (FALSE === ($groupInfo = posix_getgrgid($gid))) {
+					throw new \OMV\Exception(
+						"Failed to get information about the group '%d': %s",
+						$gid, posix_strerror(posix_errno()));
+				}
 				$this->groups[] = $groupInfo['name'];
 			}
 			break;
