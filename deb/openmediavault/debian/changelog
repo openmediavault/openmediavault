@@ -1,3 +1,9 @@
+openmediavault (8.2.14-1) stable; urgency=medium
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 14 May 2026 21:14:27 +0200
+
 openmediavault (8.2.13-1) stable; urgency=medium
 
   * Hardening omv-env tool.
