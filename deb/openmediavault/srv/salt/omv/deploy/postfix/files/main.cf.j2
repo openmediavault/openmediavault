@@ -59,7 +59,7 @@ smtp_tls_security_level = {{ smtp_tls_security_level }}
 smtp_tls_CAfile = {{ smtp_tls_CAfile }}
 smtp_tls_CApath = {{ smtp_tls_CApath }}
 smtp_tls_servername = {{ smtp_tls_servername }}
-smtp_tls_policy_maps = hash:{{ smtp_tls_policy_maps }}
+smtp_tls_policy_maps = {{ smtp_tls_policy_maps }}
 {%- endif %}
 smtp_header_checks = regexp:{{ smtp_header_checks }}
 alias_maps = {{ alias_maps }}

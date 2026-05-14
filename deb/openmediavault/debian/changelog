@@ -1,6 +1,8 @@
 openmediavault (8.2.14-1) stable; urgency=medium
 
-  *
+  * Add the environment variables `OMV_POSTFIX_MAIN_SMTP_TLS_SERVERNAME`
+    and `OMV_POSTFIX_MAIN_SMTP_TLS_POLICY_MAPS` to the customize the postfix
+    configuration.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 14 May 2026 21:14:27 +0200
 
