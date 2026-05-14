@@ -51,7 +51,7 @@
     "@codemirror/theme-one-dark": "^6.1.3",
     "@codemirror/view": "^6.42.1",
     "@fontsource/inter": "^5.2.8",
-    "@fontsource/roboto-mono": "^5.2.8",
+    "@fontsource/roboto-mono": "^5.2.9",
     "@mdi/angular-material": "^7.2.96",
     "@ngneat/transloco": "^4.3.0",
     "@siemens/ngx-datatable": "21.6.0",
