@@ -108,7 +108,7 @@ export class UserMfaFormPageComponent implements OnInit {
     fields: [
       {
         type: 'paragraph',
-        text: gettext(
+        title: gettext(
           'Scan the QR code below with your authenticator app ' +
           '(Google Authenticator, Authy, etc.). ' +
           'If your app does not support QR codes, enter the secret key manually.'
@@ -133,7 +133,7 @@ export class UserMfaFormPageComponent implements OnInit {
       },
       {
         type: 'paragraph',
-        text: gettext(
+        title: gettext(
           'Once your authenticator app is configured, enter the ' +
           '6-digit code it shows to confirm the setup.'
         )
