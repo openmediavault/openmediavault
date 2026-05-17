@@ -1132,9 +1132,14 @@ finish:
 	function getTotpStatusByContext($params, $context) {
 		// Any authenticated user can query their own MFA status.
 		$this->validateMethodContext($context, ["role" => OMV_ROLE_EVERYONE]);
-		return [
-			"enabled" => \OMV\Totp::isEnabledForUser($context['username']),
-		];
+		$db = \OMV\Config\Database::getInstance();
+		$objects = $db->getByFilter('conf.system.mfa.totp', [
+			'operator' => 'stringEquals',
+			'arg0'     => 'username',
+			'arg1'     => $context['username'],
+		]);
+		$enabled = !empty($objects) && (bool) $objects[0]->get('enabled');
+		return ["enabled" => $enabled];
 	}
 
 	/**
@@ -1229,7 +1234,16 @@ finish:
 			$params, "rpc.usermgmt.disabletotpbycontext");
 		// Retrieve the stored secret and verify the submitted code before
 		// making any changes, so a stolen session cannot disable MFA.
-		$secret = \OMV\Totp::getSecretForUser($context['username']);
+		$db = \OMV\Config\Database::getInstance();
+		$filter = [
+			'operator' => 'stringEquals',
+			'arg0'     => 'username',
+			'arg1'     => $context['username'],
+		];
+		$mfaObjects = $db->getByFilter('conf.system.mfa.totp', $filter);
+		$secret = !empty($mfaObjects)
+			? (string) $mfaObjects[0]->get('secret')
+			: '';
 		if (empty($secret)) {
 			throw new \OMV\Exception(
 				"TOTP is not configured for this account.");

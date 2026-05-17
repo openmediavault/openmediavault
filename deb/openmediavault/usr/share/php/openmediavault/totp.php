@@ -114,44 +114,6 @@ class Totp {
 	}
 
 	/**
-	 * Query the config database to check whether TOTP is enabled for a user.
-	 *
-	 * @param string $username The username to check.
-	 * @return bool TRUE if TOTP MFA is enabled and a secret is stored.
-	 */
-	public static function isEnabledForUser(string $username): bool {
-		$db = \OMV\Config\Database::getInstance();
-		$objects = $db->getByFilter('conf.system.mfa.totp', [
-			'operator' => 'stringEquals',
-			'arg0'     => 'username',
-			'arg1'     => $username,
-		]);
-		if (empty($objects)) {
-			return false;
-		}
-		return (bool) $objects[0]->get('enabled');
-	}
-
-	/**
-	 * Retrieve the stored TOTP secret for a user from the config database.
-	 *
-	 * @param string $username The username whose secret to retrieve.
-	 * @return string The base32-encoded secret, or '' if not set.
-	 */
-	public static function getSecretForUser(string $username): string {
-		$db = \OMV\Config\Database::getInstance();
-		$objects = $db->getByFilter('conf.system.mfa.totp', [
-			'operator' => 'stringEquals',
-			'arg0'     => 'username',
-			'arg1'     => $username,
-		]);
-		if (empty($objects)) {
-			return '';
-		}
-		return (string) $objects[0]->get('secret');
-	}
-
-	/**
 	 * Compute the TOTP code for a given counter value (RFC 6238 / RFC 4226).
 	 *
 	 * Steps:

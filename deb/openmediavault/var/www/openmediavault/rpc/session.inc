@@ -79,7 +79,15 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 			// Check whether this user has TOTP MFA enabled. If so, initialize
 			// a pending session and return early — the client must submit a
 			// TOTP code via verifyTotp() before receiving a full session.
-			if (\OMV\Totp::isEnabledForUser($params['username'])) {
+			$db = \OMV\Config\Database::getInstance();
+			$mfaObjects = $db->getByFilter('conf.system.mfa.totp', [
+				'operator' => 'stringEquals',
+				'arg0'     => 'username',
+				'arg1'     => $params['username'],
+			]);
+			$mfaEnabled = !empty($mfaObjects) &&
+				(bool) $mfaObjects[0]->get('enabled');
+			if ($mfaEnabled) {
 				// Reject if an existing authenticated session belongs to a
 				// different user (mirrors the check on the non-MFA path).
 				if ($session->isAuthenticated() &&
@@ -169,7 +177,15 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 		$username = $session->getUsername();
 		$server   = new \OMV\SuperGlobalServer();
 		// Retrieve the stored TOTP secret and verify the submitted code.
-		$secret = \OMV\Totp::getSecretForUser($username);
+		$db = \OMV\Config\Database::getInstance();
+		$mfaObjects = $db->getByFilter('conf.system.mfa.totp', [
+			'operator' => 'stringEquals',
+			'arg0'     => 'username',
+			'arg1'     => $username,
+		]);
+		$secret = !empty($mfaObjects)
+			? (string) $mfaObjects[0]->get('secret')
+			: '';
 		$code = trim($params['code']);
 		if (empty($secret) || !\OMV\Totp::verifyCode($secret, $code)) {
 			// Record the failure and enforce a retry limit.
