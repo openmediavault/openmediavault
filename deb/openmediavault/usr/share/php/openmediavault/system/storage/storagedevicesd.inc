@@ -71,6 +71,7 @@ class StorageDeviceSD extends StorageDevice implements SmartInterface {
 	 *
 	 * @return array Returns an object containing the host, bus, target
 	 *   and lun.
+	 * @throws \OMV\Exception
 	 */
 	public function getHCTL(): array {
 		// The path '/sys/<DEVPATH>/device/' points to the necessary information.
@@ -81,7 +82,16 @@ class StorageDeviceSD extends StorageDevice implements SmartInterface {
 		// lrwxrwxrwx  1 root root    0 Oct  12 10:45 device -> ../../../1:0:5:0
 		$path = realpath(build_path(DIRECTORY_SEPARATOR, "/sys",
 			$this->getUdevProperty("DEVPATH"), "device/"));
+		if (FALSE === $path) {
+			throw new \OMV\Exception(
+				"Failed to resolve the SCSI device path for '%s'.",
+				$this->getDeviceFile());
+		}
 		$parts = explode(":", basename($path));
+		if (4 !== count($parts)) {
+			throw new \OMV\Exception(
+				"Failed to parse the SCSI address from path '%s'.", $path);
+		}
 		return [
 			"host" => intval($parts[0]),
 			"channel" => intval($parts[1]),

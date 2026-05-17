@@ -23,6 +23,8 @@ __all__ = ["info", "warning", "error", "debug"]
 import sys
 import syslog
 
+syslog.openlog(facility=syslog.LOG_SYSLOG)
+
 
 def _log(priority, msg, args, verbose=True):
     msg = msg % args if args else msg
@@ -37,9 +39,7 @@ def _log(priority, msg, args, verbose=True):
                 syslog.LOG_DEBUG: "DEBUG",
             }
             fd.write(f"{priority2text[priority]}: {msg}\n")
-    syslog.openlog(facility=syslog.LOG_SYSLOG)
     syslog.syslog(priority, msg)
-    syslog.closelog()
 
 
 def info(msg, *args, **kwargs):

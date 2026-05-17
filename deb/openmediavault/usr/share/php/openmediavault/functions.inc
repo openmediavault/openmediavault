@@ -28,11 +28,12 @@ require_once("openmediavault/autoloader.inc");
  * @param array $array The array to flatten.
  * @param string $separator The character used as separator. Defaults to '.'.
  * @param string $parent_key The parent key. Defaults to empty.
- * @return A single-dimensional array.
+ * @return A single-dimensional array or NULL on failure.
  */
 function array_flatten(array $array, $separator = ".", $parent_key = ""): ?array {
-	if (!is_array($array))
-		return FALSE;
+	if (!is_array($array)) {
+		return NULL;
+	}
 	$result = [];
 	foreach ($array as $key => $value) {
 		$new_key = !empty($parent_key) ? $parent_key.$separator.$key : $key;
@@ -50,11 +51,12 @@ function array_flatten(array $array, $separator = ".", $parent_key = ""): ?array
  * @ingroup api
  * @param array $array The array to expand.
  * @param string $separator The character used as separator. Defaults to '.'.
- * @return A multi-dimensional array.
+ * @return A multi-dimensional array or NULL on failure.
  */
 function array_expand(array $array, $separator = "."): ?array {
-	if (!is_array($array))
-		return FALSE;
+	if (!is_array($array)) {
+		return NULL;
+	}
 	$result = [];
 	foreach ($array as $key => $value) {
 		$parts = explode($separator, (string) $key);
@@ -269,31 +271,19 @@ function array_value(array $array, $key, $default = NULL) {
  *   in the array NULL will be returned.
  */
 function array_rand_value(array $array, $num = 1) {
-	$keys = array_rand($array, $num);
-	if (is_null($keys))
+	$num = intval($num);
+	if (empty($array) || ($num < 1) || ($num > count($array))) {
 		return NULL;
-	if (!is_array($keys))
+	}
+	$keys = array_rand($array, $num);
+	if (!is_array($keys)) {
 		return $array[$keys];
+	}
 	$result = [];
 	foreach ($keys as $keyk => $keyv) {
 		$result[] = $array[$keyv];
 	}
 	return $result;
-/*
-	// Alternative implementation.
-	$count = count($array);
-	if ($num > $count)
-		return NULL;
-	$result = (1 == $num) ? "" : array();
-	for ($i = 0; $i < $num; $i++) {
-		$index = mt_rand(0, $count - 1);
-		if (1 == $num)
-			$result = $array[$index];
-		else
-			$result[] = $array[$index];
-	}
-	return $result;
-*/
 }
 
 /**
@@ -747,15 +737,16 @@ function binary_format($number, $options = NULL) {
  * @param string $toPrefix The binary prefix name to convert \em number to,
  *   e.g. 'TiB'.
  * @param int $decimalPlaces The number of decimal places. Defaults to 0.
- * @return The converted number as string or FALSE on failure.
+ * @return The converted number as string or NULL on failure.
  */
 function binary_convert($number, $fromPrefix, $toPrefix, $decimalPlaces = 0): ?string {
 	$prefixes = [ "B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB" ];
 	$fromIndex = array_search($fromPrefix, $prefixes);
 	$toIndex = array_search($toPrefix, $prefixes);
-	if ((FALSE === $fromIndex) || (FALSE === $toIndex))
-		return FALSE;
-	if (preg_match("/E[\+-]\d+$/", strval($number))) {
+	if ((FALSE === $fromIndex) || (FALSE === $toIndex)) {
+		return NULL;
+	}
+	if (preg_match("/[eE][\+-]?\d+$/", strval($number))) {
 		// Convert number to string and ensure the correct number of decimal
 		// numbers is set (workaround for float numbers that are otherwise
 		// converted to exponential notation, which bcmul cannot handle).
@@ -778,12 +769,13 @@ function binary_convert($number, $fromPrefix, $toPrefix, $decimalPlaces = 0): ?s
  * @ingroup api
  * @param string $date A date/time string to parse.
  * @param string $format The format used in date.
- * @return Returns a Unix timestamp on success, FALSE otherwise.
+ * @return Returns a Unix timestamp on success, NULL otherwise.
  */
 function strpdate($date, $format): ?int {
 	$date = str_replace("\0", '', $date); // Remove null bytes.
-	if (FALSE === ($dt = DateTime::createFromFormat($format, $date)))
-		return FALSE;
+	if (FALSE === ($dt = DateTime::createFromFormat($format, $date))) {
+		return NULL;
+	}
 	return $dt->getTimestamp();
 }
 
@@ -836,15 +828,17 @@ function listdir($directory, $extension = "", $sortFlags = SORT_NATURAL): array 
  * @param string $prefix The prefix of the generated temporary directory.
  *   Defaults to empty.
  * @param int $mode The mode of the temporary directory. Defaults to 0700.
- * @return Returns the full path of the created directory, or FALSE on failure.
+ * @return Returns the full path of the created directory, or NULL on failure.
  */
 function mkdtemp($prefix = "", $mode = 0700): ?string {
 	$directory = build_path(DIRECTORY_SEPARATOR, sys_get_temp_dir(),
-	  uniqid($prefix));
-	if (is_dir($directory))
-		return FALSE;
-	if (FALSE === mkdir($directory, $mode))
-		return FALSE;
+		uniqid($prefix));
+	if (is_dir($directory)) {
+		return NULL;
+	}
+	if (FALSE === mkdir($directory, $mode)) {
+		return NULL;
+	}
 	return $directory;
 }
 
@@ -1052,13 +1046,13 @@ function explode_safe($delimiter, $string): array {
  *   characters (check the `trim` function for more details) from the
  *   beginning and end of the substrings. Defaults to TRUE.
  * @return Returns an array of strings created by splitting the string
- *   parameter on boundaries formed by the separator or FALSE on
+ *   parameter on boundaries formed by the separator or NULL on
  *   failure.
  */
 function explode_csv($string, $separator = ",;", $autoTrim = TRUE): ?array {
     $parts = preg_split("/[".$separator."]+/", $string);
     if (FALSE === $parts) {
-        return FALSE;
+        return NULL;
     }
     if ($autoTrim) {
         $parts = array_map("trim", $parts);

@@ -20,7 +20,7 @@
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 from collections import deque
 from functools import total_ordering
-from typing import Deque, Dict, Generic, List, Set, TypeVar
+from typing import Deque, Dict, Generic, List, TypeVar
 
 T = TypeVar('T')
 
@@ -75,36 +75,42 @@ class TopologicalSorter(Generic[T]):
         if not self.is_acyclic():
             raise CycleError
 
+        # Work with a local copy of predecessor counts so that sort() can be
+        # called multiple times without corrupting the graph state.
+        num_predecessors: Dict[NodeInfo[T], int] = {
+            n: n.num_predecessors for n in self._nodes.values()
+        }
         ready_nodes: Deque[NodeInfo] = deque(
-            [n for n in self._nodes.values() if n.num_predecessors == 0])
+            [n for n in self._nodes.values() if num_predecessors[n] == 0])
         while ready_nodes:
             current_node: NodeInfo = ready_nodes.popleft()
             for v in current_node.successors:
-                v.num_predecessors -= 1
-                if v.num_predecessors == 0:
+                num_predecessors[v] -= 1
+                if num_predecessors[v] == 0:
                     ready_nodes.append(v)
             result.append(current_node.node)
         return result
 
-    def is_acyclic(self):
-        visited: Set[NodeInfo[T]] = set()
-        stack: List[NodeInfo[T]] = []
+    def is_acyclic(self) -> bool:
+        # Classic DFS with three node colors:
+        #   0 = white (not yet visited)
+        #   1 = gray  (currently on the recursion stack)
+        #   2 = black (fully explored, no cycle found below)
+        color: Dict[NodeInfo[T], int] = {n: 0 for n in self._nodes.values()}
 
-        def find_cycle(u: NodeInfo[T]) -> bool:
+        def dfs(u: NodeInfo[T]) -> bool:
+            color[u] = 1  # mark as in-progress
             for v in u.successors:
-                if v in stack:
-                    # We found a cycle.
+                if color[v] == 1:
+                    # Back edge... cycle detected.
                     return True
-                visited.add(v)
-                stack.append(v)
-                if find_cycle(v):
+                if color[v] == 0 and dfs(v):
                     return True
-                stack.pop()
+            color[u] = 2  # mark as fully explored
+            return False
 
-        for _, node in self._nodes.items():
-            if node in visited:
-                continue
-            if find_cycle(node):
+        for node in self._nodes.values():
+            if color[node] == 0 and dfs(node):
                 return False
 
         return True
@@ -114,7 +120,7 @@ if __name__ == "__main__":
     ts: TopologicalSorter[int] = TopologicalSorter()
     ts.add_predecessors(1, [0])
     ts.add_predecessors(3, [2, 1])
-    print("True" if ts.is_acyclic() else "False")
+    print("True" if ts.is_acyclic() else "False")  # True
     print(ts.sort())  # [0, 2, 1, 3]
 
     ts: TopologicalSorter[str] = TopologicalSorter()
@@ -167,7 +173,7 @@ if __name__ == "__main__":
     ts.add_predecessors(1, [0])
     ts.add_predecessors(3, [2, 1])
     ts.add(3, [0])  # Cycle
-    print("True" if ts.is_acyclic() else "False")
+    print("True" if ts.is_acyclic() else "False")  # False
 
     ts: TopologicalSorter[int] = TopologicalSorter()
     ts.add(0, [2, 5])
@@ -177,4 +183,4 @@ if __name__ == "__main__":
     ts.add(5, [2, 4])
     ts.add(6, [2])
     ts.add(4, [3])  # Cycle
-    print("True" if ts.is_acyclic() else "False")
+    print("True" if ts.is_acyclic() else "False")  # False

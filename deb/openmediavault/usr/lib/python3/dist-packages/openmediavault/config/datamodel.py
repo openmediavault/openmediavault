@@ -118,19 +118,17 @@ class Datamodel(openmediavault.datamodel.Datamodel):
 
     @property
     def is_iterable(self):
-        if not "idproperty" in self.queryinfo:
-            return False
-        if not "iterable" in self.queryinfo:
+        if "iterable" not in self.queryinfo:
             return False
         return self.queryinfo['iterable']
 
     @property
     def is_referenceable(self):
-        if not "idproperty" in self.queryinfo:
+        if "idproperty" not in self.queryinfo:
             return False
-        if not "refproperty" in self.queryinfo:
+        if "refproperty" not in self.queryinfo:
             return False
-        return self.queryinfo['refproperty']
+        return True
 
     @property
     def is_identifiable(self):

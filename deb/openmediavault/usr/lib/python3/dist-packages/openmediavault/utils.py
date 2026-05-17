@@ -34,7 +34,7 @@ def to_bool(value: Any) -> bool:
     >>> assert to_bool("False") == False
     >>> assert to_bool(False) == False
     """
-    if type(value) == bool:
+    if isinstance(value, bool):
         return value
     if str(value).lower() in ["1", "on", "yes", "y", "true", "t"]:
         return True

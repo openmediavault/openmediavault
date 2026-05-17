@@ -49,6 +49,7 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface {
 	 *   \li /dev/disk/by-id/md-uuid-75de9de9:6beca92e:8442575c:73eabbc9
 	 *   \li /dev/disk/by-id/lvm-pv-uuid-VDH5Om-Rkjc-cQid-PeJI-Sfqm-66DI-w0dpCO
 	 *   </ul>
+	 * @throws \InvalidArgumentException
 	 */
 	public function __construct($deviceFile) {
 		if (TRUE === is_devicefile_by_id($deviceFile)) {
@@ -56,6 +57,9 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface {
 			$this->deviceFile = realpath($deviceFile);
 		} else if (TRUE === is_devicefile($deviceFile)) {
 			$this->deviceFile = $deviceFile;
+		} else {
+			throw new \InvalidArgumentException(sprintf(
+				"Invalid device file '%s'.", strval($deviceFile)));
 		}
 	}
 
@@ -265,6 +269,7 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface {
 			$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
 			$cmd->setRedirect2to1();
+			$cmd->setRequireOutput();
 			$cmd->execute($output);
 			$this->size = $output[0]; // Do not convert to long.
 		}
@@ -281,6 +286,7 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface {
 			$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
 			$cmd->setRedirect2to1();
+			$cmd->setRequireOutput();
 			$cmd->execute($output);
 			$this->blockSize = intval($output[0]);
 		}
@@ -297,6 +303,7 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface {
 			$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
 			$cmd->setRedirect2to1();
+			$cmd->setRequireOutput();
 			$cmd->execute($output);
 			$this->sectorSize = intval($output[0]);
 		}

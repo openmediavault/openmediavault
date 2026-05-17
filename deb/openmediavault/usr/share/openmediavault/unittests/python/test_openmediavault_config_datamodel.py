@@ -49,6 +49,49 @@ class DatamodelTestCase(unittest.TestCase):
         datamodel = self._get_model()
         datamodel.queryinfo
 
+    def test_is_iterable_false(self):
+        datamodel = self._get_model()
+        self.assertFalse(datamodel.is_iterable)
+
+    def test_is_iterable_true(self):
+        datamodel = openmediavault.config.Datamodel(
+            {
+                "type": "config",
+                "id": "conf.service.example.item",
+                "queryinfo": {
+                    "xpath": ".//service/example/item",
+                    "iterable": True,
+                },
+                "properties": {
+                    "name": {"type": "string", "default": ""},
+                },
+            }
+        )
+        self.assertTrue(datamodel.is_iterable)
+
+    def test_is_referenceable_false(self):
+        datamodel = self._get_model()
+        self.assertFalse(datamodel.is_referenceable)
+
+    def test_is_referenceable_true(self):
+        datamodel = openmediavault.config.Datamodel(
+            {
+                "type": "config",
+                "id": "conf.service.example.item",
+                "queryinfo": {
+                    "xpath": ".//service/example/item",
+                    "iterable": True,
+                    "idproperty": "uuid",
+                    "refproperty": "sharedref",
+                },
+                "properties": {
+                    "uuid": {"type": "string", "default": ""},
+                    "sharedref": {"type": "string", "default": ""},
+                },
+            }
+        )
+        self.assertTrue(datamodel.is_referenceable)
+
     def test_notificationid(self):
         datamodel = self._get_model()
         datamodel.notificationid

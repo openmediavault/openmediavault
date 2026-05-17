@@ -20,6 +20,7 @@
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 __all__ = ["flatten", "DotDict", "DotCollapsedDict"]
 
+import copy
 import re
 from typing import Any, Callable, Dict, Iterable, Optional
 
@@ -96,7 +97,26 @@ class DotDict(dict):
         for key, value in d.items():
             self.__setitem__(key, value)
 
-    def setdefault(self, key, default):
+    def __copy__(self):
+        """Shallow copy: top-level keys are copied, nested objects remain shared references."""
+        result = DotDict()
+        for key, value in self.items():
+            dict.__setitem__(result, key, value)
+        return result
+
+    def __deepcopy__(self, memo):
+        """Deep copy: recursively clone keys and values."""
+        result = DotDict()
+        memo[id(self)] = result
+        for k, v in self.items():
+            dict.__setitem__(
+                result,
+                copy.deepcopy(k, memo),
+                copy.deepcopy(v, memo),
+            )
+        return result
+
+    def setdefault(self, key, default=None):
         if key not in self:
             self[key] = default
         return self[key]
@@ -197,6 +217,7 @@ class DotDict(dict):
                 branch = branch[index]
             if not isinstance(branch, DotDict):
                 branch = DotDict()
+                dict.__setitem__(self, first, branch)
             branch[rest] = value
         else:
             if isinstance(value, list):
@@ -216,10 +237,18 @@ class DotDict(dict):
             first = matches.group(1)
             index = int(matches.group(2))
             rest = matches.group(4)
+            if not dict.__contains__(self, first):
+                return False
             branch = dict.__getitem__(self, first)
+            if not isinstance(branch, list):
+                return False
+            if index >= len(branch):
+                return False
             if rest is None:
-                return index in branch
+                return True
             branch = branch[index]
+            if not isinstance(branch, DotDict):
+                return False
             return rest in branch
         else:
             if key is None or "." not in key:

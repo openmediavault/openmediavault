@@ -72,6 +72,7 @@ class NetworkInterface {
 		$cmdArgs[] = escapeshellarg($this->getDeviceName());
 		$cmd = new \OMV\System\Process("ip", $cmdArgs);
 		$cmd->setRedirect2to1();
+		$cmd->setRequireOutput();
 		$cmd->execute($output);
 		// [{
 		//     "ifindex": 5,

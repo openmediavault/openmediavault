@@ -41,9 +41,9 @@ class Monit:
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
             )
-        except subprocess.CalledProcessError as e:
+        except subprocess.CalledProcessError:
             if not quiet:
-                raise e
+                raise
 
     def start(self, quiet=False):
         """

@@ -206,6 +206,44 @@ class test_openmediavault_json_schema extends \PHPUnit\Framework\TestCase {
 	/**
 	 * @doesNotPerformAssertions
 	 */
+	public function testCheckPatternUnanchoredMatchesSubstring() {
+		$schema = new \OMV\Json\Schema([
+			"type" => "object",
+			"properties" => [
+				"name" => [
+					"type" => "string",
+					"required" => TRUE
+				],
+				"iface" => [
+					"type" => "string",
+					"pattern" => "eth\\d+"
+				]
+			]
+		]);
+		$schema->validate(["name" => "foo", "iface" => "prefix-eth0-suffix"]);
+	}
+
+	public function testCheckPatternAnchoredRequiresFullMatch() {
+		$schema = new \OMV\Json\Schema([
+			"type" => "object",
+			"properties" => [
+				"name" => [
+					"type" => "string",
+					"required" => TRUE
+				],
+				"iface" => [
+					"type" => "string",
+					"pattern" => "^eth\\d+$"
+				]
+			]
+		]);
+		$this->expectException(\OMV\Json\SchemaValidationException::class);
+		$schema->validate(["name" => "foo", "iface" => "prefix-eth0-suffix"]);
+	}
+
+	/**
+	 * @doesNotPerformAssertions
+	 */
 	public function testValidateItems1() {
 		$schema = new \OMV\Json\Schema([
 			"type" => "array",

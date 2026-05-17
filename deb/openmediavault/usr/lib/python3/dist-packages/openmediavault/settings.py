@@ -58,7 +58,7 @@ class Environment:
     /etc/default/openmediavault.
     """
 
-    _env_vars = Dict[str, EnvironmentVariable]
+    _env_vars: Dict[str, EnvironmentVariable] = {}
 
     @staticmethod
     def load():
@@ -67,7 +67,7 @@ class Environment:
             with open(DEFAULT_FILE) as fd:
                 for line in fd.readlines():
                     m = re.match(
-                        r"^(OMV_([A-Z0-9_]+))=(\")?([^\"]+)(\")?$", line.strip()
+                        r"^(OMV_([A-Z0-9_]+))=(\")?([^\"]*)(\")?$", line.strip()
                     )
                     if not m:
                         continue

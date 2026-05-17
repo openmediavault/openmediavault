@@ -114,6 +114,7 @@ abstract class BackendAbstract {
 			$cmdArgs[] = sprintf("UUID=%s", escapeshellarg($id));
 			$cmd = new \OMV\System\Process("findfs", $cmdArgs);
 			$cmd->setRedirect2to1();
+			$cmd->setRequireOutput();
 			$cmd->execute($output);
 			$id = $output[0];
 			unset($cmdArgs);
@@ -128,8 +129,9 @@ abstract class BackendAbstract {
 		$cmd = new \OMV\System\Process("blkid", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output);
-		if (empty($output))
+		if (empty($output)) {
 			return FALSE;
+		}
 		// Compare the filesystem type.
 		return ($output[0] == $this->getType()) ? TRUE : FALSE;
 	}
@@ -169,8 +171,9 @@ abstract class BackendAbstract {
 	 *   option, otherwise FALSE.
 	 */
 	public function hasFstabDiscardSupport() {
-		if (!$this->hasDiscardSupport())
+		if (!$this->hasDiscardSupport()) {
 			return FALSE;
+		}
 		return $this->hasProperty(self::PROP_MNTENT_DISCARD);
 	}
 
@@ -253,7 +256,7 @@ abstract class BackendAbstract {
 	 * @return An array of 'mount' options.
 	 */
 	public function getFstabMntOptions(
-	  \OMV\System\Storage\StorageDevice $sd = null) {
+			\OMV\System\Storage\StorageDevice $sd = null) {
 		$options = $this->mntOptions;
 		// Append additional mount options depending on the storage device.
 		if (!is_null($sd)) {
@@ -297,7 +300,7 @@ abstract class BackendAbstract {
 	 * @return An array of 'mkfs' options.
 	 */
 	public function getMkfsOptions(
-	  \OMV\System\Storage\StorageDevice $sd = null) {
+			\OMV\System\Storage\StorageDevice $sd = null) {
 		return $this->mkfsOptions;
 	}
 

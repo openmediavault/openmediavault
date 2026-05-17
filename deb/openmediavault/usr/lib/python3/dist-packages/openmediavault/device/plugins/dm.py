@@ -122,7 +122,7 @@ class StorageDevice(openmediavault.device.StorageDevice):
         """
         # Make sure the canonical device file is used to extract the
         # name of the device.
-        path = '/sys/block/{}/slaves'.format(self.canonical_device_file)
+        path = '/sys/block/{}/slaves'.format(self.device_name(True))
         if not os.path.exists(path):
             return []
         result = []
@@ -220,7 +220,7 @@ class StorageDeviceLVM(StorageDevice):
             self._get_data()
         except Exception:
             return False
-        return 0 < len(self.lv_uuid)
+        return bool(self._uuid)
 
     @property
     def uuid(self):
@@ -283,21 +283,21 @@ class StorageDeviceLVM(StorageDevice):
         # - owi-aos---
         # - swi-a-s---
         return {
-            'origin': 'o' == self._lv_attr[0, 1],
-            'snapshot': 's' == self._lv_attr[0, 1],
-            'invalidsnapshot': 'S' == self._lv_attr[0, 1],
-            'mirrored': 'm' == self._lv_attr[0, 1],
-            'virtual': 'v' == self._lv_attr[0, 1],
-            'pvmove': 'p' == self._lv_attr[0, 1],
+            'origin': 'o' == self._lv_attr[0],
+            'snapshot': 's' == self._lv_attr[0],
+            'invalidsnapshot': 'S' == self._lv_attr[0],
+            'mirrored': 'm' == self._lv_attr[0],
+            'virtual': 'v' == self._lv_attr[0],
+            'pvmove': 'p' == self._lv_attr[0],
             'state': {
-                'active': 'a' == self._lv_attr[4, 1],
-                'suspended': 's' == self._lv_attr[4, 1],
-                'invalidsnapshot': 'I' == self._lv_attr[4, 1],
-                'invalidsuspendedsnapshot': 'S' == self._lv_attr[4, 1],
+                'active': 'a' == self._lv_attr[4],
+                'suspended': 's' == self._lv_attr[4],
+                'invalidsnapshot': 'I' == self._lv_attr[4],
+                'invalidsuspendedsnapshot': 'S' == self._lv_attr[4],
             },
             'device': {
-                'open': 'o' == self._lv_attr[5, 1],
-                'unknown': 'X' == self._lv_attr[5, 1],
+                'open': 'o' == self._lv_attr[5],
+                'unknown': 'X' == self._lv_attr[5],
             },
         }
 

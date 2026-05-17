@@ -62,14 +62,15 @@ class User {
 	 * Get the system group data.
 	 * @private
 	 * @return void
-	 * @throw \OMV\Exception
-	 * @throw \OMV\ExecException
+	 * @throws \OMV\Exception
+	 * @throws \OMV\ExecException
 	 */
 	private function getData($type) {
 		switch ($type) {
 		case "shadow":
-			if (!is_null($this->password))
+			if (!is_null($this->password)) {
 				return;
+			}
 			// http://www.cyberciti.biz/faq/understanding-etcshadow-file
 			try {
 				$cmdArgs = [];
@@ -77,16 +78,18 @@ class User {
 				$cmdArgs[] = escapeshellarg($this->getName());
 				$cmd = new \OMV\System\Process("getent", $cmdArgs);
 				$cmd->setRedirect2to1();
+				$cmd->setRequireOutput();
 				$cmd->execute($output);
 			} catch(\OMV\ExecException $e) {
 				// Re-raise the exception if exit status is not 2 (one or
 				// more supplied key could not be found in the database).
-				if (2 != $e->getExitStatus())
+				if (2 != $e->getExitStatus()) {
 					throw $e;
+				}
 				// Otherwise continue with empty values.
 				$output = [ "::::::::" ];
 			}
-			$output = explode(":", $output[0]);
+			$output = explode_safe(":", $output[0]);
 			$this->password = $output[1];
 			$this->lastChanged = $output[2];
 			$this->minimum = $output[3];
@@ -109,9 +112,9 @@ class User {
 			}
 			if (FALSE === $userInfo) {
 				throw new \OMV\Exception(
-				  "Failed to get information about the user '%s': %s",
-				  !is_null($this->uid) ? strval($this->uid) : $this->name,
-				  posix_strerror(posix_errno()));
+					"Failed to get information about the user '%s': %s",
+					!is_null($this->uid) ? strval($this->uid) : $this->name,
+					posix_strerror(posix_errno()));
 			}
 			[$uidMin, $uidMax] = self::getUidMinMax();
 			$this->name = $userInfo['name'];
@@ -134,12 +137,23 @@ class User {
 			$cmdArgs[] = escapeshellarg($this->getName());
 			$cmd = new \OMV\System\Process("id", $cmdArgs);
 			$cmd->setRedirect2to1();
+			$cmd->setRequireOutput();
 			$cmd->execute($output);
-			$gids = explode(" ", $output[0]);
+			$gids = preg_split('/\s+/', trim($output[0]));
+			if (FALSE === $gids) {
+				throw new \OMV\Exception(
+					"Failed to parse group IDs for user '%s'.",
+					$this->getName());
+			}
 			// Resolve the group names.
 			$this->groups = [];
 			foreach ($gids as $gidk => $gidv) {
-				$groupInfo = posix_getgrgid($gidv);
+				$gid = intval($gidv);
+				if (FALSE === ($groupInfo = posix_getgrgid($gid))) {
+					throw new \OMV\Exception(
+						"Failed to get information about the group '%d': %s",
+						$gid, posix_strerror(posix_errno()));
+				}
 				$this->groups[] = $groupInfo['name'];
 			}
 			break;
@@ -308,7 +322,7 @@ class User {
 		$result = [];
 		foreach ($output as $outputk => $outputv) {
 			if (preg_match("/^\s+(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+".
-			  "(\d+)\s+(\d+)$/i", $outputv, $matches)) {
+					"(\d+)\s+(\d+)$/i", $outputv, $matches)) {
 				$result[$matches[1]] = [
 					"devicefile" => $matches[1],
 					"blocks" => $matches[2],

@@ -75,8 +75,10 @@ class System {
 				($rootDeviceFile == realpath($deviceFile))) ?
 				TRUE : FALSE;
 		}
+		$realDeviceFile = realpath($deviceFile);
 		return ((0 === strpos($rootDeviceFile, $deviceFile)) ||
-			(0 === strpos($rootDeviceFile, realpath($deviceFile)))) ?
+			(FALSE !== $realDeviceFile &&
+			 0 === strpos($rootDeviceFile, $realDeviceFile))) ?
 			TRUE : FALSE;
 	}
 
@@ -109,31 +111,39 @@ class System {
 	 * @param type The type of the device, e.g. disk or iface
 	 * @param name The device name, e.g. sda, hda, md, eth or bond
 	 * @return The next free device name, or FALSE on failure.
+	 * @throws \InvalidArgumentException
 	 */
 	public static function getNextDevice($type, $name) {
 		$cmdList = [
 			"disk" => "awk '{print $4}' /proc/partitions",
 			"iface" => "awk -F: '/[:]/ {print $1}' /proc/net/dev"
 		];
+		if (!array_key_exists($type, $cmdList)) {
+			throw new \InvalidArgumentException(sprintf(
+				"Unknown device type '%s'.", $type));
+		}
 		$cmd = new \OMV\System\Process($cmdList[$type]);
 		$cmd->execute($output);
 		$nums = [];
 		$regex = sprintf("/^%s(\d+)$/", $name);
 		foreach ($output as $itemk => $itemv) {
-			if (1 !== preg_match($regex, trim($itemv), $matches))
+			if (1 !== preg_match($regex, trim($itemv), $matches)) {
 				continue;
+			}
 			$nums[] = $matches[1];
 		}
 		// Try to find the next free number.
 		$num = -1;
 		for ($i = 0; $i <= 255; $i++) {
-			if (TRUE === in_array($i, $nums))
+			if (TRUE === in_array($i, $nums)) {
 				continue;
+			}
 			$num = $i;
 			break;
 		}
-		if (0 > $num)
+		if (0 > $num) {
 			return FALSE;
+		}
 		return sprintf("%s%d", $name, $num);
 	}
 

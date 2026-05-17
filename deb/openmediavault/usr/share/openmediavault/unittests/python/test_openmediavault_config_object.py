@@ -21,6 +21,7 @@
 import os
 import unittest
 
+import openmediavault.collectiontools
 import openmediavault.config.object
 
 import openmediavault
@@ -77,6 +78,31 @@ class ConfigObjectTestCase(unittest.TestCase):
         self.assertEqual(conf_obj.get("comment"), "test")
         self.assertIsNotNone(conf_obj.get("extraoptions"))
         self.assertEqual(conf_obj.get("extraoptions"), "")
+
+    def test_get_dict_returns_deepcopy(self):
+        conf_obj = openmediavault.config.object.Object.__new__(
+            openmediavault.config.object.Object
+        )
+        conf_obj._properties = openmediavault.collectiontools.DotDict(
+            {
+                "timezone": "Etc/UTC",
+                "ntp": {
+                    "enable": False,
+                    "timeservers": "pool.ntp.org",
+                },
+            }
+        )
+
+        values = conf_obj.get_dict()
+        self.assertIsInstance(values, openmediavault.collectiontools.DotDict)
+        self.assertIsNot(values, conf_obj.properties)
+        self.assertIsNot(values["ntp"], conf_obj.properties["ntp"])
+
+        values["timezone"] = "Europe/Berlin"
+        values["ntp.enable"] = True
+
+        self.assertEqual(conf_obj.properties["timezone"], "Etc/UTC")
+        self.assertFalse(conf_obj.properties["ntp.enable"])
 
     def test_is_empty(self):
         conf_obj = openmediavault.config.Object("conf.service.ftp.share")

@@ -167,7 +167,7 @@ class SmartInformation {
 		// Bit 0: Command line did not parse
 		// Bit 1: Device open failed, or device did not return an
 		//        IDENTIFY DEVICE structure
-		if (($exitStatus !== 0) && (($exitStatus & 0) || ($exitStatus & 1))) {
+		if (($exitStatus !== 0) && (($exitStatus & 0x01) || ($exitStatus & 0x02))) {
 			throw new \OMV\ExecException($cmd, $output, $exitStatus);
 		}
 		$this->cmdOutput = $output;

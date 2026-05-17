@@ -74,6 +74,7 @@ class CommandHelper:
             self._backup_path = False
             return None
         (fh, self._backup_path) = tempfile.mkstemp()
+        os.close(fh)
         shutil.copy(config_path, self._backup_path)
         return self._backup_path
 

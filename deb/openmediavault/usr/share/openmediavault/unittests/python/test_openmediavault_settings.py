@@ -19,6 +19,8 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 import unittest
+from tempfile import NamedTemporaryFile
+from unittest import mock
 
 import openmediavault.settings
 
@@ -34,7 +36,7 @@ class EnvironmentTestCase(unittest.TestCase):
         env_vars = openmediavault.settings.Environment.as_dict()
         self.assertGreater(len(env_vars.keys()), 0)
 
-    def test_get_bool(self):
+    def test_get_str(self):
         value = openmediavault.settings.Environment.get_str("OMV_DEBUG_SCRIPT")
         self.assertTrue(isinstance(value, str))
 
@@ -65,6 +67,34 @@ class EnvironmentTestCase(unittest.TestCase):
                 str(ctx.exception),
                 'The environment variable \'foo\' does not exist in \'/etc/default/openmediavault\'',
             )
+
+    def test_load_empty_value(self):
+        original_env_vars = openmediavault.settings.Environment.as_dict().copy()
+        with NamedTemporaryFile(mode='w', delete=True) as fd:
+            fd.write('OMV_TEST_EMPTY=\n')
+            fd.write('OMV_TEST_VALUE="abc"\n')
+            fd.flush()
+            with mock.patch('openmediavault.settings.DEFAULT_FILE', fd.name):
+                openmediavault.settings.Environment.load()
+                self.assertEqual(
+                    openmediavault.settings.Environment.get('OMV_TEST_EMPTY'),
+                    '',
+                )
+                self.assertEqual(
+                    openmediavault.settings.Environment.get('TEST_EMPTY'),
+                    '',
+                )
+                self.assertEqual(
+                    openmediavault.settings.Environment.get('OMV_TEST_VALUE'),
+                    'abc',
+                )
+                self.assertEqual(
+                    openmediavault.settings.Environment.get('TEST_VALUE'),
+                    'abc',
+                )
+        openmediavault.settings.Environment.clear()
+        for key, value in original_env_vars.items():
+            openmediavault.settings.Environment.set(key, value)
 
 
 if __name__ == "__main__":

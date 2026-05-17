@@ -293,7 +293,7 @@ class StorageDevice(openmediavault.device.StorageDevice):
                     pass
                 else:
                     result = '{} ({})'.format(result, progress)
-            elif mdstat == 'resync':
+            elif mdstat.lower() == 'resync':
                 result = '{}, resyncing ({})'.format(result, progress)
             return result
 

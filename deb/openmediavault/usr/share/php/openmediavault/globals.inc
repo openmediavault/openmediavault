@@ -129,7 +129,7 @@ $defaultFile = \OMV\Environment::get("OMV_DEFAULT_FILE");
 if (posix_access($defaultFile, POSIX_F_OK | POSIX_R_OK)) {
 	$lines = file($defaultFile);
 	foreach ($lines as $kline => $vline) {
-		$regex = "/^(OMV_[A-Z0-9_]+)=(\")?([^\"]+)(\")?$/";
+		$regex = "/^(OMV_[A-Z0-9_]+)=(\")?([^\"]*)(\")?$/";
 		if (1 == preg_match($regex, trim($vline), $matches))
 			\OMV\Environment::set($matches[1], $matches[3]);
 		unset($matches);
