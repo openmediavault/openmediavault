@@ -18,6 +18,7 @@ import { FormDividerComponent } from '~/app/core/components/intuition/form/compo
 import { FormFileInputComponent } from '~/app/core/components/intuition/form/components/form-file-input/form-file-input.component';
 import { FormFolderbrowserComponent } from '~/app/core/components/intuition/form/components/form-folderbrowser/form-folderbrowser.component';
 import { FormHintComponent } from '~/app/core/components/intuition/form/components/form-hint/form-hint.component';
+import { FormImageComponent } from '~/app/core/components/intuition/form/components/form-image/form-image.component';
 import { FormIconButtonComponent } from '~/app/core/components/intuition/form/components/form-icon-button/form-icon-button.component';
 import { FormNumberInputComponent } from '~/app/core/components/intuition/form/components/form-number-input/form-number-input.component';
 import { FormParagraphComponent } from '~/app/core/components/intuition/form/components/form-paragraph/form-paragraph.component';
@@ -71,6 +72,7 @@ import { SharedModule } from '~/app/shared/shared.module';
     FormParagraphComponent,
     FormSliderComponent,
     FormHintComponent,
+    FormImageComponent,
     TextPageComponent,
     FormSshcertSelectComponent,
     FormSslcertSelectComponent,

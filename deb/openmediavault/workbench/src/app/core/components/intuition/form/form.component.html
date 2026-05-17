@@ -183,5 +183,12 @@
                      [formGroup]="formGroup">
       </omv-form-card>
     </ng-template>
+
+    <ng-template [ngSwitchCase]="'image'">
+      <omv-form-image class="omv-display-flex"
+                      [config]="field"
+                      [formGroup]="formGroup">
+      </omv-form-image>
+    </ng-template>
   </ng-container>
 </ng-template>
