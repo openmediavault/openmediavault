@@ -169,11 +169,10 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract {
 		// Validate input schema.
 		$this->validateMethodParams($params, "rpc.session.verifytotp");
 		$session = &\OMV\Session::getInstance();
-		// This method only applies to sessions waiting for TOTP verification.
-		if (!$session->isMfaPending()) {
-			throw new \OMV\HttpErrorException(400,
-				_("No MFA verification is pending for this session."));
-		}
+		// Reject stale, timed-out or inconsistent sessions before doing
+		// any crypto work. validateMfaPending() also checks the timeout
+		// and user-agent so expired pending sessions are cleaned up.
+		$session->validateMfaPending();
 		$username = $session->getUsername();
 		$server   = new \OMV\SuperGlobalServer();
 		// Retrieve the stored TOTP secret and verify the submitted code.

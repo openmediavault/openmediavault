@@ -174,6 +174,24 @@ class Session {
 	}
 
 	/**
+	 * Validate that this session is in the MFA-pending state.
+	 *
+	 * Called at the start of the verifyTotp() RPC to ensure the request
+	 * belongs to a session that completed password authentication and is
+	 * now waiting for the TOTP code. Destroys the session and throws on
+	 * any inconsistency.
+	 */
+	public function validateMfaPending(): void {
+		$this->validateTimeout();
+		$this->validateUserAgent();
+		if (!$this->isMfaPending()) {
+			$this->destroy();
+			throw new HttpErrorException(401,
+				_("No MFA verification is pending for this session."));
+		}
+	}
+
+	/**
 	 * Increment the failed TOTP attempt counter and return the new total.
 	 * Used to enforce a maximum number of retries before the session is
 	 * invalidated to prevent brute-force attacks.
