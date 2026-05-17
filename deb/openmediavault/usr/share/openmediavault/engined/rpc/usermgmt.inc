@@ -1152,8 +1152,10 @@ finish:
 	 * @param params  Unused.
 	 * @param context The context of the caller.
 	 * @return An array with:
-	 *   \em secret  The raw base32-encoded secret (for manual entry in apps).
-	 *   \em uri     The otpauth:// URI to encode as a QR code on the client.
+	 *   \em secret    The raw base32-encoded secret (for manual entry in apps).
+	 *   \em uri       The otpauth:// URI encoded into the QR code.
+	 *   \em qrDataUrl A data URL (image/svg+xml) containing the QR code image
+	 *                 ready to be used directly as an <img src="..."> value.
 	 */
 	function generateTotpSecretByContext($params, $context) {
 		// Any authenticated user can initiate MFA setup for themselves.
@@ -1165,9 +1167,11 @@ finish:
 			$context['username'],
 			$prd->getName()
 		);
+		$qrDataUrl = \OMV\Totp::generateQrDataUrl($uri);
 		return [
-			"secret" => $secret,
-			"uri"    => $uri,
+			"secret"    => $secret,
+			"uri"       => $uri,
+			"qrDataUrl" => $qrDataUrl,
 		];
 	}
 

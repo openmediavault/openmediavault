@@ -1,18 +1,13 @@
-// Mock the qrcode module so QRCode.toDataURL() resolves immediately in jsdom
-// without requiring a real canvas implementation.
-jest.mock('qrcode', () => ({
-  toDataURL: jest.fn().mockResolvedValue('data:image/png;base64,AAAA')
-}));
-
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { of, throwError } from 'rxjs';
 import { ToastrModule } from 'ngx-toastr';
 
 import { UserMfaFormPageComponent } from '~/app/pages/usermgmt/users/user-mfa-form-page.component';
 import { NotificationService } from '~/app/shared/services/notification.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
+import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { TestingModule } from '~/app/testing.module';
 
 describe('UserMfaFormPageComponent', () => {
@@ -20,28 +15,29 @@ describe('UserMfaFormPageComponent', () => {
   let fixture: ComponentFixture<UserMfaFormPageComponent>;
   let mockRpcService: jest.Mocked<Pick<RpcService, 'request'>>;
   let mockNotificationService: jest.Mocked<Pick<NotificationService, 'show'>>;
+  let mockBlockUiService: jest.Mocked<Pick<BlockUiService, 'start' | 'stop'>>;
+  let mockRouter: jest.Mocked<Pick<Router, 'navigate'>>;
 
   beforeEach(waitForAsync(() => {
     mockRpcService = { request: jest.fn() };
     mockNotificationService = { show: jest.fn() };
+    mockBlockUiService = { start: jest.fn(), stop: jest.fn() };
+    mockRouter = { navigate: jest.fn() };
 
     // Default: return MFA disabled so the component finishes loading immediately.
     mockRpcService.request.mockReturnValue(of({ enabled: false }));
 
     TestBed.configureTestingModule({
       declarations: [UserMfaFormPageComponent],
-      imports: [
-        ReactiveFormsModule,
-        TestingModule,
-        ToastrModule.forRoot()
-      ],
+      imports: [TestingModule, ToastrModule.forRoot()],
       providers: [
         { provide: RpcService, useValue: mockRpcService },
-        { provide: NotificationService, useValue: mockNotificationService }
+        { provide: NotificationService, useValue: mockNotificationService },
+        { provide: BlockUiService, useValue: mockBlockUiService },
+        { provide: Router, useValue: mockRouter }
       ],
-      // NO_ERRORS_SCHEMA suppresses "unknown element" errors for Material
-      // components that are not the focus of these unit tests. The Material
-      // elements are already covered by the UsermgmtModule integration.
+      // NO_ERRORS_SCHEMA suppresses "unknown element" errors for child
+      // components (omv-intuition-form-page) not under test here.
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
@@ -79,34 +75,32 @@ describe('UserMfaFormPageComponent', () => {
   });
 
   describe('onStartSetup()', () => {
-    it('should transition to "setup" state and store the provisional secret', async () => {
+    it('should transition to "setup" state and populate setupConfig fields', () => {
+      const qrDataUrl = 'data:image/svg+xml;base64,AAAA';
       mockRpcService.request.mockReturnValue(
-        of({ secret: 'JBSWY3DPEHPK3PXP', uri: 'otpauth://totp/OMV:admin?secret=JBSWY3DPEHPK3PXP' })
+        of({ secret: 'JBSWY3DPEHPK3PXP', uri: 'otpauth://totp/OMV:admin?secret=JBSWY3DPEHPK3PXP', qrDataUrl })
       );
       component.state = 'disabled';
 
-      component.onStartSetup();
-
-      // Wait for the QR code Promise to resolve before asserting.
-      await fixture.whenStable();
+      component.onStartSetup(null, {});
 
       expect(component.state).toBe('setup');
-      expect(component.provisionalSecret).toBe('JBSWY3DPEHPK3PXP');
-      expect(component.qrCodeDataUrl).toMatch(/^data:image\/png;base64,/);
+
+      const qrField = component.setupConfig.fields.find((f) => f.name === 'qrcode');
+      expect(qrField?.value).toBe(qrDataUrl);
+
+      const secretField = component.setupConfig.fields.find((f) => f.name === 'secret');
+      expect(secretField?.value).toBe('JBSWY3DPEHPK3PXP');
     });
   });
 
   describe('onConfirmSetup()', () => {
-    beforeEach(() => {
-      component.state = 'setup';
-      component.provisionalSecret = 'JBSWY3DPEHPK3PXP';
-    });
-
-    it('should enable MFA and transition to "enabled" when code is valid', () => {
+    it('should enable MFA and transition to "enabled"', () => {
       mockRpcService.request.mockReturnValue(of(null));
-      component.setupCodeControl.setValue('123456');
+      component.state = 'setup';
+      (component as any).provisionalSecret = 'JBSWY3DPEHPK3PXP';
 
-      component.onConfirmSetup();
+      component.onConfirmSetup(null, { code: '123456' });
 
       expect(mockRpcService.request).toHaveBeenCalledWith(
         'UserMgmt',
@@ -114,46 +108,27 @@ describe('UserMfaFormPageComponent', () => {
         { code: '123456', secret: 'JBSWY3DPEHPK3PXP' }
       );
       expect(component.state).toBe('enabled');
-      expect(component.provisionalSecret).toBe('');
-    });
-
-    it('should not submit when the code input is invalid', () => {
-      component.setupCodeControl.setValue('12'); // too short
-
-      component.onConfirmSetup();
-
-      expect(mockRpcService.request).not.toHaveBeenCalledWith(
-        'UserMgmt', 'enableTotpByContext', expect.anything()
-      );
     });
   });
 
   describe('onCancelSetup()', () => {
-    it('should return to "disabled" state and clear all setup data', () => {
+    it('should return to "disabled" state and clear the provisional secret', () => {
       component.state = 'setup';
-      component.provisionalSecret = 'JBSWY3DPEHPK3PXP';
-      component.qrCodeDataUrl = 'data:image/png;base64,...';
-      component.setupCodeControl.setValue('123456');
+      (component as any).provisionalSecret = 'JBSWY3DPEHPK3PXP';
 
-      component.onCancelSetup();
+      component.onCancelSetup(null, {});
 
       expect(component.state).toBe('disabled');
-      expect(component.provisionalSecret).toBe('');
-      expect(component.qrCodeDataUrl).toBe('');
-      expect(component.setupCodeControl.value).toBeNull();
+      expect((component as any).provisionalSecret).toBe('');
     });
   });
 
   describe('onDisableMfa()', () => {
-    beforeEach(() => {
-      component.state = 'enabled';
-    });
-
-    it('should disable MFA and transition to "disabled" when code is valid', () => {
+    it('should disable MFA and transition to "disabled"', () => {
       mockRpcService.request.mockReturnValue(of(null));
-      component.disableCodeControl.setValue('654321');
+      component.state = 'enabled';
 
-      component.onDisableMfa();
+      component.onDisableMfa(null, { code: '654321' });
 
       expect(mockRpcService.request).toHaveBeenCalledWith(
         'UserMgmt',
@@ -162,15 +137,12 @@ describe('UserMfaFormPageComponent', () => {
       );
       expect(component.state).toBe('disabled');
     });
+  });
 
-    it('should not submit when the disable code input is invalid', () => {
-      component.disableCodeControl.setValue(''); // empty
-
-      component.onDisableMfa();
-
-      expect(mockRpcService.request).not.toHaveBeenCalledWith(
-        'UserMgmt', 'disableTotpByContext', expect.anything()
-      );
+  describe('onCancel()', () => {
+    it('should navigate to the root route', () => {
+      component.onCancel();
+      expect(mockRouter.navigate).toHaveBeenCalledWith(['/']);
     });
   });
 });

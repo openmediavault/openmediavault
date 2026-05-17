@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 
 import { CoreModule } from '~/app/core/core.module';
 import { GroupDatatablePageComponent } from '~/app/pages/usermgmt/groups/group-datatable-page.component';
@@ -32,6 +31,6 @@ import { UserSharedFolderPermissionsDatatablePageComponent } from '~/app/pages/u
     UserSharedFolderPermissionsDatatablePageComponent,
     UserProfileFormPageComponent
   ],
-  imports: [CommonModule, CoreModule, ReactiveFormsModule, UsermgmtRoutingModule]
+  imports: [CommonModule, CoreModule, UsermgmtRoutingModule]
 })
 export class UsermgmtModule {}
