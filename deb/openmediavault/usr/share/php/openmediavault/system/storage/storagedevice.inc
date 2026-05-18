@@ -36,11 +36,11 @@ class StorageDevice extends \OMV\System\BlockDevice
 	 */
 	public function getModel() {
 		if (FALSE === $this->hasUdevProperty("ID_MODEL")) {
-			$filename = sprintf("/sys/block/%s/device/model",
-				$this->getDeviceName(TRUE));
-			if (file_exists($filename))
-				return trim(file_get_contents($filename));
-			return "";
+			try {
+				return $this->getSysfsValue("device/model");
+			} catch (\OMV\FileException $e) {
+				return "";
+			}
 		}
 		$property = $this->getUdevProperty("ID_MODEL");
 		return str_replace("_", " ", $property);
@@ -54,11 +54,11 @@ class StorageDevice extends \OMV\System\BlockDevice
 	 */
 	public function getVendor() {
 		if (FALSE === $this->hasUdevProperty("ID_VENDOR")) {
-			$filename = sprintf("/sys/block/%s/device/vendor",
-				$this->getDeviceName(TRUE));
-			if (file_exists($filename))
-				return trim(file_get_contents($filename));
-			return "";
+			try {
+				return $this->getSysfsValue("device/vendor");
+			} catch (\OMV\FileException $e) {
+				return "";
+			}
 		}
 		$property = $this->getUdevProperty("ID_VENDOR");
 		return str_replace("_", " ", $property);
@@ -121,16 +121,18 @@ class StorageDevice extends \OMV\System\BlockDevice
 			return (0 == strcasecmp("0", $property)) ? FALSE : TRUE;
 		}
 		// Use kernel attribute.
-		$filename = sprintf("/sys/block/%s/queue/rotational",
-		  $this->getDeviceName(TRUE));
-		if (file_exists($filename)) {
+		try {
+			// See https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-block
 			// 0 => SSD, 1 => HDD
-			return ("0" == trim(file_get_contents($filename))) ? FALSE : TRUE;
+			return ("0" != $this->getSysfsValue("queue/rotational"));
+		} catch (\OMV\FileException $e) {
+			// Fallthrough
 		}
 		// Use heuristic.
 		$model = $this->getModel();
-		if (is_string($model) && (FALSE !== strstr($model, "SSD")))
+		if (is_string($model) && (FALSE !== strstr($model, "SSD"))) {
 			return FALSE;
+		}
 		return TRUE;
 	}
 
@@ -139,11 +141,11 @@ class StorageDevice extends \OMV\System\BlockDevice
 	* @return boolean TRUE if device is removable, otherwise FALSE.
 	*/
 	public function isRemovable() {
-		$filename = sprintf("/sys/block/%s/removable",
-		  $this->getDeviceName(TRUE));
-		if (!file_exists($filename))
+		try {
+			return ("1" == $this->getSysfsValue("removable"));
+		} catch (\OMV\FileException $e) {
 			return FALSE;
-		return (trim(file_get_contents($filename)) == "1") ? TRUE : FALSE;
+		}
 	}
 
 	/**

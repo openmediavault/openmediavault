@@ -78,7 +78,7 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface {
 	public function assertExists() {
 		if (FALSE === $this->exists()) {
 			throw new \OMV\AssertException("Device '%s' does not exist.",
-			  $this->getDeviceFile());
+				$this->getDeviceFile());
 		}
 	}
 
@@ -96,7 +96,7 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface {
 		$deviceFile = realpath($this->deviceFile);
 		if (FALSE === $deviceFile) {
 			throw new \OMV\Exception("Device '%s' does not exist.",
-			  $this->deviceFile);
+				$this->deviceFile);
 		}
 		return $deviceFile;
 	}
@@ -162,7 +162,7 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface {
 			});
 			// Finally build the whole path of the device file.
 			$this->deviceFileById = sprintf("/dev/disk/by-id/%s",
-			  array_shift($deviceNamesById));
+				array_shift($deviceNamesById));
 		}
 		return $this->deviceFileById;
 	}
@@ -264,14 +264,10 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface {
 	 */
 	public function getSize() {
 		if (FALSE === $this->size) {
-			$cmdArgs = [];
-			$cmdArgs[] = "--getsize64";
-			$cmdArgs[] = escapeshellarg($this->getDeviceFile());
-			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
-			$cmd->setRedirect2to1();
-			$cmd->setRequireOutput();
-			$cmd->execute($output);
-			$this->size = $output[0]; // Do not convert to long.
+			// The `/sys/block/<disk>/size` file reports the total size of a
+			// block device in 512-byte sectors, regardless of the hardware's
+			// physical block size.
+			$this->size = bcmul($this->getSysfsValue("size"), "512", 0);
 		}
 		return $this->size;
 	}
@@ -298,14 +294,8 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface {
 	 */
 	public function getSectorSize() {
 		if (FALSE === $this->sectorSize) {
-			$cmdArgs = [];
-			$cmdArgs[] = "--getss";
-			$cmdArgs[] = escapeshellarg($this->getDeviceFile());
-			$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
-			$cmd->setRedirect2to1();
-			$cmd->setRequireOutput();
-			$cmd->execute($output);
-			$this->sectorSize = intval($output[0]);
+			$this->sectorSize = intval($this->getSysfsValue(
+				"queue/logical_block_size"));
 		}
 		return $this->sectorSize;
 	}
@@ -314,22 +304,20 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface {
 	 * See interface definition.
 	 */
 	public function getDeviceNumber() {
-		// Get the canonical device name, e.g.
-		// /dev/root => /dev/sda1
-		$deviceName = $this->getDeviceName(TRUE);
-		// Get the device number via sysfs.
-		$filename = sprintf("/sys/class/block/%s/dev", $deviceName);
-		if (!file_exists($filename))
+		try {
+			return $this->getSysfsValue("dev");
+		} catch (\OMV\FileException $e) {
 			return FALSE;
-		return trim(file_get_contents($filename));
+		}
 	}
 
 	/**
 	 * See interface definition.
 	 */
 	public function getMajor() {
-		if (FALSE === ($devNum = $this->getDeviceNumber()))
+		if (FALSE === ($devNum = $this->getDeviceNumber())) {
 			return FALSE;
+		}
 		$devNumParts = explode(":", $devNum);
 		return intval($devNumParts[0]);
 	}
@@ -338,8 +326,9 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface {
 	 * See interface definition.
 	 */
 	public function getMinor() {
-		if (FALSE === ($devNum = $this->getDeviceNumber()))
+		if (FALSE === ($devNum = $this->getDeviceNumber())) {
 			return FALSE;
+		}
 		$devNumParts = explode(":", $devNum);
 		return intval($devNumParts[1]);
 	}
@@ -349,7 +338,7 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface {
 	 */
 	public function getDescription() {
 		return sprintf("Block device %s [%s]", $this->getDeviceName(),
-		  $this->getDeviceNumber());
+			$this->getDeviceNumber());
 	}
 
 	/**
@@ -359,5 +348,23 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface {
 		waitUntil($timeout, [$this, "exists"], sprintf(
 			"Device '%s' is not available after a waiting period of %d seconds.",
 		  	$this->getDeviceFile(), $timeout));
+	}
+
+	/**
+	 * Read a value from the block device sysfs subtree.
+	 * @param string $attributePath The path below the block sysfs subtree,
+	 *   e.g. `queue/logical_block_size`.
+	 * @return string The trimmed value.
+	 * @throws \OMV\FileException If the sysfs file does not exist.
+	 * @access protected
+	 */
+	protected function getSysfsValue($attributePath) {
+		$filename = build_path(DIRECTORY_SEPARATOR, "/sys/class/block",
+			$this->getDeviceName(TRUE), $attributePath);
+		if (!file_exists($filename)) {
+			throw new \OMV\FileException("File '%s' does not exist.",
+				$filename);
+		}
+		return trim(file_get_contents($filename));
 	}
 }

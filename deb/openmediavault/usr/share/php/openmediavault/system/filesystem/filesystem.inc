@@ -56,9 +56,11 @@ class Filesystem extends \OMV\System\BlockDevice
 	 *   </ul>
 	 */
 	public function __construct($id) {
-		parent::__construct($id);
-		if (TRUE === is_fs_uuid($id))
+		if (TRUE === is_fs_uuid($id)) {
 			$this->uuid = $id;
+		} else {
+			parent::__construct($id);
+		}
 	}
 
 	protected function isCached() {
@@ -76,8 +78,9 @@ class Filesystem extends \OMV\System\BlockDevice
 	 * @throw \OMV\ExecException
 	 */
 	protected function getData() {
-		if (FALSE !== $this->isCached())
+		if (FALSE !== $this->isCached()) {
 			return;
+		}
 
 		if (TRUE === is_fs_uuid($this->uuid)) {
 			// Get the device name containing the file system. This is
@@ -309,7 +312,9 @@ class Filesystem extends \OMV\System\BlockDevice
 	 * @return The device name.
 	 */
 	public function getDeviceFile() {
-		$this->getData();
+		if (is_null($this->deviceFile)) {
+			$this->getData();
+		}
 		return $this->deviceFile;
 	}
 
@@ -496,23 +501,6 @@ class Filesystem extends \OMV\System\BlockDevice
 		if (FALSE === is_array($devs))
 			return FALSE;
 		return (1 < count($devs));
-	}
-
-	/**
-	 * Get the filesystem block size.
-	 * @return The block size.
-	 * @throw \OMV\ExecException
-	 */
-	public function getBlockSize() {
-		$this->getData();
-		$cmdArgs = [];
-		$cmdArgs[] = "--getbsz";
-		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
-		$cmd = new \OMV\System\Process("blockdev", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->setRequireOutput();
-		$cmd->execute($output);
-		return intval($output[0]);
 	}
 
 	/**

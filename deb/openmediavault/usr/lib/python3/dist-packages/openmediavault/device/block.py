@@ -256,10 +256,10 @@ class BlockDevice:
         :return: Returns the device size in bytes.
         :rtype: int
         """
-        output = openmediavault.procutils.check_output(
-            ['blockdev', '--getsize64', self.device_file]
-        )
-        return int(output.decode().strip())
+        # The `/sys/block/<disk>/size` file reports the total size of a block
+        # device in 512-byte sectors, regardless of the hardware's physical
+        # block size.
+        return int(self.sysfs_value('size')) * 512
 
     @property
     def udev_properties(self) -> Dict:
@@ -353,3 +353,18 @@ class BlockDevice:
             if default is not None:
                 return default
             raise
+
+    def sysfs_value(self, attribute_path: str) -> str:
+        """
+        Read a value from the block device sysfs subtree.
+        :param attribute_path: The path below the block sysfs subtree,
+            e.g. `queue/logical_block_size`.
+        :type attribute_path: str
+        :return: Returns the trimmed value.
+        :rtype: str
+        :raises FileNotFoundError: If the sysfs file does not exist.
+        """
+        filename = os.path.join(
+            '/sys/class/block', self.device_name(True), attribute_path)
+        with open(filename, 'r') as f:
+            return f.read().strip()

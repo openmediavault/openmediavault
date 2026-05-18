@@ -140,11 +140,10 @@ class StorageDevice(BlockDevice):
             # If ID_ATA_FEATURE_SET_AAM is non-zero then it is rotational.
             return self.udev_property('ID_ATA_FEATURE_SET_AAM') != '0'
         # Use kernel attribute.
-        file = '/sys/block/{}/queue/rotational'.format(self.device_name(True))
         try:
-            with open(file, 'r') as f:
-                # 0 => SSD, 1 => HDD
-                return f.readline().strip() != '0'
+            # See https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-block
+            # 0 => SSD, 1 => HDD
+            return self.sysfs_value('queue/rotational') != '0'
         except (IOError, FileNotFoundError):
             pass
         # Use heuristic.
@@ -158,10 +157,8 @@ class StorageDevice(BlockDevice):
             otherwise ``False``.
         :rtype: bool
         """
-        file = '/sys/block/{}/removable'.format(self.device_name(True))
         try:
-            with open(file, 'r') as f:
-                return f.readline().strip() == '1'
+            return self.sysfs_value('removable') == '1'
         except (IOError, FileNotFoundError):
             pass
         return False

@@ -55,7 +55,7 @@ interface BlockDeviceInterface {
 	 * \li /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
 	 * \li /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML-part2
 	 * </ul>
-	 * The following order of paths will be retured if available: <ul>
+	 * The following order of paths will be returned if available: <ul>
 	 * \li ata-xxx
 	 * \li wwn-xxx
 	 * \li scsi-xxx
@@ -160,7 +160,7 @@ interface BlockDeviceInterface {
 
 	/**
 	 * Get the size of the device in bytes.
-	 * @return string The size (64bit) of the device in bytes as string.
+	 * @return string The size of the device in bytes as string.
 	 * @throw \OMV\Exception
 	 */
 	public function getSize();
@@ -173,8 +173,8 @@ interface BlockDeviceInterface {
 	public function getBlockSize();
 
 	/**
-	 * Get the sectorsize of the device in bytes.
-	 * @return string The sectorsize of the device in bytes.
+	 * Get the logical block (sector) size of the device in bytes.
+	 * @return string The logical block sector size of the device in bytes.
 	 * @throw \OMV\Exception
 	 */
 	public function getSectorSize();
