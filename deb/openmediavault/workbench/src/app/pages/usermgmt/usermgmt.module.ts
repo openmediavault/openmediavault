@@ -11,6 +11,7 @@ import { UserDatatablePageComponent } from '~/app/pages/usermgmt/users/user-data
 import { UserFormPageComponent } from '~/app/pages/usermgmt/users/user-form-page.component';
 import { UserImportFormPageComponent } from '~/app/pages/usermgmt/users/user-import-form-page.component';
 import { UserPasswordFormPageComponent } from '~/app/pages/usermgmt/users/user-password-form-page.component';
+import { UserMfaFormPageComponent } from '~/app/pages/usermgmt/users/user-mfa-form-page.component';
 import { UserProfileFormPageComponent } from '~/app/pages/usermgmt/users/user-profile-form-page.component';
 import { UserSettingsFormPageComponent } from '~/app/pages/usermgmt/users/user-settings-form-page.component';
 import { UserSharedFolderPermissionsDatatablePageComponent } from '~/app/pages/usermgmt/users/user-shared-folder-permissions-datatable-page.component';
@@ -19,6 +20,7 @@ import { UserSharedFolderPermissionsDatatablePageComponent } from '~/app/pages/u
   declarations: [
     UserDatatablePageComponent,
     UserFormPageComponent,
+    UserMfaFormPageComponent,
     UserPasswordFormPageComponent,
     UserSettingsFormPageComponent,
     UserImportFormPageComponent,

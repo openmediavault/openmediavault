@@ -25,7 +25,7 @@ export class TestingTranslocoMissingHandler implements TranslocoMissingHandler {
     TranslocoTestingModule,
     ToastrModule.forRoot()
   ],
-  exports: [RouterTestingModule],
+  exports: [RouterTestingModule, TranslocoTestingModule],
   providers: [
     // Disable sanity checks to prevent warning messages in unit tests.
     // https://github.com/thymikee/jest-preset-angular/issues/83

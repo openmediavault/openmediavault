@@ -1,0 +1,7 @@
+<div class="omv-form-image omv-display-flex omv-justify-content-center">
+  <img *ngIf="config.value"
+       [src]="config.value"
+       [attr.alt]="config.label | transloco"
+       [style.width.px]="config.width || 256"
+       [style.height.px]="config.height || 256" />
+</div>
