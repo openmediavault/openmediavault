@@ -21,10 +21,12 @@
  */
 namespace OMV\System\Storage\Bcache;
 
+require_once("openmediavault/functions.inc");
+
 /**
  * This class provides a simple interface to handle a Bcache devices.
  */
-class BcacheDevice extends \OMV\System\Storage\StorageDevice {
+class BcacheDevice extends \OMV\System\Storage\StorageDeviceBcache {
 	private $csetUuid = "";
 	private $superBlock = [];
 	private $dataCached = FALSE;
@@ -33,7 +35,7 @@ class BcacheDevice extends \OMV\System\Storage\StorageDevice {
 	 * Get the software bcache device detailed information.
 	 * @private
 	 * @return void
-	 * @throw \OMV\ExecException
+	 * @throws \OMV\ExecException
 	 */
 	private function getData() {
 		if ($this->dataCached !== FALSE) {
@@ -76,11 +78,11 @@ class BcacheDevice extends \OMV\System\Storage\StorageDevice {
 	/**
 	 * Is bcache devices known by the kernel.
 	 * @return boolean
-	 * @throw \OMV\ExecException
 	 */
 	public function isRegistered() {
-		$path = "/sys/block/{$this->getDeviceName(TRUE)}/bcache";
-		return file_exists($path);
+		$filename = build_path(DIRECTORY_SEPARATOR, "/sys/class/block",
+			$this->getDeviceName(TRUE), "bcache");
+		return is_dir($filename);
 	}
 
 	/**
@@ -99,7 +101,7 @@ class BcacheDevice extends \OMV\System\Storage\StorageDevice {
 	 *   0 => /dev/sda
 	 *   1 => /dev/sdb
 	 * )
-	 * @throw \OMV\ExecException
+	 * @throws \OMV\ExecException
 	 */
 	public static function enumerateBcache() {
 		$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
@@ -141,14 +143,9 @@ class BcacheDevice extends \OMV\System\Storage\StorageDevice {
 	 * Registering the backing device makes the bcache device show up in /dev.
 	 * @param string deviceFile Specifies the device file, e.g.
 	 * @return boolean
-	 * @throw \OMV\ExecException
 	 */
 	public static function register($deviceFile) {
 		$filename = "/sys/fs/bcache/register";
-		$cmdLine = sprintf("echo %s > %s", $deviceFile, $filename);
-		$cmd = new \OMV\System\Process($cmdLine);
-		$cmd->setRedirect2to1();
-		$cmd->execute($output, $exitStatus);
-		return $exitStatus === 0;
+		return file_put_contents($filename, $deviceFile) !== false;
 	}
 }

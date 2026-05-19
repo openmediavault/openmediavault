@@ -27,10 +27,16 @@ require_once("openmediavault/functions.inc");
  * Class to handle a bcache backing device.
  */
 class BackingDevice extends BcacheDevice {
+	public function getDescription() {
+		return sprintf(gettext("Bcache backing device [%s, %s]"),
+			$this->getDeviceFile(), binary_format($this->getSize()));
+	}
+
 	/**
 	 * Creates a backing device.
 	 * @return void
-	 * @throw \OMV\ExecException
+	 * @throws RuntimeException
+	 * @throws \OMV\ExecException
 	 */
 	public function create() {
 		$cmdArgs = [];
@@ -46,7 +52,7 @@ class BackingDevice extends BcacheDevice {
 	/**
 	 * Enable caching with the given cache device.
 	 * @return void
-	 * @throw \OMV\ExecException
+	 * @throws \OMV\ExecException
 	 */
 	public function attach($csetUuid) {
 		$this->setValue("attach", $csetUuid);
@@ -55,36 +61,31 @@ class BackingDevice extends BcacheDevice {
 	/**
 	 * Get the device file of the bcache device.
 	 * @return string Returns the device file.
-	 * @throw \OMV\ExecException
+	 * @throws \OMV\ExecException
 	 */
 	public function getBcacheDeviceFile() {
-		$path = "/sys/block/{$this->getDeviceName(TRUE)}/bcache/dev";
+		$path = build_path(DIRECTORY_SEPARATOR, "/sys/class/block",
+			$this->getDeviceName(TRUE), "bcache/dev");
 		if (!file_exists($path)) {
 			return "";
 		}
-		$file = new \SplFileInfo($path);
-		// link target: ../../../../../../../../../../../virtual/block/bcache0
-		$linkTarget = $file->getLinkTarget();
-		$arr = explode(DIRECTORY_SEPARATOR, $linkTarget);
-		return sprintf("/dev/%s", $arr[count($arr) - 1]);
+		// E.g.: ../../../../../../../../../../../virtual/block/bcache0
+		return sprintf("/dev/%s", basename(realpath($path)));
 	}
 
 	/**
 	 * Get the device file of the cache device.
 	 * @return string Returns the device file.
-	 * @throw \OMV\ExecException
+	 * @throws \OMV\ExecException
 	 */
 	public function getCacheDeviceFile() {
-		$path = sprintf("/sys/block/%s/bcache/cache/cache0",
-			$this->getDeviceName(TRUE));
+		$path = build_path(DIRECTORY_SEPARATOR, "/sys/class/block",
+			$this->getDeviceName(TRUE), "bcache/cache/cache0");
 		if (!file_exists($path)) {
 			return "";
 		}
-		$file = new \SplFileInfo($path);
-		// link target: ../../../devices/virtual/block/<device name>/bcache
-		$linkTarget = $file->getLinkTarget();
-		$arr = explode(DIRECTORY_SEPARATOR, $linkTarget);
-		return sprintf("/dev/%s", $arr[count($arr) - 2]);
+		// E.g.: ../../../devices/virtual/block/<device name>/bcache
+		return sprintf("/dev/%s", basename(dirname(realpath($path))));
 	}
 
 	/**
@@ -97,7 +98,7 @@ class BackingDevice extends BcacheDevice {
 	 *   unavailable; whatever data was on the backing device has
 	 *   likely been corrupted.
 	 * @return string The state.
-	 * @throw \OMV\ExecException
+	 * @throws \OMV\ExecException
 	 */
 	public function getState() {
 		if (!$this->isRegistered()) {
@@ -113,7 +114,7 @@ class BackingDevice extends BcacheDevice {
 	 * If bcache is running (i.e. whether the /dev/bcache device exists,
 	 * whether it’s in passthrough mode or caching.
 	 * @return boolean True if bcache is running, otherwise false.
-	 * @throw \OMV\ExecException
+	 * @throws \OMV\ExecException
 	 */
 	public function isRunning() {
 		return $this->getValue("running") == 1;
@@ -122,7 +123,7 @@ class BackingDevice extends BcacheDevice {
 	/**
 	 * Shut down the bcache device and close the backing device.
 	 * @return void
-	 * @throw \OMV\ExecException
+	 * @throws RuntimeException
 	 */
 	public function stop() {
 		$this->setValue("stop", 1);
@@ -135,13 +136,11 @@ class BackingDevice extends BcacheDevice {
 	 * @param string name of value.
 	 * @param boolean when true return only first line.
 	 * @return A output array.
-	 * @throw \OMV\ExecException
 	 */
 	public function getValue($name, $firstValue = TRUE) {
-		$filename = "/sys/block/{$this->getDeviceName(TRUE)}/bcache/{$name}";
-		$cmd = new \OMV\System\Process("cat", $filename);
-		$cmd->setQuiet(TRUE);
-		$cmd->execute($output);
+		$filename = build_path(DIRECTORY_SEPARATOR, "/sys/class/block",
+			$this->getDeviceName(TRUE), "bcache", $name);
+		$output = file($filename, FILE_IGNORE_NEW_LINES);
 		return $firstValue ? $output[0] : $output;
 	}
 
@@ -149,21 +148,17 @@ class BackingDevice extends BcacheDevice {
 	 * General function to set values.
 	 * @param string name of value.
 	 * @param string|int the value.
-	 * @return void
-	 * @throw \OMV\ExecException
+	 * @return int|false The number of bytes written, or false on failure.
 	 */
 	public function setValue($name, $value) {
-		$filename = "/sys/block/{$this->getDeviceName(TRUE)}/bcache/{$name}";
-		$cmdLine = sprintf("echo %s > %s", $value, $filename);
-		$cmd = new \OMV\System\Process($cmdLine);
-		$cmd->setRedirect2to1();
-		$cmd->execute();
+		$filename = build_path(DIRECTORY_SEPARATOR, "/sys/class/block",
+			$this->getDeviceName(TRUE), "bcache", $name);
+		return file_put_contents($filename, $value);
 	}
 
 	/**
-	 * Can be one of either writethrough, writeback, writearound or none.
+	 * Can be one of either `writethrough`, `writeback`, `writearound` or `none`.
 	 * @return string On of the cache modes.
-	 * @throw \OMV\ExecException
 	 */
 	public function getCacheMode() {
 		$output = $this->getValue("cache_mode");
@@ -177,7 +172,6 @@ class BackingDevice extends BcacheDevice {
 	/**
 	 * A sequential IO will bypass the cache once it passes this threshold.
 	 * @return integer threshold in bytes.
-	 * @throw \OMV\ExecException
 	 */
 	public function getSequentialCutoff() {
 		$output = $this->getValue("sequential_cutoff");
@@ -205,7 +199,7 @@ class BackingDevice extends BcacheDevice {
 	/**
 	 * Get statistic of the bcache device.
 	 * @return The statistic of the bcache device.
-	 * @throw \OMV\ExecException
+	 * @throws \OMV\ExecException
 	 */
 	public function getStatistic() {
 		$result = [];
@@ -223,7 +217,7 @@ class BackingDevice extends BcacheDevice {
 	 * Get statistics for a name.
 	 * @param string name of the statistic.
 	 * @return An array.
-	 * @throw \OMV\ExecException
+	 * @throws \OMV\ExecException
 	 */
 	private function getStatisticValue($name) {
 		$values = $this->getValue("stats_*/{$name}", FALSE);
@@ -239,7 +233,7 @@ class BackingDevice extends BcacheDevice {
 	/**
 	 * Enumerate bcache backing devices.
 	 * @return A list of bcache backing devices.
-	 * @throw \OMV\ExecException
+	 * @throws \OMV\ExecException
 	 */
 	public static function enumerateBcache() {
 		$objects = BcacheDevice::enumerateBcache();
@@ -248,7 +242,10 @@ class BackingDevice extends BcacheDevice {
 			if ($objectv['bcachetype'] !== 'backing') {
 				continue;
 			}
-			$result[] = $objectv;
+			$sd = new BackingDevice($objectv['devicefile']);
+			$result[] = array_merge($objectv, [
+				"description" => $sd->getDescription()
+			]);
 		}
 		return $result;
 	}
