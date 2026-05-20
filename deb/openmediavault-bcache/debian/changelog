@@ -1,3 +1,9 @@
+openmediavault-bcache (8.0.1-1) stable; urgency=medium
+
+  * Issue #2206: Support cache devices on disk partitions.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 20 May 2026 02:42:02 +0200
+
 openmediavault-bcache (8.0-4) stable; urgency=medium
 
   * Adapt to openmediavault 8.

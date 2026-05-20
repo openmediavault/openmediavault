@@ -21,19 +21,27 @@
  */
 namespace OMV\System\Storage\Bcache;
 
+require_once("openmediavault/functions.inc");
+
 /**
  * Class to handle a bcache cache device.
  */
 class CacheDevice extends BcacheDevice {
+	public function getDescription() {
+		return sprintf(gettext("Bcache cache device [%s, %s]"),
+			$this->getDeviceFile(), binary_format($this->getSize()));
+	}
+
 	/**
 	 * Creates a backing device.
 	 * @return void
-	 * @throw \OMV\ExecException
+	 * @throws RuntimeException
+	 * @throws \OMV\ExecException
 	 */
 	public function create() {
 		$cmdArgs = [];
 		$cmdArgs[] = "-C";
-		$cmdArgs[] = $this->getDeviceFile();
+		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
 		$cmd = new \OMV\System\Process("make-bcache", $cmdArgs);
 		$cmd->setRedirect2to1();
 		$cmd->execute();
@@ -44,7 +52,7 @@ class CacheDevice extends BcacheDevice {
 	/**
 	 * Get the state of cache device.
 	 * @return The state of cache device.
-	 * @throw \OMV\ExecException
+	 * @throws \OMV\ExecException
 	 */
 	public function getState() {
 		return $this->isRegistered() ? 1 : 2;
@@ -54,7 +62,7 @@ class CacheDevice extends BcacheDevice {
 	 * Shut down the cache set.
 	 * Waits until all attached backing devices have been shut down.
 	 * @return void
-	 * @throw \OMV\ExecException
+	 * @throws RuntimeException
 	 */
 	public function stop() {
 		$this->setValue("stop", 1);
@@ -69,13 +77,13 @@ class CacheDevice extends BcacheDevice {
 	 *   0 => /dev/sda
 	 *   1 => /dev/sdv
 	 * )
-	 * @throw \OMV\ExecException
+	 * @throws \OMV\ExecException
 	 */
 	public function getBackingDevices() {
-		$filename = "/sys/fs/bcache/{$this->getCsetUuid()}/bdev*/".
-			"backing_dev_name";
-		$cmdLine = sprintf("cat %s", $filename);
-		$cmd = new \OMV\System\Process($cmdLine);
+		$cmdArgs = [];
+		$cmdArgs[] = sprintf("/sys/fs/bcache/%s/bdev*/backing_dev_name",
+			$this->getCsetUuid());
+		$cmd = new \OMV\System\Process("cat", $cmdArgs);
 		$cmd->setQuiet(TRUE);
 		$cmd->setRedirect2to1();
 		$cmd->execute($output, $exitStatus);
@@ -95,7 +103,7 @@ class CacheDevice extends BcacheDevice {
 	 * @return A int value.
 	 */
 	public function getBackingDeviceIndex($deviceName) {
-		// /sys/fs/bcache/<cset-uuid>/bdev*
+		// E.g.: /sys/fs/bcache/<cset-uuid>/bdev*
 		$path = sprintf("/sys/fs/bcache/%s", $this->getCsetUuid());
 		foreach (new \DirectoryIterator($path) as $file) {
 			if ($file->isDot() || !$file->isLink()) {
@@ -104,10 +112,8 @@ class CacheDevice extends BcacheDevice {
 			if (1 !== preg_match("/^bdev[0-9]+$/", $file->getFilename())) {
 				continue;
 			}
-			// .... /target8:0:0/8:0:0:0/block/sdg/bcache
-			$linkTarget = $file->getLinkTarget();
-			$arr = explode(DIRECTORY_SEPARATOR, $linkTarget);
-			if ($arr[count($arr) - 2] !== $deviceName) {
+			// E.g.: .... /target8:0:0/8:0:0:0/block/sdg/bcache
+			if (basename(dirname($file->getLinkTarget())) !== $deviceName) {
 				continue;
 			}
 			return substr($file->getFilename(), 4);
@@ -120,13 +126,11 @@ class CacheDevice extends BcacheDevice {
 	 * @param string name of value.
 	 * @param boolean when true return only first line.
 	 * @return A value.
-	 * @throw \OMV\ExecException
 	 */
 	public function getValue($name, $firstValue = TRUE) {
-		$filename = "/sys/fs/bcache/{$this->getCsetUuid()}/{$name}";
-		$cmd = new \OMV\System\Process("cat", $filename);
-		$cmd->setQuiet(TRUE);
-		$cmd->execute($output);
+		$filename = build_path(DIRECTORY_SEPARATOR, "/sys/fs/bcache",
+			$this->getCsetUuid(), $name);
+		$output = file($filename, FILE_IGNORE_NEW_LINES);
 		return $firstValue ? $output[0] : $output;
 	}
 
@@ -134,21 +138,18 @@ class CacheDevice extends BcacheDevice {
 	 * General function to set sys values.
 	 * @param string name of value.
 	 * @param string|int the value.
-	 * @return void
-	 * @throw \OMV\ExecException
+	 * @return int|false The number of bytes written, or false on failure.
 	 */
 	public function setValue($name, $value) {
-		$filename = "/sys/fs/bcache/{$this->getCsetUuid()}/{$name}";
-		$cmdLine = sprintf("echo %s > %s", $value, $filename);
-		$cmd = new \OMV\System\Process($cmdLine);
-		$cmd->setRedirect2to1();
-		$cmd->execute();
+		$filename = build_path(DIRECTORY_SEPARATOR, "/sys/fs/bcache",
+			$this->getCsetUuid(), $name);
+		return file_put_contents($filename, $value);
 	}
 
 	/**
 	 * Get statistic of the bcache device.
 	 * @return The statistic of the bcache device.
-	 * @throw \OMV\ExecException
+	 * @throws \OMV\ExecException
 	 */
 	public function getStatistic() {
 		$result = [];
@@ -166,7 +167,7 @@ class CacheDevice extends BcacheDevice {
 	 * Get statistics for a name.
 	 * @param string name of the statistic.
 	 * @return An array.
-	 * @throw \OMV\ExecException
+	 * @throws \OMV\ExecException
 	 */
 	private function getStatisticValue($name) {
 		$values = $this->getValue("stats_*/{$name}", FALSE);
@@ -182,7 +183,6 @@ class CacheDevice extends BcacheDevice {
 	/**
 	 * Get Statistics about how recently data in the cache has been accessed.
 	 * @return An array.
-	 * @throw \OMV\ExecException
 	 */
 	public function getPriorityState() {
 		$output = $this->getValue("cache0/priority_stats", FALSE);
@@ -202,7 +202,7 @@ class CacheDevice extends BcacheDevice {
 	/**
 	 * Enumerate bcache cache devices.
 	 * @return A list of bcache cache devices.
-	 * @throw \OMV\ExecException
+	 * @throws \OMV\ExecException
 	 */
 	public static function enumerateBcache() {
 		$objects = BcacheDevice::enumerateBcache();
@@ -211,7 +211,10 @@ class CacheDevice extends BcacheDevice {
 			if ($objectv['bcachetype'] !== 'cache') {
 				continue;
 			}
-			$result[] = $objectv;
+			$sd = new CacheDevice($objectv['devicefile']);
+			$result[] = array_merge($objectv, [
+				"description" => $sd->getDescription()
+			]);
 		}
 		return $result;
 	}

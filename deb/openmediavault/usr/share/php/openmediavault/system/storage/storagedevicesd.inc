@@ -117,7 +117,11 @@ class StorageDeviceSD extends StorageDevice implements SmartInterface {
 		// Try to get the driver via /sys/class/scsi_host/hostN/proc_name.
 		// 'proc_name' is the "name of proc directory" of a driver, if
 		// the driver maintained one.
-		$hctl = $this->getHCTL();
+		try {
+			$hctl = $this->getHCTL();
+		} catch (\OMV\Exception $e) {
+			return "";
+		}
 		$procNamePath = sprintf("/sys/class/scsi_host/host%d/proc_name",
 			$hctl['host']);
 		if (file_exists($procNamePath)) {

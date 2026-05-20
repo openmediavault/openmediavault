@@ -100,7 +100,7 @@ class Bcache extends \OMV\Rpc\ServiceAbstract {
 		$caches = $db->get("conf.service.bcache.cache");
 		foreach ($caches as $cachek => $cachev) {
 			$devicefile = $cachev->get("devicefile");
-			if (in_array($devicefile, $deviceFiles))
+			if (in_array($devicefile, $deviceFiles, true))
 				continue;
 			$result[] = [
 				"devicefile" => $devicefile,
@@ -380,7 +380,7 @@ class Bcache extends \OMV\Rpc\ServiceAbstract {
 		$backings = $db->get("conf.service.bcache.backing");
 		foreach ($backings as $backingk => $backingv) {
 			$devicefile = $backingv->get("devicefile");
-			if (in_array($devicefile, $deviceFiles))
+			if (in_array($devicefile, $deviceFiles, true))
 				continue;
 			$result[] = [
 				"devicefile" => $devicefile,
@@ -410,9 +410,7 @@ class Bcache extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		// Get a list of all potential usable bcache cache devices.
-		$devs = \OMV\System\Storage\Bcache\CacheDevice::enumerateBcache();
-		return $devs;
+		return \OMV\System\Storage\Bcache\CacheDevice::enumerateBcache();
 	}
 
 	/**
@@ -650,7 +648,8 @@ class Bcache extends \OMV\Rpc\ServiceAbstract {
 			$bindex = $bcd->getBackingDeviceIndex($bbd->getDeviceName(TRUE));
 		}
 		$sequentialcutoffvalue = $params['sequentialcutoffvalue'];
-		$decimalPlaces = (int) strpos(strrev($sequentialcutoffvalue), ".");
+		$decimalPos = strpos(strrev($sequentialcutoffvalue), ".");
+		$decimalPlaces = ($decimalPos === FALSE) ? 0 : (int) $decimalPos;
 		$object->setAssoc([
 			"devicefile" => $bbd->getPredictableDeviceFile(),
 			"csetuuid" => $csetuuid,
