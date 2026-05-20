@@ -607,10 +607,10 @@ msgid "CPU Usage"
 msgstr "CPU-gebruik"
 
 msgid "CPU Utilization"
-msgstr "CPU-benutting"
+msgstr "CPU-gebruik"
 
 msgid "CPU frequency scaling"
-msgstr "CPU-frequentie schaling"
+msgstr "CPU-frequentieschaling"
 
 msgid "Cambodia"
 msgstr "Cambodja"
