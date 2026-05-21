@@ -164,10 +164,13 @@ class SmartInformation {
 		$cmd->setQuiet(TRUE);
 		$cmd->execute($output, $exitStatus);
 		// Check the exit status:
-		// Bit 0: Command line did not parse
+		// Bit 0: Command line did not parse.
 		// Bit 1: Device open failed, or device did not return an
-		//        IDENTIFY DEVICE structure
-		if (($exitStatus !== 0) && (($exitStatus & 0x01) || ($exitStatus & 0x02))) {
+		//        IDENTIFY DEVICE structure, or device is in a low-power
+		//        mode (see the `--nocheck` option). When `--nocheck` is
+		//        configured, Bit 1 is the expected exit code for devices
+		//        in standby/sleep mode and must not be treated as an error.
+		if (($exitStatus & 0x01) || (is_null($this->noCheck) && ($exitStatus & 0x02))) {
 			throw new \OMV\ExecException($cmd, $output, $exitStatus);
 		}
 		$this->cmdOutput = $output;
@@ -766,6 +769,9 @@ class SmartInformation {
 		// Copyright (C) 2002-22, Bruce Allen, Christian Franke, www.smartmontools.org
 		//
 		// Device is in STANDBY mode, exit(2)
+
+		// ...
+		// Device is in SLEEP mode, exit(2)
 		$regex = '/^Device is in (\S+) mode, exit\((\d+)\)$/i';
 		if (1 == preg_match($regex, end($this->cmdOutput), $matches)) {
 			return $matches[1];
