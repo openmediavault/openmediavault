@@ -30,7 +30,9 @@ class Md extends BackendAbstract {
 	protected $regex = "md\d+(p\d+)*";
 
 	function getType() {
-		return OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID;
+		return OMV_STORAGE_DEVICE_KIND_MD |
+			OMV_STORAGE_DEVICE_TRAIT_BLOCK |
+			OMV_STORAGE_DEVICE_TRAIT_STACKED;
 	}
 
 	function enumerate() {

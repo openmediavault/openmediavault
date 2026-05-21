@@ -29,7 +29,10 @@ class Loop extends BackendAbstract {
 	protected $regex = "loop[0-9]+";
 
 	function getType() {
-		return OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE;
+		return OMV_STORAGE_DEVICE_KIND_LOOP |
+			OMV_STORAGE_DEVICE_TRAIT_BLOCK |
+			OMV_STORAGE_DEVICE_TRAIT_VIRTUAL |
+			OMV_STORAGE_DEVICE_TRAIT_STACKED;
 	}
 
 	function enumerate() {

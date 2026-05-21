@@ -29,7 +29,9 @@ class DM extends BackendAbstract {
   	protected $regex = "(mapper\/.+)|(dm-\d+)";
 
 	function getType() {
-		return OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER;
+		return OMV_STORAGE_DEVICE_KIND_DM |
+			OMV_STORAGE_DEVICE_TRAIT_BLOCK |
+			OMV_STORAGE_DEVICE_TRAIT_STACKED;
 	}
 
 	function enumerate() {

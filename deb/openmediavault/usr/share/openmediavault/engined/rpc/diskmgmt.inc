@@ -59,22 +59,23 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		// Get all existing devices except software RAID devices.
-		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerate(
-		  OMV_STORAGE_DEVICE_TYPE_DISK))) {
+		// Get all existing disk-like storage devices with media available.
+		$devs = \OMV\System\Storage\StorageDevice::enumerateObjects(
+			OMV_STORAGE_DEVICE_KIND_GENERIC |
+			OMV_STORAGE_DEVICE_TRAIT_PHYSICAL |
+			OMV_STORAGE_DEVICE_TRAIT_VIRTUAL,
+			\OMV\LogicalOperator::ANY,
+			function(\OMV\System\Storage\StorageDeviceInterface $sd): bool {
+				return $sd->IsMediaAvailable();
+			}
+		);
+		if (FALSE === $devs) {
 			throw new \OMV\Exception(
-			  "Failed to get list of hard disks and hardware RAID devices.");
+				"Failed to get list of hard disks and hardware RAID devices.");
 		}
 		// Prepare result list.
 		$objects = [];
-		foreach ($devs as $devk => $devv) {
-			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
-			if (is_null($sd) || !$sd->exists())
-				continue;
-			// Skip devices where no media is available, e.g. CDROM device
-			// without an inserted media.
-			if (FALSE === $sd->IsMediaAvailable())
-				continue;
+		foreach ($devs as $sd) {
 			$powerMode = "UNKNOWN";
 			$temperature = FALSE;
 			if (TRUE === $sd->hasSmartSupport()) {
