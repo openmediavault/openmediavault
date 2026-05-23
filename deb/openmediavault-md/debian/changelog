@@ -1,3 +1,9 @@
+openmediavault-md (8.0.5-1) stable; urgency=medium
+
+  * Relocate MD related scripts to the corresponding plugin.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 23 May 2026 20:21:27 +0200
+
 openmediavault-md (8.0.4-1) stable; urgency=medium
 
   * Issue #2144: Colorize state of RAID devices in dashboard widget.

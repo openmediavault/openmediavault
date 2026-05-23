@@ -54,7 +54,6 @@ def grep_env_vars() -> List[str]:
         '/etc/cron.weekly',
         '/etc/cron.monthly',
         '/usr/sbin/omv-btrfs-scrub',
-        '/usr/sbin/omv-mkraid',
         '/usr/sbin/omv-sysinfo'
     ]
     output = openmediavault.procutils.check_output(
