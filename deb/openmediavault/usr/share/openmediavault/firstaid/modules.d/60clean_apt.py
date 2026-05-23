@@ -53,13 +53,14 @@ class Module(openmediavault.firstaid.IModule):
         ]
         for path in paths:
             try:
-                openmediavault.procutils.check_call(["rm", "-fv", path])
+                item = Path(path)
+                if item.exists():
+                    item.unlink()
+                    print(f"removed '{item}'")
             except Exception as e:
                 print(f"WARNING: could not remove {path}: {e}")
         print("Ensuring partial directory exists ...")
-        openmediavault.procutils.check_call(
-            ["mkdir", "-p", "/var/lib/apt/lists/partial"]
-        )
+        Path("/var/lib/apt/lists/partial").mkdir(parents=True, exist_ok=True)
         print("Refreshing package indexes from configured APT repositories ...")
         openmediavault.procutils.check_call(
             ["apt-get", "update", "--fix-missing"])
