@@ -1,6 +1,8 @@
 openmediavault (8.2.15-1) stable; urgency=medium
 
   * Relocate MD related scripts to the corresponding plugin.
+  * Add a new option to omv-firstaid to refresh APT package lists and clean
+    caches.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 23 May 2026 20:21:20 +0200
 
