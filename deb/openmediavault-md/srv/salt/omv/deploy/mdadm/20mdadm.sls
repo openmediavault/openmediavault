@@ -47,7 +47,10 @@ configure_mdadm_conf:
 
 mdadm_save_config:
   cmd.run:
-    - name: "mdadm --detail --scan >> /etc/mdadm/mdadm.conf"
+    - name: >-
+        awk '/^md[^ ]+ *: *active/ {print "/dev/"$1}' /proc/mdstat |
+        xargs -r -n1 mdadm --detail --scan >>
+        /etc/mdadm/mdadm.conf
 
 # Service is started/stopped automatically via udev rules.
 # See /usr/lib/udev/rules.d/63-md-raid-arrays.rules
