@@ -37,8 +37,10 @@ namespace OMV\System\Storage\Backend;
  */
 abstract class BackendAbstract {
 	/**
-	 * Get the type of the storage device backend, e.g.
-	 * OMV_STORAGE_DEVICE_TYPE_DISK, OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID, ...
+	 * Get the storage type bits of the backend.
+	 *
+	 * Backends should return one OMV_STORAGE_DEVICE_KIND_* bit and may OR-in
+	 * additional OMV_STORAGE_DEVICE_TRAIT_* bits.
 	 */
 	abstract function getType();
 

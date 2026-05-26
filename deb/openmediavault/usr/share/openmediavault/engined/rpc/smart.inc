@@ -68,11 +68,12 @@ class Smart extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		// Get all existing hard disks devices.
+		// Get all existing physical disk-like storage devices.
+		// Virtual devices (e.g. VirtIO) are intentionally excluded here
+		// because they usually do not provide useful SMART data.
 		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerate(
-				OMV_STORAGE_DEVICE_TYPE_ALL & ~(OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE |
-				OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID |
-				OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER)))) {
+				OMV_STORAGE_DEVICE_KIND_GENERIC |
+				OMV_STORAGE_DEVICE_TRAIT_PHYSICAL))) {
 			throw new \OMV\Exception("Failed to get list of storage devices");
 		}
 		// Prepare result.

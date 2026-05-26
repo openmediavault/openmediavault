@@ -19,20 +19,15 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
-namespace OMV\System\Storage;
+namespace OMV;
 
 /**
- * This class provides a simple interface to handle Xen virtual disk devices.
+ * Controls the logical operator used when matching bitmasks (AND / OR semantics).
  * @ingroup api
  */
-class StorageDeviceXen extends StorageDevice {
-	/**
-	 * See interface definition.
-	 */
-	public function getDescription() {
-		$model = $this->getModel();
-		return sprintf("%s [%s, %s]", gettext("Xen virtual disk device"),
-			$this->getDeviceFile(),
-			binary_format($this->getSize()));
-	}
+enum LogicalOperator {
+	/** All specified bits must be present — bitwise AND semantics. */
+	case ALL;
+	/** At least one specified bit must be present — bitwise OR semantics. */
+	case ANY;
 }

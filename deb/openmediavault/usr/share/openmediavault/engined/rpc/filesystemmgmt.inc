@@ -549,8 +549,15 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		// Get a list of all potential usable devices.
-		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerateUnused())) {
+		// Get a list of all potential usable devices (excluding read-only devices).
+		$devs = \OMV\System\Storage\StorageDevice::enumerateUnusedObjects(
+			OMV_STORAGE_DEVICE_KIND_DEFAULT,
+			\OMV\LogicalOperator::ALL,
+			function(\OMV\System\Storage\StorageDeviceInterface $sd): bool {
+				return !$sd->isReadOnly();
+			}
+		);
+		if (FALSE === $devs) {
 			throw new \OMV\Exception("Failed to get list of unused devices.");
 		}
 		// Get a list of all detected file systems.
@@ -569,16 +576,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$usedDevs = array_values(array_filter($usedDevs, "strlen"));
 		// Prepare the result list.
 		$result = [];
-		foreach ($devs as $devk => $devv) {
-			// Get the storage device object for the specified device file.
-			$sd = \OMV\System\Storage\StorageDevice::getStorageDevice($devv);
-			if (is_null($sd) || !$sd->exists()) {
-				continue;
-			}
-			// Skip read-only devices like CDROM.
-			if (TRUE === $sd->isReadOnly()) {
-				continue;
-			}
+		foreach ($devs as $sd) {
 /* Do not check for references, otherwise a device file which is configured
    for S.M.A.R.T. monitoring is not added as a candidate.
 			// Check if the device is referenced/used by a plugin.
@@ -655,7 +653,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 		$jsonFile = new \OMV\Json\File($fileName);
 		// Create the background process.
 		return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
-		  use ($params, $sd, $sdb, $fsb, $fsDeviceFile, $jsonFile) {
+				use ($params, $sd, $sdb, $fsb, $fsDeviceFile, $jsonFile) {
 			// Create the file and write the file system information.
 			$jsonFile->open("c");
 			$jsonFile->write([
@@ -667,13 +665,14 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 			// Wipe all existing data on the storage device.
 			$sd->wipe();
 			// Create the partition if necessary.
-			switch ($sdb->getType()) {
-			case OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID:
-			case OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER:
-			case OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE:
-				// No need to create a partition for those types.
-				break;
-			default:
+			$createPartition = TRUE;
+			$storageDeviceType = $sdb->getType();
+			// Stacked block devices (e.g. MD, DM/LVM, loop, bcache) should
+			// be used directly.
+			if (0 !== ($storageDeviceType & OMV_STORAGE_DEVICE_TRAIT_STACKED)) {
+				$createPartition = FALSE;
+			}
+			if ($createPartition) {
 				// Create a partition across the entire storage device.
 				$cmdArgs = [];
 				$cmdArgs[] = "--new=1:0:0";
@@ -686,7 +685,6 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract {
 						$bgOutputFilename))) {
 					throw new \OMV\ExecException($cmd, $output, $exitStatus);
 				}
-				break;
 			}
 			// Re-read the partition table.
 			$cmdArgs = [];

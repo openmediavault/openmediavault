@@ -61,19 +61,17 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		// Get all existing software RAID devices.
-		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerate(
-		  OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID))) {
+		// Get all existing MD RAID devices.
+		$devs = \OMV\System\Storage\StorageDevice::enumerateObjects(
+			OMV_STORAGE_DEVICE_KIND_MD
+		);
+		if (FALSE === $devs) {
 			throw new \OMV\Exception(
-			  "Failed to get list of software RAID devices.");
+			  "Failed to get list of MD RAID devices.");
 		}
 		// Prepare the result object.
 		$result = [];
-		foreach ($devs as $devk => $devv) {
-			$raid = new \OMV\System\Storage\StorageDeviceMd($devv);
-			if (!$raid->exists()) {
-				continue;
-			}
+		foreach ($devs as $raid) {
 			// Check if the RAID device is in use:
 			// - Does it contain a file system?
 			// - Is it used by another storage device?
@@ -212,8 +210,10 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract {
 		$this->validateMethodContext($context, [
 			"role" => OMV_ROLE_ADMINISTRATOR
 		]);
-		// Get a list of all potential usable devices.
-		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerateUnused()))
+		// Get a list of all potential usable physical disk devices.
+		if (FALSE === ($devs = \OMV\System\Storage\StorageDevice::enumerateUnused(
+				OMV_STORAGE_DEVICE_KIND_GENERIC |
+				OMV_STORAGE_DEVICE_TRAIT_PHYSICAL)))
 			throw new \OMV\Exception("Failed to get list of unused devices.");
 		// Prepare the result list.
 		$result = [];

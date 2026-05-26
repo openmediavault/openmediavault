@@ -30,7 +30,9 @@ class Bcache extends BackendAbstract {
 	protected $regex = "bcache[0-9]+";
 
 	function getType() {
-		return OMV_STORAGE_DEVICE_TYPE_DISK;
+		return OMV_STORAGE_DEVICE_KIND_GENERIC |
+			OMV_STORAGE_DEVICE_TRAIT_BLOCK |
+			OMV_STORAGE_DEVICE_TRAIT_STACKED;
 	}
 
 	function enumerate() {

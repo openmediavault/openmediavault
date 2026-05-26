@@ -36,16 +36,58 @@ define("OMV_ROLE_ADMINISTRATOR", 0x1);
 define("OMV_ROLE_USER",          0x2);
 define("OMV_ROLE_EVERYONE",      OMV_ROLE_ADMINISTRATOR | OMV_ROLE_USER);
 
-define("OMV_STORAGE_DEVICE_TYPE_DISK", 0x1);
-define("OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID", 0x2);
-define("OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE", 0x4);
-define("OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER", 0x8);
-define("OMV_STORAGE_DEVICE_TYPE_SCSIGENERIC", 0x10); // !!! Character device
+// Storage device traits describe orthogonal properties of a backend.
+define("OMV_STORAGE_DEVICE_TRAIT_BLOCK", 0x1);
+define("OMV_STORAGE_DEVICE_TRAIT_CHARACTER", 0x2);
+define("OMV_STORAGE_DEVICE_TRAIT_PHYSICAL", 0x4);
+define("OMV_STORAGE_DEVICE_TRAIT_VIRTUAL", 0x8);
+define("OMV_STORAGE_DEVICE_TRAIT_STACKED", 0x10);
+define("OMV_STORAGE_DEVICE_TRAIT_REMOTE", 0x20);
+define("OMV_STORAGE_DEVICE_TRAIT_ALL",
+	OMV_STORAGE_DEVICE_TRAIT_BLOCK |
+	OMV_STORAGE_DEVICE_TRAIT_CHARACTER |
+	OMV_STORAGE_DEVICE_TRAIT_PHYSICAL |
+	OMV_STORAGE_DEVICE_TRAIT_VIRTUAL |
+	OMV_STORAGE_DEVICE_TRAIT_STACKED |
+	OMV_STORAGE_DEVICE_TRAIT_REMOTE);
+
+// Storage device kinds identify the concrete backend family.
+// Note: KIND_GENERIC is an abstract generic disk-like family and intentionally
+// not a Linux kernel driver marker (e.g. 'sd'). MD/DM/LOOP/SG are explicit
+// families to simplify filtering where those device classes must be
+// selected/excluded.
+define("OMV_STORAGE_DEVICE_KIND_GENERIC", 0x100000);
+define("OMV_STORAGE_DEVICE_KIND_MD", 0x200000);
+define("OMV_STORAGE_DEVICE_KIND_LOOP", 0x400000);
+define("OMV_STORAGE_DEVICE_KIND_DM", 0x800000);
+define("OMV_STORAGE_DEVICE_KIND_SG", 0x1000000);
+// Complete kind-bit mask including all KIND_* constants (including character-only
+// families like SG). Use this when you need to match ALL possible device kinds.
+define("OMV_STORAGE_DEVICE_KIND_ALL",
+	OMV_STORAGE_DEVICE_KIND_GENERIC |
+	OMV_STORAGE_DEVICE_KIND_MD |
+	OMV_STORAGE_DEVICE_KIND_LOOP |
+	OMV_STORAGE_DEVICE_KIND_DM |
+	OMV_STORAGE_DEVICE_KIND_SG);
+// Default kind mask used by generic block-device enumeration. Character-only
+// families like SG are intentionally excluded.
+define("OMV_STORAGE_DEVICE_KIND_DEFAULT",
+	OMV_STORAGE_DEVICE_KIND_GENERIC |
+	OMV_STORAGE_DEVICE_KIND_MD |
+	OMV_STORAGE_DEVICE_KIND_LOOP |
+	OMV_STORAGE_DEVICE_KIND_DM);
+
+// Legacy storage device type bits kept for plugin backwards compatibility.
+define("OMV_STORAGE_DEVICE_TYPE_DISK", 0x1000); // @deprecated
+define("OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID", 0x2000); // @deprecated
+define("OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE", 0x4000); // @deprecated
+define("OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER", 0x8000); // @deprecated
+define("OMV_STORAGE_DEVICE_TYPE_SCSIGENERIC", 0x10000); // @deprecated
 define("OMV_STORAGE_DEVICE_TYPE_ALL",
 	OMV_STORAGE_DEVICE_TYPE_DISK |
 	OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID |
 	OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE |
-	OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER);
+	OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER); // @deprecated
 
 define("OMV_NETWORK_INTERFACE_TYPE_ETHERNET", 0x1);
 define("OMV_NETWORK_INTERFACE_TYPE_BOND", 0x2);

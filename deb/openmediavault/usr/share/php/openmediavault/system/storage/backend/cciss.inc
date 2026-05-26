@@ -28,7 +28,9 @@ namespace OMV\System\Storage\Backend;
  */
 class CCISS extends BackendAbstract {
 	function getType() {
-		return OMV_STORAGE_DEVICE_TYPE_DISK;
+		return OMV_STORAGE_DEVICE_KIND_GENERIC |
+			OMV_STORAGE_DEVICE_TRAIT_BLOCK |
+			OMV_STORAGE_DEVICE_TRAIT_PHYSICAL;
 	}
 
 	function enumerate() {

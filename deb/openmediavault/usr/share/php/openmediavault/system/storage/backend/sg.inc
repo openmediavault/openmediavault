@@ -28,7 +28,9 @@ namespace OMV\System\Storage\Backend;
  */
 class SG extends BackendAbstract {
 	function getType() {
-		return OMV_STORAGE_DEVICE_TYPE_SCSIGENERIC;
+		return OMV_STORAGE_DEVICE_KIND_SG |
+			OMV_STORAGE_DEVICE_TRAIT_CHARACTER |
+			OMV_STORAGE_DEVICE_TRAIT_PHYSICAL;
 	}
 
 	function enumerate() {
