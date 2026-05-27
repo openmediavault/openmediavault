@@ -1,3 +1,9 @@
+openmediavault (8.3.1-1) stable; urgency=medium
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 27 May 2026 20:33:05 +0200
+
 openmediavault (8.3.0-1) stable; urgency=medium
 
   * Refactor storage device processing in the PHP backend code.
