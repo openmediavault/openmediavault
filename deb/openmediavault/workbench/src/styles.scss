@@ -136,6 +136,10 @@ $omv-dark-theme: map.deep-merge(
   height: auto;
 }
 
+.omv-h-2l {
+  min-height: 2lh;
+}
+
 .omv-w-10 {
   width: 10% !important;
 }

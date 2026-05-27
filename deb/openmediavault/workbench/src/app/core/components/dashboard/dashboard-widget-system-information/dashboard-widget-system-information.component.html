@@ -5,27 +5,27 @@
        class="widget-content omv-grid omv-gap-2 omv-grid-cols-2">
     <div class="omv-grid-cell">
       <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Hostname' | transloco }}</div>
-      <div>{{ data?.hostname }}</div>
+      <div class="omv-h-2l">{{ data?.hostname }}</div>
     </div>
     <div class="omv-grid-cell">
       <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Version' | transloco }}</div>
-      <div>{{ data?.version | notAvailable }}</div>
+      <div class="omv-h-2l">{{ data?.version | notAvailable }}</div>
     </div>
     <div class="omv-grid-cell">
       <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Processor' | transloco }}</div>
-      <div>{{ data?.cpuModelName | notAvailable }}</div>
+      <div class="omv-h-2l">{{ data?.cpuModelName | notAvailable }}</div>
     </div>
     <div class="omv-grid-cell">
       <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Kernel' | transloco }}</div>
-      <div>{{ data?.kernel | notAvailable }}</div>
+      <div class="omv-h-2l">{{ data?.kernel | notAvailable }}</div>
     </div>
     <div class="omv-grid-cell">
       <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'System time' | transloco }}</div>
-      <div>{{ data?.time }}</div>
+      <div class="omv-h-2l">{{ data?.time }}</div>
     </div>
     <div class="omv-grid-cell">
       <div class="omv-grid-cell-title omv-font-weight-bold">{{ 'Uptime' | transloco }}</div>
-      <div>{{ data?.uptime | localeDate:'relative':true }}</div>
+      <div class="omv-h-2l">{{ data?.uptime | localeDate:'relative':true }}</div>
     </div>
     <div *ngIf="data?.availablePkgUpdates > 0"
          class="omv-grid-cell">
