@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,13 +20,17 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Filesystem\Backend;
 
-class Udf extends BackendAbstract {
-	public function __construct() {
-		$this->type = "udf";
-		$this->properties = self::PROP_MNTENT | self::PROP_READ_ONLY;
-		$this->mntOptions = explode(",", \OMV\Environment::get(
-		  "OMV_FSTAB_MNTOPS_UDF"));
-	}
+class Udf extends BackendAbstract
+{
+    public function __construct()
+    {
+        $this->type = "udf";
+        $this->properties = self::PROP_MNTENT | self::PROP_READ_ONLY;
+        $this->mntOptions = explode(",", \OMV\Environment::get(
+            "OMV_FSTAB_MNTOPS_UDF"
+        ));
+    }
 }

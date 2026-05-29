@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -21,5 +22,6 @@
  */
 $modelMngr = \OMV\DataModel\Manager::getInstance();
 $modelMngr->load();
-if (TRUE === $debug)
-	$modelMngr->dump();
+if (true === $debug) {
+    $modelMngr->dump();
+}

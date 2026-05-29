@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,16 +20,20 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Filesystem\Backend;
 
-class Ext3 extends Ext2 {
-	public function __construct() {
-		parent::__construct();
-		$this->type = "ext3";
-		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
-		  self::PROP_DISCARD | self::PROP_QUOTA | self::PROP_RESIZE;
-		$this->mkfsOptions = \OMV\Environment::get("OMV_MKFS_OPTIONS_EXT3");
-		$this->mntOptions = explode(",", \OMV\Environment::get(
-		  "OMV_FSTAB_MNTOPS_EXT3"));
-	}
+class Ext3 extends Ext2
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->type = "ext3";
+        $this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
+          self::PROP_DISCARD | self::PROP_QUOTA | self::PROP_RESIZE;
+        $this->mkfsOptions = \OMV\Environment::get("OMV_MKFS_OPTIONS_EXT3");
+        $this->mntOptions = explode(",", \OMV\Environment::get(
+            "OMV_FSTAB_MNTOPS_EXT3"
+        ));
+    }
 }

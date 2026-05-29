@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,10 +20,13 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV;
 
 /**
  * \em AssertException is thrown when an assertion fails.
  * @ingroup api
  */
-class AssertException extends Exception {}
+class AssertException extends Exception
+{
+}

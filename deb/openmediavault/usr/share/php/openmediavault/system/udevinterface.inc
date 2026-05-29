@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,36 +20,38 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System;
 
 /**
  * Interface to access udev information.
  * @ingroup api
  */
-interface UdevInterface {
-	/**
-	 * Queries the udev database for device information stored in the
-	 * udev database.
-	 * Note, blanks are automatically trimmed.
-	 * @param boolean force Force the collection of the information,
-	 *   although the information is already cached. Defaults to FALSE.
-	 * @result void
-	 */
-	public function queryUdevInfo($force = FALSE);
+interface UdevInterface
+{
+    /**
+     * Queries the udev database for device information stored in the
+     * udev database.
+     * Note, blanks are automatically trimmed.
+     * @param boolean force Force the collection of the information,
+     *   although the information is already cached. Defaults to FALSE.
+     * @result void
+     */
+    public function queryUdevInfo($force = false);
 
-	/**
-	 * Checks if a udev property exists.
-	 * @param string id The name of the property, e.g. ID_VENDOR, ID_MODEL
-	 *   or ID_SERIAL_SHORT.
-	 * @return boolean Returns TRUE if the property exists, otherwise FALSE.
-	 */
-	public function hasUdevProperty($id);
+    /**
+     * Checks if a udev property exists.
+     * @param string id The name of the property, e.g. ID_VENDOR, ID_MODEL
+     *   or ID_SERIAL_SHORT.
+     * @return boolean Returns TRUE if the property exists, otherwise FALSE.
+     */
+    public function hasUdevProperty($id);
 
-	/**
-	 * Get the specified udev property.
-	 * @param string id The name of the property, e.g. ID_VENDOR, ID_MODEL
-	 *   or ID_SERIAL_SHORT.
-	 * @return mixed|boolean The requested property, otherwise FALSE.
-	 */
-	public function getUdevProperty($id);
+    /**
+     * Get the specified udev property.
+     * @param string id The name of the property, e.g. ID_VENDOR, ID_MODEL
+     *   or ID_SERIAL_SHORT.
+     * @return mixed|boolean The requested property, otherwise FALSE.
+     */
+    public function getUdevProperty($id);
 }

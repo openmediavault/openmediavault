@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,20 +20,26 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage;
 
 /**
  * This class provides a simple interface to handle Xen virtual disk devices.
  * @ingroup api
  */
-class StorageDeviceXen extends StorageDevice {
-	/**
-	 * See interface definition.
-	 */
-	public function getDescription() {
-		$model = $this->getModel();
-		return sprintf("%s [%s, %s]", gettext("Xen virtual disk device"),
-			$this->getDeviceFile(),
-			binary_format($this->getSize()));
-	}
+class StorageDeviceXen extends StorageDevice
+{
+    /**
+     * See interface definition.
+     */
+    public function getDescription()
+    {
+        $model = $this->getModel();
+        return sprintf(
+            "%s [%s, %s]",
+            gettext("Xen virtual disk device"),
+            $this->getDeviceFile(),
+            binary_format($this->getSize())
+        );
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV;
 
 /**
@@ -26,4 +28,6 @@ namespace OMV;
  * but the value of it is incorrect.
  * @ingroup api
  */
-class ValueException extends Exception {}
+class ValueException extends Exception
+{
+}

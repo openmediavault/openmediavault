@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,18 +20,22 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage;
 
 /**
  * This class provides a simple interface to handle the FusionIO devices.
  * @ingroup api
  */
-class StorageDeviceFIO extends StorageDevice {
-	public function isRotational() {
-		return FALSE;
-	}
+class StorageDeviceFIO extends StorageDevice
+{
+    public function isRotational()
+    {
+        return false;
+    }
 
-	public function hasSmartSupport() {
-		return FALSE;
-	}
+    public function hasSmartSupport()
+    {
+        return false;
+    }
 }

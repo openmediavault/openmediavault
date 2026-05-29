@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,59 +20,65 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Net;
 
 /**
  * @ingroup api
  */
-class Dns {
-	/**
-	 * Get the system's host name.
-	 * @return string The system's host name.
-	 */
-	final public static function getHostname() {
-		$cmd = new \OMV\System\Process("hostname");
-		$cmd->setRedirect2to1();
-		$cmd->setRequireOutput();
-		$cmd->execute($output);
-		return $output[0];
-	}
+class Dns
+{
+    /**
+     * Get the system's host name.
+     * @return string The system's host name.
+     */
+    final public static function getHostname()
+    {
+        $cmd = new \OMV\System\Process("hostname");
+        $cmd->setRedirect2to1();
+        $cmd->setRequireOutput();
+        $cmd->execute($output);
+        return $output[0];
+    }
 
-	/**
-	 * Get the system's short host name. This is the host name cut at
-	 * the first dot.
-	 * @return string The system's short host name.
-	 */
-	final public static function getShortHostname() {
-		$cmd = new \OMV\System\Process("hostname", ["--short"]);
-		$cmd->setRedirect2to1();
-		$cmd->setRequireOutput();
-		$cmd->execute($output);
-		return $output[0];
-	}
+    /**
+     * Get the system's short host name. This is the host name cut at
+     * the first dot.
+     * @return string The system's short host name.
+     */
+    final public static function getShortHostname()
+    {
+        $cmd = new \OMV\System\Process("hostname", ["--short"]);
+        $cmd->setRedirect2to1();
+        $cmd->setRequireOutput();
+        $cmd->execute($output);
+        return $output[0];
+    }
 
-	/**
-	 * Get the system's fully qualified domain name (FQDN), e.g.
-	 * 'leto.example.com'. It is usually the hostname followed by
+    /**
+     * Get the system's fully qualified domain name (FQDN), e.g.
+     * 'leto.example.com'. It is usually the hostname followed by
      * the DNS domain name (the part after the first dot).
-	 * @return string The system's fully qualified domain name.
-	 */
-	final public static function getFqdn() {
-		$cmd = new \OMV\System\Process("hostname", ["--fqdn"]);
-		$cmd->setRedirect2to1();
-		$cmd->setRequireOutput();
-		$cmd->execute($output);
-		return $output[0];
-	}
+     * @return string The system's fully qualified domain name.
+     */
+    final public static function getFqdn()
+    {
+        $cmd = new \OMV\System\Process("hostname", ["--fqdn"]);
+        $cmd->setRedirect2to1();
+        $cmd->setRequireOutput();
+        $cmd->execute($output);
+        return $output[0];
+    }
 
-	/**
-	 * Get the name of the system's DNS domain.
-	 * @return string The system's DNS domain name.
-	 */
-	final public static function getDomain() {
-		$cmd = new \OMV\System\Process("hostname", ["--domain"]);
-		$cmd->setRedirect2to1();
-		$cmd->execute($output);
-		return $output[0];
-	}
+    /**
+     * Get the name of the system's DNS domain.
+     * @return string The system's DNS domain name.
+     */
+    final public static function getDomain()
+    {
+        $cmd = new \OMV\System\Process("hostname", ["--domain"]);
+        $cmd->setRedirect2to1();
+        $cmd->execute($output);
+        return $output[0];
+    }
 }

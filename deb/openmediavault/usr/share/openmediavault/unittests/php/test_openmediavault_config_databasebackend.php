@@ -1,5 +1,6 @@
 #!/usr/bin/phpunit -c/etc/openmediavault
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -22,38 +23,43 @@
  */
 require_once("openmediavault/autoloader.inc");
 
-class test_openmediavault_config_databasebackend extends \PHPUnit\Framework\TestCase {
-	private $databaseBackend;
+class test_openmediavault_config_databasebackend extends \PHPUnit\Framework\TestCase
+{
+    private $databaseBackend;
 
-	protected function setUp(): void {
-		$this->databaseBackend = new \OMV\Config\DatabaseBackend(
-			sprintf("%s/../data/config.xml", getcwd()),
-			FALSE);
-		$this->databaseBackend->load();
-	}
+    protected function setUp(): void
+    {
+        $this->databaseBackend = new \OMV\Config\DatabaseBackend(
+            sprintf("%s/../data/config.xml", getcwd()),
+            false
+        );
+        $this->databaseBackend->load();
+    }
 
-	public function testCompareEqual() {
-		$this->assertEquals($this->databaseBackend->compare(
-			"//system/time",
-			[
-				"timezone" => "Europe/Berlin",
-				"ntp" => [
-					"enable" => 0,
-					"timeservers" => "pool.ntp.org",
-					"clients" => ""
-				]
-			]
-		), 0);
-	}
+    public function testCompareEqual()
+    {
+        $this->assertEquals($this->databaseBackend->compare(
+            "//system/time",
+            [
+                "timezone" => "Europe/Berlin",
+                "ntp" => [
+                    "enable" => 0,
+                    "timeservers" => "pool.ntp.org",
+                    "clients" => ""
+                ]
+            ]
+        ), 0);
+    }
 
-	public function testCompareNotEqual() {
-		$this->assertEquals($this->databaseBackend->compare(
-			"//system/powermanagement",
-			[
-				"cpufreqgovernor" => "powersave",
-				"powerbtn" => "nothing",
-				"standbymode" => "poweroff"
-			]
-		), -1);
-	}
+    public function testCompareNotEqual()
+    {
+        $this->assertEquals($this->databaseBackend->compare(
+            "//system/powermanagement",
+            [
+                "cpufreqgovernor" => "powersave",
+                "powerbtn" => "nothing",
+                "standbymode" => "poweroff"
+            ]
+        ), -1);
+    }
 }

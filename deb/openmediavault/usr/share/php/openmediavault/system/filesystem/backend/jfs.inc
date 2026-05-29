@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,24 +20,29 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Filesystem\Backend;
 
-class Jfs extends BackendAbstract {
-	public function __construct() {
-		$this->type = "jfs";
-		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
-		  self::PROP_DISCARD | self::PROP_QUOTA | self::PROP_RESIZE;
-		$this->mkfsOptions = \OMV\Environment::get("OMV_MKFS_OPTIONS_JFS");
-		$this->mntOptions = explode(",", \OMV\Environment::get(
-		  "OMV_FSTAB_MNTOPS_JFS"));
-	}
+class Jfs extends BackendAbstract
+{
+    public function __construct()
+    {
+        $this->type = "jfs";
+        $this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
+          self::PROP_DISCARD | self::PROP_QUOTA | self::PROP_RESIZE;
+        $this->mkfsOptions = \OMV\Environment::get("OMV_MKFS_OPTIONS_JFS");
+        $this->mntOptions = explode(",", \OMV\Environment::get(
+            "OMV_FSTAB_MNTOPS_JFS"
+        ));
+    }
 
-	/**
-	 * See parent class definition.
-	 */
-	function getImpl($args) {
-		$object = new \OMV\System\Filesystem\Jfs($args);
-		$object->setBackend($this);
-		return $object;
-	}
+    /**
+     * See parent class definition.
+     */
+    public function getImpl($args)
+    {
+        $object = new \OMV\System\Filesystem\Jfs($args);
+        $object->setBackend($this);
+        return $object;
+    }
 }

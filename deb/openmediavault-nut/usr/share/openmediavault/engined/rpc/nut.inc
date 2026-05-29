@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,93 +20,99 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
-class OMVRpcServiceNetworkUPSTools extends \OMV\Rpc\ServiceAbstract {
-	/**
-	 * Get the RPC service name.
-	 */
-	public function getName() {
-		return "Nut";
-	}
+class OMVRpcServiceNetworkUPSTools extends \OMV\Rpc\ServiceAbstract
+{
+    /**
+     * Get the RPC service name.
+     */
+    public function getName()
+    {
+        return "Nut";
+    }
 
-	/**
-	 * Initialize the RPC service.
-	 */
-	public function initialize() {
-		$this->registerMethod("get");
-		$this->registerMethod("set");
-		$this->registerMethod("getStats");
-	}
+    /**
+     * Initialize the RPC service.
+     */
+    public function initialize()
+    {
+        $this->registerMethod("get");
+        $this->registerMethod("set");
+        $this->registerMethod("getStats");
+    }
 
-	/**
-	 * Get the configuration settings.
-	 * @param params The method parameters.
-	 * @param context The context of the caller.
-	 * @return The requested configuration object.
-	 */
-	function get($params, $context) {
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, [
-			"role" => OMV_ROLE_ADMINISTRATOR
-		]);
-		// Get the configuration object.
-		$db = \OMV\Config\Database::getInstance();
-		return $db->getAssoc("conf.service.nut");
-	}
+    /**
+     * Get the configuration settings.
+     * @param params The method parameters.
+     * @param context The context of the caller.
+     * @return The requested configuration object.
+     */
+    public function get($params, $context)
+    {
+        // Validate the RPC caller context.
+        $this->validateMethodContext($context, [
+            "role" => OMV_ROLE_ADMINISTRATOR
+        ]);
+        // Get the configuration object.
+        $db = \OMV\Config\Database::getInstance();
+        return $db->getAssoc("conf.service.nut");
+    }
 
-	/**
-	 * Set the configuration settings.
-	 * @param params The method parameters.
-	 * @param context The context of the caller.
-	 * @return The stored configuration object.
-	 */
-	function set($params, $context) {
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, [
-			"role" => OMV_ROLE_ADMINISTRATOR
-		]);
-		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, "rpc.nut.set");
-		// Get the existing configuration object.
-		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.service.nut");
-		// Update the configuration object.
-		$object->setAssoc($params);
-		// Put the configuration object.
-		$db->set($object);
-		// Return the configuration object.
-		return $object->getAssoc();
-	}
+    /**
+     * Set the configuration settings.
+     * @param params The method parameters.
+     * @param context The context of the caller.
+     * @return The stored configuration object.
+     */
+    public function set($params, $context)
+    {
+        // Validate the RPC caller context.
+        $this->validateMethodContext($context, [
+            "role" => OMV_ROLE_ADMINISTRATOR
+        ]);
+        // Validate the parameters of the RPC service method.
+        $this->validateMethodParams($params, "rpc.nut.set");
+        // Get the existing configuration object.
+        $db = \OMV\Config\Database::getInstance();
+        $object = $db->get("conf.service.nut");
+        // Update the configuration object.
+        $object->setAssoc($params);
+        // Put the configuration object.
+        $db->set($object);
+        // Return the configuration object.
+        return $object->getAssoc();
+    }
 
-	/**
-	 * Get statistics, e.g. who's online.
-	 * @param params The method parameters.
-	 * @param context The context of the caller.
-	 * @return A string containing the requested statistics.
-	 */
-	public function getStats($params, $context) {
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, [
-			"role" => OMV_ROLE_ADMINISTRATOR
-		]);
-		// Is service enabled?
-		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.service.nut");
-		if (FALSE === $object->get("enable")) {
-			$stats = gettext("Service disabled");
-		} else {
-			$mode = $object->get("mode");
-			$cmdArgs = [];
-			if ("netclient" === $mode) {
-				$remoteUps = $object->get("upsname")."@".$object->get("netclienthostname");
-				$cmdArgs[] = escapeshellarg($remoteUps);
-			} else {
-				$cmdArgs[] = escapeshellarg($object->get("upsname"));
-			}
-			$cmd = new \OMV\System\Process("upsc", $cmdArgs);
-			$cmd->setRedirect2to1();
-			$cmd->execute($output);
-			$stats = implode("\n", $output);
-		}
-		return $stats;
-	}
+    /**
+     * Get statistics, e.g. who's online.
+     * @param params The method parameters.
+     * @param context The context of the caller.
+     * @return A string containing the requested statistics.
+     */
+    public function getStats($params, $context)
+    {
+        // Validate the RPC caller context.
+        $this->validateMethodContext($context, [
+            "role" => OMV_ROLE_ADMINISTRATOR
+        ]);
+        // Is service enabled?
+        $db = \OMV\Config\Database::getInstance();
+        $object = $db->get("conf.service.nut");
+        if (false === $object->get("enable")) {
+            $stats = gettext("Service disabled");
+        } else {
+            $mode = $object->get("mode");
+            $cmdArgs = [];
+            if ("netclient" === $mode) {
+                $remoteUps = $object->get("upsname")."@".$object->get("netclienthostname");
+                $cmdArgs[] = escapeshellarg($remoteUps);
+            } else {
+                $cmdArgs[] = escapeshellarg($object->get("upsname"));
+            }
+            $cmd = new \OMV\System\Process("upsc", $cmdArgs);
+            $cmd->setRedirect2to1();
+            $cmd->execute($output);
+            $stats = implode("\n", $output);
+        }
+        return $stats;
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,47 +20,56 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace Engined\Module;
 
-class WeTTY extends \OMV\Engine\Module\ServiceAbstract
-		implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
-	public function getName() {
-		return "wetty";
-	}
+class WeTTY extends \OMV\Engine\Module\ServiceAbstract implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus
+{
+    public function getName()
+    {
+        return "wetty";
+    }
 
-	public function deployAfter(): array {
-		return ["hostname", "systemd-networkd", "ssh", "certificates"];
-	}
+    public function deployAfter(): array
+    {
+        return ["hostname", "systemd-networkd", "ssh", "certificates"];
+    }
 
-	public function getStatus() {
-		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.service.wetty");
-		$systemCtl = new \OMV\System\SystemCtl("container-wetty");
-		return [
-			"name" => $this->getName(),
-			"title" => gettext("WeTTY"),
-			"enabled" => $object->get("enable"),
-			"running" => $systemCtl->isActive()
-		];
-	}
+    public function getStatus()
+    {
+        $db = \OMV\Config\Database::getInstance();
+        $object = $db->get("conf.service.wetty");
+        $systemCtl = new \OMV\System\SystemCtl("container-wetty");
+        return [
+            "name" => $this->getName(),
+            "title" => gettext("WeTTY"),
+            "enabled" => $object->get("enable"),
+            "running" => $systemCtl->isActive()
+        ];
+    }
 
-	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
-		$dispatcher->addListener(
-			OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.service.wetty",
-			[$this, "setDirty"]);
-		$dispatcher->addListener(
-			OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.system.network.dns",
-			[$this, "setDirty"]);
-		$dispatcher->addListener(
-			OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.service.ssh",
-			[$this, "setDirty"]);
-		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
-		$dispatcher->addListener(
-			OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.service.wetty",
-			[$moduleMngr->getModule("zeroconf"), "setDirty"]);
-	}
+    public function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher)
+    {
+        $dispatcher->addListener(
+            OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.service.wetty",
+            [$this, "setDirty"]
+        );
+        $dispatcher->addListener(
+            OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.system.network.dns",
+            [$this, "setDirty"]
+        );
+        $dispatcher->addListener(
+            OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.service.ssh",
+            [$this, "setDirty"]
+        );
+        $moduleMngr = \OMV\Engine\Module\Manager::getInstance();
+        $dispatcher->addListener(
+            OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.service.wetty",
+            [$moduleMngr->getModule("zeroconf"), "setDirty"]
+        );
+    }
 }

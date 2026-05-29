@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,14 +20,17 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Net;
 
 /**
  * This class provides a interface to handle virtual network interfaces.
  * @ingroup api
  */
-class NetworkInterfaceVirtual extends NetworkInterface {
-	public function getType() {
-		return "virtual";
-	}
+class NetworkInterfaceVirtual extends NetworkInterface
+{
+    public function getType()
+    {
+        return "virtual";
+    }
 }

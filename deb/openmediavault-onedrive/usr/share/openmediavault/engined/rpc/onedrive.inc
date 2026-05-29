@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,28 +20,34 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace Engined\Rpc;
 
-class OMVRpcServiceOneDrive extends \OMV\Rpc\ServiceAbstract {
-	public function getName() {
-		return "OneDrive";
-	}
+class OMVRpcServiceOneDrive extends \OMV\Rpc\ServiceAbstract
+{
+    public function getName()
+    {
+        return "OneDrive";
+    }
 
-	public function initialize() {
-		$this->registerMethod("get");
-		$this->registerMethod("set");
-	}
+    public function initialize()
+    {
+        $this->registerMethod("get");
+        $this->registerMethod("set");
+    }
 
-	function get($params, $context) {
-		return \OMV\Rpc\Rpc::call("Config", "get", [
-			"id" => "conf.service.onedrive"
-		], $context);
-	}
+    public function get($params, $context)
+    {
+        return \OMV\Rpc\Rpc::call("Config", "get", [
+            "id" => "conf.service.onedrive"
+        ], $context);
+    }
 
-	function set($params, $context) {
-		return \OMV\Rpc\Rpc::call("Config", "set", [
-			"id" => "conf.service.onedrive",
-			"data" => $params
-		], $context);
-	}
+    public function set($params, $context)
+    {
+        return \OMV\Rpc\Rpc::call("Config", "set", [
+            "id" => "conf.service.onedrive",
+            "data" => $params
+        ], $context);
+    }
 }

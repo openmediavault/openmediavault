@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,18 +20,20 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\Engine\Module;
 
 /**
  * Interface to get the notification configuration for this module. This is
  * used to enable/disable notifications send via email for example.
  */
-interface INotification {
-	/**
-	 * Get the notification configuration.
-	 * @return An array of arrays containing the following fields:
-	 *   \em id (string) The identifier of the notification.
-	 *   \em type (string) The type that is displayed in the WebGUI.
+interface INotification
+{
+    /**
+     * Get the notification configuration.
+     * @return An array of arrays containing the following fields:
+     *   \em id (string) The identifier of the notification.
+     *   \em type (string) The type that is displayed in the WebGUI.
      *     This should be one of the following values:
      *     - Administration
      *     - Backup
@@ -45,7 +48,7 @@ interface INotification {
      *     - Virtualization
      *     - System
      *	   - General
-	 *   \em title (string) A title displayed in the WebGUI.
-	 */
-	public function getNotificationConfig();
+     *   \em title (string) A title displayed in the WebGUI.
+     */
+    public function getNotificationConfig();
 }

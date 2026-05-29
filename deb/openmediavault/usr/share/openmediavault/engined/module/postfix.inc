@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,38 +20,47 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace Engined\Module;
 
-class Postfix extends \OMV\Engine\Module\ServiceAbstract
-		implements \OMV\Engine\Notify\IListener {
-	public function getName() {
-		return "postfix";
-	}
+class Postfix extends \OMV\Engine\Module\ServiceAbstract implements \OMV\Engine\Notify\IListener
+{
+    public function getName()
+    {
+        return "postfix";
+    }
 
-	public function getDescription() {
-		return gettext("High-performance mail transport agent.");
-	}
+    public function getDescription()
+    {
+        return gettext("High-performance mail transport agent.");
+    }
 
-	public function getAlias() {
-		return "email";
-	}
+    public function getAlias()
+    {
+        return "email";
+    }
 
-	public function deployAfter(): array {
-		return ["systemd-networkd", "hostname", "hosts"];
-	}
+    public function deployAfter(): array
+    {
+        return ["systemd-networkd", "hostname", "hosts"];
+    }
 
-	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
-		$dispatcher->addListener(
-			OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.system.notification.email",
-			[$this, "setDirty"]);
-		$dispatcher->addListener(
-			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-			"org.openmediavault.conf.system.usermngmnt.user",
-			[$this, "setDirty"]);
-		$dispatcher->addListener(
-			OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.system.network.dns",
-			[$this, "setDirty"]);
-	}
+    public function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher)
+    {
+        $dispatcher->addListener(
+            OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.system.notification.email",
+            [$this, "setDirty"]
+        );
+        $dispatcher->addListener(
+            OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+            "org.openmediavault.conf.system.usermngmnt.user",
+            [$this, "setDirty"]
+        );
+        $dispatcher->addListener(
+            OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.system.network.dns",
+            [$this, "setDirty"]
+        );
+    }
 }

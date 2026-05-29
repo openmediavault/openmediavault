@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,13 +20,16 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
-spl_autoload_register(function($className) {
-	$parts = explode("\\", trim($className, "\\"));
-	$prefix = array_shift($parts);
-	if ("OMV" !== $prefix)
-		return;
-	array_unshift($parts, "openmediavault");
-	$pathName = mb_strtolower(sprintf("%s.inc", implode(DIRECTORY_SEPARATOR,
-		$parts)));
-	include_once $pathName;
+spl_autoload_register(function ($className) {
+    $parts = explode("\\", trim($className, "\\"));
+    $prefix = array_shift($parts);
+    if ("OMV" !== $prefix) {
+        return;
+    }
+    array_unshift($parts, "openmediavault");
+    $pathName = mb_strtolower(sprintf("%s.inc", implode(
+        DIRECTORY_SEPARATOR,
+        $parts
+    )));
+    include_once $pathName;
 });

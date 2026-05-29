@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,56 +20,68 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace Engined\Module;
 
-class SmartMonTools extends \OMV\Engine\Module\ServiceAbstract
-		implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\INotification {
-	public function getName() {
-		return "smartmontools";
-	}
+class SmartMonTools extends \OMV\Engine\Module\ServiceAbstract implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\INotification
+{
+    public function getName()
+    {
+        return "smartmontools";
+    }
 
-	public function getDescription() {
-		return gettext("Control and monitor storage systems using S.M.A.R.T.");
-	}
+    public function getDescription()
+    {
+        return gettext("Control and monitor storage systems using S.M.A.R.T.");
+    }
 
-	public function deployAfter(): array {
-		return ["email"];
-	}
+    public function deployAfter(): array
+    {
+        return ["email"];
+    }
 
-	public function getNotificationConfig() {
-		return [
-			[
-				"id" => "smartmontools",
-				"type" => getText("Storage"),
-				"title" => gettext("S.M.A.R.T.")
-			]
-		];
-	}
+    public function getNotificationConfig()
+    {
+        return [
+            [
+                "id" => "smartmontools",
+                "type" => getText("Storage"),
+                "title" => gettext("S.M.A.R.T.")
+            ]
+        ];
+    }
 
-	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
-		$dispatcher->addListener(
-			OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.service.smartmontools",
-			[$this, "setDirty"]);
-		$dispatcher->addListener(
-			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.service.smartmontools.device",
-			[$this, "setDirty"]);
-		$dispatcher->addListener(
-			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-			"org.openmediavault.conf.service.smartmontools.job",
-			[$this, "setDirty"]);
-		$dispatcher->addListener(
-			OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.system.notification.email",
-			[$this, "setDirty"]);
-		$dispatcher->addListener(
-			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.system.notification.notification",
-			[$this, "setDirty"]);
-		$dispatcher->addListener(
-			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-			"org.openmediavault.conf.system.hdparm",
-			[$this, "setDirty"]);
-	}
+    public function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher)
+    {
+        $dispatcher->addListener(
+            OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.service.smartmontools",
+            [$this, "setDirty"]
+        );
+        $dispatcher->addListener(
+            OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.service.smartmontools.device",
+            [$this, "setDirty"]
+        );
+        $dispatcher->addListener(
+            OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+            "org.openmediavault.conf.service.smartmontools.job",
+            [$this, "setDirty"]
+        );
+        $dispatcher->addListener(
+            OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.system.notification.email",
+            [$this, "setDirty"]
+        );
+        $dispatcher->addListener(
+            OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.system.notification.notification",
+            [$this, "setDirty"]
+        );
+        $dispatcher->addListener(
+            OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+            "org.openmediavault.conf.system.hdparm",
+            [$this, "setDirty"]
+        );
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,19 +20,22 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage;
 
 /**
  * This class provides a simple interface to handle MFM/IDE hard disk devices.
  * @ingroup api
  */
-class StorageDeviceHD extends StorageDevice implements SmartInterface {
-	use SmartTrait;
+class StorageDeviceHD extends StorageDevice implements SmartInterface
+{
+    use SmartTrait;
 
-	/**
-	 * See \OMV\System\Storage\SmartInterface interface definition.
-	 */
-	public function getSmartDeviceType() {
-		return "ata";
-	}
+    /**
+     * See \OMV\System\Storage\SmartInterface interface definition.
+     */
+    public function getSmartDeviceType()
+    {
+        return "ata";
+    }
 }

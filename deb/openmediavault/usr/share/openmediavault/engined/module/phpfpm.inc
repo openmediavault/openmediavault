@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,14 +20,18 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace Engined\Module;
 
-class PhpFpm extends \OMV\Engine\Module\ServiceAbstract {
-	public function getName() {
-		return "phpfpm";
-	}
+class PhpFpm extends \OMV\Engine\Module\ServiceAbstract
+{
+    public function getName()
+    {
+        return "phpfpm";
+    }
 
-	public function deployAfter(): array {
-		return ["monit"];
-	}
+    public function deployAfter(): array
+    {
+        return ["monit"];
+    }
 }

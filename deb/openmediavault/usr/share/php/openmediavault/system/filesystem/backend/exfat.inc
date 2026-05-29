@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,13 +20,17 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Filesystem\Backend;
 
-class Exfat extends BackendAbstract {
-	public function __construct() {
-		$this->type = "exfat";
-		$this->properties = self::PROP_MNTENT;
-		$this->mntOptions = explode(",", \OMV\Environment::get(
-		  "OMV_FSTAB_MNTOPS_EXFAT"));
-	}
+class Exfat extends BackendAbstract
+{
+    public function __construct()
+    {
+        $this->type = "exfat";
+        $this->properties = self::PROP_MNTENT;
+        $this->mntOptions = explode(",", \OMV\Environment::get(
+            "OMV_FSTAB_MNTOPS_EXFAT"
+        ));
+    }
 }

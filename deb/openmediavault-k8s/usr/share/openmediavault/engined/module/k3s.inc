@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -20,49 +21,58 @@
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
 class K3s extends \OMV\Engine\Module\ServiceAbstract implements
-		\OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus,
-		\OMV\Engine\Module\INotification {
-	public function getName() {
-		return "k3s";
-	}
+    \OMV\Engine\Notify\IListener,
+    \OMV\Engine\Module\IServiceStatus,
+    \OMV\Engine\Module\INotification
+{
+    public function getName()
+    {
+        return "k3s";
+    }
 
-	public function deployAfter(): array {
-		return ["certificates"];
-	}
+    public function deployAfter(): array
+    {
+        return ["certificates"];
+    }
 
-	/**
-	 * Get the status of the managed service.
-	 */
-	public function getStatus() {
-		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.service.k8s");
-		$systemCtl = new \OMV\System\SystemCtl("k3s");
-		return [
-			"name" => $this->getName(),
-			"title" => gettext("Kubernetes"),
-			"enabled" => $object->get("enable"),
-			"running" => $systemCtl->isActive()
-		];
-	}
+    /**
+     * Get the status of the managed service.
+     */
+    public function getStatus()
+    {
+        $db = \OMV\Config\Database::getInstance();
+        $object = $db->get("conf.service.k8s");
+        $systemCtl = new \OMV\System\SystemCtl("k3s");
+        return [
+            "name" => $this->getName(),
+            "title" => gettext("Kubernetes"),
+            "enabled" => $object->get("enable"),
+            "running" => $systemCtl->isActive()
+        ];
+    }
 
-	public function getNotificationConfig() {
-		return [
-			[
-				"id" => "monitk8s",
-				"type" => getText("System"),
-				"title" => gettext("Monitoring - Kubernetes")
-			]
-		];
-	}
+    public function getNotificationConfig()
+    {
+        return [
+            [
+                "id" => "monitk8s",
+                "type" => getText("System"),
+                "title" => gettext("Monitoring - Kubernetes")
+            ]
+        ];
+    }
 
-	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
-		$dispatcher->addListener(
-			OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.service.k8s",
-			[ $this, "setDirty" ]);
-		$dispatcher->addListener(
-			OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.system.network.dns",
-			[$this, "setDirty"]);
-	}
+    public function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher)
+    {
+        $dispatcher->addListener(
+            OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.service.k8s",
+            [ $this, "setDirty" ]
+        );
+        $dispatcher->addListener(
+            OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.system.network.dns",
+            [$this, "setDirty"]
+        );
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,68 +20,79 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV;
 
 /**
  * @ingroup api
  */
-class Email {
-	private $from;
-	private $to;
-	private $subject;
-	private $message;
+class Email
+{
+    private $from;
+    private $to;
+    private $subject;
+    private $message;
 
-	/**
-	 * Constructor.
-	 * @param from The sender email address.
-	 * @param to The receiver email address(es), e.g. 'test@xzy.com' or
-	 *   'xzy@123.org,test@xzy.com'. Use the character , or ; as
-	 *   seperator. Additionally this can be an array of email addresses.
-	 * @param subject The subject of the email to be sent.
-	 * @param message The message to be sent.
-	 */
-	public function __construct($from, $to, $subject, $message) {
-		list($this->from, $this->to, $this->subject,
-			$this->message) = func_get_args();
-		// Modify the receiver list.
-		if (TRUE === is_array($this->to)) {
-			$this->to = implode(',', $this->to);
-		} else {
-			// Prepare the receivers of the email. The formatting of this
-			// string must comply with RFC 2822.
-			$this->to = strtr($this->to, [ ';' => ',' ]);
-		}
-	}
+    /**
+     * Constructor.
+     * @param from The sender email address.
+     * @param to The receiver email address(es), e.g. 'test@xzy.com' or
+     *   'xzy@123.org,test@xzy.com'. Use the character , or ; as
+     *   seperator. Additionally this can be an array of email addresses.
+     * @param subject The subject of the email to be sent.
+     * @param message The message to be sent.
+     */
+    public function __construct($from, $to, $subject, $message)
+    {
+        list($this->from, $this->to, $this->subject,
+            $this->message) = func_get_args();
+        // Modify the receiver list.
+        if (true === is_array($this->to)) {
+            $this->to = implode(',', $this->to);
+        } else {
+            // Prepare the receivers of the email. The formatting of this
+            // string must comply with RFC 2822.
+            $this->to = strtr($this->to, [ ';' => ',' ]);
+        }
+    }
 
-	/**
-	 * Send the email synchronously.
-	 * @return Return TRUE if successful, otherwise FALSE.
-	 */
-	public function send(): bool {
-		return mail($this->to, $this->subject, $this->message,
-			$this->getHeaders());
-	}
+    /**
+     * Send the email synchronously.
+     * @return Return TRUE if successful, otherwise FALSE.
+     */
+    public function send(): bool
+    {
+        return mail(
+            $this->to,
+            $this->subject,
+            $this->message,
+            $this->getHeaders()
+        );
+    }
 
-	/**
-	 * Send the email.
-	 * @return void
-	 * @throw \OMV\AssertException
-	 */
-	public function assertSend(): void {
-		if (FALSE === $this->send()) {
-			throw new \OMV\AssertException(
-				"Failed to send the email. Please check the logs.");
-		}
-	}
+    /**
+     * Send the email.
+     * @return void
+     * @throw \OMV\AssertException
+     */
+    public function assertSend(): void
+    {
+        if (false === $this->send()) {
+            throw new \OMV\AssertException(
+                "Failed to send the email. Please check the logs."
+            );
+        }
+    }
 
-	private function getHeaders(): array {
-		$headers = [];
-		// Set date in RFC 2882 format.
-		$headers['Date'] = date('r');
-		// Append the sender address.
-		if (!empty($this->from)) {
-			$headers['From'] = $this->from;
-		}
-		return $headers;
-	}
+    private function getHeaders(): array
+    {
+        $headers = [];
+        // Set date in RFC 2882 format.
+        $headers['Date'] = date('r');
+        // Append the sender address.
+        if (!empty($this->from)) {
+            $headers['From'] = $this->from;
+        }
+        return $headers;
+    }
 }

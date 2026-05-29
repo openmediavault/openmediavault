@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,38 +20,44 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage\Backend;
 
 /**
  * Implements the storage device backend for FusionIO devices.
  * @ingroup api
  */
-class FIO extends BackendAbstract {
-	function getType() {
-		return OMV_STORAGE_DEVICE_KIND_GENERIC |
-			OMV_STORAGE_DEVICE_TRAIT_BLOCK |
-			OMV_STORAGE_DEVICE_TRAIT_PHYSICAL;
-	}
+class FIO extends BackendAbstract
+{
+    public function getType()
+    {
+        return OMV_STORAGE_DEVICE_KIND_GENERIC |
+            OMV_STORAGE_DEVICE_TRAIT_BLOCK |
+            OMV_STORAGE_DEVICE_TRAIT_PHYSICAL;
+    }
 
-	function enumerate() {
-		// major minor  #blocks  name
-		//    8        0  312571224 sda
-		//    8        1    1052226 sda1
-		//    8        2    8393962 sda2
-		//  252        0  157143584 fioa
-		//  252        1  157139766 fioa1
-		return $this->enumerateProcFs("fio[a-z]+");
-	}
+    public function enumerate()
+    {
+        // major minor  #blocks  name
+        //    8        0  312571224 sda
+        //    8        1    1052226 sda1
+        //    8        2    8393962 sda2
+        //  252        0  157143584 fioa
+        //  252        1  157139766 fioa1
+        return $this->enumerateProcFs("fio[a-z]+");
+    }
 
-	function isTypeOf($deviceFile) {
-		// Examples:
-		// - /dev/fioa
-		// - /dev/fioa1
-		$regex = "fio[a-z]+[0-9]*";
-		return $this->isTypeOfByName($deviceFile, $regex);
-	}
+    public function isTypeOf($deviceFile)
+    {
+        // Examples:
+        // - /dev/fioa
+        // - /dev/fioa1
+        $regex = "fio[a-z]+[0-9]*";
+        return $this->isTypeOfByName($deviceFile, $regex);
+    }
 
-	function getImpl($args) {
-		return new \OMV\System\Storage\StorageDeviceFIO($args);
-	}
+    public function getImpl($args)
+    {
+        return new \OMV\System\Storage\StorageDeviceFIO($args);
+    }
 }

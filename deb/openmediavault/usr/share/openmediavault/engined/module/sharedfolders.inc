@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,47 +20,56 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace Engined\Module;
 
-class Sharedfolders extends \OMV\Engine\Module\ServiceAbstract
-		implements \OMV\Engine\Notify\IListener {
-	public function getName() {
-		return "sharedfolders";
-	}
+class Sharedfolders extends \OMV\Engine\Module\ServiceAbstract implements \OMV\Engine\Notify\IListener
+{
+    public function getName()
+    {
+        return "sharedfolders";
+    }
 
-	public function deployAfter(): array {
-		return ["systemd", "task"];
-	}
+    public function deployAfter(): array
+    {
+        return ["systemd", "task"];
+    }
 
-	public function deploy() {
-		// Nothing to do here.
-	}
+    public function deploy()
+    {
+        // Nothing to do here.
+    }
 
-	/**
-	 * Helper function to add a new task when a shared folder has been deleted.
-	 * @param type The event message type.
-	 * @param path The event message path.
-	 * @param object The configuration object.
-	 */
-	final public function onDeleteSharedFolder($type, $path, $object) {
-		\OMV\Salt\Task::create("omv.task.sharedfolder_alias.disable", [
-			"name" => $object['name']
-		]);
-	}
+    /**
+     * Helper function to add a new task when a shared folder has been deleted.
+     * @param type The event message type.
+     * @param path The event message path.
+     * @param object The configuration object.
+     */
+    final public function onDeleteSharedFolder($type, $path, $object)
+    {
+        \OMV\Salt\Task::create("omv.task.sharedfolder_alias.disable", [
+            "name" => $object['name']
+        ]);
+    }
 
-	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
-		$dispatcher->addListener(
-			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-			"org.openmediavault.conf.system.sharedfolder",
-			[$this, "setDirty"]);
-		$dispatcher->addListener(
-			OMV_NOTIFY_DELETE,
-			"org.openmediavault.conf.system.sharedfolder",
-			[$this, "onDeleteSharedFolder"]);
-		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
-		$dispatcher->addListener(
-			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-			"org.openmediavault.conf.system.sharedfolder",
-			[$moduleMngr->getModule("systemd"), "setDirty"]);
-	}
+    public function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher)
+    {
+        $dispatcher->addListener(
+            OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+            "org.openmediavault.conf.system.sharedfolder",
+            [$this, "setDirty"]
+        );
+        $dispatcher->addListener(
+            OMV_NOTIFY_DELETE,
+            "org.openmediavault.conf.system.sharedfolder",
+            [$this, "onDeleteSharedFolder"]
+        );
+        $moduleMngr = \OMV\Engine\Module\Manager::getInstance();
+        $dispatcher->addListener(
+            OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+            "org.openmediavault.conf.system.sharedfolder",
+            [$moduleMngr->getModule("systemd"), "setDirty"]
+        );
+    }
 }

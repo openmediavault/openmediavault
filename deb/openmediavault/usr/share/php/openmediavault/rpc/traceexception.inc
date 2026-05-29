@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\Rpc;
 
 /**
@@ -26,28 +28,31 @@ namespace OMV\Rpc;
  * stack trace should be delivered to the exception catcher.
  * @ingroup api
  */
-class TraceException extends Exception {
-	private $trace; /**< The exception stack trace. */
+class TraceException extends Exception
+{
+    private $trace; /**< The exception stack trace. */
 
-	/**
-	 * Constructor
-	 * @param string message The exception message to throw.
-	 * @param int code The exception code.
-	 * @param string trace The exception stack trace.
-	 */
-	public function __construct($message, $code = 0, $trace = "") {
-		$this->trace = $trace;
-		// Note, we need to escape the percent signs here because
-		// we do not want them to be interpreted as directives by
-		// the vsprintf method in \OMV\Exception.
-		parent::__construct(escape_percent($message), $code);
-	}
+    /**
+     * Constructor
+     * @param string message The exception message to throw.
+     * @param int code The exception code.
+     * @param string trace The exception stack trace.
+     */
+    public function __construct($message, $code = 0, $trace = "")
+    {
+        $this->trace = $trace;
+        // Note, we need to escape the percent signs here because
+        // we do not want them to be interpreted as directives by
+        // the vsprintf method in \OMV\Exception.
+        parent::__construct(escape_percent($message), $code);
+    }
 
-	/**
-	 * String representation of the exception.
-	 * @return Returns the string representation of the exception.
-	 */
-	public function __toString(): string {
-		return strval($this->trace);
-	}
+    /**
+     * String representation of the exception.
+     * @return Returns the string representation of the exception.
+     */
+    public function __toString(): string
+    {
+        return strval($this->trace);
+    }
 }

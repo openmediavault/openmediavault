@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,91 +20,98 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\Rpc\Proxy;
 
 /**
  * A specialized RPC proxy that handles file downloads.
  * @ingroup api
  */
-class Download extends Json {
-	/**
-	 * @param response The response must contain the fields \em content or
-	 *   \em filepath. The field \em filename and \em headers are optional.
-	 *   Use Train-Case for the keys of the \em headers array.
-	 *   The field \em content contains the content to be returned whereas
-	 *   \em filepath contains the name of the file which content should be
-	 *   returned. Please note that the file must be readable for everyone.
-	 *   The fields \em content and \em filepath exclude each other.
-	 *   If \em filename is set, the `Content-Disposition` header will be
-	 *   set to `attachment; filename=<filename>`.
-	 *   If \em unlink is set then the given file will be removed after use.
-	 */
-	protected function handleResponse($response) {
-		// Check if the RPC response is plain text or complies the above
-		// method parameter description. If it is plain text, then generate
-		// the required data structure.
-		if (!is_array($response)) {
-			$response = [
-				"filename" => sprintf("content%d", time()),
-				"content" => $response
-			];
-		}
-		// Set default values.
-		$response = array_merge([
-			"unlink" => FALSE
-		], $response);
-		// Prepare the headers.
-		$headers = [];
-		if (array_key_exists("content", $response)) {
-			if (!(array_key_exists("headers", $response) && array_key_exists(
-					"Content-Type", $response['headers']))) {
-				$contentType = FALSE;
-				$finfo = @finfo_open(FILEINFO_MIME_TYPE);
-				if (FALSE !== $finfo) {
-					$contentType = @finfo_buffer($finfo, $response['content']);
-					finfo_close($finfo);
-				}
-				if (FALSE !== $contentType) {
-					$headers["Content-Type"] = $contentType;
-				} else {
-					$headers["Content-Type"] = "application/octet-stream";
-				}
-			}
-			$headers["Content-Length"] = strlen($response['content']);
-		} else {
-			if (!(array_key_exists("headers", $response) && array_key_exists(
-					"Content-Type", $response['headers']))) {
-				$contentType = @mime_content_type($response['filepath']);
-				if (FALSE !== $contentType) {
-					$headers["Content-Type"] = $contentType;
-				} else {
-					$headers["Content-Type"] = "application/octet-stream";
-				}
-			}
-			$contentLength = @filesize($response['filepath']);
-			if (FALSE !== $contentLength) {
-				$headers["Content-Length"] = $contentLength;
-			}
-		}
-		if (array_key_exists("filename", $response)) {
-			$headers["Content-Disposition"] = "attachment; filename=".
-				$response['filename'];
-		}
-		if (array_key_exists("headers", $response)) {
-			$headers = array_merge($headers, $response['headers']);
-		}
-		// Send the content to the client.
-		foreach ($headers as $headerk => $headerv) {
-			header("{$headerk}: {$headerv}");
-		}
-		if (array_key_exists("content", $response)) {
-			print($response['content']);
-		} else {
-			@readfile($response['filepath']);
-			// Unlink the file containing the content to be downloaded?
-			if (TRUE === $response['unlink']) {
-				@unlink($response['filepath']);
-			}
-		}
-	}
+class Download extends Json
+{
+    /**
+     * @param response The response must contain the fields \em content or
+     *   \em filepath. The field \em filename and \em headers are optional.
+     *   Use Train-Case for the keys of the \em headers array.
+     *   The field \em content contains the content to be returned whereas
+     *   \em filepath contains the name of the file which content should be
+     *   returned. Please note that the file must be readable for everyone.
+     *   The fields \em content and \em filepath exclude each other.
+     *   If \em filename is set, the `Content-Disposition` header will be
+     *   set to `attachment; filename=<filename>`.
+     *   If \em unlink is set then the given file will be removed after use.
+     */
+    protected function handleResponse($response)
+    {
+        // Check if the RPC response is plain text or complies the above
+        // method parameter description. If it is plain text, then generate
+        // the required data structure.
+        if (!is_array($response)) {
+            $response = [
+                "filename" => sprintf("content%d", time()),
+                "content" => $response
+            ];
+        }
+        // Set default values.
+        $response = array_merge([
+            "unlink" => false
+        ], $response);
+        // Prepare the headers.
+        $headers = [];
+        if (array_key_exists("content", $response)) {
+            if (!(array_key_exists("headers", $response) && array_key_exists(
+                "Content-Type",
+                $response['headers']
+            ))) {
+                $contentType = false;
+                $finfo = @finfo_open(FILEINFO_MIME_TYPE);
+                if (false !== $finfo) {
+                    $contentType = @finfo_buffer($finfo, $response['content']);
+                    finfo_close($finfo);
+                }
+                if (false !== $contentType) {
+                    $headers["Content-Type"] = $contentType;
+                } else {
+                    $headers["Content-Type"] = "application/octet-stream";
+                }
+            }
+            $headers["Content-Length"] = strlen($response['content']);
+        } else {
+            if (!(array_key_exists("headers", $response) && array_key_exists(
+                "Content-Type",
+                $response['headers']
+            ))) {
+                $contentType = @mime_content_type($response['filepath']);
+                if (false !== $contentType) {
+                    $headers["Content-Type"] = $contentType;
+                } else {
+                    $headers["Content-Type"] = "application/octet-stream";
+                }
+            }
+            $contentLength = @filesize($response['filepath']);
+            if (false !== $contentLength) {
+                $headers["Content-Length"] = $contentLength;
+            }
+        }
+        if (array_key_exists("filename", $response)) {
+            $headers["Content-Disposition"] = "attachment; filename=".
+                $response['filename'];
+        }
+        if (array_key_exists("headers", $response)) {
+            $headers = array_merge($headers, $response['headers']);
+        }
+        // Send the content to the client.
+        foreach ($headers as $headerk => $headerv) {
+            header("{$headerk}: {$headerv}");
+        }
+        if (array_key_exists("content", $response)) {
+            print($response['content']);
+        } else {
+            @readfile($response['filepath']);
+            // Unlink the file containing the content to be downloaded?
+            if (true === $response['unlink']) {
+                @unlink($response['filepath']);
+            }
+        }
+    }
 }

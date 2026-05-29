@@ -1,5 +1,6 @@
 #!/usr/bin/phpunit -c/etc/openmediavault
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -22,35 +23,41 @@
  */
 require_once("openmediavault/autoloader.inc");
 
-class test_openmediavault_system_net_networkinterfacebackend extends \PHPUnit\Framework\TestCase {
-	public function test_isTypeOf_ethernet() {
-		$backend = new \OMV\System\Net\NetworkInterfaceBackend\Ethernet;
-		$this->assertTrue($backend->isTypeOf("enp2s0"));
-		$this->assertFalse($backend->isTypeOf("br1"));
-	}
+class test_openmediavault_system_net_networkinterfacebackend extends \PHPUnit\Framework\TestCase
+{
+    public function test_isTypeOf_ethernet()
+    {
+        $backend = new \OMV\System\Net\NetworkInterfaceBackend\Ethernet();
+        $this->assertTrue($backend->isTypeOf("enp2s0"));
+        $this->assertFalse($backend->isTypeOf("br1"));
+    }
 
-	public function test_isTypeOf_wifi() {
-		$backend = new \OMV\System\Net\NetworkInterfaceBackend\Wifi;
-		$this->assertTrue($backend->isTypeOf("wlan0"));
-		$this->assertTrue($backend->isTypeOf("wlp3s0"));
-		$this->assertFalse($backend->isTypeOf("venet2"));
-	}
+    public function test_isTypeOf_wifi()
+    {
+        $backend = new \OMV\System\Net\NetworkInterfaceBackend\Wifi();
+        $this->assertTrue($backend->isTypeOf("wlan0"));
+        $this->assertTrue($backend->isTypeOf("wlp3s0"));
+        $this->assertFalse($backend->isTypeOf("venet2"));
+    }
 
-	public function test_isTypeOf_bond() {
-		$backend = new \OMV\System\Net\NetworkInterfaceBackend\Bond;
-		$this->assertTrue($backend->isTypeOf("bond0"));
-		$this->assertFalse($backend->isTypeOf("wlan1"));
-	}
+    public function test_isTypeOf_bond()
+    {
+        $backend = new \OMV\System\Net\NetworkInterfaceBackend\Bond();
+        $this->assertTrue($backend->isTypeOf("bond0"));
+        $this->assertFalse($backend->isTypeOf("wlan1"));
+    }
 
-	public function test_isTypeOf_bridge() {
-		$backend = new \OMV\System\Net\NetworkInterfaceBackend\Bridge;
-		$this->assertTrue($backend->isTypeOf("br2"));
-		$this->assertFalse($backend->isTypeOf("thunderbolt0"));
-	}
+    public function test_isTypeOf_bridge()
+    {
+        $backend = new \OMV\System\Net\NetworkInterfaceBackend\Bridge();
+        $this->assertTrue($backend->isTypeOf("br2"));
+        $this->assertFalse($backend->isTypeOf("thunderbolt0"));
+    }
 
-	public function test_isTypeOf_vlan() {
-		$backend = new \OMV\System\Net\NetworkInterfaceBackend\Vlan;
-		$this->assertTrue($backend->isTypeOf("eth0.1"));
-		$this->assertFalse($backend->isTypeOf("ens1"));
-	}
+    public function test_isTypeOf_vlan()
+    {
+        $backend = new \OMV\System\Net\NetworkInterfaceBackend\Vlan();
+        $this->assertTrue($backend->isTypeOf("eth0.1"));
+        $this->assertFalse($backend->isTypeOf("ens1"));
+    }
 }

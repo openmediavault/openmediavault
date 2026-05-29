@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\Rpc;
 
 require_once("openmediavault/functions.inc");
@@ -27,86 +29,100 @@ require_once("openmediavault/functions.inc");
  * Helper class to handle RPC services.
  * @ingroup api
  */
-class ServiceManager {
-	private $map = [];
+class ServiceManager
+{
+    private $map = [];
 
-	/**
-	 * Constructor
-	 */
-	public function __construct() {
-		// Get a list of all classes that are implementing a RPC service.
-		$classes = get_declared_subclasses("\OMV\Rpc\ServiceAbstract");
-		foreach ($classes as $classk => $classv) {
-			$this->registerService(new $classv());
-		}
-	}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        // Get a list of all classes that are implementing a RPC service.
+        $classes = get_declared_subclasses("\OMV\Rpc\ServiceAbstract");
+        foreach ($classes as $classk => $classv) {
+            $this->registerService(new $classv());
+        }
+    }
 
-	/**
-	 * Returns a RPC manager singleton.
-	 * @return The RPC manager object.
-	 */
-	public static function &getInstance() {
-		static $instance = NULL;
-		if (!isset($instance))
-			$instance = new ServiceManager();
-		return $instance;
-	}
+    /**
+     * Returns a RPC manager singleton.
+     * @return The RPC manager object.
+     */
+    public static function &getInstance()
+    {
+        static $instance = null;
+        if (!isset($instance)) {
+            $instance = new ServiceManager();
+        }
+        return $instance;
+    }
 
-	/**
-	 * Register a RPC service.
-	 * @param service The RPC service class to be registered.
-	 * @return Returns TRUE on success or FALSE on failure.
-	 */
-	private function registerService(ServiceAbstract $service) {
-		if (!isset($service))
-			return FALSE;
-		$name = $service->getName();
-		// Check if RPC service already exists.
-		if (FALSE !== $this->getService($name)) {
-			throw new \OMV\Exception(
-			  "The RPC service already exists (name=%s, class=%s)",
-			  $name, get_class($service));
-		}
-		$this->map[mb_strtolower($name)] = $service;
-		ksort($this->map);
-		return TRUE;
-	}
+    /**
+     * Register a RPC service.
+     * @param service The RPC service class to be registered.
+     * @return Returns TRUE on success or FALSE on failure.
+     */
+    private function registerService(ServiceAbstract $service)
+    {
+        if (!isset($service)) {
+            return false;
+        }
+        $name = $service->getName();
+        // Check if RPC service already exists.
+        if (false !== $this->getService($name)) {
+            throw new \OMV\Exception(
+                "The RPC service already exists (name=%s, class=%s)",
+                $name,
+                get_class($service)
+            );
+        }
+        $this->map[mb_strtolower($name)] = $service;
+        ksort($this->map);
+        return true;
+    }
 
-	/**
-	 * Get a RPC service.
-	 * @param name The name of the RPC service to get.
-	 * @return The RPC service object or FALSE on failure.
-	 */
-	final public function getService($name) {
-		$name = mb_strtolower($name);
-		if (!array_key_exists($name, $this->map))
-			return FALSE;
-		return $this->map[$name];
-	}
+    /**
+     * Get a RPC service.
+     * @param name The name of the RPC service to get.
+     * @return The RPC service object or FALSE on failure.
+     */
+    final public function getService($name)
+    {
+        $name = mb_strtolower($name);
+        if (!array_key_exists($name, $this->map)) {
+            return false;
+        }
+        return $this->map[$name];
+    }
 
-	/**
-	 * Get all registered RPC services.
-	 * @return An array containing all registered RPC services.
-	 */
-	final public function getServices() {
-		return $this->map;
-	}
+    /**
+     * Get all registered RPC services.
+     * @return An array containing all registered RPC services.
+     */
+    final public function getServices()
+    {
+        return $this->map;
+    }
 
-	/**
-	 * Initialize the services.
-	 */
-	final public function initializeServices() {
-		foreach ($this->map as $servicek => $servicev) {
-			$servicev->initialize();
-		}
-	}
+    /**
+     * Initialize the services.
+     */
+    final public function initializeServices()
+    {
+        foreach ($this->map as $servicek => $servicev) {
+            $servicev->initialize();
+        }
+    }
 
-	/**
-	 * Dump all registered RPC services.
-	 */
-	final public function dump() {
-		print("Registered RPC services:\n");
-		foreach ($this->map as $servicek => $servicev)
-			printf("  %s\n", $servicek);
-	}
+    /**
+     * Dump all registered RPC services.
+     */
+    final public function dump()
+    {
+        print("Registered RPC services:\n");
+        foreach ($this->map as $servicek => $servicev) {
+            printf("  %s\n", $servicek);
+        }
+    }
 }

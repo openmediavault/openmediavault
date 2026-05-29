@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage\Backend;
 
 /**
@@ -26,48 +28,54 @@ namespace OMV\System\Storage\Backend;
  * @see https://linux.die.net/man/4/sd
  * @ingroup api
  */
-class SD extends BackendAbstract {
-	function getType() {
-		return OMV_STORAGE_DEVICE_KIND_GENERIC |
-			OMV_STORAGE_DEVICE_TRAIT_BLOCK |
-			OMV_STORAGE_DEVICE_TRAIT_PHYSICAL;
-	}
+class SD extends BackendAbstract
+{
+    public function getType()
+    {
+        return OMV_STORAGE_DEVICE_KIND_GENERIC |
+            OMV_STORAGE_DEVICE_TRAIT_BLOCK |
+            OMV_STORAGE_DEVICE_TRAIT_PHYSICAL;
+    }
 
-	function enumerate() {
-		// Examples:
-		// - /dev/sdb
-		return $this->enumerateProcFs("sd[a-z]+");
-	}
+    public function enumerate()
+    {
+        // Examples:
+        // - /dev/sdb
+        return $this->enumerateProcFs("sd[a-z]+");
+    }
 
-	function isTypeOf($deviceFile) {
-		// Examples:
-		// - /dev/sdb
-		// - /dev/sda1
-		$regex = "sd[a-z]+[0-9]*";
-		return $this->isTypeOfByName($deviceFile, $regex);
-	}
+    public function isTypeOf($deviceFile)
+    {
+        // Examples:
+        // - /dev/sdb
+        // - /dev/sda1
+        $regex = "sd[a-z]+[0-9]*";
+        return $this->isTypeOfByName($deviceFile, $regex);
+    }
 
-	function getImpl($args) {
-		$sd = new \OMV\System\Storage\StorageDeviceSD($args);
-		$sd->assertExists();
-		switch ($sd->getHostDriver()) {
-		case "arcmsr":
-			// Areca RAID controller
-			return new \OMV\System\Storage\StorageDeviceARCMSR($args);
-			break;
-		case "hpsa":
-			// Logical drives from HP Smart Array RAID controllers
-			// are accessed via the SCSI disk driver, so we need to
-			// identify such drives because these must be handled
-			// different in some cases (e.g. S.M.A.R.T.).
-			// @see https://linux.die.net/man/4/hpsa
-			return new \OMV\System\Storage\StorageDeviceHPSA($args);
-			break;
-		}
-		return $sd;
-	}
+    public function getImpl($args)
+    {
+        $sd = new \OMV\System\Storage\StorageDeviceSD($args);
+        $sd->assertExists();
+        switch ($sd->getHostDriver()) {
+            case "arcmsr":
+                // Areca RAID controller
+                return new \OMV\System\Storage\StorageDeviceARCMSR($args);
+                break;
+            case "hpsa":
+                // Logical drives from HP Smart Array RAID controllers
+                // are accessed via the SCSI disk driver, so we need to
+                // identify such drives because these must be handled
+                // different in some cases (e.g. S.M.A.R.T.).
+                // @see https://linux.die.net/man/4/hpsa
+                return new \OMV\System\Storage\StorageDeviceHPSA($args);
+                break;
+        }
+        return $sd;
+    }
 
-	function baseDeviceFile($deviceFile) {
-		return preg_replace("/(\d+)$/", "", $deviceFile);
-	}
+    public function baseDeviceFile($deviceFile)
+    {
+        return preg_replace("/(\d+)$/", "", $deviceFile);
+    }
 }

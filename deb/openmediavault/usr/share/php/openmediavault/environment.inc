@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV;
 
 require_once("openmediavault/globals.inc");
@@ -29,63 +31,74 @@ require_once("openmediavault/functions.inc");
  * file /etc/default/openmediavault.
  * @ingroup api
  */
-class Environment {
-	/**
-	 * Get the specified environment variable. If the variable does not exist
-	 * and \em default is not NULL, then the specified default value will be
-	 * returned, otherwise an exception is thrown.
-	 * @param name The name of the environment variable.
-	 * @param default The default value. Defaults to NULL.
-	 * @return The value of the specified environment variable, or the
-	 *   specified default value if the variable does not exist.
-	 * @throw \InvalidArgumentException
-	 */
-	public static function get($name, $default = NULL) {
-		if (TRUE === array_key_exists($name, $GLOBALS))
-			return $GLOBALS[$name];
-		if (TRUE === is_null($default)) {
-			throw new \InvalidArgumentException(sprintf(
-			  "The environment variable '%s' does not exist.", $name));
-		}
-		return $default;
-	}
+class Environment
+{
+    /**
+     * Get the specified environment variable. If the variable does not exist
+     * and \em default is not NULL, then the specified default value will be
+     * returned, otherwise an exception is thrown.
+     * @param name The name of the environment variable.
+     * @param default The default value. Defaults to NULL.
+     * @return The value of the specified environment variable, or the
+     *   specified default value if the variable does not exist.
+     * @throw \InvalidArgumentException
+     */
+    public static function get($name, $default = null)
+    {
+        if (true === array_key_exists($name, $GLOBALS)) {
+            return $GLOBALS[$name];
+        }
+        if (true === is_null($default)) {
+            throw new \InvalidArgumentException(sprintf(
+                "The environment variable '%s' does not exist.",
+                $name
+            ));
+        }
+        return $default;
+    }
 
-	/**
-	 * Set the specified environment variable.
-	 * @param string $name The name of the environment variable.
-	 * @param any $value The value of the environment variable. If this
-	 *   variable is a callable function, then it is executed. The
-	 *   function has to return a value.
-	 */
-	public static function set($name, $value) {
-		if (is_callable($value)) {
-			$value = call_user_func($value);
-		}
-		$GLOBALS[$name] = $value;
-	}
+    /**
+     * Set the specified environment variable.
+     * @param string $name The name of the environment variable.
+     * @param any $value The value of the environment variable. If this
+     *   variable is a callable function, then it is executed. The
+     *   function has to return a value.
+     */
+    public static function set($name, $value)
+    {
+        if (is_callable($value)) {
+            $value = call_user_func($value);
+        }
+        $GLOBALS[$name] = $value;
+    }
 
-	public static function getString($name, $default = NULL) {
-		$value = self::get($name, $default);
-		return strval($value);
-	}
+    public static function getString($name, $default = null)
+    {
+        $value = self::get($name, $default);
+        return strval($value);
+    }
 
-	public static function getBoolean($name, $default = NULL) {
-		$value = self::get($name, $default);
-		return boolvalEx($value);
-	}
+    public static function getBoolean($name, $default = null)
+    {
+        $value = self::get($name, $default);
+        return boolvalEx($value);
+    }
 
-	public static function getInteger($name, $default = NULL) {
-		$value = self::get($name, $default);
-		return intval($value);
-	}
+    public static function getInteger($name, $default = null)
+    {
+        $value = self::get($name, $default);
+        return intval($value);
+    }
 
-	public static function getDouble($name, $default = NULL) {
-		$value = self::get($name, $default);
-		return doubleval($value);
-	}
+    public static function getDouble($name, $default = null)
+    {
+        $value = self::get($name, $default);
+        return doubleval($value);
+    }
 
-	public static function getFloat($name, $default = NULL) {
-		$value = self::get($name, $default);
-		return floatval($value);
-	}
+    public static function getFloat($name, $default = null)
+    {
+        $value = self::get($name, $default);
+        return floatval($value);
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,58 +20,70 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace Engined\Rpc;
 
 require_once("openmediavault/functions.inc");
 
-class OMVRpcServiceCrictl extends \OMV\Rpc\ServiceAbstract {
-	public function getName() {
-		return "Crictl";
-	}
-
-	public function initialize() {
-		$this->registerMethod("images");
-		$this->registerMethod("rmi");
-	}
-
-    private function isEnabled(): bool {
-        $db = \OMV\Config\Database::getInstance();
-        $object = $db->get("conf.service.k8s");
-		return $object->get("enable");
+class OMVRpcServiceCrictl extends \OMV\Rpc\ServiceAbstract
+{
+    public function getName()
+    {
+        return "Crictl";
     }
 
-	function images($params, $context) {
-		$this->validateMethodContext($context, [
-			"role" => OMV_ROLE_ADMINISTRATOR
-		]);
-		$this->validateMethodParams($params, "rpc.common.getlist");
-		if (!$this->isEnabled()) {
-		    return [];
-		}
-		$cmdArgs = [];
-		$cmdArgs[] = "images";
-		$cmdArgs[] = "--output json";
-		$cmd = new \OMV\System\Process("crictl", $cmdArgs);
-		$cmd->setRedirect2toFile("/dev/null");
-		$cmd->execute($output);
-		$result = json_decode_safe(implode("", $output), TRUE);
-		return $this->applyFilter($result['images'], $params['start'],
-			$params['limit'], $params['sortfield'], $params['sortdir']);
-	}
+    public function initialize()
+    {
+        $this->registerMethod("images");
+        $this->registerMethod("rmi");
+    }
 
-	function rmi($params, $context) {
-		$this->validateMethodContext($context, [
-			"role" => OMV_ROLE_ADMINISTRATOR
-		]);
-		$this->validateMethodParams($params, "rpc.crictl.id");
-		if (!$this->isEnabled()) {
-		    return [];
-		}
-		$cmdArgs = [];
-		$cmdArgs[] = "rmi";
-		$cmdArgs[] = escapeshellarg($params['id']);
-		$cmd = new \OMV\System\Process("crictl", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->execute($output);
-	}
+    private function isEnabled(): bool
+    {
+        $db = \OMV\Config\Database::getInstance();
+        $object = $db->get("conf.service.k8s");
+        return $object->get("enable");
+    }
+
+    public function images($params, $context)
+    {
+        $this->validateMethodContext($context, [
+            "role" => OMV_ROLE_ADMINISTRATOR
+        ]);
+        $this->validateMethodParams($params, "rpc.common.getlist");
+        if (!$this->isEnabled()) {
+            return [];
+        }
+        $cmdArgs = [];
+        $cmdArgs[] = "images";
+        $cmdArgs[] = "--output json";
+        $cmd = new \OMV\System\Process("crictl", $cmdArgs);
+        $cmd->setRedirect2toFile("/dev/null");
+        $cmd->execute($output);
+        $result = json_decode_safe(implode("", $output), true);
+        return $this->applyFilter(
+            $result['images'],
+            $params['start'],
+            $params['limit'],
+            $params['sortfield'],
+            $params['sortdir']
+        );
+    }
+
+    public function rmi($params, $context)
+    {
+        $this->validateMethodContext($context, [
+            "role" => OMV_ROLE_ADMINISTRATOR
+        ]);
+        $this->validateMethodParams($params, "rpc.crictl.id");
+        if (!$this->isEnabled()) {
+            return [];
+        }
+        $cmdArgs = [];
+        $cmdArgs[] = "rmi";
+        $cmdArgs[] = escapeshellarg($params['id']);
+        $cmd = new \OMV\System\Process("crictl", $cmdArgs);
+        $cmd->setRedirect2to1();
+        $cmd->execute($output);
+    }
 }

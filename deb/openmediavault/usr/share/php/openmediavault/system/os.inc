@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,29 +20,32 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System;
 
 /**
  * @ingroup api
  */
-class Os {
-	/**
-	 * Returns the target of a symbolic link. Canonicalize by following
-	 * every symlink in every component of the given name recursively,
-	 * without requirements on components existence.
-	 * @param path The symbolic link path.
-	 * @return Returns the value of the symbolic link.
-	 * @throws \OMV\Exception
-	 * @throws \OMV\ExecException
-	 */
-	final public static function readlink($path) {
-		$cmdArgs = [];
-		$cmdArgs[] = "-m";
-		$cmdArgs[] = "-n";
-		$cmdArgs[] = escapeshellarg($path);
-		$cmd = new \OMV\System\Process("readlink", $cmdArgs);
-		$cmd->setRequireOutput();
-		$cmd->execute($output);
-		return $output[0];
-	}
+class Os
+{
+    /**
+     * Returns the target of a symbolic link. Canonicalize by following
+     * every symlink in every component of the given name recursively,
+     * without requirements on components existence.
+     * @param path The symbolic link path.
+     * @return Returns the value of the symbolic link.
+     * @throws \OMV\Exception
+     * @throws \OMV\ExecException
+     */
+    final public static function readlink($path)
+    {
+        $cmdArgs = [];
+        $cmdArgs[] = "-m";
+        $cmdArgs[] = "-n";
+        $cmdArgs[] = escapeshellarg($path);
+        $cmd = new \OMV\System\Process("readlink", $cmdArgs);
+        $cmd->setRequireOutput();
+        $cmd->execute($output);
+        return $output[0];
+    }
 }

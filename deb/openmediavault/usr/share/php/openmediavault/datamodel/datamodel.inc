@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,57 +20,65 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\DataModel;
 
 require_once("openmediavault/functions.inc");
 
-class DataModel {
-	private $model = NULL;
+class DataModel
+{
+    private $model = null;
 
-	/**
-	 * @param json The data model as JSON object.
-	 */
-	public function __construct($model) {
-		$this->model = $model;
-	}
+    /**
+     * @param json The data model as JSON object.
+     */
+    public function __construct($model)
+    {
+        $this->model = $model;
+    }
 
-	/**
-	 * Get the data model as JSON object.
-	 * @return The data model as JSON object.
-	 */
-	public function getModel() {
-		return $this->model;
-	}
+    /**
+     * Get the data model as JSON object.
+     * @return The data model as JSON object.
+     */
+    public function getModel()
+    {
+        return $this->model;
+    }
 
-	/**
-	 * Get the model identifier, e.g. 'conf.service.rsyncd.module'.
-	 * @return The model identifier.
-	 */
-	public function getId() {
-		return array_value($this->getModel(), "id", "");
-	}
+    /**
+     * Get the model identifier, e.g. 'conf.service.rsyncd.module'.
+     * @return The model identifier.
+     */
+    public function getId()
+    {
+        return array_value($this->getModel(), "id", "");
+    }
 
-	/**
-	 * Get the model identifier alias.
-	 * @return The model identifier alias.
-	 */
-	public function getAlias() {
-		return array_value($this->getModel(), "alias", "");
-	}
+    /**
+     * Get the model identifier alias.
+     * @return The model identifier alias.
+     */
+    public function getAlias()
+    {
+        return array_value($this->getModel(), "alias", "");
+    }
 
-	/**
-	 * Get the model title, e.g. 'SSH certificate'.
-	 * @return The model titel.
-	 */
-	public function getTitle() {
-		return array_value($this->getModel(), "title", "");
-	}
+    /**
+     * Get the model title, e.g. 'SSH certificate'.
+     * @return The model titel.
+     */
+    public function getTitle()
+    {
+        return array_value($this->getModel(), "title", "");
+    }
 
-	/**
-	 * Get the model description.
-	 * @return The model description.
-	 */
-	public function getDescription() {
-		return array_value($this->getModel(), "description", "");
-	}
+    /**
+     * Get the model description.
+     * @return The model description.
+     */
+    public function getDescription()
+    {
+        return array_value($this->getModel(), "description", "");
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,12 +20,14 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Net\NetworkInterfaceBackend;
 
 /**
  * Implements the network interface backend for Thunderbolt devices.
  * @ingroup api
  */
-class Thunderbolt extends Ethernet {
-	protected $regex = "/^thunderbolt[0-9]+$/i";
+class Thunderbolt extends Ethernet
+{
+    protected $regex = "/^thunderbolt[0-9]+$/i";
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,32 +20,38 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage\Backend;
 
 /**
  * Implements the storage device backend for CD-ROM devices.
  * @ingroup api
  */
-class CDROM extends BackendAbstract {
-	protected $regex = "sr[0-9]+";
+class CDROM extends BackendAbstract
+{
+    protected $regex = "sr[0-9]+";
 
-	function getType() {
-		return OMV_STORAGE_DEVICE_KIND_GENERIC |
-			OMV_STORAGE_DEVICE_TRAIT_BLOCK |
-			OMV_STORAGE_DEVICE_TRAIT_PHYSICAL;
-	}
+    public function getType()
+    {
+        return OMV_STORAGE_DEVICE_KIND_GENERIC |
+            OMV_STORAGE_DEVICE_TRAIT_BLOCK |
+            OMV_STORAGE_DEVICE_TRAIT_PHYSICAL;
+    }
 
-	function enumerate() {
-		return $this->enumerateProcFs($this->regex);
-	}
+    public function enumerate()
+    {
+        return $this->enumerateProcFs($this->regex);
+    }
 
-	function isTypeOf($deviceFile) {
-		// Examples:
-		// - /dev/sr0
-		return $this->isTypeOfByName($deviceFile, $this->regex);
-	}
+    public function isTypeOf($deviceFile)
+    {
+        // Examples:
+        // - /dev/sr0
+        return $this->isTypeOfByName($deviceFile, $this->regex);
+    }
 
-	function getImpl($args) {
-		return new \OMV\System\Storage\StorageDeviceCDROM($args);
-	}
+    public function getImpl($args)
+    {
+        return new \OMV\System\Storage\StorageDeviceCDROM($args);
+    }
 }

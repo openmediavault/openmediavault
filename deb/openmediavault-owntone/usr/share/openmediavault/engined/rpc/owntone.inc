@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,28 +20,34 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace Engined\Rpc;
 
-class OMVRpcServiceOwnTone extends \OMV\Rpc\ServiceAbstract {
-	public function getName() {
-		return "OwnTone";
-	}
+class OMVRpcServiceOwnTone extends \OMV\Rpc\ServiceAbstract
+{
+    public function getName()
+    {
+        return "OwnTone";
+    }
 
-	public function initialize() {
-		$this->registerMethod("get");
-		$this->registerMethod("set");
-	}
+    public function initialize()
+    {
+        $this->registerMethod("get");
+        $this->registerMethod("set");
+    }
 
-	function get($params, $context) {
-		return \OMV\Rpc\Rpc::call("Config", "get", [
-			"id" => "conf.service.owntone"
-		], $context);
-	}
+    public function get($params, $context)
+    {
+        return \OMV\Rpc\Rpc::call("Config", "get", [
+            "id" => "conf.service.owntone"
+        ], $context);
+    }
 
-	function set($params, $context) {
-		return \OMV\Rpc\Rpc::call("Config", "set", [
-			"id" => "conf.service.owntone",
-			"data" => $params
-		], $context);
-	}
+    public function set($params, $context)
+    {
+        return \OMV\Rpc\Rpc::call("Config", "set", [
+            "id" => "conf.service.owntone",
+            "data" => $params
+        ], $context);
+    }
 }

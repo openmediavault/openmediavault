@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,15 +20,17 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV;
 
 /**
  * Controls the logical operator used when matching bitmasks (AND / OR semantics).
  * @ingroup api
  */
-enum LogicalOperator {
-	/** All specified bits must be present — bitwise AND semantics. */
-	case ALL;
-	/** At least one specified bit must be present — bitwise OR semantics. */
-	case ANY;
+enum LogicalOperator
+{
+    /** All specified bits must be present — bitwise AND semantics. */
+    case ALL;
+    /** At least one specified bit must be present — bitwise OR semantics. */
+    case ANY;
 }

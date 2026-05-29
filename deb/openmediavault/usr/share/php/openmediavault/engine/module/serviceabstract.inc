@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\Engine\Module;
 
 /**
@@ -26,44 +28,56 @@ namespace OMV\Engine\Module;
  * \OMV\Engine\Module\IService interface.
  * @ingroup api
  */
-abstract class ServiceAbstract extends ModuleAbstract implements IService {
-	/**
-	 * Ensures that this module is deployed after the listed modules.
-	 * Nevertheless, the module can still be deployed if the listed
-	 * dependencies are missing.
-	 * @return array A list of module names. Returns an empty array if no
-	 *   dependencies exist.
-	 */
-	public function deployAfter(): array { return []; }
+abstract class ServiceAbstract extends ModuleAbstract implements IService
+{
+    /**
+     * Ensures that this module is deployed after the listed modules.
+     * Nevertheless, the module can still be deployed if the listed
+     * dependencies are missing.
+     * @return array A list of module names. Returns an empty array if no
+     *   dependencies exist.
+     */
+    public function deployAfter(): array
+    {
+        return [];
+    }
 
-	/**
-	 * Ensures that this module is deployed before the listed modules.
-	 * Nevertheless, the module can still be deployed if the listed
-	 * dependencies are missing.
-	 * @return array A list of module names. Returns an empty array if no
-	 *   dependencies exist.
-	 */
-	public function deployBefore(): array { return []; }
+    /**
+     * Ensures that this module is deployed before the listed modules.
+     * Nevertheless, the module can still be deployed if the listed
+     * dependencies are missing.
+     * @return array A list of module names. Returns an empty array if no
+     *   dependencies exist.
+     */
+    public function deployBefore(): array
+    {
+        return [];
+    }
 
-	/**
-	 * This method is called before the service is deployed.
-	 */
-	public function preDeploy() {}
+    /**
+     * This method is called before the service is deployed.
+     */
+    public function preDeploy()
+    {
+    }
 
-	/**
-	 * Deploy the service.
-	 */
-	public function deploy() {
-		$name = strtolower($this->getName());
-		$cmd = new \OMV\System\Process("omv-salt", [
-			"deploy", "run", "--no-color", $name
-		]);
-		$cmd->setRedirect2to1();
-		$cmd->execute();
-	}
+    /**
+     * Deploy the service.
+     */
+    public function deploy()
+    {
+        $name = strtolower($this->getName());
+        $cmd = new \OMV\System\Process("omv-salt", [
+            "deploy", "run", "--no-color", $name
+        ]);
+        $cmd->setRedirect2to1();
+        $cmd->execute();
+    }
 
-	/**
-	 * This method is called after the module has been deployed.
-	 */
-	public function postDeploy() {}
+    /**
+     * This method is called after the module has been deployed.
+     */
+    public function postDeploy()
+    {
+    }
 }

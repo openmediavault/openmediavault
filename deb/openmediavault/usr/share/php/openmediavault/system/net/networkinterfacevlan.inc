@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Net;
 
 /**
@@ -26,35 +28,40 @@ namespace OMV\System\Net;
  * interfaces.
  * @ingroup api
  */
-class NetworkInterfaceVlan extends NetworkInterface {
-	public function getType() {
-		return "vlan";
-	}
+class NetworkInterfaceVlan extends NetworkInterface
+{
+    public function getType()
+    {
+        return "vlan";
+    }
 
-	/**
-	* Get VLAN ID of the network interface.
-	* @return The VLAN id, otherwise FALSE.
-	*/
-	public function getVlanId() {
-		$regex = "/^(\S+\d+)\.(\d+)$/i";
-		if (1 !== preg_match($regex, $this->getDeviceName(), $matches))
-			return FALSE;
-		return !empty($matches[2]) ? intval($matches[2]) : FALSE;
-	}
+    /**
+    * Get VLAN ID of the network interface.
+    * @return The VLAN id, otherwise FALSE.
+    */
+    public function getVlanId()
+    {
+        $regex = "/^(\S+\d+)\.(\d+)$/i";
+        if (1 !== preg_match($regex, $this->getDeviceName(), $matches)) {
+            return false;
+        }
+        return !empty($matches[2]) ? intval($matches[2]) : false;
+    }
 
-	/**
-	 * Delete the network interface.
-	 * @throw \OMV\ExecException
-	 */
-	public function delete() {
-		parent::delete();
-		$cmdArgs = [];
-		$cmdArgs[] = "link";
-		$cmdArgs[] = "del";
-		$cmdArgs[] = "dev";
-		$cmdArgs[] = escapeshellarg($this->getDeviceName());
-		$cmd = new \OMV\System\Process("ip", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->execute();
-	}
+    /**
+     * Delete the network interface.
+     * @throw \OMV\ExecException
+     */
+    public function delete()
+    {
+        parent::delete();
+        $cmdArgs = [];
+        $cmdArgs[] = "link";
+        $cmdArgs[] = "del";
+        $cmdArgs[] = "dev";
+        $cmdArgs[] = escapeshellarg($this->getDeviceName());
+        $cmd = new \OMV\System\Process("ip", $cmdArgs);
+        $cmd->setRedirect2to1();
+        $cmd->execute();
+    }
 }

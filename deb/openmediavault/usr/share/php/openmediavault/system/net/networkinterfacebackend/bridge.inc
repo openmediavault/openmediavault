@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,44 +20,54 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Net\NetworkInterfaceBackend;
 
 /**
  * Implements the network interface backend for bridge devices.
  * @ingroup api
  */
-class Bridge extends BackendAbstract {
-	protected $regex = "/^br[0-9]+$/i";
+class Bridge extends BackendAbstract
+{
+    protected $regex = "/^br[0-9]+$/i";
 
-	function getType() {
-		return OMV_NETWORK_INTERFACE_TYPE_BRIDGE;
-	}
+    public function getType()
+    {
+        return OMV_NETWORK_INTERFACE_TYPE_BRIDGE;
+    }
 
-	function enumerate() {
-		return $this->enumerateSysFs($this->regex);
-	}
+    public function enumerate()
+    {
+        return $this->enumerateSysFs($this->regex);
+    }
 
-	function isTypeOf($deviceName) {
-		return $this->isTypeOfByName($deviceName, $this->regex);
-	}
+    public function isTypeOf($deviceName)
+    {
+        return $this->isTypeOfByName($deviceName, $this->regex);
+    }
 
-	function enumerateSlaves() {
-		if (FALSE === ($devs = $this->enumerate()))
-			return FALSE;
-		$result = [];
-		foreach ($devs as $devk => $devv) {
-			$object = $this->getImpl($devv);
-			if (!$object->exists())
-				continue;
-			$slaves = $object->getSlaves();
-			if (FALSE === $slaves)
-				continue;
-			$result = array_merge($result, $slaves);
-		}
-		return $result;
-	}
+    public function enumerateSlaves()
+    {
+        if (false === ($devs = $this->enumerate())) {
+            return false;
+        }
+        $result = [];
+        foreach ($devs as $devk => $devv) {
+            $object = $this->getImpl($devv);
+            if (!$object->exists()) {
+                continue;
+            }
+            $slaves = $object->getSlaves();
+            if (false === $slaves) {
+                continue;
+            }
+            $result = array_merge($result, $slaves);
+        }
+        return $result;
+    }
 
-	function getImpl($args) {
-		return new \OMV\System\Net\NetworkInterfaceBridge($args);
-	}
+    public function getImpl($args)
+    {
+        return new \OMV\System\Net\NetworkInterfaceBridge($args);
+    }
 }

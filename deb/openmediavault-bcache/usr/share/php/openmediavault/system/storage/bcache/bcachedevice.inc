@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage\Bcache;
 
 require_once("openmediavault/functions.inc");
@@ -26,126 +28,138 @@ require_once("openmediavault/functions.inc");
 /**
  * This class provides a simple interface to handle a Bcache devices.
  */
-class BcacheDevice extends \OMV\System\Storage\StorageDeviceBcache {
-	private $csetUuid = "";
-	private $superBlock = [];
-	private $dataCached = FALSE;
+class BcacheDevice extends \OMV\System\Storage\StorageDeviceBcache
+{
+    private $csetUuid = "";
+    private $superBlock = [];
+    private $dataCached = false;
 
-	/**
-	 * Get the software bcache device detailed information.
-	 * @private
-	 * @return void
-	 * @throws \OMV\ExecException
-	 */
-	private function getData() {
-		if ($this->dataCached !== FALSE) {
-			return;
-		}
+    /**
+     * Get the software bcache device detailed information.
+     * @private
+     * @return void
+     * @throws \OMV\ExecException
+     */
+    private function getData()
+    {
+        if ($this->dataCached !== false) {
+            return;
+        }
 
-		$cmdArgs = [];
-		$cmdArgs[] = "-f";
-		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
-		$cmd = new \OMV\System\Process("bcache-super-show", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->execute($output);
-		$this->superBlock = $output;
-		$attributes = [];
-		foreach ($output as $outputk => $outputv) {
-			$keyValue = preg_split('/\s+/', $outputv);
-			if (count($keyValue) != 2) {
-				continue;
-			}
-			$key = mb_strtolower(trim($keyValue[0]));
-			$value = trim($keyValue[1]);
-			$attributes[$key] = $value;
-		}
-		$this->csetUuid = $attributes['cset.uuid'];
+        $cmdArgs = [];
+        $cmdArgs[] = "-f";
+        $cmdArgs[] = escapeshellarg($this->getDeviceFile());
+        $cmd = new \OMV\System\Process("bcache-super-show", $cmdArgs);
+        $cmd->setRedirect2to1();
+        $cmd->execute($output);
+        $this->superBlock = $output;
+        $attributes = [];
+        foreach ($output as $outputk => $outputv) {
+            $keyValue = preg_split('/\s+/', $outputv);
+            if (count($keyValue) != 2) {
+                continue;
+            }
+            $key = mb_strtolower(trim($keyValue[0]));
+            $value = trim($keyValue[1]);
+            $attributes[$key] = $value;
+        }
+        $this->csetUuid = $attributes['cset.uuid'];
 
-		$this->dataCached = TRUE;
+        $this->dataCached = true;
 
-		return TRUE;
-	}
+        return true;
+    }
 
-	/**
-	 * Get the device CSET-UUID.
-	 * @return The device CSET-UUID.
-	 */
-	public function getCsetUuid() {
-		$this->getData();
-		return $this->csetUuid;
-	}
+    /**
+     * Get the device CSET-UUID.
+     * @return The device CSET-UUID.
+     */
+    public function getCsetUuid()
+    {
+        $this->getData();
+        return $this->csetUuid;
+    }
 
-	/**
-	 * Is bcache devices known by the kernel.
-	 * @return boolean
-	 */
-	public function isRegistered() {
-		$filename = build_path(DIRECTORY_SEPARATOR, "/sys/class/block",
-			$this->getDeviceName(TRUE), "bcache");
-		return is_dir($filename);
-	}
+    /**
+     * Is bcache devices known by the kernel.
+     * @return boolean
+     */
+    public function isRegistered()
+    {
+        $filename = build_path(
+            DIRECTORY_SEPARATOR,
+            "/sys/class/block",
+            $this->getDeviceName(true),
+            "bcache"
+        );
+        return is_dir($filename);
+    }
 
-	/**
-	 * Get super block of the bcache device.
-	 * @return The super block of the bcache device.
-	 */
-	public function getSuperBlock() {
-		$this->getData();
-		return implode("\n", $this->superBlock);
-	}
+    /**
+     * Get super block of the bcache device.
+     * @return The super block of the bcache device.
+     */
+    public function getSuperBlock()
+    {
+        $this->getData();
+        return implode("\n", $this->superBlock);
+    }
 
-	/**
-	 * Enumerate bcache devices.
-	 * @return A list of bcache devices.
-	 * Example: array(
-	 *   0 => /dev/sda
-	 *   1 => /dev/sdb
-	 * )
-	 * @throws \OMV\ExecException
-	 */
-	public static function enumerateBcache() {
-		$fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
-		$fsbMngr->assertBackendExistsByType('bcache');
-		$objects = $fsbMngr->enumerate();
-		$result = [];
-		foreach ($objects as $objectk => $objectv) {
-			// Skip none bcache filesystem
-			if ($objectv['type'] !== 'bcache') {
-				continue;
-			}
-			$devicefile = $objectv['devicefile'];
-			// Prepare result object.
-			$cmdLine = sprintf("bcache-super-show -f %s ".
-				"| sed -n 's/^sb.*\(cache\|backing\).*/\\1/p'", $devicefile);
-			$cmd = new \OMV\System\Process($cmdLine);
-			$cmd->setRedirect2to1();
-			$output = [];
-			$cmd->execute($output, $exitStatus);
-			if (0 !== $exitStatus) {
-				continue;
-			}
-			$sd = \OMV\System\Storage\StorageDevice::assertGetStorageDevice(
-				$devicefile);
-			$result[] = [
-				"uuid" => $objectv['uuid'],
-				"devicefile" => $devicefile,
-				"label" => $objectv['label'],
-				"size" => $sd->getSize(),
-				"bcachetype" => $output[0],
-				"description" => $sd->getDescription()
-			];
-		}
-		return $result;
-	}
+    /**
+     * Enumerate bcache devices.
+     * @return A list of bcache devices.
+     * Example: array(
+     *   0 => /dev/sda
+     *   1 => /dev/sdb
+     * )
+     * @throws \OMV\ExecException
+     */
+    public static function enumerateBcache()
+    {
+        $fsbMngr = \OMV\System\Filesystem\Backend\Manager::getInstance();
+        $fsbMngr->assertBackendExistsByType('bcache');
+        $objects = $fsbMngr->enumerate();
+        $result = [];
+        foreach ($objects as $objectk => $objectv) {
+            // Skip none bcache filesystem
+            if ($objectv['type'] !== 'bcache') {
+                continue;
+            }
+            $devicefile = $objectv['devicefile'];
+            // Prepare result object.
+            $cmdLine = sprintf("bcache-super-show -f %s ".
+                "| sed -n 's/^sb.*\(cache\|backing\).*/\\1/p'", $devicefile);
+            $cmd = new \OMV\System\Process($cmdLine);
+            $cmd->setRedirect2to1();
+            $output = [];
+            $cmd->execute($output, $exitStatus);
+            if (0 !== $exitStatus) {
+                continue;
+            }
+            $sd = \OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+                $devicefile
+            );
+            $result[] = [
+                "uuid" => $objectv['uuid'],
+                "devicefile" => $devicefile,
+                "label" => $objectv['label'],
+                "size" => $sd->getSize(),
+                "bcachetype" => $output[0],
+                "description" => $sd->getDescription()
+            ];
+        }
+        return $result;
+    }
 
-	/**
-	 * Register as bcache device.
-	 * Registering the backing device makes the bcache device show up in /dev.
-	 * @param string deviceFile Specifies the device file, e.g.
-	 * @return boolean
-	 */
-	public static function register($deviceFile) {
-		$filename = "/sys/fs/bcache/register";
-		return file_put_contents($filename, $deviceFile) !== false;
-	}
+    /**
+     * Register as bcache device.
+     * Registering the backing device makes the bcache device show up in /dev.
+     * @param string deviceFile Specifies the device file, e.g.
+     * @return boolean
+     */
+    public static function register($deviceFile)
+    {
+        $filename = "/sys/fs/bcache/register";
+        return file_put_contents($filename, $deviceFile) !== false;
+    }
 }

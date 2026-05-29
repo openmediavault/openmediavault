@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,19 +20,23 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Filesystem\Backend;
 
 /**
  * https://www.kernel.org/doc/Documentation/filesystems/f2fs.txt
  */
-class F2fs extends BackendAbstract {
-	public function __construct() {
-		$this->type = "f2fs";
-		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
-			self::PROP_DISCARD | self::PROP_MNTENT_DISCARD |
-			self::PROP_QUOTA | self::PROP_RESIZE;
-		$this->mkfsOptions = \OMV\Environment::get("OMV_MKFS_OPTIONS_F2FS");
-		$this->mntOptions = explode(",", \OMV\Environment::get(
-			"OMV_FSTAB_MNTOPS_F2FS"));
-	}
+class F2fs extends BackendAbstract
+{
+    public function __construct()
+    {
+        $this->type = "f2fs";
+        $this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
+            self::PROP_DISCARD | self::PROP_MNTENT_DISCARD |
+            self::PROP_QUOTA | self::PROP_RESIZE;
+        $this->mkfsOptions = \OMV\Environment::get("OMV_MKFS_OPTIONS_F2FS");
+        $this->mntOptions = explode(",", \OMV\Environment::get(
+            "OMV_FSTAB_MNTOPS_F2FS"
+        ));
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,19 +20,25 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage;
 
 /**
  * This class provides a simple interface to handle loop devices.
  * @ingroup api
  */
-class StorageDeviceLoop extends StorageDevice {
-	/**
-	 * Get the description of the device.
-	 * @return The device description, FALSE on failure.
-	 */
-	public function getDescription() {
-		return sprintf(gettext("Loop device [%s, %s]"),
-		  $this->getDeviceFile(), binary_format($this->getSize()));
-	}
+class StorageDeviceLoop extends StorageDevice
+{
+    /**
+     * Get the description of the device.
+     * @return The device description, FALSE on failure.
+     */
+    public function getDescription()
+    {
+        return sprintf(
+            gettext("Loop device [%s, %s]"),
+            $this->getDeviceFile(),
+            binary_format($this->getSize())
+        );
+    }
 }
