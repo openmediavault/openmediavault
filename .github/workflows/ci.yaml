@@ -40,20 +40,14 @@ jobs:
 
   lint-python:
     runs-on: ubuntu-latest
+    container: python:3.13-slim
 
     steps:
       - name: Checkout code
         uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
 
-      - name: Set up Python
-        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6
-        with:
-          python-version: '3.x'
-
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install autopep8
+        run: pip install --no-cache-dir autopep8
 
       - name: Run autopep8 check
         run: autopep8 --max-line-length 79 --diff --exit-code --recursive .
@@ -65,19 +59,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
 
-      - name: Set up PHP
-        uses: shivammathur/setup-php@7c071dfe9dc99bdf297fa79cb49ea005b9fcadbc # v2
-        with:
-          php-version: '8.4'
-
-      - name: Download php-cs-fixer
-        run: |
-          wget https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v3.95.2/php-cs-fixer.phar -O php-cs-fixer
-          chmod +x php-cs-fixer
-          echo "a4e31cc93fb3eb772951e315eee60ad3c21d59ac4dd4d193e614288f80e4d87d  php-cs-fixer" | sha256sum -c --status
-
       - name: Run php-cs-fixer
-        run: ./php-cs-fixer fix --config=deb/.php-cs-fixer.dist.php --allow-risky=yes --using-cache=no --dry-run --verbose
+        uses: docker://ghcr.io/php-cs-fixer/php-cs-fixer:3.95.2-php8.4
+        with:
+          args: fix --config=deb/.php-cs-fixer.dist.php --allow-risky=yes --using-cache=no --dry-run --verbose
 
   test-ui:
     runs-on: ubuntu-latest
