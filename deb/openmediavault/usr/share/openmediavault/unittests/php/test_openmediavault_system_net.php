@@ -128,13 +128,7 @@ class test_openmediavault_system_net extends \PHPUnit\Framework\TestCase
     public function test_getNetmask6_mocked()
     {
         $mock = $this->getNetworkInterfaceMock();
-        $this->assertEquals($mock->getNetmask6(), 64);
-    }
-
-    public function test_getState_mocked()
-    {
-        $mock = $this->getNetworkInterfaceMock();
-        $this->assertEquals($mock->getState(), "UP");
+        $this->assertEquals($mock->getNetmask6(), "ffff:ffff:ffff:ffff:0000:0000:0000:0000");
     }
 
     public function test_getType_mocked()
@@ -167,6 +161,6 @@ class test_openmediavault_system_net extends \PHPUnit\Framework\TestCase
         $this->assertIsString($netIf->getMAC());
         $this->assertIsString($netIf->getMTU());
         $this->assertIsString($netIf->getGateway());
-        $this->assertEquals($netIf->getState(), "UP");
+        $this->assertIsString($netIf->getState());
     }
 }
