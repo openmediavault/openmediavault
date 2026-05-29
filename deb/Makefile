@@ -36,4 +36,4 @@ install:
 	sudo apt-get install -y debhelper fakeroot gettext python3-pip npm
 	pip3 install --upgrade --break-system-packages autopep8 isort pylint
 
-.PHONY: install clean binary omv_tx_pull_po omv_tx_push_pot omv_build_pot
+.PHONY: install clean binary omv_tx_pull_po omv_tx_push_pot omv_build_pot omv_fix_php omv_fix_py
