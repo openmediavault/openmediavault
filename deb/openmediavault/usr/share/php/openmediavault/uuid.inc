@@ -33,6 +33,7 @@ class Uuid
         $cmdArgs = [];
         $cmdArgs[] = sprintf("-v %d", $version);
         $cmd = new \OMV\System\Process("uuid", $cmdArgs);
+        $cmd->setRequireOutput();
         return $cmd->execute();
     }
 
