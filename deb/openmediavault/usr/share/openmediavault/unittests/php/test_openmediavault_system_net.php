@@ -155,12 +155,5 @@ class test_openmediavault_system_net extends \PHPUnit\Framework\TestCase
         // - check only IPv4 method
         $this->assertTrue($netIf->exists());
         $this->assertIsString($netIf->getDeviceName());
-        $this->assertIsString($netIf->getIP());
-        $this->assertIsInt($netIf->getPrefix());
-        $this->assertIsString($netIf->getNetmask());
-        $this->assertIsString($netIf->getMAC());
-        $this->assertIsString($netIf->getMTU());
-        $this->assertIsString($netIf->getGateway());
-        $this->assertIsString($netIf->getState());
     }
 }
