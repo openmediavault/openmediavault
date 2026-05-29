@@ -18,10 +18,11 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
-import openmediavault.mkrrdgraph
+import copy
 import os
 import re
-import copy
+
+import openmediavault.mkrrdgraph
 
 
 class Plugin(openmediavault.mkrrdgraph.IPlugin):
@@ -59,7 +60,8 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
             config['upsname'] = m.group(1)
             hostname = m.group(2)
             if hostname != 'localhost':
-                config = copy.deepcopy(config) # Do not affect original data_dir
+                # Do not affect original data_dir
+                config = copy.deepcopy(config)
                 config['data_dir'] = os.path.abspath(os.path.join(
                     config['data_dir'], os.pardir, hostname))
 
@@ -111,7 +113,8 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.append('COMMENT:"{last_update}"'.format(**config))
                 openmediavault.mkrrdgraph.call_rrdtool_graph(args)
             else:
-                openmediavault.mkrrdgraph.copy_placeholder_image(image_filename)
+                openmediavault.mkrrdgraph.copy_placeholder_image(
+                    image_filename)
 
             image_filename = '{image_dir}/nut-load-{period}.png'.format(
                 **config
@@ -149,7 +152,8 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                         **config
                     )
                 )
-                args.append('LINE1:avg{color_nut_load}:"Load"'.format(**config))
+                args.append(
+                    'LINE1:avg{color_nut_load}:"Load"'.format(**config))
                 args.append('GPRINT:min:MIN:"%4.2lf Min"')
                 args.append('GPRINT:avg:AVERAGE:"%4.2lf Avg"')
                 args.append('GPRINT:max:MAX:"%4.2lf Max"')
@@ -157,7 +161,8 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.append('COMMENT:"{last_update}"'.format(**config))
                 openmediavault.mkrrdgraph.call_rrdtool_graph(args)
             else:
-                openmediavault.mkrrdgraph.copy_placeholder_image(image_filename)
+                openmediavault.mkrrdgraph.copy_placeholder_image(
+                    image_filename)
 
             # Note, if the UPS supports battery.temperature and ups.temperature,
             # the battery temperature will be used by default because it is
@@ -258,7 +263,8 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.append('COMMENT:"{last_update}"'.format(**config))
                 openmediavault.mkrrdgraph.call_rrdtool_graph(args)
             else:
-                openmediavault.mkrrdgraph.copy_placeholder_image(image_filename)
+                openmediavault.mkrrdgraph.copy_placeholder_image(
+                    image_filename)
 
             image_filename = '{image_dir}/nut-voltage-{period}.png'.format(
                 **config
@@ -510,5 +516,6 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.append('COMMENT:"{last_update}"'.format(**config))
                 openmediavault.mkrrdgraph.call_rrdtool_graph(args)
             else:
-                openmediavault.mkrrdgraph.copy_placeholder_image(image_filename)
+                openmediavault.mkrrdgraph.copy_placeholder_image(
+                    image_filename)
         return 0

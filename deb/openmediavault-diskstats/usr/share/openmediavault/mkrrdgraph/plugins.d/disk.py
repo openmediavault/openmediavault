@@ -18,8 +18,9 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
-import openmediavault.mkrrdgraph
 import os
+
+import openmediavault.mkrrdgraph
 
 
 class Plugin(openmediavault.mkrrdgraph.IPlugin):
@@ -54,7 +55,8 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.extend(
                     [
                         '--title',
-                        '"{title_disk_octets} [{devname}]{title_by_period}"'.format(**config),
+                        '"{title_disk_octets} [{devname}]{title_by_period}"'.format(
+                            **config),
                     ]
                 )
                 args.append('--slope-mode')
@@ -100,7 +102,8 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.append('GPRINT:rmax:MAX:"%5.1lf%s Max"')
                 args.append('GPRINT:rtot:"%5.1lf%s Total\\l"')
                 args.append(
-                    'LINE1:wavg{color_line_disk_write}:"Write"'.format(**config)
+                    'LINE1:wavg{color_line_disk_write}:"Write"'.format(
+                        **config)
                 )
                 args.append('GPRINT:wmin:MIN:"%5.1lf%s Min"')
                 args.append('GPRINT:wavg:AVERAGE:"%5.1lf%s Avg"')
@@ -109,7 +112,8 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.append('COMMENT:"{last_update}"'.format(**config))
                 openmediavault.mkrrdgraph.call_rrdtool_graph(args)
             else:
-                openmediavault.mkrrdgraph.copy_placeholder_image(image_filename)
+                openmediavault.mkrrdgraph.copy_placeholder_image(
+                    image_filename)
 
             image_filename = '{image_dir}/disk-ops-{devname}-{period}.png'.format(
                 **config
@@ -122,7 +126,8 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.extend(config['defaults'])
                 args.extend(['--start', config['start']])
                 args.extend(
-                    ['--title', '"{title_disk_ops} [{devname}]{title_by_period}"'.format(**config)]
+                    ['--title',
+                        '"{title_disk_ops} [{devname}]{title_by_period}"'.format(**config)]
                 )
                 args.append('--slope-mode')
                 args.extend(['--lower-limit', '0'])
@@ -167,7 +172,8 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.append('GPRINT:rmax:MAX:"%5.1lf%s Max"')
                 args.append('GPRINT:rtot:"%5.1lf%s Total\\l"')
                 args.append(
-                    'LINE1:wavg{color_line_disk_write}:"Write"'.format(**config)
+                    'LINE1:wavg{color_line_disk_write}:"Write"'.format(
+                        **config)
                 )
                 args.append('GPRINT:wmin:MIN:"%5.1lf%s Min"')
                 args.append('GPRINT:wavg:AVERAGE:"%5.1lf%s Avg"')
@@ -176,7 +182,8 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.append('COMMENT:"{last_update}"'.format(**config))
                 openmediavault.mkrrdgraph.call_rrdtool_graph(args)
             else:
-                openmediavault.mkrrdgraph.copy_placeholder_image(image_filename)
+                openmediavault.mkrrdgraph.copy_placeholder_image(
+                    image_filename)
 
             image_filename = '{image_dir}/disk-time-{devname}-{period}.png'.format(
                 **config
@@ -191,7 +198,8 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.extend(
                     [
                         '--title',
-                        '"{title_disk_time} [{devname}]{title_by_period}"'.format(**config),
+                        '"{title_disk_time} [{devname}]{title_by_period}"'.format(
+                            **config),
                     ]
                 )
                 args.append('--slope-mode')
@@ -237,7 +245,8 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.append('GPRINT:rmax:MAX:"%5.1lf%ss Max"')
                 args.append('GPRINT:rtot:"%5.1lf%s Total\\l"')
                 args.append(
-                    'LINE1:wavg{color_line_disk_write}:"Write"'.format(**config)
+                    'LINE1:wavg{color_line_disk_write}:"Write"'.format(
+                        **config)
                 )
                 args.append('GPRINT:wmin:MIN:"%5.1lf%ss Min"')
                 args.append('GPRINT:wavg:AVERAGE:"%5.1lf%ss Avg"')
@@ -246,5 +255,6 @@ class Plugin(openmediavault.mkrrdgraph.IPlugin):
                 args.append('COMMENT:"{last_update}"'.format(**config))
                 openmediavault.mkrrdgraph.call_rrdtool_graph(args)
             else:
-                openmediavault.mkrrdgraph.copy_placeholder_image(image_filename)
+                openmediavault.mkrrdgraph.copy_placeholder_image(
+                    image_filename)
         return 0
