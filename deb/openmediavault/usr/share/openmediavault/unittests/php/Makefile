@@ -18,17 +18,20 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
-PHP_FILES=$(wildcard *.php)
+PHP_BOOTSTRAP_FILE=bootstrap.php
+PHP_FILES=$(wildcard test_*.php)
+PHP_INCLUDE_PATH=$(CURDIR)/../../../php:/usr/share/php
 
 test:
-	@for file in $(PHP_FILES); do \
+	@set -e; \
+	for file in $(PHP_FILES); do \
 		echo ">>> Processing $$file ..."; \
-		phpunit $$file; \
+		phpunit --include-path "$(PHP_INCLUDE_PATH)" --bootstrap "$(PHP_BOOTSTRAP_FILE)" $$file; \
 		echo; \
 	done
 
 install:
 	echo "Installing required packages ..."
-	sudo apt-get install -y phpunit
+	sudo apt-get install -y uuid phpunit
 
 .PHONY: test install
