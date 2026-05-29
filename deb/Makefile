@@ -25,7 +25,7 @@
 OMV_SUBDIRS := $(shell find . -maxdepth 1 -name 'openmediavault*' -type d)
 
 # Targets to process all OpenMediaVault plugin packages.
-clean binary omv_tx_pull_po omv_tx_push_pot omv_build_pot:
+clean binary omv_tx_pull_po omv_tx_push_pot omv_build_pot omv_fix_php omv_fix_py:
 	for dir in $(OMV_SUBDIRS); do \
 		cd $(CURDIR)/$$dir && fakeroot debian/rules $@; \
 	done

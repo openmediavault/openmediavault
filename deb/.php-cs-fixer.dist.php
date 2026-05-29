@@ -1,8 +1,9 @@
 <?php
 
 $finder = PhpCsFixer\Finder::create()
-    ->in(__DIR__ . '/openmediavault/usr/share/php')
-    ->in(__DIR__ . '/openmediavault/usr/share/openmediavault')
+    ->in(__DIR__)
+    ->path('usr/share/php')
+    ->path('usr/share/openmediavault')
     ->name('*.php')
     ->name('*.inc');
 
