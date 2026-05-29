@@ -11,7 +11,7 @@ end_of_line = lf
 
 [*.{php,inc}]
 indent_size = 4
-max_line_length = 80
+max_line_length = 79
 
 [*.{js,sh,xml,json,html,css,scss}]
 indent_size = 4
@@ -19,6 +19,7 @@ indent_style = tab
 
 [*.py]
 indent_size = 4
+max_line_length = 79
 
 [*.md]
 max_line_length = off
