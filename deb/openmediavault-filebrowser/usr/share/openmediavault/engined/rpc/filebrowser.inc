@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,28 +20,34 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace Engined\Rpc;
 
-class OMVRpcServiceFileBrowser extends \OMV\Rpc\ServiceAbstract {
-	public function getName() {
-		return "FileBrowser";
-	}
+class OMVRpcServiceFileBrowser extends \OMV\Rpc\ServiceAbstract
+{
+    public function getName()
+    {
+        return "FileBrowser";
+    }
 
-	public function initialize() {
-		$this->registerMethod("get");
-		$this->registerMethod("set");
-	}
+    public function initialize()
+    {
+        $this->registerMethod("get");
+        $this->registerMethod("set");
+    }
 
-	function get($params, $context) {
-		return \OMV\Rpc\Rpc::call("Config", "get", [
-			"id" => "conf.service.filebrowser"
-		], $context);
-	}
+    public function get($params, $context)
+    {
+        return \OMV\Rpc\Rpc::call("Config", "get", [
+            "id" => "conf.service.filebrowser"
+        ], $context);
+    }
 
-	function set($params, $context) {
-		return \OMV\Rpc\Rpc::call("Config", "set", [
-			"id" => "conf.service.filebrowser",
-			"data" => $params
-		], $context);
-	}
+    public function set($params, $context)
+    {
+        return \OMV\Rpc\Rpc::call("Config", "set", [
+            "id" => "conf.service.filebrowser",
+            "data" => $params
+        ], $context);
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,18 +20,22 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace Engined\Module;
 
-class Timezone extends \OMV\Engine\Module\ServiceAbstract
-		implements \OMV\Engine\Notify\IListener {
-	public function getName() {
-		return "timezone";
-	}
+class Timezone extends \OMV\Engine\Module\ServiceAbstract implements \OMV\Engine\Notify\IListener
+{
+    public function getName()
+    {
+        return "timezone";
+    }
 
-	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
-		$dispatcher->addListener(
-			OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.system.time",
-			[$this, "setDirty"]);
-	}
+    public function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher)
+    {
+        $dispatcher->addListener(
+            OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.system.time",
+            [$this, "setDirty"]
+        );
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,17 +20,21 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Filesystem\Backend;
 
 /**
  * References:
  * - https://en.wikipedia.org/wiki/ReiserFS
  */
-class Reiserfs extends BackendAbstract {
-	public function __construct() {
-		$this->type = "reiserfs";
-		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL;
-		$this->mntOptions = explode(",", \OMV\Environment::get(
-			"OMV_FSTAB_MNTOPS_REISERFS"));
-	}
+class Reiserfs extends BackendAbstract
+{
+    public function __construct()
+    {
+        $this->type = "reiserfs";
+        $this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL;
+        $this->mntOptions = explode(",", \OMV\Environment::get(
+            "OMV_FSTAB_MNTOPS_REISERFS"
+        ));
+    }
 }

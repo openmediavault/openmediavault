@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\Engine\Notify;
 
 /**
@@ -26,10 +28,11 @@ namespace OMV\Engine\Notify;
  * notifications.
  * @ingroup api
  */
-interface IListener {
-	/**
-	 * Bind listeners.
-	 * @param dispatcher The dispatcher object.
-	 */
-	public function bindListeners(Dispatcher $dispatcher);
+interface IListener
+{
+    /**
+     * Bind listeners.
+     * @param dispatcher The dispatcher object.
+     */
+    public function bindListeners(Dispatcher $dispatcher);
 }

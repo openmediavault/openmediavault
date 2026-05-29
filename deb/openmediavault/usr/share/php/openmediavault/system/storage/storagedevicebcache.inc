@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,42 +20,52 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage;
 
 /**
  * This class provides a simple interface to handle Linux Bcache devices.
  * @ingroup api
  */
-class StorageDeviceBcache extends StorageDevice {
-	/**
-	 * Get the slave devices of the Bcache device.
-	 * @return An array of device files, otherwise FALSE.
-	 */
-	public function getSlaves() {
-		// Make sure the canonical device file is used to extract the name
-		// of the device.
-		$path = sprintf("/sys/block/%s/slaves", $this->getDeviceName(TRUE));
-		if (!file_exists($path))
-			return FALSE;
-		$result = [];
-		$dir = new \DirectoryIterator($path);
-		foreach ($dir as $item) {
-			if ($item->isDot() || !$item->isLink())
-				continue;
-			$result[] = sprintf("/dev/%s", $item->getFilename());
-		}
-		// Sort the devices using a "natural order" algorithm.
-		if (!sort($result, SORT_NATURAL))
-			return FALSE;
-		return $result;
-	}
+class StorageDeviceBcache extends StorageDevice
+{
+    /**
+     * Get the slave devices of the Bcache device.
+     * @return An array of device files, otherwise FALSE.
+     */
+    public function getSlaves()
+    {
+        // Make sure the canonical device file is used to extract the name
+        // of the device.
+        $path = sprintf("/sys/block/%s/slaves", $this->getDeviceName(true));
+        if (!file_exists($path)) {
+            return false;
+        }
+        $result = [];
+        $dir = new \DirectoryIterator($path);
+        foreach ($dir as $item) {
+            if ($item->isDot() || !$item->isLink()) {
+                continue;
+            }
+            $result[] = sprintf("/dev/%s", $item->getFilename());
+        }
+        // Sort the devices using a "natural order" algorithm.
+        if (!sort($result, SORT_NATURAL)) {
+            return false;
+        }
+        return $result;
+    }
 
-	/**
-	 * Get the description of the device.
-	 * @return The device description, FALSE on failure.
-	 */
-	public function getDescription() {
-		return sprintf(gettext("Block layer cache [%s, %s]"),
-		  $this->getDeviceFile(), binary_format($this->getSize()));
-	}
+    /**
+     * Get the description of the device.
+     * @return The device description, FALSE on failure.
+     */
+    public function getDescription()
+    {
+        return sprintf(
+            gettext("Block layer cache [%s, %s]"),
+            $this->getDeviceFile(),
+            binary_format($this->getSize())
+        );
+    }
 }

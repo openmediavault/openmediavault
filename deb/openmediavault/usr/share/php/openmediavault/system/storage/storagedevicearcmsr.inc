@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage;
 
 /**
@@ -26,15 +28,18 @@ namespace OMV\System\Storage;
  * devices using the arcmsr driver.
  * @ingroup api
  */
-class StorageDeviceARCMSR extends StorageDeviceSD {
-	public function getSerialNumber() {
-		if (TRUE === $this->hasUdevProperty("SCSI_IDENT_SERIAL")) {
-			return $this->getUdevProperty("SCSI_IDENT_SERIAL");
-		}
-		return parent::getSerialNumber();
-	}
+class StorageDeviceARCMSR extends StorageDeviceSD
+{
+    public function getSerialNumber()
+    {
+        if (true === $this->hasUdevProperty("SCSI_IDENT_SERIAL")) {
+            return $this->getUdevProperty("SCSI_IDENT_SERIAL");
+        }
+        return parent::getSerialNumber();
+    }
 
-	public function isRaid() {
-		return TRUE;
-	}
+    public function isRaid()
+    {
+        return true;
+    }
 }

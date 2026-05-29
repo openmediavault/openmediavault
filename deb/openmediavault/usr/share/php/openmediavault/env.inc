@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -35,25 +36,28 @@ setlocale(LC_TIME, "");
 setlocale(LC_NUMERIC, "C");
 // Set timezone.
 try {
-	// Make sure the data models are loaded.
-	$modelMngr = \OMV\DataModel\Manager::getInstance();
-	$modelMngr->load();
-	// Get the configured timezone.
-	$db = &\OMV\Config\Database::getInstance();
-	$object = $db->get("conf.system.time");
-	// According to http://php.net/manual/en/timezones.others.php
-	// some of the time zones that the Debian installer supports are
-	// deprecated. To prevent errors we support them to (ALL_WITH_BC).
-	if (in_array($object->get("timezone"), \DateTimeZone::listIdentifiers(
-			\DateTimeZone::ALL_WITH_BC))) {
-		date_default_timezone_set($object->get("timezone"));
-	} else {
-		// See http://php.net/manual/en/timezones.others.php for more
-		// information.
-		syslog(LOG_ERR, sprintf("Unknown or deprecated time zone [tz=%s]. ".
-			"Please reconfigure your time zone settings.",
-			$object->get("timezone")));
-	}
-} catch(\Exception $e) {
-	// Nothing to do here.
+    // Make sure the data models are loaded.
+    $modelMngr = \OMV\DataModel\Manager::getInstance();
+    $modelMngr->load();
+    // Get the configured timezone.
+    $db = &\OMV\Config\Database::getInstance();
+    $object = $db->get("conf.system.time");
+    // According to http://php.net/manual/en/timezones.others.php
+    // some of the time zones that the Debian installer supports are
+    // deprecated. To prevent errors we support them to (ALL_WITH_BC).
+    if (in_array($object->get("timezone"), \DateTimeZone::listIdentifiers(
+        \DateTimeZone::ALL_WITH_BC
+    ))) {
+        date_default_timezone_set($object->get("timezone"));
+    } else {
+        // See http://php.net/manual/en/timezones.others.php for more
+        // information.
+        syslog(LOG_ERR, sprintf(
+            "Unknown or deprecated time zone [tz=%s]. ".
+            "Please reconfigure your time zone settings.",
+            $object->get("timezone")
+        ));
+    }
+} catch (\Exception $e) {
+    // Nothing to do here.
 }

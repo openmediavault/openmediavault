@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,37 +20,43 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System;
 
 /**
  * @ingroup api
  */
-class ShellScript {
-	private $script = "";
-	private $quiet = FALSE;
+class ShellScript
+{
+    private $script = "";
+    private $quiet = false;
 
-	public function __construct($script) {
-		$this->script = $script;
-	}
+    public function __construct($script)
+    {
+        $this->script = $script;
+    }
 
-	public function setQuiet($quiet = TRUE) {
-		$this->quiet = $quiet;
-	}
+    public function setQuiet($quiet = true)
+    {
+        $this->quiet = $quiet;
+    }
 
-	/**
-	 * Execute the script.
-	 * @param output If the output argument is present, then the specified
-	 *   array will be filled with every line of output from the script.
-	 * @param exitStatus If the argument is present along with the output
-	 *   argument, then the return status of the executed script will be
-	 *   written to this variable.
-	 * @throw \OMV\ExecException
-	 */
-	public function execute(array &$output = NULL, &$exitStatus = NULL) {
-		$cmdLine = $this->script;
-		$result = exec($cmdLine, $output, $exitStatus);
-		if ((FALSE === $this->quiet) && (0 !== $exitStatus))
-			throw new \OMV\ExecException($cmdLine, $output, $exitStatus);
-		return $result;
-	}
+    /**
+     * Execute the script.
+     * @param output If the output argument is present, then the specified
+     *   array will be filled with every line of output from the script.
+     * @param exitStatus If the argument is present along with the output
+     *   argument, then the return status of the executed script will be
+     *   written to this variable.
+     * @throw \OMV\ExecException
+     */
+    public function execute(array &$output = null, &$exitStatus = null)
+    {
+        $cmdLine = $this->script;
+        $result = exec($cmdLine, $output, $exitStatus);
+        if ((false === $this->quiet) && (0 !== $exitStatus)) {
+            throw new \OMV\ExecException($cmdLine, $output, $exitStatus);
+        }
+        return $result;
+    }
 }

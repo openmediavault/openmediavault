@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,53 +20,60 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage\Backend;
 
 /**
  * Implements the storage device backend for Xen virtual disk devices.
  * @ingroup api
  */
-class Xen extends BackendAbstract {
-	function getType() {
-		return OMV_STORAGE_DEVICE_KIND_GENERIC |
-			OMV_STORAGE_DEVICE_TRAIT_BLOCK |
-			OMV_STORAGE_DEVICE_TRAIT_VIRTUAL;
-	}
+class Xen extends BackendAbstract
+{
+    public function getType()
+    {
+        return OMV_STORAGE_DEVICE_KIND_GENERIC |
+            OMV_STORAGE_DEVICE_TRAIT_BLOCK |
+            OMV_STORAGE_DEVICE_TRAIT_VIRTUAL;
+    }
 
-	/**
-	 * See interface definition.
-	 */
-	function enumerate() {
-		// major minor  #blocks  name
-		// 202        0    6145024 xvda
-		// 202        1     104391 xvda1
-		// 202        2    6040440 xvda2
-		return $this->enumerateProcFs("xvd[a-z]+");
-	}
+    /**
+     * See interface definition.
+     */
+    public function enumerate()
+    {
+        // major minor  #blocks  name
+        // 202        0    6145024 xvda
+        // 202        1     104391 xvda1
+        // 202        2    6040440 xvda2
+        return $this->enumerateProcFs("xvd[a-z]+");
+    }
 
-	/**
-	 * See interface definition.
-	 */
-	function isTypeOf($deviceFile) {
-		// Examples:
-		// - /dev/xvda
-		// - /dev/xvda1
-		// - /dev/xvdtq37
-		$regex = "xvd[a-z]+[0-9]*";
-		return $this->isTypeOfByName($deviceFile, $regex);
-	}
+    /**
+     * See interface definition.
+     */
+    public function isTypeOf($deviceFile)
+    {
+        // Examples:
+        // - /dev/xvda
+        // - /dev/xvda1
+        // - /dev/xvdtq37
+        $regex = "xvd[a-z]+[0-9]*";
+        return $this->isTypeOfByName($deviceFile, $regex);
+    }
 
-	/**
-	 * See interface definition.
-	 */
-	function getImpl($args) {
-		return new \OMV\System\Storage\StorageDeviceXen($args);
-	}
+    /**
+     * See interface definition.
+     */
+    public function getImpl($args)
+    {
+        return new \OMV\System\Storage\StorageDeviceXen($args);
+    }
 
-	/**
-	 * See interface definition.
-	 */
-	function baseDeviceFile($deviceFile) {
-		return preg_replace("/(\d+)$/", "", $deviceFile);
-	}
+    /**
+     * See interface definition.
+     */
+    public function baseDeviceFile($deviceFile)
+    {
+        return preg_replace("/(\d+)$/", "", $deviceFile);
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,20 +20,23 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\Rpc;
 
-class BgStatusFile extends \OMV\Json\File {
-	/**
-	 * Constructor
-	 * @param filename The name of the file.
-	 * @throw \OMV\Exception
-	 */
-	function __construct($filename) {
-		parent::__construct($filename);
-		if ($this->exists()) {
-			if (fileowner($filename) !== posix_getuid()) {
-				throw new \OMV\Exception("Illegitimate file owner.");
-			}
-		}
-	}
+class BgStatusFile extends \OMV\Json\File
+{
+    /**
+     * Constructor
+     * @param filename The name of the file.
+     * @throw \OMV\Exception
+     */
+    public function __construct($filename)
+    {
+        parent::__construct($filename);
+        if ($this->exists()) {
+            if (fileowner($filename) !== posix_getuid()) {
+                throw new \OMV\Exception("Illegitimate file owner.");
+            }
+        }
+    }
 }

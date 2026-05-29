@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,11 +20,14 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Filesystem\Backend;
 
-class Umsdos extends BackendAbstract {
-	public function __construct() {
-		$this->type = "umsdos";
-		$this->properties = self::PROP_MNTENT;
-	}
+class Umsdos extends BackendAbstract
+{
+    public function __construct()
+    {
+        $this->type = "umsdos";
+        $this->properties = self::PROP_MNTENT;
+    }
 }

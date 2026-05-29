@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,39 +20,41 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage;
 
 /**
  * Interface for S.M.A.R.T. AT Attachment (ATA) devices.
  * @ingroup api
  */
-interface SmartInterface {
-	/**
-	 * Identify the device type required by the smartctl utility program.
-	 * @see https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in
-	 * @return string Returns the identified device type, e.g. 'sat', 'scsi',
-	 *   'usbcypress', ... or an empty string.
-	 */
-	public function getSmartDeviceType();
+interface SmartInterface
+{
+    /**
+     * Identify the device type required by the smartctl utility program.
+     * @see https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in
+     * @return string Returns the identified device type, e.g. 'sat', 'scsi',
+     *   'usbcypress', ... or an empty string.
+     */
+    public function getSmartDeviceType();
 
-	/**
-	 * Get the S.M.A.R.T. information.
-	 * @return SmartInformation An \OMV\System\Storage\SmartInformation object.
-	 * @throw \OMV\Exception
-	 */
-	public function getSmartInformation();
+    /**
+     * Get the S.M.A.R.T. information.
+     * @return SmartInformation An \OMV\System\Storage\SmartInformation object.
+     * @throw \OMV\Exception
+     */
+    public function getSmartInformation();
 
-	/**
-	 * Execute a S.M.A.R.T. self test.
-	 * @param string test The test to be used. This can be:
-	 *   <ul>
-	 *   \li short (s)
-	 *   \li long (l)
-	 *   \li conveyance (c)
-	 *   \li offline (o)
-	 *   </ul>
-	 * @return void
-	 * @throw \OMV\Exception
-	 */
-	public function executeSmartSelfTest($test);
+    /**
+     * Execute a S.M.A.R.T. self test.
+     * @param string test The test to be used. This can be:
+     *   <ul>
+     *   \li short (s)
+     *   \li long (l)
+     *   \li conveyance (c)
+     *   \li offline (o)
+     *   </ul>
+     * @return void
+     * @throw \OMV\Exception
+     */
+    public function executeSmartSelfTest($test);
 }

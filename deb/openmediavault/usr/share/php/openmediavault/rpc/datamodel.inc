@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,17 +20,20 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\Rpc;
 
 /**
  * @ingroup api
  */
-class DataModel extends \OMV\DataModel\DataModel {
-	private $paramsSchema = null;
+class DataModel extends \OMV\DataModel\DataModel
+{
+    private $paramsSchema = null;
 
-	public function __construct($model) {
-		// Validate the data model definition.
-		$schema = new \OMV\Json\Schema('{
+    public function __construct($model)
+    {
+        // Validate the data model definition.
+        $schema = new \OMV\Json\Schema('{
 			"type":"object",
 			"properties":{
 				"type":{"type":"string","enum":["rpc"],"required":true},
@@ -39,37 +43,40 @@ class DataModel extends \OMV\DataModel\DataModel {
 				"params":{"type":"any","required":true}
 			}
 		}');
-		try {
-			// Convert the associative array into a JSON string
-			// before validating the model definition.
-			$schema->validate(json_encode_safe($model));
-		} catch(\OMV\Json\SchemaValidationException $e) {
-			throw new \OMV\Exception(
-			  "The data model of the RPC is invalid: %s",
-			  $e->getMessage());
-		}
-		// Call the parent constructor.
-		parent::__construct($model);
-		// Create the schema describing the RPC parameters.
-		$this->paramsSchema = new \OMV\DataModel\Schema($model['params']);
-	}
+        try {
+            // Convert the associative array into a JSON string
+            // before validating the model definition.
+            $schema->validate(json_encode_safe($model));
+        } catch (\OMV\Json\SchemaValidationException $e) {
+            throw new \OMV\Exception(
+                "The data model of the RPC is invalid: %s",
+                $e->getMessage()
+            );
+        }
+        // Call the parent constructor.
+        parent::__construct($model);
+        // Create the schema describing the RPC parameters.
+        $this->paramsSchema = new \OMV\DataModel\Schema($model['params']);
+    }
 
-	/**
-	 * Get the JSON schema that describes the RPC parameters.
-	 * @return The JSON schema describing the RPC parameters.
-	 */
-	final public function getParamsSchema() {
-		return $this->paramsSchema;
-	}
+    /**
+     * Get the JSON schema that describes the RPC parameters.
+     * @return The JSON schema describing the RPC parameters.
+     */
+    final public function getParamsSchema()
+    {
+        return $this->paramsSchema;
+    }
 
-	/**
-	 * Validate the specified data against the data model.
-	 * @param data The JSON data to validate.
-	 * @return void
-	 * @throw \OMV\Json\SchemaException
-	 * @throw \OMV\Json\SchemaValidationException
-	 */
-	final public function validate($data) {
-		$this->getParamsSchema()->validate($data);
-	}
+    /**
+     * Validate the specified data against the data model.
+     * @param data The JSON data to validate.
+     * @return void
+     * @throw \OMV\Json\SchemaException
+     * @throw \OMV\Json\SchemaValidationException
+     */
+    final public function validate($data)
+    {
+        $this->getParamsSchema()->validate($data);
+    }
 }

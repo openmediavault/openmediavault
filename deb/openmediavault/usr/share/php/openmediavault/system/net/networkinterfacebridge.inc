@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Net;
 
 /**
@@ -26,80 +28,92 @@ namespace OMV\System\Net;
  * interfaces.
  * @ingroup api
  */
-class NetworkInterfaceBridge extends NetworkInterface {
-	public function getType() {
-		return "bridge";
-	}
+class NetworkInterfaceBridge extends NetworkInterface
+{
+    public function getType()
+    {
+        return "bridge";
+    }
 
-	/**
-	 * Get the slave devices.
-	 * @return A list of device names used by the bridge, otherwise FALSE.
-	 */
-	public function getSlaves() {
-		$result = [];
-		$path = sprintf("/sys/class/net/%s/brif/",
-			$this->getDeviceName());
-		if (!file_exists($path))
-			return FALSE;
-		$dir = new \DirectoryIterator($path);
-		foreach ($dir as $item) {
-			// Skip everything that is not a symlink.
-			if ($item->isDot() || !$item->isLink())
-				continue;
-			$result[] = $item->getFilename();
-		}
-		return $result;
-	}
+    /**
+     * Get the slave devices.
+     * @return A list of device names used by the bridge, otherwise FALSE.
+     */
+    public function getSlaves()
+    {
+        $result = [];
+        $path = sprintf(
+            "/sys/class/net/%s/brif/",
+            $this->getDeviceName()
+        );
+        if (!file_exists($path)) {
+            return false;
+        }
+        $dir = new \DirectoryIterator($path);
+        foreach ($dir as $item) {
+            // Skip everything that is not a symlink.
+            if ($item->isDot() || !$item->isLink()) {
+                continue;
+            }
+            $result[] = $item->getFilename();
+        }
+        return $result;
+    }
 
-	/**
-	 * Delete the network interface.
-	 * @throw \OMV\ExecException
-	 */
-	public function delete() {
-		parent::delete();
-		$cmdArgs = [];
-		$cmdArgs[] = "link";
-		$cmdArgs[] = "del";
-		$cmdArgs[] = "dev";
-		$cmdArgs[] = escapeshellarg($this->getDeviceName());
-		$cmd = new \OMV\System\Process("ip", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->execute();
-	}
+    /**
+     * Delete the network interface.
+     * @throw \OMV\ExecException
+     */
+    public function delete()
+    {
+        parent::delete();
+        $cmdArgs = [];
+        $cmdArgs[] = "link";
+        $cmdArgs[] = "del";
+        $cmdArgs[] = "dev";
+        $cmdArgs[] = escapeshellarg($this->getDeviceName());
+        $cmd = new \OMV\System\Process("ip", $cmdArgs);
+        $cmd->setRedirect2to1();
+        $cmd->execute();
+    }
 
-	/**
-	 * Get a list of all bridge network interfaces.
-	 * @return Returns an array containing the bridge interface names.
-	 */
-	public static function enumerate() {
-		$result = [];
-		$dir = new \DirectoryIterator("/sys/class/net");
-		foreach ($dir as $item) {
-			// Skip everything that is not a symlink.
-			if ($item->isDot() || !$item->isLink())
-				continue;
-			// Validate network interface name.
-			if (1 !== preg_match("/^br[0-9]+$/i", $item->getFilename()))
-				continue;
-			$result[] = $item->getFilename();
-		}
-		return $result;
-	}
+    /**
+     * Get a list of all bridge network interfaces.
+     * @return Returns an array containing the bridge interface names.
+     */
+    public static function enumerate()
+    {
+        $result = [];
+        $dir = new \DirectoryIterator("/sys/class/net");
+        foreach ($dir as $item) {
+            // Skip everything that is not a symlink.
+            if ($item->isDot() || !$item->isLink()) {
+                continue;
+            }
+            // Validate network interface name.
+            if (1 !== preg_match("/^br[0-9]+$/i", $item->getFilename())) {
+                continue;
+            }
+            $result[] = $item->getFilename();
+        }
+        return $result;
+    }
 
-	/**
-	 * Get the next available device name.
-	 * @return Returns a device name, or FALSE on failure.
-	 */
-	public static function getNextDeviceName() {
-		$result = FALSE;
-		$deviceNames = self::enumerate();
-		for ($i = 0; $i <= 255; $i++) {
-			$deviceName = sprintf("br%d", $i);
-			if (FALSE === in_array($deviceName, $deviceNames)) {
-				$result = $deviceName;
-				break;
-			}
-		}
-		return $result;
-	}
+    /**
+     * Get the next available device name.
+     * @return Returns a device name, or FALSE on failure.
+     */
+    public static function getNextDeviceName()
+    {
+        $result = false;
+        $deviceNames = self::enumerate();
+        for ($i = 0; $i <= 255; $i++) {
+            $deviceName = sprintf("br%d", $i);
+            if (false === in_array($deviceName, $deviceNames)) {
+                $result = $deviceName;
+                break;
+            }
+        }
+        return $result;
+    }
 }

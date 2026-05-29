@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage;
 
 /**
@@ -26,23 +28,29 @@ namespace OMV\System\Storage;
  * (NVM) devices.
  * @ingroup api
  */
-class StorageDeviceNVM extends StorageDevice implements SmartInterface {
-	use SmartTrait;
+class StorageDeviceNVM extends StorageDevice implements SmartInterface
+{
+    use SmartTrait;
 
-	public function isRotational() {
-		return FALSE;
-	}
+    public function isRotational()
+    {
+        return false;
+    }
 
-	public function getSmartDeviceType() {
-		return "nvme";
-	}
+    public function getSmartDeviceType()
+    {
+        return "nvme";
+    }
 
-	public function getVendor() {
-		$filename = sprintf("/sys/block/%s/device/device/vendor",
-			$this->getDeviceName(TRUE));
-		if (file_exists($filename)) {
-			return trim(file_get_contents($filename));
-		}
-		return parent::getVendor();
-	}
+    public function getVendor()
+    {
+        $filename = sprintf(
+            "/sys/block/%s/device/device/vendor",
+            $this->getDeviceName(true)
+        );
+        if (file_exists($filename)) {
+            return trim(file_get_contents($filename));
+        }
+        return parent::getVendor();
+    }
 }

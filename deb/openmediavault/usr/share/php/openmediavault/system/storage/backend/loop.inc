@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,35 +20,42 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage\Backend;
 
 /**
  * Implements the storage device backend for Linux loop devices.
  * @ingroup api
  */
-class Loop extends BackendAbstract {
-	protected $regex = "loop[0-9]+";
+class Loop extends BackendAbstract
+{
+    protected $regex = "loop[0-9]+";
 
-	function getType() {
-		return OMV_STORAGE_DEVICE_KIND_LOOP |
-			OMV_STORAGE_DEVICE_TRAIT_BLOCK |
-			OMV_STORAGE_DEVICE_TRAIT_VIRTUAL |
-			OMV_STORAGE_DEVICE_TRAIT_STACKED;
-	}
+    public function getType()
+    {
+        return OMV_STORAGE_DEVICE_KIND_LOOP |
+            OMV_STORAGE_DEVICE_TRAIT_BLOCK |
+            OMV_STORAGE_DEVICE_TRAIT_VIRTUAL |
+            OMV_STORAGE_DEVICE_TRAIT_STACKED;
+    }
 
-	function enumerate() {
-		return $this->enumerateProcFs($this->regex);
-	}
+    public function enumerate()
+    {
+        return $this->enumerateProcFs($this->regex);
+    }
 
-	function isTypeOf($deviceFile) {
-		return $this->isTypeOfByName($deviceFile, $this->regex);
-	}
+    public function isTypeOf($deviceFile)
+    {
+        return $this->isTypeOfByName($deviceFile, $this->regex);
+    }
 
-	function getImpl($args) {
-		return new \OMV\System\Storage\StorageDeviceLoop($args);
-	}
+    public function getImpl($args)
+    {
+        return new \OMV\System\Storage\StorageDeviceLoop($args);
+    }
 
-	function fsDeviceFile($deviceFile, $partition = 1) {
-		return $deviceFile;
-	}
+    public function fsDeviceFile($deviceFile, $partition = 1)
+    {
+        return $deviceFile;
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage;
 
 /**
@@ -26,27 +28,31 @@ namespace OMV\System\Storage;
  * controllers using the cciss driver.
  * @ingroup api
  */
-class StorageDeviceCCISS extends StorageDevice implements SmartInterface {
-	use SmartTrait;
+class StorageDeviceCCISS extends StorageDevice implements SmartInterface
+{
+    use SmartTrait;
 
-	public function getDeviceName($canonical = FALSE) {
-		// Get the device name and convert '/' character to '!', e.g.
-		// cciss/c0d0 => cciss!c0d0.
-		return strtr(parent::getDeviceName($canonical), "/", "!");
-	}
+    public function getDeviceName($canonical = false)
+    {
+        // Get the device name and convert '/' character to '!', e.g.
+        // cciss/c0d0 => cciss!c0d0.
+        return strtr(parent::getDeviceName($canonical), "/", "!");
+    }
 
-	public function isRaid() {
-		return TRUE;
-	}
+    public function isRaid()
+    {
+        return true;
+    }
 
-	/**
-	 * See \OMV\System\Storage\SmartInterface interface definition.
-	 */
-	public function getSmartDeviceType() {
-		$regex = "/^cciss!c(\d)d(\d)$/";
-		if (1 == preg_match($regex, $this->getDeviceName(), $matches)) {
-			return sprintf("cciss,%s", $matches[2]);
-		}
-		return "";
-	}
+    /**
+     * See \OMV\System\Storage\SmartInterface interface definition.
+     */
+    public function getSmartDeviceType()
+    {
+        $regex = "/^cciss!c(\d)d(\d)$/";
+        if (1 == preg_match($regex, $this->getDeviceName(), $matches)) {
+            return sprintf("cciss,%s", $matches[2]);
+        }
+        return "";
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -30,20 +31,25 @@ require_once("openmediavault/autoloader.inc");
  * @param string $parent_key The parent key. Defaults to empty.
  * @return A single-dimensional array or NULL on failure.
  */
-function array_flatten(array $array, $separator = ".", $parent_key = ""): ?array {
-	if (!is_array($array)) {
-		return NULL;
-	}
-	$result = [];
-	foreach ($array as $key => $value) {
-		$new_key = !empty($parent_key) ? $parent_key.$separator.$key : $key;
-		if (is_array($value))
-			$result = array_merge($result, array_flatten($value, $separator,
-				$new_key));
-		else
-			$result[$new_key] = $value;
-	}
-	return $result;
+function array_flatten(array $array, $separator = ".", $parent_key = ""): ?array
+{
+    if (!is_array($array)) {
+        return null;
+    }
+    $result = [];
+    foreach ($array as $key => $value) {
+        $new_key = !empty($parent_key) ? $parent_key.$separator.$key : $key;
+        if (is_array($value)) {
+            $result = array_merge($result, array_flatten(
+                $value,
+                $separator,
+                $new_key
+            ));
+        } else {
+            $result[$new_key] = $value;
+        }
+    }
+    return $result;
 }
 
 /**
@@ -53,25 +59,26 @@ function array_flatten(array $array, $separator = ".", $parent_key = ""): ?array
  * @param string $separator The character used as separator. Defaults to '.'.
  * @return A multi-dimensional array or NULL on failure.
  */
-function array_expand(array $array, $separator = "."): ?array {
-	if (!is_array($array)) {
-		return NULL;
-	}
-	$result = [];
-	foreach ($array as $key => $value) {
-		$parts = explode($separator, (string) $key);
-		$leafKey = array_pop($parts);
-		$parent = &$result;
-		foreach ($parts as $part) {
-			if (!isset($parent[$part]) || !is_array($parent[$part])) {
-				$parent[$part] = [];
-			}
-			$parent = &$parent[$part];
-		}
-		$parent[$leafKey] = $value;
-		unset($parent);
-	}
-	return $result;
+function array_expand(array $array, $separator = "."): ?array
+{
+    if (!is_array($array)) {
+        return null;
+    }
+    $result = [];
+    foreach ($array as $key => $value) {
+        $parts = explode($separator, (string) $key);
+        $leafKey = array_pop($parts);
+        $parent = &$result;
+        foreach ($parts as $part) {
+            if (!isset($parent[$part]) || !is_array($parent[$part])) {
+                $parent[$part] = [];
+            }
+            $parent = &$parent[$part];
+        }
+        $parent[$leafKey] = $value;
+        unset($parent);
+    }
+    return $result;
 }
 
 /**
@@ -81,19 +88,20 @@ function array_expand(array $array, $separator = "."): ?array {
  * @param key The key used as sort criteria.
  * @return Returns TRUE on success or FALSE on failure.
  */
-function array_sort_key(array &$array, $key): bool {
-	if (!is_multi_array($array)) {
-		return FALSE;
-	}
-	// Sort the array.
-	if (FALSE === uasort($array, function($a, $b) use($key) {
-		return strnatcmp(strval($a[$key]), strval($b[$key]));
-	})) {
-		return FALSE;
-	}
-	// Re-index the array.
-	$array = array_values($array);
-	return TRUE;
+function array_sort_key(array &$array, $key): bool
+{
+    if (!is_multi_array($array)) {
+        return false;
+    }
+    // Sort the array.
+    if (false === uasort($array, function ($a, $b) use ($key) {
+        return strnatcmp(strval($a[$key]), strval($b[$key]));
+    })) {
+        return false;
+    }
+    // Re-index the array.
+    $array = array_values($array);
+    return true;
 }
 
 /**
@@ -102,11 +110,13 @@ function array_sort_key(array &$array, $key): bool {
  * @param mixed $key The key to be removed.
  * @return Returns TRUE on success, otherwise FALSE.
  */
-function array_remove_key(array &$array, $key): bool {
-	if (FALSE === array_key_exists($key, $array))
-		return FALSE;
-	unset($array[$key]);
-	return TRUE;
+function array_remove_key(array &$array, $key): bool
+{
+    if (false === array_key_exists($key, $array)) {
+        return false;
+    }
+    unset($array[$key]);
+    return true;
 }
 
 /**
@@ -116,12 +126,13 @@ function array_remove_key(array &$array, $key): bool {
  * @param mixed $value The value to be removed.
  * @return Returns TRUE on success, otherwise FALSE.
  */
-function array_remove_value(array &$array, $value): bool {
-	$count = count($array);
-	$array = array_values(array_filter($array, function($item) use($value) {
-		return $item !== $value;
-	}));
-	return $count !== count($array);
+function array_remove_value(array &$array, $value): bool
+{
+    $count = count($array);
+    $array = array_values(array_filter($array, function ($item) use ($value) {
+        return $item !== $value;
+    }));
+    return $count !== count($array);
 }
 
 /**
@@ -134,18 +145,20 @@ function array_remove_value(array &$array, $value): bool {
  * @return Returns a new array containing only that elements that match
  *   the given filter arguments or the specified default on failure.
  */
-function array_filter_ex($array, $key, $value, $default = NULL) {
-	if (!is_multi_array($array)) {
-		return $default;
-	}
-	// Re-index the filtered array.
-	return array_values(
-		array_filter($array, function($v) use($key, $value) {
-			if (!array_key_exists($key, $v)) {
-				return FALSE;
-			}
-			return $v[$key] == $value;
-		}, ARRAY_FILTER_USE_BOTH));
+function array_filter_ex($array, $key, $value, $default = null)
+{
+    if (!is_multi_array($array)) {
+        return $default;
+    }
+    // Re-index the filtered array.
+    return array_values(
+        array_filter($array, function ($v) use ($key, $value) {
+            if (!array_key_exists($key, $v)) {
+                return false;
+            }
+            return $v[$key] == $value;
+        }, ARRAY_FILTER_USE_BOTH)
+    );
 }
 
 /**
@@ -158,13 +171,16 @@ function array_filter_ex($array, $key, $value, $default = NULL) {
  * @return The element the specified key/value matches, otherwise
  *   the given default value.
  */
-function array_search_ex(array $array, $key, $value, $default = FALSE) {
-	if (!is_multi_array($array)) {
-		return $default;
-	}
-	return array_value(
-		array_filter_ex($array, $key, $value),
-		0, $default);
+function array_search_ex(array $array, $key, $value, $default = false)
+{
+    if (!is_multi_array($array)) {
+        return $default;
+    }
+    return array_value(
+        array_filter_ex($array, $key, $value),
+        0,
+        $default
+    );
 }
 
 /**
@@ -176,9 +192,10 @@ function array_search_ex(array $array, $key, $value, $default = FALSE) {
  *   function fails. Defaults to NULL.
  * @return Returns TRUE on success or FALSE on failure.
  */
-function array_keys_exists(array $keys, array $search, &$missing = NULL): bool {
-	$missing = array_values(array_diff($keys, array_keys($search)));
-	return empty($missing);
+function array_keys_exists(array $keys, array $search, &$missing = null): bool
+{
+    $missing = array_values(array_diff($keys, array_keys($search)));
+    return empty($missing);
 }
 
 /**
@@ -189,19 +206,20 @@ function array_keys_exists(array $keys, array $search, &$missing = NULL): bool {
  * @param string $key The key used as filter criteria.
  * @return Returns a new array without duplicates or NULL on failure.
  */
-function array_unique_key(array $array, $key): ?array {
-	if (!is_multi_array($array)) {
-		return NULL;
-	}
-	$result = [];
-	$values = [];
-	foreach ($array as $arrayk => $arrayv) {
-		if (!in_array($arrayv[$key], $values)) {
-			$values[] = $arrayv[$key];
-			$result[] = $arrayv;
-		}
-	}
-	return $result;
+function array_unique_key(array $array, $key): ?array
+{
+    if (!is_multi_array($array)) {
+        return null;
+    }
+    $result = [];
+    $values = [];
+    foreach ($array as $arrayk => $arrayv) {
+        if (!in_array($arrayv[$key], $values)) {
+            $values[] = $arrayv[$key];
+            $result[] = $arrayv;
+        }
+    }
+    return $result;
 }
 
 /**
@@ -211,7 +229,8 @@ function array_unique_key(array $array, $key): ?array {
  * @param array $keys Keys to exclude.
  * @return Returns a new array without the omitted keys.
  */
-function array_omit_keys(array $array, array $keys): array {
+function array_omit_keys(array $array, array $keys): array
+{
     return array_diff_key($array, array_flip($keys));
 }
 
@@ -222,7 +241,8 @@ function array_omit_keys(array $array, array $keys): array {
  * @param array $keys Keys to include.
  * @return Returns a new array containing only the picked keys.
  */
-function array_pick_keys(array $array, array $keys): array {
+function array_pick_keys(array $array, array $keys): array
+{
     return array_intersect_key($array, array_flip($keys));
 }
 
@@ -233,16 +253,17 @@ function array_pick_keys(array $array, array $keys): array {
  * @return Returns an associative array of defined object accessible
  *   non-static properties for the specified object in scope.
  */
-function toArray($object): array {
-	if (is_null($object)) {
-		return [];
-	}
-	if (is_object($object)) {
-		$object = get_object_vars($object);
-	}
-	return array_map(function($value) {
-		return (is_array($value) || is_object($value)) ? toArray($value) : $value;
-	}, $object);
+function toArray($object): array
+{
+    if (is_null($object)) {
+        return [];
+    }
+    if (is_object($object)) {
+        $object = get_object_vars($object);
+    }
+    return array_map(function ($value) {
+        return (is_array($value) || is_object($value)) ? toArray($value) : $value;
+    }, $object);
 }
 
 /**
@@ -254,10 +275,12 @@ function toArray($object): array {
  * @return The value of the given key or the default value if the key
  *   does not exist.
  */
-function array_value(array $array, $key, $default = NULL) {
-	if (!is_array($array) || !array_key_exists($key, $array))
-		return $default;
-	return isset($array[$key]) ? $array[$key] : $default;
+function array_value(array $array, $key, $default = null)
+{
+    if (!is_array($array) || !array_key_exists($key, $array)) {
+        return $default;
+    }
+    return isset($array[$key]) ? $array[$key] : $default;
 }
 
 /**
@@ -270,20 +293,21 @@ function array_value(array $array, $key, $default = NULL) {
  *   entries is returned. Trying to pick more elements than there are
  *   in the array NULL will be returned.
  */
-function array_rand_value(array $array, $num = 1) {
-	$num = intval($num);
-	if (empty($array) || ($num < 1) || ($num > count($array))) {
-		return NULL;
-	}
-	$keys = array_rand($array, $num);
-	if (!is_array($keys)) {
-		return $array[$keys];
-	}
-	$result = [];
-	foreach ($keys as $keyk => $keyv) {
-		$result[] = $array[$keyv];
-	}
-	return $result;
+function array_rand_value(array $array, $num = 1)
+{
+    $num = intval($num);
+    if (empty($array) || ($num < 1) || ($num > count($array))) {
+        return null;
+    }
+    $keys = array_rand($array, $num);
+    if (!is_array($keys)) {
+        return $array[$keys];
+    }
+    $result = [];
+    foreach ($keys as $keyk => $keyv) {
+        $result[] = $array[$keyv];
+    }
+    return $result;
 }
 
 /**
@@ -294,11 +318,12 @@ function array_rand_value(array $array, $num = 1) {
  * @param string $default The default value returned if not found.
  * @return Returns the boolean value of the given key.
  */
-function array_boolval($array, $key, $default = FALSE): bool {
-	if (!is_array($array) || !array_key_exists($key, $array)) {
-		return $default;
-	}
-	return boolvalEx($array[$key]);
+function array_boolval($array, $key, $default = false): bool
+{
+    if (!is_array($array) || !array_key_exists($key, $array)) {
+        return $default;
+    }
+    return boolvalEx($array[$key]);
 }
 
 /**
@@ -308,21 +333,22 @@ function array_boolval($array, $key, $default = FALSE): bool {
  * @param mixed $var The scalar value being converted to a boolean.
  * @return Returns the boolean value of the given value.
  */
-function boolvalEx($var): bool {
-	$result = FALSE;
-	// Boolean 'true' => '1'
-	switch (mb_strtolower(strval($var))) {
-		case "1":
-		case "on":
-		case "yes":
-		case "y":
-		case "true":
-			$result = TRUE;
-			break;
-		default:
-			break;
-	}
-	return $result;
+function boolvalEx($var): bool
+{
+    $result = false;
+    // Boolean 'true' => '1'
+    switch (mb_strtolower(strval($var))) {
+        case "1":
+        case "on":
+        case "yes":
+        case "y":
+        case "true":
+            $result = true;
+            break;
+        default:
+            break;
+    }
+    return $result;
 }
 
 /**
@@ -331,8 +357,9 @@ function boolvalEx($var): bool {
  * @param string $var The variable being evaluated.
  * @return TRUE if the variable is an UUID, otherwise FALSE.
  */
-function is_uuid($var): bool {
-	return \OMV\Uuid::isUuid4($var);
+function is_uuid($var): bool
+{
+    return \OMV\Uuid::isUuid4($var);
 }
 
 /**
@@ -347,16 +374,19 @@ function is_uuid($var): bool {
  * @param string $var The variable being evaluated.
  * @return TRUE if the variable is a filesystem UUID, otherwise FALSE.
  */
-function is_fs_uuid($var): bool {
-	// Check if it is an UUID v4.
-	if (is_uuid($var))
-		return TRUE;
-	// Check if it is a NTFS, FAT or ISO9660 filesystem identifier.
-	$regex = '/^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{16}|[0-9]{4}-[0-9]{2}-'.
-	  '[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2})$/i';
-	if (1 == preg_match($regex, $var))
-		return TRUE;
-	return FALSE;
+function is_fs_uuid($var): bool
+{
+    // Check if it is an UUID v4.
+    if (is_uuid($var)) {
+        return true;
+    }
+    // Check if it is a NTFS, FAT or ISO9660 filesystem identifier.
+    $regex = '/^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{16}|[0-9]{4}-[0-9]{2}-'.
+      '[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2})$/i';
+    if (1 == preg_match($regex, $var)) {
+        return true;
+    }
+    return false;
 }
 
 /**
@@ -367,10 +397,12 @@ function is_fs_uuid($var): bool {
  * @param string $var The variable being evaluated.
  * @return TRUE if the variable describes a device file, otherwise FALSE.
  */
-function is_devicefile($var): bool {
-	if (FALSE === is_string($var))
-		return FALSE;
-	return preg_match('/^\/dev\/.+$/i', $var) ? TRUE : FALSE;
+function is_devicefile($var): bool
+{
+    if (false === is_string($var)) {
+        return false;
+    }
+    return preg_match('/^\/dev\/.+$/i', $var) ? true : false;
 }
 
 /**
@@ -384,10 +416,12 @@ function is_devicefile($var): bool {
  * @param string $var The variable being evaluated.
  * @return TRUE if the variable describes a device file, otherwise FALSE.
  */
-function is_devicefile_by($var): bool {
-	if (FALSE === is_string($var))
-		return FALSE;
-	return preg_match('/^\/dev\/disk\/by-\S+\/.+$/i', $var) ? TRUE : FALSE;
+function is_devicefile_by($var): bool
+{
+    if (false === is_string($var)) {
+        return false;
+    }
+    return preg_match('/^\/dev\/disk\/by-\S+\/.+$/i', $var) ? true : false;
 }
 
 /**
@@ -399,10 +433,12 @@ function is_devicefile_by($var): bool {
  * @param string $var The variable being evaluated.
  * @return TRUE if the variable describes a device file, otherwise FALSE.
  */
-function is_devicefile_by_uuid($var): bool {
-	if (FALSE === is_string($var))
-		return FALSE;
-	return preg_match('/^\/dev\/disk\/by-uuid\/.+$/i', $var) ? TRUE : FALSE;
+function is_devicefile_by_uuid($var): bool
+{
+    if (false === is_string($var)) {
+        return false;
+    }
+    return preg_match('/^\/dev\/disk\/by-uuid\/.+$/i', $var) ? true : false;
 }
 
 /**
@@ -413,10 +449,12 @@ function is_devicefile_by_uuid($var): bool {
  * @param string $var The variable being evaluated.
  * @return TRUE if the variable describes a device file, otherwise FALSE.
  */
-function is_devicefile_by_id($var): bool {
-	if (FALSE === is_string($var))
-		return FALSE;
-	return preg_match('/^\/dev\/disk\/by-id\/.+$/i', $var) ? TRUE : FALSE;
+function is_devicefile_by_id($var): bool
+{
+    if (false === is_string($var)) {
+        return false;
+    }
+    return preg_match('/^\/dev\/disk\/by-id\/.+$/i', $var) ? true : false;
 }
 
 /**
@@ -427,10 +465,12 @@ function is_devicefile_by_id($var): bool {
  * @param string $var The variable being evaluated.
  * @return TRUE if the variable describes a device file, otherwise FALSE.
  */
-function is_devicefile_by_label($var): bool {
-	if (FALSE === is_string($var))
-		return FALSE;
-	return preg_match('/^\/dev\/disk\/by-label\/.+$/i', $var) ? TRUE : FALSE;
+function is_devicefile_by_label($var): bool
+{
+    if (false === is_string($var)) {
+        return false;
+    }
+    return preg_match('/^\/dev\/disk\/by-label\/.+$/i', $var) ? true : false;
 }
 
 /**
@@ -442,10 +482,12 @@ function is_devicefile_by_label($var): bool {
  * @param string $var The variable being evaluated.
  * @return TRUE if the variable describes a device file, otherwise FALSE.
  */
-function is_devicefile_by_path($var): bool {
-	if (FALSE === is_string($var))
-		return FALSE;
-	return preg_match('/^\/dev\/disk\/by-path\/.+$/i', $var) ? TRUE : FALSE;
+function is_devicefile_by_path($var): bool
+{
+    if (false === is_string($var)) {
+        return false;
+    }
+    return preg_match('/^\/dev\/disk\/by-path\/.+$/i', $var) ? true : false;
 }
 
 /**
@@ -455,15 +497,19 @@ function is_devicefile_by_path($var): bool {
  * @param bool $dereference Follow links. Defaults to TRUE.
  * @return Returns TRUE if the file is a block device, FALSE otherwise.
  */
-function is_block_device($filename, $dereference = TRUE): bool {
-	if (FALSE === is_string($filename))
-		return FALSE;
-	if (FALSE === file_exists($filename))
-		return FALSE;
-	clearstatcache(TRUE, $filename);
-	if (TRUE === $dereference)
-		$filename = realpath($filename);
-	return ("block" == filetype($filename));
+function is_block_device($filename, $dereference = true): bool
+{
+    if (false === is_string($filename)) {
+        return false;
+    }
+    if (false === file_exists($filename)) {
+        return false;
+    }
+    clearstatcache(true, $filename);
+    if (true === $dereference) {
+        $filename = realpath($filename);
+    }
+    return ("block" == filetype($filename));
 }
 
 /**
@@ -473,15 +519,19 @@ function is_block_device($filename, $dereference = TRUE): bool {
  * @param bool $dereference Follow links. Defaults to TRUE.
  * @return Returns TRUE if the file is a block device, FALSE otherwise.
  */
-function is_char_device($filename, $dereference = TRUE): bool {
-	if (FALSE === is_string($filename))
-		return FALSE;
-	if (FALSE === file_exists($filename))
-		return FALSE;
-	clearstatcache(TRUE, $filename);
-	if (TRUE === $dereference)
-		$filename = realpath($filename);
-	return ("char" == filetype($filename));
+function is_char_device($filename, $dereference = true): bool
+{
+    if (false === is_string($filename)) {
+        return false;
+    }
+    if (false === file_exists($filename)) {
+        return false;
+    }
+    clearstatcache(true, $filename);
+    if (true === $dereference) {
+        $filename = realpath($filename);
+    }
+    return ("char" == filetype($filename));
 }
 
 /**
@@ -490,18 +540,23 @@ function is_char_device($filename, $dereference = TRUE): bool {
  * @param mixed $var The variable being evaluated.
  * @return TRUE if the variable is JSON, otherwise FALSE.
  */
-function is_json($var): bool {
-	if (!is_string($var))
-		return FALSE;
-	// An empty string is not a valid JSON value.
-	if (empty($var))
-		return FALSE;
-	// E.g. '1.1.1.1' is identified as JSON by json_decode.
-	if (!preg_match("/^[\[\{]/", $var))
-		return FALSE;
-	if (is_null(json_decode_safe($var)))
-		return FALSE;
-	return (json_last_error() == JSON_ERROR_NONE);
+function is_json($var): bool
+{
+    if (!is_string($var)) {
+        return false;
+    }
+    // An empty string is not a valid JSON value.
+    if (empty($var)) {
+        return false;
+    }
+    // E.g. '1.1.1.1' is identified as JSON by json_decode.
+    if (!preg_match("/^[\[\{]/", $var)) {
+        return false;
+    }
+    if (is_null(json_decode_safe($var))) {
+        return false;
+    }
+    return (json_last_error() == JSON_ERROR_NONE);
 }
 
 /**
@@ -510,10 +565,12 @@ function is_json($var): bool {
  * @param string $var The variable being evaluated.
  * @return TRUE if the variable is an IP address, otherwise FALSE.
  */
-function is_ipaddr($var): bool {
-	if (!is_string($var))
-		return FALSE;
-	return filter_var($var, FILTER_VALIDATE_IP);
+function is_ipaddr($var): bool
+{
+    if (!is_string($var)) {
+        return false;
+    }
+    return filter_var($var, FILTER_VALIDATE_IP);
 }
 
 /**
@@ -522,10 +579,12 @@ function is_ipaddr($var): bool {
  * @param string $var The variable being evaluated.
  * @return TRUE if the variable is an IPv4 address, otherwise FALSE.
  */
-function is_ipaddr4($var): bool {
-	if (!is_string($var))
-		return FALSE;
-	return filter_var($var, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4);
+function is_ipaddr4($var): bool
+{
+    if (!is_string($var)) {
+        return false;
+    }
+    return filter_var($var, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4);
 }
 
 /**
@@ -534,10 +593,12 @@ function is_ipaddr4($var): bool {
  * @param string $var The variable being evaluated.
  * @return TRUE if the variable is an IPv6 address, otherwise FALSE.
  */
-function is_ipaddr6($var): bool {
-	if (!is_string($var))
-		return FALSE;
-	return filter_var($var, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6);
+function is_ipaddr6($var): bool
+{
+    if (!is_string($var)) {
+        return false;
+    }
+    return filter_var($var, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6);
 }
 
 /**
@@ -547,17 +608,18 @@ function is_ipaddr6($var): bool {
  * @return TRUE if the variable is a multi-dimensional array,
  *   otherwise FALSE.
  */
-function is_multi_array($var): bool {
-	if (FALSE === is_array($var)) {
-		return FALSE;
-	}
-	if (empty($var)) {
-		return TRUE;
-	}
-	if (count($var, COUNT_RECURSIVE) !== count($var)) {
-		return TRUE;
-	}
-	return FALSE;
+function is_multi_array($var): bool
+{
+    if (false === is_array($var)) {
+        return false;
+    }
+    if (empty($var)) {
+        return true;
+    }
+    if (count($var, COUNT_RECURSIVE) !== count($var)) {
+        return true;
+    }
+    return false;
 }
 
 /**
@@ -567,15 +629,16 @@ function is_multi_array($var): bool {
  * @param mixed $var The variable being evaluated.
  * @return TRUE if the variable is an associative array, otherwise FALSE.
  */
-function is_assoc_array($var): bool {
-	if (FALSE === is_array($var)) {
-		return FALSE;
-	}
-	if (empty($var)) {
-		return TRUE;
-	}
-	$keys = array_keys($var);
-	return array_keys($keys) !== $keys;
+function is_assoc_array($var): bool
+{
+    if (false === is_array($var)) {
+        return false;
+    }
+    if (empty($var)) {
+        return true;
+    }
+    $keys = array_keys($var);
+    return array_keys($keys) !== $keys;
 }
 
 /**
@@ -583,8 +646,9 @@ function is_assoc_array($var): bool {
  * @ingroup api
  * @return TRUE if 64bit, otherwise FALSE.
  */
-function is_64bits(): bool {
-	return (PHP_INT_SIZE == 8);
+function is_64bits(): bool
+{
+    return (PHP_INT_SIZE == 8);
 }
 
 /**
@@ -592,14 +656,15 @@ function is_64bits(): bool {
  * @param mixed $var The value to check.
  * @return Returns TRUE if \em $var is a closure, FALSE otherwise.
  */
-function is_closure($var): bool {
-	try {
-    	$reflection = new \ReflectionFunction($var);
-    	$result = $reflection->isClosure();
-	} catch (\Exception $e) {
-		$result = FALSE;
-	}
-	return $result;
+function is_closure($var): bool
+{
+    try {
+        $reflection = new \ReflectionFunction($var);
+        $result = $reflection->isClosure();
+    } catch (\Exception $e) {
+        $result = false;
+    }
+    return $result;
 }
 
 /**
@@ -607,18 +672,22 @@ function is_closure($var): bool {
  * @param expression The variable you want to convert.
  * @return Returns the UTF-8 encoded value.
  */
-function var_utf8_encode($expression) {
-	if (is_array($expression)) {
-		foreach ($expression as $exprk => $exprv)
-			$expression[$exprk] = var_utf8_encode($exprv);
-	} else if (is_object($expression)) {
-		foreach ($expression as $exprk => $exprv)
-			$expression->$exprk = var_utf8_encode($exprv);
-	} else if (is_string($expression)) {
-		if (FALSE === mb_detect_encoding($expression, "UTF-8", TRUE))
-			$expression = utf8_encode($expression);
-	}
-	return $expression;
+function var_utf8_encode($expression)
+{
+    if (is_array($expression)) {
+        foreach ($expression as $exprk => $exprv) {
+            $expression[$exprk] = var_utf8_encode($exprv);
+        }
+    } elseif (is_object($expression)) {
+        foreach ($expression as $exprk => $exprv) {
+            $expression->$exprk = var_utf8_encode($exprv);
+        }
+    } elseif (is_string($expression)) {
+        if (false === mb_detect_encoding($expression, "UTF-8", true)) {
+            $expression = utf8_encode($expression);
+        }
+    }
+    return $expression;
 }
 
 /**
@@ -631,8 +700,9 @@ function var_utf8_encode($expression) {
  *   Defaults to 0.
  * @return Returns a string containing the JSON representation of \em value.
  */
-function json_encode_safe($value, $options = 0) {
-	return json_encode(var_utf8_encode($value), $options);
+function json_encode_safe($value, $options = 0)
+{
+    return json_encode(var_utf8_encode($value), $options);
 }
 
 /**
@@ -648,8 +718,9 @@ function json_encode_safe($value, $options = 0) {
 *   NULL is returned if the json cannot be decoded or if the encoded data
 *   is deeper than the recursion limit.
 */
-function json_decode_safe($json, $assoc = FALSE, $depth = 512, $options = 0) {
-	return json_decode(var_utf8_encode($json), $assoc, $depth, $options);
+function json_decode_safe($json, $assoc = false, $depth = 512, $options = 0)
+{
+    return json_decode(var_utf8_encode($json), $assoc, $depth, $options);
 }
 
 /**
@@ -658,18 +729,19 @@ function json_decode_safe($json, $assoc = FALSE, $depth = 512, $options = 0) {
  * @return Returns the error message on success or NULL with wrong parameters.
  */
 if (!function_exists('json_last_error_msg')) {
-    function json_last_error_msg(): string {
+    function json_last_error_msg(): string
+    {
         static $errorMsg = [
-			JSON_ERROR_NONE	=> NULL,
-			JSON_ERROR_DEPTH =>	"The maximum stack depth has been exceeded",
-			JSON_ERROR_STATE_MISMATCH => "Invalid or malformed JSON",
-			JSON_ERROR_CTRL_CHAR => "Control character error, possibly incorrectly encoded",
-			JSON_ERROR_SYNTAX => "Syntax error",
-			JSON_ERROR_UTF8 => "Malformed UTF-8 characters, possibly incorrectly encoded"
+            JSON_ERROR_NONE	=> null,
+            JSON_ERROR_DEPTH =>	"The maximum stack depth has been exceeded",
+            JSON_ERROR_STATE_MISMATCH => "Invalid or malformed JSON",
+            JSON_ERROR_CTRL_CHAR => "Control character error, possibly incorrectly encoded",
+            JSON_ERROR_SYNTAX => "Syntax error",
+            JSON_ERROR_UTF8 => "Malformed UTF-8 characters, possibly incorrectly encoded"
         ];
         $errno = json_last_error();
         return array_key_exists($errno, $errorMsg) ? $errorMsg[$errno] :
-        	sprintf("Unknown error (%d)", $errno);
+            sprintf("Unknown error (%d)", $errno);
     }
 }
 
@@ -679,9 +751,10 @@ if (!function_exists('json_last_error_msg')) {
  * @return Returns the message of the last error if possible,
  *   otherwise `Unknown error`.
  */
-function last_error_msg(): string {
-	$error = error_get_last();
-	return isset($error['message']) ? $error['message'] : "Unknown error";
+function last_error_msg(): string
+{
+    $error = error_get_last();
+    return isset($error['message']) ? $error['message'] : "Unknown error";
 }
 
 /**
@@ -692,40 +765,45 @@ function last_error_msg(): string {
  * @return The converted string value including the unit or an indexed
  *   array with the fields \em value and \em unit.
  */
-function binary_format($number, $options = NULL) {
-	$prefixes = [ "B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB" ];
-	$exp = 0;
-	$maxExp = count($prefixes);
-	$decimalPlaces = 2;
-	$indexed = FALSE;
+function binary_format($number, $options = null)
+{
+    $prefixes = [ "B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB" ];
+    $exp = 0;
+    $maxExp = count($prefixes);
+    $decimalPlaces = 2;
+    $indexed = false;
 
-	// Process additional function options.
-	if (is_array($options)) {
-		if (isset($options['decimalPlaces']))
-			$decimalPlaces = $options['decimalPlaces'];
-		if (isset($options['indexed']))
-			$indexed = $options['indexed'];
-		if (isset($options['fromPrefix']))
-			$exp = array_search($options['fromPrefix'], $prefixes);
-		if (isset($options['maxPrefix']))
-			$maxExp = array_search($options['maxPrefix'], $prefixes);
-	}
+    // Process additional function options.
+    if (is_array($options)) {
+        if (isset($options['decimalPlaces'])) {
+            $decimalPlaces = $options['decimalPlaces'];
+        }
+        if (isset($options['indexed'])) {
+            $indexed = $options['indexed'];
+        }
+        if (isset($options['fromPrefix'])) {
+            $exp = array_search($options['fromPrefix'], $prefixes);
+        }
+        if (isset($options['maxPrefix'])) {
+            $maxExp = array_search($options['maxPrefix'], $prefixes);
+        }
+    }
 
-	$number = number_format($number, 0, "", "");
-	while ((-1 != bccomp($number, "1024")) && ($exp < $maxExp)) {
-		$exp++;
-		$number = bcdiv($number, "1024", $decimalPlaces);
-	}
+    $number = number_format($number, 0, "", "");
+    while ((-1 != bccomp($number, "1024")) && ($exp < $maxExp)) {
+        $exp++;
+        $number = bcdiv($number, "1024", $decimalPlaces);
+    }
 
-	$result = [
-		"value" => floatval($number),
-		"unit" => $prefixes[$exp]
-	];
-	if (FALSE === $indexed) {
-		$result = sprintf("%s %s", $number, $prefixes[$exp]);
-	}
+    $result = [
+        "value" => floatval($number),
+        "unit" => $prefixes[$exp]
+    ];
+    if (false === $indexed) {
+        $result = sprintf("%s %s", $number, $prefixes[$exp]);
+    }
 
-	return $result;
+    return $result;
 }
 
 /**
@@ -739,28 +817,29 @@ function binary_format($number, $options = NULL) {
  * @param int $decimalPlaces The number of decimal places. Defaults to 0.
  * @return The converted number as string or NULL on failure.
  */
-function binary_convert($number, $fromPrefix, $toPrefix, $decimalPlaces = 0): ?string {
-	$prefixes = [ "B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB" ];
-	$fromIndex = array_search($fromPrefix, $prefixes);
-	$toIndex = array_search($toPrefix, $prefixes);
-	if ((FALSE === $fromIndex) || (FALSE === $toIndex)) {
-		return NULL;
-	}
-	if (preg_match("/[eE][\+-]?\d+$/", strval($number))) {
-		// Convert number to string and ensure the correct number of decimal
-		// numbers is set (workaround for float numbers that are otherwise
-		// converted to exponential notation, which bcmul cannot handle).
-		$number = number_format($number, 32, ".", "");
-	}
-	// Convert the given number into the requested binary unit.
-	$steps = abs($toIndex - $fromIndex);
-	$factor = bcpow("1024", $steps);
-	if ($fromIndex < $toIndex) {
-		$number = bcdiv($number, $factor, $decimalPlaces);
-	} else {
-		$number = bcmul($number, $factor, $decimalPlaces);
-	}
-	return $number;
+function binary_convert($number, $fromPrefix, $toPrefix, $decimalPlaces = 0): ?string
+{
+    $prefixes = [ "B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB" ];
+    $fromIndex = array_search($fromPrefix, $prefixes);
+    $toIndex = array_search($toPrefix, $prefixes);
+    if ((false === $fromIndex) || (false === $toIndex)) {
+        return null;
+    }
+    if (preg_match("/[eE][\+-]?\d+$/", strval($number))) {
+        // Convert number to string and ensure the correct number of decimal
+        // numbers is set (workaround for float numbers that are otherwise
+        // converted to exponential notation, which bcmul cannot handle).
+        $number = number_format($number, 32, ".", "");
+    }
+    // Convert the given number into the requested binary unit.
+    $steps = abs($toIndex - $fromIndex);
+    $factor = bcpow("1024", $steps);
+    if ($fromIndex < $toIndex) {
+        $number = bcdiv($number, $factor, $decimalPlaces);
+    } else {
+        $number = bcmul($number, $factor, $decimalPlaces);
+    }
+    return $number;
 }
 
 /**
@@ -771,12 +850,13 @@ function binary_convert($number, $fromPrefix, $toPrefix, $decimalPlaces = 0): ?s
  * @param string $format The format used in date.
  * @return Returns a Unix timestamp on success, NULL otherwise.
  */
-function strpdate($date, $format): ?int {
-	$date = str_replace("\0", '', $date); // Remove null bytes.
-	if (FALSE === ($dt = DateTime::createFromFormat($format, $date))) {
-		return NULL;
-	}
-	return $dt->getTimestamp();
+function strpdate($date, $format): ?int
+{
+    $date = str_replace("\0", '', $date); // Remove null bytes.
+    if (false === ($dt = DateTime::createFromFormat($format, $date))) {
+        return null;
+    }
+    return $dt->getTimestamp();
 }
 
 /**
@@ -789,11 +869,12 @@ function strpdate($date, $format): ?int {
  * @param string $parts The path elements to be concatenated.
  * @return A string path built from the given parts.
  */
-function build_path($separator, ...$parts) {
-	$parts = array_filter($parts, "strlen");
-	$path = implode($separator, $parts);
-	$regex = sprintf("/%s+/", preg_quote($separator, "/"));
-	return preg_replace($regex, $separator, $path);
+function build_path($separator, ...$parts)
+{
+    $parts = array_filter($parts, "strlen");
+    $path = implode($separator, $parts);
+    $regex = sprintf("/%s+/", preg_quote($separator, "/"));
+    return preg_replace($regex, $separator, $path);
 }
 
 /**
@@ -804,22 +885,27 @@ function build_path($separator, ...$parts) {
  * @param int $sortFlags Modify the sorting behavior. Defaults to SORT_NATURAL.
  * @return Returns an array of files from the directory.
  */
-function listdir($directory, $extension = "", $sortFlags = SORT_NATURAL): array {
-	$files = [];
-	if (file_exists($directory)) {
-		foreach (new \DirectoryIterator($directory) as $item) {
-			if ($item->isDot())
-				continue;
-			if (!$item->isFile())
-				continue;
-			if (!empty($extension) && ($extension !== mb_strtolower(
-					$item->getExtension())))
-				continue;
-			$files[] = $item->getPathname();
-		}
-		sort($files, $sortFlags);
-	}
-	return $files;
+function listdir($directory, $extension = "", $sortFlags = SORT_NATURAL): array
+{
+    $files = [];
+    if (file_exists($directory)) {
+        foreach (new \DirectoryIterator($directory) as $item) {
+            if ($item->isDot()) {
+                continue;
+            }
+            if (!$item->isFile()) {
+                continue;
+            }
+            if (!empty($extension) && ($extension !== mb_strtolower(
+                $item->getExtension()
+            ))) {
+                continue;
+            }
+            $files[] = $item->getPathname();
+        }
+        sort($files, $sortFlags);
+    }
+    return $files;
 }
 
 /**
@@ -830,16 +916,20 @@ function listdir($directory, $extension = "", $sortFlags = SORT_NATURAL): array 
  * @param int $mode The mode of the temporary directory. Defaults to 0700.
  * @return Returns the full path of the created directory, or NULL on failure.
  */
-function mkdtemp($prefix = "", $mode = 0700): ?string {
-	$directory = build_path(DIRECTORY_SEPARATOR, sys_get_temp_dir(),
-		uniqid($prefix));
-	if (is_dir($directory)) {
-		return NULL;
-	}
-	if (FALSE === mkdir($directory, $mode)) {
-		return NULL;
-	}
-	return $directory;
+function mkdtemp($prefix = "", $mode = 0700): ?string
+{
+    $directory = build_path(
+        DIRECTORY_SEPARATOR,
+        sys_get_temp_dir(),
+        uniqid($prefix)
+    );
+    if (is_dir($directory)) {
+        return null;
+    }
+    if (false === mkdir($directory, $mode)) {
+        return null;
+    }
+    return $directory;
 }
 
 /**
@@ -850,12 +940,13 @@ function mkdtemp($prefix = "", $mode = 0700): ?string {
  *   bits <= 32. Defaults to FALSE which auto-detects the address family.
  * @return The netmask as string.
  */
-function inet_getnetmask($bits, $forceipv6 = FALSE) {
-	$af = (32 < $bits) ? AF_INET6 : ((TRUE === $forceipv6) ? AF_INET6 : AF_INET);
-	$binNetmask = str_pad(str_repeat("1", $bits), ($af == AF_INET6) ?
-	  128 : 32, "0", STR_PAD_RIGHT);
-	$inaddr = pack("H*", base_convert($binNetmask, 2, 16));
-	return inet_ntop($inaddr);
+function inet_getnetmask($bits, $forceipv6 = false)
+{
+    $af = (32 < $bits) ? AF_INET6 : ((true === $forceipv6) ? AF_INET6 : AF_INET);
+    $binNetmask = str_pad(str_repeat("1", $bits), ($af == AF_INET6) ?
+      128 : 32, "0", STR_PAD_RIGHT);
+    $inaddr = pack("H*", base_convert($binNetmask, 2, 16));
+    return inet_ntop($inaddr);
 }
 
 /**
@@ -866,13 +957,14 @@ function inet_getnetmask($bits, $forceipv6 = FALSE) {
  * @param int $max The maximum value of the sequence.
  * @return TRUE if the value is within the range, otherwise FALSE.
  */
-function in_range($var, $min, $max): bool {
-	// See http://php.net/manual/en/filter.filters.validate.php.
-	return (FALSE !== filter_var($var, FILTER_VALIDATE_INT, [
-	  'options' => [
-		  'min_range' => $min,
-		  'max_range' => $max
-	  ]]));
+function in_range($var, $min, $max): bool
+{
+    // See http://php.net/manual/en/filter.filters.validate.php.
+    return (false !== filter_var($var, FILTER_VALIDATE_INT, [
+      'options' => [
+          'min_range' => $min,
+          'max_range' => $max
+      ]]));
 }
 
 /**
@@ -882,10 +974,12 @@ function in_range($var, $min, $max): bool {
  * @param string $uuid2 The second UUID v4.
  * @return Returns TRUE when the two strings are equal, FALSE otherwise.
  */
-function uuid_equals($uuid1, $uuid2): bool {
-	if (!is_uuid($uuid1) || !is_uuid($uuid2))
-		return FALSE;
-	return ($uuid1 == $uuid2);
+function uuid_equals($uuid1, $uuid2): bool
+{
+    if (!is_uuid($uuid1) || !is_uuid($uuid2)) {
+        return false;
+    }
+    return ($uuid1 == $uuid2);
 }
 
 /**
@@ -896,10 +990,12 @@ function uuid_equals($uuid1, $uuid2): bool {
  * @param string $uuid2 The second file system UUID.
  * @return Returns TRUE when the two strings are equal, FALSE otherwise.
  */
-function fs_uuid_equals($uuid1, $uuid2): bool {
-	if (!is_fs_uuid($uuid1) || !is_fs_uuid($uuid2))
-		return FALSE;
-	return ($uuid1 == $uuid2);
+function fs_uuid_equals($uuid1, $uuid2): bool
+{
+    if (!is_fs_uuid($uuid1) || !is_fs_uuid($uuid2)) {
+        return false;
+    }
+    return ($uuid1 == $uuid2);
 }
 
 /**
@@ -910,21 +1006,25 @@ function fs_uuid_equals($uuid1, $uuid2): bool {
  * @return Returns an array of the names of the declared classes in the
  *   current script that match the specified criteria.
  */
-function get_declared_subclasses($class): array {
-	$classNames = [];
-	foreach (get_declared_classes() as $className) {
-		$wanted = TRUE;
-		$classObject = new \ReflectionClass($className);
-		if (!$classObject->isSubclassOf($class))
-			$wanted = FALSE;
-		if ($classObject->isAbstract())
-			$wanted = FALSE;
-		unset($classObject);
-		if (!$wanted)
-			continue;
-		$classNames[] = $className;
-	}
-	return $classNames;
+function get_declared_subclasses($class): array
+{
+    $classNames = [];
+    foreach (get_declared_classes() as $className) {
+        $wanted = true;
+        $classObject = new \ReflectionClass($className);
+        if (!$classObject->isSubclassOf($class)) {
+            $wanted = false;
+        }
+        if ($classObject->isAbstract()) {
+            $wanted = false;
+        }
+        unset($classObject);
+        if (!$wanted) {
+            continue;
+        }
+        $classNames[] = $className;
+    }
+    return $classNames;
 }
 
 /**
@@ -934,18 +1034,22 @@ function get_declared_subclasses($class): array {
  * @param sig One of the PCNTL signals constants.
  * @return Returns TRUE on success or FALSE on failure.
  */
-function posix_kill_ex($pid, $sig): bool {
-	exec("ps --no-headers -e -o pid,ppid", $output, $exitStatus);
-	if ($exitStatus)
-		return FALSE;
-	foreach ($output as $rowk => $rowv) {
-		if (1 !== preg_match('/^\s*(\d+)\s+(\d+)\s*$/', $rowv, $matches))
-			continue;
-		if (intval($matches[2]) !== $pid)
-			continue;
-		posix_kill_ex(intval($matches[1]), $sig);
-	}
-	return posix_kill($pid, $sig);
+function posix_kill_ex($pid, $sig): bool
+{
+    exec("ps --no-headers -e -o pid,ppid", $output, $exitStatus);
+    if ($exitStatus) {
+        return false;
+    }
+    foreach ($output as $rowk => $rowv) {
+        if (1 !== preg_match('/^\s*(\d+)\s+(\d+)\s*$/', $rowv, $matches)) {
+            continue;
+        }
+        if (intval($matches[2]) !== $pid) {
+            continue;
+        }
+        posix_kill_ex(intval($matches[1]), $sig);
+    }
+    return posix_kill($pid, $sig);
 }
 
 /**
@@ -960,8 +1064,9 @@ function posix_kill_ex($pid, $sig): bool {
  *   Defaults to FALSE.
  * @return string|array The escaped string.
  */
-function escape_blank($var, $octal = FALSE) {
-	return str_replace(" ", $octal ? "\\040" : "\\x20", $var);
+function escape_blank($var, $octal = false)
+{
+    return str_replace(" ", $octal ? "\\040" : "\\x20", $var);
 }
 
 /**
@@ -976,8 +1081,9 @@ function escape_blank($var, $octal = FALSE) {
  *   Defaults to FALSE.
  * @return string|array The escaped string.
  */
-function escape_path($var, $octal = FALSE) {
-	return escape_blank($var, $octal);
+function escape_path($var, $octal = false)
+{
+    return escape_blank($var, $octal);
 }
 
 /**
@@ -987,8 +1093,9 @@ function escape_path($var, $octal = FALSE) {
  * @param string $var The variable that will be escaped.
  * @return string|array The escaped string.
  */
-function escape_percent($var) {
-	return str_replace("%", "%%", $var);
+function escape_percent($var)
+{
+    return str_replace("%", "%%", $var);
 }
 
 /**
@@ -1003,8 +1110,9 @@ function escape_percent($var) {
  *   Defaults to FALSE.
  * @return string|array The unescaped string.
  */
-function unescape_blank($var, $octal = FALSE) {
-	return str_replace($octal ? "\\040" : "\\x20", " ", $var);
+function unescape_blank($var, $octal = false)
+{
+    return str_replace($octal ? "\\040" : "\\x20", " ", $var);
 }
 
 /**
@@ -1019,8 +1127,9 @@ function unescape_blank($var, $octal = FALSE) {
  *   Defaults to FALSE.
  * @return string|array The unescaped string.
  */
-function unescape_path($var, $octal = FALSE) {
-	return unescape_blank($var, $octal);
+function unescape_path($var, $octal = false)
+{
+    return unescape_blank($var, $octal);
 }
 
 /**
@@ -1031,11 +1140,12 @@ function unescape_path($var, $octal = FALSE) {
  * @return Returns an array of strings created by splitting the string
  *   parameter on boundaries formed by the delimiter.
  */
-function explode_safe($delimiter, $string): array {
-	if (empty($string)) {
-		return [];
-	}
-	return explode($delimiter, $string);
+function explode_safe($delimiter, $string): array
+{
+    if (empty($string)) {
+        return [];
+    }
+    return explode($delimiter, $string);
 }
 
 /**
@@ -1049,10 +1159,11 @@ function explode_safe($delimiter, $string): array {
  *   parameter on boundaries formed by the separator or NULL on
  *   failure.
  */
-function explode_csv($string, $separator = ",;", $autoTrim = TRUE): ?array {
+function explode_csv($string, $separator = ",;", $autoTrim = true): ?array
+{
     $parts = preg_split("/[".$separator."]+/", $string);
-    if (FALSE === $parts) {
-        return NULL;
+    if (false === $parts) {
+        return null;
     }
     if ($autoTrim) {
         $parts = array_map("trim", $parts);
@@ -1065,9 +1176,10 @@ function explode_csv($string, $separator = ",;", $autoTrim = TRUE): ?array {
  * @param int dev The device number.
  * @return Returns the major number of the device number.
  */
-function major_dev($dev): int {
-	// https://github.com/torvalds/linux/blob/v5.16/include/linux/kdev_t.h
-	return ($dev & 0xfff00) >> 8;
+function major_dev($dev): int
+{
+    // https://github.com/torvalds/linux/blob/v5.16/include/linux/kdev_t.h
+    return ($dev & 0xfff00) >> 8;
 }
 
 /**
@@ -1075,9 +1187,10 @@ function major_dev($dev): int {
  * @param int dev The device number.
  * @return Returns the minor number of the device number.
  */
-function minor_dev($dev): int {
-	// https://github.com/torvalds/linux/blob/v5.16/include/linux/kdev_t.h
-	return ($dev & 0xff) | (($dev >> 12) & 0xfff00);
+function minor_dev($dev): int
+{
+    // https://github.com/torvalds/linux/blob/v5.16/include/linux/kdev_t.h
+    return ($dev & 0xff) | (($dev >> 12) & 0xfff00);
 }
 
 /**
@@ -1085,32 +1198,40 @@ function minor_dev($dev): int {
  * @param string $filename Path to the file.
  * @return Returns TRUE if the file is locked, otherwise FALSE.
  */
-function is_locked($filename): bool {
-	$locked = FALSE;
-	if (file_exists($filename)) {
-		$stat = stat($filename);
-		// https://www.baeldung.com/linux/file-locking#2-proclocks
-		$search = sprintf("%02x:%02x:%d", major_dev($stat['dev']),
-			minor_dev($stat['dev']), $stat['ino']);
-		$locks = file("/proc/locks");
-		foreach ($locks as $linek => $linev) {
-			if (FALSE !== mb_strpos($linev, $search)) {
-				$locked = TRUE;
-				break;
-			}
-		}
-	}
-	return $locked;
+function is_locked($filename): bool
+{
+    $locked = false;
+    if (file_exists($filename)) {
+        $stat = stat($filename);
+        // https://www.baeldung.com/linux/file-locking#2-proclocks
+        $search = sprintf(
+            "%02x:%02x:%d",
+            major_dev($stat['dev']),
+            minor_dev($stat['dev']),
+            $stat['ino']
+        );
+        $locks = file("/proc/locks");
+        foreach ($locks as $linek => $linev) {
+            if (false !== mb_strpos($linev, $search)) {
+                $locked = true;
+                break;
+            }
+        }
+    }
+    return $locked;
 }
 
-class __Defer {
+class __Defer
+{
     private $callback;
 
-    public function __construct(callable $callback) {
+    public function __construct(callable $callback)
+    {
         $this->callback = $callback;
     }
 
-    public function __destruct() {
+    public function __destruct()
+    {
         call_user_func($this->callback);
     }
 }
@@ -1125,7 +1246,8 @@ class __Defer {
  *   callback function when the variable that it is assigned to goes
  *   out of scope.
  */
-function defer(callable $callback) {
+function defer(callable $callback)
+{
     return new __Defer($callback);
 }
 
@@ -1137,13 +1259,16 @@ function defer(callable $callback) {
  *   timeout is reached.
  * @throws RuntimeException If the timeout is reached.
  */
-function waitUntil($timeout, callable $callback, $message = NULL): void {
-	for ($i = 0; $i < $timeout; $i++) {
-		sleep(1);
-		if (TRUE === $callback()) {
-			return;
-		}
-	}
-	throw new \RuntimeException(is_null($message) ? sprintf(
-		"Timeout reached after %d seconds.", $timeout) : $message);
+function waitUntil($timeout, callable $callback, $message = null): void
+{
+    for ($i = 0; $i < $timeout; $i++) {
+        sleep(1);
+        if (true === $callback()) {
+            return;
+        }
+    }
+    throw new \RuntimeException(is_null($message) ? sprintf(
+        "Timeout reached after %d seconds.",
+        $timeout
+    ) : $message);
 }

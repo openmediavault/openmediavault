@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,42 +20,54 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace Engined\Rpc;
 
 require_once("openmediavault/functions.inc");
 
-class OMVRpcServiceWeTTY extends \OMV\Rpc\ServiceAbstract {
-	public function getName() {
-		return "WeTTY";
-	}
+class OMVRpcServiceWeTTY extends \OMV\Rpc\ServiceAbstract
+{
+    public function getName()
+    {
+        return "WeTTY";
+    }
 
-	public function initialize() {
-		$this->registerMethod("get");
-		$this->registerMethod("set");
-	}
+    public function initialize()
+    {
+        $this->registerMethod("get");
+        $this->registerMethod("set");
+    }
 
-	function get($params, $context) {
-		return \OMV\Rpc\Rpc::call("Config", "get", [
-			"id" => "conf.service.wetty"
-		], $context);
-	}
+    public function get($params, $context)
+    {
+        return \OMV\Rpc\Rpc::call("Config", "get", [
+            "id" => "conf.service.wetty"
+        ], $context);
+    }
 
-	function set($params, $context) {
-		$this->validateMethodContext($context, [
-			"role" => OMV_ROLE_ADMINISTRATOR
-		]);
-		// Do some validations.
-		if (boolvalEx($params['enable'])) {
-			$db = \OMV\Config\Database::getInstance();
-			$object = $db->get("conf.service.ssh");
-			$object->assertValue("enable", TRUE,
-				"SSH must be enabled.");
-			$object->assertValue("passwordauthentication", TRUE,
-				"SSH password authentication must be enabled.");
-		}
-		return \OMV\Rpc\Rpc::call("Config", "set", [
-			"id" => "conf.service.wetty",
-			"data" => $params
-		], $context);
-	}
+    public function set($params, $context)
+    {
+        $this->validateMethodContext($context, [
+            "role" => OMV_ROLE_ADMINISTRATOR
+        ]);
+        // Do some validations.
+        if (boolvalEx($params['enable'])) {
+            $db = \OMV\Config\Database::getInstance();
+            $object = $db->get("conf.service.ssh");
+            $object->assertValue(
+                "enable",
+                true,
+                "SSH must be enabled."
+            );
+            $object->assertValue(
+                "passwordauthentication",
+                true,
+                "SSH password authentication must be enabled."
+            );
+        }
+        return \OMV\Rpc\Rpc::call("Config", "set", [
+            "id" => "conf.service.wetty",
+            "data" => $params
+        ], $context);
+    }
 }

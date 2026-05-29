@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,56 +20,63 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage\Backend;
 
 /**
  * Implements the storage device backend for KVM VirtIO devices.
  * @ingroup api
  */
-class VirtIO extends BackendAbstract {
-	function getType() {
-		return OMV_STORAGE_DEVICE_KIND_GENERIC |
-			OMV_STORAGE_DEVICE_TRAIT_BLOCK |
-			OMV_STORAGE_DEVICE_TRAIT_VIRTUAL;
-	}
+class VirtIO extends BackendAbstract
+{
+    public function getType()
+    {
+        return OMV_STORAGE_DEVICE_KIND_GENERIC |
+            OMV_STORAGE_DEVICE_TRAIT_BLOCK |
+            OMV_STORAGE_DEVICE_TRAIT_VIRTUAL;
+    }
 
-	/**
-	 * See interface definition.
-	 */
-	function enumerate() {
-		// major minor  #blocks  name
-		//  254        0  976762584 vda
-		//  254       16  976762584 vdb
-		//   11        0     355328 sr0
-		//    8        0    8388608 sda
-		//    8        1    7993344 sda1
-		//    8        2          1 sda2
-		//    8        5     392192 sda5
-		return $this->enumerateProcFs("vd[a-z]+");
-	}
+    /**
+     * See interface definition.
+     */
+    public function enumerate()
+    {
+        // major minor  #blocks  name
+        //  254        0  976762584 vda
+        //  254       16  976762584 vdb
+        //   11        0     355328 sr0
+        //    8        0    8388608 sda
+        //    8        1    7993344 sda1
+        //    8        2          1 sda2
+        //    8        5     392192 sda5
+        return $this->enumerateProcFs("vd[a-z]+");
+    }
 
-	/**
-	 * See interface definition.
-	 */
-	function isTypeOf($deviceFile) {
-		// Examples:
-		// - /dev/vda
-		// - /dev/vda1
-		$regex = "vd[a-z]+[0-9]*";
-		return $this->isTypeOfByName($deviceFile, $regex);
-	}
+    /**
+     * See interface definition.
+     */
+    public function isTypeOf($deviceFile)
+    {
+        // Examples:
+        // - /dev/vda
+        // - /dev/vda1
+        $regex = "vd[a-z]+[0-9]*";
+        return $this->isTypeOfByName($deviceFile, $regex);
+    }
 
-	/**
-	 * See interface definition.
-	 */
-	function getImpl($args) {
-		return new \OMV\System\Storage\StorageDeviceVirtIO($args);
-	}
+    /**
+     * See interface definition.
+     */
+    public function getImpl($args)
+    {
+        return new \OMV\System\Storage\StorageDeviceVirtIO($args);
+    }
 
-	/**
-	 * See interface definition.
-	 */
-	function baseDeviceFile($deviceFile) {
-		return preg_replace("/(\d+)$/", "", $deviceFile);
-	}
+    /**
+     * See interface definition.
+     */
+    public function baseDeviceFile($deviceFile)
+    {
+        return preg_replace("/(\d+)$/", "", $deviceFile);
+    }
 }

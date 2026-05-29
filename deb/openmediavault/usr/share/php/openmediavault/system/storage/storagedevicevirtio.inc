@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,29 +20,37 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage;
 
 /**
  * This class provides a simple interface to handle KVM VirtIO devices.
  * @ingroup api
  */
-class StorageDeviceVirtIO extends StorageDevice implements SmartInterface {
-	use SmartTrait;
+class StorageDeviceVirtIO extends StorageDevice implements SmartInterface
+{
+    use SmartTrait;
 
-	/**
-	 * See interface definition.
-	 */
-	public function getDescription() {
-		$model = $this->getModel();
-		return sprintf("%s [%s, %s]", !empty($model) ? $model :
-		  gettext("VirtIO device"), $this->getDeviceFile(),
-		  binary_format($this->getSize()));
-	}
+    /**
+     * See interface definition.
+     */
+    public function getDescription()
+    {
+        $model = $this->getModel();
+        return sprintf(
+            "%s [%s, %s]",
+            !empty($model) ? $model :
+          gettext("VirtIO device"),
+            $this->getDeviceFile(),
+            binary_format($this->getSize())
+        );
+    }
 
-	/**
-	 * See \OMV\System\Storage\SmartInterface interface definition.
-	 */
-	public function getSmartDeviceType() {
-		return "sat";
-	}
+    /**
+     * See \OMV\System\Storage\SmartInterface interface definition.
+     */
+    public function getSmartDeviceType()
+    {
+        return "sat";
+    }
 }

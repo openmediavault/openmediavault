@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage\Backend;
 
 /**
@@ -26,49 +28,60 @@ namespace OMV\System\Storage\Backend;
  * software RAID devices.
  * @ingroup api
  */
-class Md extends BackendAbstract {
-	protected $regex = "md\d+(p\d+)*";
+class Md extends BackendAbstract
+{
+    protected $regex = "md\d+(p\d+)*";
 
-	function getType() {
-		return OMV_STORAGE_DEVICE_KIND_MD |
-			OMV_STORAGE_DEVICE_TRAIT_BLOCK |
-			OMV_STORAGE_DEVICE_TRAIT_STACKED;
-	}
+    public function getType()
+    {
+        return OMV_STORAGE_DEVICE_KIND_MD |
+            OMV_STORAGE_DEVICE_TRAIT_BLOCK |
+            OMV_STORAGE_DEVICE_TRAIT_STACKED;
+    }
 
-	function enumerate() {
-		return $this->enumerateProcFs($this->regex);
-	}
+    public function enumerate()
+    {
+        return $this->enumerateProcFs($this->regex);
+    }
 
-	function enumerateSlaves() {
-		$devs = $this->enumerate();
-		if (FALSE === $devs)
-			return FALSE;
-		$result = [];
-		foreach ($devs as $devk => $devv) {
-			$object = $this->getImpl($devv);
-			if (!$object->exists())
-				continue;
-			$slaves = $object->getSlaves();
-			if (FALSE === $slaves)
-				continue;
-			$result = array_merge($result, $slaves);
-		}
-		return $result;
-	}
+    public function enumerateSlaves()
+    {
+        $devs = $this->enumerate();
+        if (false === $devs) {
+            return false;
+        }
+        $result = [];
+        foreach ($devs as $devk => $devv) {
+            $object = $this->getImpl($devv);
+            if (!$object->exists()) {
+                continue;
+            }
+            $slaves = $object->getSlaves();
+            if (false === $slaves) {
+                continue;
+            }
+            $result = array_merge($result, $slaves);
+        }
+        return $result;
+    }
 
-	function isTypeOf($deviceFile) {
-		return $this->isTypeOfByName($deviceFile, $this->regex);
-	}
+    public function isTypeOf($deviceFile)
+    {
+        return $this->isTypeOfByName($deviceFile, $this->regex);
+    }
 
-	function getImpl($args) {
-		return new \OMV\System\Storage\StorageDeviceMd($args);
-	}
+    public function getImpl($args)
+    {
+        return new \OMV\System\Storage\StorageDeviceMd($args);
+    }
 
-	function baseDeviceFile($deviceFile) {
-		return preg_replace("/(p\d+)$/", "", $deviceFile);
-	}
+    public function baseDeviceFile($deviceFile)
+    {
+        return preg_replace("/(p\d+)$/", "", $deviceFile);
+    }
 
-	function fsDeviceFile($deviceFile, $partition = 1) {
-		return $deviceFile;
-	}
+    public function fsDeviceFile($deviceFile, $partition = 1)
+    {
+        return $deviceFile;
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,19 +20,23 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace Engined\Module;
 
-class Task extends \OMV\Engine\Module\ServiceAbstract {
-	public function getName() {
-		return "task";
-	}
+class Task extends \OMV\Engine\Module\ServiceAbstract
+{
+    public function getName()
+    {
+        return "task";
+    }
 
-	public function deploy() {
-		$cmd = new \OMV\System\Process("salt-call", [
-			"--local", "--retcode-passthrough", "--no-color",
-			"state.apply", "omv.task"
-		]);
-		$cmd->setRedirect2to1();
-		$cmd->execute();
-	}
+    public function deploy()
+    {
+        $cmd = new \OMV\System\Process("salt-call", [
+            "--local", "--retcode-passthrough", "--no-color",
+            "state.apply", "omv.task"
+        ]);
+        $cmd->setRedirect2to1();
+        $cmd->execute();
+    }
 }

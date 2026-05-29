@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -25,16 +26,16 @@ require_once("openmediavault/autoloader.inc");
  * @defgroup api The Application Programming Interface
  */
 define("OMV_NOTIFY_PRECREATE", 0x1);
-define("OMV_NOTIFY_CREATE",    0x2);
+define("OMV_NOTIFY_CREATE", 0x2);
 define("OMV_NOTIFY_PREMODIFY", 0x4);
-define("OMV_NOTIFY_MODIFY",    0x8);
+define("OMV_NOTIFY_MODIFY", 0x8);
 define("OMV_NOTIFY_PREDELETE", 0x10);
-define("OMV_NOTIFY_DELETE",    0x20);
-define("OMV_NOTIFY_EVENT",     0x40);
+define("OMV_NOTIFY_DELETE", 0x20);
+define("OMV_NOTIFY_EVENT", 0x40);
 
 define("OMV_ROLE_ADMINISTRATOR", 0x1);
-define("OMV_ROLE_USER",          0x2);
-define("OMV_ROLE_EVERYONE",      OMV_ROLE_ADMINISTRATOR | OMV_ROLE_USER);
+define("OMV_ROLE_USER", 0x2);
+define("OMV_ROLE_EVERYONE", OMV_ROLE_ADMINISTRATOR | OMV_ROLE_USER);
 
 // Storage device traits describe orthogonal properties of a backend.
 define("OMV_STORAGE_DEVICE_TRAIT_BLOCK", 0x1);
@@ -43,13 +44,15 @@ define("OMV_STORAGE_DEVICE_TRAIT_PHYSICAL", 0x4);
 define("OMV_STORAGE_DEVICE_TRAIT_VIRTUAL", 0x8);
 define("OMV_STORAGE_DEVICE_TRAIT_STACKED", 0x10);
 define("OMV_STORAGE_DEVICE_TRAIT_REMOTE", 0x20);
-define("OMV_STORAGE_DEVICE_TRAIT_ALL",
-	OMV_STORAGE_DEVICE_TRAIT_BLOCK |
-	OMV_STORAGE_DEVICE_TRAIT_CHARACTER |
-	OMV_STORAGE_DEVICE_TRAIT_PHYSICAL |
-	OMV_STORAGE_DEVICE_TRAIT_VIRTUAL |
-	OMV_STORAGE_DEVICE_TRAIT_STACKED |
-	OMV_STORAGE_DEVICE_TRAIT_REMOTE);
+define(
+    "OMV_STORAGE_DEVICE_TRAIT_ALL",
+    OMV_STORAGE_DEVICE_TRAIT_BLOCK |
+    OMV_STORAGE_DEVICE_TRAIT_CHARACTER |
+    OMV_STORAGE_DEVICE_TRAIT_PHYSICAL |
+    OMV_STORAGE_DEVICE_TRAIT_VIRTUAL |
+    OMV_STORAGE_DEVICE_TRAIT_STACKED |
+    OMV_STORAGE_DEVICE_TRAIT_REMOTE
+);
 
 // Storage device kinds identify the concrete backend family.
 // Note: KIND_GENERIC is an abstract generic disk-like family and intentionally
@@ -63,19 +66,23 @@ define("OMV_STORAGE_DEVICE_KIND_DM", 0x800000);
 define("OMV_STORAGE_DEVICE_KIND_SG", 0x1000000);
 // Complete kind-bit mask including all KIND_* constants (including character-only
 // families like SG). Use this when you need to match ALL possible device kinds.
-define("OMV_STORAGE_DEVICE_KIND_ALL",
-	OMV_STORAGE_DEVICE_KIND_GENERIC |
-	OMV_STORAGE_DEVICE_KIND_MD |
-	OMV_STORAGE_DEVICE_KIND_LOOP |
-	OMV_STORAGE_DEVICE_KIND_DM |
-	OMV_STORAGE_DEVICE_KIND_SG);
+define(
+    "OMV_STORAGE_DEVICE_KIND_ALL",
+    OMV_STORAGE_DEVICE_KIND_GENERIC |
+    OMV_STORAGE_DEVICE_KIND_MD |
+    OMV_STORAGE_DEVICE_KIND_LOOP |
+    OMV_STORAGE_DEVICE_KIND_DM |
+    OMV_STORAGE_DEVICE_KIND_SG
+);
 // Default kind mask used by generic block-device enumeration. Character-only
 // families like SG are intentionally excluded.
-define("OMV_STORAGE_DEVICE_KIND_DEFAULT",
-	OMV_STORAGE_DEVICE_KIND_GENERIC |
-	OMV_STORAGE_DEVICE_KIND_MD |
-	OMV_STORAGE_DEVICE_KIND_LOOP |
-	OMV_STORAGE_DEVICE_KIND_DM);
+define(
+    "OMV_STORAGE_DEVICE_KIND_DEFAULT",
+    OMV_STORAGE_DEVICE_KIND_GENERIC |
+    OMV_STORAGE_DEVICE_KIND_MD |
+    OMV_STORAGE_DEVICE_KIND_LOOP |
+    OMV_STORAGE_DEVICE_KIND_DM
+);
 
 // Legacy storage device type bits kept for plugin backwards compatibility.
 define("OMV_STORAGE_DEVICE_TYPE_DISK", 0x1000); // @deprecated
@@ -83,11 +90,13 @@ define("OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID", 0x2000); // @deprecated
 define("OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE", 0x4000); // @deprecated
 define("OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER", 0x8000); // @deprecated
 define("OMV_STORAGE_DEVICE_TYPE_SCSIGENERIC", 0x10000); // @deprecated
-define("OMV_STORAGE_DEVICE_TYPE_ALL",
-	OMV_STORAGE_DEVICE_TYPE_DISK |
-	OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID |
-	OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE |
-	OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER); // @deprecated
+define(
+    "OMV_STORAGE_DEVICE_TYPE_ALL",
+    OMV_STORAGE_DEVICE_TYPE_DISK |
+    OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID |
+    OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE |
+    OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER
+); // @deprecated
 
 define("OMV_NETWORK_INTERFACE_TYPE_ETHERNET", 0x1);
 define("OMV_NETWORK_INTERFACE_TYPE_BOND", 0x2);
@@ -109,8 +118,8 @@ define("OMV_NETWORK_INTERFACE_TYPE_ALL", 0xFF);
 \OMV\Environment::set("OMV_ENGINED_SO_RCVTIMEO", 180);
 \OMV\Environment::set("OMV_ENGINED_SO_CONNECT_MAX_ATTEMPT", 5);
 \OMV\Environment::set("OMV_ENGINED_DIRTY_MODULES_FILE", "/var/lib/openmediavault/dirtymodules.json");
-\OMV\Environment::set("OMV_USERMGMT_ENUMERATE_USER_ROOT", TRUE);
-\OMV\Environment::set("OMV_PLUGIN_ENUMERATE_GET_REPOSITORY", TRUE);
+\OMV\Environment::set("OMV_USERMGMT_ENUMERATE_USER_ROOT", true);
+\OMV\Environment::set("OMV_PLUGIN_ENUMERATE_GET_REPOSITORY", true);
 \OMV\Environment::set("OMV_MKFS_OPTIONS_EXT3", "-b 4096 -m 0");
 \OMV\Environment::set("OMV_MKFS_OPTIONS_EXT4", "-b 4096 -m 0 -E lazy_itable_init=0,lazy_journal_init=0 -O quota");
 \OMV\Environment::set("OMV_MKFS_OPTIONS_JFS", "-q");
@@ -137,44 +146,45 @@ define("OMV_NETWORK_INTERFACE_TYPE_ALL", 0xFF);
 \OMV\Environment::set("OMV_APT_PLUGINS_INDEX_FILE", "/var/lib/openmediavault/apt/pluginsindex.json");
 \OMV\Environment::set("OMV_APT_UPGRADE_INDEX_FILE", "/var/lib/openmediavault/apt/upgradeindex.json");
 \OMV\Environment::set("OMV_DUNE_QUOTES", [ // http://www.nightsolo.net/dune/god.html
-	"The beginning of knowledge is the discovery of something ".
-		"we do not understand.",
-	"He who controls the spice controls the universe.",
-	"Try looking into that place where you dare not look! You'll ".
-		"find me there, staring out at you!",
-	"A large populace held in check by a small but powerful force ".
-		"is quite a common situation in our universe. And we know the ".
-		"major conditions wherein this large populace may turn upon ".
-		"its keepers: When they find a leader. This is the most ".
-		"volatile threat to the powerful; they must retain control of ".
-		"leaders. When the populace recognizes its chains. Keep the ".
-		"populace blind and unquestioning. When the populace perceives ".
-		"a hope of escape from bondage. They must never even believe ".
-		"that escape is possible!",
-	"I must not fear. Fear is the mind-killer. Fear is the ".
-		"little-death that brings total obliteration. I will face my ".
-		"fear. I will permit it to pass over me and through me. And ".
-		"when it has gone past I will turn the inner eye to see its ".
-		"path. Where the fear has gone there will be nothing. Only I ".
-		"will remain.",
-	"People always fear the unknown, if they are truthful about ".
-		"it. But i can face my fears.",
-	"Fear is the mind-killer.",
-	"Without change something sleeps inside us, and seldom awakens. ".
-		"The sleeper must awaken.",
-	"What does a mirror look at?",
-	"A great man does not seek to lead. He is called to it."
+    "The beginning of knowledge is the discovery of something ".
+        "we do not understand.",
+    "He who controls the spice controls the universe.",
+    "Try looking into that place where you dare not look! You'll ".
+        "find me there, staring out at you!",
+    "A large populace held in check by a small but powerful force ".
+        "is quite a common situation in our universe. And we know the ".
+        "major conditions wherein this large populace may turn upon ".
+        "its keepers: When they find a leader. This is the most ".
+        "volatile threat to the powerful; they must retain control of ".
+        "leaders. When the populace recognizes its chains. Keep the ".
+        "populace blind and unquestioning. When the populace perceives ".
+        "a hope of escape from bondage. They must never even believe ".
+        "that escape is possible!",
+    "I must not fear. Fear is the mind-killer. Fear is the ".
+        "little-death that brings total obliteration. I will face my ".
+        "fear. I will permit it to pass over me and through me. And ".
+        "when it has gone past I will turn the inner eye to see its ".
+        "path. Where the fear has gone there will be nothing. Only I ".
+        "will remain.",
+    "People always fear the unknown, if they are truthful about ".
+        "it. But i can face my fears.",
+    "Fear is the mind-killer.",
+    "Without change something sleeps inside us, and seldom awakens. ".
+        "The sleeper must awaken.",
+    "What does a mirror look at?",
+    "A great man does not seek to lead. He is called to it."
 ]);
 
 // Read the default file.
 $defaultFile = \OMV\Environment::get("OMV_DEFAULT_FILE");
 if (posix_access($defaultFile, POSIX_F_OK | POSIX_R_OK)) {
-	$lines = file($defaultFile);
-	foreach ($lines as $kline => $vline) {
-		$regex = "/^(OMV_[A-Z0-9_]+)=(\")?([^\"]*)(\")?$/";
-		if (1 == preg_match($regex, trim($vline), $matches))
-			\OMV\Environment::set($matches[1], $matches[3]);
-		unset($matches);
-	}
-	unset($lines);
+    $lines = file($defaultFile);
+    foreach ($lines as $kline => $vline) {
+        $regex = "/^(OMV_[A-Z0-9_]+)=(\")?([^\"]*)(\")?$/";
+        if (1 == preg_match($regex, trim($vline), $matches)) {
+            \OMV\Environment::set($matches[1], $matches[3]);
+        }
+        unset($matches);
+    }
+    unset($lines);
 }

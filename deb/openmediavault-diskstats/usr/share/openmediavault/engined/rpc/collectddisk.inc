@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,37 +20,47 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace Engined\Rpc;
 
-class OMVRpcServiceCollectdDisk extends \OMV\Rpc\ServiceAbstract {
-	public function getName() {
-		return "CollectdDisk";
-	}
+class OMVRpcServiceCollectdDisk extends \OMV\Rpc\ServiceAbstract
+{
+    public function getName()
+    {
+        return "CollectdDisk";
+    }
 
-	public function initialize() {
-		$this->registerMethod("enumerate");
-	}
+    public function initialize()
+    {
+        $this->registerMethod("enumerate");
+    }
 
-	public function enumerate($params, $context) {
-		$objects = \OMV\Rpc\Rpc::call("FileSystemMgmt",
-			"enumerateMountedFilesystems", [
-				"includeroot" => TRUE
-			], $context);
-		$result = [];
-		foreach ($objects as $objectk => $objectv) {
-			if (empty($objectv['parentdevicefile'])) {
-				continue;
-			}
-			$sd = \OMV\System\Storage\StorageDevice::assertGetStorageDevice(
-				$objectv['parentdevicefile']);
-			$result[] = [
-				"devicefile" => $sd->getPreferredDeviceFile(),
-				"predictabledevicefile" => $sd->getPredictableDeviceFile(),
-				"canonicaldevicefile" => $sd->getCanonicalDeviceFile(),
-				"root" => $objectv['mountpoint'] === "/",
-				"description" => $sd->getDescription()
-			];
-		};
-		return $result;
-	}
+    public function enumerate($params, $context)
+    {
+        $objects = \OMV\Rpc\Rpc::call(
+            "FileSystemMgmt",
+            "enumerateMountedFilesystems",
+            [
+                "includeroot" => true
+            ],
+            $context
+        );
+        $result = [];
+        foreach ($objects as $objectk => $objectv) {
+            if (empty($objectv['parentdevicefile'])) {
+                continue;
+            }
+            $sd = \OMV\System\Storage\StorageDevice::assertGetStorageDevice(
+                $objectv['parentdevicefile']
+            );
+            $result[] = [
+                "devicefile" => $sd->getPreferredDeviceFile(),
+                "predictabledevicefile" => $sd->getPredictableDeviceFile(),
+                "canonicaldevicefile" => $sd->getCanonicalDeviceFile(),
+                "root" => $objectv['mountpoint'] === "/",
+                "description" => $sd->getDescription()
+            ];
+        };
+        return $result;
+    }
 }

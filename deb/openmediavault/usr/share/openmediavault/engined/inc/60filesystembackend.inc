@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Filesystem\Backend;
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -30,9 +32,9 @@ $backends = [ "Bcache", "Btrfs", "Ext", "Ext2", "Ext3", "Ext4", "Hfsplus",
   "Reiser4" ];
 $mngr = Manager::getInstance();
 foreach ($backends as $backendk => $backendv) {
-	$className = sprintf("%s\%s", __NAMESPACE__, $backendv);
-	$mngr->registerBackend(new $className());
+    $className = sprintf("%s\%s", __NAMESPACE__, $backendv);
+    $mngr->registerBackend(new $className());
 }
-if (TRUE === $debug) {
-	$mngr->dump();
+if (true === $debug) {
+    $mngr->dump();
 }

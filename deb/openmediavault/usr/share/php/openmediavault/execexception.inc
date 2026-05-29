@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,52 +20,60 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV;
 
 /**
  * \em ExecException is thrown when the execution of a process fails.
  * @ingroup api
  */
-class ExecException extends BaseException {
-	private $cmdLine = NULL;
-	private $output = [];
-	private $exitStatus = NULL;
+class ExecException extends BaseException
+{
+    private $cmdLine = null;
+    private $output = [];
+    private $exitStatus = null;
 
-	/**
-	 * @param string $cmdLine The command line string or a
-	 *   \OMV\System\Process instance.
-	 * @param array $output The output of the executed command.
-	 * @param int $exitStatus The return status of the executed command.
-	 */
-	public function __construct($cmdLine, array $output = array(),
-			$exitStatus = NULL) {
-	  	if ($cmdLine instanceof \OMV\System\Process) {
-			$cmdLine->obfuscateEnvs();
-	  	}
-		$this->cmdLine = strval($cmdLine);
-		$this->output = $output;
-		$this->exitStatus = $exitStatus;
-		$args = [];
-		$args[] = $this->cmdLine;
-		if (!is_null($this->exitStatus)) {
-			$format = "Failed to execute command '%s' with exit code '%d': %s";
-			$args[] = $this->exitStatus;
-		} else {
-			$format = "Failed to execute command '%s': %s";
-		}
-		$args[] = implode("\n", $output);
-		parent::__construct(vsprintf($format, $args));
-	}
+    /**
+     * @param string $cmdLine The command line string or a
+     *   \OMV\System\Process instance.
+     * @param array $output The output of the executed command.
+     * @param int $exitStatus The return status of the executed command.
+     */
+    public function __construct(
+        $cmdLine,
+        array $output = array(),
+        $exitStatus = null
+    ) {
+        if ($cmdLine instanceof \OMV\System\Process) {
+            $cmdLine->obfuscateEnvs();
+        }
+        $this->cmdLine = strval($cmdLine);
+        $this->output = $output;
+        $this->exitStatus = $exitStatus;
+        $args = [];
+        $args[] = $this->cmdLine;
+        if (!is_null($this->exitStatus)) {
+            $format = "Failed to execute command '%s' with exit code '%d': %s";
+            $args[] = $this->exitStatus;
+        } else {
+            $format = "Failed to execute command '%s': %s";
+        }
+        $args[] = implode("\n", $output);
+        parent::__construct(vsprintf($format, $args));
+    }
 
-	public function getCmdLine() {
-		return $this->cmdLine;
-	}
+    public function getCmdLine()
+    {
+        return $this->cmdLine;
+    }
 
-	public function getOutput() {
-		return $this->output;
-	}
+    public function getOutput()
+    {
+        return $this->output;
+    }
 
-	public function getExitStatus() {
-		return $this->exitStatus;
-	}
+    public function getExitStatus()
+    {
+        return $this->exitStatus;
+    }
 }

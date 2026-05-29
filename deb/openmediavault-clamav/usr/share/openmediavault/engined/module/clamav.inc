@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -20,61 +21,73 @@
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
 class ClamAV extends \OMV\Engine\Module\ServiceAbstract implements
-		\OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
-	public function getName() {
-		return "clamav";
-	}
+    \OMV\Engine\Notify\IListener,
+    \OMV\Engine\Module\IServiceStatus
+{
+    public function getName()
+    {
+        return "clamav";
+    }
 
-	public function getStatus() {
-		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.service.clamav");
-		$systemCtl = new \OMV\System\SystemCtl("clamav-daemon");
-		return [
-			"name" => $this->getName(),
-			"title" => gettext("Antivirus"),
-			"enabled" => $object->get("enable"),
-			"running" => $systemCtl->isActive()
-		];
-	}
+    public function getStatus()
+    {
+        $db = \OMV\Config\Database::getInstance();
+        $object = $db->get("conf.service.clamav");
+        $systemCtl = new \OMV\System\SystemCtl("clamav-daemon");
+        return [
+            "name" => $this->getName(),
+            "title" => gettext("Antivirus"),
+            "enabled" => $object->get("enable"),
+            "running" => $systemCtl->isActive()
+        ];
+    }
 
-	/**
-	 * Helper function to find out whether the given shared folder
-	 * configuration object is used. If it is used, then mark the
-	 * module as dirty.
-	 * @param type The event message type.
-	 * @param path The event message path.
-	 * @param object The configuration object.
-	 */
-	final public function onSharedFolder($type, $path, $object) {
-		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $db->exists("conf.service.clamav.job", [
-			"operator" => "stringEquals",
-			"arg0" => "sharedfolderref",
-			"arg1" => $object['uuid']
-		])) {
-			$this->setDirty();
-		}
-	}
+    /**
+     * Helper function to find out whether the given shared folder
+     * configuration object is used. If it is used, then mark the
+     * module as dirty.
+     * @param type The event message type.
+     * @param path The event message path.
+     * @param object The configuration object.
+     */
+    final public function onSharedFolder($type, $path, $object)
+    {
+        $db = \OMV\Config\Database::getInstance();
+        if (true === $db->exists("conf.service.clamav.job", [
+            "operator" => "stringEquals",
+            "arg0" => "sharedfolderref",
+            "arg1" => $object['uuid']
+        ])) {
+            $this->setDirty();
+        }
+    }
 
-	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
-		$dispatcher->addListener(
-			OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.service.clamav",
-			[ $this, "setDirty" ]);
-		$dispatcher->addListener(
-			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-			"org.openmediavault.conf.service.clamav.job",
-			[ $this, "setDirty" ]);
-		$dispatcher->addListener(
-			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-			"org.openmediavault.conf.service.clamav.onaccesspath",
-			[ $this, "setDirty" ]);
-		$dispatcher->addListener(
-			OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.system.sharedfolder",
-			[ $this, "onSharedFolder" ]);
-		$dispatcher->addListener(OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.system.network.proxy",
-			[ $this, "setDirty" ]);
-	}
+    public function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher)
+    {
+        $dispatcher->addListener(
+            OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.service.clamav",
+            [ $this, "setDirty" ]
+        );
+        $dispatcher->addListener(
+            OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+            "org.openmediavault.conf.service.clamav.job",
+            [ $this, "setDirty" ]
+        );
+        $dispatcher->addListener(
+            OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+            "org.openmediavault.conf.service.clamav.onaccesspath",
+            [ $this, "setDirty" ]
+        );
+        $dispatcher->addListener(
+            OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.system.sharedfolder",
+            [ $this, "onSharedFolder" ]
+        );
+        $dispatcher->addListener(
+            OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.system.network.proxy",
+            [ $this, "setDirty" ]
+        );
+    }
 }

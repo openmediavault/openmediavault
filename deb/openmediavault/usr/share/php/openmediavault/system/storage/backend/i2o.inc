@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,36 +20,43 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage\Backend;
 
 /**
  * Implements the storage device backend for I2O based HBA devices.
  * @ingroup api
  */
-class I2O extends BackendAbstract {
-	function getType() {
-		return OMV_STORAGE_DEVICE_KIND_GENERIC |
-			OMV_STORAGE_DEVICE_TRAIT_BLOCK |
-			OMV_STORAGE_DEVICE_TRAIT_PHYSICAL;
-	}
+class I2O extends BackendAbstract
+{
+    public function getType()
+    {
+        return OMV_STORAGE_DEVICE_KIND_GENERIC |
+            OMV_STORAGE_DEVICE_TRAIT_BLOCK |
+            OMV_STORAGE_DEVICE_TRAIT_PHYSICAL;
+    }
 
-	function enumerate() {
-		return $this->enumerateProcFs("i2o\/hd[a-z]+");
-	}
+    public function enumerate()
+    {
+        return $this->enumerateProcFs("i2o\/hd[a-z]+");
+    }
 
-	function isTypeOf($deviceFile) {
-		// Examples:
-		// - /dev/i2o/hda
-		// - /dev/i2o/hdb1
-		$regex = "i2o\/hd[a-z]+[0-9]*";
-		return $this->isTypeOfByName($deviceFile, $regex);
-	}
+    public function isTypeOf($deviceFile)
+    {
+        // Examples:
+        // - /dev/i2o/hda
+        // - /dev/i2o/hdb1
+        $regex = "i2o\/hd[a-z]+[0-9]*";
+        return $this->isTypeOfByName($deviceFile, $regex);
+    }
 
-	function getImpl($args) {
-		return new \OMV\System\Storage\StorageDeviceI2O($args);
-	}
+    public function getImpl($args)
+    {
+        return new \OMV\System\Storage\StorageDeviceI2O($args);
+    }
 
-	function baseDeviceFile($deviceFile) {
-		return preg_replace("/(\d+)$/", "", $deviceFile);
-	}
+    public function baseDeviceFile($deviceFile)
+    {
+        return preg_replace("/(\d+)$/", "", $deviceFile);
+    }
 }

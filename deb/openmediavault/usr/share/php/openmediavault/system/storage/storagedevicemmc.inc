@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage;
 
 /**
@@ -26,12 +28,15 @@ namespace OMV\System\Storage;
  * (MMC) devices.
  * @ingroup api
  */
-class StorageDeviceMMC extends StorageDevice {
-	public function isRotational() {
-		return FALSE;
-	}
+class StorageDeviceMMC extends StorageDevice
+{
+    public function isRotational()
+    {
+        return false;
+    }
 
-	public function isMmc() {
-		return TRUE;
-	}
+    public function isMmc()
+    {
+        return true;
+    }
 }

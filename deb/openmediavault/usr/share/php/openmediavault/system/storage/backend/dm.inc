@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,54 +20,66 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage\Backend;
 
 /**
  * Implements the storage device backend for Linux device mapper devices.
  * @ingroup api
  */
-class DM extends BackendAbstract {
-  	protected $regex = "(mapper\/.+)|(dm-\d+)";
+class DM extends BackendAbstract
+{
+    protected $regex = "(mapper\/.+)|(dm-\d+)";
 
-	function getType() {
-		return OMV_STORAGE_DEVICE_KIND_DM |
-			OMV_STORAGE_DEVICE_TRAIT_BLOCK |
-			OMV_STORAGE_DEVICE_TRAIT_STACKED;
-	}
+    public function getType()
+    {
+        return OMV_STORAGE_DEVICE_KIND_DM |
+            OMV_STORAGE_DEVICE_TRAIT_BLOCK |
+            OMV_STORAGE_DEVICE_TRAIT_STACKED;
+    }
 
-	function enumerate() {
-		return $this->enumerateProcFs($this->regex);
-	}
+    public function enumerate()
+    {
+        return $this->enumerateProcFs($this->regex);
+    }
 
-	function enumerateSlaves() {
-		$devs = $this->enumerate();
-		if (FALSE === $devs)
-			return FALSE;
-		$result = [];
-		foreach ($devs as $devk => $devv) {
-			$object = $this->getImpl($devv);
-			if (!$object->exists())
-				continue;
-			$slaves = $object->getSlaves();
-			if (FALSE === $slaves)
-				continue;
-			$result = array_merge($result, $slaves);
-		}
-		return $result;
-	}
+    public function enumerateSlaves()
+    {
+        $devs = $this->enumerate();
+        if (false === $devs) {
+            return false;
+        }
+        $result = [];
+        foreach ($devs as $devk => $devv) {
+            $object = $this->getImpl($devv);
+            if (!$object->exists()) {
+                continue;
+            }
+            $slaves = $object->getSlaves();
+            if (false === $slaves) {
+                continue;
+            }
+            $result = array_merge($result, $slaves);
+        }
+        return $result;
+    }
 
-	function isTypeOf($deviceFile) {
-		return $this->isTypeOfByName($deviceFile, $this->regex);
-	}
+    public function isTypeOf($deviceFile)
+    {
+        return $this->isTypeOfByName($deviceFile, $this->regex);
+    }
 
-	function getImpl($args) {
-		$sd = new \OMV\System\Storage\StorageDeviceDM($args);
-		if ("lvm" == $sd->getDeviceMapperSubsystem())
-			return new \OMV\System\Storage\StorageDeviceLvm($args);
-		return new \OMV\System\Storage\StorageDeviceDM($args);
-	}
+    public function getImpl($args)
+    {
+        $sd = new \OMV\System\Storage\StorageDeviceDM($args);
+        if ("lvm" == $sd->getDeviceMapperSubsystem()) {
+            return new \OMV\System\Storage\StorageDeviceLvm($args);
+        }
+        return new \OMV\System\Storage\StorageDeviceDM($args);
+    }
 
-	function fsDeviceFile($deviceFile, $partition = 1) {
-		return $deviceFile;
-	}
+    public function fsDeviceFile($deviceFile, $partition = 1)
+    {
+        return $deviceFile;
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,28 +20,34 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Net\NetworkInterfaceBackend;
 
 /**
  * Implements the network interface backend for loopback devices.
  * @ingroup api
  */
-class Loopback extends BackendAbstract {
-	protected $regex = "/^lo[0-9]*$/i";
+class Loopback extends BackendAbstract
+{
+    protected $regex = "/^lo[0-9]*$/i";
 
-	function getType() {
-		return OMV_NETWORK_INTERFACE_TYPE_LOOPBACK;
-	}
+    public function getType()
+    {
+        return OMV_NETWORK_INTERFACE_TYPE_LOOPBACK;
+    }
 
-	function enumerate() {
-		return $this->enumerateSysFs($this->regex);
-	}
+    public function enumerate()
+    {
+        return $this->enumerateSysFs($this->regex);
+    }
 
-	function isTypeOf($deviceName) {
-		return $this->isTypeOfByName($deviceName, $this->regex);
-	}
+    public function isTypeOf($deviceName)
+    {
+        return $this->isTypeOfByName($deviceName, $this->regex);
+    }
 
-	function getImpl($args) {
-		return new \OMV\System\Net\NetworkInterfaceLoopback($args);
-	}
+    public function getImpl($args)
+    {
+        return new \OMV\System\Net\NetworkInterfaceLoopback($args);
+    }
 }

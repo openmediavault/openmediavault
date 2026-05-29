@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,283 +20,305 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System;
 
 /**
  * @ingroup api
  */
-class Process {
-	use \OMV\DebugTrait;
+class Process
+{
+    use \OMV\DebugTrait;
 
-	private $cmdArgs = [];
-	private $redirect1toFile = FALSE;
-	private $redirect2toFile = FALSE;
-	private $inputFromFile = FALSE;
-	private $inputFromHereString = FALSE;
-	private $quiet = FALSE;
-	private $requireOutput = FALSE;
-	private $background = FALSE;
-	private $env = [
-		"PATH" => [
-			"value" => "/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin",
-			"obfuscate" => FALSE
-		],
-		"LC_ALL" => [
-			"value" =>"C.UTF-8",
-			"obfuscate" => FALSE
-		],
-		"LANGUAGE" => [
-			"value" => "",
-			"obfuscate" => FALSE
-		]
-	];
+    private $cmdArgs = [];
+    private $redirect1toFile = false;
+    private $redirect2toFile = false;
+    private $inputFromFile = false;
+    private $inputFromHereString = false;
+    private $quiet = false;
+    private $requireOutput = false;
+    private $background = false;
+    private $env = [
+        "PATH" => [
+            "value" => "/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin",
+            "obfuscate" => false
+        ],
+        "LC_ALL" => [
+            "value" => "C.UTF-8",
+            "obfuscate" => false
+        ],
+        "LANGUAGE" => [
+            "value" => "",
+            "obfuscate" => false
+        ]
+    ];
 
-	/**
-	 * Constructor
-	 * Example:
-	 * $cmd = new \OMV\System\Process("ls -alh");
-	 * $cmd = new \OMV\System\Process("ls", "-al", "-h");
-	 * $cmd = new \OMV\System\Process(array("ls", "-alh"));
-	 * $cmd = new \OMV\System\Process("ls", array("-a", "-l", "-h"));
-	 */
-	public function __construct() {
-		$args = func_get_args();
-		if (1 == func_num_args() && is_string($args[0])) {
-			$this->cmdArgs[] = $args[0];
-		} else if (1 == func_num_args() && is_array($args[0])) {
-			$this->cmdArgs = $args[0];
-		} else if (2 == func_num_args() && is_string($args[0])) {
-			$this->cmdArgs[] = $args[0];
-			if (is_array($args[1]))
-				$this->cmdArgs = array_merge($this->cmdArgs, $args[1]);
-			else
-				$this->cmdArgs[] = $args[1];
-		} else {
-			$this->cmdArgs = $args;
-		}
-	}
+    /**
+     * Constructor
+     * Example:
+     * $cmd = new \OMV\System\Process("ls -alh");
+     * $cmd = new \OMV\System\Process("ls", "-al", "-h");
+     * $cmd = new \OMV\System\Process(array("ls", "-alh"));
+     * $cmd = new \OMV\System\Process("ls", array("-a", "-l", "-h"));
+     */
+    public function __construct()
+    {
+        $args = func_get_args();
+        if (1 == func_num_args() && is_string($args[0])) {
+            $this->cmdArgs[] = $args[0];
+        } elseif (1 == func_num_args() && is_array($args[0])) {
+            $this->cmdArgs = $args[0];
+        } elseif (2 == func_num_args() && is_string($args[0])) {
+            $this->cmdArgs[] = $args[0];
+            if (is_array($args[1])) {
+                $this->cmdArgs = array_merge($this->cmdArgs, $args[1]);
+            } else {
+                $this->cmdArgs[] = $args[1];
+            }
+        } else {
+            $this->cmdArgs = $args;
+        }
+    }
 
-	/**
-	 * Redirect STDOUT to the given file. Set to FALSE to do not redirect
-	 * STDOUT to a file.
-	 * @param string $file The file path, e.g. '/tmp/xyz'.
-	 * @return void
-	 */
-	public function setRedirect1toFile($file) {
-		$this->redirect1toFile = $file;
-	}
+    /**
+     * Redirect STDOUT to the given file. Set to FALSE to do not redirect
+     * STDOUT to a file.
+     * @param string $file The file path, e.g. '/tmp/xyz'.
+     * @return void
+     */
+    public function setRedirect1toFile($file)
+    {
+        $this->redirect1toFile = $file;
+    }
 
-	/**
-	 * Redirect STDERR to STDOUT.
-	 * @return void
-	 */
-	public function setRedirect2to1() {
-		$this->setRedirect2toFile("&1");
-	}
+    /**
+     * Redirect STDERR to STDOUT.
+     * @return void
+     */
+    public function setRedirect2to1()
+    {
+        $this->setRedirect2toFile("&1");
+    }
 
-	/**
-	 * Redirect STDERR to the given file. Set to FALSE to do not redirect
-	 * STDERR to a file.
-	 * @param string $file The file path, e.g. '/dev/null' or '&1'.
-	 * @return void
-	 */
-	public function setRedirect2toFile($file) {
-		$this->redirect2toFile = $file;
-	}
+    /**
+     * Redirect STDERR to the given file. Set to FALSE to do not redirect
+     * STDERR to a file.
+     * @param string $file The file path, e.g. '/dev/null' or '&1'.
+     * @return void
+     */
+    public function setRedirect2toFile($file)
+    {
+        $this->redirect2toFile = $file;
+    }
 
-	/**
-	 * Accept input from a file. Set to FALSE to do not accept input from
-	 * a file.
-	 * @param string $file The file path.
-	 * @return void
-	 */
-	public function setInputFromFile($file) {
-		$this->inputFromFile = $file;
-	}
+    /**
+     * Accept input from a file. Set to FALSE to do not accept input from
+     * a file.
+     * @param string $file The file path.
+     * @return void
+     */
+    public function setInputFromFile($file)
+    {
+        $this->inputFromFile = $file;
+    }
 
-	/**
-	 * Accept input from a 'here-string'. Set to FALSE to do not accept
-	 * input from 'here-string'.
-	 * @param string $data The input string.
-	 * @return void
-	 */
-	public function setInputFromHereString($data) {
-		$this->inputFromHereString = $data;
-	}
+    /**
+     * Accept input from a 'here-string'. Set to FALSE to do not accept
+     * input from 'here-string'.
+     * @param string $data The input string.
+     * @return void
+     */
+    public function setInputFromHereString($data)
+    {
+        $this->inputFromHereString = $data;
+    }
 
-	/**
-	 * Do not throw an error exception if the command execution fails.
-	 * @param bool $quiet Set to TRUE to do not throw an exception.
-	 *   Defaults to TRUE.
-	 * @return void
-	 */
-	public function setQuiet($quiet = TRUE) {
-		$this->quiet = $quiet;
-	}
+    /**
+     * Do not throw an error exception if the command execution fails.
+     * @param bool $quiet Set to TRUE to do not throw an exception.
+     *   Defaults to TRUE.
+     * @return void
+     */
+    public function setQuiet($quiet = true)
+    {
+        $this->quiet = $quiet;
+    }
 
-	/**
-	 *  Fail if the executed command does not produce any output.
-	 * @param bool $require Set to TRUE to throw an exception if the output is empty.
-	 *   Defaults to TRUE.
-	 * @return void
-	 */
-	public function setRequireOutput($require = TRUE) {
-		$this->requireOutput = $require;
-	}
+    /**
+     *  Fail if the executed command does not produce any output.
+     * @param bool $require Set to TRUE to throw an exception if the output is empty.
+     *   Defaults to TRUE.
+     * @return void
+     */
+    public function setRequireOutput($require = true)
+    {
+        $this->requireOutput = $require;
+    }
 
-	/**
-	 * Execute the command in background. The method \em execute immediately
-	 * returns in this case.
-	 * @param bool $background Set to TRUE to do execute the command in background.
-	 *   Defaults to TRUE.
-	 * @return void
-	 */
-	public function setBackground($background = TRUE) {
-		$this->background = $background;
-	}
+    /**
+     * Execute the command in background. The method \em execute immediately
+     * returns in this case.
+     * @param bool $background Set to TRUE to do execute the command in background.
+     *   Defaults to TRUE.
+     * @return void
+     */
+    public function setBackground($background = true)
+    {
+        $this->background = $background;
+    }
 
-	/**
-	 * Set an environment variable. To remove an environment variable
-	 * simply set an empty string value.
-	 * @param string $name The name of the environment variable.
-	 * @param mixed $value The value of the environment variable.
-	 * @param bool $obfuscate Set to `TRUE` to obfuscate the value
-	 *   of the variable when an instance of this class is used in
-	 *   an exception. Defaults to `FALSE`.
-	 * @return void
-	 */
-	public function setEnv($name, $value, $obfuscate = FALSE) {
-		if (1 == func_num_args()) {
-			$parts = explode("=", $name, 2);
-			if (count($parts) !== 2) {
-				return;
-			}
-			$name = $parts[0];
-			$value = $parts[1];
-		}
-		if (empty($value)) {
-			array_remove_key($this->env, $name);
-			return;
-		}
-		$this->env[$name] = [
-			"value" => $value,
-			"obfuscate" => $obfuscate
-		];
-	}
+    /**
+     * Set an environment variable. To remove an environment variable
+     * simply set an empty string value.
+     * @param string $name The name of the environment variable.
+     * @param mixed $value The value of the environment variable.
+     * @param bool $obfuscate Set to `TRUE` to obfuscate the value
+     *   of the variable when an instance of this class is used in
+     *   an exception. Defaults to `FALSE`.
+     * @return void
+     */
+    public function setEnv($name, $value, $obfuscate = false)
+    {
+        if (1 == func_num_args()) {
+            $parts = explode("=", $name, 2);
+            if (count($parts) !== 2) {
+                return;
+            }
+            $name = $parts[0];
+            $value = $parts[1];
+        }
+        if (empty($value)) {
+            array_remove_key($this->env, $name);
+            return;
+        }
+        $this->env[$name] = [
+            "value" => $value,
+            "obfuscate" => $obfuscate
+        ];
+    }
 
-	/**
-	 * Set environment variable(s) from a file.
-	 * @param string $file The name of the file to load from environment
-	 *   variable(s) from.
-	 * @return void
-	 */
-	public function setEnvFromFile($file) {
-		if (file_exists($file)) {
-			$envs = file($file);
-			foreach ($envs as $env) {
-				if (FALSE === empty($env)) {
-					$parts = explode("=", $env, 2);
-					if (count($parts) !== 2) {
-						continue;
-					}
-					$name = trim($parts[0]);
-					$value = trim($parts[1]);
-					$this->setEnv($name, $value);
-				}
-			}
-		}
-	}
+    /**
+     * Set environment variable(s) from a file.
+     * @param string $file The name of the file to load from environment
+     *   variable(s) from.
+     * @return void
+     */
+    public function setEnvFromFile($file)
+    {
+        if (file_exists($file)) {
+            $envs = file($file);
+            foreach ($envs as $env) {
+                if (false === empty($env)) {
+                    $parts = explode("=", $env, 2);
+                    if (count($parts) !== 2) {
+                        continue;
+                    }
+                    $name = trim($parts[0]);
+                    $value = trim($parts[1]);
+                    $this->setEnv($name, $value);
+                }
+            }
+        }
+    }
 
-	/**
-	 * Get the command line to be executed.
-	 * @return string The command line.
-	 */
-	public function getCommandLine() {
-		$cmdArgs = [];
-		foreach ($this->env as $envk => $envv) {
-			$cmdArgs[] = sprintf("export %s=%s;", $envk, strval(
-				$envv['value']));
-		}
-		$cmdArgs = array_merge($cmdArgs, $this->cmdArgs);
-		if (FALSE === empty($this->redirect1toFile)) {
-			$cmdArgs[] = sprintf("1>%s", $this->redirect1toFile);
-		}
-		if (FALSE === empty($this->redirect2toFile)) {
-			$cmdArgs[] = sprintf("2>%s", $this->redirect2toFile);
-		}
-		if (FALSE === empty($this->inputFromFile)) {
-			$cmdArgs[] = sprintf("<%s", $this->inputFromFile);
-		}
-		// https://wiki.ubuntu.com/DashAsBinSh#A.3C.3C.3C
-		if (FALSE === empty($this->inputFromHereString)) {
-			$cmdArgs[] = sprintf("<<EOF\n%s\nEOF", $this->inputFromHereString);
-		}
-		if (TRUE === $this->background) {
-			$cmdArgs[] = "&";
-		}
-		return implode(" ", $cmdArgs);
-	}
+    /**
+     * Get the command line to be executed.
+     * @return string The command line.
+     */
+    public function getCommandLine()
+    {
+        $cmdArgs = [];
+        foreach ($this->env as $envk => $envv) {
+            $cmdArgs[] = sprintf("export %s=%s;", $envk, strval(
+                $envv['value']
+            ));
+        }
+        $cmdArgs = array_merge($cmdArgs, $this->cmdArgs);
+        if (false === empty($this->redirect1toFile)) {
+            $cmdArgs[] = sprintf("1>%s", $this->redirect1toFile);
+        }
+        if (false === empty($this->redirect2toFile)) {
+            $cmdArgs[] = sprintf("2>%s", $this->redirect2toFile);
+        }
+        if (false === empty($this->inputFromFile)) {
+            $cmdArgs[] = sprintf("<%s", $this->inputFromFile);
+        }
+        // https://wiki.ubuntu.com/DashAsBinSh#A.3C.3C.3C
+        if (false === empty($this->inputFromHereString)) {
+            $cmdArgs[] = sprintf("<<EOF\n%s\nEOF", $this->inputFromHereString);
+        }
+        if (true === $this->background) {
+            $cmdArgs[] = "&";
+        }
+        return implode(" ", $cmdArgs);
+    }
 
-	public function __toString(): string {
-		return $this->getCommandLine();
-	}
+    public function __toString(): string
+    {
+        return $this->getCommandLine();
+    }
 
-	/**
-	 * Execute the command.
-	 * @param array|null $output If the output argument is present, then
-	 *   the specified array will be filled with every line of output from
-	 *   the command.
-	 *   Trailing whitespace, such as \n, is not included in this array.
-	 *   Note that if the array already contains some elements, execute()
-	 *   will append to the end of the array.
-	 * @param int $exitStatus If the argument is present along with the output
-	 *   argument, then the return status of the executed command will be
-	 *   written to this variable.
-	 * @return string|false The last line from the result of the command,
-	 *   or FALSE on failure.
-	 * @throws \OMV\Exception
-	 * @throws \OMV\ExecException
-	 */
-	public function execute(array &$output = NULL, &$exitStatus = NULL): string|false {
-		// Build the command line.
-		$cmdLine = $this->getCommandLine();
-		// Execute the command.
-		$this->debug("Executing command '%s'", $cmdLine);
-		$result = exec($cmdLine, $output, $exitStatus);
-		if ((FALSE === $this->quiet) && (0 !== $exitStatus)) {
-			throw new \OMV\ExecException($cmdLine, $output, $exitStatus);
-		}
-		if (TRUE === $this->requireOutput && empty($output)) {
-			throw new \OMV\Exception("The command '%s' returned empty output.",
-				$cmdLine);
-		}
-		return $result;
-	}
+    /**
+     * Execute the command.
+     * @param array|null $output If the output argument is present, then
+     *   the specified array will be filled with every line of output from
+     *   the command.
+     *   Trailing whitespace, such as \n, is not included in this array.
+     *   Note that if the array already contains some elements, execute()
+     *   will append to the end of the array.
+     * @param int $exitStatus If the argument is present along with the output
+     *   argument, then the return status of the executed command will be
+     *   written to this variable.
+     * @return string|false The last line from the result of the command,
+     *   or FALSE on failure.
+     * @throws \OMV\Exception
+     * @throws \OMV\ExecException
+     */
+    public function execute(array &$output = null, &$exitStatus = null): string|false
+    {
+        // Build the command line.
+        $cmdLine = $this->getCommandLine();
+        // Execute the command.
+        $this->debug("Executing command '%s'", $cmdLine);
+        $result = exec($cmdLine, $output, $exitStatus);
+        if ((false === $this->quiet) && (0 !== $exitStatus)) {
+            throw new \OMV\ExecException($cmdLine, $output, $exitStatus);
+        }
+        if (true === $this->requireOutput && empty($output)) {
+            throw new \OMV\Exception(
+                "The command '%s' returned empty output.",
+                $cmdLine
+            );
+        }
+        return $result;
+    }
 
-	/**
-	 * Mark an environment variable to obfuscate.
-	 * @param string $name The name of the environment variable.
-	 * @param bool $obfuscate Set to `TRUE` to obfuscate the value
-	 *   of the variable. Defaults to `TRUE`.
-	 * @return void
-	 */
-	public function obfuscateEnv($name, $obfuscate = TRUE) {
-		if (array_key_exists($name, $this->env)) {
-			$this->env[$name]['obfuscate'] = $obfuscate;
-		}
-	}
+    /**
+     * Mark an environment variable to obfuscate.
+     * @param string $name The name of the environment variable.
+     * @param bool $obfuscate Set to `TRUE` to obfuscate the value
+     *   of the variable. Defaults to `TRUE`.
+     * @return void
+     */
+    public function obfuscateEnv($name, $obfuscate = true)
+    {
+        if (array_key_exists($name, $this->env)) {
+            $this->env[$name]['obfuscate'] = $obfuscate;
+        }
+    }
 
-	/**
-	 * Obfuscate the values of all specified environment variables.
-	 * Note, the changes are irreversible.
-	 * @return void
-	 */
-	public function obfuscateEnvs() {
-		// Process all registered environment variables.
-		foreach ($this->env as $envk => &$envv) {
-			if ($envv['obfuscate']) {
-				$envv['value'] = str_repeat("x", rand(4, 8));
-			}
-		}
-	}
+    /**
+     * Obfuscate the values of all specified environment variables.
+     * Note, the changes are irreversible.
+     * @return void
+     */
+    public function obfuscateEnvs()
+    {
+        // Process all registered environment variables.
+        foreach ($this->env as $envk => &$envv) {
+            if ($envv['obfuscate']) {
+                $envv['value'] = str_repeat("x", rand(4, 8));
+            }
+        }
+    }
 }

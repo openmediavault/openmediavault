@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage\Backend;
 
 /**
@@ -26,43 +28,52 @@ namespace OMV\System\Storage\Backend;
  * https://www.kernel.org/doc/Documentation/scsi/scsi-generic.txt
  * @ingroup api
  */
-class SG extends BackendAbstract {
-	function getType() {
-		return OMV_STORAGE_DEVICE_KIND_SG |
-			OMV_STORAGE_DEVICE_TRAIT_CHARACTER |
-			OMV_STORAGE_DEVICE_TRAIT_PHYSICAL;
-	}
+class SG extends BackendAbstract
+{
+    public function getType()
+    {
+        return OMV_STORAGE_DEVICE_KIND_SG |
+            OMV_STORAGE_DEVICE_TRAIT_CHARACTER |
+            OMV_STORAGE_DEVICE_TRAIT_PHYSICAL;
+    }
 
-	function enumerate() {
-		$path = "/sys/class/scsi_generic";
-		if (!file_exists($path)) {
-			return FALSE;
-		}
-		$result = [];
-		foreach (new \DirectoryIterator($path) as $item) {
-			if ($item->isDot() || !$item->isLink())
-				continue;
-			if (1 !== preg_match("/^sg[0-9]+$/", $item->getFilename()))
-				continue;
-			// Check if it is a SCSI generic disk.
-			$sd = $this->getImpl(sprintf("/dev/%s", $item->getFilename()));
-			if (0 !== $sd->getType())
-				continue;
-			$result[] = $sd->getDeviceFile();
-		}
-		if (!sort($result, SORT_NATURAL))
-			return FALSE;
-		return $result;
-	}
+    public function enumerate()
+    {
+        $path = "/sys/class/scsi_generic";
+        if (!file_exists($path)) {
+            return false;
+        }
+        $result = [];
+        foreach (new \DirectoryIterator($path) as $item) {
+            if ($item->isDot() || !$item->isLink()) {
+                continue;
+            }
+            if (1 !== preg_match("/^sg[0-9]+$/", $item->getFilename())) {
+                continue;
+            }
+            // Check if it is a SCSI generic disk.
+            $sd = $this->getImpl(sprintf("/dev/%s", $item->getFilename()));
+            if (0 !== $sd->getType()) {
+                continue;
+            }
+            $result[] = $sd->getDeviceFile();
+        }
+        if (!sort($result, SORT_NATURAL)) {
+            return false;
+        }
+        return $result;
+    }
 
-	function isTypeOf($deviceFile) {
-		// Examples:
-		// - /dev/sg0
-		// - /dev/sg17
-		return $this->isTypeOfByName($deviceFile, "sg[0-9]+");
-	}
+    public function isTypeOf($deviceFile)
+    {
+        // Examples:
+        // - /dev/sg0
+        // - /dev/sg17
+        return $this->isTypeOfByName($deviceFile, "sg[0-9]+");
+    }
 
-	function getImpl($args) {
-		return new \OMV\System\Storage\StorageDeviceSG($args);
-	}
+    public function getImpl($args)
+    {
+        return new \OMV\System\Storage\StorageDeviceSG($args);
+    }
 }

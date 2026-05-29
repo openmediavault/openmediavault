@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Filesystem\Backend;
 
 /**
@@ -30,8 +32,10 @@ namespace OMV\System\Filesystem\Backend;
  * The blkid command has the following output:
  * /dev/sdj1: UUID="43C00A552F032479" TYPE="ntfs" PARTUUID="6eaa90f6-01"
  */
-class Fuseblk extends BackendAbstract {
-	public function __construct() {
-		$this->type = "fuseblk";
-	}
+class Fuseblk extends BackendAbstract
+{
+    public function __construct()
+    {
+        $this->type = "fuseblk";
+    }
 }

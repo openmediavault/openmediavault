@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,43 +20,45 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\Engine\Module;
 
 /**
  * Interface to implement a service managed by the module.
  * @ingroup api
  */
-interface IService {
-	/**
-	 * Ensures that this module is deployed after the listed modules.
-	 * Nevertheless, the module can still be deployed if the listed
-	 * dependencies are missing.
-	 * @return array A list of module names. Returns an empty array if no
-	 *   dependencies exist.
-	 */
-	public function deployAfter(): array;
+interface IService
+{
+    /**
+     * Ensures that this module is deployed after the listed modules.
+     * Nevertheless, the module can still be deployed if the listed
+     * dependencies are missing.
+     * @return array A list of module names. Returns an empty array if no
+     *   dependencies exist.
+     */
+    public function deployAfter(): array;
 
-	/**
-	 * Ensures that this module is deployed before the listed modules.
-	 * Nevertheless, the module can still be deployed if the listed
-	 * dependencies are missing.
-	 * @return array A list of module names. Returns an empty array if no
-	 *   dependencies exist.
-	 */
-	public function deployBefore(): array;
+    /**
+     * Ensures that this module is deployed before the listed modules.
+     * Nevertheless, the module can still be deployed if the listed
+     * dependencies are missing.
+     * @return array A list of module names. Returns an empty array if no
+     *   dependencies exist.
+     */
+    public function deployBefore(): array;
 
-	/**
-	 * This method is called before the module is deployed.
-	 */
-	public function preDeploy();
+    /**
+     * This method is called before the module is deployed.
+     */
+    public function preDeploy();
 
-	/**
-	 * Deploy the configuration.
-	 */
-	public function deploy();
+    /**
+     * Deploy the configuration.
+     */
+    public function deploy();
 
-	/**
-	 * This method is called after the module has been deployed.
-	 */
-	public function postDeploy();
+    /**
+     * This method is called after the module has been deployed.
+     */
+    public function postDeploy();
 }

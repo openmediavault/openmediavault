@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\Config;
 
 /**
@@ -26,8 +28,10 @@ namespace OMV\Config;
  * as dirty.
  * @ingroup api
  */
-class ConfigDirtyException extends \OMV\Exception {
-	public function __construct() {
-		parent::__construct("Please apply the configuration changes first.");
-	}
+class ConfigDirtyException extends \OMV\Exception
+{
+    public function __construct()
+    {
+        parent::__construct("Please apply the configuration changes first.");
+    }
 }

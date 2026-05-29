@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,10 +20,13 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\Config;
 
 /**
  * \em DatabaseException is thrown when a database action fails.
  * @ingroup api
  */
-class DatabaseException extends \OMV\Exception {}
+class DatabaseException extends \OMV\Exception
+{
+}

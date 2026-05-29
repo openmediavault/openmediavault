@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,39 +20,46 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV;
 
 /**
  * @ingroup api
  */
-class Uuid {
-	private static function uuid($version) {
-		$cmdArgs = [];
-		$cmdArgs[] = sprintf("-v %d", $version);
-		$cmd = new \OMV\System\Process("uuid", $cmdArgs);
-		return $cmd->execute();
-	}
+class Uuid
+{
+    private static function uuid($version)
+    {
+        $cmdArgs = [];
+        $cmdArgs[] = sprintf("-v %d", $version);
+        $cmd = new \OMV\System\Process("uuid", $cmdArgs);
+        return $cmd->execute();
+    }
 
-	/**
-	 * Generate a UUID from a host ID, sequence number, and the current time.
-	 * @return The UUID string.
-	 */
-	final public static function uuid1() {
-		return self::uuid(1);
-	}
+    /**
+     * Generate a UUID from a host ID, sequence number, and the current time.
+     * @return The UUID string.
+     */
+    final public static function uuid1()
+    {
+        return self::uuid(1);
+    }
 
-	/**
-	* Create a UUID Version 4 (random).
-	* @return The UUID string.
-	*/
-	final public static function uuid4() {
-		return self::uuid(4);
-	}
+    /**
+    * Create a UUID Version 4 (random).
+    * @return The UUID string.
+    */
+    final public static function uuid4()
+    {
+        return self::uuid(4);
+    }
 
-	final public static function isUuid4($var) {
-		if (!is_string($var))
-			return FALSE;
-		return preg_match('/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-'.
-		  '[a-f0-9]{12}$/i', $var) ? TRUE : FALSE;
-	}
+    final public static function isUuid4($var)
+    {
+        if (!is_string($var)) {
+            return false;
+        }
+        return preg_match('/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-'.
+          '[a-f0-9]{12}$/i', $var) ? true : false;
+    }
 }

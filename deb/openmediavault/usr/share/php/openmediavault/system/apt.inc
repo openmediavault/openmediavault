@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System;
 
 require_once("openmediavault/functions.inc");
@@ -27,28 +29,33 @@ require_once("openmediavault/functions.inc");
  * This class implements an interface to APT (Advanced Packaging Tool).
  * @ingroup api
  */
-class Apt {
-	/**
-	 * Assert that the package database is not locked.
-	 * @return void
-	 * @throw \OMV\AssertException
-	 */
-	public static function assertNotLocked(): void {
-		if (is_locked("/var/lib/dpkg/lock")) {
-			throw new \OMV\AssertException(
-				"The package database is held by another process. ".
-				"Please try again later.");
-		}
-		if (is_locked("/var/lib/apt/lists/lock")) {
-			throw new \OMV\AssertException(
-				"The storage area for state information for each ".
-				"package resource is held by another process. ".
-				"Please try again later.");
-		}
-		if (is_locked("/var/cache/apt/archives/lock")) {
-			throw new \OMV\AssertException(
-				"The package archive is held by another process. ".
-				"Please try again later.");
-		}
-	}
+class Apt
+{
+    /**
+     * Assert that the package database is not locked.
+     * @return void
+     * @throw \OMV\AssertException
+     */
+    public static function assertNotLocked(): void
+    {
+        if (is_locked("/var/lib/dpkg/lock")) {
+            throw new \OMV\AssertException(
+                "The package database is held by another process. ".
+                "Please try again later."
+            );
+        }
+        if (is_locked("/var/lib/apt/lists/lock")) {
+            throw new \OMV\AssertException(
+                "The storage area for state information for each ".
+                "package resource is held by another process. ".
+                "Please try again later."
+            );
+        }
+        if (is_locked("/var/cache/apt/archives/lock")) {
+            throw new \OMV\AssertException(
+                "The package archive is held by another process. ".
+                "Please try again later."
+            );
+        }
+    }
 }

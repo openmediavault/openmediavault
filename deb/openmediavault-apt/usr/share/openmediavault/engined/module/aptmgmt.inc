@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,19 +20,23 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace Engined\Module;
 
-class AptMgmt extends \OMV\Engine\Module\ServiceAbstract
-		implements \OMV\Engine\Notify\IListener {
-	public function getName() {
-		return "aptmgmt";
-	}
+class AptMgmt extends \OMV\Engine\Module\ServiceAbstract implements \OMV\Engine\Notify\IListener
+{
+    public function getName()
+    {
+        return "aptmgmt";
+    }
 
-	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
-		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
-		$dispatcher->addListener(
-			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-			"org.openmediavault.conf.system.apt.source",
-			[$moduleMngr->getModule("apt"), "setDirty"]);
-	}
+    public function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher)
+    {
+        $moduleMngr = \OMV\Engine\Module\Manager::getInstance();
+        $dispatcher->addListener(
+            OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+            "org.openmediavault.conf.system.apt.source",
+            [$moduleMngr->getModule("apt"), "setDirty"]
+        );
+    }
 }

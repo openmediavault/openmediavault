@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV;
 
 require_once("openmediavault/functions.inc");
@@ -29,49 +31,58 @@ require_once("openmediavault/functions.inc");
  * leaving the scope of the variable.
  * @ingroup api
  */
-class Mutex {
-	private $auto = TRUE;
-	private $semIdentifier = NULL;
+class Mutex
+{
+    private $auto = true;
+    private $semIdentifier = null;
 
-	/**
-	 * Constructor
-	 * @param string $key The unique identifier.
-	 * @param boolean $auto Automatically acquire the lock on creation
-	 *   and release it on destruction (e.g. when leaving the scope of
-	 *   the variable). Defaults to TRUE.
-	 */
-	public function __construct($key, $auto = TRUE) {
-		$this->auto = $auto;
-		$this->semIdentifier = sem_get(crc32($key));
-		if (FALSE === $this->semIdentifier) {
-			throw new \OMV\MutexException("Failed to get semaphore ID: %s",
-				last_error_msg());
-		}
-		if ($this->auto) {
-			$this->lock();
-		}
-	}
+    /**
+     * Constructor
+     * @param string $key The unique identifier.
+     * @param boolean $auto Automatically acquire the lock on creation
+     *   and release it on destruction (e.g. when leaving the scope of
+     *   the variable). Defaults to TRUE.
+     */
+    public function __construct($key, $auto = true)
+    {
+        $this->auto = $auto;
+        $this->semIdentifier = sem_get(crc32($key));
+        if (false === $this->semIdentifier) {
+            throw new \OMV\MutexException(
+                "Failed to get semaphore ID: %s",
+                last_error_msg()
+            );
+        }
+        if ($this->auto) {
+            $this->lock();
+        }
+    }
 
-	function __destruct() {
-		if ($this->auto) {
-			$this->unlock();
-		}
-	}
+    public function __destruct()
+    {
+        if ($this->auto) {
+            $this->unlock();
+        }
+    }
 
-	/**
-	 * Acquire the lock.
-	 */
-	function lock() {
-		if (!sem_acquire($this->semIdentifier)) {
-			throw new \OMV\MutexException("Failed to acquire semaphore: %s",
-				last_error_msg());
-		}
-	}
+    /**
+     * Acquire the lock.
+     */
+    public function lock()
+    {
+        if (!sem_acquire($this->semIdentifier)) {
+            throw new \OMV\MutexException(
+                "Failed to acquire semaphore: %s",
+                last_error_msg()
+            );
+        }
+    }
 
-	/**
-	 * Release the lock.
-	 */
-	function unlock(): bool {
-		return sem_release($this->semIdentifier);
-	}
+    /**
+     * Release the lock.
+     */
+    public function unlock(): bool
+    {
+        return sem_release($this->semIdentifier);
+    }
 }

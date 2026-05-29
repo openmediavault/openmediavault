@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,89 +20,101 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage\Backend;
 
 /**
  * Helper class to get all existing devices of the given storage type.
  * @ingroup api
  */
-class Manager implements \IteratorAggregate {
-	private $backends = [];
+class Manager implements \IteratorAggregate
+{
+    private $backends = [];
 
-	/**
-	 * Returns a manager singleton.
-	 * @return The manager object.
-	 */
-	public static function &getInstance() {
-		static $instance = NULL;
-		if (!isset($instance))
-			$instance = new Manager();
-		return $instance;
-	}
+    /**
+     * Returns a manager singleton.
+     * @return The manager object.
+     */
+    public static function &getInstance()
+    {
+        static $instance = null;
+        if (!isset($instance)) {
+            $instance = new Manager();
+        }
+        return $instance;
+    }
 
-	public function getIterator() {
-		return new \ArrayIterator($this->backends);
-	}
+    public function getIterator()
+    {
+        return new \ArrayIterator($this->backends);
+    }
 
-	/**
-	 * Register a storage device backend. If the registered backend class is
-	 * derived from another backend, then it will be inserted before this.
-	 * @param backend The storage device backend object to register.
-	 * @return TRUE if successful, otherwise FALSE.
-	 */
-	final public function registerBackend(BackendAbstract $backend) {
-		if (!isset($backend))
-			return FALSE;
-		if (FALSE === ($parent = get_parent_class($backend))) {
-			$this->backends[] = $backend;
-		} else {
-			// Try to find the derived class and the position where to
-			// insert the storage device backend class to register.
-			$offset = FALSE;
-			foreach ($this->backends as $backendk => $backendv) {
-				if (("\OMV\System\Storage\Backend\BackendAbstract" == $parent) ||
-				  (FALSE === ($backendv instanceof $parent)))
-					continue;
-				$offset = $backendk;
-				break;
-			}
-			if (FALSE === $offset) {
-				$this->backends[] = $backend;
-			} else {
-				array_splice($this->backends, $offset, 0, array($backend));
-			}
-		}
-		return TRUE;
-	}
+    /**
+     * Register a storage device backend. If the registered backend class is
+     * derived from another backend, then it will be inserted before this.
+     * @param backend The storage device backend object to register.
+     * @return TRUE if successful, otherwise FALSE.
+     */
+    final public function registerBackend(BackendAbstract $backend)
+    {
+        if (!isset($backend)) {
+            return false;
+        }
+        if (false === ($parent = get_parent_class($backend))) {
+            $this->backends[] = $backend;
+        } else {
+            // Try to find the derived class and the position where to
+            // insert the storage device backend class to register.
+            $offset = false;
+            foreach ($this->backends as $backendk => $backendv) {
+                if (("\OMV\System\Storage\Backend\BackendAbstract" == $parent) ||
+                  (false === ($backendv instanceof $parent))) {
+                    continue;
+                }
+                $offset = $backendk;
+                break;
+            }
+            if (false === $offset) {
+                $this->backends[] = $backend;
+            } else {
+                array_splice($this->backends, $offset, 0, array($backend));
+            }
+        }
+        return true;
+    }
 
-	/**
-	 * Get the backend of the given device.
-	 * @param deviceFile Specifies the device file.
-	 * @return The backend that implements the given device file, otherwise
-	 *   NULL.
-	 */
-	final public function getBackend($deviceFile) {
-		$result = NULL;
-		foreach ($this->backends as $backendk => $backendv) {
-			if (FALSE === $backendv->isTypeOf($deviceFile))
-				continue;
-			$result = $backendv;
-			break;
-		}
-		return $result;
-	}
+    /**
+     * Get the backend of the given device.
+     * @param deviceFile Specifies the device file.
+     * @return The backend that implements the given device file, otherwise
+     *   NULL.
+     */
+    final public function getBackend($deviceFile)
+    {
+        $result = null;
+        foreach ($this->backends as $backendk => $backendv) {
+            if (false === $backendv->isTypeOf($deviceFile)) {
+                continue;
+            }
+            $result = $backendv;
+            break;
+        }
+        return $result;
+    }
 
-	/**
-	 * Assert that a backend for the given device exists.
-	 * @param deviceFile Specifies the device file.
-	 * @throw \OMV\AssertException
-	 */
-	final public function assertBackendExists($deviceFile) {
-		$result = $this->getBackend($deviceFile);
-		if (is_null($result)) {
-			throw new \OMV\AssertException(
-			  "No storage device backend exists for the device '%s'.",
-			  $deviceFile);
-		}
-	}
+    /**
+     * Assert that a backend for the given device exists.
+     * @param deviceFile Specifies the device file.
+     * @throw \OMV\AssertException
+     */
+    final public function assertBackendExists($deviceFile)
+    {
+        $result = $this->getBackend($deviceFile);
+        if (is_null($result)) {
+            throw new \OMV\AssertException(
+                "No storage device backend exists for the device '%s'.",
+                $deviceFile
+            );
+        }
+    }
 }

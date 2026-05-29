@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Filesystem;
 
 /**
@@ -26,11 +28,12 @@ namespace OMV\System\Filesystem;
  * a shared folder candidate.
  * @ingroup api
  */
-interface SharedFolderCandidateInterface {
-	/**
-	 * Get the description (e.g. incl. additional information like used
-	 * and available disk space usage) of the file system.
-	 * @return The file system description.
-	 */
-	public function getDescription();
+interface SharedFolderCandidateInterface
+{
+    /**
+     * Get the description (e.g. incl. additional information like used
+     * and available disk space usage) of the file system.
+     * @return The file system description.
+     */
+    public function getDescription();
 }

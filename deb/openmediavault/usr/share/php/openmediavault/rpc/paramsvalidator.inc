@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\Rpc;
 
 require_once("openmediavault/functions.inc");
@@ -26,36 +28,41 @@ require_once("openmediavault/functions.inc");
 /**
  * @ingroup api
  */
-class ParamsValidator {
-	private $schema = null;
+class ParamsValidator
+{
+    private $schema = null;
 
-	/**
-	 * @param schema The JSON schema that describes the method parameters.
-	 *   Can be given as UTF-8 encoded JSON or an associative array.
-	 *   Alternatively this can be the identifier of a data model used
-	 *   for validation, e.g. 'rpc.rsync.set'.
-	 */
-	public function __construct($schema) {
-		// Get the data model/schema used to validate the parameters.
-		if (!is_json($schema) && is_string($schema)) {
-			$mngr = \OMV\DataModel\Manager::getInstance();
-			$model = $mngr->getModel($schema);
-			$this->schema = $model->getParamsSchema();
-		} else {
-			// Check if the schema is JSON. If it is an associative array,
-			// then auto-convert it into JSON.
-			if (is_assoc_array($schema))
-				$schema = json_encode_safe($schema);
-			// Create the data model schema.
-			$this->schema = new \OMV\DataModel\Schema($schema);
-		}
-	}
+    /**
+     * @param schema The JSON schema that describes the method parameters.
+     *   Can be given as UTF-8 encoded JSON or an associative array.
+     *   Alternatively this can be the identifier of a data model used
+     *   for validation, e.g. 'rpc.rsync.set'.
+     */
+    public function __construct($schema)
+    {
+        // Get the data model/schema used to validate the parameters.
+        if (!is_json($schema) && is_string($schema)) {
+            $mngr = \OMV\DataModel\Manager::getInstance();
+            $model = $mngr->getModel($schema);
+            $this->schema = $model->getParamsSchema();
+        } else {
+            // Check if the schema is JSON. If it is an associative array,
+            // then auto-convert it into JSON.
+            if (is_assoc_array($schema)) {
+                $schema = json_encode_safe($schema);
+            }
+            // Create the data model schema.
+            $this->schema = new \OMV\DataModel\Schema($schema);
+        }
+    }
 
-	private function getSchema() {
-		return $this->schema;
-	}
+    private function getSchema()
+    {
+        return $this->schema;
+    }
 
-	final public function validate($params) {
-		$this->getSchema()->validate($params);
-	}
+    final public function validate($params)
+    {
+        $this->getSchema()->validate($params);
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,34 +20,40 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Filesystem\Backend;
 
-class Ext2 extends Ext {
-	public function __construct() {
-		parent::__construct();
-		$this->type = "ext2";
-		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
-		  self::PROP_QUOTA | self::PROP_RESIZE;
-		$this->mntOptions = explode(",", \OMV\Environment::get(
-		  "OMV_FSTAB_MNTOPS_EXT2"));
-	}
+class Ext2 extends Ext
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->type = "ext2";
+        $this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
+          self::PROP_QUOTA | self::PROP_RESIZE;
+        $this->mntOptions = explode(",", \OMV\Environment::get(
+            "OMV_FSTAB_MNTOPS_EXT2"
+        ));
+    }
 
-	/**
-	 * See parent class definition.
-	 */
-	public function getFstabMntOptions(
-	  \OMV\System\Storage\StorageDevice $sd = null) {
-		$options = parent::getFstabMntOptions($sd);
-		$options[] = "acl";
-		return $options;
-	}
+    /**
+     * See parent class definition.
+     */
+    public function getFstabMntOptions(
+        \OMV\System\Storage\StorageDevice $sd = null
+    ) {
+        $options = parent::getFstabMntOptions($sd);
+        $options[] = "acl";
+        return $options;
+    }
 
-	/**
-	 * See parent class definition.
-	 */
-	function getImpl($args) {
-		$object = new \OMV\System\Filesystem\Ext($args);
-		$object->setBackend($this);
-		return $object;
-	}
+    /**
+     * See parent class definition.
+     */
+    public function getImpl($args)
+    {
+        $object = new \OMV\System\Filesystem\Ext($args);
+        $object->setBackend($this);
+        return $object;
+    }
 }

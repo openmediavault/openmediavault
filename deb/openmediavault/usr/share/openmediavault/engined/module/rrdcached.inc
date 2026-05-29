@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,31 +20,38 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace Engined\Module;
 
-class RrdCached extends \OMV\Engine\Module\ServiceAbstract
-		implements \OMV\Engine\Notify\IListener {
-	public function getName() {
-		return "rrdcached";
-	}
+class RrdCached extends \OMV\Engine\Module\ServiceAbstract implements \OMV\Engine\Notify\IListener
+{
+    public function getName()
+    {
+        return "rrdcached";
+    }
 
-	public function deployAfter(): array {
-		return ["monit"];
-	}
+    public function deployAfter(): array
+    {
+        return ["monit"];
+    }
 
-	public function deployBefore(): array {
-		return ["collectd"];
-	}
+    public function deployBefore(): array
+    {
+        return ["collectd"];
+    }
 
-	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
-		$dispatcher->addListener(
-			OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.system.monitoring.perfstats",
-			[$this, "setDirty"]);
-		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
-		$dispatcher->addListener(
-			OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.system.monitoring.perfstats",
-			[$moduleMngr->getModule("monit"), "setDirty"]);
-	}
+    public function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher)
+    {
+        $dispatcher->addListener(
+            OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.system.monitoring.perfstats",
+            [$this, "setDirty"]
+        );
+        $moduleMngr = \OMV\Engine\Module\Manager::getInstance();
+        $dispatcher->addListener(
+            OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.system.monitoring.perfstats",
+            [$moduleMngr->getModule("monit"), "setDirty"]
+        );
+    }
 }

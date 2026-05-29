@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -22,22 +23,24 @@
 require_once("openmediavault/functions.inc");
 
 \OMV\System\LogFileSpec::registerSpecification("k3s", [
-	"command" => "export SYSTEMD_COLORS=0; journalctl --quiet --no-pager ".
-		"SYSLOG_IDENTIFIER='k3s' --output=short-iso",
-	"filename" => "k3s.log",
-	"regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:?\d{2})\s+(\S+)\s+k3s\[\d+\]:\s+(.*)$/",
-	"columns" => [
-		"ts" => [
-			"index" => 1,
-			"func" => function($v) { return strpdate($v,"Y-m-d*H:i:sT"); }
-		],
-		"date" => [
-			"index" => 1,
-			"func" => function($v) {
-				return strftime("%c", strpdate($v,"Y-m-d*H:i:sT"));
-			}
-		],
-		"hostname" => 2,
-		"message" => 3
-	]
+    "command" => "export SYSTEMD_COLORS=0; journalctl --quiet --no-pager ".
+        "SYSLOG_IDENTIFIER='k3s' --output=short-iso",
+    "filename" => "k3s.log",
+    "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:?\d{2})\s+(\S+)\s+k3s\[\d+\]:\s+(.*)$/",
+    "columns" => [
+        "ts" => [
+            "index" => 1,
+            "func" => function ($v) {
+                return strpdate($v, "Y-m-d*H:i:sT");
+            }
+        ],
+        "date" => [
+            "index" => 1,
+            "func" => function ($v) {
+                return strftime("%c", strpdate($v, "Y-m-d*H:i:sT"));
+            }
+        ],
+        "hostname" => 2,
+        "message" => 3
+    ]
 ]);

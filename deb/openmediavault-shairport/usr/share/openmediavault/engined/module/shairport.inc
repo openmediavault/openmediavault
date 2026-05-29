@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,41 +20,48 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
-class ShairportSync extends \OMV\Engine\Module\ServiceAbstract
-		implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus {
-	public function getName() {
-		return "shairport-sync";
-	}
+class ShairportSync extends \OMV\Engine\Module\ServiceAbstract implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus
+{
+    public function getName()
+    {
+        return "shairport-sync";
+    }
 
-	public function deployAfter(): array {
-		return ["monit"];
-	}
+    public function deployAfter(): array
+    {
+        return ["monit"];
+    }
 
-	public function getStatus() {
-		$db = \OMV\Config\Database::getInstance();
-		$object = $db->get("conf.service.shairport");
-		$systemCtl = new \OMV\System\SystemCtl("shairport-sync");
-		return [
-			"name" => $this->getName(),
-			"title" => gettext("Shairport"),
-			"enabled" => $object->get("enable"),
-			"running" => $systemCtl->isActive()
-		];
-	}
+    public function getStatus()
+    {
+        $db = \OMV\Config\Database::getInstance();
+        $object = $db->get("conf.service.shairport");
+        $systemCtl = new \OMV\System\SystemCtl("shairport-sync");
+        return [
+            "name" => $this->getName(),
+            "title" => gettext("Shairport"),
+            "enabled" => $object->get("enable"),
+            "running" => $systemCtl->isActive()
+        ];
+    }
 
-	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
-		$dispatcher->addListener(
-			OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.service.shairport",
-			[ $this, "setDirty" ]);
-		$dispatcher->addListener(
-			OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.system.network.dns",
-			[ $this, "setDirty" ]);
-		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
-		$dispatcher->addListener(
-			OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.service.shairport",
-			[ $moduleMngr->getModule("monit"), "setDirty" ]);
-	}
+    public function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher)
+    {
+        $dispatcher->addListener(
+            OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.service.shairport",
+            [ $this, "setDirty" ]
+        );
+        $dispatcher->addListener(
+            OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.system.network.dns",
+            [ $this, "setDirty" ]
+        );
+        $moduleMngr = \OMV\Engine\Module\Manager::getInstance();
+        $dispatcher->addListener(
+            OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.service.shairport",
+            [ $moduleMngr->getModule("monit"), "setDirty" ]
+        );
+    }
 }

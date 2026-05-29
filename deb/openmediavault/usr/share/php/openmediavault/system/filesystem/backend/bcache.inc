@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,14 +20,17 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Filesystem\Backend;
 
 /**
  * Bcache is not a real filesystem, but it's the type of device that is
  * formatted for bcache.
  */
-class Bcache extends BackendAbstract {
-	public function __construct() {
-		$this->type = "bcache";
-	}
+class Bcache extends BackendAbstract
+{
+    public function __construct()
+    {
+        $this->type = "bcache";
+    }
 }

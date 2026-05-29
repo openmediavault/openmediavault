@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -25,85 +26,93 @@ require_once("openmediavault/functions.inc");
 // 2025-11-07T19:18:48+00:00 omv8box systemd[1]: Reloading...
 \OMV\System\LogFileSpec::registerSpecification("syslog", [
   "command" => "export SYSTEMD_COLORS=0; journalctl ".
-	"--quiet --output=short-iso --no-pager",
+    "--quiet --output=short-iso --no-pager",
   "filename" => "syslog",
   "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:?\d{2})\s+(\S+)\s+(.+)$/",
   "columns" => [
-	  "ts" => [
-		  "index" => 1,
-		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:sT"); }
-	  ],
-	  "date" => [
-		  "index" => 1,
-		  "func" => function($v) {
-			  return strftime("%c", strpdate($v,"Y-m-d*H:i:sT"));
-		  }
-	  ],
-	  "hostname" => 2,
-	  "message" => 3
+      "ts" => [
+          "index" => 1,
+          "func" => function ($v) {
+              return strpdate($v, "Y-m-d*H:i:sT");
+          }
+      ],
+      "date" => [
+          "index" => 1,
+          "func" => function ($v) {
+              return strftime("%c", strpdate($v, "Y-m-d*H:i:sT"));
+          }
+      ],
+      "hostname" => 2,
+      "message" => 3
   ]]);
 
 \OMV\System\LogFileSpec::registerSpecification("daemon", [
   "command" => "export SYSTEMD_COLORS=0; journalctl --facility=daemon ".
-	"--quiet --output=short-iso --no-pager",
+    "--quiet --output=short-iso --no-pager",
   "filename" => "daemon",
   "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:?\d{2})\s+(\S+)\s+(.+)$/",
   "columns" => [
-	  "ts" => [
-		  "index" => 1,
-		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:sT"); }
-	  ],
-	  "date" => [
-		  "index" => 1,
-		  "func" => function($v) {
-			  return strftime("%c", strpdate($v,"Y-m-d*H:i:sT"));
-		  }
-	  ],
-	  "hostname" => 2,
-	  "message" => 3
+      "ts" => [
+          "index" => 1,
+          "func" => function ($v) {
+              return strpdate($v, "Y-m-d*H:i:sT");
+          }
+      ],
+      "date" => [
+          "index" => 1,
+          "func" => function ($v) {
+              return strftime("%c", strpdate($v, "Y-m-d*H:i:sT"));
+          }
+      ],
+      "hostname" => 2,
+      "message" => 3
   ]]);
 
 \OMV\System\LogFileSpec::registerSpecification("auth", [
   "command" => "export SYSTEMD_COLORS=0; journalctl ".
-  	"--facility=auth,authpriv ".
-	"--quiet --output=short-iso --no-pager",
+    "--facility=auth,authpriv ".
+    "--quiet --output=short-iso --no-pager",
   "filename" => "auth",
   "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:?\d{2})\s+(\S+)\s+(.+)$/",
   "columns" => [
-	  "ts" => [
-		  "index" => 1,
-		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:sT"); }
-	  ],
-	  "date" => [
-		  "index" => 1,
-		  "func" => function($v) {
-			  return strftime("%c", strpdate($v,"Y-m-d*H:i:sT"));
-		  }
-	  ],
-	  "hostname" => 2,
-	  "message" => 3
+      "ts" => [
+          "index" => 1,
+          "func" => function ($v) {
+              return strpdate($v, "Y-m-d*H:i:sT");
+          }
+      ],
+      "date" => [
+          "index" => 1,
+          "func" => function ($v) {
+              return strftime("%c", strpdate($v, "Y-m-d*H:i:sT"));
+          }
+      ],
+      "hostname" => 2,
+      "message" => 3
   ]]);
 
 \OMV\System\LogFileSpec::registerSpecification("messages", [
   "command" => "export SYSTEMD_COLORS=0; journalctl ".
-  	"--priority=warning..info ".
-  	"--facility=auth,authpriv,cron,daemon,mail ".
-	"--quiet --output=short-iso --no-pager",
+    "--priority=warning..info ".
+    "--facility=auth,authpriv,cron,daemon,mail ".
+    "--quiet --output=short-iso --no-pager",
   "filename" => "messages",
   "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:?\d{2})\s+(\S+)\s+(.+)$/",
   "columns" => [
-	  "ts" => [
-		  "index" => 1,
-		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:sT"); }
-	  ],
-	  "date" => [
-		  "index" => 1,
-		  "func" => function($v) {
-			  return strftime("%c", strpdate($v,"Y-m-d*H:i:sT"));
-		  }
-	  ],
-	  "hostname" => 2,
-	  "message" => 3
+      "ts" => [
+          "index" => 1,
+          "func" => function ($v) {
+              return strpdate($v, "Y-m-d*H:i:sT");
+          }
+      ],
+      "date" => [
+          "index" => 1,
+          "func" => function ($v) {
+              return strftime("%c", strpdate($v, "Y-m-d*H:i:sT"));
+          }
+      ],
+      "hostname" => 2,
+      "message" => 3
   ]]);
 
 // 2016-06-26T21:24:08+0200 vmpc05 kernel: Booting paravirtualized kernel on bare hardware
@@ -114,18 +123,20 @@ require_once("openmediavault/functions.inc");
   "filename" => "boot",
   "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:?\d{2})\s+(\S+)\s+(.+)$/",
   "columns" => [
-	  "ts" => [
-		  "index" => 1,
-		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:sT"); }
-	  ],
-	  "date" => [
-		  "index" => 1,
-		  "func" => function($v) {
-			  return strftime("%c", strpdate($v,"Y-m-d*H:i:sT"));
-		  }
-	  ],
-	  "hostname" => 2,
-	  "message" => 3
+      "ts" => [
+          "index" => 1,
+          "func" => function ($v) {
+              return strpdate($v, "Y-m-d*H:i:sT");
+          }
+      ],
+      "date" => [
+          "index" => 1,
+          "func" => function ($v) {
+              return strftime("%c", strpdate($v, "Y-m-d*H:i:sT"));
+          }
+      ],
+      "hostname" => 2,
+      "message" => 3
   ]]);
 
 // /var/log/dpkg.log
@@ -138,17 +149,19 @@ require_once("openmediavault/functions.inc");
   "filepath" => "/var/log/dpkg.log",
   "regex" => "/^(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2})\s+(.+)$/",
   "columns" => [
-	  "ts" => [
-		  "index" => 1,
-		  "func" => function($v) { return strpdate($v,"Y-m-d H:i:s"); }
-	  ],
-	  "date" => [
-		  "index" => 1,
-		  "func" => function($v) {
-			  return strftime("%c", strpdate($v,"Y-m-d H:i:s"));
-		  }
-	  ],
-	  "message" => 2
+      "ts" => [
+          "index" => 1,
+          "func" => function ($v) {
+              return strpdate($v, "Y-m-d H:i:s");
+          }
+      ],
+      "date" => [
+          "index" => 1,
+          "func" => function ($v) {
+              return strftime("%c", strpdate($v, "Y-m-d H:i:s"));
+          }
+      ],
+      "message" => 2
   ]]);
 
 // Retrieved via journalctl.
@@ -159,18 +172,20 @@ require_once("openmediavault/functions.inc");
   "filename" => "rsyncd",
   "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:?\d{2})\s+(\S+)\s+rsyncd\[\d+\]:\s+(.*)$/",
   "columns" => [
-	  "ts" => [
-		  "index" => 1,
-		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:sT"); }
-	  ],
-	  "date" => [
-		  "index" => 1,
-		  "func" => function($v) {
-			  return strftime("%c", strpdate($v,"Y-m-d*H:i:sT"));
-		  }
-	  ],
-	  "hostname" => 2,
-	  "message" => 3
+      "ts" => [
+          "index" => 1,
+          "func" => function ($v) {
+              return strpdate($v, "Y-m-d*H:i:sT");
+          }
+      ],
+      "date" => [
+          "index" => 1,
+          "func" => function ($v) {
+              return strftime("%c", strpdate($v, "Y-m-d*H:i:sT"));
+          }
+      ],
+      "hostname" => 2,
+      "message" => 3
   ]]);
 
 // Retrieved via journalctl.
@@ -183,17 +198,19 @@ require_once("openmediavault/functions.inc");
   "filename" => "smartd.log",
   "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:?\d{2})\s+(\S+)\ssmartd\[\d+\]:\s+(.*)$/",
   "columns" => [
-	  "ts" => [
-		  "index" => 1,
-		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:sT"); }
-	  ],
-	  "date" => [
-		  "index" => 1,
-		  "func" => function($v) {
-			  return strftime("%c", strpdate($v,"Y-m-d*H:i:sT"));
-		  }
-	  ],
-	  "message" => 3
+      "ts" => [
+          "index" => 1,
+          "func" => function ($v) {
+              return strpdate($v, "Y-m-d*H:i:sT");
+          }
+      ],
+      "date" => [
+          "index" => 1,
+          "func" => function ($v) {
+              return strftime("%c", strpdate($v, "Y-m-d*H:i:sT"));
+          }
+      ],
+      "message" => 3
   ]]);
 
 // Retrieved via journalctl.
@@ -204,29 +221,33 @@ require_once("openmediavault/functions.inc");
   "filename" => "smbd_audit.log",
   "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:?\d{2})\s+(\S+)\ssmbd_audit\[\d+\]:\s+([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)$/",
   "columns" => [
-	  "ts" => [
-		  "index" => 1,
-		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:sT"); }
-	  ],
-	  "date" => [
-		  "index" => 1,
-		  "func" => function($v) {
-			  return strftime("%c", strpdate($v,"Y-m-d*H:i:sT"));
-		  }
-	  ],
-	  "hostname" => 2,
-	  "username" => 3,
-	  "clientipaddr" => 4,
-	  "clientnetbiosname" => 5,
-	  "servicerootdir" => 6,
-	  "servicename" => 7,
-	  "operation" => 8,
-	  "result" => 9,
-	  "filepath" => 10,
-	  "filename" => [
-	      "index" => 10,
-	      "func" => function($v) { return basename($v); }
-	  ]
+      "ts" => [
+          "index" => 1,
+          "func" => function ($v) {
+              return strpdate($v, "Y-m-d*H:i:sT");
+          }
+      ],
+      "date" => [
+          "index" => 1,
+          "func" => function ($v) {
+              return strftime("%c", strpdate($v, "Y-m-d*H:i:sT"));
+          }
+      ],
+      "hostname" => 2,
+      "username" => 3,
+      "clientipaddr" => 4,
+      "clientnetbiosname" => 5,
+      "servicerootdir" => 6,
+      "servicename" => 7,
+      "operation" => 8,
+      "result" => 9,
+      "filepath" => 10,
+      "filename" => [
+          "index" => 10,
+          "func" => function ($v) {
+              return basename($v);
+          }
+      ]
   ]]);
 
 // /var/log/rsync.log
@@ -238,17 +259,19 @@ require_once("openmediavault/functions.inc");
   "filepath" => "/var/log/rsync.log",
   "regex" => "/^(\S+\s+\S+) \[\d+\] (.*)$/",
   "columns" => [
-	  "ts" => [
-		  "index" => 1,
-		  "func" => function($v) { return strpdate($v,"Y/m/d G:i:s"); }
-	  ],
-	  "date" => [
-		  "index" => 1,
-		  "func" => function($v) {
-			  return strftime("%c", strpdate($v,"Y/m/d G:i:s"));
-		  }
-	  ],
-	  "message" => 2
+      "ts" => [
+          "index" => 1,
+          "func" => function ($v) {
+              return strpdate($v, "Y/m/d G:i:s");
+          }
+      ],
+      "date" => [
+          "index" => 1,
+          "func" => function ($v) {
+              return strftime("%c", strpdate($v, "Y/m/d G:i:s"));
+          }
+      ],
+      "message" => 2
   ]]);
 
 // /var/log/apt/term.log
@@ -263,7 +286,7 @@ require_once("openmediavault/functions.inc");
   "filepath" => "/var/log/apt/term.log",
   "regex" => "/^(.+)$/",
   "columns" => [
-	  "message" => 1
+      "message" => 1
   ]]);
 
 // /var/log/apt/history.log
@@ -276,25 +299,27 @@ require_once("openmediavault/functions.inc");
   "filepath" => "/var/log/apt/history.log",
   "regex" => "/^(.+)$/",
   "columns" => [
-	  "message" => 1
+      "message" => 1
   ]]);
 
 \OMV\System\LogFileSpec::registerSpecification("dmesg", [
   "command" => "export SYSTEMD_COLORS=0; journalctl --dmesg --quiet ".
-	"--output=short-iso --no-pager",
+    "--output=short-iso --no-pager",
   "filename" => "dmesg",
   "regex" => "/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:?\d{2})\s+(\S+)\s+(.+)$/",
   "columns" => [
-	  "ts" => [
-		  "index" => 1,
-		  "func" => function($v) { return strpdate($v,"Y-m-d*H:i:sT"); }
-	  ],
-	  "date" => [
-		  "index" => 1,
-		  "func" => function($v) {
-			  return strftime("%c", strpdate($v,"Y-m-d*H:i:sT"));
-		  }
-	  ],
-	  "hostname" => 2,
-	  "message" => 3
+      "ts" => [
+          "index" => 1,
+          "func" => function ($v) {
+              return strpdate($v, "Y-m-d*H:i:sT");
+          }
+      ],
+      "date" => [
+          "index" => 1,
+          "func" => function ($v) {
+              return strftime("%c", strpdate($v, "Y-m-d*H:i:sT"));
+          }
+      ],
+      "hostname" => 2,
+      "message" => 3
   ]]);

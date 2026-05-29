@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,10 +20,13 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage\Lvm;
 
 /**
  * This class provides a simple interface to handle a LVM logical volume.
  * @ingroup api
  */
-class LogicalVolume extends \OMV\System\Storage\StorageDeviceLvm {}
+class LogicalVolume extends \OMV\System\Storage\StorageDeviceLvm
+{
+}

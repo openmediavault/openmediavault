@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,44 +20,52 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage\Backend;
 
 /**
  * Implements the storage device backend for Multimedia Card (MMC) devices.
  * @ingroup api
  */
-class MMC extends BackendAbstract {
-	function getType() {
-		return OMV_STORAGE_DEVICE_KIND_GENERIC |
-			OMV_STORAGE_DEVICE_TRAIT_BLOCK |
-			OMV_STORAGE_DEVICE_TRAIT_PHYSICAL;
-	}
+class MMC extends BackendAbstract
+{
+    public function getType()
+    {
+        return OMV_STORAGE_DEVICE_KIND_GENERIC |
+            OMV_STORAGE_DEVICE_TRAIT_BLOCK |
+            OMV_STORAGE_DEVICE_TRAIT_PHYSICAL;
+    }
 
-	function enumerate() {
-		// major minor  #blocks  name
-		// 179        0   30948352 mmcblk0
-		// 179        1   30947328 mmcblk0p1
-		return $this->enumerateProcFs("mmcblk[0-9]+");
-	}
+    public function enumerate()
+    {
+        // major minor  #blocks  name
+        // 179        0   30948352 mmcblk0
+        // 179        1   30947328 mmcblk0p1
+        return $this->enumerateProcFs("mmcblk[0-9]+");
+    }
 
-	function isTypeOf($deviceFile) {
-		// Examples:
-		// - /dev/mmcblk0
-		// - /dev/mmcblk0p1
-		$regex = "mmcblk[0-9]+(p[0-9]+)*";
-		return $this->isTypeOfByName($deviceFile, $regex);
-	}
+    public function isTypeOf($deviceFile)
+    {
+        // Examples:
+        // - /dev/mmcblk0
+        // - /dev/mmcblk0p1
+        $regex = "mmcblk[0-9]+(p[0-9]+)*";
+        return $this->isTypeOfByName($deviceFile, $regex);
+    }
 
-	function getImpl($args) {
-		return new \OMV\System\Storage\StorageDeviceMMC($args);
-	}
+    public function getImpl($args)
+    {
+        return new \OMV\System\Storage\StorageDeviceMMC($args);
+    }
 
-	function baseDeviceFile($deviceFile) {
-		return preg_replace("/(p\d+)$/", "", $deviceFile);
-	}
+    public function baseDeviceFile($deviceFile)
+    {
+        return preg_replace("/(p\d+)$/", "", $deviceFile);
+    }
 
-	function fsDeviceFile($deviceFile, $partition = 1) {
-		// E.g. /dev/mmcblk0p1
-		return sprintf("%sp%d", $deviceFile, $partition);
-	}
+    public function fsDeviceFile($deviceFile, $partition = 1)
+    {
+        // E.g. /dev/mmcblk0p1
+        return sprintf("%sp%d", $deviceFile, $partition);
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,45 +20,52 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace Engined\Module;
 
-class Nginx extends \OMV\Engine\Module\ServiceAbstract
-		implements \OMV\Engine\Notify\IListener {
-	public function getName() {
-		return "nginx";
-	}
+class Nginx extends \OMV\Engine\Module\ServiceAbstract implements \OMV\Engine\Notify\IListener
+{
+    public function getName()
+    {
+        return "nginx";
+    }
 
-	public function getAlias() {
-		return "webserver";
-	}
+    public function getAlias()
+    {
+        return "webserver";
+    }
 
-	public function deployAfter(): array {
-		return ["systemd-networkd", "certificates", "monit"];
-	}
+    public function deployAfter(): array
+    {
+        return ["systemd-networkd", "certificates", "monit"];
+    }
 
-	/**
-	 * Helper function to find out whether the given SSL certificate
-	 * is used by this service. If it is used, then mark the module as
-	 * dirty.
-	 * @param type The event message type.
-	 * @param path The event message path.
-	 * @param object The configuration object.
-	 */
-	final public function onModifySslCertificate($type, $path, $object) {
-		$db = \OMV\Config\Database::getInstance();
-		if (TRUE === $db->exists("conf.webadmin", [
-			"operator" => "stringEquals",
-			"arg0" => "sslcertificateref",
-			"arg1" => $object['uuid']
-		])) {
-			$this->setDirty();
-		}
-	}
+    /**
+     * Helper function to find out whether the given SSL certificate
+     * is used by this service. If it is used, then mark the module as
+     * dirty.
+     * @param type The event message type.
+     * @param path The event message path.
+     * @param object The configuration object.
+     */
+    final public function onModifySslCertificate($type, $path, $object)
+    {
+        $db = \OMV\Config\Database::getInstance();
+        if (true === $db->exists("conf.webadmin", [
+            "operator" => "stringEquals",
+            "arg0" => "sslcertificateref",
+            "arg1" => $object['uuid']
+        ])) {
+            $this->setDirty();
+        }
+    }
 
-	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
-		$dispatcher->addListener(
-			OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.system.certificate.ssl",
-			[$this, "onModifySslCertificate"]);
-	}
+    public function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher)
+    {
+        $dispatcher->addListener(
+            OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.system.certificate.ssl",
+            [$this, "onModifySslCertificate"]
+        );
+    }
 }

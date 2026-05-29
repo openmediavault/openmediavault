@@ -1,5 +1,6 @@
 #!/usr/bin/phpunit -c/etc/openmediavault
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -22,34 +23,43 @@
  */
 require_once("openmediavault/autoloader.inc");
 
-class SystemTest extends \OMV\System\System {
-	public static function getRootDeviceFile() {
-		return "/dev/sda1";
-	}
+class SystemTest extends \OMV\System\System
+{
+    public static function getRootDeviceFile()
+    {
+        return "/dev/sda1";
+    }
 }
 
-class test_openmediavault_system_system extends \PHPUnit\Framework\TestCase {
-	public function testIsRootDeviceFile1(): void {
-		$this->assertTrue(SystemTest::isRootDeviceFile("/dev/root"));
-	}
+class test_openmediavault_system_system extends \PHPUnit\Framework\TestCase
+{
+    public function testIsRootDeviceFile1(): void
+    {
+        $this->assertTrue(SystemTest::isRootDeviceFile("/dev/root"));
+    }
 
-	public function testIsRootDeviceFile2(): void {
-		$this->assertTrue(SystemTest::isRootDeviceFile("/dev/sda1"));
-	}
+    public function testIsRootDeviceFile2(): void
+    {
+        $this->assertTrue(SystemTest::isRootDeviceFile("/dev/sda1"));
+    }
 
-	public function testIsRootDeviceFile3(): void {
-		$this->assertTrue(SystemTest::isRootDeviceFile("/dev/sda", FALSE));
-	}
+    public function testIsRootDeviceFile3(): void
+    {
+        $this->assertTrue(SystemTest::isRootDeviceFile("/dev/sda", false));
+    }
 
-	public function testIsRootDeviceFile4(): void {
-		$this->assertFalse(SystemTest::isRootDeviceFile("/dev/sda"));
-	}
+    public function testIsRootDeviceFile4(): void
+    {
+        $this->assertFalse(SystemTest::isRootDeviceFile("/dev/sda"));
+    }
 
-	public function testIsRootDeviceFile5(): void {
-		$this->assertFalse(SystemTest::isRootDeviceFile("/dev/sdb", FALSE));
-	}
+    public function testIsRootDeviceFile5(): void
+    {
+        $this->assertFalse(SystemTest::isRootDeviceFile("/dev/sdb", false));
+    }
 
-	public function testIsRootDeviceFile6(): void {
-		$this->assertFalse(SystemTest::isRootDeviceFile("/dev/sdb2"));
-	}
+    public function testIsRootDeviceFile6(): void
+    {
+        $this->assertFalse(SystemTest::isRootDeviceFile("/dev/sdb2"));
+    }
 }

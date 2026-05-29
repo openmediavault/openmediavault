@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System;
 
 /**
@@ -26,71 +28,80 @@ namespace OMV\System;
  * on object destruction.
  * @ingroup api
  */
-class TmpFile {
-	private $autoUnlink;
-	private $filename;
+class TmpFile
+{
+    private $autoUnlink;
+    private $filename;
 
-	/**
-	 * Constructor
-	 * @param string prefix The prefix of the generated temporary filename.
-	 *   Defaults to empty string.
-	 * @param bool autoUnlink If set to FALSE, the file will not be unlinked
-	 *   on object destruction. Defaults to TRUE.
-	 * @return void
-	 * @throw \OMV\Exception
-	 */
-	function __construct(string $prefix = "", bool $autoUnlink = TRUE) {
-		$this->autoUnlink = $autoUnlink;
-		$tmpDir = sys_get_temp_dir();
-		$filename = tempnam($tmpDir, $prefix);
-		if (FALSE === $filename) {
-			throw new \OMV\Exception(
-				"Failed to create temporary file (dir=%s, prefix=%s).",
-				$tmpDir, $prefix);
-		}
-		$this->filename = $filename;
-	}
+    /**
+     * Constructor
+     * @param string prefix The prefix of the generated temporary filename.
+     *   Defaults to empty string.
+     * @param bool autoUnlink If set to FALSE, the file will not be unlinked
+     *   on object destruction. Defaults to TRUE.
+     * @return void
+     * @throw \OMV\Exception
+     */
+    public function __construct(string $prefix = "", bool $autoUnlink = true)
+    {
+        $this->autoUnlink = $autoUnlink;
+        $tmpDir = sys_get_temp_dir();
+        $filename = tempnam($tmpDir, $prefix);
+        if (false === $filename) {
+            throw new \OMV\Exception(
+                "Failed to create temporary file (dir=%s, prefix=%s).",
+                $tmpDir,
+                $prefix
+            );
+        }
+        $this->filename = $filename;
+    }
 
-	/**
-	 * Destructor
-	 */
-	function __destruct() {
-		if ($this->autoUnlink) {
-			$this->unlink();
-		}
-	}
+    /**
+     * Destructor
+     */
+    public function __destruct()
+    {
+        if ($this->autoUnlink) {
+            $this->unlink();
+        }
+    }
 
-	/**
-	 * @return string The full file name.
-	 */
-	public function getFileName(): string {
-		return $this->filename;
-	}
+    /**
+     * @return string The full file name.
+     */
+    public function getFileName(): string
+    {
+        return $this->filename;
+    }
 
-	/**
-	 * Write data to the temporary file.
-	 * @param string data The data to write.
-	 * @return mixed This function returns the number of bytes that
-	 *   were written to the file, or FALSE on failure.
-	 */
-	public function write($data) {
-		return file_put_contents($this->getFileName(), $data);
-	}
+    /**
+     * Write data to the temporary file.
+     * @param string data The data to write.
+     * @return mixed This function returns the number of bytes that
+     *   were written to the file, or FALSE on failure.
+     */
+    public function write($data)
+    {
+        return file_put_contents($this->getFileName(), $data);
+    }
 
-	/**
-	 * Reads the entire file into a string.
-	 * @return mixed The function returns the read data as a string
-	 *   or FALSE on failure.
-	 */
-	public function read() {
-		return file_get_contents($this->getFileName());
-	}
+    /**
+     * Reads the entire file into a string.
+     * @return mixed The function returns the read data as a string
+     *   or FALSE on failure.
+     */
+    public function read()
+    {
+        return file_get_contents($this->getFileName());
+    }
 
-	/**
-	 * Unlink the temporary file.
-	 * @return bool Returns TRUE on success or FALSE on failure.
-	 */
-	public function unlink(): bool {
-		return unlink($this->getFileName());
-	}
+    /**
+     * Unlink the temporary file.
+     * @return bool Returns TRUE on success or FALSE on failure.
+     */
+    public function unlink(): bool
+    {
+        return unlink($this->getFileName());
+    }
 }

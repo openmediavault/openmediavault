@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,50 +20,63 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace Engined\Module;
 
-class MdMgmt extends \OMV\Engine\Module\ServiceAbstract
-		implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\INotification {
-	public function getName() {
-		return "mdadm";
-	}
+class MdMgmt extends \OMV\Engine\Module\ServiceAbstract implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\INotification
+{
+    public function getName()
+    {
+        return "mdadm";
+    }
 
-	public function deployBefore(): array {
-		return ["initramfs"];
-	}
+    public function deployBefore(): array
+    {
+        return ["initramfs"];
+    }
 
-	public function deployAfter(): array {
-		return ["email"];
-	}
+    public function deployAfter(): array
+    {
+        return ["email"];
+    }
 
-	public function getNotificationConfig() {
-		return [
-			[
-				"id" => "mdadm",
-				"type" => getText("Storage"),
-				"title" => sprintf("%s (%s)", gettext("Multiple Device"),
-					gettext("Software RAID"))
-			]
-		];
-	}
+    public function getNotificationConfig()
+    {
+        return [
+            [
+                "id" => "mdadm",
+                "type" => getText("Storage"),
+                "title" => sprintf(
+                    "%s (%s)",
+                    gettext("Multiple Device"),
+                    gettext("Software RAID")
+                )
+            ]
+        ];
+    }
 
-	function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher) {
-		$dispatcher->addListener(
-			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-			"org.openmediavault.conf.system.mdadm.device",
-			[$this, "setDirty"]);
-		$dispatcher->addListener(
-			OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.system.notification.email",
-			[$this, "setDirty"]);
-		$dispatcher->addListener(
-			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
-			"org.openmediavault.conf.system.notification.notification",
-			[$this, "setDirty"]);
-		$moduleMngr = \OMV\Engine\Module\Manager::getInstance();
-		$dispatcher->addListener(
-			OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-			"org.openmediavault.conf.system.mdadm.device",
-			[$moduleMngr->getModule("initramfs"), "setDirty"]);
-	}
+    public function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher)
+    {
+        $dispatcher->addListener(
+            OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+            "org.openmediavault.conf.system.mdadm.device",
+            [$this, "setDirty"]
+        );
+        $dispatcher->addListener(
+            OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.system.notification.email",
+            [$this, "setDirty"]
+        );
+        $dispatcher->addListener(
+            OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
+            "org.openmediavault.conf.system.notification.notification",
+            [$this, "setDirty"]
+        );
+        $moduleMngr = \OMV\Engine\Module\Manager::getInstance();
+        $dispatcher->addListener(
+            OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+            "org.openmediavault.conf.system.mdadm.device",
+            [$moduleMngr->getModule("initramfs"), "setDirty"]
+        );
+    }
 }

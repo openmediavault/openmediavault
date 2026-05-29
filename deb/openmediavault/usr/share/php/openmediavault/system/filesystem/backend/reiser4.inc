@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Filesystem\Backend;
 
 /**
@@ -27,25 +29,29 @@ namespace OMV\System\Filesystem\Backend;
  * - https://archive.kernel.org/oldwiki/reiser4.wiki.kernel.org/
  * - https://wiki.archlinux.org/title/Reiser4/
  */
-class Reiser4 extends BackendAbstract {
-	public function __construct() {
-		$this->type = "reiser4";
-		$this->properties = self::PROP_MNTENT;
-		$this->mntOptions = explode(",", \OMV\Environment::get(
-			"OMV_FSTAB_MNTOPS_REISER4"));
-	}
+class Reiser4 extends BackendAbstract
+{
+    public function __construct()
+    {
+        $this->type = "reiser4";
+        $this->properties = self::PROP_MNTENT;
+        $this->mntOptions = explode(",", \OMV\Environment::get(
+            "OMV_FSTAB_MNTOPS_REISER4"
+        ));
+    }
 
-	/**
-	 * See parent class definition.
-	 */
-	public function getFstabMntOptions(
-			\OMV\System\Storage\StorageDevice $sd = null) {
-		$options = parent::getFstabMntOptions($sd);
-		if (!is_null($sd)) {
-			if (FALSE === $sd->isRotational()) {
-				$options[] = "txmod=wa";
-			}
-		}
-		return $options;
-	}
+    /**
+     * See parent class definition.
+     */
+    public function getFstabMntOptions(
+        \OMV\System\Storage\StorageDevice $sd = null
+    ) {
+        $options = parent::getFstabMntOptions($sd);
+        if (!is_null($sd)) {
+            if (false === $sd->isRotational()) {
+                $options[] = "txmod=wa";
+            }
+        }
+        return $options;
+    }
 }

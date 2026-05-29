@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,28 +20,34 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Net\NetworkInterfaceBackend;
 
 /**
  * Implements the network interface backend for VLAN devices.
  * @ingroup api
  */
-class Vlan extends BackendAbstract {
-	protected $regex = "/^(\S+\d+)\.(\d+)$/i";
+class Vlan extends BackendAbstract
+{
+    protected $regex = "/^(\S+\d+)\.(\d+)$/i";
 
-	function getType() {
-		return OMV_NETWORK_INTERFACE_TYPE_VLAN;
-	}
+    public function getType()
+    {
+        return OMV_NETWORK_INTERFACE_TYPE_VLAN;
+    }
 
-	function enumerate() {
-		return $this->enumerateSysFs($this->regex);
-	}
+    public function enumerate()
+    {
+        return $this->enumerateSysFs($this->regex);
+    }
 
-	function isTypeOf($deviceName) {
-		return $this->isTypeOfByName($deviceName, $this->regex);
-	}
+    public function isTypeOf($deviceName)
+    {
+        return $this->isTypeOfByName($deviceName, $this->regex);
+    }
 
-	function getImpl($args) {
-		return new \OMV\System\Net\NetworkInterfaceVlan($args);
-	}
+    public function getImpl($args)
+    {
+        return new \OMV\System\Net\NetworkInterfaceVlan($args);
+    }
 }

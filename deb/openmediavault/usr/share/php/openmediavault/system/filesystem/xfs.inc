@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,32 +20,36 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Filesystem;
 
-class Xfs extends Filesystem {
-	/**
-	 * See parent class definition.
-	 */
-	public function getDetails() {
-		$cmdArgs = [];
-		$cmdArgs[] = escapeshellarg($this->getDeviceFile());
-		$cmd = new \OMV\System\Process("xfs_info", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->execute($output);
-		return implode("\n", $output);
-	}
+class Xfs extends Filesystem
+{
+    /**
+     * See parent class definition.
+     */
+    public function getDetails()
+    {
+        $cmdArgs = [];
+        $cmdArgs[] = escapeshellarg($this->getDeviceFile());
+        $cmd = new \OMV\System\Process("xfs_info", $cmdArgs);
+        $cmd->setRedirect2to1();
+        $cmd->execute($output);
+        return implode("\n", $output);
+    }
 
-	/**
-	 * Grow the filesystem.
-	 * @return void
-	 * @throw \OMV\ExecException
-	 */
-	final public function grow() {
-		$this->assertIsMounted();
-		$cmdArgs = [];
-		$cmdArgs[] = escapeshellarg($this->getMountPoint());
-		$cmd = new \OMV\System\Process("xfs_growfs", $cmdArgs);
-		$cmd->setRedirect2to1();
-		$cmd->execute();
-	}
+    /**
+     * Grow the filesystem.
+     * @return void
+     * @throw \OMV\ExecException
+     */
+    final public function grow()
+    {
+        $this->assertIsMounted();
+        $cmdArgs = [];
+        $cmdArgs[] = escapeshellarg($this->getMountPoint());
+        $cmd = new \OMV\System\Process("xfs_growfs", $cmdArgs);
+        $cmd->setRedirect2to1();
+        $cmd->execute();
+    }
 }

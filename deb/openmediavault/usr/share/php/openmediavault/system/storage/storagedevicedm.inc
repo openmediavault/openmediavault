@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage;
 
 /**
@@ -26,82 +28,98 @@ namespace OMV\System\Storage;
  * See http://en.wikipedia.org/wiki/Device_mapper for more details.
  * @ingroup api
  */
-class StorageDeviceDM extends StorageDevice {
-	/**
-	 * Get the device mapper subsystem, e.g. 'lvm', 'crypt', 'dmraid',
-	 * 'mpath', 'part', ...
-	 * @return Returns the device mapper subsystem, otherwise NULL.
-	 */
-	public function getDeviceMapperSubsystem() {
-		// The DM_UUID prefix should be set to subsystem owning the device:
-		// LVM, CRYPT, DMRAID, MPATH, PART
-		// @see https://github.com/karelzak/util-linux/blob/master/misc-utils/lsblk.c#L389
-		$path = sprintf("/sys/block/%s/dm/uuid", $this->getDeviceName(TRUE));
-		if (!file_exists($path))
-			return NULL;
-		$content = trim(file_get_contents($path));
-		$parts = explode("-", $content);
-		if (count($parts) > 1)
-			return mb_strtolower(array_shift($parts));
-		return NULL;
-	}
+class StorageDeviceDM extends StorageDevice
+{
+    /**
+     * Get the device mapper subsystem, e.g. 'lvm', 'crypt', 'dmraid',
+     * 'mpath', 'part', ...
+     * @return Returns the device mapper subsystem, otherwise NULL.
+     */
+    public function getDeviceMapperSubsystem()
+    {
+        // The DM_UUID prefix should be set to subsystem owning the device:
+        // LVM, CRYPT, DMRAID, MPATH, PART
+        // @see https://github.com/karelzak/util-linux/blob/master/misc-utils/lsblk.c#L389
+        $path = sprintf("/sys/block/%s/dm/uuid", $this->getDeviceName(true));
+        if (!file_exists($path)) {
+            return null;
+        }
+        $content = trim(file_get_contents($path));
+        $parts = explode("-", $content);
+        if (count($parts) > 1) {
+            return mb_strtolower(array_shift($parts));
+        }
+        return null;
+    }
 
-	/**
-	 * Get the name of the device mapper device.
-	 * @return The name of the device mapper device, otherwise NULL.
-	 */
-	public function getDeviceMapperName() {
-		// Make sure the canonical device file is used to extract the name
-		// of the device.
-		$path = sprintf("/sys/block/%s/dm/name", $this->getDeviceName(TRUE));
-		if (!file_exists($path))
-			return NULL;
-		return trim(file_get_contents($path));
-	}
+    /**
+     * Get the name of the device mapper device.
+     * @return The name of the device mapper device, otherwise NULL.
+     */
+    public function getDeviceMapperName()
+    {
+        // Make sure the canonical device file is used to extract the name
+        // of the device.
+        $path = sprintf("/sys/block/%s/dm/name", $this->getDeviceName(true));
+        if (!file_exists($path)) {
+            return null;
+        }
+        return trim(file_get_contents($path));
+    }
 
-	/**
-	 * Get the UUID of the device mapper device.
-	 * @return The UUID of the device mapper device, otherwise NULL.
-	 */
-	public function getDeviceMapperUuid() {
-		// Make sure the canonical device file is used to extract the name
-		// of the device.
-		$path = sprintf("/sys/block/%s/dm/uuid", $this->getDeviceName(TRUE));
-		if (!file_exists($path))
-			return NULL;
-		return trim(file_get_contents($path));
-	}
+    /**
+     * Get the UUID of the device mapper device.
+     * @return The UUID of the device mapper device, otherwise NULL.
+     */
+    public function getDeviceMapperUuid()
+    {
+        // Make sure the canonical device file is used to extract the name
+        // of the device.
+        $path = sprintf("/sys/block/%s/dm/uuid", $this->getDeviceName(true));
+        if (!file_exists($path)) {
+            return null;
+        }
+        return trim(file_get_contents($path));
+    }
 
-	/**
-	 * Get the slave devices of the device mapper device.
-	 * @return An array of device files, otherwise FALSE.
-	 */
-	public function getSlaves() {
-		// Make sure the canonical device file is used to extract the name
-		// of the device.
-		$path = sprintf("/sys/block/%s/slaves", $this->getDeviceName(TRUE));
-		if (!file_exists($path))
-			return FALSE;
-		$result = [];
-		$dir = new \DirectoryIterator($path);
-		foreach ($dir as $item) {
-			if ($item->isDot() || !$item->isLink())
-				continue;
-			$result[] = sprintf("/dev/%s", $item->getFilename());
-		}
-		// Sort the devices using a "natural order" algorithm.
-		if (!sort($result, SORT_NATURAL))
-			return FALSE;
-		return $result;
-	}
+    /**
+     * Get the slave devices of the device mapper device.
+     * @return An array of device files, otherwise FALSE.
+     */
+    public function getSlaves()
+    {
+        // Make sure the canonical device file is used to extract the name
+        // of the device.
+        $path = sprintf("/sys/block/%s/slaves", $this->getDeviceName(true));
+        if (!file_exists($path)) {
+            return false;
+        }
+        $result = [];
+        $dir = new \DirectoryIterator($path);
+        foreach ($dir as $item) {
+            if ($item->isDot() || !$item->isLink()) {
+                continue;
+            }
+            $result[] = sprintf("/dev/%s", $item->getFilename());
+        }
+        // Sort the devices using a "natural order" algorithm.
+        if (!sort($result, SORT_NATURAL)) {
+            return false;
+        }
+        return $result;
+    }
 
-	/**
-	 * Get the description of the device mapper device.
-	 * @return The logical volume description, FALSE on failure.
-	 */
-	public function getDescription() {
-		return sprintf(gettext("Device Mapper %s [%s, %s]"),
-		  $this->getDeviceMapperName(), $this->getPreferredDeviceFile(),
-		  binary_format($this->getSize()));
-	}
+    /**
+     * Get the description of the device mapper device.
+     * @return The logical volume description, FALSE on failure.
+     */
+    public function getDescription()
+    {
+        return sprintf(
+            gettext("Device Mapper %s [%s, %s]"),
+            $this->getDeviceMapperName(),
+            $this->getPreferredDeviceFile(),
+            binary_format($this->getSize())
+        );
+    }
 }

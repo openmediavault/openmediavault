@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,20 +20,23 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV;
 
 /**
  * Exception used to return an HTTP error code (4xx-5xx) to the client.
  * @ingroup api
  */
-class HttpErrorException extends Exception {
-	/**
-	 * Constructor
-	 * @param int $httpStatusCode The HTTP status code.
-	 */
-	public function __construct() {
-		$args = func_get_args();
-		$this->setHttpStatusCode(array_shift($args));
-		parent::__construct(...$args);
-	}
+class HttpErrorException extends Exception
+{
+    /**
+     * Constructor
+     * @param int $httpStatusCode The HTTP status code.
+     */
+    public function __construct()
+    {
+        $args = func_get_args();
+        $this->setHttpStatusCode(array_shift($args));
+        parent::__construct(...$args);
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,45 +20,53 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace Engined\Rpc;
 
-class AptMgmt extends \OMV\Rpc\ServiceAbstract {
-	public function getName() {
-		return "AptMgmt";
-	}
+class AptMgmt extends \OMV\Rpc\ServiceAbstract
+{
+    public function getName()
+    {
+        return "AptMgmt";
+    }
 
-	public function initialize() {
-		$this->registerMethod("getSourceList");
-		$this->registerMethod("getSource");
-		$this->registerMethod("setSource");
-		$this->registerMethod("deleteSource");
-	}
+    public function initialize()
+    {
+        $this->registerMethod("getSourceList");
+        $this->registerMethod("getSource");
+        $this->registerMethod("setSource");
+        $this->registerMethod("deleteSource");
+    }
 
-	public function getSourceList($params, $context) {
-		return \OMV\Rpc\Rpc::call("Config", "getlist", [
-			"id" => "conf.system.apt.source",
-			...$params
-		], $context);
-	}
+    public function getSourceList($params, $context)
+    {
+        return \OMV\Rpc\Rpc::call("Config", "getlist", [
+            "id" => "conf.system.apt.source",
+            ...$params
+        ], $context);
+    }
 
-	function getSource($params, $context) {
-		return \OMV\Rpc\Rpc::call("Config", "get", [
-			"id" => "conf.system.apt.source",
-			"uuid" => $params['uuid']
-		], $context);
-	}
+    public function getSource($params, $context)
+    {
+        return \OMV\Rpc\Rpc::call("Config", "get", [
+            "id" => "conf.system.apt.source",
+            "uuid" => $params['uuid']
+        ], $context);
+    }
 
-	function setSource($params, $context) {
-		return \OMV\Rpc\Rpc::call("Config", "set", [
-			"id" => "conf.system.apt.source",
-			"data" => $params
-		], $context);
-	}
+    public function setSource($params, $context)
+    {
+        return \OMV\Rpc\Rpc::call("Config", "set", [
+            "id" => "conf.system.apt.source",
+            "data" => $params
+        ], $context);
+    }
 
-	function deleteSource($params, $context) {
-		return \OMV\Rpc\Rpc::call("Config", "delete", [
-			"id" => "conf.system.apt.source",
-			"uuid" => $params['uuid']
-		], $context);
-	}
+    public function deleteSource($params, $context)
+    {
+        return \OMV\Rpc\Rpc::call("Config", "delete", [
+            "id" => "conf.system.apt.source",
+            "uuid" => $params['uuid']
+        ], $context);
+    }
 }

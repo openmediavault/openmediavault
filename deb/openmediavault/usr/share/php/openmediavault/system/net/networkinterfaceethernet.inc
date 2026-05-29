@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Net;
 
 /**
@@ -26,8 +28,10 @@ namespace OMV\System\Net;
  * interfaces.
  * @ingroup api
  */
-class NetworkInterfaceEthernet extends NetworkInterface {
-	public function getType() {
-		return "ethernet";
-	}
+class NetworkInterfaceEthernet extends NetworkInterface
+{
+    public function getType()
+    {
+        return "ethernet";
+    }
 }

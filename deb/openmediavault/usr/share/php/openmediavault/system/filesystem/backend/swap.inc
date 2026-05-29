@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,14 +20,17 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Filesystem\Backend;
 
 /**
  * Swap is not a real filesystem, but it's the easiest way to
  * integrate it.
  */
-class Swap extends BackendAbstract {
-	public function __construct() {
-		$this->type = "swap";
-	}
+class Swap extends BackendAbstract
+{
+    public function __construct()
+    {
+        $this->type = "swap";
+    }
 }

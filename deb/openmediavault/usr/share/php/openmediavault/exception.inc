@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,22 +20,25 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV;
 
 /**
  * \em Exception is the base class for nearly all exceptions of this framework.
  * @ingroup api
  */
-class Exception extends BaseException {
-	public function __construct() {
-		$code = 0;
-		$args = func_get_args();
-		$arg0 = array_shift($args);
-		if (TRUE === is_int($arg0)) {
-			$code = $arg0;
-			$arg0 = array_shift($args);
-		}
-		$message = vsprintf($arg0, $args);
-		parent::__construct($message, $code);
-	}
+class Exception extends BaseException
+{
+    public function __construct()
+    {
+        $code = 0;
+        $args = func_get_args();
+        $arg0 = array_shift($args);
+        if (true === is_int($arg0)) {
+            $code = $arg0;
+            $arg0 = array_shift($args);
+        }
+        $message = vsprintf($arg0, $args);
+        parent::__construct($message, $code);
+    }
 }

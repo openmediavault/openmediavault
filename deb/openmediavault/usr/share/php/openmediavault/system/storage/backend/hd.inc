@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -19,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
 namespace OMV\System\Storage\Backend;
 
 /**
@@ -26,31 +28,37 @@ namespace OMV\System\Storage\Backend;
  * @see https://linux.die.net/man/4/hd
  * @ingroup api
  */
-class HD extends BackendAbstract {
-	function getType() {
-		return OMV_STORAGE_DEVICE_KIND_GENERIC |
-			OMV_STORAGE_DEVICE_TRAIT_BLOCK |
-			OMV_STORAGE_DEVICE_TRAIT_PHYSICAL;
-	}
+class HD extends BackendAbstract
+{
+    public function getType()
+    {
+        return OMV_STORAGE_DEVICE_KIND_GENERIC |
+            OMV_STORAGE_DEVICE_TRAIT_BLOCK |
+            OMV_STORAGE_DEVICE_TRAIT_PHYSICAL;
+    }
 
-	function enumerate() {
-		// Examples:
-		// - /dev/hda
-		return $this->enumerateProcFs("hd[a-z]+");
-	}
+    public function enumerate()
+    {
+        // Examples:
+        // - /dev/hda
+        return $this->enumerateProcFs("hd[a-z]+");
+    }
 
-	function isTypeOf($deviceFile) {
-		// Examples:
-		// - /dev/hdc2
-		$regex = "hd[a-z]+[0-9]*";
-		return $this->isTypeOfByName($deviceFile, $regex);
-	}
+    public function isTypeOf($deviceFile)
+    {
+        // Examples:
+        // - /dev/hdc2
+        $regex = "hd[a-z]+[0-9]*";
+        return $this->isTypeOfByName($deviceFile, $regex);
+    }
 
-	function getImpl($args) {
-		return new \OMV\System\Storage\StorageDeviceHD($args);
-	}
+    public function getImpl($args)
+    {
+        return new \OMV\System\Storage\StorageDeviceHD($args);
+    }
 
-	function baseDeviceFile($deviceFile) {
-		return preg_replace("/(\d+)$/", "", $deviceFile);
-	}
+    public function baseDeviceFile($deviceFile)
+    {
+        return preg_replace("/(\d+)$/", "", $deviceFile);
+    }
 }
