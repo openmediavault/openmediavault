@@ -43,27 +43,31 @@ class test_openmediavault_config_configobject extends \PHPUnit\Framework\TestCas
      */
     public function testConstructor()
     {
-        $object = new \OMV\Config\ConfigObject("conf.service.ftp.share");
+        $object = new \OMV\Config\ConfigObject("conf.service.ssh");
     }
 
     public function testGetDefaults()
     {
-        $object = new \OMV\Config\ConfigObject("conf.service.ftp.share");
+        $object = new \OMV\Config\ConfigObject("conf.service.ssh");
         $defaults = $object->getDefaultsAssoc();
         $this->assertEquals($defaults, [
-            'comment' => '',
             'enable' => false,
-            'uuid' => 'fa4b1c66-ef79-11e5-87a0-0002b3a176b4',
-            'sharedfolderref' => '',
+            'port' => 22,
+            'passwordauthentication' => true,
+            'pubkeyauthentication' => true,
+            'pubkeyauthentication' => true,
+            'permitrootlogin' => true,
+            'tcpforwarding' => false,
+            'compression' => false,
             'extraoptions' => ''
         ]);
     }
 
     public function testGetSet1()
     {
-        $object = new \OMV\Config\ConfigObject("conf.service.ftp.share");
-        $object->set("comment", "test");
-        $this->assertEquals($object->get("comment"), "test");
+        $object = new \OMV\Config\ConfigObject("conf.service.ssh");
+        $object->set("extraoptions", "test");
+        $this->assertEquals($object->get("extraoptions"), "test");
     }
 
     public function testGetSet2()
@@ -88,25 +92,25 @@ class test_openmediavault_config_configobject extends \PHPUnit\Framework\TestCas
 
     public function testSetAssoc()
     {
-        $object = new \OMV\Config\ConfigObject("conf.service.ftp.share");
+        $object = new \OMV\Config\ConfigObject("conf.service.ssh");
         $object->setAssoc([
-            "comment" => "test",
-            "enable" => true
+            "tcpforwarding" => true,
+            "port" => 2222
         ]);
-        $this->assertTrue($object->get("enable"));
+        $this->assertTrue($object->get("tcpforwarding"));
     }
 
     public function testIsEmpty()
     {
-        $object = new \OMV\Config\ConfigObject("conf.service.ftp.share");
-        $this->assertTrue($object->isEmpty("comment"));
+        $object = new \OMV\Config\ConfigObject("conf.service.ssh");
+        $this->assertTrue($object->isEmpty("extraoptions"));
     }
 
     public function testNotIsEmpty()
     {
-        $object = new \OMV\Config\ConfigObject("conf.service.ftp.share");
-        $object->set("comment", "test");
-        $this->assertFalse($object->isEmpty("comment"));
+        $object = new \OMV\Config\ConfigObject("conf.service.ssh");
+        $object->set("extraoptions", "test");
+        $this->assertFalse($object->isEmpty("extraoptions"));
     }
 
     public function testSetBooleanStringFalse()
