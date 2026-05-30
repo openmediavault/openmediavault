@@ -35,7 +35,7 @@ configure_samba_recyclebin_cron:
         run-parts --new-session --regex='{{ cron_scripts_prefix }}*' {{ scripts_dir }} >/dev/null 2>&1
     - user: root
     - group: root
-    - mode: 750
+    - mode: '0750'
 
 remove_samba_recyclebin_cron_scripts:
   module.run:
@@ -58,7 +58,7 @@ configure_samba_recyclebin_cron_script_{{ share.uuid }}:
     - template: jinja
     - user: root
     - group: root
-    - mode: 750
+    - mode: '0750'
 
 {% endfor %}
 

@@ -51,7 +51,7 @@ create_cron_userdefined_{{ cron_job.uuid }}_script:
         {{ cron_job.command }}
     - user: {{ cron_job.username }}
     - group: root
-    - mode: 744
+    - mode: '0744'
 {% endfor %}
 
 create_cron_userdefined:
@@ -64,4 +64,4 @@ create_cron_userdefined:
         jobs: {{ cron_jobs | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'

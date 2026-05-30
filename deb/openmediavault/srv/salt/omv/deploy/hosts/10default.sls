@@ -39,7 +39,7 @@ configure_hosts_header:
         {{ pillar['headers']['warning'] }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 configure_hosts_localhost_ipv4:
   file.append:

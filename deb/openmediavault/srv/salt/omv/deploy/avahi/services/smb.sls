@@ -58,6 +58,6 @@ configure_avahi_service_smb:
 {% endif %}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 {% endif %}

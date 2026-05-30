@@ -37,6 +37,6 @@ configure_monit_filesystem_service:
         mountpoints: {{ mountpoints | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 {% endif %}

@@ -38,4 +38,4 @@ create_cron_powermanagement:
         jobs: {{ cron_jobs | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'

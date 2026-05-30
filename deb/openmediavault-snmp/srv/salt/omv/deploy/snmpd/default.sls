@@ -33,7 +33,7 @@ configure_snmpd:
         network_dns_config: {{ network_dns_config | json }}
     - user: root
     - group: root
-    - mode: 600
+    - mode: '0600'
 
 divert_snmpd:
   omv_dpkg.divert_add:

@@ -17,7 +17,7 @@ configure_proftpd_mod_core:
         time_config: {{ time_config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 # Create welcome message file.
 {% if ftp_config.displaylogin | length > 0 %}

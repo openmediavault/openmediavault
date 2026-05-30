@@ -74,7 +74,7 @@ configure_apt_sources_list_openmediavault:
         config: {{ config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 {% set apt_conf_files = salt['cmd.run_stdout']('grep --recursive --files-with-matches --regexp="^APT::Default-Release.*" --ignore-case "/etc/apt/apt.conf" "/etc/apt/apt.conf.d/"', ignore_retcode=True) %}
 {% for file in (apt_conf_files.split('\n') if apt_conf_files else []) %}
@@ -103,7 +103,7 @@ configure_apt_proxy:
     - template: jinja
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 {% else %}
 
@@ -133,7 +133,7 @@ configure_apt_pref_kernel_backports:
     - template: jinja
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 configure_apt_sources_list_kernel_backports:
   file.managed:
@@ -143,7 +143,7 @@ configure_apt_sources_list_kernel_backports:
     - template: jinja
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 {% endif %}
 
@@ -173,7 +173,7 @@ configure_apt_sources_list_os_security:
     - template: jinja
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 {% endif %}
 

@@ -38,6 +38,6 @@ configure_postfix_cron:
         postsuper -d ALL
     - user: root
     - group: root
-    - mode: 750
+    - mode: '0750'
 
 {% endif %}

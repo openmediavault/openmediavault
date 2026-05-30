@@ -30,7 +30,7 @@ configure_default_mdadm:
     - template: jinja
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 configure_mdadm_conf:
   file.managed:
@@ -43,7 +43,7 @@ configure_mdadm_conf:
         notification_config: {{ notification_config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 mdadm_save_config:
   cmd.run:

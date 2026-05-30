@@ -33,6 +33,6 @@ configure_netplan_wifi_{{ interface.devicename }}:
         interface: {{ interface | json }}
     - user: root
     - group: root
-    - mode: 600
+    - mode: '0600'
 
 {% endfor %}

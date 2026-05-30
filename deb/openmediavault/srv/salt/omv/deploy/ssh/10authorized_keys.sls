@@ -43,7 +43,7 @@ remove_ssh_authorized_keys:
 create_ssh_authorized_key_file_{{ user.name }}:
   file.managed:
     - name: {{ filename }}
-    - mode: 600
+    - mode: '0600'
     - user: {{ user.name }}
     - contents: ""
 

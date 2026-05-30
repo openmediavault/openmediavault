@@ -27,7 +27,7 @@ configure_bcache_conf:
     - template: jinja
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 bcache_save_config:
   cmd.run:

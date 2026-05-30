@@ -29,7 +29,7 @@ configure_postfix_sasl_passwd:
         config: {{ config | json }}
     - user: root
     - group: root
-    - mode: 600
+    - mode: '0600'
 
 run_postmap_sasl_passwd:
   cmd.run:

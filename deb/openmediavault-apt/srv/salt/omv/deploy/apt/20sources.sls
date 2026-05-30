@@ -42,6 +42,6 @@ configure_apt_sources_list_deb822_{{ item.uuid }}:
     - template: jinja
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 {% endfor %}

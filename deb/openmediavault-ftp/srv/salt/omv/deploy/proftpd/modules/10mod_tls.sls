@@ -33,4 +33,4 @@ configure_proftpd_mod_tls:
         config: {{ config.modules.mod_tls | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'

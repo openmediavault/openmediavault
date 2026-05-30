@@ -34,7 +34,7 @@ configure_default_avahi_daemon:
     - template: jinja
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 divert_default_avahi_daemon:
   omv_dpkg.divert_add:
@@ -48,7 +48,7 @@ configure_avahi_daemon_conf:
     - template: jinja
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 divert_avahi_daemon_conf:
   omv_dpkg.divert_add:

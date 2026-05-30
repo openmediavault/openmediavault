@@ -45,7 +45,7 @@ create_wetty_container_systemd_unit_file:
         ssh_config: {{ ssh_config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 wetty_systemctl_daemon_reload:
   module.run:

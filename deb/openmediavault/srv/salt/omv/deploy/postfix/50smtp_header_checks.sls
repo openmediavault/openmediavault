@@ -31,4 +31,4 @@ configure_postfix_smtp_header_checks:
         /^Subject: (.*)/ REPLACE Subject: [{{ fqdn }}] ${1}
     - user: root
     - group: root
-    - mode: 600
+    - mode: '0600'

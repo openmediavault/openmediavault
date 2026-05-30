@@ -36,7 +36,7 @@ create_ssh_{{ certificate.uuid }}_priv:
         {{ certificate.privatekey | indent(8) }}
     - user: root
     - group: root
-    - mode: 600
+    - mode: '0600'
 
 create_ssh_{{ certificate.uuid }}_pub:
   file.managed:
@@ -45,6 +45,6 @@ create_ssh_{{ certificate.uuid }}_pub:
         {{ certificate.publickey | indent(8) }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 {% endfor %}

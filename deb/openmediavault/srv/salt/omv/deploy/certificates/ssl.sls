@@ -43,7 +43,7 @@ create_ssl_{{ certificate.uuid }}_crt:
         {{ certificate.certificate | indent(8) }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 create_ssl_{{ certificate.uuid }}_key:
   file.managed:
@@ -52,7 +52,7 @@ create_ssl_{{ certificate.uuid }}_key:
         {{ certificate.privatekey | indent(8) }}
     - user: root
     - group: root
-    - mode: 640
+    - mode: '0640'
 
 {% endfor %}
 

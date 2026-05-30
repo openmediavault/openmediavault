@@ -37,6 +37,6 @@ configure_monit_collectd_service:
         notification_config: {{ notification_config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 {% endif %}

@@ -22,7 +22,7 @@ create_root_bashrc:
     - name: "/root/.bashrc"
     - user: root
     - group: root
-    - mode: 600
+    - mode: '0600'
     - replace: False
 
 configure_root_bashrc:

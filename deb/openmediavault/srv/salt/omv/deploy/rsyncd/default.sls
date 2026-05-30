@@ -36,7 +36,7 @@ configure_rsyncd_conf:
     - template: jinja
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 remove_rsyncd_secrets:
   module.run:
@@ -57,7 +57,7 @@ configure_rsyncd_secrets_{{ module.name }}:
     - template: jinja
     - user: root
     - group: root
-    - mode: 600
+    - mode: '0600'
 
 {% endfor %}
 

@@ -43,7 +43,7 @@ configure_firewall_script:
         num_inet6_rules: {{ num_inet6_rules }}
     - user: root
     - group: root
-    - mode: 750
+    - mode: '0750'
     - makedirs: True
 
 configure_firewall_unit_file:
@@ -66,7 +66,7 @@ configure_firewall_unit_file:
         WantedBy=multi-user.target
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 iptables_systemctl_daemon_reload:
   module.run:

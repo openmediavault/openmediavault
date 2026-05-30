@@ -39,6 +39,6 @@ configure_avahi_service_nfs:
               - "path={{ nfs_export_dir | path_prettify }}"
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 {% endif %}

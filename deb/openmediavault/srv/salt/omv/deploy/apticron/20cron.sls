@@ -50,6 +50,6 @@ create_apticron_cron_{{ apt_updates_config.notificationschedule }}:
         if test -x /usr/sbin/apticron; then /usr/sbin/apticron --cron; fi
     - user: root
     - group: root
-    - mode: 755
+    - mode: '0755'
 
 {% endif %}

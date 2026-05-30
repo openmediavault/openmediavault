@@ -24,9 +24,9 @@
 fix_root_path_permissions:
   file.directory:
     - name: /
-    - mode: 0755
+    - mode: '0755'
 
 fix_etc_path_permissions:
   file.directory:
     - name: /etc
-    - mode: 0755
+    - mode: '0755'

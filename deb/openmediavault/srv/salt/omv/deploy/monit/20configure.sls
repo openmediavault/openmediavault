@@ -47,7 +47,7 @@ configure_default_monit:
       - "START=yes"
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 divert_default_monit:
   omv_dpkg.divert_add:
@@ -63,7 +63,7 @@ configure_monit_monitrc:
         email_config: {{ email_config | json }}
     - user: root
     - group: root
-    - mode: 700
+    - mode: '0700'
 
 divert_monit_monitrc:
   omv_dpkg.divert_add:

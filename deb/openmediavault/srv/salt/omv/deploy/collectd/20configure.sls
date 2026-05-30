@@ -25,7 +25,7 @@ configure_collectd_conf:
     - template: jinja
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 divert_collectd_conf:
   omv_dpkg.divert_add:

@@ -37,7 +37,7 @@ configure_postfix_recipient_canonical:
         users: {{ users | json }}
     - user: root
     - group: root
-    - mode: 600
+    - mode: '0600'
 
 run_postmap_recipient_canonical:
   cmd.run:

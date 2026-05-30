@@ -34,7 +34,7 @@ configure_rsync_cron:
     - template: jinja
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 rsync_create_cron_scripts_dir:
   file.directory:
@@ -60,6 +60,6 @@ configure_rsync_cron_script_{{ job.uuid }}:
     - template: jinja
     - user: root
     - group: root
-    - mode: 750
+    - mode: '0750'
 
 {% endfor %}

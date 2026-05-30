@@ -71,7 +71,7 @@ configure_sharedfolder_{{ sharedfolder.name }}_mount_unit_file:
         WantedBy=basic.target
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 {% endfor %}
 {% endif %}

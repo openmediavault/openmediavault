@@ -50,7 +50,7 @@ fix_k3s_systemd_unit_file_mode_bits:
     - name: /etc/systemd/system/k3s.service
     - replace: False
     - create: False
-    - mode: 644
+    - mode: '0644'
 
 start_k3s_service:
   service.running:

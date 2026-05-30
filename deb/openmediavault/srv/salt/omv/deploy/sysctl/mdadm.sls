@@ -36,4 +36,4 @@ configure_sysctl_mdadm:
       - "dev.raid.speed_limit_min = {{ speed_limit_min }}"
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'

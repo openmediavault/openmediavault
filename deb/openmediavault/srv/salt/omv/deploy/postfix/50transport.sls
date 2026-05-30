@@ -23,7 +23,7 @@ configure_postfix_transport:
     - contents: "openmediavault-notification@localhost.localdomain omvnotificationfilter:"
     - user: root
     - group: root
-    - mode: 600
+    - mode: '0600'
 
 run_postmap_transport:
   cmd.run:

@@ -29,7 +29,7 @@ configure_default_wsdd:
         WSDD_PARAMS="--workgroup='{{ config.workgroup }}' {{ options }}"
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 divert_default_wsdd:
   omv_dpkg.divert_add:

@@ -33,7 +33,7 @@ configure_sshd_config:
         config: {{ config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 divert_sshd_config:
   omv_dpkg.divert_add:
@@ -48,7 +48,7 @@ divert_sshd_config:
 create_sshd_runtime_dir:
   file.directory:
     - name: /run/sshd
-    - mode: 0755
+    - mode: '0755'
 
 test_sshd_config:
   cmd.run:

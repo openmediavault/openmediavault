@@ -104,7 +104,7 @@ configure_clamav_freshclam:
         proxy_config: {{ proxy_config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 # Ensure the signature databases exists, otherwise starting
 # clamav-daemon will fail. If they do not exist, then stop
@@ -147,7 +147,7 @@ configure_clamav_freshclam_logrotate:
         }
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 {% else %}
 
@@ -168,7 +168,7 @@ configure_clamav_daemon:
         config: {{ clamav_config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 start_clamav_daemon_service:
   service.running:
@@ -203,7 +203,7 @@ configure_clamav_clamdscan_cron:
     - template: jinja
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 {% for job in clamav_config.jobs.job %}
 
@@ -238,7 +238,7 @@ configure_clamav_daemon_logrotate:
         }
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 {% else %}
 

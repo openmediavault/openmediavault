@@ -54,7 +54,7 @@ configure_nfs_conf:
         config: {{ nfs_config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 configure_idmapd_conf:
   file.managed:
@@ -66,7 +66,7 @@ configure_idmapd_conf:
         config: {{ dns_config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 divert_idmapd_conf:
   omv_dpkg.divert_add:
@@ -82,7 +82,7 @@ configure_nfs_exports:
         config: {{ nfs_config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 divert_nfs_exports:
   omv_dpkg.divert_add:

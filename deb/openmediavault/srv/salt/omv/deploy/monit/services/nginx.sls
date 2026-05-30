@@ -39,4 +39,4 @@ configure_monit_nginx_service:
         webadmin_config: {{ webadmin_config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'

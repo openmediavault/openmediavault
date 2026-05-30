@@ -36,4 +36,4 @@ configure_postfix_main:
         dns_config: {{ dns_config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'

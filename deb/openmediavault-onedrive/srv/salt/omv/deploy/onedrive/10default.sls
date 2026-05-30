@@ -62,7 +62,7 @@ create_onedrive_config_file:
         config: {{ config | json }}
     - user: "{{ config.username }}"
     - group: "users"
-    - mode: 644
+    - mode: '0644'
 
 create_onedrive_systemd_conf:
   file.managed:
@@ -76,7 +76,7 @@ create_onedrive_systemd_conf:
         ExecStart=/usr/bin/onedrive {{ systemd_execstart_args }} --monitor --confdir=/var/cache/onedrive/
         User={{ config.username }}
     - makedirs: True
-    - mode: 644
+    - mode: '0644'
 
 onedrive_systemctl_daemon_reload:
   module.run:

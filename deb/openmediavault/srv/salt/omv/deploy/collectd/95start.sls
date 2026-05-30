@@ -47,7 +47,7 @@ install_mkrrdgraph_cron_job:
       - "*/{{ mkrrdgraph_interval }} * * * * root {{ mkrrdgraph }} >/dev/null 2>&1"
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 generate_rrd_graphs:
   cmd.run:

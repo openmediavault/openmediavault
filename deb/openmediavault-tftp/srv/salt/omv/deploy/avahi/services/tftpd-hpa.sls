@@ -36,6 +36,6 @@ configure_avahi_service_tftpd-hpa:
             port: {{ tftp_config.port }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 {% endif %}

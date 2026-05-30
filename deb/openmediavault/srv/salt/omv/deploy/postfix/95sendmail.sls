@@ -49,6 +49,6 @@ create_postfix_sendmail_wrapper:
     - force: True
     - user: root
     - group: root
-    - mode: 755
+    - mode: '0755'
 
 {% endif %}

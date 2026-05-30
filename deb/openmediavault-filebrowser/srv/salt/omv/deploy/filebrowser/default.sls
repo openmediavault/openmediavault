@@ -47,7 +47,7 @@ create_filebrowser_app_container_systemd_unit_file:
         config: {{ config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 create_filebrowser_pod_systemd_unit_file:
   file.managed:
@@ -59,7 +59,7 @@ create_filebrowser_pod_systemd_unit_file:
         config: {{ config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 filebrowser_pull_app_image:
   cmd.run:
@@ -85,7 +85,7 @@ create_filebrowser_database:
     - name: "/var/lib/filebrowser/database.db"
     - user: {{ uname }}
     - group: {{ gname }}
-    - mode: 644
+    - mode: '0644'
     - replace: False
 
 configure_filebrowser_config:
@@ -98,7 +98,7 @@ configure_filebrowser_config:
         config: {{ config | json }}
     - user: {{ uname }}
     - group: {{ gname }}
-    - mode: 644
+    - mode: '0644'
 
 {% if ssl_enabled %}
 
@@ -112,7 +112,7 @@ create_filebrowser_proxy_container_systemd_unit_file:
         config: {{ config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 create_filebrowser_proxy_container_caddyfile:
   file.managed:
@@ -124,7 +124,7 @@ create_filebrowser_proxy_container_caddyfile:
         config: {{ config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 filebrowser_pull_proxy_image:
   cmd.run:

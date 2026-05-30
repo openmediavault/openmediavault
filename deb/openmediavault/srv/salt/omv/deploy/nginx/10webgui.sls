@@ -37,7 +37,7 @@ configure_nginx_site_webgui:
         config: {{ config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 configure_nginx_headers:
   file.managed:
@@ -49,7 +49,7 @@ configure_nginx_headers:
         config: {{ config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 configure_nginx_security:
   file.managed:
@@ -61,7 +61,7 @@ configure_nginx_security:
         config: {{ config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 execute_nginx_ensite:
   cmd.run:

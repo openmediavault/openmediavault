@@ -102,7 +102,7 @@ configure_usbbackup_systemd_unitfile_{{ job.devicefile | md5 }}:
     - template: jinja
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 {% endfor %}
 
 usbbackup_systemctl_daemon_reload:

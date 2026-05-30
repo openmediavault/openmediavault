@@ -32,4 +32,4 @@ configure_root_inputrc:
         "\C-[[B": history-search-forward
     - user: root
     - group: root
-    - mode: 600
+    - mode: '0600'

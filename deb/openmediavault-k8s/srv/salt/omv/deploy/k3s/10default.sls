@@ -132,7 +132,7 @@ create_k3s_traefik_manifest:
 {%- endif %}
     - user: root
     - group: root
-    - mode: 600
+    - mode: '0600'
 
 create_k3s_cert_manager_manifest:
   file.managed:
@@ -222,7 +222,7 @@ create_k3s_cert_manager_manifest:
         #     kind: ClusterIssuer
     - user: root
     - group: root
-    - mode: 600
+    - mode: '0600'
 
 create_k3s_misc_manifest:
   file.managed:
@@ -246,7 +246,7 @@ create_k3s_misc_manifest:
 {%- endif %}
     - user: root
     - group: root
-    - mode: 600
+    - mode: '0600'
 
 create_k3s_local_storage_manifest:
   file.managed:
@@ -264,7 +264,7 @@ create_k3s_local_storage_manifest:
         volumeBindingMode: WaitForFirstConsumer
     - user: root
     - group: root
-    - mode: 600
+    - mode: '0600'
 
 create_k3s_config_dir:
   file.directory:
@@ -282,7 +282,7 @@ create_k3s_config:
           - "node-monitor-period=60s"
     - user: root
     - group: root
-    - mode: 600
+    - mode: '0600'
 
 create_k3s_registries:
   file.managed:
@@ -296,4 +296,4 @@ create_k3s_registries:
               "^bitnami/(.*)": "bitnamilegacy/$1"
     - user: root
     - group: root
-    - mode: 600
+    - mode: '0600'

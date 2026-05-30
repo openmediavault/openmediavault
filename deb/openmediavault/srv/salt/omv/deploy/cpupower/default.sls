@@ -29,7 +29,7 @@ install_cpupower_script:
       - salt://{{ tpldir }}/files/usr-libexec-cpupower.j2
     - user: root
     - group: root
-    - mode: 755
+    - mode: '0755'
 
 install_cpupower_systemd_service:
   file.managed:
@@ -37,7 +37,7 @@ install_cpupower_systemd_service:
     - source: salt://{{ tpldir }}/files/usr-lib-systemd-system-cpupower_service.j2
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 cpupower_systemctl_daemon_reload:
   module.run:
@@ -57,7 +57,7 @@ configure_cpupower_conf:
         config: {{ config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 divert_cpupower_conf:
   omv_dpkg.divert_add:

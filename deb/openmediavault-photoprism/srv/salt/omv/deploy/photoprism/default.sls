@@ -57,7 +57,7 @@ create_photoprism_app_container_systemd_unit_file:
         config: {{ config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 create_photoprism_db_container_systemd_unit_file:
   file.managed:
@@ -69,7 +69,7 @@ create_photoprism_db_container_systemd_unit_file:
         config: {{ config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 create_photoprism_pod_systemd_unit_file:
   file.managed:
@@ -81,7 +81,7 @@ create_photoprism_pod_systemd_unit_file:
         config: {{ config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 photoprism_pull_app_image:
   cmd.run:
@@ -117,7 +117,7 @@ create_photoprism_proxy_container_systemd_unit_file:
         config: {{ config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 create_photoprism_proxy_container_caddyfile:
   file.managed:
@@ -129,7 +129,7 @@ create_photoprism_proxy_container_caddyfile:
         config: {{ config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 photoprism_pull_proxy_image:
   cmd.run:

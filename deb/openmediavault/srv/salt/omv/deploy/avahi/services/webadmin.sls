@@ -48,6 +48,6 @@ configure_avahi_service_webadmin:
 {% endif %}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 {% endif %}

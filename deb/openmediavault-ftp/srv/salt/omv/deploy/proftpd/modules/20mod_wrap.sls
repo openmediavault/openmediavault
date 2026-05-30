@@ -39,7 +39,7 @@ create_proftpd_hosts_file_{{ host_file | replace('/', '-') }}:
     - name: {{ host_file }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
     - replace: False
 
 {% endfor %}

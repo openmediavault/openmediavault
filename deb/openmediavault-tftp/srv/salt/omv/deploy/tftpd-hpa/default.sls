@@ -31,7 +31,7 @@ configure_default_tftpd-hpa:
         config: {{ config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 start_tftpd-hpa_service:
   service.running:

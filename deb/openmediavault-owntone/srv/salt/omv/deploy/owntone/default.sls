@@ -57,7 +57,7 @@ create_owntone_container_systemd_unit_file:
         config: {{ config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 owntone_systemctl_daemon_reload:
   module.run:
@@ -84,7 +84,7 @@ configure_owntone:
         config: {{ config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 start_owntone_service:
   service.running:

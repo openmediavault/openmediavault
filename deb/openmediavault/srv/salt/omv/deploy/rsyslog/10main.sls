@@ -25,7 +25,7 @@ configure_rsyslog_main:
     - template: jinja
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 divert_rsyslog_main:
   omv_dpkg.divert_add:

@@ -85,4 +85,4 @@ configure_phpfpm_webgui:
         ; http://php.net/max-execution-time
         ; Note: This directive is hardcoded to 0 for the CLI SAPI
         php_value[max_execution_time] = 90
-    - mode: 644
+    - mode: '0644'

@@ -69,7 +69,7 @@ configure_sysctl_nonrot:
       - "vm.vfs_cache_pressure = {{ vfs_cache_pressure }}"
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 {% endif %}
 

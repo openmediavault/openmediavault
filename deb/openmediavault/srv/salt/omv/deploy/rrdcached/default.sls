@@ -67,7 +67,7 @@ configure_default_rrdcached:
         BASE_OPTIONS="{{ base_options }}"
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 divert_default_rrdcached:
   omv_dpkg.divert_add:

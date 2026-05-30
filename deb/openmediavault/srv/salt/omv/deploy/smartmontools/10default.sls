@@ -34,7 +34,7 @@ configure_default_smartmontools:
         config: {{ config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 divert_default_smartmontools:
   omv_dpkg.divert_add:
@@ -48,7 +48,7 @@ configure_smartd_conf:
     - template: jinja
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 divert_smartd_conf:
   omv_dpkg.divert_add:

@@ -39,6 +39,6 @@ configure_avahi_service_photoprism:
               - "ui=web"
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 {% endif %}

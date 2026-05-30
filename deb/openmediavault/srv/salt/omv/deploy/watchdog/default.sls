@@ -54,7 +54,7 @@ configure_watchdog_systemd:
         [Manager]
         RuntimeWatchdogSec={{ watchdog_systemd_runtimewatchdogsec }}
     - makedirs: True
-    - mode: 644
+    - mode: '0644'
 
 configure_watchdog_module:
   file.managed:
@@ -63,7 +63,7 @@ configure_watchdog_module:
         {{ pillar['headers']['auto_generated'] }}
         {{ pillar['headers']['warning'] }}
         {{ watchdog_kernel_module_name }}
-    - mode: 644
+    - mode: '0644'
 
 {% if watchdog_kernel_module_options | length > 0 %}
 
@@ -74,7 +74,7 @@ configure_watchdog_module_options:
         {{ pillar['headers']['auto_generated'] }}
         {{ pillar['headers']['warning'] }}
         options {{ watchdog_kernel_module_name }} {{ watchdog_kernel_module_options }}
-    - mode: 644
+    - mode: '0644'
 
 {% endif %}
 
@@ -96,7 +96,7 @@ disable_watchdog_systemd:
         [Manager]
         RuntimeWatchdogSec=off
     - makedirs: True
-    - mode: 644
+    - mode: '0644'
 
 remove_watchdog_module:
   file.absent:

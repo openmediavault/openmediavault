@@ -34,4 +34,4 @@ configure_samba_global:
         config: {{ config | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'

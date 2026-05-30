@@ -33,7 +33,7 @@ configure_tmp_mount_unit_file:
         Type=tmpfs
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 tmp_mount_unit_systemctl_daemon_reload:
   module.run:

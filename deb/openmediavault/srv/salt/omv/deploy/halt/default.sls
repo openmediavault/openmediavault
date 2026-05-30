@@ -29,7 +29,7 @@ configure_default_halt:
     - template: jinja
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 divert_default_halt:
   omv_dpkg.divert_add:

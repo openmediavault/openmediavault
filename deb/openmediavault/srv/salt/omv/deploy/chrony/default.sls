@@ -29,7 +29,7 @@ configure_chrony:
         ntp_config: {{ config.ntp | json }}
     - user: root
     - group: root
-    - mode: 644
+    - mode: '0644'
 
 {% if config.ntp.enable | to_bool %}
 
