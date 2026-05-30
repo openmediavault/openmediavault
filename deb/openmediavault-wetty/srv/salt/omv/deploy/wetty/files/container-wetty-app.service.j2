@@ -1,0 +1,27 @@
+{%- set image = salt['pillar.get']('default:OMV_WETTY_APP_CONTAINER_IMAGE', 'docker.io/wettyoss/wetty:latest') -%}
+{%- set uname = salt['pillar.get']('default:OMV_WETTY_APP_CONTAINER_UNAME', 'nobody') -%}
+{%- set gname = salt['pillar.get']('default:OMV_WETTY_APP_CONTAINER_GNAME', 'nogroup') -%}
+{%- set options = salt['pillar.get']('default:OMV_WETTY_APP_CONTAINER_START_OPTIONS', '') -%}
+{%- set uid = salt['user.info'](uname).uid -%}
+{%- set gid = salt['group.info'](gname).gid -%}
+{{ pillar['headers']['multiline'] -}}
+[Unit]
+Description=Podman container-wetty-app.service
+Wants=network.target
+After=network-online.target
+BindsTo=pod-wetty.service
+After=pod-wetty.service
+
+[Service]
+Environment=PODMAN_SYSTEMD_UNIT=%n
+Restart=on-failure
+TimeoutStopSec=70
+ExecStartPre=/bin/rm -f %t/container-wetty-app.pid %t/container-wetty-app.ctr-id
+ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-wetty-app.pid --cidfile %t/container-wetty-app.ctr-id --cgroups=no-conmon --pod-id-file %t/pod-wetty.pod-id -d --replace --pull=never --name=wetty-app -u {{ uid }}:{{ gid }} {{ options }} {{ image }} --force-ssh --ssh-port {{ ssh_config.port }} --ssh-host host.containers.internal
+ExecStop=/usr/bin/podman stop --ignore --cidfile %t/container-wetty-app.ctr-id
+ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/container-wetty-app.ctr-id
+PIDFile=%t/container-wetty-app.pid
+Type=forking
+
+[Install]
+WantedBy=multi-user.target default.target

@@ -26,7 +26,7 @@ case "$1" in
   ;;
 
 	remove)
-	  deb-systemd-invoke stop container-wetty.service || true
+	  deb-systemd-invoke stop pod-wetty.service || true
 	;;
 
 	*)

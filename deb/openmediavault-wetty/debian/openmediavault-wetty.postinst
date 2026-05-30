@@ -25,6 +25,7 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_WETTY_APP_CONTAINER_IMAGE=${OMV_WETTY_APP_CONTAINER_IMAGE:-"docker.io/wettyoss/wetty:latest"}
+OMV_WETTY_PROXY_CONTAINER_IMAGE=${OMV_WETTY_PROXY_CONTAINER_IMAGE:-"docker.io/library/caddy:latest"}
 
 case "$1" in
 	configure)
@@ -34,6 +35,7 @@ case "$1" in
     ########################################################################
 		if [ -z "$2" ]; then
 		  podman pull "${OMV_WETTY_APP_CONTAINER_IMAGE}" || :
+		  podman pull "${OMV_WETTY_PROXY_CONTAINER_IMAGE}" || :
 		fi
 
 		########################################################################
@@ -55,6 +57,12 @@ case "$1" in
 		########################################################################
 		echo "Updating configuration ..."
 		if dpkg --compare-versions "$2" lt-nl "6.0.1"; then
+			omv_module_set_dirty wetty
+		fi
+		if dpkg --compare-versions "$2" lt-nl "8.1.0"; then
+			deb-systemd-invoke stop container-wetty.service || :
+			rm -rf /etc/systemd/system/container-wetty.service
+			systemctl --system daemon-reload || true
 			omv_module_set_dirty wetty
 		fi
 	;;
