@@ -77,7 +77,7 @@ setup_filebrowser_dir:
     - name: "/var/lib/filebrowser/"
     - user: {{ uname }}
     - group: {{ gname }}
-    - mode: 755
+    - mode: '0755'
 
 # Make sure the file exists. Do not use "file.touch" state.
 create_filebrowser_database:
