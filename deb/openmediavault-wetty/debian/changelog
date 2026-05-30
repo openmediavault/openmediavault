@@ -1,3 +1,9 @@
+openmediavault-wetty (8.1.0-1) stable; urgency=medium
+
+  * Adapt to latest upstream changes introduced with v3.x.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 30 May 2026 19:26:12 +0200
+
 openmediavault-wetty (8.0.2-1) stable; urgency=medium
 
   * Issue #2176: Increase mDNS/Zeroconf compatibility for MacOS.

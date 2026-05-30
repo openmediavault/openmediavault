@@ -25,11 +25,14 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_WETTY_APP_CONTAINER_IMAGE=${OMV_WETTY_APP_CONTAINER_IMAGE:-"docker.io/wettyoss/wetty:latest"}
+# Do NOT remove images that could be used by other plugins.
+# OMV_WETTY_PROXY_CONTAINER_IMAGE=${OMV_WETTY_PROXY_CONTAINER_IMAGE:-"docker.io/library/caddy:latest"}
 
 remove_action() {
-  # Remove systemd unit file.
+  # Remove systemd unit files.
   echo "Removing systemd unit files ..."
-  rm -rf /etc/systemd/system/container-wetty.service
+  rm -rf /etc/systemd/system/container-wetty-*.service
+  rm -rf /etc/systemd/system/pod-wetty.service
   systemctl --system daemon-reload || true
   # Remove container image.
   podman rmi "${OMV_WETTY_APP_CONTAINER_IMAGE}" || true

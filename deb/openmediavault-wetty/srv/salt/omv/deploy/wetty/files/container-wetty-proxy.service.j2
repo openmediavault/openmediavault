@@ -1,0 +1,29 @@
+{%- set image = salt['pillar.get']('default:OMV_WETTY_PROXY_CONTAINER_IMAGE', 'docker.io/library/caddy:latest') -%}
+{%- set ssl_enabled = wetty_config.sslcertificateref | length > 0 -%}
+{%- if ssl_enabled -%}
+{%- set ssl_cert_dir = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_DIR', '/etc/ssl') -%}
+{%- set ssl_cert_prefix = salt['pillar.get']('default:OMV_SSL_CERTIFICATE_PREFIX', 'openmediavault') -%}
+{%- set ssl_cert = ssl_cert_dir | path_join('certs', ssl_cert_prefix ~ wetty_config.sslcertificateref ~ '.crt') -%}
+{%- set ssl_key = ssl_cert_dir | path_join('private', ssl_cert_prefix ~ wetty_config.sslcertificateref ~ '.key') -%}
+{%- endif -%}
+{{ pillar['headers']['multiline'] -}}
+[Unit]
+Description=Podman container-wetty-proxy.service
+Wants=network.target
+After=network-online.target
+BindsTo=pod-wetty.service
+After=pod-wetty.service
+
+[Service]
+Environment=PODMAN_SYSTEMD_UNIT=%n
+Restart=on-failure
+TimeoutStopSec=70
+ExecStartPre=/bin/rm -f %t/container-wetty-proxy.pid %t/container-wetty-proxy.ctr-id
+ExecStart=/usr/bin/podman run --conmon-pidfile %t/container-wetty-proxy.pid --cidfile %t/container-wetty-proxy.ctr-id --cgroups=no-conmon --pod-id-file %t/pod-wetty.pod-id -d --replace --pull=never --name=wetty-proxy -v "/var/lib/wetty/Caddyfile":/etc/caddy/Caddyfile:Z {% if ssl_enabled %}-v "{{ ssl_cert }}":/data/cert.crt:ro -v "{{ ssl_key }}":/data/cert.key:ro {% endif %}{{ image }}
+ExecStop=/usr/bin/podman stop --ignore --cidfile %t/container-wetty-proxy.ctr-id
+ExecStopPost=/usr/bin/podman rm --ignore -f --cidfile %t/container-wetty-proxy.ctr-id
+PIDFile=%t/container-wetty-proxy.pid
+Type=forking
+
+[Install]
+WantedBy=multi-user.target default.target
