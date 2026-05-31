@@ -251,7 +251,7 @@ msgstr "A (5 GHz)"
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
-msgstr "Het systeem moet opnieuw opstarten om de wijzigingen die zijn geïntroduceerd door de installatie of opwaardering van het pakket volledig toe te passen."
+msgstr "Het systeem moet opnieuw opstarten om de wijzigingen door te voeren."
 
 msgid "A running background task was detected."
 msgstr "Er is een actieve achtergrondtaak gedetecteerd."

@@ -40,7 +40,7 @@ msgid "Created"
 msgstr "Skapad"
 
 msgid "Digest"
-msgstr ""
+msgstr "Digest"
 
 msgid "Do you really want to restart this container?"
 msgstr "Vill du verkligen starta om den här behållaren?"
@@ -55,10 +55,10 @@ msgid "ID"
 msgstr "ID"
 
 msgid "Image"
-msgstr "Bild"
+msgstr "Avbildning"
 
 msgid "Images"
-msgstr "Bilder"
+msgstr "Avbildningar"
 
 msgid "Infra ID"
 msgstr "Infra ID"
@@ -97,7 +97,7 @@ msgid "PIDs"
 msgstr "PID:ar"
 
 msgid "Pod"
-msgstr ""
+msgstr "Podd"
 
 msgid "Podman"
 msgstr "Podman"
@@ -112,7 +112,7 @@ msgid "Pull"
 msgstr "Hämta"
 
 msgid "Pull image"
-msgstr "Hämta bild"
+msgstr "Hämta avbildning"
 
 msgid "Repository"
 msgstr "Förråd"
@@ -139,13 +139,13 @@ msgid "Tag"
 msgstr "Tagg"
 
 msgid "The tag of the image to pull."
-msgstr "Taggen för bilden som ska hämtas."
+msgstr "Taggen för avbildningen som ska hämtas."
 
 msgid "Updated Podman settings."
 msgstr "Uppdaterade Podman-inställningar."
 
 msgid "Used"
-msgstr "Använd"
+msgstr "Använt"
 
 msgid "Volumes"
 msgstr "Volymer"

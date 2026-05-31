@@ -9,7 +9,7 @@ Homepage: https://www.openmediavault.org
 
 Package: openmediavault-wbprefs
 Architecture: all
-Depends: openmediavault (>= 8.2.11)
+Depends: openmediavault (>= 8.3.1)
 Priority: optional
 Description: openmediavault Workbench preferences
  Additional settings for the Workbench, for example to customize

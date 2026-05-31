@@ -35,7 +35,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "# Members"
-msgstr ""
+msgstr "# Membres"
 
 msgid "%CPU"
 msgstr ""
@@ -507,7 +507,7 @@ msgid "Back"
 msgstr "Retour"
 
 msgid "Background image"
-msgstr ""
+msgstr "Image de fond"
 
 msgid "Background task"
 msgstr "Tâche en arrière-plan"
@@ -618,7 +618,7 @@ msgid "CPU Utilization"
 msgstr "Utilisation du processeur"
 
 msgid "CPU frequency scaling"
-msgstr ""
+msgstr "Gestion de la fréquence CPU"
 
 msgid "Cambodia"
 msgstr "Cambodge"
@@ -861,7 +861,7 @@ msgid "Created wireless network connection."
 msgstr "Connexion réseau sans fil créée."
 
 msgid "Creating"
-msgstr ""
+msgstr "Création"
 
 msgid "Creation Time"
 msgstr "Date de création"
@@ -900,7 +900,7 @@ msgid "Dashboard"
 msgstr "Tableau de bord"
 
 msgid "Database record not found."
-msgstr ""
+msgstr "Enregistrement non trouvé dans la base de données."
 
 msgid "Date & Time"
 msgstr "Date & Heure"
@@ -990,7 +990,7 @@ msgid "Direction"
 msgstr "Direction"
 
 msgid "Directory does not exist."
-msgstr ""
+msgstr "Le répertoire n'existe pas."
 
 msgid "Disabled"
 msgstr "Désactivé"
@@ -1070,7 +1070,7 @@ msgid "Do you really want to install the plugin?"
 msgstr "Voulez-vous vraiment installer l'extension ?"
 
 msgid "Do you really want to log out?"
-msgstr ""
+msgstr "Voulez-vous réellement vous déconnecter ?"
 
 msgid "Do you really want to put the system into standby?"
 msgstr "Voulez-vous vraiment mettre le système en veille ?"
@@ -1174,7 +1174,7 @@ msgid ""
 "critical.</li><li>performance - Keeps the CPU running at maximum frequency "
 "at all times. Use this when you need consistent peak performance and power "
 "consumption is not a concern.</li></ul>"
-msgstr ""
+msgstr "Activez la surveillance de la fréquence du processeur pour permettre un ajustement dynamique des performances en fonction de la charge système. Le gestionnaire de fréquence du processeur détermine comment cette fréquence est ajustée.<ul><li>schedutil - équilibre les performances et l’efficacité énergétique en ajustant la fréquence du processeur en fonction de l’utilisation du planificateur. Recommandé pour la plupart des utilisateurs, car il offre de bonnes performances tout en économisant de l’énergie lorsque le système est inactif.</li><li>powersave - maintient le processeur à sa fréquence minimale en permanence afin de maximiser les économies d’énergie. Utilisez ce mode lorsque la consommation d’énergie est la principale préoccupation et que les performances ne sont pas critiques.</li><li>performance - maintient le processeur à sa fréquence maximale en permanence. Utilisez ce mode lorsque vous avez besoin de performances maximales constantes et que la consommation d’énergie n’est pas une préoccupation.</li></ul>"
 
 msgid "Enable NetBIOS"
 msgstr "Activer NetBIOS"
@@ -1335,13 +1335,13 @@ msgid ""
 msgstr "Les fichiers dont la taille est supérieure au nombre spécifié ne seront pas placés dans la corbeille."
 
 msgid "Filesystem is being created."
-msgstr ""
+msgstr "Le système de fichiers est en cours de création."
 
 msgid "Filesystem is detected."
-msgstr ""
+msgstr "Le système de fichiers est détecté."
 
 msgid "Filesystem is missing."
-msgstr ""
+msgstr "Le système de fichiers est manquant."
 
 msgid "Fingerprint (SHA-1)"
 msgstr "Empreinte (SHA-1)"
@@ -1849,7 +1849,7 @@ msgstr "Limite mensuelle"
 msgid ""
 "Limit the reported disk size, thus preventing Time Machine from using the "
 "whole real disk space for backup."
-msgstr ""
+msgstr "Limite la taille disque rapportée, de façon à prévenir l'utilisation de l'ensemble de l'espace effectif par Time Machine pour sauvegarde."
 
 msgid "Limit weekly"
 msgstr "Limite hebdomadaire"
@@ -1885,7 +1885,7 @@ msgid "Log level"
 msgstr "Niveau de journalisation"
 
 msgid "Log out"
-msgstr ""
+msgstr "Déconnexion"
 
 msgid "Logged in as <strong>{{ username }}</strong>"
 msgstr "Connecté en tant que <strong>{{ username }}</strong>"
@@ -1948,7 +1948,7 @@ msgid "Malta"
 msgstr "Malte"
 
 msgid "Management of CPU frequency scaling."
-msgstr ""
+msgstr "Gestion de la surveillance de fréquence CPU."
 
 msgid "Management of scheduled tasks."
 msgstr "Gestion des tâches planifiées."
@@ -1988,7 +1988,7 @@ msgid "Maximum"
 msgstr "Maximum"
 
 msgid "Maximum disk size"
-msgstr ""
+msgstr "Taille disque maximale"
 
 msgid "Maximum file size"
 msgstr "Taille maximale de fichier"
@@ -2258,7 +2258,7 @@ msgid "Not UDP"
 msgstr "Non UDP"
 
 msgid "Not a directory."
-msgstr ""
+msgstr "Pas un répertoire."
 
 msgid "Not mounted"
 msgstr "Non monté"
@@ -2280,7 +2280,7 @@ msgid "Notification"
 msgstr "Notification"
 
 msgid "Notification schedule"
-msgstr ""
+msgstr "Planification de notification"
 
 msgid "Notifications"
 msgstr "Notifications"
@@ -2306,7 +2306,7 @@ msgid "Offline immediate test"
 msgstr "Test immédiat hors ligne"
 
 msgid "Old Version"
-msgstr ""
+msgstr "Ancienne version"
 
 msgid "Old-age"
 msgstr "Ancienneté"
@@ -3192,7 +3192,7 @@ msgstr "Indique quel esclave est le premier périphérique."
 
 msgid ""
 "Specify how often to receive notifications about available package updates."
-msgstr ""
+msgstr "Spécifie la fréquence de notification de mises à jours de paquets."
 
 msgid "Speed"
 msgstr "Vitesse"
@@ -3350,7 +3350,7 @@ msgid "Thailand"
 msgstr "Thaïlande"
 
 msgid "The HTTP and HTTPS ports must not be the same."
-msgstr ""
+msgstr "Les ports HTTP et HTTPS ne doivent pas être identiques."
 
 msgid "The NFS versions provided by the service."
 msgstr "La version de NFS fournie par le service."
@@ -3411,7 +3411,7 @@ msgid "The file system to mount."
 msgstr "Le système de fichier à monter."
 
 msgid "The following modules have been updated: {{ modules }}"
-msgstr ""
+msgstr "Les modules suivants ont été mis à jour: {{ modules }}"
 
 msgid "The following modules will be updated:"
 msgstr "Les modules suivant vont être mis à jour:"
@@ -3501,7 +3501,7 @@ msgstr "La clef publique au format OpenSSH."
 msgid ""
 "The relative path of the folder to share. Use '/' to share the root of the "
 "file system. The specified folder will be created if it does not exist."
-msgstr ""
+msgstr "Chemin relatif du dossier à partager. Utilisez \"/\" pour partager la racine du système de fichiers. Le dossier spécifié sera créé si inexistant."
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3604,7 +3604,7 @@ msgid "This field must have the format <hh:mm:ss>."
 msgstr "Ce champ doit avoir le format <hh:mm:ss>."
 
 msgid "This field must match the format SIZE[K|M|G|T|P]."
-msgstr ""
+msgstr "Le champ doit être formaté SIZE[K|M|G|T|P]."
 
 msgid "This field should be a IP network address in CIDR notation."
 msgstr "Ce champ doit contenir une adresse IP en notation CIDR."
@@ -3851,7 +3851,7 @@ msgid "Ukraine"
 msgstr "Ukraine"
 
 msgid "Unavailable"
-msgstr ""
+msgstr "Indisponible"
 
 msgid "Undo"
 msgstr "Annuler"
@@ -4250,7 +4250,7 @@ msgid "You must apply these changes in order for them to take effect."
 msgstr "Vous devez appliquer les changements pour qu'ils prennent effet."
 
 msgid "You will be logged out due to inactivity in {{ n }} seconds."
-msgstr ""
+msgstr "Vous serez déconnecté pour inactivité dans {{ n }} secondes."
 
 msgid "Your profile"
 msgstr "Votre profil"

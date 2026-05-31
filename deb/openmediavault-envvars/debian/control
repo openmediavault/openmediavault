@@ -9,7 +9,7 @@ Homepage: https://www.openmediavault.org
 
 Package: openmediavault-envvars
 Architecture: all
-Depends: openmediavault (>= 8.2.8)
+Depends: openmediavault (>= 8.3.1)
 Priority: optional
 Description: openmediavault environment variables plugin
  The environment variables plugin allows managing these variables to

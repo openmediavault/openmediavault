@@ -1,3 +1,9 @@
+openmediavault-hosts (8.0.1-1) stable; urgency=medium
+
+  * Update locale files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 31 May 2026 14:52:52 +0200
+
 openmediavault-hosts (8.0-3) stable; urgency=medium
 
   * Adapt to openmediavault 8.

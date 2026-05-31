@@ -70,7 +70,7 @@ msgid "Delete immediately"
 msgstr "Onmiddellijk verwijderen"
 
 msgid "Detect PUA"
-msgstr "PUA waarnemen"
+msgstr "PUA detecteren"
 
 msgid "Detect broken executables"
 msgstr "Defecte uitvoerbare bestanden detecteren"
@@ -102,13 +102,13 @@ msgid "Enable the algorithmic detection."
 msgstr "Algoritmische detectie inschakelen"
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
-msgstr "De detectie van defecte uitvoerbare bestanden (zowel PE en ELF) inschakelen."
+msgstr "Detectie van defecte uitvoerbare bestanden (zowel PE en ELF) inschakelen."
 
 msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
-msgstr "De detectie van kapotte mediabestanden (JPEG, TIFF, PNG, GIF) inschakelen."
+msgstr "Detectie van defecte mediabestanden (JPEG, TIFF, PNG, GIF) inschakelen."
 
 msgid "Enable the detection of possibly unwanted applications."
-msgstr "Waarneming van mogelijk ongewenste toepassingen inschakelen."
+msgstr "Detectie van mogelijk ongewenste toepassingen inschakelen."
 
 msgid "Enabled"
 msgstr "Ingeschakeld"
@@ -195,7 +195,7 @@ msgid "November"
 msgstr "november"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
-msgstr "Aantal database updatecontroles per dag. Stel in op 0 om te deactiveren."
+msgstr "Aantal database updatecontroles per dag. Stel 0 in om uit te schakelen."
 
 msgid "October"
 msgstr "oktober"
@@ -213,7 +213,7 @@ msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
 "daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
 "details."
-msgstr "Raadlpeeg de <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'>handleiding</a> voor meer details."
+msgstr "Raadlpeeg de <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'>handleiding</a> voor meer informatie."
 
 msgid "Quarantine"
 msgstr "Quarantaine"

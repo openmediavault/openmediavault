@@ -1,3 +1,9 @@
+openmediavault-filebrowser (8.0.6-1) stable; urgency=medium
+
+  * Update locale files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 31 May 2026 14:52:08 +0200
+
 openmediavault-filebrowser (8.0.5-1) stable; urgency=medium
 
   * Issue #2198: Prevent admin password reset on container restart.

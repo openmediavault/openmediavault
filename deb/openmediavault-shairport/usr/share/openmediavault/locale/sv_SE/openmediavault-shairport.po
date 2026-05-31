@@ -44,4 +44,4 @@ msgid ""
 msgstr "Namnet som tjänsten annonserar till klienterna. Lämna det här fältet tomt för att använda värdnamnet som standard."
 
 msgid "Updated Shairport settings."
-msgstr "Uppdaterade Shairport-inställningarna."
+msgstr "Shairport-inställningarna uppdaterades."

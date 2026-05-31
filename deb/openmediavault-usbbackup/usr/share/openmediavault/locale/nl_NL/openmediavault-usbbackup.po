@@ -85,7 +85,7 @@ msgstr "Modus"
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Raadpleeg de <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>handleiding</a> voor meer details."
+msgstr "Raadpleeg de <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>handleiding</a> voor meer informatie."
 
 msgid "Preserve ACLs"
 msgstr "ACL's behouden"

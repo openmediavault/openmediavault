@@ -250,7 +250,7 @@ msgid "Persistent Volumes"
 msgstr "Beständiga volymer"
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr "Vänta, en ögonblicksbild kommer att skapas ..."
+msgstr "Vänta, en ögonblicksbild skapas ..."
 
 msgid "Please wait, the snapshot will be restored ..."
 msgstr "Vänta, ögonblicksbilden kommer att återställas ..."

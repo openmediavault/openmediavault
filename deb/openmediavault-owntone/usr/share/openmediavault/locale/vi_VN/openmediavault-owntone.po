@@ -51,7 +51,7 @@ msgid ""
 msgstr ""
 
 msgid "The name of the library as displayed by the clients."
-msgstr ""
+msgstr "Tên của thư viện được thể hiện với các máy khách."
 
 msgid "The password for the user <em>admin</em> to access the web interface."
 msgstr ""

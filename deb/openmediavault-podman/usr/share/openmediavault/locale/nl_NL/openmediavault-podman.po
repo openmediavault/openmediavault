@@ -139,7 +139,7 @@ msgid "Tag"
 msgstr "Label"
 
 msgid "The tag of the image to pull."
-msgstr "Het label van de image."
+msgstr "Het label van de op te halen image."
 
 msgid "Updated Podman settings."
 msgstr "Instellingen voor Podman bijgewerkt."

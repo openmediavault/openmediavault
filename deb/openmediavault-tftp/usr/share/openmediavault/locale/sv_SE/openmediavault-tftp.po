@@ -36,7 +36,7 @@ msgid ""
 "Determine the default timeout, in microseconds, before the first packet is "
 "retransmitted."
 msgstr ""
-"Bestäm standard-timeout, i mikrosekunder, innan det första paketet sänds om"
+"Anger standardtidsgränsen i mikrosekunder innan det första paketet sänds om."
 
 msgid "Enabled"
 msgstr "Aktiverad"

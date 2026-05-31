@@ -1,3 +1,9 @@
+openmediavault-owntone (8.0.1-1) stable; urgency=medium
+
+  * Update locale files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 31 May 2026 14:56:22 +0200
+
 openmediavault-owntone (8.0-5) stable; urgency=medium
 
   * Adapt to openmediavault 8.
