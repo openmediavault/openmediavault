@@ -1,6 +1,6 @@
 openmediavault-tftp (8.0.2-1) stable; urgency=medium
 
-  * Update locale files.
+  * Update i18n files.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 31 May 2026 14:59:12 +0200
 

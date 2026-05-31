@@ -1,5 +1,6 @@
 openmediavault-k8s (8.2.5-1) stable; urgency=medium
 
+  * Update i18n files.
   * Use K3S v1.35.5+k3s1 on new installations. Existing installations won't
     be upgraded automatically.
 

@@ -1,6 +1,6 @@
 openmediavault-nut (8.0.1-1) stable; urgency=medium
 
-  * Update locale files.
+  * Update i18n files.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 31 May 2026 14:55:35 +0200
 
