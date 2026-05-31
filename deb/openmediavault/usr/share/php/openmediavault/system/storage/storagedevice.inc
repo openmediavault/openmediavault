@@ -650,20 +650,29 @@ class StorageDevice extends \OMV\System\BlockDevice implements StorageDeviceInte
      *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
      *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
      *   </ul>
+     * @param int ttl Cache lifetime in seconds. Defaults to 5.
      * @return object|null The object of the class implementing the given
      *   storage device, otherwise NULL.
      */
-    public static function getStorageDevice($deviceFile)
+    public static function getStorageDevice($deviceFile, int $ttl = 5)
     {
+        static $caches = [];
+        if (!isset($caches[$ttl])) {
+            $caches[$ttl] = new \OMV\Util\TtlCache($ttl);
+        }
+        $cache = $caches[$ttl];
+        if ($cache->has($deviceFile)) {
+            return $cache->get($deviceFile);
+        }
         $mngr = Backend\Manager::getInstance();
         if (null == ($backend = $mngr->getBackend($deviceFile))) {
             return null;
         }
         $result = $backend->getImpl($deviceFile);
         if (is_null($result) || !$result->exists()) {
-            return null;
+            $result = null;
         }
-        return $result;
+        return $cache->set($deviceFile, $result);
     }
 
     /**

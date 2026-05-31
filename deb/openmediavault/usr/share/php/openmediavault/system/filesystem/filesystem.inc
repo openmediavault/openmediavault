@@ -957,7 +957,8 @@ class Filesystem extends \OMV\System\BlockDevice implements FilesystemInterface,
 
     /**
      * Get the object of the class which implements the file system
-     * for the given type.
+     * for the given type. Results are cached for the given TTL to avoid
+     * repeated subprocess calls on the same filesystem object.
      * @param string $type The file system type, e.g. 'btrfs' or 'ext4'.
      * @param string $id The UUID or device path of the filesystem, e.g.
      *   <ul>
@@ -965,39 +966,59 @@ class Filesystem extends \OMV\System\BlockDevice implements FilesystemInterface,
      *   \li /dev/sde1
      *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6-part1
      *   </ul>
+     * @param int $ttl Cache lifetime in seconds. Defaults to 5.
      * @return The class object (which implements the interface
      *   OMV\System\Filesystem\FilesystemInterface), otherwise NULL.
      */
-    public static function getImplByType($type, $id)
+    public static function getImplByType($type, $id, int $ttl = 5)
     {
+        static $caches = [];
+        if (!isset($caches[$ttl])) {
+            $caches[$ttl] = new \OMV\Util\TtlCache($ttl);
+        }
+        $cache = $caches[$ttl];
         $mngr = Backend\Manager::getInstance();
         if (null == ($backend = $mngr->getBackendByType($type))) {
             return null;
         }
-        return $backend->getImpl($id);
+        $key = sprintf("%s:%s", $type, $id);
+        if ($cache->has($key)) {
+            return $cache->get($key);
+        }
+        return $cache->set($key, $backend->getImpl($id));
     }
 
     /**
      * Get the object of the class which implements the filesystem
-     * for the given mount point.
+     * for the given mount point. Results are cached for the given TTL
+     * to avoid repeated subprocess calls for the same mount point.
      * @param dir The file system path prefix, e.g. '/home/ftp/data'.
+     * @param int $ttl Cache lifetime in seconds. Defaults to 5.
      * @return The class object (which implements the interface
      *   OMV\System\Filesystem\FilesystemInterface) or NULL on failure.
      */
-    public static function getImplByMountPoint($dir)
+    public static function getImplByMountPoint($dir, int $ttl = 5)
     {
+        static $caches = [];
+        if (!isset($caches[$ttl])) {
+            $caches[$ttl] = new \OMV\Util\TtlCache($ttl);
+        }
+        $cache = $caches[$ttl];
         if (true === empty($dir)) {
             return null;
+        }
+        if ($cache->has($dir)) {
+            return $cache->get($dir);
         }
         // Exit immediately if the specified directory is no mount point.
         $mp = new \OMV\System\MountPoint($dir);
         if (false === $mp->isMountPoint()) {
-            return null;
+            return $cache->set($dir, null);
         }
         // Try to get the backend using the filesystem type. This has
         // to be done especially when using union filesystems.
         $info = $mp->getInfo();
-        return self::getImplByType($info['fstype'], $info['source']);
+        return $cache->set($dir, self::getImplByType($info['fstype'], $info['source'], $ttl));
     }
 
     /**
