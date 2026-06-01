@@ -977,13 +977,13 @@ class Filesystem extends \OMV\System\BlockDevice implements FilesystemInterface,
             $caches[$ttl] = new \OMV\Util\TtlCache($ttl);
         }
         $cache = $caches[$ttl];
-        $mngr = Backend\Manager::getInstance();
-        if (null == ($backend = $mngr->getBackendByType($type))) {
-            return null;
-        }
         $key = sprintf("%s:%s", $type, $id);
         if ($cache->has($key)) {
             return $cache->get($key);
+        }
+        $mngr = Backend\Manager::getInstance();
+        if (null == ($backend = $mngr->getBackendByType($type))) {
+            return $cache->set($key, null);
         }
         return $cache->set($key, $backend->getImpl($id));
     }

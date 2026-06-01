@@ -666,7 +666,7 @@ class StorageDevice extends \OMV\System\BlockDevice implements StorageDeviceInte
         }
         $mngr = Backend\Manager::getInstance();
         if (null == ($backend = $mngr->getBackend($deviceFile))) {
-            return null;
+            return $cache->set($deviceFile, null);
         }
         $result = $backend->getImpl($deviceFile);
         if (is_null($result) || !$result->exists()) {

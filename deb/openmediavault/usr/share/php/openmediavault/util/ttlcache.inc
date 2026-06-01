@@ -49,8 +49,14 @@ class TtlCache
      */
     public function has(string $key): bool
     {
-        return array_key_exists($key, $this->data)
-            && $this->data[$key]['expires'] > time();
+        if (!array_key_exists($key, $this->data)) {
+            return false;
+        }
+        if ($this->data[$key]['expires'] <= time()) {
+            $this->remove($key);
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -68,24 +74,16 @@ class TtlCache
     }
 
     /**
-     * Store a value in the cache under the given key. Expired entries
-     * are purged automatically on every write to keep memory usage low.
+     * Store a value in the cache under the given key.
      * @param string $key The cache key.
      * @param mixed $value The value to cache.
      * @return mixed The cached value.
      */
     public function set(string $key, $value)
     {
-        // Purge expired entries before adding a new one.
-        $now = time();
-        foreach ($this->data as $k => $entry) {
-            if ($entry['expires'] <= $now) {
-                $this->remove($k);
-            }
-        }
         $this->data[$key] = [
             'value'   => $value,
-            'expires' => $now + $this->ttl,
+            'expires' => time() + $this->ttl,
         ];
         return $value;
     }
