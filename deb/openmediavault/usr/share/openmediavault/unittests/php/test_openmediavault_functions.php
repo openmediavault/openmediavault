@@ -748,4 +748,29 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase
             0 => "8.8.8.8", 1 => "8.8.4.4", 2 => ""
         ]);
     }
+
+    public function test_is_fs_uuid_1()
+    {
+        $this->assertTrue(is_fs_uuid("97ea8627-5990-44b2-9011-422fcc6d279f"));
+    }
+
+    public function test_is_fs_uuid_2()
+    {
+        $this->assertTrue(is_fs_uuid("2ED43920D438EC29"));
+    }
+
+    public function test_is_fs_uuid_3()
+    {
+        $this->assertTrue(is_fs_uuid("7A48-BA97"));
+    }
+
+    public function test_is_fs_uuid_4()
+    {
+        $this->assertTrue(is_fs_uuid("2015-01-13-21-48-46-00"));
+    }
+
+    public function test_is_fs_uuid_5()
+    {
+        $this->assertFalse(is_fs_uuid("BA97"));
+    }
 }
