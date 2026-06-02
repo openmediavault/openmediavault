@@ -48,6 +48,16 @@ $omv-light-theme: mat.define-light-theme(
     )
   )
 );
+$omv-light-theme: map.deep-merge(
+  $omv-light-theme,
+  (
+    color: (
+      background: (
+        card: #f5f5f5,
+      )
+    )
+  )
+);
 $omv-dark-theme: mat.define-dark-theme(
   (
     color: (
