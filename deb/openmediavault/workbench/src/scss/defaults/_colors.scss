@@ -55,7 +55,7 @@ $omv-color-white-translucent: hsla(
   38%
 );
 $omv-color-whitesmoke: whitesmoke;
-$omv-color-gray: #656c72;
+$omv-color-slate-gray: #708090;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Material Design palettes
@@ -172,10 +172,46 @@ $omv-color-charcoal-palette: (
   700: #29363f,
   800: #222e36,
   900: #161f26,
-  A100: #6abaff,
-  A200: #37a3ff,
-  A400: #048bff,
-  A700: #007eea,
+  A100: #c3c7ca,
+  A200: #9ba2a7,
+  A400: #546169,
+  A700: #29363f,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: rgba(black, 0.87),
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: rgba(black, 0.87),
+    A700: white
+  )
+);
+/* stylelint-enable color-function-notation */
+
+// Based on https://htmlcolorcodes.com/colors/slate-gray/
+/* stylelint-disable color-function-notation */
+$omv-color-slate-gray-palette: (
+  50 : #eef0f2,
+  100 : #dce0e4,
+  200 : #b8c0c8,
+  300 : #9ba6b1,
+  400 : #8593a1,
+  500 : $omv-color-slate-gray,
+  600 : #687888,
+  700 : #5d6d7d,
+  800 : #536373,
+  900 : #415061,
+  A100 : #dce0e4,
+  A200 : #b8c0c8,
+  A400 : #8593a1,
+  A700 : #5d6d7d,
   contrast: (
     50: rgba(black, 0.87),
     100: rgba(black, 0.87),

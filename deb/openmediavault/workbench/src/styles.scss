@@ -53,7 +53,15 @@ $omv-light-theme: map.deep-merge(
   (
     color: (
       background: (
-        background: #f8f8f8
+        status-bar: map.get(dc.$omv-color-slate-gray-palette, 300),
+        app-bar: map.get(dc.$omv-color-slate-gray-palette, 100),
+        background: map.get(dc.$omv-color-slate-gray-palette, 50),
+        selected-button: map.get(dc.$omv-color-slate-gray-palette, 300),
+        selected-disabled-button: map.get(dc.$omv-color-slate-gray-palette, 400),
+        disabled-button-toggle: map.get(dc.$omv-color-slate-gray-palette, 200),
+        unselected-chip: map.get(dc.$omv-color-slate-gray-palette, 300),
+        disabled-list-option: map.get(dc.$omv-color-slate-gray-palette, 200),
+        tooltip: map.get(dc.$omv-color-slate-gray-palette, 700)
       )
     )
   )
@@ -73,7 +81,7 @@ $omv-dark-theme: map.deep-merge(
     color: (
       background: (
         app-bar: map.get(dc.$omv-color-charcoal-palette, 800),
-        background: #4b575e,
+        background: map.get(dc.$omv-color-slate-gray-palette, 900),
         card: map.get(dc.$omv-color-charcoal-palette, 600),
         dialog: map.get(dc.$omv-color-charcoal-palette, 600),
         raised-button: map.get(dc.$omv-color-charcoal-palette, 800),
@@ -741,7 +749,7 @@ $omv-dark-theme: map.deep-merge(
 }
 
 .omv-color-gray {
-  color: dc.$omv-color-gray;
+  color: dc.$omv-color-slate-gray;
 }
 
 .omv-color-white {
