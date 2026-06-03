@@ -215,7 +215,7 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract
         $cmdArgs[] = "main";
         $cmd = new \OMV\System\Process("git", $cmdArgs);
         $cmd->setRedirect2to1();
-        $cmd->execute($output);
+        $cmd->execute();
     }
 
     public function listRecipes($params, $context)

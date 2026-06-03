@@ -231,7 +231,7 @@ class OMVRpcServiceKubectl extends \OMV\Rpc\ServiceAbstract
         ));
         $cmd = new \OMV\System\Process("kubectl", $cmdArgs);
         $cmd->setRedirect2to1();
-        $cmd->execute($output);
+        $cmd->execute();
     }
 
     public function getStats($params, $context)
