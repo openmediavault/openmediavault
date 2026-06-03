@@ -39,7 +39,7 @@ class WeTTY extends \OMV\Engine\Module\ServiceAbstract implements \OMV\Engine\No
     {
         $db = \OMV\Config\Database::getInstance();
         $object = $db->get("conf.service.wetty");
-        $systemCtl = new \OMV\System\SystemCtl("container-wetty");
+        $systemCtl = new \OMV\System\SystemCtl("pod-wetty");
         return [
             "name" => $this->getName(),
             "title" => gettext("WeTTY"),
