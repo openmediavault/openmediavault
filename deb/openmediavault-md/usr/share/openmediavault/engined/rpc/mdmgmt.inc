@@ -254,7 +254,8 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract
                 continue;
             }
             // Skip devices that are connected via USB.
-            if (true === $sd->isUsb()) {
+            if ((true === $sd->isUsb()) && !\OMV\Environment::getBoolean(
+                    OMV_MDADM_ALLOW_USB_DEVICES, false)) {
                 continue;
             }
             // Check if the device is referenced/used by a plugin.
