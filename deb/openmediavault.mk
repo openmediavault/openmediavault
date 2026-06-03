@@ -100,7 +100,7 @@ install_php_cs_fixer:
 	fi
 
 omv_fix_php: install_php_cs_fixer
-	$(PHP_CS_FIXER) fix --config="$(CURDIR)/../.php-cs-fixer.dist.php" --allow-risky=yes --using-cache=no
+	$(PHP_CS_FIXER) fix --config="$(CURDIR)/../.php-cs-fixer.dist.php" --allow-risky=yes --using-cache=no --verbose
 
 omv_lint_php: install_php_cs_fixer
 	$(PHP_CS_FIXER) fix --config="$(CURDIR)/../.php-cs-fixer.dist.php" --allow-risky=yes --using-cache=no --dry-run --verbose
