@@ -8,12 +8,7 @@
   }
 
   .topbar {
-    background-color: hsla(
-      color.hue(dc.$omv-color-corporate-darker),
-      color.saturation(dc.$omv-color-corporate-darker),
-      color.lightness(dc.$omv-color-corporate-darker),
-      54%
-    );
+    background-color: dc.$omv-color-white-translucent;
     backdrop-filter: blur(4px);
 
     .logo {
