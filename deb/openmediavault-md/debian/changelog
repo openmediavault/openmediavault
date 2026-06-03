@@ -1,6 +1,6 @@
 openmediavault-md (8.1.2-1) stable; urgency=medium
 
-  * Add the environment variable `OMV_MDADM_ALLOW_USB_DEVICES`. Set to
+  * Add the environment variable `OMV_MDMGMT_ALLOW_USB_DEVICES`. Set to
     `yes` to allow the creation of RAID devices using USB devices. This
     is not supported by default.
 
