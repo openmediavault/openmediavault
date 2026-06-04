@@ -56,6 +56,7 @@ $omv-color-white-translucent: hsla(
 );
 $omv-color-whitesmoke: whitesmoke;
 $omv-color-slate-gray: #708090;
+$omv-color-charcoal: #36454f;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Material Design palettes
@@ -167,7 +168,7 @@ $omv-color-charcoal-palette: (
   200: #9ba2a7,
   300: #727d84,
   400: #546169,
-  500: #36454f,
+  500: $omv-color-charcoal,
   600: #303e48,
   700: #29363f,
   800: #222e36,
