@@ -48,21 +48,23 @@ $omv-light-theme: mat.define-light-theme(
     )
   )
 );
+$omv-light-theme-background-palette: (
+  status-bar: map.get(dc.$omv-color-slate-gray-palette, 300),
+  app-bar: map.get(dc.$omv-color-slate-gray-palette, 100),
+  background: map.get(dc.$omv-color-slate-gray-palette, 50),
+  selected-button: map.get(dc.$omv-color-slate-gray-palette, 300),
+  selected-disabled-button: map.get(dc.$omv-color-slate-gray-palette, 400),
+  disabled-button-toggle: map.get(dc.$omv-color-slate-gray-palette, 200),
+  unselected-chip: map.get(dc.$omv-color-slate-gray-palette, 300),
+  disabled-list-option: map.get(dc.$omv-color-slate-gray-palette, 200),
+  tooltip: map.get(dc.$omv-color-slate-gray-palette, 700)
+);
 $omv-light-theme: map.deep-merge(
   $omv-light-theme,
   (
+    background: $omv-light-theme-background-palette,
     color: (
-      background: (
-        status-bar: map.get(dc.$omv-color-slate-gray-palette, 300),
-        app-bar: map.get(dc.$omv-color-slate-gray-palette, 100),
-        background: map.get(dc.$omv-color-slate-gray-palette, 50),
-        selected-button: map.get(dc.$omv-color-slate-gray-palette, 300),
-        selected-disabled-button: map.get(dc.$omv-color-slate-gray-palette, 400),
-        disabled-button-toggle: map.get(dc.$omv-color-slate-gray-palette, 200),
-        unselected-chip: map.get(dc.$omv-color-slate-gray-palette, 300),
-        disabled-list-option: map.get(dc.$omv-color-slate-gray-palette, 200),
-        tooltip: map.get(dc.$omv-color-slate-gray-palette, 700)
-      )
+      background: $omv-light-theme-background-palette
     )
   )
 );
@@ -75,21 +77,23 @@ $omv-dark-theme: mat.define-dark-theme(
     )
   )
 );
+$omv-dark-theme-background-palette: (
+  app-bar: map.get(dc.$omv-color-charcoal-palette, 800),
+  background: map.get(dc.$omv-color-slate-gray-palette, 900),
+  card: map.get(dc.$omv-color-charcoal-palette, 600),
+  dialog: map.get(dc.$omv-color-charcoal-palette, 600),
+  raised-button: map.get(dc.$omv-color-charcoal-palette, 800),
+  selected-button: map.get(dc.$omv-color-charcoal-palette, 900),
+  selected-disabled-button: map.get(dc.$omv-color-charcoal-palette, 800),
+  unselected-chip: map.get(dc.$omv-color-charcoal-palette, 700),
+  tooltip: map.get(dc.$omv-color-charcoal-palette, 700)
+);
 $omv-dark-theme: map.deep-merge(
   $omv-dark-theme,
   (
+    background: $omv-dark-theme-background-palette,
     color: (
-      background: (
-        app-bar: map.get(dc.$omv-color-charcoal-palette, 800),
-        background: map.get(dc.$omv-color-slate-gray-palette, 900),
-        card: map.get(dc.$omv-color-charcoal-palette, 600),
-        dialog: map.get(dc.$omv-color-charcoal-palette, 600),
-        raised-button: map.get(dc.$omv-color-charcoal-palette, 800),
-        selected-button: map.get(dc.$omv-color-charcoal-palette, 900),
-        selected-disabled-button: map.get(dc.$omv-color-charcoal-palette, 800),
-        unselected-chip: map.get(dc.$omv-color-charcoal-palette, 700),
-        tooltip: map.get(dc.$omv-color-charcoal-palette, 700)
-      )
+      background: $omv-dark-theme-background-palette
     )
   )
 );
