@@ -29,3 +29,10 @@ reload_monit_service:
     - watch:
       - file: "/etc/monit/monitrc"
       - file: "/etc/monit/conf.d/openmediavault-*.conf"
+
+# If the reload fails (e.g. monit is in a stale state), restart instead.
+restart_monit_service:
+  service.running:
+    - name: monit
+    - onfail:
+      - service: reload_monit_service
