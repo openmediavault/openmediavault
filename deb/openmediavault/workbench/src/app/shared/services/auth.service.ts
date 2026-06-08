@@ -26,8 +26,11 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 
 export type SessionData = {
   authenticated: boolean;
+  /** True when the password was accepted but a TOTP code is still required. */
+  mfaRequired?: boolean;
   permissions: { [key: string]: any };
   username: string;
+  sessionid?: string;
 };
 
 @Injectable({
@@ -41,16 +44,32 @@ export class AuthService {
   ) {}
 
   login(username: string, password: string): Observable<SessionData> {
-    return this.rpcService
-      .request('Session', 'login', {
-        username,
-        password
-      })
-      .pipe(
-        tap((res: SessionData) => {
+    return this.rpcService.request('Session', 'login', { username, password }).pipe(
+      tap((res: SessionData) => {
+        // Only store the session when authentication is fully complete.
+        // When mfaRequired is true the session is pending TOTP verification
+        // and must not be considered authenticated yet.
+        if (res.authenticated) {
           this.authSessionService.set(res.username, res.permissions);
-        })
-      );
+        }
+      })
+    );
+  }
+
+  /**
+   * Complete the second step of login for users with TOTP MFA enabled.
+   * Must be called after login() returns mfaRequired=true.
+   *
+   * @param code The 6-digit code from the user's authenticator app.
+   */
+  verifyTotp(code: string): Observable<SessionData> {
+    return this.rpcService.request('Session', 'verifyTotp', { code }).pipe(
+      tap((res: SessionData) => {
+        if (res.authenticated) {
+          this.authSessionService.set(res.username, res.permissions);
+        }
+      })
+    );
   }
 
   logout(): Observable<void> {
