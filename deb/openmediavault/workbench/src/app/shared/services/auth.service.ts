@@ -26,23 +26,11 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 
 export type SessionData = {
   authenticated: boolean;
+  /** True when the password was accepted but a TOTP code is still required. */
+  mfaRequired?: boolean;
   permissions: { [key: string]: any };
-  sessionid: string;
-  username: string;
-};
-
-export type ChallengeInfo = {
-  [key: string]: any;
-  kind: string;
-  redirecturl?: string;
-};
-
-export type AuthenticateResponse = {
-  status: 'authenticated' | 'challengeRequired';
   username: string;
   sessionid?: string;
-  permissions?: { [key: string]: any };
-  challenge?: ChallengeInfo;
 };
 
 @Injectable({
@@ -55,41 +43,33 @@ export class AuthService {
     private prefersColorSchemeService: PrefersColorSchemeService
   ) {}
 
-  /**
-   * Step 1 of 2-step login: Authenticate with username/password.
-   * May return a challenge (e.g., MFA) that needs verification.
-   */
-  authenticate(username: string, password: string): Observable<AuthenticateResponse> {
-    return this.rpcService
-      .request('Session', 'authenticate', {
-        username,
-        password
+  login(username: string, password: string): Observable<SessionData> {
+    return this.rpcService.request('Session', 'login', { username, password }).pipe(
+      tap((res: SessionData) => {
+        // Only store the session when authentication is fully complete.
+        // When mfaRequired is true the session is pending TOTP verification
+        // and must not be considered authenticated yet.
+        if (res.authenticated) {
+          this.authSessionService.set(res.username, res.permissions);
+        }
       })
-      .pipe(
-        tap((res: AuthenticateResponse) => {
-          // If no challenge is required, the session is fully established here.
-          if (res.status === 'authenticated') {
-            this.authSessionService.set(res.username, res.permissions);
-          }
-        })
-      );
+    );
   }
 
   /**
-   * Step 2 of 2-step login: Verify the challenge response and complete the
-   * login. The in-progress login is identified by the session cookie that
-   * was set during authenticate(), so no token needs to be passed.
+   * Complete the second step of login for users with TOTP MFA enabled.
+   * Must be called after login() returns mfaRequired=true.
+   *
+   * @param code The 6-digit code from the user's authenticator app.
    */
-  verify(challengeresponse?: any): Observable<SessionData> {
-    return this.rpcService
-      .request('Session', 'verify', {
-        challengeresponse
-      })
-      .pipe(
-        tap((res: SessionData) => {
+  verifyTotp(code: string): Observable<SessionData> {
+    return this.rpcService.request('Session', 'verifyTotp', { code }).pipe(
+      tap((res: SessionData) => {
+        if (res.authenticated) {
           this.authSessionService.set(res.username, res.permissions);
-        })
-      );
+        }
+      })
+    );
   }
 
   logout(): Observable<void> {

@@ -306,4 +306,32 @@
 			}
 		}
 	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermgmt.enabletotpbycontext",
+	"params": {
+		"type": "object",
+		"properties": {
+			"code": {
+				"type": "string",
+				"required": true
+			},
+			"secret": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.usermgmt.disabletotpbycontext",
+	"params": {
+		"type": "object",
+		"properties": {
+			"code": {
+				"type": "string",
+				"required": true
+			}
+		}
+	}
 }]

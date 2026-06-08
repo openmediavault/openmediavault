@@ -1,0 +1,27 @@
+{
+	"type": "config",
+	"id": "conf.system.mfa.totp",
+	"title": "TOTP multi-factor authentication",
+	"queryinfo": {
+		"xpath": ".//system/mfa/totp/user",
+		"iterable": true,
+		"idproperty": "uuid"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"username": {
+			"type": "string"
+		},
+		"enabled": {
+			"type": "boolean",
+			"default": false
+		},
+		"secret": {
+			"type": "string",
+			"default": ""
+		}
+	}
+}

@@ -27,12 +27,10 @@ import {
 } from '~/app/core/components/intuition/models/form-page-config.type';
 import { translate } from '~/app/i18n.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
-import { NotificationType } from '~/app/shared/enum/notification-type.enum';
-import { AuthenticateResponse, AuthService } from '~/app/shared/services/auth.service';
+import { AuthService } from '~/app/shared/services/auth.service';
 import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { LocaleService } from '~/app/shared/services/locale.service';
-import { NotificationService } from '~/app/shared/services/notification.service';
 
 @Component({
   selector: 'omv-login-page',
@@ -43,8 +41,13 @@ import { NotificationService } from '~/app/shared/services/notification.service'
 export class LoginPageComponent implements OnInit {
   public currentLocale: string;
   public locales: Record<string, string> = {};
+  public hideBackgroundImage: boolean;
   public icon = Icon;
 
+  /** Controls which step of the login flow is currently displayed. */
+  public step: 'credentials' | 'totp' = 'credentials';
+
+  /** Form config for step 1: username + password. */
   public config: FormPageConfig = {
     id: 'login',
     fields: [
@@ -83,12 +86,54 @@ export class LoginPageComponent implements OnInit {
     ]
   };
 
+  /** Form config for step 2: TOTP code entry (shown only when mfaRequired). */
+  public totpConfig: FormPageConfig = {
+    id: 'totp',
+    fields: [
+      {
+        type: 'textInput',
+        name: 'code',
+        label: gettext('Verification code'),
+        hint: gettext('Enter the 6-digit code from your authenticator app.'),
+        autofocus: true,
+        autocomplete: 'one-time-code',
+        icon: 'mdi:shield-key',
+        validators: {
+          required: true,
+          minLength: 6,
+          maxLength: 6,
+          pattern: {
+            pattern: '^[0-9]{6}$',
+            errorData: gettext('Must be a 6-digit number.')
+          }
+        }
+      }
+    ],
+    buttonAlign: 'center',
+    buttons: [
+      {
+        template: 'submit',
+        text: gettext('Verify'),
+        execute: {
+          type: 'click',
+          click: this.onVerifyTotp.bind(this)
+        }
+      },
+      {
+        template: 'back',
+        execute: {
+          type: 'click',
+          click: this.onBackToCredentials.bind(this)
+        }
+      }
+    ]
+  };
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private authService: AuthService,
     private blockUiService: BlockUiService,
     private dialogService: DialogService,
-    private notificationService: NotificationService,
     private router: Router
   ) {
     this.currentLocale = LocaleService.getCurrentLocale();
@@ -99,91 +144,71 @@ export class LoginPageComponent implements OnInit {
     this.blockUiService.resetGlobal();
     // Ensure all currently opened dialogs are closed.
     this.dialogService.closeAll();
+    // Show/hide the login page background image.
+    this.hideBackgroundImage = JSON.parse(
+      localStorage.getItem('hideLoginBackgroundImage') ?? 'false'
+    );
   }
 
   onLogin(buttonConfig: FormPageButtonConfig, values: Record<string, any>) {
     this.blockUiService.start(translate(gettext('Please wait ...')));
     this.authService
-      .authenticate(values.username, values.password)
+      .login(values.username, values.password)
       .pipe(
         finalize(() => {
           this.blockUiService.stop();
         })
       )
-      .subscribe((res: AuthenticateResponse) => {
-        if (res.status === 'authenticated') {
+      .subscribe({
+        next: (res) => {
+          if (res.mfaRequired) {
+            // Password accepted — show the TOTP code entry step.
+            this.step = 'totp';
+            return;
+          }
+          // No MFA required — navigate to the originally requested URL.
           const url = _.get(this.activatedRoute.snapshot.queryParams, 'returnUrl', '/dashboard');
           this.router.navigate([url]);
-        } else if (res.status === 'challengeRequired') {
-          this.handleChallenge(res);
-        }
+        },
+        // Errors are displayed by the global HTTP error interceptor; stay on
+        // the credentials step so the user can correct their input.
+        error: () => {}
       });
   }
 
-  onSelectLocale(locale: string) {
+  onVerifyTotp(buttonConfig: FormPageButtonConfig, values: Record<string, any>) {
+    this.blockUiService.start(translate(gettext('Please wait ...')));
+    this.authService
+      .verifyTotp(values.code)
+      .pipe(
+        finalize(() => {
+          this.blockUiService.stop();
+        })
+      )
+      .subscribe({
+        next: () => {
+          const url = _.get(this.activatedRoute.snapshot.queryParams, 'returnUrl', '/dashboard');
+          this.router.navigate([url]);
+        },
+        // Errors are displayed by the global HTTP error interceptor; stay on
+        // the TOTP step so the user can re-enter the code.
+        error: () => {}
+      });
+  }
+
+  /** Return to the credentials step if the user wants to start over. */
+  onBackToCredentials(_buttonConfig: FormPageButtonConfig, _values: Record<string, any>) {
+    this.step = 'credentials';
+  }
+
+  onSelectLocale(locale) {
     // Update the browser cookie and reload the page.
     LocaleService.setCurrentLocale(locale);
     this.router.navigate(['/reload']);
   }
 
-  private handleChallenge(authResponse: AuthenticateResponse) {
-    if (!authResponse.challenge) {
-      this.notificationService.show(
-        NotificationType.error,
-        gettext('Authentication'),
-        gettext(
-          'An authentication challenge was required but no challenge information was provided. Please contact your administrator.'
-        )
-      );
-      return;
-    }
-
-    if (!authResponse.challenge.redirecturl) {
-      this.notificationService.show(
-        NotificationType.error,
-        gettext('Authentication'),
-        gettext(
-          'The requested authentication challenge is not supported by this browser interface. Please contact your administrator.'
-        )
-      );
-      return;
-    }
-
-    const challengeUrl: string = authResponse.challenge.redirecturl;
-
-    // Redirect MUST be root-relative to prevent open-redirect attacks and to
-    // ensure the Angular router can navigate to it.
-    if (!challengeUrl.startsWith('/') || challengeUrl.startsWith('//')) {
-      this.notificationService.show(
-        NotificationType.error,
-        gettext('Authentication'),
-        gettext('The authentication challenge URL is invalid.')
-      );
-      return;
-    }
-
-    // Use the URL API to parse and validate the URL is same-origin.
-    try {
-      // Parse as URL with current origin as base. This handles relative URLs.
-      const url = new URL(challengeUrl, window.location.origin);
-
-      // Ensure the parsed URL has the same origin (protocol, host, port).
-      // This prevents all open redirect attempts:
-      // - Absolute URLs to other domains: http://evil.com
-      // - Protocol-relative URLs: //evil.com
-      // - Path escapes: /\evil.com (browsers normalize this)
-      if (url.origin !== window.location.origin) {
-        throw new Error('Cross-origin redirect not allowed');
-      }
-    } catch (e) {
-      this.notificationService.show(
-        NotificationType.error,
-        gettext('Authentication'),
-        gettext('The authentication challenge URL is invalid.')
-      );
-      return;
-    }
-
-    this.router.navigateByUrl(challengeUrl);
+  onToggleHideBackgroundImage() {
+    this.hideBackgroundImage = !this.hideBackgroundImage;
+    localStorage.setItem('hideLoginBackgroundImage', JSON.stringify(this.hideBackgroundImage));
   }
 }
