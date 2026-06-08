@@ -27,10 +27,12 @@ import {
 } from '~/app/core/components/intuition/models/form-page-config.type';
 import { translate } from '~/app/i18n.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
-import { AuthService } from '~/app/shared/services/auth.service';
+import { NotificationType } from '~/app/shared/enum/notification-type.enum';
+import { AuthenticateResponse, AuthService } from '~/app/shared/services/auth.service';
 import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { LocaleService } from '~/app/shared/services/locale.service';
+import { NotificationService } from '~/app/shared/services/notification.service';
 
 @Component({
   selector: 'omv-login-page',
@@ -86,6 +88,7 @@ export class LoginPageComponent implements OnInit {
     private authService: AuthService,
     private blockUiService: BlockUiService,
     private dialogService: DialogService,
+    private notificationService: NotificationService,
     private router: Router
   ) {
     this.currentLocale = LocaleService.getCurrentLocale();
@@ -101,21 +104,86 @@ export class LoginPageComponent implements OnInit {
   onLogin(buttonConfig: FormPageButtonConfig, values: Record<string, any>) {
     this.blockUiService.start(translate(gettext('Please wait ...')));
     this.authService
-      .login(values.username, values.password)
+      .authenticate(values.username, values.password)
       .pipe(
         finalize(() => {
           this.blockUiService.stop();
         })
       )
-      .subscribe(() => {
-        const url = _.get(this.activatedRoute.snapshot.queryParams, 'returnUrl', '/dashboard');
-        this.router.navigate([url]);
+      .subscribe((res: AuthenticateResponse) => {
+        if (res.status === 'authenticated') {
+          const url = _.get(this.activatedRoute.snapshot.queryParams, 'returnUrl', '/dashboard');
+          this.router.navigate([url]);
+        } else if (res.status === 'challengeRequired') {
+          this.handleChallenge(res);
+        }
       });
   }
 
-  onSelectLocale(locale) {
+  onSelectLocale(locale: string) {
     // Update the browser cookie and reload the page.
     LocaleService.setCurrentLocale(locale);
     this.router.navigate(['/reload']);
+  }
+
+  private handleChallenge(authResponse: AuthenticateResponse) {
+    if (!authResponse.challenge) {
+      this.notificationService.show(
+        NotificationType.error,
+        gettext('Authentication'),
+        gettext(
+          'An authentication challenge was required but no challenge information was provided. Please contact your administrator.'
+        )
+      );
+      return;
+    }
+
+    if (!authResponse.challenge.redirecturl) {
+      this.notificationService.show(
+        NotificationType.error,
+        gettext('Authentication'),
+        gettext(
+          'The requested authentication challenge is not supported by this browser interface. Please contact your administrator.'
+        )
+      );
+      return;
+    }
+
+    const challengeUrl: string = authResponse.challenge.redirecturl;
+
+    // Redirect MUST be root-relative to prevent open-redirect attacks and to
+    // ensure the Angular router can navigate to it.
+    if (!challengeUrl.startsWith('/') || challengeUrl.startsWith('//')) {
+      this.notificationService.show(
+        NotificationType.error,
+        gettext('Authentication'),
+        gettext('The authentication challenge URL is invalid.')
+      );
+      return;
+    }
+
+    // Use the URL API to parse and validate the URL is same-origin.
+    try {
+      // Parse as URL with current origin as base. This handles relative URLs.
+      const url = new URL(challengeUrl, window.location.origin);
+
+      // Ensure the parsed URL has the same origin (protocol, host, port).
+      // This prevents all open redirect attempts:
+      // - Absolute URLs to other domains: http://evil.com
+      // - Protocol-relative URLs: //evil.com
+      // - Path escapes: /\evil.com (browsers normalize this)
+      if (url.origin !== window.location.origin) {
+        throw new Error('Cross-origin redirect not allowed');
+      }
+    } catch (e) {
+      this.notificationService.show(
+        NotificationType.error,
+        gettext('Authentication'),
+        gettext('The authentication challenge URL is invalid.')
+      );
+      return;
+    }
+
+    this.router.navigateByUrl(challengeUrl);
   }
 }
