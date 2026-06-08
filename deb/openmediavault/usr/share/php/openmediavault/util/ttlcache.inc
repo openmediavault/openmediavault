@@ -82,7 +82,7 @@ class TtlCache
     public function set(string $key, $value)
     {
         $this->data[$key] = [
-            'value'   => $value,
+            'value' => $value,
             'expires' => time() + $this->ttl,
         ];
         return $value;

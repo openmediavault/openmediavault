@@ -732,8 +732,8 @@ if (!function_exists('json_last_error_msg')) {
     function json_last_error_msg(): string
     {
         static $errorMsg = [
-            JSON_ERROR_NONE	=> null,
-            JSON_ERROR_DEPTH =>	"The maximum stack depth has been exceeded",
+            JSON_ERROR_NONE => null,
+            JSON_ERROR_DEPTH => "The maximum stack depth has been exceeded",
             JSON_ERROR_STATE_MISMATCH => "Invalid or malformed JSON",
             JSON_ERROR_CTRL_CHAR => "Control character error, possibly incorrectly encoded",
             JSON_ERROR_SYNTAX => "Syntax error",

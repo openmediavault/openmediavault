@@ -10,5 +10,6 @@ $finder = PhpCsFixer\Finder::create()
 $config = new PhpCsFixer\Config();
 return $config->setRules([
     '@PSR12' => true,
+    'binary_operator_spaces' => ['default' => 'single_space'],
 ])
 ->setFinder($finder);

@@ -258,9 +258,9 @@ class Network extends \OMV\Rpc\ServiceAbstract
             // Set the default attributes.
             $object = [
                 "uuid" => \OMV\Environment::get("OMV_CONFIGOBJECT_NEW_UUID"),
-                "comment" =>  "",
-                "_used" =>  false,
-                "_readonly" =>  false
+                "comment" => "",
+                "_used" => false,
+                "_readonly" => false
             ];
             // Is there any configuration for the given network interface?
             $filter = [

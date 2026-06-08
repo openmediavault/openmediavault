@@ -164,9 +164,9 @@ class Btrfs extends Filesystem
           $allocatedUnusedRaw = $usedRaw = [
             "Data" => 0,
             "Metadata" => 0,
-            "Data+Metadata"	=> 0,
+            "Data+Metadata" => 0,
             "System" => 0,
-            "GlobalReserve"	=> 0
+            "GlobalReserve" => 0
         ];
 
         // Parse command output.
