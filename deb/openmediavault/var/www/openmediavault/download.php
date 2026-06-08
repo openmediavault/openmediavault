@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -24,15 +25,24 @@ try {
     require_once("openmediavault/env.inc");
     require_once("openmediavault/functions.inc");
 
-    function exception_error_handler($errno, $errstr, $errfile,
-      $errline) {
+    function exception_error_handler(
+        $errno,
+        $errstr,
+        $errfile,
+        $errline
+    ) {
         switch ($errno) {
-        case E_STRICT:
-            break;
-        default:
-            throw new \ErrorException($errstr, 0, $errno, $errfile,
-              $errline);
-            break;
+            case E_STRICT:
+                break;
+            default:
+                throw new \ErrorException(
+                    $errstr,
+                    0,
+                    $errno,
+                    $errfile,
+                    $errline
+                );
+                break;
         }
     }
     set_error_handler("exception_error_handler");
@@ -45,21 +55,20 @@ try {
 
     $server = new \OMV\Rpc\Proxy\Download();
     $server->handle();
-} catch(\Exception $e) {
-	header("Content-Type: application/json");
-	http_response_code(($e instanceof \OMV\BaseException) ?
-		$e->getHttpStatusCode() : 500);
-	print json_encode_safe([
-		"response" => null,
-		"error" => [
-			"code" => $e->getCode(),
-			"message" => $e->getMessage(),
-			"trace" => $e->__toString()
-		]
-	]);
+} catch (\Exception $e) {
+    header("Content-Type: application/json");
+    http_response_code(($e instanceof \OMV\BaseException) ?
+        $e->getHttpStatusCode() : 500);
+    print json_encode_safe([
+        "response" => null,
+        "error" => [
+            "code" => $e->getCode(),
+            "message" => $e->getMessage(),
+            "trace" => $e->__toString()
+        ]
+    ]);
 } finally {
-	if (isset($server)) {
-		$server->cleanup();
-	}
+    if (isset($server)) {
+        $server->cleanup();
+    }
 }
-?>

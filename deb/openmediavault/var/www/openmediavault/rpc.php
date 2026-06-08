@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of OpenMediaVault.
  *
@@ -20,44 +21,44 @@
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
 try {
-	require_once("openmediavault/autoloader.inc");
-	require_once("openmediavault/env.inc");
-	require_once("openmediavault/functions.inc");
+    require_once("openmediavault/autoloader.inc");
+    require_once("openmediavault/env.inc");
+    require_once("openmediavault/functions.inc");
 
-	// Load and initialize the RPC services that are not handled by the
-	// engine daemon.
-	$directory = build_path(DIRECTORY_SEPARATOR, \OMV\Environment::get(
-		"OMV_DOCUMENTROOT_DIR"), "rpc");
-	foreach (listdir($directory, "inc") as $path) {
-		require_once $path;
-	}
-	$rpcServiceMngr = &\OMV\Rpc\ServiceManager::getInstance();
-	$rpcServiceMngr->initializeServices();
+    // Load and initialize the RPC services that are not handled by the
+    // engine daemon.
+    $directory = build_path(DIRECTORY_SEPARATOR, \OMV\Environment::get(
+        "OMV_DOCUMENTROOT_DIR"
+    ), "rpc");
+    foreach (listdir($directory, "inc") as $path) {
+        require_once $path;
+    }
+    $rpcServiceMngr = &\OMV\Rpc\ServiceManager::getInstance();
+    $rpcServiceMngr->initializeServices();
 
-	// Initialize the data models.
-	$modelMngr = \OMV\DataModel\Manager::getInstance();
-	$modelMngr->load();
+    // Initialize the data models.
+    $modelMngr = \OMV\DataModel\Manager::getInstance();
+    $modelMngr->load();
 
-	$session = &\OMV\Session::getInstance();
-	$session->start();
+    $session = &\OMV\Session::getInstance();
+    $session->start();
 
-	$server = new \OMV\Rpc\Proxy\Json();
-	$server->handle();
-} catch(\Exception $e) {
-	header("Content-Type: application/json");
-	http_response_code(($e instanceof \OMV\BaseException) ?
-		$e->getHttpStatusCode() : 500);
-	print json_encode_safe([
-		"response" => null,
-		"error" => [
-			"code" => $e->getCode(),
-			"message" => $e->getMessage(),
-			"trace" => $e->__toString()
-		]
-	]);
+    $server = new \OMV\Rpc\Proxy\Json();
+    $server->handle();
+} catch (\Exception $e) {
+    header("Content-Type: application/json");
+    http_response_code(($e instanceof \OMV\BaseException) ?
+        $e->getHttpStatusCode() : 500);
+    print json_encode_safe([
+        "response" => null,
+        "error" => [
+            "code" => $e->getCode(),
+            "message" => $e->getMessage(),
+            "trace" => $e->__toString()
+        ]
+    ]);
 } finally {
-	if (isset($server)) {
-		$server->cleanup();
-	}
+    if (isset($server)) {
+        $server->cleanup();
+    }
 }
-?>
