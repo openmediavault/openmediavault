@@ -1,6 +1,6 @@
 @use 'scss/theme/colors' as tc;
 
-.mat-card {
+.mat-mdc-card {
   &.alert-info {
     @include tc.background-color-pair('info');
   }
@@ -28,18 +28,18 @@
   .content-wrapper {
     overflow: hidden;
 
-    & .mat-card-title {
+    & .mat-mdc-card-title {
       overflow: hidden;
       text-overflow: ellipsis;
       line-height: normal;
     }
 
-    & .mat-card-content {
+    & .mat-mdc-card-content {
       margin-bottom: 0;
     }
   }
 
-  .mat-card-actions {
+  .mat-mdc-card-actions {
     margin: 0 0 0 16px;
     padding: 0;
 

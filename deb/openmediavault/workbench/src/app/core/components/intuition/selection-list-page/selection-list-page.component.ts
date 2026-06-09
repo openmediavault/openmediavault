@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  */
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { MatLegacySelectionList as MatSelectionList, MatLegacySelectionListChange as MatSelectionListChange } from '@angular/material/legacy-list';
+import { MatSelectionList, MatSelectionListChange } from '@angular/material/list';
 import { Router } from '@angular/router';
 import * as _ from 'lodash';
 import { EMPTY, Observable, Subscription } from 'rxjs';

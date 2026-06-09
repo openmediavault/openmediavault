@@ -100,11 +100,13 @@ $omv-dark-theme: map.deep-merge(
 );
 
 @include mat.all-component-themes($omv-light-theme);
+/* TODO(mdc-migration): Remove all-legacy-component-themes once all legacy components are migrated*/
 @include mat.all-legacy-component-themes($omv-light-theme);
 @include theme.all-component-themes('light', $omv-light-theme, $omv-typography-config);
 
 .omv-dark-theme {
   @include mat.all-component-colors($omv-dark-theme);
+  /* TODO(mdc-migration): Remove all-legacy-component-colors once all legacy components are migrated*/
   @include mat.all-legacy-component-colors($omv-dark-theme);
   @include theme.all-component-themes('dark', $omv-dark-theme, $omv-typography-config);
 }

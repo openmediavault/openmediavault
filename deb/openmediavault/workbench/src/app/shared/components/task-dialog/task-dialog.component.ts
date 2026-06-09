@@ -26,7 +26,7 @@ import {
   ViewChild,
   ViewEncapsulation
 } from '@angular/core';
-import { MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA } from '@angular/material/legacy-dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import * as _ from 'lodash';
 import { from, of, Subscription } from 'rxjs';
 import { concatMap, delay, finalize, tap } from 'rxjs/operators';

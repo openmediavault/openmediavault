@@ -16,7 +16,7 @@
 @use 'scss/mixins';
 
 @mixin theme($mode, $theme-config, $typography-config) {
-  .mat-select-panel {
+  .mat-mdc-select-panel {
     @include mixins.omv-scrollbar;
   }
 }

@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  */
 import { Component, Inject, ViewChild } from '@angular/core';
-import { MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA, MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import * as _ from 'lodash';
 import { finalize } from 'rxjs/operators';

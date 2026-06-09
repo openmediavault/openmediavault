@@ -16,7 +16,7 @@
 @use 'scss/defaults/variables' as dv;
 
 @mixin theme($mode, $theme-config, $typography-config) {
-  .mat-card {
+  .mat-mdc-card {
     border-radius: dv.$omv-border-radius !important;
 
     &:not(:has(.omv-sticky)) {
@@ -24,8 +24,8 @@
     }
   }
 
-  .mat-card-actions {
-    .mat-button-base:not(:last-child) {
+  .mat-mdc-card-actions {
+    .mat-mdc-button-base:not(:last-child) {
       margin-right: 0.5rem;
     }
   }

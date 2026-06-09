@@ -7,7 +7,7 @@
   animation-iteration-count: 5;
   animation-timing-function: steps(1);
 
-  .mat-card {
+  .mat-mdc-card {
     border-radius: unset !important;
     margin: dv.$omv-margin;
     padding: 0;
@@ -48,7 +48,7 @@
     }
   }
 
-  .mat-card-content {
+  .mat-mdc-card-content {
     border-left: 2px dc.$omv-color-white solid;
     border-right: 2px dc.$omv-color-white solid;
     border-bottom: 2px dc.$omv-color-white solid;

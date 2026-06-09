@@ -2,7 +2,7 @@
 @use 'scss/defaults/variables' as dv;
 @use 'scss/theme';
 
-.mat-list-item {
+.mat-mdc-list-item {
   border-left: 3px solid transparent;
   color: dc.$omv-color-white;
   min-width: dv.$omv-navigation-bar-width;

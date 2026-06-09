@@ -15,7 +15,7 @@
 // GNU General Public License for more details.
 @mixin theme($mode, $theme-config, $typography-config) {
   // Workaround for https://github.com/angular/components/issues/8416
-  .mat-checkbox-layout {
+  .mdc-form-field {
     white-space: normal !important;
   }
 }

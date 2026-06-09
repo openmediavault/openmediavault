@@ -1,6 +1,6 @@
 <nav class="omv-display-flex omv-flex-row omv-align-items-center omv-align-content-center omv-justify-content-start">
   <a routerLink="/"
-     class="mat-subheading-2"
+     class="mat-subtitle-1"
      [ngClass]="{'active': !breadcrumbs.length}"
      matTooltip="{{ 'Home' | transloco }}"
      [attr.aria-label]="'Home' | transloco">
@@ -10,7 +10,7 @@
     <mat-divider vertical="true"></mat-divider>
     <a *ngIf="!last"
        [routerLink]="breadcrumb.url"
-       class="mat-subheading-2"
+       class="mat-subtitle-1"
        [ngClass]="{'loading': breadcrumb.loading}">
       <span *ngIf="!breadcrumb.loading">{{ breadcrumb.text | transloco }}</span>
       <mat-icon *ngIf="breadcrumb.loading"
@@ -19,7 +19,7 @@
       </mat-icon>
     </a>
     <a *ngIf="last"
-       class="mat-subheading-2 active"
+       class="mat-subtitle-1 active"
        [ngClass]="{'loading': breadcrumb.loading}">
       <span *ngIf="!breadcrumb.loading">{{ breadcrumb.text | transloco }}</span>
       <mat-icon *ngIf="breadcrumb.loading"

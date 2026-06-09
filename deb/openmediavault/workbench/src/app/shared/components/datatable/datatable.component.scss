@@ -5,24 +5,24 @@
 omv-datatable {
   .action-toolbar {
     .mat-toolbar {
-      .mat-button:not(.mat-button-disabled),
-      .mat-icon-button:not(.mat-button-disabled) {
+      .mat-mdc-button:not(.mat-mdc-button-disabled),
+      .mat-mdc-icon-button:not(.mat-mdc-button-disabled) {
         color: var(--mat-primary-color-text);
       }
 
-      .mat-form-field {
+      .mat-mdc-form-field {
         font-size: var(--mat-font-size-body-1);
 
         &.mat-focused {
-          .mat-form-field-ripple {
+          .mdc-line-ripple::after {
             background-color: var(--mat-primary-color-text);
           }
         }
 
-        .mat-form-field-infix {
+        .mat-mdc-form-field-infix {
           padding-bottom: unset;
 
-          .mat-input-element {
+          .mat-mdc-input-element {
             caret-color: var(--mat-primary-color-text);
             color: currentcolor;
           }
@@ -30,7 +30,7 @@ omv-datatable {
       }
     }
 
-    .mat-progress-bar {
+    .mat-mdc-progress-bar {
       position: absolute;
     }
   }

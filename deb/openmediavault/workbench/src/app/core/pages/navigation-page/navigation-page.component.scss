@@ -4,7 +4,7 @@
   margin: dv.$omv-margin;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 
-  .mat-card {
+  .mat-mdc-card {
     cursor: pointer;
     min-height: 100px;
   }

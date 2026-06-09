@@ -14,7 +14,7 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 @mixin theme($mode, $theme-config, $typography-config) {
-  .mat-tab-group {
+  .mat-mdc-tab-group {
     height: 100%;
   }
 }

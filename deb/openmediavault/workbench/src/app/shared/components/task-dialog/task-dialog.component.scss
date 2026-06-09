@@ -3,20 +3,20 @@
 @use 'scss/theme';
 
 omv-task-dialog {
-  .mat-dialog-content {
+  .mat-mdc-dialog-content {
     .omv-task-dialog-content {
       height: 300px;
       white-space: break-spaces;
     }
   }
 
-  .mat-progress-bar {
-    .mat-progress-bar-buffer {
+  .mat-mdc-progress-bar {
+    .mdc-linear-progress__buffer-bar {
       background-color: map.get(theme.$omv-color-pairs, terminal, color);
     }
 
-    .mat-progress-bar-fill::after {
-      background-color: dc.$omv-color-black-translucent;
+    .mdc-linear-progress__bar-inner {
+      border-color: dc.$omv-color-black-translucent;
     }
   }
 }

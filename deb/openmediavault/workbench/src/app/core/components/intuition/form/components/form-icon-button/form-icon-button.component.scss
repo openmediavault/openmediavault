@@ -1,11 +1,11 @@
 @use 'scss/defaults/colors' as dc;
 
 omv-form-icon-button {
-  .mat-flat-button {
+  .mat-mdc-unelevated-button {
     color: dc.$omv-color-white;
   }
 
-  .mat-form-field .mat-form-field-underline {
+  .mat-mdc-form-field .mdc-line-ripple {
     display: none;
   }
 }

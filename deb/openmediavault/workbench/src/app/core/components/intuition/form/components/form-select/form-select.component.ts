@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  */
 import { Component, OnInit } from '@angular/core';
-import { MatLegacySelectChange as MatSelectChange } from '@angular/material/legacy-select';
+import { MatSelectChange } from '@angular/material/select';
 import * as _ from 'lodash';
 import { Subscription, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';

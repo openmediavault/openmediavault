@@ -12,7 +12,7 @@
     <span [innerHtml]="hint.text | transloco | template:pageContext | nl2br | sanitizeHtml"></span>
   </omv-alert-panel>
 </div>
-<mat-card [ngClass]="{'omv-display-none': (pageStatus?.loading && pageStatus?.initialLoad) || pageStatus?.error}">
+<mat-card appearance="outlined" [ngClass]="{'omv-display-none': (pageStatus?.loading && pageStatus?.initialLoad) || pageStatus?.error}">
   <ng-container *ngTemplateOutlet="renderCardHeader"></ng-container>
   <mat-card-content>
     <omv-intuition-form [id]="config.id"

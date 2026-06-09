@@ -1,7 +1,7 @@
 @use 'scss/defaults/colors' as dc;
 
 mat-form-button {
-  .mat-flat-button.mat-primary {
+  .mat-mdc-unelevated-button.mat-primary {
     color: dc.$omv-color-white;
   }
 

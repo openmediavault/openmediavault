@@ -17,51 +17,14 @@
 @use '@angular/material' as mat;
 
 @mixin theme($mode, $theme-config, $typography-config) {
-  // Workaround for https://github.com/angular/material2/issues/4580.
-  // @deprecated in Angular15
-  .mat-form-field {
-    // Copy-paste from @mat-form-field-typography();
-    $line-height: mat.line-height($typography-config, input);
-    $subscript-font-scale: 0.75;
-
-    & & {
-      &-underline {
-        position: static;
-      }
-
-      &-subscript-wrapper {
-        $subscript-margin-top: math.div(0.5em, $subscript-font-scale);
-        $subscript-min-height: $line-height * 1em;
-        $subscript-margin-bottom: -#{$subscript-margin-top + $line-height};
-
-        position: static;
-        min-height: $subscript-min-height;
-        margin-bottom: $subscript-margin-bottom;
-      }
-    }
-
-    &-appearance-legacy &-subscript-wrapper {
-      // Copy-paste from @mat-form-field-legacy-typography();
-      $line-spacing: ($line-height - 1) * 0.5;
-      $subscript-margin-top: math.div(0.5em, $subscript-font-scale) - ($line-spacing * 2);
-      $subscript-min-height: $line-height * 1em;
-      $subscript-margin-bottom: -#{$subscript-margin-top + $line-height};
-
-      min-height: $subscript-min-height;
-      margin-bottom: $subscript-margin-bottom;
-    }
-  }
-
-  .mat-form-field-suffix .mat-icon,
-  .mat-form-field-prefix .mat-icon {
+  .mat-mdc-form-field-icon-suffix .mat-icon,
+  .mat-mdc-form-field-icon-prefix .mat-icon {
     color: var(--mat-color-secondary-text);
-
-    // Suffix/Prefix icons are aligned too high by default.
     vertical-align: bottom;
   }
 
   // Move list items to the beginning of the line.
-  .mat-form-field .mat-hint > ul {
+  .mat-mdc-form-field .mat-mdc-form-field-hint > ul {
     padding-left: 0.75rem;
   }
 }

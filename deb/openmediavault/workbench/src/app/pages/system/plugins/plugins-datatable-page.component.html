@@ -8,25 +8,25 @@
         <div class="omv-font-weight-title omv-font-size-title">{{ row.name }} {{ row.version }}</div>
         <div class="omv-font-size-subheading-2">{{ row.summary }}</div>
       </div>
-      <mat-chip-list *ngIf="row.installed"
+      <mat-chip-listbox *ngIf="row.installed"
                      class="installed"
                      [tabIndex]="-1">
-        <mat-chip class="omv-background-color-pair-green"
+        <mat-chip-option class="omv-background-color-pair-green"
                   [selectable]="false"
                   [disableRipple]="true">
           {{ 'Installed' | transloco }}
-        </mat-chip>
-      </mat-chip-list>
+        </mat-chip-option>
+      </mat-chip-listbox>
     </div>
     <div *ngIf="row.pluginarchitecture.length"
          class="architecture">
-      <mat-chip-list [tabIndex]="-1">
-        <mat-chip *ngFor="let item of row.pluginarchitecture | sort"
+      <mat-chip-listbox [tabIndex]="-1">
+        <mat-chip-option *ngFor="let item of row.pluginarchitecture | sort"
                   [selectable]="false"
                   [disableRipple]="true">
           {{ item }}
-        </mat-chip>
-      </mat-chip-list>
+        </mat-chip-option>
+      </mat-chip-listbox>
     </div>
     <br>
     <ng-container *ngIf="row.extendeddescription"><span>{{ row.extendeddescription }}</span><br><br></ng-container>
