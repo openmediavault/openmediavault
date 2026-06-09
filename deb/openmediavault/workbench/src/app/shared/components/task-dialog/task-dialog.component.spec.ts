@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA } from '@angular/material/legacy-dialog';
 
 import { ComponentsModule } from '~/app/shared/components/components.module';
 import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-dialog.component';

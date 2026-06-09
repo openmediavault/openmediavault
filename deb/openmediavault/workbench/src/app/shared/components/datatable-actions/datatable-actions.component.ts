@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  */
 import { Component, Input, OnInit } from '@angular/core';
-import { MatSelectChange } from '@angular/material/select';
+import { MatLegacySelectChange as MatSelectChange } from '@angular/material/legacy-select';
 import * as _ from 'lodash';
 
 import { Icon } from '~/app/shared/enum/icon.enum';

@@ -27,9 +27,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 // Initialize Material
 ////////////////////////////////////////////////////////////////////////////////
-$omv-typography-config: mat.define-typography-config(theme.$omv-font-family-default);
+$omv-typography-config: mat.define-legacy-typography-config(theme.$omv-font-family-default);
 
-@include mat.core($omv-typography-config);
+@include mat.core();
 
 $omv-theme-primary-palette: mat.define-palette(theme.$omv-color-primary-palette);
 $omv-theme-accent-palette: map.merge(
@@ -45,7 +45,8 @@ $omv-light-theme: mat.define-light-theme(
       primary: $omv-theme-primary-palette,
       accent: $omv-theme-accent-palette,
       warn: $omv-theme-warn-palette
-    )
+    ),
+    typography: $omv-typography-config
   )
 );
 $omv-light-theme-background-palette: (

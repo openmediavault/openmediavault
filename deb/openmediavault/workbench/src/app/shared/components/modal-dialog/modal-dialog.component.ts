@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  */
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA } from '@angular/material/legacy-dialog';
 import * as _ from 'lodash';
 
 import { DEFAULT_TEXTS } from '~/app/shared/constants/text.constants';

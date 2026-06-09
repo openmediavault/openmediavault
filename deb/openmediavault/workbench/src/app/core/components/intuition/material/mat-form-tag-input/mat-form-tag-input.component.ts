@@ -20,7 +20,7 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Component, HostBinding, Input, Optional, Self } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
-import { MatChipInputEvent } from '@angular/material/chips';
+import { MatLegacyChipInputEvent as MatChipInputEvent } from '@angular/material/legacy-chips';
 import { MatFormFieldControl } from '@angular/material/form-field';
 import * as _ from 'lodash';
 import { Subject } from 'rxjs';
