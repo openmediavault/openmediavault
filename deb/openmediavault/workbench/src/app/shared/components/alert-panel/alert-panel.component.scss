@@ -21,6 +21,11 @@
     @include tc.background-color-pair('tip');
   }
 
+  // MDC mat-card has no padding; apply it to the outer flex row instead.
+  & > .omv-display-flex {
+    padding: 16px;
+  }
+
   .mat-icon.alert-icon {
     margin-right: 16px;
   }
@@ -35,6 +40,9 @@
     }
 
     & .mat-mdc-card-content {
+      // MDC adds padding: 0 16px on card-content by default; zero it out
+      // since the outer flex row already provides the card's padding.
+      padding: 0;
       margin-bottom: 0;
     }
   }
