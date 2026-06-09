@@ -22,7 +22,7 @@
   }
 
   .mat-mdc-dialog-content {
-    font-family: mat.font-family($typography-config);
-    font-size: mat.font-size($typography-config, body-1);
+    font-family: mat.m2-font-family($typography-config);
+    font-size: mat.m2-font-size($typography-config, body-1);
   }
 }

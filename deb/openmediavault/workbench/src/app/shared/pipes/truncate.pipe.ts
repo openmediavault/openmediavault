@@ -22,7 +22,8 @@ import * as _ from 'lodash';
  * Truncates string if it's longer than the given maximum string length.
  */
 @Pipe({
-  name: 'truncate'
+    name: 'truncate',
+    standalone: false
 })
 export class TruncatePipe implements PipeTransform {
   /**

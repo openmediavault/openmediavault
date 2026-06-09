@@ -5,8 +5,9 @@ import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
  * to the image element depending on the loading state.
  */
 @Directive({
-  // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: 'img[loadingState]'
+    // eslint-disable-next-line @angular-eslint/directive-selector
+    selector: 'img[loadingState]',
+    standalone: false
 })
 export class LoadingStateDirective {
   constructor(

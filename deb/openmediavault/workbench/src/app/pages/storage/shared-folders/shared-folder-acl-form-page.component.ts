@@ -39,7 +39,8 @@ import { NotificationService } from '~/app/shared/services/notification.service'
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
-  template: '<omv-intuition-form-page [config]="this.config"></omv-intuition-form-page>'
+    template: '<omv-intuition-form-page [config]="this.config"></omv-intuition-form-page>',
+    standalone: false
 })
 export class SharedFolderAclFormPageComponent extends BaseFormPageComponent implements OnInit {
   @Unsubscribe()

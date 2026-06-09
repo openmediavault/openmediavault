@@ -20,7 +20,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { isFormatable, renderTemplate } from '~/app/functions.helper';
 
 @Pipe({
-  name: 'template'
+    name: 'template',
+    standalone: false
 })
 export class TemplatePipe implements PipeTransform {
   /**

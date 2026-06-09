@@ -30,7 +30,8 @@ import { Datatable } from '~/app/shared/models/datatable.interface';
 import { DialogService } from '~/app/shared/services/dialog.service';
 
 @Component({
-  template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>'
+    template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>',
+    standalone: false
 })
 export class DiskDatatablePageComponent {
   public config: DatatablePageConfig = {

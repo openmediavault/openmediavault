@@ -20,8 +20,9 @@ import { Component } from '@angular/core';
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 
 @Component({
-  selector: 'omv-form-paragraph',
-  templateUrl: './form-paragraph.component.html',
-  styleUrls: ['./form-paragraph.component.scss']
+    selector: 'omv-form-paragraph',
+    templateUrl: './form-paragraph.component.html',
+    styleUrls: ['./form-paragraph.component.scss'],
+    standalone: false
 })
 export class FormParagraphComponent extends AbstractFormFieldComponent {}

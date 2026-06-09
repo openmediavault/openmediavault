@@ -44,10 +44,11 @@ import { RpcBgResponse, RpcService } from '~/app/shared/services/rpc.service';
  * display the content received by a background task.
  */
 @Component({
-  selector: 'omv-task-dialog',
-  templateUrl: './task-dialog.component.html',
-  styleUrls: ['./task-dialog.component.scss'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'omv-task-dialog',
+    templateUrl: './task-dialog.component.html',
+    styleUrls: ['./task-dialog.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class TaskDialogComponent implements OnInit, OnDestroy {
   @Output()

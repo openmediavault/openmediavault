@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import * as _ from 'lodash';
 
 @Pipe({
-  name: 'preventHtml'
+    name: 'preventHtml',
+    standalone: false
 })
 export class PreventHtmlPipe implements PipeTransform {
   /**

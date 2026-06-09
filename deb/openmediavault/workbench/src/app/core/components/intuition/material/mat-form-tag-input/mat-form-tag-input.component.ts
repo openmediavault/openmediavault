@@ -30,17 +30,18 @@ import { Icon } from '~/app/shared/enum/icon.enum';
 let nextUniqueId = 0;
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'mat-form-tag-input',
-  exportAs: 'matFormTagInput',
-  templateUrl: './mat-form-tag-input.component.html',
-  styleUrls: ['./mat-form-tag-input.component.scss'],
-  providers: [
-    {
-      provide: MatFormFieldControl,
-      useExisting: MatFormTagInputComponent
-    }
-  ]
+    // eslint-disable-next-line @angular-eslint/component-selector
+    selector: 'mat-form-tag-input',
+    exportAs: 'matFormTagInput',
+    templateUrl: './mat-form-tag-input.component.html',
+    styleUrls: ['./mat-form-tag-input.component.scss'],
+    providers: [
+        {
+            provide: MatFormFieldControl,
+            useExisting: MatFormTagInputComponent
+        }
+    ],
+    standalone: false
 })
 export class MatFormTagInputComponent implements ControlValueAccessor, MatFormFieldControl<string> {
   // eslint-disable-next-line @typescript-eslint/naming-convention

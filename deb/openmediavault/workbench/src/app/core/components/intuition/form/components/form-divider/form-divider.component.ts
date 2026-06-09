@@ -20,8 +20,9 @@ import { Component } from '@angular/core';
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 
 @Component({
-  selector: 'omv-form-divider',
-  templateUrl: './form-divider.component.html',
-  styleUrls: ['./form-divider.component.scss']
+    selector: 'omv-form-divider',
+    templateUrl: './form-divider.component.html',
+    styleUrls: ['./form-divider.component.scss'],
+    standalone: false
 })
 export class FormDividerComponent extends AbstractFormFieldComponent {}

@@ -23,9 +23,10 @@ import { DashboardWidgetConfig } from '~/app/core/components/dashboard/models/da
 import { DashboardWidgetConfigService } from '~/app/core/services/dashboard-widget-config.service';
 
 @Component({
-  selector: 'omv-dashboard-page',
-  templateUrl: './dashboard-page.component.html',
-  styleUrls: ['./dashboard-page.component.scss']
+    selector: 'omv-dashboard-page',
+    templateUrl: './dashboard-page.component.html',
+    styleUrls: ['./dashboard-page.component.scss'],
+    standalone: false
 })
 export class DashboardPageComponent implements OnInit {
   public widgets: Array<DashboardWidgetConfig> = [];

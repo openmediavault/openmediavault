@@ -9,9 +9,10 @@ import { formatDeep } from '~/app/functions.helper';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
-  selector: 'omv-dashboard-widget',
-  templateUrl: './dashboard-widget.component.html',
-  styleUrls: ['./dashboard-widget.component.scss']
+    selector: 'omv-dashboard-widget',
+    templateUrl: './dashboard-widget.component.html',
+    styleUrls: ['./dashboard-widget.component.scss'],
+    standalone: false
 })
 export class DashboardWidgetComponent implements OnInit {
   @Input()

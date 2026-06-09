@@ -24,9 +24,10 @@ import { DataStoreResponse } from '~/app/shared/services/data-store.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
 
 @Component({
-  selector: 'omv-dashboard-widget-datatable',
-  templateUrl: './dashboard-widget-datatable.component.html',
-  styleUrls: ['./dashboard-widget-datatable.component.scss']
+    selector: 'omv-dashboard-widget-datatable',
+    templateUrl: './dashboard-widget-datatable.component.html',
+    styleUrls: ['./dashboard-widget-datatable.component.scss'],
+    standalone: false
 })
 export class DashboardWidgetDatatableComponent implements OnInit {
   @Input()

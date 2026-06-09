@@ -25,7 +25,8 @@ import { MkfsConfig, MkfsConfigService } from '~/app/core/services/mkfs-config.s
 import { Unsubscribe } from '~/app/decorators';
 
 @Component({
-  template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>'
+    template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>',
+    standalone: false
 })
 export class FilesystemDatatablePageComponent implements OnInit {
   @Unsubscribe()

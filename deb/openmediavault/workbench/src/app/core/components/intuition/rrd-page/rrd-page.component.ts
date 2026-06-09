@@ -35,10 +35,11 @@ import { DataStoreResponse, DataStoreService } from '~/app/shared/services/data-
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
-  selector: 'omv-intuition-rrd-page',
-  templateUrl: './rrd-page.component.html',
-  styleUrls: ['./rrd-page.component.scss'],
-  providers: [PageContextService]
+    selector: 'omv-intuition-rrd-page',
+    templateUrl: './rrd-page.component.html',
+    styleUrls: ['./rrd-page.component.scss'],
+    providers: [PageContextService],
+    standalone: false
 })
 export class RrdPageComponent extends AbstractPageComponent<RrdPageConfig> implements OnInit {
   @Unsubscribe()

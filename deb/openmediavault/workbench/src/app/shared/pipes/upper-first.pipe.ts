@@ -19,7 +19,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import * as _ from 'lodash';
 
 @Pipe({
-  name: 'upperFirst'
+    name: 'upperFirst',
+    standalone: false
 })
 export class UpperFirstPipe implements PipeTransform {
   transform(text: string): string {

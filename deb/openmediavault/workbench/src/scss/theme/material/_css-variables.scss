@@ -19,17 +19,17 @@
 
 @mixin theme($mode, $theme-config, $typography-config) {
   :root {
-    --mat-font-family-body: #{mat.font-family($typography-config)};
-    --mat-font-size-body-1: #{mat.font-size($typography-config, body-1)};
-    --mat-font-size-button: #{mat.font-size($typography-config, button)};
-    --mat-font-size-caption: #{mat.font-size($typography-config, caption)};
-    --mat-font-size-headline: #{mat.font-size($typography-config, headline)};
-    --mat-font-size-subheading-2: #{mat.font-size($typography-config, subheading-2)};
-    --mat-font-size-title: #{mat.font-size($typography-config, title)};
-    --mat-font-weight-body-1: #{mat.font-weight($typography-config, body-1)};
-    --mat-font-weight-headline: #{mat.font-weight($typography-config, headline)};
-    --mat-font-weight-subheading-2: #{mat.font-weight($typography-config, subheading-2)};
-    --mat-font-weight-title: #{mat.font-weight($typography-config, title)};
+    --mat-font-family-body: #{mat.m2-font-family($typography-config)};
+    --mat-font-size-body-1: #{mat.m2-font-size($typography-config, body-1)};
+    --mat-font-size-button: #{mat.m2-font-size($typography-config, button)};
+    --mat-font-size-caption: #{mat.m2-font-size($typography-config, caption)};
+    --mat-font-size-headline: #{mat.m2-font-size($typography-config, headline)};
+    --mat-font-size-subheading-2: #{mat.m2-font-size($typography-config, subheading-2)};
+    --mat-font-size-title: #{mat.m2-font-size($typography-config, title)};
+    --mat-font-weight-body-1: #{mat.m2-font-weight($typography-config, body-1)};
+    --mat-font-weight-headline: #{mat.m2-font-weight($typography-config, headline)};
+    --mat-font-weight-subheading-2: #{mat.m2-font-weight($typography-config, subheading-2)};
+    --mat-font-weight-title: #{mat.m2-font-weight($typography-config, title)};
 
     @if $mode == light {
       @include color($theme-config, $typography-config);
@@ -41,7 +41,7 @@
   @if $mode == dark {
     @include color($theme-config, $typography-config);
 
-    --mat-background-color-body: #{mat.get-color-from-palette(
+    --mat-background-color-body: #{mat.m2-get-color-from-palette(
       map.get($theme-config, background),
       card
     )};
@@ -49,36 +49,36 @@
 }
 
 @mixin color($theme-config, $typography-config) {
-  --mat-color-text: #{mat.get-color-from-palette(map.get($theme-config, foreground), text)};
-  --mat-color-secondary-text: #{mat.get-color-from-palette(
+  --mat-color-text: #{mat.m2-get-color-from-palette(map.get($theme-config, foreground), text)};
+  --mat-color-secondary-text: #{mat.m2-get-color-from-palette(
       map.get($theme-config, foreground),
       secondary-text
     )};
-  --mat-color-disabled-text: #{mat.get-color-from-palette(
+  --mat-color-disabled-text: #{mat.m2-get-color-from-palette(
       map.get($theme-config, foreground),
       disabled-text
     )};
-  --mat-color-hint-text: #{mat.get-color-from-palette(
+  --mat-color-hint-text: #{mat.m2-get-color-from-palette(
       map.get($theme-config, foreground),
       hint-text
     )};
-  --mat-background-color-hover: #{mat.get-color-from-palette(
+  --mat-background-color-hover: #{mat.m2-get-color-from-palette(
       map.get($theme-config, background),
       hover
     )};
-  --mat-background-color-selected-button: #{mat.get-color-from-palette(
+  --mat-background-color-selected-button: #{mat.m2-get-color-from-palette(
       map.get($theme-config, background),
       selected-button
     )};
-  --mat-background-color-card: #{mat.get-color-from-palette(
+  --mat-background-color-card: #{mat.m2-get-color-from-palette(
       map.get($theme-config, background),
       card
     )};
-  --mat-background-color-background: #{mat.get-color-from-palette(
+  --mat-background-color-background: #{mat.m2-get-color-from-palette(
       map.get($theme-config, background),
       background
     )};
-  --mat-primary-color-text: #{mat.get-color-from-palette(
+  --mat-primary-color-text: #{mat.m2-get-color-from-palette(
       map.get($theme-config, primary),
       text
     )};

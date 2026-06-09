@@ -27,19 +27,20 @@
 ////////////////////////////////////////////////////////////////////////////////
 // Initialize Material
 ////////////////////////////////////////////////////////////////////////////////
-$omv-typography-config: mat.define-legacy-typography-config(theme.$omv-font-family-default);
+$omv-typography-config: mat.m2-define-legacy-typography-config(theme.$omv-font-family-default);
 
-@include mat.core();
+@include mat.elevation-classes();
+@include mat.app-background();
 
-$omv-theme-primary-palette: mat.define-palette(theme.$omv-color-primary-palette);
+$omv-theme-primary-palette: mat.m2-define-palette(theme.$omv-color-primary-palette);
 $omv-theme-accent-palette: map.merge(
-  mat.define-palette(theme.$omv-color-accent-palette),
+  mat.m2-define-palette(theme.$omv-color-accent-palette),
   (
     default-contrast: theme.$omv-color-accent-contrast
   )
 );
-$omv-theme-warn-palette: mat.define-palette(theme.$omv-color-warn-palette);
-$omv-light-theme: mat.define-light-theme(
+$omv-theme-warn-palette: mat.m2-define-palette(theme.$omv-color-warn-palette);
+$omv-light-theme: mat.m2-define-light-theme(
   (
     color: (
       primary: $omv-theme-primary-palette,
@@ -69,7 +70,7 @@ $omv-light-theme: map.deep-merge(
     )
   )
 );
-$omv-dark-theme: mat.define-dark-theme(
+$omv-dark-theme: mat.m2-define-dark-theme(
   (
     color: (
       primary: $omv-theme-primary-palette,
@@ -100,14 +101,10 @@ $omv-dark-theme: map.deep-merge(
 );
 
 @include mat.all-component-themes($omv-light-theme);
-/* TODO(mdc-migration): Remove all-legacy-component-themes once all legacy components are migrated*/
-@include mat.all-legacy-component-themes($omv-light-theme);
 @include theme.all-component-themes('light', $omv-light-theme, $omv-typography-config);
 
 .omv-dark-theme {
   @include mat.all-component-colors($omv-dark-theme);
-  /* TODO(mdc-migration): Remove all-legacy-component-colors once all legacy components are migrated*/
-  @include mat.all-legacy-component-colors($omv-dark-theme);
   @include theme.all-component-themes('dark', $omv-dark-theme, $omv-typography-config);
 }
 

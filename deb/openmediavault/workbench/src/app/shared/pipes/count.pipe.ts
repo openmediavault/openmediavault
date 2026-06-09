@@ -19,7 +19,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import * as _ from 'lodash';
 
 @Pipe({
-  name: 'count'
+    name: 'count',
+    standalone: false
 })
 export class CountPipe implements PipeTransform {
   transform(value: unknown): unknown {

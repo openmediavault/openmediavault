@@ -72,10 +72,11 @@ import { RpcService } from '~/app/shared/services/rpc.service';
  * Display text in a read-only textarea using a non-proportional font.
  */
 @Component({
-  selector: 'omv-intuition-code-editor-page',
-  templateUrl: './code-editor-page.component.html',
-  styleUrls: ['./code-editor-page.component.scss'],
-  providers: [PageContextService]
+    selector: 'omv-intuition-code-editor-page',
+    templateUrl: './code-editor-page.component.html',
+    styleUrls: ['./code-editor-page.component.scss'],
+    providers: [PageContextService],
+    standalone: false
 })
 export class CodeEditorPageComponent
   extends AbstractPageComponent<CodeEditorPageConfig>

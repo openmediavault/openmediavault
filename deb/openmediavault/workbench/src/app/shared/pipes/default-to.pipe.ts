@@ -19,7 +19,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import * as _ from 'lodash';
 
 @Pipe({
-  name: 'defaultTo'
+    name: 'defaultTo',
+    standalone: false
 })
 export class DefaultToPipe implements PipeTransform {
   transform(value: any, defaultValue?: any): any {

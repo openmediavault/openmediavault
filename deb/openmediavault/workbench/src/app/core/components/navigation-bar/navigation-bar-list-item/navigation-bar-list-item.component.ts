@@ -26,9 +26,10 @@ import { Unsubscribe } from '~/app/decorators';
 import { Icon } from '~/app/shared/enum/icon.enum';
 
 @Component({
-  selector: 'omv-navigation-bar-list-item',
-  templateUrl: './navigation-bar-list-item.component.html',
-  styleUrls: ['./navigation-bar-list-item.component.scss']
+    selector: 'omv-navigation-bar-list-item',
+    templateUrl: './navigation-bar-list-item.component.html',
+    styleUrls: ['./navigation-bar-list-item.component.scss'],
+    standalone: false
 })
 export class NavigationBarListItemComponent implements OnInit {
   @Input()

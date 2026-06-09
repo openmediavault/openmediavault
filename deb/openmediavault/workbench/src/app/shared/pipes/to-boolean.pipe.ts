@@ -20,7 +20,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { toBoolean } from '~/app/functions.helper';
 
 @Pipe({
-  name: 'toBoolean'
+    name: 'toBoolean',
+    standalone: false
 })
 export class ToBooleanPipe implements PipeTransform {
   transform(value: any): boolean {

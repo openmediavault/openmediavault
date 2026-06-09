@@ -38,10 +38,11 @@ import { DataStoreResponse, DataStoreService } from '~/app/shared/services/data-
 import { NotificationService } from '~/app/shared/services/notification.service';
 
 @Component({
-  selector: 'omv-intuition-selection-list-page',
-  templateUrl: './selection-list-page.component.html',
-  styleUrls: ['./selection-list-page.component.scss'],
-  providers: [PageContextService]
+    selector: 'omv-intuition-selection-list-page',
+    templateUrl: './selection-list-page.component.html',
+    styleUrls: ['./selection-list-page.component.scss'],
+    providers: [PageContextService],
+    standalone: false
 })
 export class SelectionListPageComponent
   extends AbstractPageComponent<SelectionListPageConfig>

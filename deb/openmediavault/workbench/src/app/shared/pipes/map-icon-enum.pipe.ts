@@ -21,7 +21,8 @@ import * as _ from 'lodash';
 import { Icon } from '~/app/shared/enum/icon.enum';
 
 @Pipe({
-  name: 'mapIconEnum'
+    name: 'mapIconEnum',
+    standalone: false
 })
 export class MapIconEnumPipe implements PipeTransform {
   transform(value: string, defaultValue?: string): string {

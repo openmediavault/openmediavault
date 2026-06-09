@@ -31,10 +31,11 @@ import { NotificationService } from '~/app/shared/services/notification.service'
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
-  selector: 'omv-form-button',
-  templateUrl: './form-button.component.html',
-  styleUrls: ['./form-button.component.scss'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'omv-form-button',
+    templateUrl: './form-button.component.html',
+    styleUrls: ['./form-button.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class FormButtonComponent extends AbstractFormFieldComponent {
   constructor(

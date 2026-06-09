@@ -19,7 +19,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import * as _ from 'lodash';
 
 @Pipe({
-  name: 'escapeHtml'
+    name: 'escapeHtml',
+    standalone: false
 })
 export class EscapeHtmlPipe implements PipeTransform {
   /**

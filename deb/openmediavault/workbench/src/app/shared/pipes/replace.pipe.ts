@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import * as _ from 'lodash';
 
 @Pipe({
-  name: 'replace'
+    name: 'replace',
+    standalone: false
 })
 export class ReplacePipe implements PipeTransform {
   transform(value: any, searchValue: string | RegExp, replaceValue: string): any {

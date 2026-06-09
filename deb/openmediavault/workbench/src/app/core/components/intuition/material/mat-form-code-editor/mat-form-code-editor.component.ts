@@ -75,18 +75,19 @@ import {
 let nextUniqueId = 0;
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'mat-form-code-editor',
-  exportAs: 'matFormCodeEditor',
-  templateUrl: './mat-form-code-editor.component.html',
-  styleUrls: ['./mat-form-code-editor.component.scss'],
-  providers: [
-    {
-      provide: MatFormFieldControl,
-      useExisting: MatFormCodeEditorComponent
-    }
-  ],
-  encapsulation: ViewEncapsulation.None
+    // eslint-disable-next-line @angular-eslint/component-selector
+    selector: 'mat-form-code-editor',
+    exportAs: 'matFormCodeEditor',
+    templateUrl: './mat-form-code-editor.component.html',
+    styleUrls: ['./mat-form-code-editor.component.scss'],
+    providers: [
+        {
+            provide: MatFormFieldControl,
+            useExisting: MatFormCodeEditorComponent
+        }
+    ],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class MatFormCodeEditorComponent
   implements OnInit, AfterViewInit, ControlValueAccessor, MatFormFieldControl<string>

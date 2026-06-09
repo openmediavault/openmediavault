@@ -21,7 +21,8 @@ import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 
 @Component({
-  template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>'
+    template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>',
+    standalone: false
 })
 export class SmartDeviceDatatablePageComponent {
   public config: DatatablePageConfig = {

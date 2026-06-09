@@ -19,7 +19,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import * as _ from 'lodash';
 
 @Pipe({
-  name: 'array'
+    name: 'array',
+    standalone: false
 })
 export class ArrayPipe implements PipeTransform {
   /**

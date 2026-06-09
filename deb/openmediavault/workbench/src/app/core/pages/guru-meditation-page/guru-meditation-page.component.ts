@@ -23,9 +23,10 @@ import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 
 @Component({
-  selector: 'omv-guru-meditation-page',
-  templateUrl: './guru-meditation-page.component.html',
-  styleUrls: ['./guru-meditation-page.component.scss']
+    selector: 'omv-guru-meditation-page',
+    templateUrl: './guru-meditation-page.component.html',
+    styleUrls: ['./guru-meditation-page.component.scss'],
+    standalone: false
 })
 export class GuruMeditationPageComponent implements OnInit, OnDestroy {
   // https://web.archive.org/web/20120628060356/http://www.scotek.demon.co.uk/guru.html

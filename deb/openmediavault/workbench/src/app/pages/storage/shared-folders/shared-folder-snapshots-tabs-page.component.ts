@@ -22,7 +22,8 @@ import { TabsPageConfig } from '~/app/core/components/intuition/models/tabs-page
 import { DEFAULT_TEXTS } from '~/app/shared/constants/text.constants';
 
 @Component({
-  template: '<omv-intuition-tabs-page [config]="this.config"></omv-intuition-tabs-page>'
+    template: '<omv-intuition-tabs-page [config]="this.config"></omv-intuition-tabs-page>',
+    standalone: false
 })
 export class SharedFolderSnapshotsTabsPageComponent {
   public config: TabsPageConfig = {

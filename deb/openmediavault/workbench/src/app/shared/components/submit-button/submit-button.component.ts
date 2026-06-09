@@ -20,9 +20,10 @@ import { FormGroup } from '@angular/forms';
 import * as _ from 'lodash';
 
 @Component({
-  selector: 'omv-submit-button',
-  templateUrl: './submit-button.component.html',
-  styleUrls: ['./submit-button.component.scss']
+    selector: 'omv-submit-button',
+    templateUrl: './submit-button.component.html',
+    styleUrls: ['./submit-button.component.scss'],
+    standalone: false
 })
 export class SubmitButtonComponent {
   // Optional ID of the form this button is assigned to.

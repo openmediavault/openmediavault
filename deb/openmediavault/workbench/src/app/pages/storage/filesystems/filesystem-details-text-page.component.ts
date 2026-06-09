@@ -20,7 +20,8 @@ import { Component } from '@angular/core';
 import { TextPageConfig } from '~/app/core/components/intuition/models/text-page-config.type';
 
 @Component({
-  template: '<omv-intuition-text-page [config]="this.config"></omv-intuition-text-page>'
+    template: '<omv-intuition-text-page [config]="this.config"></omv-intuition-text-page>',
+    standalone: false
 })
 export class FilesystemDetailsTextPageComponent {
   public config: TextPageConfig = {

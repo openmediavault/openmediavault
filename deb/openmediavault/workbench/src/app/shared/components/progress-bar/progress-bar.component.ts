@@ -19,9 +19,10 @@ import { Component, Input } from '@angular/core';
 import * as _ from 'lodash';
 
 @Component({
-  selector: 'omv-progress-bar',
-  templateUrl: './progress-bar.component.html',
-  styleUrls: ['./progress-bar.component.scss']
+    selector: 'omv-progress-bar',
+    templateUrl: './progress-bar.component.html',
+    styleUrls: ['./progress-bar.component.scss'],
+    standalone: false
 })
 export class ProgressBarComponent {
   @Input()

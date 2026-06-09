@@ -27,7 +27,8 @@ import { DatatableAction } from '~/app/shared/models/datatable-action.type';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
-  template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>'
+    template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>',
+    standalone: false
 })
 export class SystemLogsListPageComponent implements OnInit {
   @ViewChild(DatatablePageComponent, { static: true })

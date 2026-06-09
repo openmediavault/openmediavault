@@ -25,7 +25,8 @@ import { binaryUnit } from '~/app/functions.helper';
  * Example: 2097152 will become 2.00 MiB
  */
 @Pipe({
-  name: 'binaryUnit'
+    name: 'binaryUnit',
+    standalone: false
 })
 export class BinaryUnitPipe implements PipeTransform {
   /**

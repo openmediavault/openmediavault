@@ -24,9 +24,10 @@ import {
 } from '~/app/core/services/navigation-config.service';
 
 @Component({
-  selector: 'omv-navigation-bar',
-  templateUrl: './navigation-bar.component.html',
-  styleUrls: ['./navigation-bar.component.scss']
+    selector: 'omv-navigation-bar',
+    templateUrl: './navigation-bar.component.html',
+    styleUrls: ['./navigation-bar.component.scss'],
+    standalone: false
 })
 export class NavigationBarComponent implements OnInit, OnDestroy {
   public menuItems: NavigationMenuItem[];

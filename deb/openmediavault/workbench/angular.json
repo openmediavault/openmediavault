@@ -105,19 +105,19 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "openmediavault-workbench:build",
-            "proxyConfig": "proxy.conf.json"
+            "proxyConfig": "proxy.conf.json",
+            "buildTarget": "openmediavault-workbench:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "openmediavault-workbench:build:production"
+              "buildTarget": "openmediavault-workbench:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "openmediavault-workbench:build"
+            "buildTarget": "openmediavault-workbench:build"
           }
         },
         "test": {

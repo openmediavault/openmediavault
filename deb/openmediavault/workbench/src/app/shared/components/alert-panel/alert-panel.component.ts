@@ -32,9 +32,10 @@ export type AlertPanelButtonConfig = {
 };
 
 @Component({
-  selector: 'omv-alert-panel',
-  templateUrl: './alert-panel.component.html',
-  styleUrls: ['./alert-panel.component.scss']
+    selector: 'omv-alert-panel',
+    templateUrl: './alert-panel.component.html',
+    styleUrls: ['./alert-panel.component.scss'],
+    standalone: false
 })
 export class AlertPanelComponent implements OnInit {
   @Input()

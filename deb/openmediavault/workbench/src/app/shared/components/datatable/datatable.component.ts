@@ -62,10 +62,11 @@ export type DataTableCellChanged = {
 };
 
 @Component({
-  selector: 'omv-datatable',
-  templateUrl: './datatable.component.html',
-  styleUrls: ['./datatable.component.scss'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'omv-datatable',
+    templateUrl: './datatable.component.html',
+    styleUrls: ['./datatable.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChanges {
   @ViewChild('table', { static: true })

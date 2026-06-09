@@ -20,7 +20,8 @@ import { Component } from '@angular/core';
 import { RrdPageConfig } from '~/app/core/components/intuition/models/rrd-page-config.type';
 
 @Component({
-  template: '<omv-intuition-rrd-page [config]="this.config"></omv-intuition-rrd-page>'
+    template: '<omv-intuition-rrd-page [config]="this.config"></omv-intuition-rrd-page>',
+    standalone: false
 })
 export class PerformanceStatisticLoadRrdPageComponent {
   public config: RrdPageConfig = {

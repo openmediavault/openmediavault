@@ -23,7 +23,8 @@ import { BaseFormPageComponent } from '~/app/pages/base-page-component';
 import { DEFAULT_TEXTS } from '~/app/shared/constants/text.constants';
 
 @Component({
-  template: '<omv-intuition-form-page [config]="this.config"></omv-intuition-form-page>'
+    template: '<omv-intuition-form-page [config]="this.config"></omv-intuition-form-page>',
+    standalone: false
 })
 export class SslCertificateFormPageComponent extends BaseFormPageComponent {
   public config: FormPageConfig = {

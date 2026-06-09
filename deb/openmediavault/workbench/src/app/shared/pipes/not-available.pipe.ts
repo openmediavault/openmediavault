@@ -20,7 +20,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { notAvailable } from '~/app/functions.helper';
 
 @Pipe({
-  name: 'notAvailable'
+    name: 'notAvailable',
+    standalone: false
 })
 export class NotAvailablePipe implements PipeTransform {
   transform(value: any, text?: string): any {

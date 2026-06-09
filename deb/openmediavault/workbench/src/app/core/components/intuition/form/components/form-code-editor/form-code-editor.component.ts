@@ -20,8 +20,9 @@ import { Component } from '@angular/core';
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 
 @Component({
-  selector: 'omv-form-code-editor',
-  templateUrl: './form-code-editor.component.html',
-  styleUrls: ['./form-code-editor.component.scss']
+    selector: 'omv-form-code-editor',
+    templateUrl: './form-code-editor.component.html',
+    styleUrls: ['./form-code-editor.component.scss'],
+    standalone: false
 })
 export class FormCodeEditorComponent extends AbstractFormFieldComponent {}
