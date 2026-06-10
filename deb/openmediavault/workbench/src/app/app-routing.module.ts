@@ -16,12 +16,14 @@
  * GNU General Public License for more details.
  */
 import { APP_INITIALIZER, inject, NgModule } from '@angular/core';
-import { ActivatedRouteSnapshot, RouterModule, Routes } from '@angular/router';
+import { ActivatedRouteSnapshot, Router, RouterModule, Routes } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { EMPTY } from 'rxjs';
 
+import { BackgroundImageLayoutComponent } from '~/app/core/components/layouts/background-image-layout/background-image-layout.component';
 import { BlankLayoutComponent } from '~/app/core/components/layouts/blank-layout/blank-layout.component';
+import { PublicLayoutComponent } from '~/app/core/components/layouts/public-layout/public-layout.component';
 import { WorkbenchLayoutComponent } from '~/app/core/components/layouts/workbench-layout/workbench-layout.component';
 import { AboutPageComponent } from '~/app/core/pages/about-page/about-page.component';
 import { BlankPageComponent } from '~/app/core/pages/blank-page/blank-page.component';
@@ -104,11 +106,29 @@ const routes: Routes = [
   },
   {
     path: '',
+    component: BackgroundImageLayoutComponent,
+    children: [
+      {
+        path: 'login',
+        component: LoginPageComponent,
+        data: { backgroundImage: 'login.jpg' }
+      },
+      {
+        path: 'standby',
+        component: StandbyPageComponent,
+        data: { backgroundImage: 'standby.jpg' }
+      },
+      {
+        path: 'shutdown',
+        component: ShutdownPageComponent,
+        data: { backgroundImage: 'shutdown.jpg' }
+      }
+    ]
+  },
+  {
+    path: '',
     component: BlankLayoutComponent,
     children: [
-      { path: 'login', component: LoginPageComponent },
-      { path: 'standby', component: StandbyPageComponent },
-      { path: 'shutdown', component: ShutdownPageComponent },
       {
         path: 'externalRedirect/:url',
         resolve: {
@@ -146,6 +166,11 @@ const routes: Routes = [
       }
     ]
   },
+  {
+    path: '',
+    component: PublicLayoutComponent,
+    children: []
+  },
   { path: '**', redirectTo: '/404' }
 ];
 
@@ -160,12 +185,21 @@ const routes: Routes = [
     RouteConfigService,
     {
       provide: APP_INITIALIZER,
-      useFactory: (routeConfigService: RouteConfigService) => (): Promise<Routes> =>
+      useFactory: (routeConfigService: RouteConfigService, router: Router) => (): Promise<Routes> =>
         // Make sure custom routes are loaded while bootstrapping.
         // This way we can inject custom routes in during lazy loading.
-        routeConfigService.load().toPromise(),
+        routeConfigService
+          .load()
+          .toPromise()
+          .then((customRoutes) => {
+            // After loading custom route configs, inject public routes.
+            routeConfigService.injectPublicRoutes(routes);
+            // Ensure router uses the updated in-memory config.
+            router.resetConfig(routes);
+            return customRoutes ?? [];
+          }),
       multi: true,
-      deps: [RouteConfigService]
+      deps: [RouteConfigService, Router]
     },
     {
       provide: 'externalRedirectResolver',

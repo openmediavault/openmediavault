@@ -2,11 +2,6 @@
 @use 'scss/defaults/colors' as dc;
 
 :host {
-  .background {
-    content: url('^./assets/images/standby.jpg');
-    object-fit: cover;
-  }
-
   .topbar {
     background-color: hsla(
       color.hue(dc.$omv-color-corporate-darker),

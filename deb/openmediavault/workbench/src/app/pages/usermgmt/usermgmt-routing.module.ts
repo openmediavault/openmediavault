@@ -150,7 +150,7 @@ const routes: Routes = [
       provide: ROUTES,
       multi: true,
       useFactory: (routeConfigService: RouteConfigService): Routes => {
-        routeConfigService.inject('usermgmt', routes);
+        routeConfigService.injectWorkbenchRoutes('usermgmt', routes);
         return routes;
       },
       deps: [RouteConfigService]

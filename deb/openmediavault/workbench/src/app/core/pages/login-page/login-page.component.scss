@@ -18,14 +18,11 @@
 @use 'scss/theme';
 
 omv-login-page {
-  .background {
-    content: url('^./assets/images/login.jpg');
-    object-fit: cover;
-  }
-
   omv-green-rain {
+    inset: 0;
     font-family: theme.$omv-font-family-monospace !important;
     font-size: 14px;
+    position: fixed;
   }
 
   .topbar {

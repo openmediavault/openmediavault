@@ -11,7 +11,9 @@ import { DashboardModule } from '~/app/core/components/dashboard/dashboard.modul
 import { GreenRainComponent } from '~/app/core/components/green-rain/green-rain.component';
 import { GuruMeditationComponent } from '~/app/core/components/guru-meditation/guru-meditation.component';
 import { IntuitionModule } from '~/app/core/components/intuition/intuition.module';
+import { BackgroundImageLayoutComponent } from '~/app/core/components/layouts/background-image-layout/background-image-layout.component';
 import { BlankLayoutComponent } from '~/app/core/components/layouts/blank-layout/blank-layout.component';
+import { PublicLayoutComponent } from '~/app/core/components/layouts/public-layout/public-layout.component';
 import { WorkbenchLayoutComponent } from '~/app/core/components/layouts/workbench-layout/workbench-layout.component';
 import { NavigationBarComponent } from '~/app/core/components/navigation-bar/navigation-bar.component';
 import { NavigationBarListItemComponent } from '~/app/core/components/navigation-bar/navigation-bar-list-item/navigation-bar-list-item.component';
@@ -30,19 +32,23 @@ import { SharedModule } from '~/app/shared/shared.module';
     BreadcrumbComponent,
     NotificationBarComponent,
     BlankLayoutComponent,
+    BackgroundImageLayoutComponent,
     WorkbenchLayoutComponent,
     ApplyConfigPanelComponent,
     GreenRainComponent,
-    WelcomePanelComponent
+    WelcomePanelComponent,
+    PublicLayoutComponent
   ],
   exports: [
     BlankLayoutComponent,
+    BackgroundImageLayoutComponent,
     WorkbenchLayoutComponent,
     GuruMeditationComponent,
     IntuitionModule,
     NotificationBarComponent,
     DashboardModule,
-    GreenRainComponent
+    GreenRainComponent,
+    PublicLayoutComponent
   ],
   imports: [
     CommonModule,
