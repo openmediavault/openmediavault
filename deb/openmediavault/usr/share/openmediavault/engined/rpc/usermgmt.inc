@@ -62,6 +62,10 @@ class UserMgmt extends \OMV\Rpc\ServiceAbstract
         $this->registerMethod("getSettings");
         $this->registerMethod("setSettings");
         $this->registerMethod("setPasswordByContext");
+        $this->registerMethod("getTotpStatusByContext");
+        $this->registerMethod("generateTotpSecretByContext");
+        $this->registerMethod("enableTotpByContext");
+        $this->registerMethod("disableTotpByContext");
     }
 
     /**
@@ -1218,6 +1222,157 @@ class UserMgmt extends \OMV\Rpc\ServiceAbstract
         );
         // Return the configuration object.
         return $object->getAssoc();
+    }
+
+    /**
+     * Get the TOTP MFA status for the currently logged-in user.
+     * @param params  Unused.
+     * @param context The context of the caller.
+     * @return An array with:
+     *   \em enabled TRUE if TOTP is currently active for this user.
+     */
+    public function getTotpStatusByContext($params, $context)
+    {
+        // Any authenticated user can query their own MFA status.
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_EVERYONE]);
+        $db = \OMV\Config\Database::getInstance();
+        $objects = $db->getByFilter('conf.system.mfa.totp', [
+            'operator' => 'stringEquals',
+            'arg0' => 'username',
+            'arg1' => $context['username'],
+        ]);
+        $enabled = !empty($objects) && (bool) $objects[0]->get('enabled');
+        return ["enabled" => $enabled];
+    }
+
+    /**
+     * Generate a fresh TOTP secret and provisioning URI for the current user.
+     *
+     * The secret is NOT persisted at this point — the client must present a
+     * valid code derived from it and call enableTotpByContext() to confirm
+     * that the authenticator app was set up correctly before saving.
+     *
+     * @param params  Unused.
+     * @param context The context of the caller.
+     * @return An array with:
+     *   \em secret    The raw base32-encoded secret (for manual entry in apps).
+     *   \em uri       The otpauth:// URI encoded into the QR code.
+     *   \em qrDataUrl A data URL (image/svg+xml) containing the QR code image
+     *                 ready to be used directly as an <img src="..."> value.
+     */
+    public function generateTotpSecretByContext($params, $context)
+    {
+        // Any authenticated user can initiate MFA setup for themselves.
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_EVERYONE]);
+        $secret = \OMV\Totp::generateSecret();
+        $prd = new \OMV\ProductInfo();
+        $uri = \OMV\Totp::getProvisioningUri(
+            $secret,
+            $context['username'],
+            $prd->getName()
+        );
+        $qrDataUrl = \OMV\Totp::generateQrDataUrl($uri);
+        return [
+            "secret" => $secret,
+            "uri" => $uri,
+            "qrDataUrl" => $qrDataUrl,
+        ];
+    }
+
+    /**
+     * Enable TOTP MFA for the current user after verifying the setup code.
+     *
+     * The client must first call generateTotpSecretByContext() to obtain a
+     * provisional secret, configure the authenticator app, and then submit a
+     * valid code together with that same secret here. This two-step approach
+     * ensures we never store a secret the user cannot actually use.
+     *
+     * @param params An array containing:
+     *   \em code   The 6-digit TOTP code from the authenticator app.
+     *   \em secret The base32-encoded provisional secret.
+     * @param context The context of the caller.
+     * @return void
+     */
+    public function enableTotpByContext($params, $context)
+    {
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_EVERYONE]);
+        $this->validateMethodParams(
+            $params,
+            "rpc.usermgmt.enabletotpbycontext"
+        );
+        // Verify the submitted code against the provisional secret before
+        // persisting anything. This confirms the app is correctly configured.
+        if (!\OMV\Totp::verifyCode($params['secret'], trim($params['code']))) {
+            throw new \OMV\Exception("Invalid verification code. ".
+                "Please ensure your authenticator app is set up correctly.");
+        }
+        $db = \OMV\Config\Database::getInstance();
+        $filter = [
+            "operator" => "stringEquals",
+            "arg0" => "username",
+            "arg1" => $context['username'],
+        ];
+        if ($db->exists("conf.system.mfa.totp", $filter)) {
+            // Update the existing TOTP record for this user.
+            $object = $db->getByFilter("conf.system.mfa.totp", $filter, 1);
+            $object->set("enabled", true);
+            $object->set("secret", $params['secret']);
+        } else {
+            // Create a new TOTP record for this user.
+            $object = new \OMV\Config\ConfigObject("conf.system.mfa.totp");
+            $object->setNew();
+            $object->set("username", $context['username']);
+            $object->set("enabled", true);
+            $object->set("secret", $params['secret']);
+        }
+        $db->set($object);
+    }
+
+    /**
+     * Disable TOTP MFA for the current user after verifying the current code.
+     *
+     * Requiring the current TOTP code prevents an attacker with access to an
+     * unlocked browser session from silently removing MFA protection.
+     *
+     * @param params An array containing:
+     *   \em code The 6-digit TOTP code from the authenticator app.
+     * @param context The context of the caller.
+     * @return void
+     */
+    public function disableTotpByContext($params, $context)
+    {
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_EVERYONE]);
+        $this->validateMethodParams(
+            $params,
+            "rpc.usermgmt.disabletotpbycontext"
+        );
+        // Retrieve the stored secret and verify the submitted code before
+        // making any changes, so a stolen session cannot disable MFA.
+        $db = \OMV\Config\Database::getInstance();
+        $filter = [
+            'operator' => 'stringEquals',
+            'arg0' => 'username',
+            'arg1' => $context['username'],
+        ];
+        $mfaObjects = $db->getByFilter('conf.system.mfa.totp', $filter);
+        $secret = !empty($mfaObjects)
+            ? (string) $mfaObjects[0]->get('secret')
+            : '';
+        if (empty($secret)) {
+            throw new \OMV\Exception(
+                "TOTP is not configured for this account."
+            );
+        }
+        if (!\OMV\Totp::verifyCode($secret, trim($params['code']))) {
+            throw new \OMV\Exception("Invalid verification code.");
+        }
+        // Remove the TOTP record from the database.
+        $db = \OMV\Config\Database::getInstance();
+        $db->deleteByFilter("conf.system.mfa.totp", [
+            "operator" => "stringEquals",
+            "arg0" => "username",
+            "arg1" => $context['username'],
+        ]);
     }
 
     /**

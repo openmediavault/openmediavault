@@ -44,6 +44,10 @@ export class LoginPageComponent implements OnInit {
   public hideBackgroundImage: boolean;
   public icon = Icon;
 
+  /** Controls which step of the login flow is currently displayed. */
+  public step: 'credentials' | 'totp' = 'credentials';
+
+  /** Form config for step 1: username + password. */
   public config: FormPageConfig = {
     id: 'login',
     fields: [
@@ -82,6 +86,49 @@ export class LoginPageComponent implements OnInit {
     ]
   };
 
+  /** Form config for step 2: TOTP code entry (shown only when mfaRequired). */
+  public totpConfig: FormPageConfig = {
+    id: 'totp',
+    fields: [
+      {
+        type: 'textInput',
+        name: 'code',
+        label: gettext('Verification code'),
+        hint: gettext('Enter the 6-digit code from your authenticator app.'),
+        autofocus: true,
+        autocomplete: 'one-time-code',
+        icon: 'mdi:shield-key',
+        validators: {
+          required: true,
+          minLength: 6,
+          maxLength: 6,
+          pattern: {
+            pattern: '^[0-9]{6}$',
+            errorData: gettext('Must be a 6-digit number.')
+          }
+        }
+      }
+    ],
+    buttonAlign: 'center',
+    buttons: [
+      {
+        template: 'submit',
+        text: gettext('Verify'),
+        execute: {
+          type: 'click',
+          click: this.onVerifyTotp.bind(this)
+        }
+      },
+      {
+        template: 'back',
+        execute: {
+          type: 'click',
+          click: this.onBackToCredentials.bind(this)
+        }
+      }
+    ]
+  };
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private authService: AuthService,
@@ -112,10 +159,46 @@ export class LoginPageComponent implements OnInit {
           this.blockUiService.stop();
         })
       )
-      .subscribe(() => {
-        const url = _.get(this.activatedRoute.snapshot.queryParams, 'returnUrl', '/dashboard');
-        this.router.navigate([url]);
+      .subscribe({
+        next: (res) => {
+          if (res.mfaRequired) {
+            // Password accepted — show the TOTP code entry step.
+            this.step = 'totp';
+            return;
+          }
+          // No MFA required — navigate to the originally requested URL.
+          const url = _.get(this.activatedRoute.snapshot.queryParams, 'returnUrl', '/dashboard');
+          this.router.navigate([url]);
+        },
+        // Errors are displayed by the global HTTP error interceptor; stay on
+        // the credentials step so the user can correct their input.
+        error: () => {}
       });
+  }
+
+  onVerifyTotp(buttonConfig: FormPageButtonConfig, values: Record<string, any>) {
+    this.blockUiService.start(translate(gettext('Please wait ...')));
+    this.authService
+      .verifyTotp(values.code)
+      .pipe(
+        finalize(() => {
+          this.blockUiService.stop();
+        })
+      )
+      .subscribe({
+        next: () => {
+          const url = _.get(this.activatedRoute.snapshot.queryParams, 'returnUrl', '/dashboard');
+          this.router.navigate([url]);
+        },
+        // Errors are displayed by the global HTTP error interceptor; stay on
+        // the TOTP step so the user can re-enter the code.
+        error: () => {}
+      });
+  }
+
+  /** Return to the credentials step if the user wants to start over. */
+  onBackToCredentials(_buttonConfig: FormPageButtonConfig, _values: Record<string, any>) {
+    this.step = 'credentials';
   }
 
   onSelectLocale(locale) {

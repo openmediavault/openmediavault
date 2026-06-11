@@ -22,8 +22,15 @@
     </mat-toolbar>
   </div>
   <div class="content omv-flex-fill">
-    <omv-intuition-form-page class="omv-h-100 omv-display-flex omv-justify-content-center omv-align-items-center"
+    <!-- Step 1: username + password -->
+    <omv-intuition-form-page *ngIf="step === 'credentials'"
+                             class="omv-h-100 omv-display-flex omv-justify-content-center omv-align-items-center"
                              [config]="this.config">
+    </omv-intuition-form-page>
+    <!-- Step 2: TOTP code (shown only after password was accepted and mfaRequired=true) -->
+    <omv-intuition-form-page *ngIf="step === 'totp'"
+                             class="omv-h-100 omv-display-flex omv-justify-content-center omv-align-items-center"
+                             [config]="this.totpConfig">
     </omv-intuition-form-page>
   </div>
 </div>

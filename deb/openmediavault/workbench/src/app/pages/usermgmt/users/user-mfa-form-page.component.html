@@ -1,0 +1,11 @@
+<omv-intuition-form-page *ngIf="state === 'disabled'"
+                        [config]="disabledConfig">
+</omv-intuition-form-page>
+
+<omv-intuition-form-page *ngIf="state === 'setup'"
+                         [config]="setupConfig">
+</omv-intuition-form-page>
+
+<omv-intuition-form-page *ngIf="state === 'enabled'"
+                         [config]="enabledConfig">
+</omv-intuition-form-page>
