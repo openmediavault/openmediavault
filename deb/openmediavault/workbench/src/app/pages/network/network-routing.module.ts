@@ -220,7 +220,7 @@ const routes: Routes = [
       provide: ROUTES,
       multi: true,
       useFactory: (routeConfigService: RouteConfigService): Routes => {
-        routeConfigService.inject('network', routes);
+        routeConfigService.injectWorkbenchRoutes('network', routes);
         return routes;
       },
       deps: [RouteConfigService]

@@ -290,6 +290,10 @@ def route(ctx):
                 }},
                 'editing': {'type': 'boolean'},
                 'notificationTitle': {'type': 'string'},
+                'kind': {
+                    'type': 'string',
+                    'enum': ['workbench', 'public']
+                },
                 'component': {'type': 'string', 'required': True}
             }}
         }

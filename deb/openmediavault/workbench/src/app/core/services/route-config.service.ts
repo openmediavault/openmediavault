@@ -29,21 +29,36 @@ import { RrdPageComponent } from '~/app/core/components/intuition/rrd-page/rrd-p
 import { SelectionListPageComponent } from '~/app/core/components/intuition/selection-list-page/selection-list-page.component';
 import { TabsPageComponent } from '~/app/core/components/intuition/tabs-page/tabs-page.component';
 import { TextPageComponent } from '~/app/core/components/intuition/text-page/text-page.component';
+import { PublicLayoutComponent } from '~/app/core/components/layouts/public-layout/public-layout.component';
 import { BlankPageComponent } from '~/app/core/pages/blank-page/blank-page.component';
 import { NavigationPageComponent } from '~/app/core/pages/navigation-page/navigation-page.component';
 import { IsDirtyGuardService } from '~/app/shared/services/is-dirty-guard.service';
 
-const componentMap: Record<string, Type<any>> = {
+type ComponentType =
+  | 'blankPage'
+  | 'codeEditorPage'
+  | 'datatablePage'
+  | 'formPage'
+  | 'navigationPage'
+  | 'rrdPage'
+  | 'selectionListPage'
+  | 'tabsPage'
+  | 'textPage';
+const componentMap: Record<ComponentType, Type<any>> = {
   blankPage: BlankPageComponent,
-  navigationPage: NavigationPageComponent,
-  formPage: FormPageComponent,
-  selectionListPage: SelectionListPageComponent,
-  textPage: TextPageComponent,
-  tabsPage: TabsPageComponent,
+  codeEditorPage: CodeEditorPageComponent,
   datatablePage: DatatablePageComponent,
+  formPage: FormPageComponent,
+  navigationPage: NavigationPageComponent,
   rrdPage: RrdPageComponent,
-  codeEditorPage: CodeEditorPageComponent
+  selectionListPage: SelectionListPageComponent,
+  tabsPage: TabsPageComponent,
+  textPage: TextPageComponent
 };
+
+type RouteKind = 'workbench' | 'public';
+
+const DEFAULT_ROUTE_KIND: RouteKind = 'workbench';
 
 type RouteConfig = {
   url: string;
@@ -58,20 +73,18 @@ type RouteConfig = {
   };
   editing?: boolean;
   notificationTitle?: string;
+  kind?: RouteKind;
   component: {
-    type:
-      | 'blankPage'
-      | 'navigationPage'
-      | 'formPage'
-      | 'selectionListPage'
-      | 'textPage'
-      | 'tabsPage'
-      | 'datatablePage'
-      | 'rrdPage'
-      | 'codeEditorPage';
+    type: ComponentType;
     config: Record<string, any>;
   };
 };
+
+declare module '@angular/router' {
+  interface Route {
+    kind?: RouteKind;
+  }
+}
 
 const getSegments = (path: string): Array<string> => {
   return _.split(_.trim(path, '/'), '/');
@@ -99,10 +112,11 @@ export class RouteConfigService {
         const routes: Routes = [];
         // Convert the loaded route configuration into Angular
         // 'Route' objects.
-        _.forEach(configs, (config) => {
+        _.forEach(configs, (config: RouteConfig) => {
           const route: Route = {
             path: config.url,
             component: componentMap[config.component.type],
+            kind: config.kind ?? DEFAULT_ROUTE_KIND,
             data: {
               title: config.title,
               breadcrumb: config.breadcrumb,
@@ -128,11 +142,47 @@ export class RouteConfigService {
   }
 
   /**
-   * @param rootSegment The name of the root segment, this can be 'diagnostics',
-   *   'network', 'services', 'storage', 'system' or 'usermgmt'.
-   * @param targetNode The root node where to add the custom routes.
+   * Inject public routes into the top-level blank layout node.
+   *
+   * @param targetNode The top-level route collection that contains the
+   *   layout roots where public routes are injected.
    */
-  public inject(rootSegment: string, targetNode: Routes): void {
+  public injectPublicRoutes(targetNode: Routes): void {
+    this.configs$.subscribe((customRoutes) => {
+      customRoutes
+        .filter((customRoute: Route) => this.getKindFromRoute(customRoute) === 'public')
+        .forEach((customRoute: Route) => {
+          const rootRoute = _.find(targetNode, ['component', PublicLayoutComponent]);
+          if (!_.isArray(rootRoute?.children)) {
+            return;
+          }
+
+          const path = _.trim(customRoute.path ?? '', '/');
+          const route = _.merge({ path }, _.omit(customRoute, 'path'));
+          const existingRoute = _.find(rootRoute.children, ['path', path]);
+          if (existingRoute) {
+            _.merge(existingRoute, _.omit(route, 'path'));
+          } else {
+            rootRoute.children.push(route);
+          }
+        });
+    });
+  }
+
+  /**
+   * Inject workbench custom routes into the given root segment tree.
+   *
+   * Only routes assigned to the `workbench` kind and matching the
+   * provided `rootSegment` are processed. Missing intermediate nodes are
+   * created on demand, and existing matching nodes are merged so custom
+   * route definitions can extend or override defaults.
+   *
+   * @param rootSegment The top-level workbench segment to target
+   *   (e.g. `system`, `storage`, `services`).
+   * @param targetNode The route collection where matching routes are
+   *   injected.
+   */
+  public injectWorkbenchRoutes(rootSegment: string, targetNode: Routes): void {
     this.configs$.subscribe((customRoutes) => {
       // Get the custom routes to inject at the given node. Sort the
       // filtered routes by the number of segments, thus new child
@@ -140,12 +190,9 @@ export class RouteConfigService {
       const filteredRoutes: Routes = _.sortBy(
         _.filter(customRoutes, (customRoute: Route) => {
           const segments = getSegments(customRoute.path);
-          return segments[0] === rootSegment;
+          return segments[0] === rootSegment && this.getKindFromRoute(customRoute) === 'workbench';
         }),
-        (customRoute: Route) => {
-          const segments = getSegments(customRoute.path);
-          return segments;
-        }
+        (customRoute: Route) => getSegments(customRoute.path)
       );
       _.forEach(filteredRoutes, (filteredRoute: Route) => {
         // eslint-disable-next-line no-shadow
@@ -225,5 +272,9 @@ export class RouteConfigService {
         }
       });
     });
+  }
+
+  private getKindFromRoute(route: Route): RouteKind {
+    return route.kind ?? DEFAULT_ROUTE_KIND;
   }
 }

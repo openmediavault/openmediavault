@@ -1,12 +1,6 @@
-@use 'sass:color';
 @use 'scss/defaults/colors' as dc;
 
 :host {
-  .background {
-    content: url('^./assets/images/shutdown.jpg');
-    object-fit: cover;
-  }
-
   .topbar {
     background-color: dc.$omv-color-white-translucent;
     backdrop-filter: blur(4px);
