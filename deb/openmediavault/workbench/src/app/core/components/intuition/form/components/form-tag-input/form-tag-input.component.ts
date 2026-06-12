@@ -20,8 +20,9 @@ import { Component } from '@angular/core';
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 
 @Component({
-  selector: 'omv-form-tag-input',
-  templateUrl: './form-tag-input.component.html',
-  styleUrls: ['./form-tag-input.component.scss']
+    selector: 'omv-form-tag-input',
+    templateUrl: './form-tag-input.component.html',
+    styleUrls: ['./form-tag-input.component.scss'],
+    standalone: false
 })
 export class FormTagInputComponent extends AbstractFormFieldComponent {}

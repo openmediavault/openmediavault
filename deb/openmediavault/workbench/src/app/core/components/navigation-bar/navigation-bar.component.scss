@@ -19,6 +19,13 @@
       background-repeat: no-repeat;
       background-size: contain;
       background-position-y: center;
+      filter: brightness(0);
+    }
+  }
+
+  :host-context(.omv-dark-theme) & {
+    .header .logo {
+      filter: none;
     }
   }
 

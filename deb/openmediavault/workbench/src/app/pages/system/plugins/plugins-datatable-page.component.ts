@@ -21,8 +21,9 @@ import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 
 @Component({
-  templateUrl: './plugins-datatable-page.component.html',
-  styleUrls: ['./plugins-datatable-page.component.scss']
+    templateUrl: './plugins-datatable-page.component.html',
+    styleUrls: ['./plugins-datatable-page.component.scss'],
+    standalone: false
 })
 export class PluginsDatatablePageComponent implements OnInit {
   @ViewChild('pluginInfoTpl', { static: true })

@@ -1,7 +1,9 @@
 import { Directive, ElementRef, Input } from '@angular/core';
 
 @Directive({
-  selector: '[autocapitalize]' // eslint-disable-line
+    selector: '[autocapitalize]' // eslint-disable-line
+    ,
+    standalone: false
 })
 export class AutocapitalizeDirective {
   constructor(private elementRef: ElementRef) {}

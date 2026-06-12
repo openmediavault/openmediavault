@@ -33,10 +33,11 @@ import { DialogService } from '~/app/shared/services/dialog.service';
 import { LocaleService } from '~/app/shared/services/locale.service';
 
 @Component({
-  selector: 'omv-login-page',
-  templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.scss'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'omv-login-page',
+    templateUrl: './login-page.component.html',
+    styleUrls: ['./login-page.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class LoginPageComponent implements OnInit {
   public currentLocale: string;

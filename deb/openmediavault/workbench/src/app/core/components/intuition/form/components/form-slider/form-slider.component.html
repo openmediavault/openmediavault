@@ -11,12 +11,10 @@
          type="number"
          [formControlName]="config.name">
   <mat-slider class="omv-w-100"
-              [value]="sliderInput.value"
-              (change)="onChange($event)"
               [max]="config?.validators?.max"
               [min]="config?.validators?.min"
               [step]="config.step"
-              thumbLabel="true">
+              thumbLabel="true" #ngSlider><input matSliderThumb [value]="sliderInput.value" (change)="onChange({source: ngSliderThumb, parent: ngSlider, value: ngSliderThumb.value})" #ngSliderThumb="matSliderThumb" />
   </mat-slider>
   <mat-error *ngIf="formGroup.invalid">
     <span *ngIf="formGroup.hasError('required', config.name)">

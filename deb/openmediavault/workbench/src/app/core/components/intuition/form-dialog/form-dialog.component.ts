@@ -45,10 +45,11 @@ import { RpcService } from '~/app/shared/services/rpc.service';
  * 'false' on 'Cancel'.
  */
 @Component({
-  selector: 'omv-intuition-form-dialog',
-  templateUrl: './form-dialog.component.html',
-  styleUrls: ['./form-dialog.component.scss'],
-  providers: [PageContextService]
+    selector: 'omv-intuition-form-dialog',
+    templateUrl: './form-dialog.component.html',
+    styleUrls: ['./form-dialog.component.scss'],
+    providers: [PageContextService],
+    standalone: false
 })
 export class FormDialogComponent {
   @ViewChild(FormComponent, { static: true })

@@ -17,10 +17,10 @@
 @use 'scss/theme/colors' as tc;
 
 @mixin theme($mode, $theme-config, $typography-config) {
-  .mat-button-base {
+  .mat-mdc-button-base {
     border-radius: 9999px !important;
   }
-
+  /* mat-button-toggle is not MDC-based, class names are unchanged */
   .mat-button-toggle.mat-button-toggle-checked {
     @include tc.background-color-pair('accent');
   }
@@ -28,7 +28,7 @@
   // We need to define these classes here as well to have a
   // higher order of precedence.
   @each $name in map-keys(tc.$omv-color-pairs) {
-    .mat-flat-button.omv-background-color-pair-#{$name} {
+    .mat-mdc-unelevated-button.omv-background-color-pair-#{$name} {
       @include tc.background-color-pair($name);
     }
   }

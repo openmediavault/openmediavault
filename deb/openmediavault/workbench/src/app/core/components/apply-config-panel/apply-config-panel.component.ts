@@ -39,10 +39,11 @@ import {
 } from '~/app/shared/services/system-information.service';
 
 @Component({
-  selector: 'omv-apply-config-panel',
-  templateUrl: './apply-config-panel.component.html',
-  styleUrls: ['./apply-config-panel.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'omv-apply-config-panel',
+    templateUrl: './apply-config-panel.component.html',
+    styleUrls: ['./apply-config-panel.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ApplyConfigPanelComponent {
   @Unsubscribe()

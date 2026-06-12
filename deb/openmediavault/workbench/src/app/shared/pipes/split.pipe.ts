@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import * as _ from 'lodash';
 
 @Pipe({
-  name: 'split'
+    name: 'split',
+    standalone: false
 })
 export class SplitPipe implements PipeTransform {
   /**

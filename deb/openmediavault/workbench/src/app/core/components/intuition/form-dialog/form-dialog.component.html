@@ -4,7 +4,7 @@
   Wrap form inside a card like it is done in 'omv-intuition-form-page' to get
   the same layout (incl. font size, line-height, ...) for the form fields.
   -->
-  <mat-card>
+  <mat-card appearance="outlined">
     <mat-card-content>
       <omv-intuition-form [id]="config.id"
                           [config]="config.fields">
@@ -30,7 +30,7 @@
 </mat-dialog-actions>
 
 <ng-template #renderDialogHeader>
-  <mat-card *ngIf="config.title || config.subTitle">
+  <mat-card appearance="outlined" *ngIf="config.title || config.subTitle">
     <ng-container *ngIf="config.icon">
       <mat-card-header>
         <mat-icon mat-card-avatar

@@ -20,7 +20,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import * as _ from 'lodash';
 
 @Pipe({
-  name: 'httpErrorResponse'
+    name: 'httpErrorResponse',
+    standalone: false
 })
 export class HttpErrorResponsePipe implements PipeTransform {
   /**

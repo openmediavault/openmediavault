@@ -18,10 +18,12 @@
 import { Component } from '@angular/core';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 
+import { DatatablePageActionConfig } from '~/app/core/components/intuition/models/datatable-page-action-config.type';
 import { DatatablePageConfig } from '~/app/core/components/intuition/models/datatable-page-config.type';
 
 @Component({
-  template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>'
+    template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>',
+    standalone: false
 })
 export class SslCertificateDatatablePageComponent {
   public config: DatatablePageConfig = {
@@ -111,7 +113,7 @@ export class SslCertificateDatatablePageComponent {
               url: '/system/certificate/ssl/import'
             }
           }
-        ]
+        ] as DatatablePageActionConfig[]
       },
       {
         type: 'iconButton',

@@ -21,9 +21,10 @@ import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
 
 @Component({
-  selector: 'omv-form-binary-unit-input',
-  templateUrl: './form-binary-unit-input.component.html',
-  styleUrls: ['./form-binary-unit-input.component.scss']
+    selector: 'omv-form-binary-unit-input',
+    templateUrl: './form-binary-unit-input.component.html',
+    styleUrls: ['./form-binary-unit-input.component.scss'],
+    standalone: false
 })
 export class FormBinaryUnitInputComponent extends AbstractFormFieldComponent {
   constructor(private clipboardService: ClipboardService) {

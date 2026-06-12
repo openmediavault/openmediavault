@@ -41,9 +41,10 @@ import { RunningTasks, TaskRunnerService } from '~/app/shared/services/task-runn
 import { UserLocalStorageService } from '~/app/shared/services/user-local-storage.service';
 
 @Component({
-  selector: 'omv-workbench-layout',
-  templateUrl: './workbench-layout.component.html',
-  styleUrls: ['./workbench-layout.component.scss']
+    selector: 'omv-workbench-layout',
+    templateUrl: './workbench-layout.component.html',
+    styleUrls: ['./workbench-layout.component.scss'],
+    standalone: false
 })
 export class WorkbenchLayoutComponent implements OnInit {
   @ViewChild('navigationSidenav', { static: false })

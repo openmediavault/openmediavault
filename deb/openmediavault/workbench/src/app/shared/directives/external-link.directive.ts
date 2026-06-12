@@ -1,7 +1,9 @@
 import { Directive, HostBinding, Input, OnChanges } from '@angular/core';
 
 @Directive({
-  selector: 'a[href]' // eslint-disable-line
+    selector: 'a[href]' // eslint-disable-line
+    ,
+    standalone: false
 })
 export class ExternalLinkDirective implements OnChanges {
   @HostBinding('attr.href')

@@ -32,7 +32,8 @@ import {
 } from '~/app/shared/services/system-information.service';
 
 @Component({
-  template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>'
+    template: '<omv-intuition-datatable-page [config]="this.config"></omv-intuition-datatable-page>',
+    standalone: false
 })
 export class SystemInformationDatatablePageComponent {
   @Unsubscribe()

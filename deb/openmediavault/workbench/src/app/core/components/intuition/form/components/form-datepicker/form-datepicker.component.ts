@@ -20,8 +20,9 @@ import { Component } from '@angular/core';
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 
 @Component({
-  selector: 'omv-form-datepicker',
-  templateUrl: './form-datepicker.component.html',
-  styleUrls: ['./form-datepicker.component.scss']
+    selector: 'omv-form-datepicker',
+    templateUrl: './form-datepicker.component.html',
+    styleUrls: ['./form-datepicker.component.scss'],
+    standalone: false
 })
 export class FormDatepickerComponent extends AbstractFormFieldComponent {}

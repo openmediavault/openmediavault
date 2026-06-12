@@ -6,9 +6,10 @@ import { Unsubscribe } from '~/app/decorators';
 import { format } from '~/app/functions.helper';
 
 @Component({
-  selector: 'omv-form-card',
-  templateUrl: './form-card.component.html',
-  styleUrls: ['./form-card.component.scss']
+    selector: 'omv-form-card',
+    templateUrl: './form-card.component.html',
+    styleUrls: ['./form-card.component.scss'],
+    standalone: false
 })
 export class FormCardComponent extends AbstractFormFieldComponent implements OnInit {
   @Unsubscribe()

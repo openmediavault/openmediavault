@@ -51,10 +51,11 @@ import { NotificationService } from '~/app/shared/services/notification.service'
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
-  selector: 'omv-intuition-datatable-page',
-  templateUrl: './datatable-page.component.html',
-  styleUrls: ['./datatable-page.component.scss'],
-  providers: [PageContextService]
+    selector: 'omv-intuition-datatable-page',
+    templateUrl: './datatable-page.component.html',
+    styleUrls: ['./datatable-page.component.scss'],
+    providers: [PageContextService],
+    standalone: false
 })
 export class DatatablePageComponent extends AbstractPageComponent<DatatablePageConfig> {
   @ViewChild('table', { static: true })

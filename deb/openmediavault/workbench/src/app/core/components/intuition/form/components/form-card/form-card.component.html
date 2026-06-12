@@ -3,7 +3,7 @@
        class="omv-color-secondary-text omv-font-size-smaller">
     {{ config.label }}
   </div>
-  <mat-card class="omv-flex-grow">
+  <mat-card appearance="outlined" class="omv-flex-grow">
     <mat-card-content>
       <span class="omv-text-wrap"
             [innerHtml]="content | transloco | nl2br | sanitizeHtml">

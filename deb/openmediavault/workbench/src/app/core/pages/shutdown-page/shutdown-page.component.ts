@@ -18,8 +18,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'omv-shutdown',
-  templateUrl: './shutdown-page.component.html',
-  styleUrls: ['./shutdown-page.component.scss']
+    selector: 'omv-shutdown',
+    templateUrl: './shutdown-page.component.html',
+    styleUrls: ['./shutdown-page.component.scss'],
+    standalone: false
 })
 export class ShutdownPageComponent {}

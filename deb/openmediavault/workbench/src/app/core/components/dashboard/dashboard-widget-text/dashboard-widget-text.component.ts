@@ -21,9 +21,10 @@ import * as _ from 'lodash';
 import { DashboardWidgetConfig } from '~/app/core/components/dashboard/models/dashboard-widget-config.model';
 
 @Component({
-  selector: 'omv-dashboard-widget-text',
-  templateUrl: './dashboard-widget-text.component.html',
-  styleUrls: ['./dashboard-widget-text.component.scss']
+    selector: 'omv-dashboard-widget-text',
+    templateUrl: './dashboard-widget-text.component.html',
+    styleUrls: ['./dashboard-widget-text.component.scss'],
+    standalone: false
 })
 export class DashboardWidgetTextComponent implements OnInit {
   @Input()

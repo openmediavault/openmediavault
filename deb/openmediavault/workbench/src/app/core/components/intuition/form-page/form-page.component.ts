@@ -60,10 +60,11 @@ import { RpcService } from '~/app/shared/services/rpc.service';
  * is dirty and the form validation was successfully.
  */
 @Component({
-  selector: 'omv-intuition-form-page',
-  templateUrl: './form-page.component.html',
-  styleUrls: ['./form-page.component.scss'],
-  providers: [PageContextService]
+    selector: 'omv-intuition-form-page',
+    templateUrl: './form-page.component.html',
+    styleUrls: ['./form-page.component.scss'],
+    providers: [PageContextService],
+    standalone: false
 })
 export class FormPageComponent
   extends AbstractPageComponent<FormPageConfig>

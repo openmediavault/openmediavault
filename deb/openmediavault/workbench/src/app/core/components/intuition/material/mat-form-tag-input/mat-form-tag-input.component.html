@@ -1,5 +1,5 @@
-<mat-chip-list #chipList>
-  <mat-chip *ngFor="let tag of (value | split:separator)"
+<mat-chip-grid #chipList>
+  <mat-chip-row *ngFor="let tag of (value | split:separator)"
             removable
             (removed)="onRemove(tag)">
     {{ tag | transloco }}
@@ -7,7 +7,7 @@
             matChipRemove>
       <mat-icon [svgIcon]="icon.close"></mat-icon>
     </button>
-  </mat-chip>
+  </mat-chip-row>
   <input *ngIf="!disabled"
          [placeholder]="empty && placeholder"
          [matChipInputFor]="chipList"
@@ -15,4 +15,4 @@
          matChipInputAddOnBlur
          (blur)="onBlur($event)"
          (matChipInputTokenEnd)="onAdd($event)">
-</mat-chip-list>
+</mat-chip-grid>

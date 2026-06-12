@@ -37,10 +37,11 @@ import { Unsubscribe } from '~/app/decorators';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
-  selector: 'omv-form-folderbrowser',
-  templateUrl: './form-folderbrowser.component.html',
-  styleUrls: ['./form-folderbrowser.component.scss'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'omv-form-folderbrowser',
+    templateUrl: './form-folderbrowser.component.html',
+    styleUrls: ['./form-folderbrowser.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class FormFolderbrowserComponent
   extends AbstractFormFieldComponent

@@ -22,7 +22,8 @@ import { FormPageConfig } from '~/app/core/components/intuition/models/form-page
 import { BaseFormPageComponent } from '~/app/pages/base-page-component';
 
 @Component({
-  template: '<omv-intuition-form-page [config]="this.config"></omv-intuition-form-page>'
+    template: '<omv-intuition-form-page [config]="this.config"></omv-intuition-form-page>',
+    standalone: false
 })
 export class SslCertificateImportFormPageComponent extends BaseFormPageComponent {
   public config: FormPageConfig = {

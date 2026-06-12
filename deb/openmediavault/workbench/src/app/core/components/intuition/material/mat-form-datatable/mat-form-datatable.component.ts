@@ -85,17 +85,18 @@ export type MatFormDatatableAction = {
 };
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'mat-form-datatable',
-  exportAs: 'matFormDatatable',
-  templateUrl: './mat-form-datatable.component.html',
-  styleUrls: ['./mat-form-datatable.component.scss'],
-  providers: [
-    {
-      provide: MatFormFieldControl,
-      useExisting: MatFormDatatableComponent
-    }
-  ]
+    // eslint-disable-next-line @angular-eslint/component-selector
+    selector: 'mat-form-datatable',
+    exportAs: 'matFormDatatable',
+    templateUrl: './mat-form-datatable.component.html',
+    styleUrls: ['./mat-form-datatable.component.scss'],
+    providers: [
+        {
+            provide: MatFormFieldControl,
+            useExisting: MatFormDatatableComponent
+        }
+    ],
+    standalone: false
 })
 export class MatFormDatatableComponent
   implements ControlValueAccessor, MatFormFieldControl<any[]>, OnInit, OnDestroy, OnChanges

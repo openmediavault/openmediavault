@@ -18,8 +18,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'omv-standby',
-  templateUrl: './standby-page.component.html',
-  styleUrls: ['./standby-page.component.scss']
+    selector: 'omv-standby',
+    templateUrl: './standby-page.component.html',
+    styleUrls: ['./standby-page.component.scss'],
+    standalone: false
 })
 export class StandbyPageComponent {}

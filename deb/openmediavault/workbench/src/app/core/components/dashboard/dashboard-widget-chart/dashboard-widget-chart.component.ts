@@ -38,9 +38,10 @@ import { translate } from '~/app/i18n.helper';
 Chart.register(ArcElement, DoughnutController, Tooltip);
 
 @Component({
-  selector: 'omv-dashboard-widget-chart',
-  templateUrl: './dashboard-widget-chart.component.html',
-  styleUrls: ['./dashboard-widget-chart.component.scss']
+    selector: 'omv-dashboard-widget-chart',
+    templateUrl: './dashboard-widget-chart.component.html',
+    styleUrls: ['./dashboard-widget-chart.component.scss'],
+    standalone: false
 })
 export class DashboardWidgetChartComponent implements OnInit {
   @ViewChild('chartCtx', { static: true })

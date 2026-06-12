@@ -21,9 +21,10 @@ import * as _ from 'lodash';
 import { DashboardWidgetConfig } from '~/app/core/components/dashboard/models/dashboard-widget-config.model';
 
 @Component({
-  selector: 'omv-dashboard-widget-value',
-  templateUrl: './dashboard-widget-value.component.html',
-  styleUrls: ['./dashboard-widget-value.component.scss']
+    selector: 'omv-dashboard-widget-value',
+    templateUrl: './dashboard-widget-value.component.html',
+    styleUrls: ['./dashboard-widget-value.component.scss'],
+    standalone: false
 })
 export class DashboardWidgetValueComponent implements OnInit {
   @Input()

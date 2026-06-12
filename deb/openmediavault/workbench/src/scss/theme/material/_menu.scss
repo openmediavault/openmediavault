@@ -18,13 +18,13 @@
 @use 'scss/mixins';
 
 @mixin theme($mode, $theme-config, $typography-config) {
-  .mat-menu-panel {
+  .mat-mdc-menu-panel {
     @include mixins.omv-scrollbar;
 
     border-radius: dv.$omv-border-radius !important;
   }
 
-  .mat-menu-item {
+  .mat-mdc-menu-item {
     border-left: 0.25rem solid transparent !important;
 
     &.active {

@@ -21,7 +21,8 @@ import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import { TabsPageConfig } from '~/app/core/components/intuition/models/tabs-page-config.type';
 
 @Component({
-  template: '<omv-intuition-tabs-page [config]="this.config"></omv-intuition-tabs-page>'
+    template: '<omv-intuition-tabs-page [config]="this.config"></omv-intuition-tabs-page>',
+    standalone: false
 })
 export class FirewallRuleTabsPageComponent {
   public config: TabsPageConfig = {

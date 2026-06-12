@@ -26,18 +26,19 @@ import { Subject } from 'rxjs';
 let nextUniqueId = 0;
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'mat-form-button',
-  exportAs: 'matFormButton',
-  templateUrl: './mat-form-button.component.html',
-  styleUrls: ['./mat-form-button.component.scss'],
-  providers: [
-    {
-      provide: MatFormFieldControl,
-      useExisting: MatFormButtonComponent
-    }
-  ],
-  encapsulation: ViewEncapsulation.None
+    // eslint-disable-next-line @angular-eslint/component-selector
+    selector: 'mat-form-button',
+    exportAs: 'matFormButton',
+    templateUrl: './mat-form-button.component.html',
+    styleUrls: ['./mat-form-button.component.scss'],
+    providers: [
+        {
+            provide: MatFormFieldControl,
+            useExisting: MatFormButtonComponent
+        }
+    ],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class MatFormButtonComponent implements ControlValueAccessor, MatFormFieldControl<any> {
   /**

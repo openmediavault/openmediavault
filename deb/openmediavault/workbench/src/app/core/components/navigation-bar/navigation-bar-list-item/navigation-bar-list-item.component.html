@@ -1,15 +1,17 @@
 <mat-list-item role="listitem"
                [ngClass]="{'active': item.active}"
                (click)="onClick(item)">
-  <div class="omv-list-item-indent-z{{ depth }}"></div>
-  <mat-icon svgIcon="{{ item.icon | mapIconEnum }}"></mat-icon>
-  <div class="omv-text-truncate">
-    {{ item.text | transloco }}
-  </div>
-  <div *ngIf="item.children?.length > 0"
-       class="omv-display-flex omv-flex-row omv-flex-1">
-    <div class="omv-flex-1"></div>
-    <mat-icon svgIcon="{{ item.expanded ? icon.chevronDown : icon.chevronRight }}"></mat-icon>
+  <div class="omv-display-flex omv-flex-row omv-align-items-center omv-w-full">
+    <div class="omv-list-item-indent-z{{ depth }}"></div>
+    <mat-icon svgIcon="{{ item.icon | mapIconEnum }}"></mat-icon>
+    <div class="omv-text-truncate">
+      {{ item.text | transloco }}
+    </div>
+    <div *ngIf="item.children?.length > 0"
+         class="omv-display-flex omv-flex-row omv-flex-1">
+      <div class="omv-flex-1"></div>
+      <mat-icon svgIcon="{{ item.expanded ? icon.chevronDown : icon.chevronRight }}"></mat-icon>
+    </div>
   </div>
 </mat-list-item>
 <div *ngIf="item.expanded && item.children?.length > 0">

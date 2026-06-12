@@ -19,7 +19,7 @@
   // We need to define these classes here as well to have a
   // higher order of precedence.
   @each $name in map-keys(tc.$omv-color-pairs) {
-    .mat-chip.omv-background-color-pair-#{$name} {
+    .mat-mdc-chip.omv-background-color-pair-#{$name} {
       @include tc.background-color-pair($name);
     }
   }

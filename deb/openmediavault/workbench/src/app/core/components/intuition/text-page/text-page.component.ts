@@ -47,10 +47,11 @@ import { RpcService } from '~/app/shared/services/rpc.service';
  * Display text in a read-only textarea using a non-proportional font.
  */
 @Component({
-  selector: 'omv-intuition-text-page',
-  templateUrl: './text-page.component.html',
-  styleUrls: ['./text-page.component.scss'],
-  providers: [PageContextService]
+    selector: 'omv-intuition-text-page',
+    templateUrl: './text-page.component.html',
+    styleUrls: ['./text-page.component.scss'],
+    providers: [PageContextService],
+    standalone: false
 })
 export class TextPageComponent extends AbstractPageComponent<TextPageConfig> implements OnInit {
   @ViewChild('contentContainer', { static: true })

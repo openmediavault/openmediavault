@@ -35,7 +35,7 @@ export class LocaleService {
    * Get the current locale as `Intl.Locale` object.
    */
   static getCurrentLocaleObject(): Intl.Locale {
-    const locale: Intl.BCP47LanguageTag = getCurrentLocale().replace('_', '-');
+    const locale: Intl.UnicodeBCP47LocaleIdentifier = getCurrentLocale().replace('_', '-');
     return new Intl.Locale(locale);
   }
 

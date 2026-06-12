@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import * as _ from 'lodash';
 
 @Pipe({
-  name: 'nl2br'
+    name: 'nl2br',
+    standalone: false
 })
 export class Nl2brPipe implements PipeTransform {
   transform(value: any): any {

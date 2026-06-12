@@ -19,7 +19,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import * as _ from 'lodash';
 
 @Pipe({
-  name: 'map'
+    name: 'map',
+    standalone: false
 })
 export class MapPipe implements PipeTransform {
   transform(value: string | number | boolean, map?: Record<any, any>): any {

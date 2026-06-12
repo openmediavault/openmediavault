@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import * as _ from 'lodash';
 
 @Pipe({
-  name: 'encodeUriComponent'
+    name: 'encodeUriComponent',
+    standalone: false
 })
 export class EncodeUriComponentPipe implements PipeTransform {
   transform(value: any): any {

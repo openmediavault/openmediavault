@@ -5,8 +5,8 @@
   min-width: dv.$omv-notification-bar-width;
   max-width: dv.$omv-notification-bar-width;
 
-  .mat-list {
-    .mat-list-item {
+  .mat-mdc-list {
+    .mat-mdc-list-item {
       color: dc.$omv-color-white;
       height: fit-content;
       margin-top: 1.5rem;

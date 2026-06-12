@@ -38,10 +38,11 @@ type Column = {
  * Inspired by https://gist.github.com/pingpoli/39dd5f19a934be466941ad26bedbffac#file-matrix-min-html
  */
 @Component({
-  selector: 'omv-green-rain',
-  templateUrl: './green-rain.component.html',
-  styleUrls: ['./green-rain.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'omv-green-rain',
+    templateUrl: './green-rain.component.html',
+    styleUrls: ['./green-rain.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class GreenRainComponent implements OnInit, OnDestroy {
   @ViewChild('canvas', { static: true })

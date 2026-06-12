@@ -20,8 +20,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { toLocaleDate } from '~/app/functions.helper';
 
 @Pipe({
-  name: 'localeDate',
-  pure: false
+    name: 'localeDate',
+    pure: false,
+    standalone: false
 })
 export class LocaleDatePipe implements PipeTransform {
   /**

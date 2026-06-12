@@ -29,8 +29,8 @@ import { NotificationService } from '~/app/shared/services/notification.service'
 import { RpcService } from '~/app/shared/services/rpc.service';
 
 @Component({
-  template:
-    '<omv-intuition-datatable-page #page [config]="this.config"></omv-intuition-datatable-page>'
+    template: '<omv-intuition-datatable-page #page [config]="this.config"></omv-intuition-datatable-page>',
+    standalone: false
 })
 export class GroupSharedFolderPermissionsDatatablePageComponent {
   @ViewChild('page', { static: true })

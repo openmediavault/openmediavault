@@ -28,9 +28,10 @@ import { ClipboardService } from '~/app/shared/services/clipboard.service';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
 
 @Component({
-  selector: 'omv-form-text-input',
-  templateUrl: './form-text-input.component.html',
-  styleUrls: ['./form-text-input.component.scss']
+    selector: 'omv-form-text-input',
+    templateUrl: './form-text-input.component.html',
+    styleUrls: ['./form-text-input.component.scss'],
+    standalone: false
 })
 export class FormTextInputComponent extends AbstractFormFieldComponent implements OnInit {
   @ViewChild(MatAutocompleteTrigger)

@@ -49,9 +49,10 @@ import { ConstraintService } from '~/app/shared/services/constraint.service';
 let nextUniqueId = 0;
 
 @Component({
-  selector: 'omv-intuition-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+    selector: 'omv-intuition-form',
+    templateUrl: './form.component.html',
+    styleUrls: ['./form.component.scss'],
+    standalone: false
 })
 export class FormComponent implements AfterViewInit, OnInit {
   @Input()

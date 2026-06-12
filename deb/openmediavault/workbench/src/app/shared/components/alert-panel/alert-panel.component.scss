@@ -1,6 +1,6 @@
 @use 'scss/theme/colors' as tc;
 
-.mat-card {
+.mat-mdc-card {
   &.alert-info {
     @include tc.background-color-pair('info');
   }
@@ -21,6 +21,11 @@
     @include tc.background-color-pair('tip');
   }
 
+  // MDC mat-card has no padding; apply it to the outer flex row instead.
+  & > .omv-display-flex {
+    padding: 16px;
+  }
+
   .mat-icon.alert-icon {
     margin-right: 16px;
   }
@@ -28,18 +33,21 @@
   .content-wrapper {
     overflow: hidden;
 
-    & .mat-card-title {
+    & .mat-mdc-card-title {
       overflow: hidden;
       text-overflow: ellipsis;
       line-height: normal;
     }
 
-    & .mat-card-content {
+    & .mat-mdc-card-content {
+      // MDC adds padding: 0 16px on card-content by default; zero it out
+      // since the outer flex row already provides the card's padding.
+      padding: 0;
       margin-bottom: 0;
     }
   }
 
-  .mat-card-actions {
+  .mat-mdc-card-actions {
     margin: 0 0 0 16px;
     padding: 0;
 

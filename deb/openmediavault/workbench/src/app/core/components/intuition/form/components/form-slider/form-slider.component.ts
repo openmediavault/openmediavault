@@ -21,10 +21,11 @@ import { MatSliderChange } from '@angular/material/slider';
 import { AbstractFormFieldComponent } from '~/app/core/components/intuition/form/components/abstract-form-field-component';
 
 @Component({
-  selector: 'omv-form-slider',
-  templateUrl: './form-slider.component.html',
-  styleUrls: ['./form-slider.component.scss'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'omv-form-slider',
+    templateUrl: './form-slider.component.html',
+    styleUrls: ['./form-slider.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class FormSliderComponent extends AbstractFormFieldComponent {
   onChange(event: MatSliderChange) {

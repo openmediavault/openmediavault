@@ -30,8 +30,8 @@ type SelectionListItem = Pick<DashboardWidgetConfig, 'id' | 'title' | 'descripti
 };
 
 @Component({
-  template:
-    '<omv-intuition-selection-list-page [config]="this.config"></omv-intuition-selection-list-page>'
+    template: '<omv-intuition-selection-list-page [config]="this.config"></omv-intuition-selection-list-page>',
+    standalone: false
 })
 export class DashboardSettingsPageComponent
   extends BaseSelectionListPageComponent
