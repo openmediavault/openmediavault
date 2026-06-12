@@ -4,7 +4,7 @@
 {%- set rlimit_nproc = salt['pillar.get']('default:OMV_AVAHIDAEMON_RLIMIT_NPROC', '3') -%}
 {%- set publish_hinfo = salt['pillar.get']('default:OMV_AVAHIDAEMON_PUBLISH_HINFO', 'no') -%}
 {%- set publish_workstation = salt['pillar.get']('default:OMV_AVAHIDAEMON_PUBLISH_WORKSTATION', 'no') -%}
-{%- set interfaces = salt['omv_conf.get_by_filter']('conf.system.network.interface', {'operator': 'stringEnum', 'arg0': 'type', 'arg1': ['ethernet', 'bond', 'bridge', 'wifi']}) -%}
+{%- set interfaces = salt['omv_conf.get_by_filter']('conf.system.network.interface', {'operator': 'stringEnum', 'arg0': 'type', 'arg1': ['ethernet', 'bond', 'vlan', 'bridge', 'wifi']}) -%}
 {%- set ipv4_interfaces = interfaces | selectattr('method', 'in', ['dhcp', 'static']) | list -%}
 {%- set ipv6_interfaces = interfaces | selectattr('method6', 'in', ['auto', 'dhcp', 'static']) | list -%}
 {%- set ipv4_enabled = ipv4_interfaces | length > 0 -%}

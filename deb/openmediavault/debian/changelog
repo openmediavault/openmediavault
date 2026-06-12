@@ -1,6 +1,6 @@
 openmediavault (8.3.2-1) stable; urgency=medium
 
-  *
+  * Set Avahi to listen on VLAN interfaces as well.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 11 Jun 2026 07:19:21 +0200
 
