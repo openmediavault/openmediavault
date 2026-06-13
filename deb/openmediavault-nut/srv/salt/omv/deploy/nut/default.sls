@@ -213,9 +213,8 @@ start_nut_server_service:
       - file: configure_nut_upsmon_conf
 
 monitor_nut_server_service:
-  module.run:
-    - monit.monitor:
-      - name: nut-server
+  cmd.run:
+    - name: monit monitor nut-server
 
 {% else %}
 
@@ -237,9 +236,8 @@ start_nut_monitor_service:
       - file: configure_nut_upsmon_conf
 
 monitor_nut_monitor_service:
-  module.run:
-    - monit.monitor:
-      - name: nut-monitor
+  cmd.run:
+    - name: monit monitor nut-monitor
 
 {% else %}
 

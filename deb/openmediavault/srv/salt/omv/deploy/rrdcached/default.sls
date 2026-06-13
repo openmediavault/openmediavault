@@ -83,9 +83,8 @@ start_rrdcached_service:
       - file: configure_default_rrdcached
 
 monitor_rrdcached_service:
-  module.run:
-    - monit.monitor:
-      - name: rrdcached
+  cmd.run:
+    - name: monit monitor rrdcached
     - require:
       - service: start_rrdcached_service
       - service: reload_monit_service

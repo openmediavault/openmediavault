@@ -39,9 +39,8 @@ restart_phpfpm_service:
       - file: configure_phpfpm_webgui
 
 monitor_phpfpm_service:
-  module.run:
-    - monit.monitor:
-      - name: php-fpm
+  cmd.run:
+    - name: monit monitor php-fpm
     - require:
       - service: restart_phpfpm_service
       - service: reload_monit_service

@@ -32,9 +32,8 @@ start_collectd_service:
       - file: "/etc/collectd/collectd.conf.d/*.conf"
 
 monitor_collectd_service:
-  module.run:
-    - monit.monitor:
-      - name: collectd
+  cmd.run:
+    - name: monit monitor collectd
     - require:
       - service: start_collectd_service
 

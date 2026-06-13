@@ -3,7 +3,7 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-SALT_EXTRAS_DIR := opt/saltstack/salt/extras-3.10
+SALT_EXTRAS_DIR := opt/saltstack/salt/extras-3.14
 
 %:
 	dh $@
@@ -13,7 +13,7 @@ override_dh_auto_clean:
 
 override_dh_auto_build:
 	pip3 install --target=$(SALT_EXTRAS_DIR) \
-		--python-version=3.10 --no-compile --only-binary=:all: \
+		--python-version=3.14 --no-compile --only-binary=:all: \
 		-r requirements.txt
 
 override_dh_shlibdeps:

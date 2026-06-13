@@ -61,9 +61,8 @@ start_proftpd_service:
       - file: configure_proftpd_mod_xfer
 
 monitor_proftpd_service:
-  module.run:
-    - monit.monitor:
-      - name: proftpd
+  cmd.run:
+    - name: monit monitor proftpd
     - require:
       - service: start_proftpd_service
 

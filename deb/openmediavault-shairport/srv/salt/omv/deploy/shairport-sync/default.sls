@@ -45,9 +45,8 @@ start_shairport_sync_service:
       - file: configure_shairport_sync
 
 monitor_shairport_sync_service:
-  module.run:
-    - monit.monitor:
-      - name: shairport-sync
+  cmd.run:
+    - name: monit monitor shairport-sync
     - require:
       - service: start_shairport_sync_service
 
