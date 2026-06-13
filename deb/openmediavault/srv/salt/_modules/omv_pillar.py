@@ -18,7 +18,6 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
-
 import logging
 
 import openmediavault.productinfo
@@ -28,7 +27,7 @@ import yaml
 log = logging.getLogger(__name__)
 
 
-def populate_pillar():
+def populate():
     """
     Populate the pillar data.
     """

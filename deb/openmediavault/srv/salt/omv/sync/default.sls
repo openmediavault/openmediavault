@@ -31,7 +31,21 @@ sync_states:
   saltutil.sync_states:
     - refresh: True
 
-# Sync execution modules from salt://_modules to the minion.
+# Sync execution modules from salt://_modules to the minion. The 'module.run'
+# form with 'reload_modules: True' is required so that freshly synced modules
+# are available within the same run. 'refresh: True' alone only fires an
+# asynchronous event which has no effect in a one-shot salt-call invocation.
 sync_modules:
-  saltutil.sync_modules:
-    - refresh: True
+  module.run:
+    - saltutil.sync_modules:
+      - refresh: True
+    - reload_modules: True
+
+# Generate the openmediavault pillar data.
+# Skip this state if 'sync_modules' fails to prevent a crash with a
+# 'module not found' error.
+populate_pillar:
+  module.run:
+    - omv_pillar.populate:
+    - require:
+      - module: sync_modules
