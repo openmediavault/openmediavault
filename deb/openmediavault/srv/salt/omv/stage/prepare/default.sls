@@ -20,35 +20,15 @@
 run_state_patch:
   salt.state:
     - tgt: '*'
-    - tgt_type: compound
     - sls: omv.patch
     - failhard: True
 
-# Sync runners from salt://_runners to the master.
-sync_runners:
-  salt.runner:
-    - name: saltutil.sync_runners
-
-# Sync execution modules from salt://_modules to the master.
-sync_modules:
-  salt.runner:
-    - name: saltutil.sync_modules
-
-# Sync state modules from salt://_states to the master.
-sync_states:
-  salt.runner:
-    - name: saltutil.sync_states
-
-# Create openmediavault pillar data.
-populate_pillar:
-  salt.runner:
-    - name: omv.populate_pillar
-    - require:
-      - salt: sync_runners
-
+# Sync the custom grains, execution and state modules from salt://_* to the
+# minion and (re)generate the openmediavault pillar data.
 run_state_sync:
   salt.state:
     - tgt: '*'
-    - tgt_type: compound
     - sls: omv.sync
+    - require:
+      - salt: run_state_patch
     - failhard: True
