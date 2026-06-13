@@ -319,7 +319,7 @@ def add_slashes(value):
     :type value: str
     :return: Returns a string with backslashes added before characters
         that need to be escaped. These characters are:
-        * backslash (\)
+        * backslash (\\)
         * single quote (')
         * double quote (")
     :rtype: str
