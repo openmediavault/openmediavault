@@ -40,9 +40,8 @@ restart_nginx_service:
       - file: configure_nginx_security
 
 monitor_nginx_service:
-  module.run:
-    - monit.monitor:
-      - name: nginx
+  cmd.run:
+    - name: monit monitor nginx
     - require:
       - service: restart_nginx_service
       - service: reload_monit_service
