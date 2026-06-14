@@ -21,27 +21,24 @@
 
 set -e
 
+remove_action() {
+	rm -rf /opt/saltstack/salt/extras-3.14/
+}
+
 case "$1" in
-	configure)
-	  # Create symlink for openmediavault Python package here, otherwise
-	  # the dpkg-source command will fail during cross building the package:
-	  # dpkg-source: error: pathname 'openmediavault-salt-x.</debian/openmediavault-salt/opt/saltstack/salt/extras-3.10/openmediavault' points outside source root (to '/usr/lib/python3/dist-packages/openmediavault')
-	  ln -sfn /usr/lib/python3/dist-packages/openmediavault \
-	    /opt/saltstack/salt/extras-3.14/openmediavault
-
-		if dpkg --compare-versions "$2" lt-nl "8.1.0"; then
-			rm -rf /opt/saltstack/salt/extras-3.10/
-		fi
+	purge)
+		remove_action
 	;;
 
-	triggered)
+	remove)
+		remove_action
 	;;
 
-	abort-upgrade|abort-remove|abort-deconfigure)
+	upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
 	;;
 
 	*)
-		echo "postinst called with unknown argument '$1'" >&2
+		echo "postrm called with unknown argument '$1'" >&2
 		exit 1
 	;;
 esac
