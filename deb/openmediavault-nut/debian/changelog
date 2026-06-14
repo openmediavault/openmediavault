@@ -1,3 +1,9 @@
+openmediavault-nut (8.0.3-1) stable; urgency=medium
+
+  * Upgrade to SaltStack 3008.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 14 Jun 2026 17:52:52 +0200
+
 openmediavault-nut (8.0.2-1) stable; urgency=medium
 
   * Issue #2224: Calculate DEADTIME correctly.
