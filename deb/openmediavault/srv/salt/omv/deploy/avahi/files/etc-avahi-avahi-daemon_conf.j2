@@ -4,22 +4,25 @@
 {%- set rlimit_nproc = salt['pillar.get']('default:OMV_AVAHIDAEMON_RLIMIT_NPROC', '3') -%}
 {%- set publish_hinfo = salt['pillar.get']('default:OMV_AVAHIDAEMON_PUBLISH_HINFO', 'no') -%}
 {%- set publish_workstation = salt['pillar.get']('default:OMV_AVAHIDAEMON_PUBLISH_WORKSTATION', 'no') -%}
+{%- if allow_interfaces | length > 0 %}
+{%- set use_ipv4 = salt['pillar.get']('default:OMV_AVAHIDAEMON_USE_IPV4', 'yes') | to_bool -%}
+{%- set use_ipv6 = salt['pillar.get']('default:OMV_AVAHIDAEMON_USE_IPV6', 'yes') | to_bool -%}
+{%- else %}
 {%- set interfaces = salt['omv_conf.get_by_filter']('conf.system.network.interface', {'operator': 'stringEnum', 'arg0': 'type', 'arg1': ['ethernet', 'bond', 'vlan', 'bridge', 'wifi']}) -%}
 {%- set ipv4_interfaces = interfaces | selectattr('method', 'in', ['dhcp', 'static']) | list -%}
 {%- set ipv6_interfaces = interfaces | selectattr('method6', 'in', ['auto', 'dhcp', 'static']) | list -%}
-{%- set ipv4_enabled = ipv4_interfaces | length > 0 -%}
-{%- set ipv6_enabled = ipv6_interfaces | length > 0 -%}
-{%- set dual_stack_enabled = ipv4_enabled and ipv6_enabled -%}
-{%- if allow_interfaces | length == 0 %}
-{%- set allow_interfaces = (ipv4_interfaces + ipv6_interfaces) | map(attribute='devicename') | join(',') -%}
+{%- set allow_interfaces = (ipv4_interfaces + ipv6_interfaces) | unique | map(attribute='devicename') | join(',') -%}
+{%- set use_ipv4 = ipv4_interfaces | length > 0 -%}
+{%- set use_ipv6 = ipv6_interfaces | length > 0 -%}
 {%- endif %}
+{%- set dual_stack_enabled = use_ipv4 and use_ipv6 -%}
 {{ pillar['headers']['multiline'] }}
 [server]
 #host-name=foo
 #domain-name=local
 #browse-domains=0pointer.de, zeroconf.org
-use-ipv4={{ ipv4_enabled | yesno }}
-use-ipv6={{ ipv6_enabled | yesno }}
+use-ipv4={{ use_ipv4 | yesno }}
+use-ipv6={{ use_ipv6 | yesno }}
 {%- if allow_interfaces | length > 0 %}
 allow-interfaces={{ allow_interfaces }}
 {%- else %}
