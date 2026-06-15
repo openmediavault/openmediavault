@@ -8,7 +8,7 @@
 {# Get additional settings via environment variables if 'allow-interfaces' is customized #}
 {%- set use_ipv4 = salt['pillar.get']('default:OMV_AVAHIDAEMON_USE_IPV4', 'yes') | to_bool -%}
 {%- set use_ipv6 = salt['pillar.get']('default:OMV_AVAHIDAEMON_USE_IPV6', 'yes') | to_bool -%}
-{%- else %}
+{%- else -%}
 {# Auto-detect settings based on the network interface configuration #}
 {%- set interfaces = salt['omv_conf.get_by_filter']('conf.system.network.interface', {'operator': 'stringEnum', 'arg0': 'type', 'arg1': ['ethernet', 'bond', 'vlan', 'bridge', 'wifi']}) -%}
 {%- set ipv4_interfaces = interfaces | selectattr('method', 'in', ['dhcp', 'static']) | list -%}
@@ -17,7 +17,7 @@
 {%- if allow_interfaces | length > 0 %}
 {%- set use_ipv4 = ipv4_interfaces | length > 0 -%}
 {%- set use_ipv6 = ipv6_interfaces | length > 0 -%}
-{%- else %}
+{%- else -%}
 {# If 'allow-interfaces' is empty, Avahi is listening on all devices by default #}
 {%- set use_ipv4 = true -%}
 {%- set use_ipv6 = true -%}
