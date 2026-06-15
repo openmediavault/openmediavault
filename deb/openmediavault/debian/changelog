@@ -1,4 +1,4 @@
-openmediavault (8.4.0-2) stable; urgency=medium
+openmediavault (8.4.0-3) stable; urgency=medium
 
   * Set Avahi to listen on VLAN interfaces as well.
   * Upgrade to SaltStack 3008.

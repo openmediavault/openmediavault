@@ -5,15 +5,23 @@
 {%- set publish_hinfo = salt['pillar.get']('default:OMV_AVAHIDAEMON_PUBLISH_HINFO', 'no') -%}
 {%- set publish_workstation = salt['pillar.get']('default:OMV_AVAHIDAEMON_PUBLISH_WORKSTATION', 'no') -%}
 {%- if allow_interfaces | length > 0 %}
+{# Get additional settings via environment variables if 'allow-interfaces' is customized #}
 {%- set use_ipv4 = salt['pillar.get']('default:OMV_AVAHIDAEMON_USE_IPV4', 'yes') | to_bool -%}
 {%- set use_ipv6 = salt['pillar.get']('default:OMV_AVAHIDAEMON_USE_IPV6', 'yes') | to_bool -%}
 {%- else %}
+{# Auto-detect settings based on the network interface configuration #}
 {%- set interfaces = salt['omv_conf.get_by_filter']('conf.system.network.interface', {'operator': 'stringEnum', 'arg0': 'type', 'arg1': ['ethernet', 'bond', 'vlan', 'bridge', 'wifi']}) -%}
 {%- set ipv4_interfaces = interfaces | selectattr('method', 'in', ['dhcp', 'static']) | list -%}
 {%- set ipv6_interfaces = interfaces | selectattr('method6', 'in', ['auto', 'dhcp', 'static']) | list -%}
 {%- set allow_interfaces = (ipv4_interfaces + ipv6_interfaces) | unique | map(attribute='devicename') | join(',') -%}
+{%- if allow_interfaces | length > 0 %}
 {%- set use_ipv4 = ipv4_interfaces | length > 0 -%}
 {%- set use_ipv6 = ipv6_interfaces | length > 0 -%}
+{%- else %}
+{# If 'allow-interfaces' is empty, Avahi is listening on all devices by default #}
+{%- set use_ipv4 = true -%}
+{%- set use_ipv6 = true -%}
+{%- endif %}
 {%- endif %}
 {%- set dual_stack_enabled = use_ipv4 and use_ipv6 -%}
 {{ pillar['headers']['multiline'] }}
