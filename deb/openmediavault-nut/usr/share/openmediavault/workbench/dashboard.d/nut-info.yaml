@@ -1,0 +1,50 @@
+version: "1.0"
+type: dashboard-widget
+data:
+  id: c812d727-6579-4e03-b2c1-756d93786664
+  permissions:
+    role:
+      - admin
+  title: _("UPS Information")
+  description: _("UPS device and battery information.")
+  type: grid
+  reloadPeriod: 30000
+  grid:
+    class: "omv-grid-cols-3"
+    item:
+      title: "{{ key }}"
+      content: "{{ value }}"
+      contentClass: "omv-text-wrap"
+    store:
+      proxy:
+        service: Nut
+        get:
+          method: getVariables
+      # The single RPC returns a flat key/value object; map it to the
+      # displayed rows here. Reorder/extend freely. Variables the UPS
+      # does not report render as "N/A" via the `notavailable` filter.
+      itemTemplates:
+        - key: _("Manufacturer")
+          value: "{{ device_mfr | notavailable }}"
+        - key: _("Model")
+          value: "{{ device_model | notavailable }}"
+        - key: _("Battery type")
+          value: "{{ battery_type | notavailable }}"
+        - key: _("Status")
+          value: "{{ ups_status | notavailable }}"
+        - key: _("Input voltage")
+          value: "{{ input_voltage | notavailable }} V"
+        - key: _("Load")
+          value: "{{ ups_load | notavailable }} %"
+        - key: _("Battery voltage")
+          value: "{{ battery_voltage | notavailable }} V"
+        - key: _("Runtime")
+          value: "{{ battery_runtime | duration('mmm[m]ss[s]') | notavailable }}"
+        - key: _("Battery date")
+          value: "{{ battery_mfr_date | notavailable }}"
+        - key: _("Battery low")
+          value: "{{ battery_charge_low | notavailable }} %"
+        - key: _("Charge warning")
+          value: "{{ battery_charge_warning | notavailable }} %"
+        - key: _("Runtime low")
+          value: "{{ battery_runtime_low | duration('mmm[m]ss[s]') | notavailable }}"

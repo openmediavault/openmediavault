@@ -1,3 +1,9 @@
+openmediavault-nut (8.0.4-1) stable; urgency=medium
+
+  * Issue #1612: Add dashboard widgets.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 24 Jul 2026 10:34:28 +0200
+
 openmediavault-nut (8.0.3-1) stable; urgency=medium
 
   * Upgrade to SaltStack 3008.
