@@ -17,6 +17,26 @@
 	}
 },{
 	"type": "rpc",
+	"id": "rpc.usermgmt.verifychallenge",
+	"params": {
+		"type": "object",
+		"properties": {
+			"username": {
+				"type": "string",
+				"required": true
+			},
+			"challengeresponse": {
+				"type": "any",
+				"required": false
+			},
+			"challengedata": {
+				"type": "any",
+				"required": false
+			}
+		}
+	}
+},{
+	"type": "rpc",
 	"id": "rpc.usermgmt.getuser",
 	"params": {
 		"type": "object",

@@ -1,6 +1,6 @@
 [{
 	"type": "rpc",
-	"id": "rpc.session.login",
+	"id": "rpc.session.authenticate",
 	"params": {
 		"type": "object",
 		"properties": {
@@ -12,6 +12,18 @@
 				"type": "string",
 				"format": "no-multi-line",
 				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.session.verify",
+	"params": {
+		"type": "object",
+		"properties": {
+			"challengeresponse": {
+				"type": "any",
+				"required": false
 			}
 		}
 	}

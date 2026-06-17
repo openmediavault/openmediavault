@@ -30,6 +30,8 @@ require_once("openmediavault/functions.inc");
  */
 class Session
 {
+    private const PENDING_AUTH_TTL_SECONDS = 300;
+
     /**
      * Returns the session singleton.
      * @return The session object.
@@ -48,12 +50,8 @@ class Session
      */
     public function start()
     {
-        $sessionId = array_value(
-            $_SERVER,
-            "HTTP_X_OPENMEDIAVAULT_SESSIONID",
-            false
-        );
-        if (false !== $sessionId) {
+        $sessionId = array_value($_SERVER, "HTTP_X_OPENMEDIAVAULT_SESSIONID");
+        if (is_string($sessionId) && ("" !== $sessionId)) {
             session_id($sessionId);
         }
         if (false === session_start()) {
@@ -89,10 +87,10 @@ class Session
                 session_name(),
                 "",
                 time() - (60 * 60 * 24),
-                $params["path"],
-                $params["domain"],
-                $params["secure"],
-                $params["httponly"]
+                $params['path'],
+                $params['domain'],
+                $params['secure'],
+                $params['httponly']
             );
         }
         // Destroy all data registered to this session.
@@ -111,14 +109,79 @@ class Session
         $_SESSION['authenticated'] = true;
         $_SESSION['username'] = $username;
         $_SESSION['role'] = $role;
-        if (array_key_exists("REMOTE_ADDR", $_SERVER)) {
-            $_SESSION['ipaddress'] = $_SERVER['REMOTE_ADDR'];
+        $remoteAddr = array_value($_SERVER, "REMOTE_ADDR");
+        if (!is_null($remoteAddr)) {
+            $_SESSION['ipaddress'] = $remoteAddr;
         }
-        if (array_key_exists("HTTP_USER_AGENT", $_SERVER)) {
-            $_SESSION['useragent'] = $_SERVER['HTTP_USER_AGENT'];
+        $userAgent = array_value($_SERVER, "HTTP_USER_AGENT");
+        if (!is_null($userAgent)) {
+            $_SESSION['useragent'] = $userAgent;
         }
+        $this->clearPendingAuth();
         $this->updateLastAccess();
+        return $this->getId();
+    }
+
+    /**
+     * Get the current session ID.
+     * @return Returns the session id for the current session or the empty
+     *   string ("") if there is no current session (no current session id
+     *   exists). On failure, false is returned.
+     */
+    public function getId()
+    {
         return session_id();
+    }
+
+    /**
+     * Store the state of an in-progress login that still requires a
+     * challenge (e.g. MFA/TOTP) to be solved before the session is
+     * fully authenticated. The state is bound to the current PHP session,
+     * i.e. it is only accessible to the browser that started the login
+     * (identified by the session cookie).
+     * @param username The name of the user that passed the first factor.
+     * @param permissions The permissions to grant once the challenge is solved.
+     * @param challenge The challenge payload provided by the auth plugin.
+     * @return void
+     */
+    public function setPendingAuth($username, $permissions, $challenge)
+    {
+        session_regenerate_id(true);
+        $_SESSION['pendingauth'] = [
+            "username" => $username,
+            "permissions" => $permissions,
+            "challenge" => $challenge,
+            "created" => time(),
+            "expires" => time() + self::PENDING_AUTH_TTL_SECONDS
+        ];
+    }
+
+    /**
+     * Get the pending login state stored by `setPendingAuth()`. Returns
+     * NULL if there is no pending login or if it has expired.
+     * @return The pending auth state array or NULL.
+     */
+    public function getPendingAuth()
+    {
+        $data = array_value($_SESSION, "pendingauth");
+        if (!is_assoc_array($data)) {
+            return null;
+        }
+        $expires = array_value($data, "expires", 0);
+        if (!is_numeric($expires) || (time() > $expires)) {
+            $this->clearPendingAuth();
+            return null;
+        }
+        return $data;
+    }
+
+    /**
+     * Discard the pending login state.
+     * @return void
+     */
+    public function clearPendingAuth()
+    {
+        unset($_SESSION['pendingauth']);
     }
 
     /**
@@ -227,10 +290,11 @@ class Session
      */
     public function validateIpAddress()
     {
-        if (!array_key_exists("REMOTE_ADDR", $_SERVER)) {
+        $remoteAddr = array_value($_SERVER, "REMOTE_ADDR");
+        if (is_null($remoteAddr)) {
             return;
         }
-        if ($_SESSION['ipaddress'] == $_SERVER['REMOTE_ADDR']) {
+        if ($_SESSION['ipaddress'] == $remoteAddr) {
             return;
         }
         $this->destroy();
@@ -243,10 +307,11 @@ class Session
      */
     public function validateUserAgent()
     {
-        if (!array_key_exists("HTTP_USER_AGENT", $_SERVER)) {
+        $userAgent = array_value($_SERVER, "HTTP_USER_AGENT");
+        if (is_null($userAgent)) {
             return;
         }
-        if ($_SESSION['useragent'] == $_SERVER['HTTP_USER_AGENT']) {
+        if ($_SESSION['useragent'] == $userAgent) {
             return;
         }
         $this->destroy();
@@ -272,7 +337,7 @@ class Session
     public function dump()
     {
         syslog(LOG_DEBUG, var_export([
-            "id" => session_id(),
+            "id" => $this->getId(),
             "data" => $_SESSION
         ], true));
     }

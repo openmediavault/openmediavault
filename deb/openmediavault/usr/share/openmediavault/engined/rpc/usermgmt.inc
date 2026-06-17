@@ -41,6 +41,7 @@ class UserMgmt extends \OMV\Rpc\ServiceAbstract
     public function initialize()
     {
         $this->registerMethod("authUser");
+        $this->registerMethod("verifyChallenge");
         $this->registerMethod("enumerateSystemUsers");
         $this->registerMethod("enumerateUsers");
         $this->registerMethod("enumerateAllUsers");
@@ -115,11 +116,35 @@ class UserMgmt extends \OMV\Rpc\ServiceAbstract
             $permissions['role'] = "user";
         }
         finish:
-                return [
-                    "authenticated" => $authenticated,
-                    "username" => $params['username'],
-                    "permissions" => $permissions
-                ];
+            return [
+                "authenticated" => $authenticated,
+                "username" => $params['username'],
+                "permissions" => $permissions
+            ];
+    }
+
+    /**
+     * Verify a user challenge (e.g., MFA, TOTP, WebAuthn).
+     * This is an extension point for authentication plugins.
+     * @param params The method parameters containing the following fields:
+     *   \em username The name of the user.
+     *   \em challengeresponse The challenge response (format depends on challenge type).
+     *   \em challengedata The challenge data from the authenticate step.
+     * @param context The context of the caller.
+     * @return An array with field \em verified (TRUE if verification successful).
+     */
+    public function verifyChallenge($params, $context)
+    {
+        $this->validateMethodContext($context, [
+            "role" => OMV_ROLE_ADMINISTRATOR
+        ]);
+        $this->validateMethodParams($params, "rpc.usermgmt.verifychallenge");
+
+        // Default: verification not passed. Plugins can register mutating
+        // methods to override this behavior.
+        return [
+            "verified" => false
+        ];
     }
 
     /**

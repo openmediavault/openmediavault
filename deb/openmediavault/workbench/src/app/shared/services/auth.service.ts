@@ -27,7 +27,22 @@ import { RpcService } from '~/app/shared/services/rpc.service';
 export type SessionData = {
   authenticated: boolean;
   permissions: { [key: string]: any };
+  sessionid: string;
   username: string;
+};
+
+export type ChallengeInfo = {
+  [key: string]: any;
+  kind: string;
+  redirecturl?: string;
+};
+
+export type AuthenticateResponse = {
+  status: 'authenticated' | 'challengeRequired';
+  username: string;
+  sessionid?: string;
+  permissions?: { [key: string]: any };
+  challenge?: ChallengeInfo;
 };
 
 @Injectable({
@@ -40,11 +55,35 @@ export class AuthService {
     private prefersColorSchemeService: PrefersColorSchemeService
   ) {}
 
-  login(username: string, password: string): Observable<SessionData> {
+  /**
+   * Step 1 of 2-step login: Authenticate with username/password.
+   * May return a challenge (e.g., MFA) that needs verification.
+   */
+  authenticate(username: string, password: string): Observable<AuthenticateResponse> {
     return this.rpcService
-      .request('Session', 'login', {
+      .request('Session', 'authenticate', {
         username,
         password
+      })
+      .pipe(
+        tap((res: AuthenticateResponse) => {
+          // If no challenge is required, the session is fully established here.
+          if (res.status === 'authenticated') {
+            this.authSessionService.set(res.username, res.permissions);
+          }
+        })
+      );
+  }
+
+  /**
+   * Step 2 of 2-step login: Verify the challenge response and complete the
+   * login. The in-progress login is identified by the session cookie that
+   * was set during authenticate(), so no token needs to be passed.
+   */
+  verify(challengeresponse?: any): Observable<SessionData> {
+    return this.rpcService
+      .request('Session', 'verify', {
+        challengeresponse
       })
       .pipe(
         tap((res: SessionData) => {
