@@ -203,6 +203,17 @@ export class DataStoreService {
       });
       data = _.orderBy(data, fields, orders);
     }
+    // Map data using item templates?
+    // This is executed last so that all previous transformations
+    // (transform, filters, etc.) can be applied to the RPC data first.
+    if (_.isArray(store.itemTemplates)) {
+      const mappedData = [];
+      _.forEach(store.itemTemplates, (template) => {
+        const item = formatDeep(template, store.data);
+        mappedData.push(item);
+      });
+      data = mappedData;
+    }
     store.data = data;
   }
 }

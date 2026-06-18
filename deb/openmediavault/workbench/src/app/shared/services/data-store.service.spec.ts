@@ -1,18 +1,22 @@
 import { TestBed } from '@angular/core/testing';
 import * as _ from 'lodash';
+import { of } from 'rxjs';
 
 import { DataStore } from '~/app/shared/models/data-store.type';
 import { DataStoreService } from '~/app/shared/services/data-store.service';
+import { RpcService } from '~/app/shared/services/rpc.service';
 import { TestingModule } from '~/app/testing.module';
 
 describe('DataStoreService', () => {
   let service: DataStoreService;
+  let rpcService: RpcService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [TestingModule]
     });
     service = TestBed.inject(DataStoreService);
+    rpcService = TestBed.inject(RpcService);
   });
 
   it('should be created', () => {
@@ -163,6 +167,69 @@ describe('DataStoreService', () => {
         { key: 'poweroff', value: 'Poweroff' },
         { key: 'hybrid', text: 'foo bar baz', value: 'hybrid' },
         { key: 'suspendhybrid', value: 'Hybrid sleep' }
+      ]);
+      done();
+    });
+  });
+
+  it('should map RPC response using itemTemplates', (done) => {
+    jest.spyOn(rpcService, 'request').mockReturnValue(
+      of({
+        batteryPercentage: 85,
+        chargingState: 'Charging',
+        timeRemaining: 120
+      })
+    );
+
+    const store: DataStore = {
+      proxy: {
+        service: 'Battery',
+        get: {
+          method: 'getStatus'
+        }
+      },
+      itemTemplates: [
+        { title: 'Battery Percentage', value: '{{ batteryPercentage }}%' },
+        { title: 'Charging State', value: '{{ chargingState }}' },
+        { title: 'Time Remaining', value: '{{ timeRemaining }} min' }
+      ]
+    };
+    service.load(store).subscribe(() => {
+      expect(store.data).toEqual([
+        { title: 'Battery Percentage', value: '85%' },
+        { title: 'Charging State', value: 'Charging' },
+        { title: 'Time Remaining', value: '120 min' }
+      ]);
+      done();
+    });
+  });
+
+  it('should map RPC array response using itemTemplates', (done) => {
+    jest.spyOn(rpcService, 'request').mockReturnValue(
+      of({
+        values: [10, 20, 30],
+        unit: 'GB'
+      })
+    );
+
+    const store: DataStore = {
+      proxy: {
+        service: 'Storage',
+        get: {
+          method: 'getValues'
+        }
+      },
+      itemTemplates: [
+        { label: 'Value 1', text: '{{ values[0] }} {{ unit }}' },
+        { label: 'Value 2', text: '{{ values[1] }} {{ unit }}' },
+        { label: 'Value 3', text: '{{ values[2] }} {{ unit }}' }
+      ]
+    };
+    service.load(store).subscribe(() => {
+      expect(store.data).toEqual([
+        { label: 'Value 1', text: '10 GB' },
+        { label: 'Value 2', text: '20 GB' },
+        { label: 'Value 3', text: '30 GB' }
       ]);
       done();
     });

@@ -76,6 +76,25 @@ export type DataStore = {
   // transform = { foo: '{{ foo }} xxx', num: '{{ num | int }}', add: 'foo' }
   // Result = [{ foo: 'bar xxx', num: 3, add: 'foo' }]
   transform?: Record<string, string>;
+  // Maps the RPC response to an array of items using a template array.
+  // This only makes sense when used with 'proxy' or 'url' to load data.
+  // This is executed LAST, after all other transformations (transform,
+  // filters, sorters, etc.). Each template item can use `{{ }}` syntax to
+  // reference fields in the RPC response. This is useful when the RPC
+  // returns a simple key/value object, but you need an array with static
+  // structure for display (e.g., 'grid' Dashboard widgets).
+  // Example:
+  // RPC Response = { battery_percentage: 85, charging_state: 'Charging' }
+  // transform = { battery_percentage: '{{ battery_percentage | int }}' }
+  // itemTemplates = [
+  //   { title: 'Battery', value: '{{ battery_percentage }}%' },
+  //   { title: 'State', value: '{{ charging_state }}' }
+  // ]
+  // Result = [
+  //   { title: 'Battery', value: '85%' },
+  //   { title: 'State', value: 'Charging' }
+  // ]
+  itemTemplates?: Array<Record<string, any>>;
   // Sort the local data according the specified sorters.
   sorters?: Array<Sorter>;
   // Filter that data that fulfills the specified constraint.
