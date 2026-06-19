@@ -1,0 +1,51 @@
+version: "1.0"
+type: component
+data:
+  name: omv-account-tfatotp-enable-form-page
+  type: formPage
+  config:
+    request:
+      service: TFATotp
+      get:
+        method: preEnableByContext
+      post:
+        method: enableByContext
+    fields:
+      - type: hint
+        hintType: info
+        text: _("Scan the QR code below with your authenticator app (Google Authenticator, Authy, etc.). If your app does not support QR codes, enter the secret key manually. Once your authenticator app is configured, enter the 6-digit code it shows to confirm the setup.")
+      - type: image
+        name: qrcode
+        label: _("QR code")
+        submitValue: false
+        value: ""
+      - type: passwordInput
+        name: secret
+        label: _("Secret")
+        autocomplete: new-password
+        hasCopyToClipboardButton: true
+        disabled: true
+        value: ""
+      - type: textInput
+        name: code
+        label: _("Verification code")
+        value: ""
+        autofocus: true
+        autocomplete: "one-time-code"
+        validators:
+          required: true
+          minLength: 6
+          maxLength: 6
+          pattern:
+            pattern: '^[0-9]{6}$'
+            errorData: _('Must be a 6-digit number.')
+    buttons:
+      - template: submit
+        text: _("Enable")
+        execute:
+          type: url
+          url: "/account/tfatotp"
+      - template: cancel
+        execute:
+          type: url
+          url: "/account/tfatotp"

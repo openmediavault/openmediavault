@@ -1,0 +1,37 @@
+version: "1.0"
+type: component
+data:
+  name: omv-account-tfatotp-form-page
+  type: formPage
+  config:
+    request:
+      service: TFATotp
+      get:
+        method: getByContext
+    fields:
+      - type: hint
+        hintType: info
+        text: _("Two-factor authentication (2FA) with TOTP adds an extra layer of security by requiring a time-based one-time code from your authenticator app in addition to your password. You can enable or disable TOTP for your account here.")
+      - type: hidden
+        name: enabled
+    buttons:
+      - text: _("Enable")
+        enabledConstraint:
+          operator: falsy
+          arg0:
+            prop: enabled
+        execute:
+          type: url
+          url: "/account/enable-tfatotp"
+      - text: _("Disable")
+        enabledConstraint:
+          operator: truthy
+          arg0:
+            prop: enabled
+        execute:
+          type: url
+          url: "/account/disable-tfatotp"
+      - template: cancel
+        execute:
+          type: url
+          url: "/account"

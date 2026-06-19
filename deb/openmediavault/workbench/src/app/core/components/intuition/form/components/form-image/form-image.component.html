@@ -1,0 +1,16 @@
+<mat-form-field class="omv-flex-1"
+                [formGroup]="formGroup">
+  <mat-label>{{ config.label | transloco | template:pageContext }}</mat-label>
+  <input #imageInput
+         matInput
+         hidden
+         [formControlName]="config.name">
+  <img *ngIf="imageInput.value"
+       src="{{ imageInput.value }}"
+       [attr.alt]="config.label | transloco | template:pageContext"
+       [style.width.px]="config.width"
+       [style.height.px]="config.height">
+  <mat-hint *ngIf="config.hint?.length > 0"
+            [innerHTML]="config.hint | transloco | template:pageContext | sanitizeHtml">
+  </mat-hint>
+</mat-form-field>

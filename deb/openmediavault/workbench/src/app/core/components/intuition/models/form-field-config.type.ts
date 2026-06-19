@@ -45,6 +45,9 @@ export type FormFieldConfig = {
   // |             | string. The separator defaults to a comma.           |
   // | ...         | ...                                                  |
   // | container   | Align child fields in horizontal order.              |
+  // | image       | Displays a read-only image. The `value` property     |
+  // |             | must be an URL or data URL (e.g. a QR code). Use     |
+  // |             | `width` and `height` to constrain the rendered size. |
   // '--------------------------------------------------------------------'
   type:
     | 'card'
@@ -72,7 +75,8 @@ export type FormFieldConfig = {
     | 'container'
     | 'hint'
     | 'codeEditor'
-    | 'tagInput';
+    | 'tagInput'
+    | 'image';
   name?: FormFieldName;
   label?: string;
   placeholder?: string;
@@ -173,6 +177,10 @@ export type FormFieldConfig = {
   // Defaults to 'off'.
   // See https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocapitalize
   autocapitalize?: 'none' | 'sentences' | 'words' | 'characters';
+
+  // --- image ---
+  width?: number;
+  height?: number;
 
   // --- container ---
   fields?: Array<FormFieldConfig>;

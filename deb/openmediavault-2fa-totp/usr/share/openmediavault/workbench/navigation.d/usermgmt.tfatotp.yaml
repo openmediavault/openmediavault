@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "usermgmt.tfatotp"
+  text: _("2FA TOTP")
+  icon: "mdi:two-factor-authentication"
+  url: "/usermgmt/tfatotp"
+  position: 40

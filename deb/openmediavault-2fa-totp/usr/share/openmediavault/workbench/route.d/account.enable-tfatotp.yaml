@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  url: "/account/enable-tfatotp"
+  title: _("Enable 2FA TOTP")
+  component: omv-account-tfatotp-enable-form-page
+  editing: true

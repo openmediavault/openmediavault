@@ -1,0 +1,5 @@
+openmediavault-2fa-totp/
+openmediavault-2fa-totp.debhelper.log
+openmediavault-2fa-totp.substvars
+files
+*.debhelper

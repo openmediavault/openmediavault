@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/account/disable-tfatotp"
+  title: _("Disable 2FA TOTP")
+  component: omv-account-tfatotp-disable-form-page

@@ -1,0 +1,45 @@
+version: "1.0"
+type: component
+data:
+  name: omv-tfatotp-form-page
+  type: formPage
+  config:
+    request:
+      service: Session
+      post:
+        method: verify
+        progressMessage: _('Verifying authentication code. Please wait...')
+    fields:
+      - type: hint
+        text: _('Get the authentication code from the two-factor authentication app on your device.')
+      - type: textInput
+        name: username
+        label: _("User name")
+        icon: "user"
+        disabled: true
+        value: "{{ _routeParams.username }}"
+      - type: textInput
+        name: code
+        label: _("Verification code")
+        value: ""
+        autofocus: true
+        autocomplete: "one-time-code"
+        icon: "mdi:shield-key"
+        validators:
+          required: true
+          minLength: 6
+          maxLength: 6
+          pattern:
+            pattern: '^[0-9]{6}$'
+            errorData: _('Must be a 6-digit number.')
+    buttonAlign: center
+    buttons:
+      - template: submit
+        text: _('Continue')
+        execute:
+          type: url
+          url: "/dashboard"
+      - template: cancel
+        execute:
+          type: url
+          url: "/login"

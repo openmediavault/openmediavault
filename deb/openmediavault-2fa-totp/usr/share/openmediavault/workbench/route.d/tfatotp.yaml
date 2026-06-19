@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  kind: authentication
+  url: "/tfatotp/:username"
+  title: _("Two-Factor Authentication")
+  component: omv-tfatotp-form-page

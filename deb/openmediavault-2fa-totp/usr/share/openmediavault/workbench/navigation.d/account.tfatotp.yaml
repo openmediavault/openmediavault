@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "account.tfatotp"
+  text: _("2FA TOTP")
+  icon: "mdi:two-factor-authentication"
+  url: "/account/tfatotp"
+  position: 30
