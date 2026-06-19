@@ -62,6 +62,7 @@ export enum Icon {
   chevronUp = 'mdi:chevron-up',
   chevronDown = 'mdi:chevron-down',
   power = 'mdi:power',
+  login = 'mdi:login-variant',
   logout = 'mdi:logout-variant',
   reboot = 'mdi:repeat',
   standby = 'mdi:pause',

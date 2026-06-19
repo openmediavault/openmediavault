@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "account"
+  position: 90
+  text: _("Account")
+  icon: user
+  url: "/account"
