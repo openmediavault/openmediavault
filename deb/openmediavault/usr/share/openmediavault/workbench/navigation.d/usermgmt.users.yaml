@@ -4,5 +4,5 @@ data:
   path: "usermgmt.users"
   position: 20
   text: _("Users")
-  icon: user
+  icon: users
   url: "/usermgmt/users"
