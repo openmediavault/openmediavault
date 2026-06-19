@@ -46,6 +46,6 @@ export class AuthSessionService {
 
   hasAdminRole(): boolean {
     const permissions = this.getPermissions();
-    return permissions.role.includes(Roles.admin);
+    return (permissions.role ?? []).includes(Roles.admin);
   }
 }

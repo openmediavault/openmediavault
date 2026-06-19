@@ -63,5 +63,6 @@ export const Permissions = {
    * @param permissions The permissions to check.
    * @param role The role to check for.
    */
-  hasRole: (permissions: Permissions, role: Role): boolean => permissions.role.includes(role)
+  hasRole: (permissions: Permissions, role: Role): boolean =>
+    (permissions.role ?? []).includes(role)
 };
