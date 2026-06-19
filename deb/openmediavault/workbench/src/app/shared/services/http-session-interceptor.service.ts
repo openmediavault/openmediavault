@@ -27,14 +27,9 @@ import * as _ from 'lodash';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
+import { AuthenticateResponse } from '~/app/shared/services/auth.service';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { RpcResponse } from '~/app/shared/services/rpc.service';
-
-interface SessionRpcResponse {
-  status?: string;
-  username?: any;
-  permissions?: any;
-}
 
 /**
  * HTTP interceptor that automatically manages session state for Session RPC calls.
@@ -116,7 +111,7 @@ export class HttpSessionInterceptorService implements HttpInterceptor {
       return;
     }
 
-    const rpcResponse = responseBody.response as SessionRpcResponse;
+    const rpcResponse = responseBody.response as AuthenticateResponse;
     if (method === 'authenticate') {
       this.handleAuthenticateResponse(rpcResponse);
     } else {
@@ -129,7 +124,7 @@ export class HttpSessionInterceptorService implements HttpInterceptor {
    * Only set session if status is explicitly 'authenticated' (not 'challengeRequired').
    * Validates that username is a string and permissions is a valid object.
    */
-  private handleAuthenticateResponse(response: SessionRpcResponse): void {
+  private handleAuthenticateResponse(response: AuthenticateResponse): void {
     if (response.status !== 'authenticated') {
       return;
     }
@@ -144,7 +139,7 @@ export class HttpSessionInterceptorService implements HttpInterceptor {
    * Always set session if response contains valid username and permissions.
    * This indicates successful completion of the authentication flow (including MFA).
    */
-  private handleVerifyResponse(response: SessionRpcResponse): void {
+  private handleVerifyResponse(response: AuthenticateResponse): void {
     if (_.isString(response.username) && _.isPlainObject(response.permissions)) {
       this.authSessionService.set(response.username, response.permissions);
     }

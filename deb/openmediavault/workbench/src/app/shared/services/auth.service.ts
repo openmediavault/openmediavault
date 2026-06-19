@@ -69,18 +69,6 @@ export class AuthService {
     });
   }
 
-  /**
-   * Step 2 of 2-step login: Verify the challenge response and complete the
-   * login. The in-progress login is identified by the session cookie that
-   * was set during authenticate(), so no token needs to be passed.
-   *
-   * Note: Session handling is now done automatically by HttpSessionInterceptorService,
-   * which intercepts all successful Session.verify HTTP responses.
-   */
-  verify(params?: any): Observable<SessionData> {
-    return this.rpcService.request('Session', 'verify', params);
-  }
-
   logout(): Observable<void> {
     // Always logout in case of success AND failure.
     //
