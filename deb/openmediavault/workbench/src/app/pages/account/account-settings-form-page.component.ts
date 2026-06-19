@@ -24,57 +24,58 @@ import { BaseFormPageComponent } from '~/app/pages/base-page-component';
 @Component({
   template: '<omv-intuition-form-page [config]="this.config"></omv-intuition-form-page>'
 })
-export class UserPasswordFormPageComponent extends BaseFormPageComponent {
+export class AccountSettingsFormPageComponent extends BaseFormPageComponent {
   public config: FormPageConfig = {
     request: {
       service: 'UserMgmt',
+      get: {
+        method: 'getUserByContext'
+      },
       post: {
-        method: 'setPasswordByContext'
+        method: 'setUserByContext'
       }
     },
     fields: [
       {
-        type: 'passwordInput',
-        name: 'password',
-        label: gettext('New password'),
-        autocomplete: 'new-password',
+        type: 'hidden',
+        name: '_readonly',
+        value: false
+      },
+      {
+        type: 'textInput',
+        name: 'name',
+        label: gettext('Name'),
+        disabled: true
+      },
+      {
+        type: 'textInput',
+        name: 'email',
+        label: gettext('Email'),
+        value: '',
         validators: {
-          required: true
+          patternType: 'email'
         }
       },
       {
-        type: 'passwordInput',
-        name: 'passwordconf',
-        label: gettext('Confirm password'),
-        submitValue: false,
+        type: 'tagInput',
+        name: 'comment',
+        label: gettext('Tags'),
+        value: '',
         validators: {
-          required: true,
-          custom: [
-            {
-              constraint: {
-                operator: 'eq',
-                arg0: { prop: 'password' },
-                arg1: { prop: 'passwordconf' }
-              },
-              errorData: gettext("Password doesn't match.")
-            }
-          ]
+          maxLength: 65
         }
       }
     ],
     buttons: [
       {
         template: 'submit',
-        execute: {
-          type: 'url',
-          url: '/'
-        }
+        enabledConstraint: { operator: 'falsy', arg0: { prop: '_readonly' } }
       },
       {
         template: 'cancel',
         execute: {
           type: 'url',
-          url: '/'
+          url: '/account'
         }
       }
     ]

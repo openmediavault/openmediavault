@@ -101,6 +101,13 @@ const routes: Routes = [
           import('./pages/diagnostics/diagnostics.module').then((m) => m.DiagnosticsModule),
         data: { title: gettext('Diagnostics') }
       },
+      {
+        path: 'account',
+        canActivate: [AuthGuardService],
+        canActivateChild: [AuthGuardService],
+        loadChildren: () => import('./pages/account/account.module').then((m) => m.AccountModule),
+        data: { title: gettext('Account') }
+      },
       { path: 'logout', children: [] }
     ]
   },

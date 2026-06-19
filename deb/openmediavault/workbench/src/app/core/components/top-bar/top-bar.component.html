@@ -31,9 +31,9 @@
     <mat-icon svgIcon="{{ icon.help }}"></mat-icon>
   </button>
   <button mat-icon-button
-          matTooltip="{{ 'User Settings' | transloco }}"
-          [attr.aria-label]="'User Settings' | transloco"
-          [matMenuTriggerFor]="settingsMenu">
+          matTooltip="{{ 'Profile Settings' | transloco }}"
+          [attr.aria-label]="'Profile Settings' | transloco"
+          [matMenuTriggerFor]="profileMenu">
     <mat-icon svgIcon="{{ icon.user }}"></mat-icon>
   </button>
   <button *ngIf="permissions?.role.includes(roles.admin)"
@@ -44,23 +44,17 @@
     <mat-icon svgIcon="{{ icon.power }}"></mat-icon>
   </button>
 
-  <mat-menu #settingsMenu="matMenu">
+  <mat-menu #profileMenu="matMenu">
     <ng-template matMenuContent>
       <button mat-menu-item
               disabled>
-        <mat-icon svgIcon="{{ icon.user }}"></mat-icon>
+        <mat-icon svgIcon="{{ icon.login }}"></mat-icon>
         <span [innerHTML]="'Logged in as <strong>{{ username }}</strong>' | transloco | template:{username} | sanitizeHtml"></span>
       </button>
-      <button *ngIf="permissions?.role.includes(roles.user)"
-              mat-menu-item
-              routerLink="/usermgmt/profile">
-        <mat-icon svgIcon="mdi:account-details"></mat-icon>
-        <span>{{ 'Your profile' | transloco }}</span>
-      </button>
       <button mat-menu-item
-              routerLink="/usermgmt/change-password">
-        <mat-icon svgIcon="{{ icon.password }}"></mat-icon>
-        <span>{{ 'Change Password' | transloco }}</span>
+              routerLink="/account">
+        <mat-icon svgIcon="{{ icon.user }}"></mat-icon>
+        <span>{{ 'Account' | transloco }}</span>
       </button>
       <button mat-menu-item
               (click)="onLogout()">

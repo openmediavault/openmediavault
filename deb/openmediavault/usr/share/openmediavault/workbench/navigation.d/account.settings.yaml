@@ -1,0 +1,11 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "account.settings"
+  position: 10
+  text: _("Settings")
+  icon: tune
+  url: "/account/settings"
+  permissions:
+    role:
+    - user

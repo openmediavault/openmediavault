@@ -11,8 +11,6 @@ import { GroupSharedFolderPermissionsDatatablePageComponent } from '~/app/pages/
 import { UserDatatablePageComponent } from '~/app/pages/usermgmt/users/user-datatable-page.component';
 import { UserFormPageComponent } from '~/app/pages/usermgmt/users/user-form-page.component';
 import { UserImportFormPageComponent } from '~/app/pages/usermgmt/users/user-import-form-page.component';
-import { UserPasswordFormPageComponent } from '~/app/pages/usermgmt/users/user-password-form-page.component';
-import { UserProfileFormPageComponent } from '~/app/pages/usermgmt/users/user-profile-form-page.component';
 import { UserSettingsFormPageComponent } from '~/app/pages/usermgmt/users/user-settings-form-page.component';
 import { UserSharedFolderPermissionsDatatablePageComponent } from '~/app/pages/usermgmt/users/user-shared-folder-permissions-datatable-page.component';
 import { IsDirtyGuardService } from '~/app/shared/services/is-dirty-guard.service';
@@ -21,26 +19,6 @@ const routes: Routes = [
   {
     path: '',
     component: NavigationPageComponent
-  },
-  {
-    path: 'change-password',
-    component: UserPasswordFormPageComponent,
-    canDeactivate: [IsDirtyGuardService],
-    data: {
-      title: gettext('Change Password'),
-      editing: true,
-      notificationTitle: gettext('Updated password.')
-    }
-  },
-  {
-    path: 'profile',
-    component: UserProfileFormPageComponent,
-    canDeactivate: [IsDirtyGuardService],
-    data: {
-      title: gettext('Profile'),
-      editing: true,
-      notificationTitle: gettext('Updated user profile.')
-    }
   },
   {
     path: 'users',
