@@ -146,7 +146,8 @@ class Group
     {
         if (true === $this->isSystemAccount()) {
             throw new \OMV\AssertException(
-                "The group '%s' is a system account.", $this->getName()
+                "The group '%s' is a system account.",
+                $this->getName()
             );
         }
     }

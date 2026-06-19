@@ -220,7 +220,8 @@ class User
     {
         if (true === $this->isSystemAccount()) {
             throw new \OMV\AssertException(
-                "The user '%s' is a system account.", $this->getName()
+                "The user '%s' is a system account.",
+                $this->getName()
             );
         }
     }
