@@ -401,9 +401,10 @@ class UserMgmt extends \OMV\Rpc\ServiceAbstract
         ]);
         // Validate the parameters of the RPC service method.
         $this->validateMethodParams($params, "rpc.usermgmt.getuser");
-        // Ensure the user exists.
+        // Ensure the user exists and is not a system account.
         $user = new \OMV\System\User($params['name']);
         $user->assertExists();
+        $user->assertIsNotSystemAccount();
         // Get the user information.
         $result = $user->getAssoc();
         // Set the defaults of the additional information.
@@ -865,9 +866,10 @@ class UserMgmt extends \OMV\Rpc\ServiceAbstract
         ]);
         // Validate the parameters of the RPC service method.
         $this->validateMethodParams($params, "rpc.usermgmt.getgroup");
-        // Get the group information.
+        // Ensure the group exists and is not a system account.
         $group = new \OMV\System\Group($params['name']);
         $group->assertExists();
+        $group->assertIsNotSystemAccount();
         // Get the group information.
         $result = $group->getAssoc();
         // Get additional group information stored in database.

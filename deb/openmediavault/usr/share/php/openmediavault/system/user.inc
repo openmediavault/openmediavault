@@ -213,6 +213,19 @@ class User
     }
 
     /**
+     * Assert that the user is not a system account.
+     * @throw \OMV\AssertException
+     */
+    public function assertIsNotSystemAccount()
+    {
+        if (true === $this->isSystemAccount()) {
+            throw new \OMV\AssertException(
+                "The user '%s' is a system account.", $this->getName()
+            );
+        }
+    }
+
+    /**
      * Get the user name.
      * @return The user name.
      */

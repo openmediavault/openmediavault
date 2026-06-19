@@ -139,6 +139,19 @@ class Group
     }
 
     /**
+     * Assert that the user is not a system account.
+     * @throw \OMV\AssertException
+     */
+    public function assertIsNotSystemAccount()
+    {
+        if (true === $this->isSystemAccount()) {
+            throw new \OMV\AssertException(
+                "The group '%s' is a system account.", $this->getName()
+            );
+        }
+    }
+
+    /**
      * Get the group name.
      * @return The group name.
      */
