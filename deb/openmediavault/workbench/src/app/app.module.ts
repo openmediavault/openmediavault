@@ -33,6 +33,7 @@ import { getCurrentLocale, setTranslationService, translate } from '~/app/i18n.h
 import { MaterialModule } from '~/app/material.module';
 import { GlobalErrorHandlerService } from '~/app/shared/services/global-error-handler.service';
 import { HttpErrorInterceptorService } from '~/app/shared/services/http-error-interceptor.service';
+import { HttpSessionInterceptorService } from '~/app/shared/services/http-session-interceptor.service';
 import { TitleService } from '~/app/shared/services/title.service';
 import { SharedModule } from '~/app/shared/shared.module';
 import { TranslocoRootModule } from '~/app/transloco-root.module';
@@ -61,6 +62,11 @@ import { TranslocoRootModule } from '~/app/transloco-root.module';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpErrorInterceptorService,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpSessionInterceptorService,
       multi: true
     },
     {

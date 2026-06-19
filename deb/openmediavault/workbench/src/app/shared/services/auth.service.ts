@@ -18,7 +18,7 @@
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs';
-import { finalize, tap } from 'rxjs/operators';
+import { finalize } from 'rxjs/operators';
 
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { PrefersColorSchemeService } from '~/app/shared/services/prefers-color-scheme.service';
@@ -58,44 +58,38 @@ export class AuthService {
   /**
    * Step 1 of 2-step login: Authenticate with username/password.
    * May return a challenge (e.g., MFA) that needs verification.
+   *
+   * Note: Session handling is now done automatically by HttpSessionInterceptorService,
+   * which intercepts all successful Session.authenticate HTTP responses.
    */
   authenticate(username: string, password: string): Observable<AuthenticateResponse> {
-    return this.rpcService
-      .request('Session', 'authenticate', {
-        username,
-        password
-      })
-      .pipe(
-        tap((res: AuthenticateResponse) => {
-          // If no challenge is required, the session is fully established here.
-          if (res.status === 'authenticated') {
-            this.authSessionService.set(res.username, res.permissions);
-          }
-        })
-      );
+    return this.rpcService.request('Session', 'authenticate', {
+      username,
+      password
+    });
   }
 
   /**
    * Step 2 of 2-step login: Verify the challenge response and complete the
    * login. The in-progress login is identified by the session cookie that
    * was set during authenticate(), so no token needs to be passed.
+   *
+   * Note: Session handling is now done automatically by HttpSessionInterceptorService,
+   * which intercepts all successful Session.verify HTTP responses.
    */
   verify(params?: any): Observable<SessionData> {
-    return this.rpcService.request('Session', 'verify', params).pipe(
-      tap((res: SessionData) => {
-        this.authSessionService.set(res.username, res.permissions);
-      })
-    );
+    return this.rpcService.request('Session', 'verify', params);
   }
 
   logout(): Observable<void> {
     // Always logout in case of success AND failure.
+    //
+    // Note: Session revocation is now done automatically by HttpSessionInterceptorService,
+    // which intercepts all successful Session.logout HTTP responses.
     return this.rpcService.request('Session', 'logout').pipe(
       finalize(() => {
-        // Revoke session and reload the page. The Angular router and
-        // auth-guard service will redirect automatically to the login
-        // page.
-        this.authSessionService.revoke();
+        // Reload the page. The Angular router and auth-guard service will
+        // redirect automatically to the login page.
         // Reset the color scheme to the default.
         this.prefersColorSchemeService.reset();
         document.location.replace('');
