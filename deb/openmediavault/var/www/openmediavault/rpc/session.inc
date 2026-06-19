@@ -199,7 +199,7 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract
                     "verifyChallenge",
                     [
                         "username" => $username,
-                        "challengeresponse" => array_value($params, "challengeresponse"),
+                        "challengeresponse" => $params,
                         "challengedata" => $challenge
                     ],
                     $this->getAdminContext(),
@@ -292,7 +292,6 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract
     private function initializeSession($username, $permissions, $server)
     {
         $session = &\OMV\Session::getInstance();
-        $_ = defer([$session, 'commit']);
 
         if ($session->isAuthenticated()) {
             // Reject if an existing session belongs to a different user.
