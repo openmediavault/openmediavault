@@ -80,16 +80,12 @@ export class AuthService {
    * login. The in-progress login is identified by the session cookie that
    * was set during authenticate(), so no token needs to be passed.
    */
-  verify(challengeresponse?: any): Observable<SessionData> {
-    return this.rpcService
-      .request('Session', 'verify', {
-        challengeresponse
+  verify(params?: any): Observable<SessionData> {
+    return this.rpcService.request('Session', 'verify', params).pipe(
+      tap((res: SessionData) => {
+        this.authSessionService.set(res.username, res.permissions);
       })
-      .pipe(
-        tap((res: SessionData) => {
-          this.authSessionService.set(res.username, res.permissions);
-        })
-      );
+    );
   }
 
   logout(): Observable<void> {
