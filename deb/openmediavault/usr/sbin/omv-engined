@@ -135,7 +135,7 @@ function daemonize() {
 			error("Daemon already running (pid=%d)\n", $pid);
 			exit(1);
 		}
-		unlink($pidFile);
+		\OMV\System\Os::remove($pidFile);
 	}
 
 	$pid = pcntl_fork();
@@ -415,8 +415,10 @@ if (FALSE === @socket_set_option($socket, SOL_SOCKET, SO_REUSEADDR, 1)) {
 }
 // Unlink socket, even if it does not exist.
 $socketAddress = \OMV\Environment::get("OMV_ENGINED_SO_ADDRESS");
-if (file_exists($socketAddress))
-	unlink($socketAddress);
+if (FALSE === \OMV\System\Os::remove($socketAddress)) {
+	error("Failed to remove path '%s'\n", $socketAddress);
+	exit(1);
+}
 if (FALSE === @socket_bind($socket, $socketAddress)) {
 	error("Failed to bind socket: %s\n", socket_strerror(
 	  socket_last_error()));
@@ -601,11 +603,10 @@ killChld();
 
 // Close and unlink socket.
 @socket_close($socket);
-if (file_exists($socketAddress))
-	@unlink($socketAddress);
+\OMV\System\Os::remove($socketAddress);
 
 // Unlink PID file (exists only when running in daemon mode).
-@unlink($pidFile);
+\OMV\System\Os::remove($pidFile);
 
 // Set exit code.
 exit(0);

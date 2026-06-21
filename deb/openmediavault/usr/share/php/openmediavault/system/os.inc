@@ -48,4 +48,21 @@ class Os
         $cmd->execute($output);
         return $output[0];
     }
+
+    /**
+     * Removes a file or an empty directory.
+     * @param string $path The path to the file or directory.
+     * @return bool TRUE on success or if the path does not exist, FALSE on failure.
+     */
+    final public static function remove($path): bool
+    {
+        clearstatcache(true, $path);
+        if (!file_exists($path) && !is_link($path)) {
+            return true;
+        }
+        if (is_dir($path) && !is_link($path)) {
+            return @rmdir($path);
+        }
+        return @unlink($path);
+    }
 }
