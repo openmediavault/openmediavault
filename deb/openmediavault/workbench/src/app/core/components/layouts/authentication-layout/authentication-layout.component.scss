@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.background {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('^./assets/images/authentication.jpg');
+  inset: 0;
+  position: fixed;
+}

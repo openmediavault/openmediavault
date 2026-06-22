@@ -21,9 +21,9 @@ import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { EMPTY } from 'rxjs';
 
+import { AuthenticationLayoutComponent } from '~/app/core/components/layouts/authentication-layout/authentication-layout.component';
 import { BackgroundImageLayoutComponent } from '~/app/core/components/layouts/background-image-layout/background-image-layout.component';
 import { BlankLayoutComponent } from '~/app/core/components/layouts/blank-layout/blank-layout.component';
-import { PublicLayoutComponent } from '~/app/core/components/layouts/public-layout/public-layout.component';
 import { WorkbenchLayoutComponent } from '~/app/core/components/layouts/workbench-layout/workbench-layout.component';
 import { AboutPageComponent } from '~/app/core/pages/about-page/about-page.component';
 import { BlankPageComponent } from '~/app/core/pages/blank-page/blank-page.component';
@@ -33,8 +33,9 @@ import { NavigationPageComponent } from '~/app/core/pages/navigation-page/naviga
 import { ShutdownPageComponent } from '~/app/core/pages/shutdown-page/shutdown-page.component';
 import { StandbyPageComponent } from '~/app/core/pages/standby-page/standby-page.component';
 import { RouteConfigService } from '~/app/core/services/route-config.service';
-import { AuthGuardService } from '~/app/shared/services/auth-guard.service';
+import { AuthenticatedGuardService } from '~/app/shared/services/authenticated-guard.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
+import { UnauthenticatedGuardService } from '~/app/shared/services/unauthenticated-guard.service';
 
 const routes: Routes = [
   {
@@ -43,68 +44,68 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        canActivate: [AuthGuardService],
-        canActivateChild: [AuthGuardService],
+        canActivate: [AuthenticatedGuardService],
+        canActivateChild: [AuthenticatedGuardService],
         component: NavigationPageComponent
       },
       { path: 'about', component: AboutPageComponent },
       {
         path: 'dashboard',
-        canActivate: [AuthGuardService],
-        canActivateChild: [AuthGuardService],
+        canActivate: [AuthenticatedGuardService],
+        canActivateChild: [AuthenticatedGuardService],
         loadChildren: () =>
           import('./pages/dashboard/dashboard.module').then((m) => m.DashboardModule),
         data: { title: gettext('Dashboard') }
       },
       {
         path: 'system',
-        canActivate: [AuthGuardService],
-        canActivateChild: [AuthGuardService],
+        canActivate: [AuthenticatedGuardService],
+        canActivateChild: [AuthenticatedGuardService],
         loadChildren: () => import('./pages/system/system.module').then((m) => m.SystemModule),
         data: { title: gettext('System') }
       },
       {
         path: 'usermgmt',
-        canActivate: [AuthGuardService],
-        canActivateChild: [AuthGuardService],
+        canActivate: [AuthenticatedGuardService],
+        canActivateChild: [AuthenticatedGuardService],
         loadChildren: () =>
           import('./pages/usermgmt/usermgmt.module').then((m) => m.UsermgmtModule),
         data: { title: gettext('User Management') }
       },
       {
         path: 'network',
-        canActivate: [AuthGuardService],
-        canActivateChild: [AuthGuardService],
+        canActivate: [AuthenticatedGuardService],
+        canActivateChild: [AuthenticatedGuardService],
         loadChildren: () => import('./pages/network/network.module').then((m) => m.NetworkModule),
         data: { title: gettext('Network') }
       },
       {
         path: 'storage',
-        canActivate: [AuthGuardService],
-        canActivateChild: [AuthGuardService],
+        canActivate: [AuthenticatedGuardService],
+        canActivateChild: [AuthenticatedGuardService],
         loadChildren: () => import('./pages/storage/storage.module').then((m) => m.StorageModule),
         data: { title: gettext('Storage') }
       },
       {
         path: 'services',
-        canActivate: [AuthGuardService],
-        canActivateChild: [AuthGuardService],
+        canActivate: [AuthenticatedGuardService],
+        canActivateChild: [AuthenticatedGuardService],
         loadChildren: () =>
           import('./pages/services/services.module').then((m) => m.ServicesModule),
         data: { title: gettext('Services') }
       },
       {
         path: 'diagnostics',
-        canActivate: [AuthGuardService],
-        canActivateChild: [AuthGuardService],
+        canActivate: [AuthenticatedGuardService],
+        canActivateChild: [AuthenticatedGuardService],
         loadChildren: () =>
           import('./pages/diagnostics/diagnostics.module').then((m) => m.DiagnosticsModule),
         data: { title: gettext('Diagnostics') }
       },
       {
         path: 'account',
-        canActivate: [AuthGuardService],
-        canActivateChild: [AuthGuardService],
+        canActivate: [AuthenticatedGuardService],
+        canActivateChild: [AuthenticatedGuardService],
         loadChildren: () => import('./pages/account/account.module').then((m) => m.AccountModule),
         data: { title: gettext('Account') }
       },
@@ -118,6 +119,7 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginPageComponent,
+        canActivate: [UnauthenticatedGuardService],
         data: { backgroundImage: 'login.jpg' }
       },
       {
@@ -175,8 +177,15 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: PublicLayoutComponent,
-    children: []
+    component: AuthenticationLayoutComponent,
+    canActivate: [UnauthenticatedGuardService],
+    canActivateChild: [UnauthenticatedGuardService],
+    children: [
+      {
+        path: 'test',
+        component: BlankPageComponent
+      }
+    ]
   },
   { path: '**', redirectTo: '/404' }
 ];

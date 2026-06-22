@@ -49,6 +49,7 @@ class WbPrefs extends \OMV\Rpc\ServiceAbstract
         $this->validateMethodParams($params, "rpc.wbprefs.setwallpaper");
         $imgMap = [
             "login" => "/var/www/openmediavault/assets/images/login.jpg",
+            "authentication" => "/var/www/openmediavault/assets/images/authentication.jpg",
             "shutdown" => "/var/www/openmediavault/assets/images/shutdown.jpg",
             "standby" => "/var/www/openmediavault/assets/images/standby.jpg"
         ];

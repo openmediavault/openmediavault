@@ -283,24 +283,27 @@ export class TotpChallengeComponent {
 }
 ```
 
-### Step 3: Extend Router (optional)
+### Step 3: Register Authentication Route
 
-Add a route for your challenge:
+Add a route configuration file for your challenge page. Authentication routes should use `kind: authentication` to be injected into the `AuthenticationLayoutComponent`:
 
-```typescript
-// In your workbench routing
-const routes: Routes = [
-  {
-    path: 'auth',
-    children: [
-      {
-        path: 'totp',
-        component: TotpChallengeComponent
-      }
-    ]
-  }
-];
+**Create a route config file** (e.g., `/usr/share/openmediavault/workbench/route-config.d/2fatotp.yaml`):
+
+```yaml
+version: "1.0"
+type: route
+data:
+  kind: authentication
+  url: "/totp/:username"
+  title: _("Two-Factor Authentication")
+  component: omv-totp-challenge-page
 ```
+
+This will automatically inject your route into the `AuthenticationLayoutComponent`, which:
+- Provides a centered layout for authentication pages
+- Applies the `UnauthenticatedOnlyGuardService` guard (redirects logged-in users to dashboard)
+
+**Note:** Routes with `kind: authentication` are only accessible to unauthenticated users. Once the user completes the challenge and is authenticated, they will be automatically redirected to the dashboard if they try to access these routes.
 
 ---
 

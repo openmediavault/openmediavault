@@ -292,7 +292,7 @@ def route(ctx):
                 'notificationTitle': {'type': 'string'},
                 'kind': {
                     'type': 'string',
-                    'enum': ['workbench', 'public']
+                    'enum': ['workbench', 'authentication']
                 },
                 'component': {'type': 'string', 'required': True}
             }}

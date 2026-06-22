@@ -6,7 +6,7 @@
 		"properties": {
 			"page": {
 				"type": "string",
-				"enum": ["login", "shutdown", "standby"]
+				"enum": ["login", "authentication", "shutdown", "standby"]
 			},
 			"url":{
 				"type": "string",

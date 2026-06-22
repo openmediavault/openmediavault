@@ -18,10 +18,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'omv-public-layout',
-  templateUrl: './public-layout.component.html',
-  styleUrls: ['./public-layout.component.scss']
+  selector: 'omv-authentication-layout',
+  templateUrl: './authentication-layout.component.html',
+  styleUrls: ['./authentication-layout.component.scss']
 })
-export class PublicLayoutComponent {
+export class AuthenticationLayoutComponent {
   constructor() {}
 }

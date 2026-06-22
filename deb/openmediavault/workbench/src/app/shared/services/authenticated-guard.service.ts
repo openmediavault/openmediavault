@@ -26,10 +26,14 @@ import {
 
 import { AuthService } from '~/app/shared/services/auth.service';
 
+/**
+ * Route guard that only allows access to authenticated users.
+ * Redirects unauthenticated users to the login page with a return URL.
+ */
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService implements CanActivate, CanActivateChild {
+export class AuthenticatedGuardService implements CanActivate, CanActivateChild {
   constructor(
     private authService: AuthService,
     private router: Router

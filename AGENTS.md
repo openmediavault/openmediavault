@@ -76,5 +76,5 @@ npm run fix
 - You **must** strictly follow the coding standards and conventions outlined in the `CONTRIBUTING.md` file.
 - Ensure all file modifications comply with the rules defined in the `.editorconfig` file.
 - **PHP**: Adhere to PSR-12. Use the provided `make` targets for formatting, linting, and testing. All tests are run automatically in CI.
-- **TypeScript/Angular**: Align with the project's Prettier and ESLint configurations.
+- **TypeScript/Angular**: Align with the project's Prettier and ESLint configurations. The UI app uses **Jest** as the unit testing framework.
 - **Python**: Adhere to PEP 8. Use the provided `make` targets for formatting and linting.
