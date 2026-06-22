@@ -6,6 +6,11 @@ Files: *
 Copyright: 2009-2026 Volker Theile <volker.theile@openmediavault.org>
 License: GPL-3
 
+Files: /workbench/src/assets/images/authentication.jpg
+Copyright: Gregg M. Erickson
+Source: https://de.wikipedia.org/wiki/Datei:Motorola68040die.jpg
+License: CC-BY-3.0
+
 Files: /workbench/src/assets/images/login.jpg
 Copyright: William Warby <https://unsplash.com/de/@wwarby>
 Source: https://unsplash.com/de/fotos/nahaufnahme-einer-festplatte-mit-einer-schere-ykyUSsbDviA

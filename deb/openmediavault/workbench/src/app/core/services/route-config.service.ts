@@ -29,7 +29,7 @@ import { RrdPageComponent } from '~/app/core/components/intuition/rrd-page/rrd-p
 import { SelectionListPageComponent } from '~/app/core/components/intuition/selection-list-page/selection-list-page.component';
 import { TabsPageComponent } from '~/app/core/components/intuition/tabs-page/tabs-page.component';
 import { TextPageComponent } from '~/app/core/components/intuition/text-page/text-page.component';
-import { PublicLayoutComponent } from '~/app/core/components/layouts/public-layout/public-layout.component';
+import { AuthenticationLayoutComponent } from '~/app/core/components/layouts/authentication-layout/authentication-layout.component';
 import { BlankPageComponent } from '~/app/core/pages/blank-page/blank-page.component';
 import { NavigationPageComponent } from '~/app/core/pages/navigation-page/navigation-page.component';
 import { IsDirtyGuardService } from '~/app/shared/services/is-dirty-guard.service';
@@ -56,7 +56,7 @@ const componentMap: Record<ComponentType, Type<any>> = {
   textPage: TextPageComponent
 };
 
-type RouteKind = 'workbench' | 'public';
+type RouteKind = 'workbench' | 'authentication';
 
 const DEFAULT_ROUTE_KIND: RouteKind = 'workbench';
 
@@ -150,9 +150,9 @@ export class RouteConfigService {
   public injectPublicRoutes(targetNode: Routes): void {
     this.configs$.subscribe((customRoutes) => {
       customRoutes
-        .filter((customRoute: Route) => this.getKindFromRoute(customRoute) === 'public')
+        .filter((customRoute: Route) => this.getKindFromRoute(customRoute) === 'authentication')
         .forEach((customRoute: Route) => {
-          const rootRoute = _.find(targetNode, ['component', PublicLayoutComponent]);
+          const rootRoute = _.find(targetNode, ['component', AuthenticationLayoutComponent]);
           if (!_.isArray(rootRoute?.children)) {
             return;
           }

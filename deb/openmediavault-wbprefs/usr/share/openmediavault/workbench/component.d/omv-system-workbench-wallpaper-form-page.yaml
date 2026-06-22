@@ -22,6 +22,8 @@ data:
           data:
             - - "login"
               - _("Login")
+            - - "authentication"
+              - _("Authentication")
             - - "shutdown"
               - _("Shutdown")
             - - "standby"
