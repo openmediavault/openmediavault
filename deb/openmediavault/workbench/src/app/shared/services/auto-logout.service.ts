@@ -1,7 +1,7 @@
 import { Injectable, NgZone, OnDestroy } from '@angular/core';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import { EMPTY, fromEvent, merge, Observable, Subject, timer } from 'rxjs';
-import { filter, switchMap, takeUntil, tap, throttleTime } from 'rxjs/operators';
+import { filter, share, switchMap, takeUntil, tap, throttleTime } from 'rxjs/operators';
 
 import { format } from '~/app/functions.helper';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
@@ -26,16 +26,16 @@ export class AutoLogoutService implements OnDestroy {
     private userLocalStorageService: UserLocalStorageService
   ) {
     this.activityEvents$ = merge(
-      fromEvent(document, 'mousemove'),
-      fromEvent(document, 'mousedown'),
-      fromEvent(document, 'keydown'),
-      fromEvent(document, 'wheel'),
-      fromEvent(document, 'scroll', { passive: true }),
-      fromEvent(document, 'touchstart', { passive: true }),
-      fromEvent(document, 'touchmove', { passive: true }),
-      fromEvent(document, 'touchend', { passive: true }),
-      fromEvent(document, 'pointerdown'),
-      fromEvent(document, 'pointermove')
+      fromEvent(window, 'mousemove', { capture: true, passive: true }),
+      fromEvent(window, 'mousedown', { capture: true }),
+      fromEvent(window, 'keydown', { capture: true }),
+      fromEvent(window, 'wheel', { capture: true, passive: true }),
+      fromEvent(window, 'scroll', { capture: true, passive: true }),
+      fromEvent(window, 'touchstart', { capture: true, passive: true }),
+      fromEvent(window, 'touchmove', { capture: true, passive: true }),
+      fromEvent(window, 'touchend', { capture: true, passive: true }),
+      fromEvent(window, 'pointerdown', { capture: true }),
+      fromEvent(window, 'pointermove', { capture: true, passive: true })
     );
     // Watch for successful RPC requests to update the timeout setting
     // and to restart the auto-logout service.
@@ -46,7 +46,7 @@ export class AutoLogoutService implements OnDestroy {
         })
       )
       .subscribe((req: RpcRequestWithResponse) => {
-        this.timeout = req.response.timeout * 60 * 1000;
+        this.setTimeout(req.response?.timeout);
         this.stop();
         this.start();
       });
@@ -76,7 +76,7 @@ export class AutoLogoutService implements OnDestroy {
           tap(() => this.updateLastActivity())
         ),
         crossTabActivity$
-      );
+      ).pipe(share());
 
       allActivity$
         .pipe(
@@ -99,9 +99,15 @@ export class AutoLogoutService implements OnDestroy {
   load(): Observable<Record<string, any>> {
     return this.rpcService.request('WebGui', 'getAutoLogoutSettings').pipe(
       tap((res: Record<string, any>) => {
-        this.timeout = res.timeout * 60 * 1000;
+        this.setTimeout(res?.timeout);
       })
     );
+  }
+
+  private setTimeout(timeout: any): void {
+    const timeoutInMinutes = Number(timeout);
+    this.timeout =
+      Number.isFinite(timeoutInMinutes) && timeoutInMinutes > 0 ? timeoutInMinutes * 60 * 1000 : 0;
   }
 
   private buildTimer(): Observable<never> {
