@@ -116,8 +116,9 @@ export type FormPageButtonConfig = {
   // back   - A button with the text 'Back'.
   // cancel - A button with the text 'Cancel'.
   // submit - A button with the text 'Save'. It will trigger the
-  //          configured form 'post' request. An additional 'url',
-  //          'request' or 'click' action is executed afterwards.
+  //          configured form 'post' request. On success, the optional
+  //          'execute' action ('url', 'request', 'taskDialog' or 'click')
+  //          is executed afterwards.
   template?: 'back' | 'cancel' | 'submit';
   // The text displayed in the button.
   text?: string;

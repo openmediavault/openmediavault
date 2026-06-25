@@ -280,7 +280,9 @@ export class FormPageComponent
           break;
       }
     };
-    // Closure that handles the button pre-action.
+    // Closure that handles the optional configured button action, including
+    // confirmation handling. For `submit` buttons this is called after
+    // `request.post` succeeded.
     const doPreButtonActionFn = () => {
       // Must the user confirm the action?
       if (_.isPlainObject(buttonConfig.confirmationDialogConfig)) {
@@ -354,6 +356,8 @@ export class FormPageComponent
                   format(notificationTitle, _.merge({}, values, this.pageContext))
                 );
               }
+              // Execute any optional submit button action only after the
+              // form `request.post` RPC has completed successfully.
               doPreButtonActionFn();
             });
         };
