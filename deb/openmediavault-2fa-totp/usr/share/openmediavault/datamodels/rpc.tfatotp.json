@@ -1,0 +1,31 @@
+[{
+	"type": "rpc",
+	"id": "rpc.tfatotp.enableByContext",
+	"params": {
+		"type": "object",
+		"properties": {
+			"secret": {
+				"type": "string",
+				"required": true
+			},
+			"code": {
+				"type": "string",
+				"pattern": "^[0-9]{6}$",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.tfatotp.disableByContext",
+	"params": {
+		"type": "object",
+		"properties": {
+			"code": {
+				"type": "string",
+				"pattern": "^[0-9]{6}$",
+				"required": true
+			}
+		}
+	}
+}]

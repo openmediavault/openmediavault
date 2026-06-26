@@ -1,0 +1,34 @@
+version: "1.0"
+type: component
+data:
+  name: omv-account-tfatotp-disable-form-page
+  type: formPage
+  config:
+    request:
+      service: TFATotp
+      post:
+        method: disableByContext
+    fields:
+      - type: textInput
+        name: code
+        label: _("Verification code")
+        value: ""
+        autofocus: true
+        autocomplete: "one-time-code"
+        validators:
+          required: true
+          minLength: 6
+          maxLength: 6
+          pattern:
+            pattern: '^[0-9]{6}$'
+            errorData: _('Must be a 6-digit number.')
+    buttons:
+      - template: submit
+        text: _("Disable")
+        execute:
+          type: url
+          url: "/account/tfatotp"
+      - template: cancel
+        execute:
+          type: url
+          url: "/account/tfatotp"

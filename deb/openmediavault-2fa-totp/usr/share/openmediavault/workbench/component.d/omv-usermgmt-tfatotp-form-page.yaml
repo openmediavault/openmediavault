@@ -1,0 +1,55 @@
+version: "1.0"
+type: component
+data:
+  name: omv-usermgmt-tfatotp-form-page
+  type: formPage
+  config:
+    request:
+      service: TFATotp
+      get:
+        method: getItem
+        params:
+          uuid: "{{ _routeParams.uuid }}"
+      post:
+        method: setItem
+    fields:
+      - type: confObjUuid
+      - type: select
+        name: name
+        label: _("Name")
+        valueField: name
+        textField: name
+        store:
+          proxy:
+            service: UserMgmt
+            get:
+              method: enumerateUsers
+              params:
+                detail: basic
+          sorters:
+            - dir: asc
+              prop: name
+        validators:
+          required: true
+        value: ""
+      - type: checkbox
+        name: enabled
+        label: _("Enabled")
+        value: false
+      - type: passwordInput
+        name: secret
+        label: _("Secret")
+        autocomplete: new-password
+        hasCopyToClipboardButton: true
+        validators:
+          required: true
+        value: ""
+    buttons:
+      - template: submit
+        execute:
+          type: url
+          url: "/usermgmt/tfatotp"
+      - template: cancel
+        execute:
+          type: url
+          url: "/usermgmt/tfatotp"

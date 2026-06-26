@@ -1,0 +1,16 @@
+Source: openmediavault-2fa-totp
+Section: admin
+XB-Plugin-Section: administration
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>= 12), gettext
+Standards-Version: 3.9.6
+Homepage: https://www.openmediavault.org
+
+Package: openmediavault-2fa-totp
+Architecture: all
+Depends: openmediavault (>= 8.5.0)
+Priority: optional
+Description: openmediavault TOTP two-factor authentication plugin
+ Provides RFC 6238 time-based one-time passwords (TOTP) as second
+ factor authentication for the UI.

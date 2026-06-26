@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/usermgmt/tfatotp/edit/:uuid"
+  title: _("Edit")
+  editing: true
+  notificationTitle: _("Updated 2FA TOTP.")
+  component: omv-usermgmt-tfatotp-form-page

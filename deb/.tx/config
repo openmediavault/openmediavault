@@ -8,6 +8,12 @@ source_file = openmediavault/usr/share/openmediavault/locale/openmediavault.pot
 source_lang = en
 type = PO
 
+[o:openmediavault:p:openmediavault:r:openmediavault-2fa-totp]
+file_filter = openmediavault-2fa-totp/usr/share/openmediavault/locale/<lang>/openmediavault-2fa-totp.po
+source_file = openmediavault-2fa-totp/usr/share/openmediavault/locale/openmediavault-2fa-totp.pot
+source_lang = en
+type = PO
+
 [o:openmediavault:p:openmediavault:r:openmediavault-apt]
 file_filter = openmediavault-apt/usr/share/openmediavault/locale/<lang>/openmediavault-apt.po
 source_file = openmediavault-apt/usr/share/openmediavault/locale/openmediavault-apt.pot
