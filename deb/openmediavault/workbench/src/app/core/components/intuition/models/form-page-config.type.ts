@@ -171,11 +171,11 @@ export type FormPageButtonExecute = {
     // where `xyz` will be replaced by the value of the form field
     // named `xyz` and `_response['baz']` by the property `baz` of
     // the map/object returned by the RPC.
-    // Mutually exclusive with `reloadDataSuccess`.
+    // Mutually exclusive with `reloadDataOnSuccess`.
     successUrl?: string;
     // If set, the form values are automatically reloaded.
     // Mutually exclusive with `successUrl`.
-    reloadDataSuccess?: boolean;
+    reloadDataOnSuccess?: boolean;
   };
   // Display a dialog that shows the output of the given RPC.
   taskDialog?: {

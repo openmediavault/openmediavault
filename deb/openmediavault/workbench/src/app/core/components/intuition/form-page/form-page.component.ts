@@ -249,7 +249,7 @@ export class FormPageComponent
                     _.merge({ _response: res }, values, this.pageContext)
                   );
                   this.router.navigateByUrl(url);
-                } else if (request.reloadDataSuccess) {
+                } else if (request.reloadDataOnSuccess) {
                   this.loadData().subscribe((res2: RpcObjectResponse) => this.onLoadData(res2));
                 }
               });
