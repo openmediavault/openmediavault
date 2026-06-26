@@ -11,6 +11,6 @@ Package: openmediavault-2fa-totp
 Architecture: all
 Depends: openmediavault (>= 8.5.0)
 Priority: optional
-Description: openmediavault two-factor TOTP authentication plugin
+Description: openmediavault two-factor authentication (2FA) with TOTP plugin
  Provides RFC 6238 time-based one-time passwords (TOTP) as second
  factor authentication for the UI.
