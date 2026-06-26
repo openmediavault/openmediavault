@@ -242,13 +242,15 @@ export class FormPageComponent
                     )
                   );
                 }
-                // Navigate to a specified URL?
+                // Navigate to a specified URL or reload the form values?
                 if (_.isString(request.successUrl)) {
                   const url = format(
                     request.successUrl,
                     _.merge({ _response: res }, values, this.pageContext)
                   );
                   this.router.navigateByUrl(url);
+                } else if (request.reloadDataSuccess) {
+                  this.loadData().subscribe((res2: RpcObjectResponse) => this.onLoadData(res2));
                 }
               });
           }
@@ -277,6 +279,9 @@ export class FormPageComponent
               this.router.navigateByUrl(url);
             }
           });
+          break;
+        case 'reloadData':
+          this.loadData().subscribe((res: RpcObjectResponse) => this.onLoadData(res));
           break;
       }
     };

@@ -141,7 +141,7 @@ export type FormPageButtonConfig = {
 };
 
 export type FormPageButtonExecute = {
-  type: 'url' | 'request' | 'taskDialog' | 'click';
+  type: 'url' | 'request' | 'taskDialog' | 'click' | 'reloadData';
   // Navigate to this URL when the button has been clicked.
   // The URL is formatted with the form field values and the page
   // context (please see AbstractPageComponent::pageContext).
@@ -171,7 +171,11 @@ export type FormPageButtonExecute = {
     // where `xyz` will be replaced by the value of the form field
     // named `xyz` and `_response['baz']` by the property `baz` of
     // the map/object returned by the RPC.
+    // Mutually exclusive with `reloadDataSuccess`.
     successUrl?: string;
+    // If set, the form values are automatically reloaded.
+    // Mutually exclusive with `successUrl`.
+    reloadDataSuccess?: boolean;
   };
   // Display a dialog that shows the output of the given RPC.
   taskDialog?: {
