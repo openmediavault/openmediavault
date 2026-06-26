@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-2fa-totp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Renan Costa Alencar <renan.costaalencar@gmail.com>, 2026
+# Volker Theile <votdev@gmx.de>, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-2fa-totp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-26 09:35+0200\n"
+"PO-Revision-Date: 2026-06-26 17:34+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2026\n"
+"Language-Team: Portuguese (Portugal) (https://app.transifex.com/openmediavault/teams/14254/pt_PT/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_PT\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+msgid "2FA TOTP"
+msgstr ""
+
+msgid "Disable"
+msgstr ""
+
+msgid "Disable 2FA TOTP"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Enable"
+msgstr "Ativo"
+
+msgid "Enable 2FA TOTP"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "QR code"
+msgstr ""
+
+msgid ""
+"Scan the QR code below with your authenticator app (Google Authenticator, "
+"Authy, etc.). If your app does not support QR codes, enter the secret key "
+"manually. Once your authenticator app is configured, enter the 6-digit code "
+"it shows to confirm the setup."
+msgstr ""
+
+msgid "Secret"
+msgstr ""
+
+msgid "Two-Factor Authentication"
+msgstr ""
+
+msgid ""
+"Two-factor authentication (2FA) with TOTP adds an extra layer of security by"
+" requiring a time-based one-time code from your authenticator app in "
+"addition to your password. You can enable or disable TOTP for your account "
+"here."
+msgstr ""
+
+msgid "Updated 2FA TOTP."
+msgstr ""
+
+msgid "User name"
+msgstr "Nome de usuário"
+
+msgid "Verification code"
+msgstr ""

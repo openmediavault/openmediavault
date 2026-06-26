@@ -1,0 +1,87 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-2fa-totp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Volker Theile <votdev@gmx.de>, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-2fa-totp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-26 09:35+0200\n"
+"PO-Revision-Date: 2026-06-26 17:34+0000\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2026\n"
+"Language-Team: German (https://app.transifex.com/openmediavault/teams/14254/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "2FA TOTP"
+msgstr "2FA TOTP"
+
+msgid "Disable"
+msgstr "Deaktivieren"
+
+msgid "Disable 2FA TOTP"
+msgstr "2FA TOTP deakivieren"
+
+msgid "Edit"
+msgstr "Bearbeiten"
+
+msgid "Enable"
+msgstr "Aktivieren"
+
+msgid "Enable 2FA TOTP"
+msgstr "2FA TOTP aktivieren"
+
+msgid "Enabled"
+msgstr "Aktiviert"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "QR code"
+msgstr "QR-Code"
+
+msgid ""
+"Scan the QR code below with your authenticator app (Google Authenticator, "
+"Authy, etc.). If your app does not support QR codes, enter the secret key "
+"manually. Once your authenticator app is configured, enter the 6-digit code "
+"it shows to confirm the setup."
+msgstr ""
+"Scannen Sie den untenstehenden QR-Code mit Ihrer Authentifizierungs-App "
+"(Google Authenticator, Authy usw.). Falls Ihre App keine QR-Codes "
+"unterstützt, geben Sie den geheimen Schlüssel manuell ein. Sobald Ihre "
+"Authentifizierungs-App konfiguriert ist, geben Sie den dort angezeigten "
+"6-stelligen Code ein, um die Einrichtung zu bestätigen."
+
+msgid "Secret"
+msgstr "Geheimnis"
+
+msgid "Two-Factor Authentication"
+msgstr "Zwei-Faktor-Authentifizierung"
+
+msgid ""
+"Two-factor authentication (2FA) with TOTP adds an extra layer of security by"
+" requiring a time-based one-time code from your authenticator app in "
+"addition to your password. You can enable or disable TOTP for your account "
+"here."
+msgstr ""
+"Die Zwei-Faktor-Authentifizierung (2FA) mit TOTP bietet zusätzliche "
+"Sicherheit, da zusätzlich zu Ihrem Passwort ein zeitabhängiger Einmalcode "
+"aus Ihrer Authentifizierungs-App erforderlich ist. Hier können Sie TOTP für "
+"Ihr Konto aktivieren oder deaktivieren."
+
+msgid "Updated 2FA TOTP."
+msgstr "2FA TOTP wurde aktualisiert."
+
+msgid "User name"
+msgstr "Benutzername"
+
+msgid "Verification code"
+msgstr "Bestätigungscode"
