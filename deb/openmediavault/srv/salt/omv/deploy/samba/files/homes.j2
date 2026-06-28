@@ -36,19 +36,6 @@ hide special files = {{ hide_special_files }}
 follow symlinks = {{ config.homesfollowsymlinks | to_bool | yesno }}
 wide links = {{ config.homeswidelinks | to_bool | yesno }}
 {%- set vfs_objects = vfs_objects.split(' ') %}
-{%- if config.homesrecyclebin | to_bool %}
-{%- set _ = vfs_objects.append('recycle') %}
-recycle:repository = {{ recycle_repository }}
-recycle:keeptree = {{ recycle_keeptree }}
-recycle:versions = {{ recycle_versions }}
-recycle:touch = {{ recycle_touch }}
-recycle:touch_mtime = {{ recycle_touch_mtime }}
-recycle:directory_mode = {{ recycle_directory_mode }}
-recycle:subdir_mode = {{ recycle_subdir_mode }}
-recycle:exclude = {{ recycle_exclude }}
-recycle:exclude_dir = {{ recycle_exclude_dir }}
-recycle:noversions = {{ recycle_noversions }}
-{%- endif %}
 {%- if enable_timemachine_vfs | to_bool %}
 {%- set _ = vfs_objects.append('fruit') %}
 {%- set _ = vfs_objects.append('streams_xattr') %}
@@ -68,6 +55,19 @@ shadow:snapprefix = ^homes\(@hourly\)\{0,1\}\(@daily\)\{0,1\}\(@weekly\)\{0,1\}\
 shadow:localtime = no
 dfree command = {{ dfree_command }}
 dfree cache time = {{ dfree_cache_time }}
+{%- endif %}
+{%- if config.homesrecyclebin | to_bool %}
+{%- set _ = vfs_objects.append('recycle') %}
+recycle:repository = {{ recycle_repository }}
+recycle:keeptree = {{ recycle_keeptree }}
+recycle:versions = {{ recycle_versions }}
+recycle:touch = {{ recycle_touch }}
+recycle:touch_mtime = {{ recycle_touch_mtime }}
+recycle:directory_mode = {{ recycle_directory_mode }}
+recycle:subdir_mode = {{ recycle_subdir_mode }}
+recycle:exclude = {{ recycle_exclude }}
+recycle:exclude_dir = {{ recycle_exclude_dir }}
+recycle:noversions = {{ recycle_noversions }}
 {%- endif %}
 vfs objects = {{ vfs_objects | unique | join(' ') }}
 {%- if config.homesextraoptions | length > 0 %}

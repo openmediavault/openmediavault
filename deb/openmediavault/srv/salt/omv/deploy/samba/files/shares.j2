@@ -76,20 +76,6 @@ fruit:time machine = yes
 fruit:time machine max size = {{ share.timemachinemaxsize }}
 {%- endif %}
 {%- endif %}
-{%- if share.recyclebin | to_bool %}
-{%- set _ = vfs_objects.append('recycle') %}
-recycle:repository = {{ recycle_repository }}
-recycle:keeptree = {{ recycle_keeptree }}
-recycle:versions = {{ recycle_versions }}
-recycle:touch = {{ recycle_touch }}
-recycle:touch_mtime = {{ recycle_touch_mtime }}
-recycle:directory_mode = {{ recycle_directory_mode }}
-recycle:subdir_mode = {{ recycle_subdir_mode }}
-recycle:exclude = {{ recycle_exclude }}
-recycle:exclude_dir = {{ recycle_exclude_dir }}
-recycle:noversions = {{ recycle_noversions }}
-recycle:maxsize = {{ share.recyclemaxsize }}
-{%- endif %}
 {%- if share.sharedfolderref | omv_conf_get_by_identifier('conf.system.sharedfolder') | attr('mntentref') | omv_conf_get_by_identifier('conf.system.filesystem.mountpoint') | attr('type') == 'btrfs' %}
 {%- set _ = vfs_objects.append('btrfs') %}
 {%- set _ = vfs_objects.append('shadow_copy2') %}
@@ -104,6 +90,20 @@ shadow:snapprefix = ^{{ sf_name }}\(@hourly\)\{0,1\}\(@daily\)\{0,1\}\(@weekly\)
 shadow:localtime = no
 dfree command = {{ dfree_command }}
 dfree cache time = {{ dfree_cache_time }}
+{%- endif %}
+{%- if share.recyclebin | to_bool %}
+{%- set _ = vfs_objects.append('recycle') %}
+recycle:repository = {{ recycle_repository }}
+recycle:keeptree = {{ recycle_keeptree }}
+recycle:versions = {{ recycle_versions }}
+recycle:touch = {{ recycle_touch }}
+recycle:touch_mtime = {{ recycle_touch_mtime }}
+recycle:directory_mode = {{ recycle_directory_mode }}
+recycle:subdir_mode = {{ recycle_subdir_mode }}
+recycle:exclude = {{ recycle_exclude }}
+recycle:exclude_dir = {{ recycle_exclude_dir }}
+recycle:noversions = {{ recycle_noversions }}
+recycle:maxsize = {{ share.recyclemaxsize }}
 {%- endif %}
 vfs objects = {{ vfs_objects | unique | join(' ') }}
 printable = {{ printable }}
