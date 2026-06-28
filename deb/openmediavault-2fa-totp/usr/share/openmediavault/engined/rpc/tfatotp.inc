@@ -23,6 +23,8 @@
 
 namespace Engined\Rpc;
 
+require_once("openmediavault/functions.inc");
+
 class TFATotp extends \OMV\Rpc\ServiceAbstract
 {
     public function getName()
@@ -46,6 +48,10 @@ class TFATotp extends \OMV\Rpc\ServiceAbstract
 
     final public function authUser($params, $context, $result)
     {
+        if (!array_value($result, "authenticated", false)) {
+            return $result;
+        }
+
         if (!$this->isEnabled($result['username'])) {
             return $result;
         }
