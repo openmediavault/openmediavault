@@ -6,7 +6,7 @@
 {%- set alertencrypteddoc = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ALERTENCRYPTEDDOC', 'false') -%}
 {%- set maxdirectoryrecursion = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXDIRECTORYRECURSION', '15') -%}
 {%- set readtimeout = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_READTIMEOUT', '120') -%}
-{%- set maxthreads = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXTHREADS', '12') -%}
+{%- set maxthreads = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXTHREADS', '10') -%}
 {%- set maxconnectionqueuelength = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXCONNECTIONQUEUELENGTH', '30') -%}
 {%- set logsyslog = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_LOGSYSLOG', 'false') -%}
 {%- set logrotate = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_LOGROTATE', 'false') -%}
