@@ -23,6 +23,7 @@ import unittest
 import mock
 import openmediavault.device
 import pyudev
+from pyfakefs import fake_filesystem
 
 
 class MockedPyUdevDevice:
@@ -50,9 +51,15 @@ class MockedPyUdevDevice:
 
 
 class BlockDeviceTestCase(unittest.TestCase):
+    fs = fake_filesystem.FakeFilesystem()
+    f_open = fake_filesystem.FakeFileOpen(fs)
+
     @staticmethod
     def _realpath_map(mapping):
         return lambda path: mapping.get(path, path)
+
+    def setUp(self):
+        self.fs.reset()
 
     def test_device_file(self):
         bd = openmediavault.device.BlockDevice('/dev/sda')
@@ -231,6 +238,12 @@ class BlockDeviceTestCase(unittest.TestCase):
         self.assertEqual(bd.major_device_number, 8)
         self.assertIsInstance(bd.minor_device_number, int)
         self.assertEqual(bd.minor_device_number, 17)
+
+    @mock.patch('builtins.open', new=f_open)
+    def test_sysfs_value_class_block(self):
+        self.fs.create_file('/sys/class/block/sdx/size', contents='''123\n''')
+        bd = openmediavault.device.BlockDevice('/dev/sdx')
+        self.assertEqual(bd.sysfs_value('size'), '123')
 
 
 if __name__ == "__main__":
