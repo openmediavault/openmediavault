@@ -85,7 +85,7 @@ MaxDirectoryRecursion {{ maxdirectoryrecursion }}
 FollowDirectorySymlinks {{ config.clamd.followdirectorysymlinks }}
 FollowFileSymlinks {{ config.clamd.followfilesymlinks }}
 ReadTimeout {{ readtimeout }}
-MaxThreads {{ maxthreads | default(salt['grains.get']('num_cpus')) }}
+MaxThreads {{ maxthreads | default(salt['grains.get']('num_cpus'), true) }}
 MaxConnectionQueueLength {{ maxconnectionqueuelength }}
 LogSyslog {{ logsyslog }}
 LogRotate {{ logrotate }}
