@@ -6,7 +6,7 @@
 {%- set alertencrypteddoc = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_ALERTENCRYPTEDDOC', 'false') -%}
 {%- set maxdirectoryrecursion = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXDIRECTORYRECURSION', '15') -%}
 {%- set readtimeout = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_READTIMEOUT', '120') -%}
-{%- set maxthreads = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXTHREADS', '10') -%}
+{%- set maxthreads = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXTHREADS', '') -%}
 {%- set maxconnectionqueuelength = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_MAXCONNECTIONQUEUELENGTH', '30') -%}
 {%- set logsyslog = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_LOGSYSLOG', 'false') -%}
 {%- set logrotate = salt['pillar.get']('default:OMV_CLAMAV_CLAMD_LOGROTATE', 'false') -%}
@@ -85,7 +85,7 @@ MaxDirectoryRecursion {{ maxdirectoryrecursion }}
 FollowDirectorySymlinks {{ config.clamd.followdirectorysymlinks }}
 FollowFileSymlinks {{ config.clamd.followfilesymlinks }}
 ReadTimeout {{ readtimeout }}
-MaxThreads {{ maxthreads }}
+MaxThreads {{ maxthreads | default(salt['grains.get']('num_cpus')) }}
 MaxConnectionQueueLength {{ maxconnectionqueuelength }}
 LogSyslog {{ logsyslog }}
 LogRotate {{ logrotate }}

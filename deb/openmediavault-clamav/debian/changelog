@@ -1,6 +1,8 @@
 openmediavault-clamav (8.0.2-1) stable; urgency=medium
 
-  * Default `MaxThreads` to 10 according to the documentation.
+  * Set `MaxThreads` to the number of available CPU cores. Use the
+    environment variable `OMV_CLAMAV_CLAMD_MAXTHREADS` to customize
+    this.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 29 Jun 2026 19:25:24 +0200
 
