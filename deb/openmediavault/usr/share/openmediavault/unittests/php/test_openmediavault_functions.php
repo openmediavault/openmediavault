@@ -292,6 +292,44 @@ class test_openmediavault_functions extends \PHPUnit\Framework\TestCase
         $this->assertFalse(is_uuid("11e6"));
     }
 
+    public function test_is_devicefile_fail_newline()
+    {
+        $this->assertFalse(is_devicefile("/dev/sda\n"));
+    }
+
+    public function test_is_devicefile_by_fail_newline()
+    {
+        $this->assertFalse(is_devicefile_by("/dev/disk/by-id/foo\n"));
+    }
+
+    public function test_is_devicefile_by_uuid_fail_newline()
+    {
+        $this->assertFalse(
+            is_devicefile_by_uuid(
+                "/dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895\n"
+            )
+        );
+    }
+
+    public function test_is_devicefile_by_id_fail_newline()
+    {
+        $this->assertFalse(
+            is_devicefile_by_id("/dev/disk/by-id/wwn-0x4002c554a4d79cb9-part2\n")
+        );
+    }
+
+    public function test_is_devicefile_by_label_fail_newline()
+    {
+        $this->assertFalse(is_devicefile_by_label("/dev/disk/by-label/data\n"));
+    }
+
+    public function test_is_devicefile_by_path_fail_newline()
+    {
+        $this->assertFalse(
+            is_devicefile_by_path("/dev/disk/by-path/pci-0000:00:17.0-ata-3\n")
+        );
+    }
+
     public function test_uuid_equals()
     {
         $this->assertTrue(uuid_equals(

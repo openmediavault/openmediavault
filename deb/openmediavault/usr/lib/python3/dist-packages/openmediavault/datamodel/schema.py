@@ -48,7 +48,7 @@ class Schema(openmediavault.json.Schema):
                     ) from None
             elif "devicefile" == schema['format']:
                 if not re.match(
-                    r'^\/dev(\/disk\/by-id)?\/.+$', value, flags=re.IGNORECASE
+                    r'^\/dev(\/disk\/by-id)?\/[a-z0-9\/.:_-]+$', value, flags=re.IGNORECASE
                 ):
                     raise openmediavault.json.SchemaValidationException(
                         name, "The value '%s' is no device file name." % value

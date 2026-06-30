@@ -402,7 +402,7 @@ function is_devicefile($var): bool
     if (false === is_string($var)) {
         return false;
     }
-    return preg_match('/^\/dev\/.+$/i', $var) ? true : false;
+    return preg_match('/^\/dev\/\S+\z/i', $var) ? true : false;
 }
 
 /**
@@ -421,7 +421,7 @@ function is_devicefile_by($var): bool
     if (false === is_string($var)) {
         return false;
     }
-    return preg_match('/^\/dev\/disk\/by-\S+\/.+$/i', $var) ? true : false;
+    return preg_match('/^\/dev\/disk\/by-\S+\/\S+\z/i', $var) ? true : false;
 }
 
 /**
@@ -438,7 +438,7 @@ function is_devicefile_by_uuid($var): bool
     if (false === is_string($var)) {
         return false;
     }
-    return preg_match('/^\/dev\/disk\/by-uuid\/.+$/i', $var) ? true : false;
+    return preg_match('/^\/dev\/disk\/by-uuid\/\S+\z/i', $var) ? true : false;
 }
 
 /**
@@ -454,7 +454,7 @@ function is_devicefile_by_id($var): bool
     if (false === is_string($var)) {
         return false;
     }
-    return preg_match('/^\/dev\/disk\/by-id\/.+$/i', $var) ? true : false;
+    return preg_match('/^\/dev\/disk\/by-id\/\S+\z/i', $var) ? true : false;
 }
 
 /**
@@ -470,7 +470,7 @@ function is_devicefile_by_label($var): bool
     if (false === is_string($var)) {
         return false;
     }
-    return preg_match('/^\/dev\/disk\/by-label\/.+$/i', $var) ? true : false;
+    return preg_match('/^\/dev\/disk\/by-label\/\S+\z/i', $var) ? true : false;
 }
 
 /**
@@ -487,7 +487,7 @@ function is_devicefile_by_path($var): bool
     if (false === is_string($var)) {
         return false;
     }
-    return preg_match('/^\/dev\/disk\/by-path\/.+$/i', $var) ? true : false;
+    return preg_match('/^\/dev\/disk\/by-path\/\S+\z/i', $var) ? true : false;
 }
 
 /**

