@@ -1,0 +1,22 @@
+version: "1.0"
+type: dashboard-widget
+data:
+  id: c812d727-6579-4e03-b2c1-756d93786664
+  permissions:
+    role:
+      - admin
+  title: _("UPS Information")
+  description: _("UPS device and battery information.")
+  type: grid
+  reloadPeriod: 30000
+  grid:
+    class: "omv-grid-cols-3"
+    item:
+      title: "{{ key }}"
+      content: "{{ value }}"
+      contentClass: "omv-text-wrap"
+    store:
+      proxy:
+        service: Nut
+        get:
+          method: getInformation
