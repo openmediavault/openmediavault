@@ -331,14 +331,16 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract
         $cmdArgs = [];
         $cmdArgs[] = sprintf("/dev/%s", $deviceName);
         $cmdArgs[] = "-l";
-        $cmdArgs[] = $params['level'];
+        $cmdArgs[] = escapeshellarg($params['level']);
         $cmdArgs[] = "-n";
         $cmdArgs[] = count($devices);
         if (!empty($params['name'])) {
             $cmdArgs[] = "-N";
             $cmdArgs[] = $params['name'];
         }
-        $cmdArgs[] = implode(" ", $devices);
+        foreach ($devices as $device) {
+            $cmdArgs[] = escapeshellarg($device);
+        }
         $cmd = new \OMV\System\Process("omv-mkraid", $cmdArgs);
         $cmd->setRedirect2to1();
         $cmd->execute();
@@ -393,7 +395,9 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract
         $cmdArgs[] = "--manage";
         $cmdArgs[] = escapeshellarg($raid->getDeviceFile());
         $cmdArgs[] = "--add";
-        $cmdArgs[] = implode(" ", $newDevices);
+        foreach ($newDevices as $device) {
+            $cmdArgs[] = escapeshellarg($device);
+        }
         $cmd = new \OMV\System\Process("mdadm", $cmdArgs);
         $cmd->setRedirect2to1();
         $cmd->execute();
@@ -467,7 +471,9 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract
         $cmdArgs[] = "--manage";
         $cmdArgs[] = escapeshellarg($raid->getDeviceFile());
         $cmdArgs[] = "--add";
-        $cmdArgs[] = implode(" ", $newDevices);
+        foreach ($newDevices as $device) {
+            $cmdArgs[] = escapeshellarg($device);
+        }
         $cmd = new \OMV\System\Process("mdadm", $cmdArgs);
         $cmd->setRedirect2to1();
         $cmd->execute();
@@ -526,7 +532,9 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract
         $cmdArgs[] = "--manage";
         $cmdArgs[] = escapeshellarg($raid->getDeviceFile());
         $cmdArgs[] = "--fail";
-        $cmdArgs[] = implode(" ", $rmDevices);
+        foreach ($rmDevices as $device) {
+            $cmdArgs[] = escapeshellarg($device);
+        }
         $cmd = new \OMV\System\Process("mdadm", $cmdArgs);
         $cmd->setRedirect2to1();
         $cmd->execute();
@@ -535,7 +543,9 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract
         $cmdArgs[] = "--manage";
         $cmdArgs[] = escapeshellarg($raid->getDeviceFile());
         $cmdArgs[] = "--remove";
-        $cmdArgs[] = implode(" ", $rmDevices);
+        foreach ($rmDevices as $device) {
+            $cmdArgs[] = escapeshellarg($device);
+        }
         $cmd = new \OMV\System\Process("mdadm", $cmdArgs);
         $cmd->setRedirect2to1();
         $cmd->execute();
