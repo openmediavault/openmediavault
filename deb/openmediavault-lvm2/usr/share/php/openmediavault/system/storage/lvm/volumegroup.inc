@@ -379,7 +379,9 @@ class VolumeGroup
     {
         $cmdArgs = [];
         $cmdArgs[] = escapeshellarg($this->getName());
-        $cmdArgs[] = implode(" ", $devices);
+        foreach ($devices as $device) {
+            $cmdArgs[] = escapeshellarg($device);
+        }
         $cmd = new \OMV\System\Process("vgcreate", $cmdArgs);
         $cmd->setRedirect2to1();
         $cmd->execute();
@@ -428,7 +430,9 @@ class VolumeGroup
     {
         $cmdArgs = [];
         $cmdArgs[] = escapeshellarg($this->getName());
-        $cmdArgs[] = implode(" ", $devices);
+        foreach ($devices as $device) {
+            $cmdArgs[] = escapeshellarg($device);
+        }
         $cmd = new \OMV\System\Process("vgextend", $cmdArgs);
         $cmd->setRedirect2to1();
         $cmd->execute();
@@ -445,7 +449,9 @@ class VolumeGroup
     {
         $cmdArgs = [];
         $cmdArgs[] = escapeshellarg($this->getName());
-        $cmdArgs[] = implode(" ", $devices);
+        foreach ($devices as $device) {
+            $cmdArgs[] = escapeshellarg($device);
+        }
         $cmd = new \OMV\System\Process("vgreduce", $cmdArgs);
         $cmd->setRedirect2to1();
         $cmd->execute();
