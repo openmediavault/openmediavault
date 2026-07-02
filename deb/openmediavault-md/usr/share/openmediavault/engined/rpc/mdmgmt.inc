@@ -234,10 +234,12 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract
         $this->validateMethodContext($context, [
             "role" => OMV_ROLE_ADMINISTRATOR
         ]);
-        // Get a list of all potential usable physical disk devices.
+        // Get a list of all potential usable physical and virtual disk devices.
         if (false === ($devs = \OMV\System\Storage\StorageDevice::enumerateUnused(
             OMV_STORAGE_DEVICE_KIND_GENERIC |
-                OMV_STORAGE_DEVICE_TRAIT_PHYSICAL
+                OMV_STORAGE_DEVICE_TRAIT_PHYSICAL |
+                OMV_STORAGE_DEVICE_TRAIT_VIRTUAL,
+            \OMV\LogicalOperator::ANY
         ))) {
             throw new \OMV\Exception("Failed to get list of unused devices.");
         }
