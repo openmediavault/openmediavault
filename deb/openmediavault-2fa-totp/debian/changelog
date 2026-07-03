@@ -1,4 +1,4 @@
-openmediavault-2fa-totp (8.0-1) stable; urgency=medium
+openmediavault-2fa-totp (8.0-2) stable; urgency=medium
 
   * Initial release. Thank you to Allan Barcelos for the groundwork the
     plugin is based on.

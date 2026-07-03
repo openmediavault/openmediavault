@@ -4,6 +4,7 @@ data:
   name: omv-tfatotp-form-page
   type: formPage
   config:
+    id: tfatotp
     request:
       service: Session
       post:
