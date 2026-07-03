@@ -180,12 +180,7 @@ const routes: Routes = [
     component: AuthenticationLayoutComponent,
     canActivate: [UnauthenticatedGuardService],
     canActivateChild: [UnauthenticatedGuardService],
-    children: [
-      {
-        path: 'test',
-        component: BlankPageComponent
-      }
-    ]
+    children: []
   },
   { path: '**', redirectTo: '/404' }
 ];
