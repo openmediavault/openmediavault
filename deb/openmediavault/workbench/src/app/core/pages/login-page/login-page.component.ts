@@ -28,7 +28,7 @@ import {
 import { translate } from '~/app/i18n.helper';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
-import { AuthenticateResponse, AuthService } from '~/app/shared/services/auth.service';
+import { AuthenticationResponse, AuthService } from '~/app/shared/services/auth.service';
 import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { DialogService } from '~/app/shared/services/dialog.service';
 import { LocaleService } from '~/app/shared/services/locale.service';
@@ -104,13 +104,13 @@ export class LoginPageComponent implements OnInit {
   onLogin(buttonConfig: FormPageButtonConfig, values: Record<string, any>) {
     this.blockUiService.start(translate(gettext('Please wait ...')));
     this.authService
-      .authenticate(values.username, values.password)
+      .login(values.username, values.password)
       .pipe(
         finalize(() => {
           this.blockUiService.stop();
         })
       )
-      .subscribe((res: AuthenticateResponse) => {
+      .subscribe((res: AuthenticationResponse) => {
         if (res.status === 'authenticated') {
           const url = _.get(this.activatedRoute.snapshot.queryParams, 'returnUrl', '/dashboard');
           this.router.navigate([url]);
@@ -126,8 +126,8 @@ export class LoginPageComponent implements OnInit {
     this.router.navigate(['/reload']);
   }
 
-  private handleChallenge(authResponse: AuthenticateResponse) {
-    if (!authResponse.challenge) {
+  private handleChallenge(res: AuthenticationResponse) {
+    if (!res.challenge) {
       this.notificationService.show(
         NotificationType.error,
         gettext('Authentication'),
@@ -138,7 +138,7 @@ export class LoginPageComponent implements OnInit {
       return;
     }
 
-    if (!authResponse.challenge.redirecturl) {
+    if (!res.challenge.redirecturl) {
       this.notificationService.show(
         NotificationType.error,
         gettext('Authentication'),
@@ -149,7 +149,7 @@ export class LoginPageComponent implements OnInit {
       return;
     }
 
-    const challengeUrl: string = authResponse.challenge.redirecturl;
+    const challengeUrl: string = res.challenge.redirecturl;
 
     // Redirect MUST be root-relative to prevent open-redirect attacks and to
     // ensure the Angular router can navigate to it.

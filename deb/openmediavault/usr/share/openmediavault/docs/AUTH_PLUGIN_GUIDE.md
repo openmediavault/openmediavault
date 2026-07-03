@@ -8,7 +8,7 @@ The openmediavault authentication system now supports extensible authentication 
 
 ### 2-Step Login Flow
 
-1. **Authenticate** (Step 1): Client sends username/password
+1. **Login** (Step 1): Client sends username/password
    - Backend validates credentials
    - If challenge required, the in-progress login is stored server-side
      (bound to the PHP session cookie) and the challenge info is returned
@@ -23,7 +23,7 @@ The openmediavault authentication system now supports extensible authentication 
 
 ### RPC Methods
 
-#### `Session::authenticate(username, password)`
+#### `Session::login(username, password)`
 
 **Response:**
 ```php
@@ -54,7 +54,7 @@ The openmediavault authentication system now supports extensible authentication 
 **Response:**
 ```php
 {
-  "authenticated": true,
+  "status": "authenticated",
   "username": "...",
   "permissions": {...},
   "sessionid": "..."
@@ -94,7 +94,7 @@ This is the extension point where plugins verify challenge responses.
 ]
 ```
 
-Plugins can include any fields in the challenge returned from `authUser()`. The `Session::authenticate` 
+Plugins can include any fields in the challenge returned from `authUser()`. The `Session::login` 
 method will expose only `kind` and `redirecturl` to the client, while storing the full challenge 
 server-side for later verification.
 
@@ -138,7 +138,7 @@ class MyAuthMgmt extends \OMV\Rpc\ServiceAbstract
      * This method is called AFTER UserMgmt::authUser() returns successfully.
      * You can modify the response to add a challenge if needed.
      * 
-     * IMPORTANT: The Session::authenticate method will expose only 'kind' and
+     * IMPORTANT: The Session::login method will expose only 'kind' and
      * 'redirecturl' to the client. All other fields are stored server-side in
      * the PHP session and passed to verifyChallenge() via the 'challengedata'
      * parameter.
@@ -313,7 +313,7 @@ This will automatically inject your route into the `AuthenticationLayoutComponen
 
 - Stored server-side in the PHP session via `setPendingAuth()`, bound to the session cookie
 - Never exposed to the client (no token in the response body)
-- Expires after 5 minutes (fixed TTL from authenticate())
+- Expires after 5 minutes (fixed TTL from login())
 - Retrieved during verification via `getPendingAuth()`
 - Discarded once the session is fully authenticated
 - Contains:
@@ -331,7 +331,7 @@ This will automatically inject your route into the `AuthenticationLayoutComponen
 - Syslog all authentication attempts and failures
 - **Never expose sensitive data to clients**: TOTP secrets, recovery codes, risk scores,
   attempt tracking IDs, or internal-only metadata should only be in server-side challenge fields
-- The `Session::authenticate` method filters challenges using `array_pick_keys(['kind', 'redirecturl'])` 
+- The `Session::login` method filters challenges using `array_pick_keys(['kind', 'redirecturl'])` 
   to ensure only safe fields reach the client
 
 ### Best Practices
@@ -352,13 +352,13 @@ This will automatically inject your route into the `AuthenticationLayoutComponen
 ### Manual Test Flow
 
 ```bash
-# Step 1: Authenticate (store the session cookie in a cookie jar).
+# Step 1: Login (store the session cookie in a cookie jar).
 curl -X POST http://localhost/rpc.php \
   -c cookies.txt \
   -H "Content-Type: application/json" \
   -d '{
     "service": "Session",
-    "method": "authenticate",
+    "method": "login",
     "params": {"username": "admin", "password": "admin"}
   }'
 
@@ -386,32 +386,9 @@ curl -X POST http://localhost/rpc.php \
 
 # Response on success:
 {
-  "authenticated": true,
+  "status": "authenticated",
   "username": "admin",
   "permissions": {...},
   "sessionid": "..."
 }
 ```
-
----
-
-## Migration from Old Login
-
-`Session::login()` has been removed. Integrations should use
-`Session::authenticate()` and, where a challenge is returned,
-`Session::verify()`.
-
-### For existing clients:
-- Replace all calls to `Session::login()` with `Session::authenticate()`
-- Check the `status` field in the response
-- If `"authenticated"`, the session is established — proceed as before
-- If `"challengeRequired"`, redirect to `challenge.redirecturl` and call
-  `Session::verify()` after collecting the challenge response
-- If a challenge kind-specific UI is used, route by `challenge.kind`
-
-### For new clients:
-- Use `Session::authenticate()` first
-- Check response status
-- If `"authenticated"`, proceed
-- If `"challengeRequired"`, redirect to challenge URL
-- After challenge, call `Session::verify()`

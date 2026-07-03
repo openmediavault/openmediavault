@@ -1,6 +1,6 @@
 [{
 	"type": "rpc",
-	"id": "rpc.session.authenticate",
+	"id": "rpc.session.login",
 	"params": {
 		"type": "object",
 		"properties": {

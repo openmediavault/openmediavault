@@ -1,8 +1,8 @@
-openmediavault (8.5.0-1) stable; urgency=medium
+openmediavault (8.5.0-2) stable; urgency=medium
 
   * Issue #2235: Add a 2-step authentication plugin framework for
     the UI. Note, if you are using the API to log into the system,
-    the endpoint has been changed to Session::authenticate.
+    the response of the `Session::login` RPC has been changed.
   * Hardening the UI auto-logout feature.
   * Move Samba recycle VFS object to the end of the list.
 

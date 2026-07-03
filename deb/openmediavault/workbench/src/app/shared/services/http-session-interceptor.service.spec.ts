@@ -27,11 +27,11 @@ describe('HttpSessionInterceptorService', () => {
     expect(httpSessionInterceptorService).toBeTruthy();
   });
 
-  describe('Session.authenticate', () => {
+  describe('Session.login', () => {
     it('should set session when status is authenticated', (done) => {
       const request = new HttpRequest('POST', 'rpc.php', {
         service: 'Session',
-        method: 'authenticate',
+        method: 'login',
         params: { username: 'admin', password: 'secret' }
       });
 
@@ -59,7 +59,7 @@ describe('HttpSessionInterceptorService', () => {
     it('should NOT set session when status is challengeRequired', (done) => {
       const request = new HttpRequest('POST', 'rpc.php', {
         service: 'Session',
-        method: 'authenticate',
+        method: 'login',
         params: { username: 'admin', password: 'secret' }
       });
 
@@ -86,7 +86,7 @@ describe('HttpSessionInterceptorService', () => {
     it('should NOT set session when username is missing', (done) => {
       const request = new HttpRequest('POST', 'rpc.php', {
         service: 'Session',
-        method: 'authenticate'
+        method: 'login'
       });
 
       const response = new HttpResponse({
@@ -111,7 +111,7 @@ describe('HttpSessionInterceptorService', () => {
     it('should NOT set session when permissions are missing', (done) => {
       const request = new HttpRequest('POST', 'rpc.php', {
         service: 'Session',
-        method: 'authenticate'
+        method: 'login'
       });
 
       const response = new HttpResponse({
@@ -145,7 +145,7 @@ describe('HttpSessionInterceptorService', () => {
       const response = new HttpResponse({
         body: {
           response: {
-            authenticated: true,
+            status: 'authenticated',
             username: 'admin',
             permissions: { role: ['admin'] },
             sessionid: 'abc123'
@@ -172,7 +172,7 @@ describe('HttpSessionInterceptorService', () => {
       const response = new HttpResponse({
         body: {
           response: {
-            authenticated: true,
+            status: 'authenticated',
             permissions: { role: ['admin'] }
           }
         }
@@ -197,7 +197,7 @@ describe('HttpSessionInterceptorService', () => {
       const response = new HttpResponse({
         body: {
           response: {
-            authenticated: true,
+            status: 'authenticated',
             username: 'admin'
           }
         }

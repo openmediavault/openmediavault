@@ -24,20 +24,13 @@ import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { PrefersColorSchemeService } from '~/app/shared/services/prefers-color-scheme.service';
 import { RpcService } from '~/app/shared/services/rpc.service';
 
-export type SessionData = {
-  authenticated: boolean;
-  permissions: { [key: string]: any };
-  sessionid: string;
-  username: string;
-};
-
 export type ChallengeInfo = {
   [key: string]: any;
   kind: string;
   redirecturl?: string;
 };
 
-export type AuthenticateResponse = {
+export type AuthenticationResponse = {
   status: 'authenticated' | 'challengeRequired';
   username: string;
   sessionid?: string;
@@ -60,10 +53,10 @@ export class AuthService {
    * May return a challenge (e.g., MFA) that needs verification.
    *
    * Note: Session handling is now done automatically by HttpSessionInterceptorService,
-   * which intercepts all successful Session.authenticate HTTP responses.
+   * which intercepts all successful Session.login HTTP responses.
    */
-  authenticate(username: string, password: string): Observable<AuthenticateResponse> {
-    return this.rpcService.request('Session', 'authenticate', {
+  login(username: string, password: string): Observable<AuthenticationResponse> {
+    return this.rpcService.request('Session', 'login', {
       username,
       password
     });

@@ -37,13 +37,13 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract
      */
     final public function initialize()
     {
-        $this->registerMethod("authenticate");
+        $this->registerMethod("login");
         $this->registerMethod("verify");
         $this->registerMethod("logout");
     }
 
     /**
-     * Authenticate user (step 1 of 2-step login).
+     * Login user (step 1 of 2-step login).
      * @param params The method parameters containing the following fields:
      *   \em username The name of the user.
      *   \em password The password.
@@ -54,9 +54,9 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract
      *   \em username The authenticated username.
      *   \em permissions User permissions (only on 'authenticated').
      */
-    final public function authenticate($params, $context)
+    final public function login($params, $context)
     {
-        $this->validateMethodParams($params, "rpc.session.authenticate");
+        $this->validateMethodParams($params, "rpc.session.login");
 
         $server = new \OMV\SuperGlobalServer();
 
@@ -246,7 +246,7 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract
         $this->handleSuccessfulLogin($username, $server);
 
         return [
-            "authenticated" => true,
+            "status" => "authenticated",
             "username" => $username,
             "permissions" => $permissions,
             "sessionid" => $sessionId

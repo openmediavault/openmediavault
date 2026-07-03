@@ -27,7 +27,7 @@ import * as _ from 'lodash';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-import { AuthenticateResponse } from '~/app/shared/services/auth.service';
+import { AuthenticationResponse } from '~/app/shared/services/auth.service';
 import { AuthSessionService } from '~/app/shared/services/auth-session.service';
 import { RpcResponse } from '~/app/shared/services/rpc.service';
 
@@ -35,7 +35,7 @@ import { RpcResponse } from '~/app/shared/services/rpc.service';
  * HTTP interceptor that automatically manages session state for Session RPC calls.
  *
  * Handles:
- * - Session.authenticate: Sets session when status is 'authenticated'.
+ * - Session.login: Sets session when status is 'authenticated'.
  * - Session.verify: Sets session after successful MFA verification.
  * - Session.logout: Revokes session.
  */
@@ -76,7 +76,7 @@ export class HttpSessionInterceptorService implements HttpInterceptor {
       return;
     }
 
-    if (!['authenticate', 'verify', 'logout'].includes(body.method)) {
+    if (!['login', 'verify', 'logout'].includes(body.method)) {
       return;
     }
 
@@ -84,7 +84,7 @@ export class HttpSessionInterceptorService implements HttpInterceptor {
       case 'logout':
         this.handleLogoutResponse();
         break;
-      case 'authenticate':
+      case 'login':
       case 'verify':
         this.handleSessionResponse(body.method, response);
         break;
@@ -100,31 +100,28 @@ export class HttpSessionInterceptorService implements HttpInterceptor {
   }
 
   /**
-   * Handle Session.authenticate and Session.verify responses.
+   * Handle Session.login and Session.verify responses.
    */
-  private handleSessionResponse(
-    method: 'authenticate' | 'verify',
-    response: HttpResponse<any>
-  ): void {
+  private handleSessionResponse(method: 'login' | 'verify', response: HttpResponse<any>): void {
     const responseBody = response.body as RpcResponse;
     if (!_.isPlainObject(responseBody) || !_.isPlainObject(responseBody.response)) {
       return;
     }
 
-    const rpcResponse = responseBody.response as AuthenticateResponse;
-    if (method === 'authenticate') {
-      this.handleAuthenticateResponse(rpcResponse);
+    const rpcResponse = responseBody.response as AuthenticationResponse;
+    if (method === 'login') {
+      this.handleLoginResponse(rpcResponse);
     } else {
       this.handleVerifyResponse(rpcResponse);
     }
   }
 
   /**
-   * Handle 'Session.authenticate' response.
+   * Handle 'Session.login' response.
    * Only set session if status is explicitly 'authenticated' (not 'challengeRequired').
    * Validates that username is a string and permissions is a valid object.
    */
-  private handleAuthenticateResponse(response: AuthenticateResponse): void {
+  private handleLoginResponse(response: AuthenticationResponse): void {
     if (response.status !== 'authenticated') {
       return;
     }
@@ -139,7 +136,11 @@ export class HttpSessionInterceptorService implements HttpInterceptor {
    * Always set session if response contains valid username and permissions.
    * This indicates successful completion of the authentication flow (including MFA).
    */
-  private handleVerifyResponse(response: AuthenticateResponse): void {
+  private handleVerifyResponse(response: AuthenticationResponse): void {
+    if (response.status !== 'authenticated') {
+      return;
+    }
+
     if (_.isString(response.username) && _.isPlainObject(response.permissions)) {
       this.authSessionService.set(response.username, response.permissions);
     }
