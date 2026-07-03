@@ -25,33 +25,33 @@ let translocoService: TranslocoService;
  */
 export enum SupportedLocales {
   /* eslint-disable @typescript-eslint/naming-convention */
-  'ar_SA' = 'العربية', // Arabic
-  'bg_BG' = '​Български', // Bulgarian
-  'ca_ES' = 'Catalán', // Catalan
-  'cs_CZ' = 'Čeština', // Czech
-  'da_DA' = 'Dansk', // Danish
-  'de_DE' = 'Deutsch', // German
-  'el_GR' = 'ελληνικά', // Greek
-  'en_GB' = 'English', // English
-  'es_ES' = 'Español', // Spanish
-  'fr_FR' = 'Français', // French
-  'gl_ES' = 'Galego', // Galician
-  'hu_HU' = 'Magyar', // Hungarian
-  'it_IT' = 'Italiano', // Italian
-  'ja_JP' = '日本語', // Japanese (Japan)
-  'ko_KR' = '한국어', // Korean
-  'nl_NL' = 'Nederlands', // Dutch
-  'no_NO' = 'Norsk', // Norwegian
-  'pl_PL' = 'Polski', // Polish
-  'pt_PT' = 'Português', // Portuguese
-  'ru_RU' = 'Русский', // Russian
-  'sl_SI' = 'Slovenski', // Slovenian
-  'sv_SE' = 'Svenska', // Swedish
-  'tr_TR' = 'Türkçe', // Turkish
-  'uk_UK' = 'Українська', // Ukrainian
-  'zh_CN' = '简体中文', // Chinese (Simplified Chinese)
-  'zh_TW' = '繁體中文', // Chinese (Taiwan)
-  'vi_VN' = 'Tiếng Việt' // Vietnamese
+  ar_SA = 'العربية', // Arabic
+  bg_BG = '​Български', // Bulgarian
+  ca_ES = 'Catalán', // Catalan
+  cs_CZ = 'Čeština', // Czech
+  da_DA = 'Dansk', // Danish
+  de_DE = 'Deutsch', // German
+  el_GR = 'ελληνικά', // Greek
+  en_GB = 'English', // English
+  es_ES = 'Español', // Spanish
+  fr_FR = 'Français', // French
+  gl_ES = 'Galego', // Galician
+  hu_HU = 'Magyar', // Hungarian
+  it_IT = 'Italiano', // Italian
+  ja_JP = '日本語', // Japanese (Japan)
+  ko_KR = '한국어', // Korean
+  nl_NL = 'Nederlands', // Dutch
+  no_NO = 'Norsk', // Norwegian
+  pl_PL = 'Polski', // Polish
+  pt_PT = 'Português', // Portuguese
+  ru_RU = 'Русский', // Russian
+  sl_SI = 'Slovenski', // Slovenian
+  sv_SE = 'Svenska', // Swedish
+  tr_TR = 'Türkçe', // Turkish
+  uk_UK = 'Українська', // Ukrainian
+  zh_CN = '简体中文', // Chinese (Simplified Chinese)
+  zh_TW = '繁體中文', // Chinese (Taiwan)
+  vi_VN = 'Tiếng Việt' // Vietnamese
   /* eslint-enable @typescript-eslint/naming-convention */
 }
 
