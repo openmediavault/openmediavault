@@ -1886,7 +1886,7 @@ msgid "Logout"
 msgstr "Afmelden"
 
 msgid "Logs"
-msgstr "Logboekbestanden"
+msgstr "Logboeken"
 
 msgid "Long self-test"
 msgstr "Lange zelftest"

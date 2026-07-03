@@ -1371,7 +1371,7 @@ msgid "Force a specific MAC address on this interface."
 msgstr "Forcer une adresse MAC spécifique sur cette interface."
 
 msgid "Force secure connection only."
-msgstr "Forcer les connections sécurisées."
+msgstr "Forcer les connexions sécurisées."
 
 msgid "Forum"
 msgstr "Forum"

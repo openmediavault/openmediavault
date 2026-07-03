@@ -4,8 +4,8 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Giovanni Scafora <scafora.giovanni@gmail.com>, 2026
 # Roberto Bellingeri <bellingeri@netguru.it>, 2026
+# Giovanni Scafora <scafora.giovanni@gmail.com>, 2026
 # 
 #, fuzzy
 msgid ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-26 09:35+0200\n"
 "PO-Revision-Date: 2026-06-26 17:34+0000\n"
-"Last-Translator: Roberto Bellingeri <bellingeri@netguru.it>, 2026\n"
+"Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2026\n"
 "Language-Team: Italian (https://app.transifex.com/openmediavault/teams/14254/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,22 +23,22 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "2FA TOTP"
-msgstr ""
+msgstr "2FA TOTP"
 
 msgid "Disable"
-msgstr ""
+msgstr "Disabilita"
 
 msgid "Disable 2FA TOTP"
-msgstr ""
+msgstr "Disabilita 2FA TOTP"
 
 msgid "Edit"
 msgstr "Modifica"
 
 msgid "Enable"
-msgstr ""
+msgstr "Abilita"
 
 msgid "Enable 2FA TOTP"
-msgstr ""
+msgstr "Abilita 2FA TOTP"
 
 msgid "Enabled"
 msgstr "Abilitato"
@@ -47,7 +47,7 @@ msgid "Name"
 msgstr "Nome"
 
 msgid "QR code"
-msgstr ""
+msgstr "Codice QR"
 
 msgid ""
 "Scan the QR code below with your authenticator app (Google Authenticator, "
@@ -55,12 +55,17 @@ msgid ""
 "manually. Once your authenticator app is configured, enter the 6-digit code "
 "it shows to confirm the setup."
 msgstr ""
+"Scansiona il codice QR riportato di seguito con la tua app di autenticazione"
+" (Google Authenticator, Authy, ecc.). Se la tua app non supporta i codici "
+"QR, inserisci manualmente la chiave segreta. Dopo aver configurato l'app di "
+"autenticazione, inserisci il codice a 6 cifre visualizzato per confermare la"
+" configurazione."
 
 msgid "Secret"
-msgstr ""
+msgstr "Chiave segreta"
 
 msgid "Two-Factor Authentication"
-msgstr ""
+msgstr "Autenticazione a due fattori"
 
 msgid ""
 "Two-factor authentication (2FA) with TOTP adds an extra layer of security by"
@@ -68,12 +73,16 @@ msgid ""
 "addition to your password. You can enable or disable TOTP for your account "
 "here."
 msgstr ""
+"L'autenticazione a due fattori (2FA) con TOTP aggiunge un ulteriore livello "
+"di sicurezza richiedendo, oltre alla password, un codice temporaneo generato"
+" dall'app di autenticazione. Da qui puoi abilitare o disabilitare TOTP per "
+"il tuo account."
 
 msgid "Updated 2FA TOTP."
-msgstr ""
+msgstr "2FA TOTP è stato aggiornato."
 
 msgid "User name"
 msgstr "Nome utente"
 
 msgid "Verification code"
-msgstr ""
+msgstr "Codice di verifica"

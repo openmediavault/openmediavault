@@ -22,22 +22,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "2FA TOTP"
-msgstr ""
+msgstr "2FA-TOTP"
 
 msgid "Disable"
-msgstr ""
+msgstr "Uitschakelen"
 
 msgid "Disable 2FA TOTP"
-msgstr ""
+msgstr "2FA-TOTP uitschakelen"
 
 msgid "Edit"
 msgstr "Bewerken"
 
 msgid "Enable"
-msgstr ""
+msgstr "Inschakelen"
 
 msgid "Enable 2FA TOTP"
-msgstr ""
+msgstr "2FA-TOTP inschakelen"
 
 msgid "Enabled"
 msgstr "Ingeschakeld"
@@ -46,7 +46,7 @@ msgid "Name"
 msgstr "Naam"
 
 msgid "QR code"
-msgstr ""
+msgstr "QR-code"
 
 msgid ""
 "Scan the QR code below with your authenticator app (Google Authenticator, "
@@ -54,12 +54,16 @@ msgid ""
 "manually. Once your authenticator app is configured, enter the 6-digit code "
 "it shows to confirm the setup."
 msgstr ""
+"Scan onderstaande QR-code met uw authenticator app (Authenticator, Authy, "
+"etc). Als uw app geen QR-codes ondersteunt, voert u de geheime sleutel "
+"handmatig in. Zodra uw authenticator-app is geconfigureerd, voert u de "
+"6-cijferige code in die wordt weergegeven om de installatie te bevestigen."
 
 msgid "Secret"
-msgstr ""
+msgstr "Geheim"
 
 msgid "Two-Factor Authentication"
-msgstr ""
+msgstr "Tweefactorauthenticatie "
 
 msgid ""
 "Two-factor authentication (2FA) with TOTP adds an extra layer of security by"
@@ -67,12 +71,16 @@ msgid ""
 "addition to your password. You can enable or disable TOTP for your account "
 "here."
 msgstr ""
+"Tweefactorauthenticatie (2FA) met TOTP voegt een extra beveiligingslaag toe "
+"door naast uw wachtwoord een op tijd gebaseerde eenmalige code van uw "
+"authenticator-app te vereisen. Hier kunt u TOTP voor uw account in - of "
+"uitschakelen."
 
 msgid "Updated 2FA TOTP."
-msgstr ""
+msgstr "2FA-TOTP bijgewerkt."
 
 msgid "User name"
 msgstr "Gebruikersnaam"
 
 msgid "Verification code"
-msgstr ""
+msgstr "Verificatiecode"

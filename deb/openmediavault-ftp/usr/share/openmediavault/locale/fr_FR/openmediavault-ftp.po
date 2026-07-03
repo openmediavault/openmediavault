@@ -312,7 +312,7 @@ msgid "Shares"
 msgstr "Partages"
 
 msgid "Special action flag"
-msgstr ""
+msgstr "Indicateurs d'action spéciale"
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
