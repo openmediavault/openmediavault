@@ -1,5 +1,6 @@
 openmediavault-2fa-totp (8.0-1) stable; urgency=medium
 
-  * Initial release.
+  * Initial release. Thank you to Allan Barcelos for the groundwork the
+    plugin is based on.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 19 Jun 2026 05:38:47 +0200
