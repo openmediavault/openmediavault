@@ -1,4 +1,4 @@
-openmediavault (8.5.0-2) stable; urgency=medium
+openmediavault (8.5.0-3) stable; urgency=medium
 
   * Issue #2235: Add a 2-step authentication plugin framework for
     the UI. Note, if you are using the API to log into the system,

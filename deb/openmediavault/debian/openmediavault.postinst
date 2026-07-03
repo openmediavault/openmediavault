@@ -683,6 +683,7 @@ case "$1" in
 			omv_module_set_dirty avahi
 		fi
 		if dpkg --compare-versions "$2" lt-nl "8.5.0"; then
+			deb-systemd-invoke restart php8.4-fpm.service || :
 			omv_module_set_dirty samba
 		fi
 
