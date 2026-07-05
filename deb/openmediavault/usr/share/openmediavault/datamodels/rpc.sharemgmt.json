@@ -11,6 +11,7 @@
 			},
 			"name": {
 				"type": "string",
+				"format": "username",
 				"required": true
 			},
 			"reldirpath": {
@@ -68,6 +69,7 @@
 					"properties": {
 						"name": {
 							"type": "string",
+							"format": "username",
 							"required": true
 						},
 						"perms": {
@@ -98,6 +100,7 @@
 			},
 			"name": {
 				"type": "string",
+				"format": "username",
 				"required": true
 			}
 		}
@@ -196,10 +199,12 @@
 			},
 			"owner": {
 			    "type": "string",
+				"format": "username",
 				"required": false
 			},
 			"group": {
-			    "type": "string",
+				"type": "string",
+				"format": "username",
 				"required": false
 			},
 			"userperms": {
@@ -223,9 +228,10 @@
 			        "type": "object",
 			        "properties": {
 			            "name": {
-			                "type": "string",
+							"type": "string",
+							"format": "username",
 							"required": true
-			            },
+						},
 			            "perms": {
 			                "type": "integer",
 			                "enum": [ 0, 1, 2, 3, 4, 5, 6, 7 ],
@@ -240,9 +246,10 @@
 			        "type": "object",
 			        "properties": {
 			            "name": {
-			                "type": "string",
+							"type": "string",
+							"format": "username",
 							"required": true
-			            },
+						},
 			            "perms": {
 			                "type": "integer",
 			                "enum": [ 0, 1, 2, 3, 4, 5, 6, 7 ],

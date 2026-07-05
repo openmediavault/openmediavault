@@ -403,6 +403,54 @@ class SchemaTestCase(unittest.TestCase):
             )
         )
 
+    def test_check_format_username_1(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format("john", {"format": "username"}, "field1")
+
+    def test_check_format_username_2(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format("john.doe", {"format": "username"}, "field1")
+
+    def test_check_format_username_3(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format("_apt", {"format": "username"}, "field1")
+
+    def test_check_format_username_4(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format("john123", {"format": "username"}, "field1")
+
+    def test_check_format_username_5(self):
+        # Samba machine accounts end with '$'.
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format("john$", {"format": "username"}, "field1")
+
+    def test_check_format_username_fail_1(self):
+        schema = openmediavault.datamodel.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "john doe", {"format": "username"}, "field1"
+            )
+        )
+
+    def test_check_format_username_fail_2(self):
+        schema = openmediavault.datamodel.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "-john", {"format": "username"}, "field1"
+            )
+        )
+
+    def test_check_format_username_fail_3(self):
+        schema = openmediavault.datamodel.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "john!", {"format": "username"}, "field1"
+            )
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

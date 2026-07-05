@@ -34,9 +34,10 @@ import { ConstraintService } from '~/app/shared/services/constraint.service';
 
 const regExp = {
   /* eslint-disable max-len */
-  // Taken from Debian adduser command.
-  userName: /^[_.A-Za-z0-9][-\@_.A-Za-z0-9]*\$?$/,
-  groupName: /^[a-zA-Z0-9\-\.]+$/,
+  // Regular expression is taken from Debian tools.
+  // - https://github.com/shadow-maint/shadow/blob/55e75ec6b2f8878c6c269570a4470730092c1b39/lib/chkname.c#L52
+  // - https://salsa.debian.org/debian/adduser/-/blob/debian/latest/adduser.conf?ref_type=heads#L88
+  userName: /^[a-zA-Z0-9_.][a-zA-Z0-9_.-]*\$?$/,
   // We are using the SMB/CIFS file/directory naming convention for this:
   // All characters are legal in the basename and extension except the
   // space character (0x20) and:
@@ -266,7 +267,7 @@ export class CustomValidators {
       case 'userName':
         return CustomValidators.pattern(regExp.userName, gettext('Invalid user name.'));
       case 'groupName':
-        return CustomValidators.pattern(regExp.groupName, gettext('Invalid group name.'));
+        return CustomValidators.pattern(regExp.userName, gettext('Invalid group name.'));
       case 'shareName':
         return CustomValidators.pattern(
           regExp.shareName,

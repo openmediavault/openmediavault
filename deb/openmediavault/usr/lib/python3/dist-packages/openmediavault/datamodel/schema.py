@@ -145,7 +145,10 @@ class Schema(openmediavault.json.Schema):
                         name, "The value '%s' is not a valid share name." % value
                     ) from None
             elif "username" == schema['format']:
-                if not re.match(r'^[_.A-Za-z0-9][-\@_.A-Za-z0-9]*\$?$', value):
+                # Regular expression is taken from Debian tools.
+                # - https://github.com/shadow-maint/shadow/blob/55e75ec6b2f8878c6c269570a4470730092c1b39/lib/chkname.c#L52
+                # - https://salsa.debian.org/debian/adduser/-/blob/debian/latest/adduser.conf?ref_type=heads#L88
+                if not re.match(r'^[a-zA-Z0-9_.][a-zA-Z0-9_.-]*\$?$', value):
                     raise openmediavault.json.SchemaValidationException(
                         name, "The value '%s' is not a valid user name." % value
                     )

@@ -146,9 +146,11 @@ class Schema extends \OMV\Json\Schema
                     }
                     break;
                 case "username":
-                    // Regular expression taken from Debian adduser.
+                    // Regular expression is taken from Debian tools.
+                    // - https://github.com/shadow-maint/shadow/blob/55e75ec6b2f8878c6c269570a4470730092c1b39/lib/chkname.c#L52
+                    // - https://salsa.debian.org/debian/adduser/-/blob/debian/latest/adduser.conf?ref_type=heads#L88
                     if (!preg_match(
-                        '/^[_.A-Za-z0-9][-\@_.A-Za-z0-9]*\$?$/',
+                        '/^[a-zA-Z0-9_.][a-zA-Z0-9_.-]*\$?$/',
                         $value
                     )) {
                         throw new \OMV\Json\SchemaValidationException(

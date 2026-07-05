@@ -555,6 +555,105 @@ class test_openmediavault_datamodel_schema extends \PHPUnit\Framework\TestCase
     /**
      * @doesNotPerformAssertions
      */
+    public function testCheckFormatUsername1()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat(
+            "john",
+            [ "format" => "username" ],
+            "field1"
+        );
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testCheckFormatUsername2()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat(
+            "john.doe",
+            [ "format" => "username" ],
+            "field1"
+        );
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testCheckFormatUsername3()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat(
+            "_ssh",
+            [ "format" => "username" ],
+            "field1"
+        );
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testCheckFormatUsername4()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat(
+            "john123",
+            [ "format" => "username" ],
+            "field1"
+        );
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testCheckFormatUsername5()
+    {
+        // Samba machine accounts end with '$'.
+        $schema = $this->getSchema();
+        $schema->checkFormat(
+            "john$",
+            [ "format" => "username" ],
+            "field1"
+        );
+    }
+
+    public function testCheckFormatUsernameFail1()
+    {
+        $schema = $this->getSchema();
+        $this->expectException(\OMV\Json\SchemaValidationException::class);
+        $schema->checkFormat(
+            "john doe",
+            [ "format" => "username" ],
+            "field1"
+        );
+    }
+
+    public function testCheckFormatUsernameFail2()
+    {
+        $schema = $this->getSchema();
+        $this->expectException(\OMV\Json\SchemaValidationException::class);
+        $schema->checkFormat(
+            "-john",
+            [ "format" => "username" ],
+            "field1"
+        );
+    }
+
+    public function testCheckFormatUsernameFail3()
+    {
+        $schema = $this->getSchema();
+        $this->expectException(\OMV\Json\SchemaValidationException::class);
+        $schema->checkFormat(
+            "john!",
+            [ "format" => "username" ],
+            "field1"
+        );
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testCheckFormatNoMultiLine1()
     {
         $schema = $this->getSchema();

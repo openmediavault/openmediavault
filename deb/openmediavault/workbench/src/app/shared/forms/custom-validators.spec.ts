@@ -450,6 +450,92 @@ describe('CustomValidators', () => {
       });
     });
 
+    describe('userName', () => {
+      let validator: ValidatorFn;
+
+      beforeEach(() => {
+        validator = CustomValidators.patternType('userName');
+      });
+
+      it('should validate userName [1]', () => {
+        formControl.setValue('john');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should validate userName [2]', () => {
+        formControl.setValue('john.doe');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should validate userName [3]', () => {
+        formControl.setValue('_apt');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should validate userName [4]', () => {
+        formControl.setValue('john123');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should validate userName [5] (Samba machine account)', () => {
+        formControl.setValue('john$');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should not validate userName [1] (space)', () => {
+        formControl.setValue('john doe');
+        expect(validator(formControl)).toEqual({ pattern: 'Invalid user name.' });
+      });
+
+      it('should not validate userName [2] (leading hyphen)', () => {
+        formControl.setValue('-john');
+        expect(validator(formControl)).toEqual({ pattern: 'Invalid user name.' });
+      });
+
+      it('should not validate userName [3] (special char)', () => {
+        formControl.setValue('john!');
+        expect(validator(formControl)).toEqual({ pattern: 'Invalid user name.' });
+      });
+    });
+
+    describe('groupName', () => {
+      let validator: ValidatorFn;
+
+      beforeEach(() => {
+        validator = CustomValidators.patternType('groupName');
+      });
+
+      it('should validate groupName [1]', () => {
+        formControl.setValue('docker-users');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should validate groupName [2]', () => {
+        formControl.setValue('mygroup');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should validate groupName [3]', () => {
+        formControl.setValue('my.group');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should validate groupName [4]', () => {
+        formControl.setValue('_ssh');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should not validate groupName [1] (space)', () => {
+        formControl.setValue('docker users');
+        expect(validator(formControl)).toEqual({ pattern: 'Invalid group name.' });
+      });
+
+      it('should not validate groupName [2] (at sign)', () => {
+        formControl.setValue('@group');
+        expect(validator(formControl)).toEqual({ pattern: 'Invalid group name.' });
+      });
+    });
+
     describe('netbiosName', () => {
       let validator: ValidatorFn;
 
