@@ -12,6 +12,7 @@ Please include the following information in your report:
 * Steps to reproduce the issue.
 * Affected versions, packages, or components.
 * Any mitigation ideas or patches you may already have.
+* AI-assisted reports are acceptable only if they are human-verified, technically accurate, and reproducible.
 * A valid reporter name that can be used for attribution.
 * Explicit consent that this reporter name may be used for acknowledgements in commits and changelogs.
 
