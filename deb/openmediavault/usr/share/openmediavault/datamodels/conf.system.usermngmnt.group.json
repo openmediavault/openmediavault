@@ -13,7 +13,8 @@
 			"format": "uuidv4"
 		},
 		"name": {
-			"type": "string"
+			"type": "string",
+			"format": "username"
 		},
 		"comment": {
 			"type": "string"
