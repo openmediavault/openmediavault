@@ -395,27 +395,28 @@ class User
     {
         // Use the PAM module to authenticate the user if possible,
         // otherwise use a fallback.
-        if (true === extension_loaded("pam")) {
-            return pam_auth($this->getName(), $password);
-        } else {
-            // Use the following python code to authenticate the user
-            // via PAM.
-            // The code requires the python3-pam Debian package.
-            $cmd = new \OMV\System\Process("python3", sprintf(
-                "<<'END'\n".
-              "import pam\n".
-              "import sys\n".
-              "pam = pam.pam()\n".
-              "pam.authenticate(%s, %s, 'openmediavault')\n".
-              "sys.exit(pam.code)\n".
-              "END",
-                escapeshellarg($this->getName()),
-                escapeshellarg($password)
-            ));
-            $cmd->setQuiet(true);
-            $cmd->execute($output, $exitStatus);
-            return (0 == $exitStatus);
-        }
+        // if (true === extension_loaded("pam")) {
+        //     return pam_auth($this->getName(), $password);
+        // } else {
+        //     // Use the following python code to authenticate the user
+        //     // via PAM.
+        //     // The code requires the python3-pam Debian package.
+        //     $cmd = new \OMV\System\Process("python3", sprintf(
+        //         "<<'END'\n".
+        //       "import pam\n".
+        //       "import sys\n".
+        //       "pam = pam.pam()\n".
+        //       "pam.authenticate(%s, %s, 'openmediavault')\n".
+        //       "sys.exit(pam.code)\n".
+        //       "END",
+        //         escapeshellarg($this->getName()),
+        //         escapeshellarg($password)
+        //     ));
+        //     $cmd->setQuiet(true);
+        //     $cmd->execute($output, $exitStatus);
+        //     return (0 == $exitStatus);
+        // }
+        return pam_auth($this->getName(), $password);
     }
 
     /**
