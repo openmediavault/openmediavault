@@ -402,7 +402,7 @@ class User
             // via PAM.
             // The code requires the python3-pam Debian package.
             $cmd = new \OMV\System\Process("python3", sprintf(
-                "<<END\n".
+                "<<'END'\n".
               "import pam\n".
               "import sys\n".
               "pam = pam.pam()\n".
