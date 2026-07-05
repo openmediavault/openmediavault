@@ -1,6 +1,7 @@
 openmediavault (8.5.1-1) stable; urgency=medium
 
-  * Improve the validation of user management related RPC requests.
+  * Improve the validation of RPC requests related to the management
+    of shared folders.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 05 Jul 2026 09:52:01 +0200
 
