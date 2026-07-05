@@ -29,18 +29,21 @@ import openmediavault
 
 class ConfigObjectTestCase(unittest.TestCase):
     def test_constructor(self):
-        conf_obj = openmediavault.config.Object("conf.service.ftp.share")
+        conf_obj = openmediavault.config.Object("conf.service.ssh")
 
     def test_get_defaults(self):
-        conf_obj = openmediavault.config.Object("conf.service.ftp.share")
+        conf_obj = openmediavault.config.Object("conf.service.ssh")
         defaults = conf_obj.get_defaults()
         self.assertEqual(
             defaults,
             {
-                'comment': '',
                 'enable': False,
-                'uuid': 'fa4b1c66-ef79-11e5-87a0-0002b3a176b4',
-                'sharedfolderref': '',
+                'port': 22,
+                'passwordauthentication': True,
+                'pubkeyauthentication': True,
+                'permitrootlogin': True,
+                'tcpforwarding': False,
+                'compression': False,
                 'extraoptions': '',
             },
         )
@@ -52,9 +55,9 @@ class ConfigObjectTestCase(unittest.TestCase):
         self.assertEqual(conf_obj.get("modules.module"), [])
 
     def test_set_get_1(self):
-        conf_obj = openmediavault.config.Object("conf.service.ftp.share")
-        conf_obj.set("comment", "test")
-        self.assertEqual(conf_obj.get("comment"), "test")
+        conf_obj = openmediavault.config.Object("conf.service.ssh")
+        conf_obj.set("extraoptions", "test")
+        self.assertEqual(conf_obj.get("extraoptions"), "test")
 
     def test_set_get_2(self):
         conf_obj = openmediavault.config.Object("conf.system.time")
@@ -72,12 +75,12 @@ class ConfigObjectTestCase(unittest.TestCase):
         self.assertEqual(conf_obj.get("privileges.privilege"), [])
 
     def test_set_dict(self):
-        conf_obj = openmediavault.config.Object("conf.service.ftp.share")
-        conf_obj.set_dict({"comment": "test", "enable": True})
+        conf_obj = openmediavault.config.Object("conf.service.ssh")
+        conf_obj.set_dict({"extraoptions": "test", "enable": True})
         self.assertTrue(conf_obj.get("enable"))
-        self.assertEqual(conf_obj.get("comment"), "test")
-        self.assertIsNotNone(conf_obj.get("extraoptions"))
-        self.assertEqual(conf_obj.get("extraoptions"), "")
+        self.assertEqual(conf_obj.get("extraoptions"), "test")
+        self.assertIsNotNone(conf_obj.get("port"))
+        self.assertEqual(conf_obj.get("port"), 22)
 
     def test_get_dict_returns_deepcopy(self):
         conf_obj = openmediavault.config.object.Object.__new__(
@@ -105,13 +108,13 @@ class ConfigObjectTestCase(unittest.TestCase):
         self.assertFalse(conf_obj.properties["ntp.enable"])
 
     def test_is_empty(self):
-        conf_obj = openmediavault.config.Object("conf.service.ftp.share")
-        self.assertTrue(conf_obj.is_empty("comment"))
+        conf_obj = openmediavault.config.Object("conf.service.ssh")
+        self.assertTrue(conf_obj.is_empty("extraoptions"))
 
     def test_not_is_empty(self):
-        conf_obj = openmediavault.config.Object("conf.service.ftp.share")
-        conf_obj.set("comment", "test")
-        self.assertFalse(conf_obj.is_empty("comment"))
+        conf_obj = openmediavault.config.Object("conf.service.ssh")
+        conf_obj.set("extraoptions", "test")
+        self.assertFalse(conf_obj.is_empty("extraoptions"))
 
     def test_set_boolean_string_false(self):
         conf_obj = openmediavault.config.Object("conf.service.ssh")
