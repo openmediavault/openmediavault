@@ -204,8 +204,9 @@
 	        "members": {
 	            "type": "array",
 	            "items": {
-	                "type": "string"
-	            },
+					"type": "string",
+					"format": "username"
+				},
 				"required": true
 	        }
 		}
