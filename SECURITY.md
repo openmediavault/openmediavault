@@ -1,10 +1,18 @@
 # Reporting a security issue
 
-If you believe you have found a security issue in the openmediavault software, please contact us immediately.
+If you believe you have found a security issue in `openmediavault`, contact us at `security [at] openmediavault [dot] org`.
 
-When reporting a potential security problem, please bear this in mind:
+Please do not disclose security issues publicly until we publish a fix and announce a security release.
 
-* Make sure to provide as many details as possible about the vulnerability.
-* Please do not disclose publicly any security issues until we fix them and publish security releases.
+## Required information
 
-Contact the security team at security@openmediavault.org.
+Please include the following information in your report:
+
+* A clear description of the vulnerability and its potential impact.
+* Steps to reproduce the issue.
+* Affected versions, packages, or components.
+* Any mitigation ideas or patches you may already have.
+* A valid reporter name that can be used for attribution.
+* Explicit consent that this reporter name may be used for acknowledgements in commits and changelogs.
+
+Reports missing required information may delay triage and response.
