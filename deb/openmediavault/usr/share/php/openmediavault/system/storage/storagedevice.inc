@@ -305,6 +305,34 @@ class StorageDevice extends \OMV\System\BlockDevice implements StorageDeviceInte
     }
 
     /**
+     * Check whether the device still contains any signature, e.g. a
+     * partition table, a file system or a RAID/LVM/LUKS member signature.
+     * This detects signatures that are not reported by
+     * \OMV\System\Filesystem\Filesystem::getFilesystems(), e.g. ZFS pool
+     * members (`zfs_member`), LVM physical volumes (`LVM2_member`), Linux
+     * software RAID members (`linux_raid_member`) or LUKS containers
+     * (`crypto_LUKS`). A device without any signature is considered empty
+     * and can be used to create a new file system on it.
+     * @return boolean TRUE if the device contains at least one signature,
+     *   otherwise FALSE.
+     */
+    public function hasSignature(): bool
+    {
+        $cmdArgs = [];
+        $cmdArgs[] = "--parsable";
+        $cmdArgs[] = "--noheadings";
+        $cmdArgs[] = "--output type";
+        $cmdArgs[] = escapeshellarg($this->getDeviceFile());
+        $cmd = new \OMV\System\Process("wipefs", $cmdArgs);
+        $cmd->setQuiet(true);
+        $cmd->execute($output, $exitStatus);
+        if ($exitStatus !== 0) {
+            return false;
+        }
+        return !empty(array_filter($output, "strlen"));
+    }
+
+    /**
      * Get the device names of the partitions of this device.
      * @return array Returns an array of device names.
      */

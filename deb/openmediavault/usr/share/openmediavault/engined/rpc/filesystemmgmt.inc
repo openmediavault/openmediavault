@@ -630,6 +630,14 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract
             if (in_array($sd->getCanonicalDeviceFile(), $usedDevs)) {
                 continue;
             }
+            // Skip devices that are not empty, i.e. they still contain a
+            // partition table, a file system or a RAID/LVM/LUKS signature.
+            // This also covers signatures that are not reported by
+            // Filesystem::getFilesystems(), e.g. ZFS pool members. Such a
+            // device must be wiped before it can be reused. See issue #2106.
+            if ($sd->hasSignature()) {
+                continue;
+            }
             // The device is a potential candidate to create a file system
             // on it.
             $result[] = [
