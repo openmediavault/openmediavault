@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-30 21:52+0200\n"
+"POT-Creation-Date: 2026-07-09 20:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025-2026\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -277,6 +277,9 @@ msgstr "Samenvatting"
 msgid "Access control list"
 msgstr "Toegangscontrolelijst (ACL)"
 
+msgid "Account"
+msgstr ""
+
 msgid "Act as a WINS server."
 msgstr "Optreden als een WINS server."
 
@@ -382,6 +385,11 @@ msgid ""
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
 msgstr "Er is een poging gedaan om de test-e-mail te verzenden. Controleer uw mailbox. Als de e-mail niet aankomt, controleer dan de spammappen en controleer ook of er geen Postfix-gerelateerde fouten in het systeemlogboek staan."
+
+msgid ""
+"An authentication challenge was required but no challenge information was "
+"provided. Please contact your administrator."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
@@ -497,9 +505,6 @@ msgstr "B/G (2.4 GHz)"
 
 msgid "Back"
 msgstr "Terug"
-
-msgid "Background image"
-msgstr "Achtergrondafbeelding"
 
 msgid "Background task"
 msgstr "Achtergrondtaak"
@@ -653,9 +658,6 @@ msgstr "Certificaten"
 
 msgid "Chad"
 msgstr "Tsjaad"
-
-msgid "Change Password"
-msgstr "Wachtwoord wijzigen"
 
 msgid "Changelog"
 msgstr "Wijzigingslogboek"
@@ -1581,12 +1583,13 @@ msgid ""
 msgstr "Bij 'Gasten toegestaan' en er worden geen inloggegevens verstrekt, dan toegang als gast. Altijd toegang als gast wanneer 'Alleen gasten' is geselecteerd; in dit geval is er geen wachtwoord nodig om verbinding te maken met de share."
 
 msgid ""
-"If a device is not listed here, it is usually because the device already "
-"contains a file system or partitions. With the former, the file system can "
-"be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, "
-"please <a href='#/storage/disks'>wipe</a> the device as partitions are not "
-"supported."
-msgstr "Als een apparaat hier niet wordt vermeld, komt dat meestal omdat het apparaat al een bestandssysteem of partities bevat. In het eerste geval kan het bestandssysteem <a href='#/storage/filesystems/mount'>hier</a> worden aangekoppeld. In het tweede geval, <a href='#/storage/disks'>wis</a> het apparaat aangezien partities niet worden ondersteund."
+"If a device is not listed here, it is usually because the device is not "
+"empty, i.e. it already contains a file system, partitions or another "
+"signature such as a ZFS, LVM, Linux RAID or LUKS member. An existing file "
+"system can be mounted <a href='#/storage/filesystems/mount'>here</a>. "
+"Otherwise, please <a href='#/storage/disks'>wipe</a> the device to be able "
+"to reuse it."
+msgstr ""
 
 msgid ""
 "If set then the client will be prompted to supply a user name and password "
@@ -2613,6 +2616,9 @@ msgstr "Processor"
 msgid "Profile"
 msgstr "Profiel"
 
+msgid "Profile Settings"
+msgstr ""
+
 msgid "Protocol"
 msgstr "Protocol"
 
@@ -3234,6 +3240,9 @@ msgstr "Opslag"
 msgid "Store DOS attributes"
 msgstr "DOS-attributen opslaan"
 
+msgid "Submit"
+msgstr ""
+
 msgid "Success"
 msgstr "Succes"
 
@@ -3361,6 +3370,9 @@ msgstr "De SSH-publieke sleutel in OpenSSH- or RFC 4716-formaat."
 
 msgid "The action to be done when pressing the power button."
 msgstr "De actie die moet worden uitgevoerd bij het drukken van de aan/uit-knop."
+
+msgid "The authentication challenge URL is invalid."
+msgstr ""
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
@@ -3499,6 +3511,11 @@ msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
 msgstr "De opslagplaats wordt gecontroleerd op nieuwe, bijgewerkte of verwijderde pakketten."
+
+msgid ""
+"The requested authentication challenge is not supported by this browser "
+"interface. Please contact your administrator."
+msgstr ""
 
 msgid "The requested page was not found."
 msgstr "De opgevraagde pagina is niet gevonden."
@@ -4011,8 +4028,8 @@ msgstr "Instellingen voor Updatebeheer bijgewerkt."
 msgid "Updated user \"{{ name }}\"."
 msgstr "Gebruiker \"{{ name }}\" bijgewerkt."
 
-msgid "Updated user profile."
-msgstr "Gebruikersprofiel bijgewerkt."
+msgid "Updated user settings."
+msgstr ""
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
 msgstr "Bekabelde netwerkverbinding \"{{ devicename }}\" bijgewerkt."
@@ -4078,9 +4095,6 @@ msgstr "Gebruiker"
 
 msgid "User Management"
 msgstr "Gebruikersbeheer"
-
-msgid "User Settings"
-msgstr "Instellingen van de gebruiker"
 
 msgid "User home directory"
 msgstr "Thuismap van de gebruiker"
@@ -4243,9 +4257,6 @@ msgstr "U moet deze wijzigingen toepassen om ze van kracht te laten worden."
 
 msgid "You will be logged out due to inactivity in {{ n }} seconds."
 msgstr "U wordt over {{ n }} seconden afgemeld wegens inactiviteit."
-
-msgid "Your profile"
-msgstr "Uw profiel"
 
 msgid "Zambia"
 msgstr "Zambia"

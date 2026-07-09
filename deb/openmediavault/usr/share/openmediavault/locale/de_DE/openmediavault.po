@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-30 21:52+0200\n"
+"POT-Creation-Date: 2026-07-09 20:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2021-2026\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
@@ -282,6 +282,9 @@ msgstr "Abstrakt"
 msgid "Access control list"
 msgstr "Zugriffskontrollliste"
 
+msgid "Account"
+msgstr "Konto"
+
 msgid "Act as a WINS server."
 msgstr "Arbeite als WINS Server."
 
@@ -387,6 +390,11 @@ msgid ""
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
 msgstr "Es wurde versucht, die Test-E-Mail zu senden. Bitte überprüfen Sie Ihr Postfach. Wenn die E-Mail nicht eintrifft, überprüfen Sie alle Spam-Ordner und stellen Sie sicher, dass das Systemprotokoll keine Postfix-bezogenen Fehler enthält."
+
+msgid ""
+"An authentication challenge was required but no challenge information was "
+"provided. Please contact your administrator."
+msgstr "Es war eine Authentifizierungsabfrage erforderlich, jedoch wurden keine Informationen zur Abfrage bereitgestellt. Bitte wenden Sie sich an Ihren Administrator."
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
@@ -502,9 +510,6 @@ msgstr "B/G (2.4 GHz)"
 
 msgid "Back"
 msgstr "Zurück"
-
-msgid "Background image"
-msgstr "Hintergrundbild"
 
 msgid "Background task"
 msgstr "Hintergrundaufgabe"
@@ -658,9 +663,6 @@ msgstr "Zertifikate"
 
 msgid "Chad"
 msgstr "Tschad"
-
-msgid "Change Password"
-msgstr "Password ändern"
 
 msgid "Changelog"
 msgstr "Änderungen"
@@ -1586,12 +1588,13 @@ msgid ""
 msgstr "Wenn „Gäste erlaubt“ ausgewählt ist und keine Anmeldedaten bereitgestellt werden, dann als Gast zugreifen. Immer als Gast zugreifen, wenn „Nur Gäste“ ausgewählt ist; in diesem Fall ist kein Passwort erforderlich, um sich mit der Freigabe zu verbinden. "
 
 msgid ""
-"If a device is not listed here, it is usually because the device already "
-"contains a file system or partitions. With the former, the file system can "
-"be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, "
-"please <a href='#/storage/disks'>wipe</a> the device as partitions are not "
-"supported."
-msgstr "Wenn ein Gerät hier nicht aufgelistet wird, liegt das normalerweise daran, dass das Gerät bereits ein Dateisystem oder Partitionen enthält. Bei ersterem kann das Dateisystem <a href='#/storage/filesystems/mount'>hier</a>eingehängt werden. Bei letzterem <a href='#/storage/disks'>löschen</a> Sie das Gerät, da Partitionen nicht unterstützt werden."
+"If a device is not listed here, it is usually because the device is not "
+"empty, i.e. it already contains a file system, partitions or another "
+"signature such as a ZFS, LVM, Linux RAID or LUKS member. An existing file "
+"system can be mounted <a href='#/storage/filesystems/mount'>here</a>. "
+"Otherwise, please <a href='#/storage/disks'>wipe</a> the device to be able "
+"to reuse it."
+msgstr ""
 
 msgid ""
 "If set then the client will be prompted to supply a user name and password "
@@ -2618,6 +2621,9 @@ msgstr "Prozessor"
 msgid "Profile"
 msgstr "Profil"
 
+msgid "Profile Settings"
+msgstr "Profileinstellungen"
+
 msgid "Protocol"
 msgstr "Protokoll"
 
@@ -3239,6 +3245,9 @@ msgstr "Datenspeicher"
 msgid "Store DOS attributes"
 msgstr "DOS Attribute speichern"
 
+msgid "Submit"
+msgstr "Absenden"
+
 msgid "Success"
 msgstr "Erfolg"
 
@@ -3366,6 +3375,9 @@ msgstr "Der öffentliche SSH Schlüssel im OpenSSH oder RFC 4716 Format."
 
 msgid "The action to be done when pressing the power button."
 msgstr "Die Aktion die beim Drücken der Power-Taste durchgeführt wird."
+
+msgid "The authentication challenge URL is invalid."
+msgstr "Die URL für die Authentifizierungsanforderung ist ungültig."
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
@@ -3504,6 +3516,11 @@ msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
 msgstr "Das Repository wird auf neue, entfernte oder aktualisierte Softwarepakete überprüft."
+
+msgid ""
+"The requested authentication challenge is not supported by this browser "
+"interface. Please contact your administrator."
+msgstr "Die angeforderte Authentifizierungsaufgabe wird von dieser Browseroberfläche nicht unterstützt. Bitte wenden Sie sich an Ihren Administrator."
 
 msgid "The requested page was not found."
 msgstr "Die angeforderte Seite wurde nicht gefunden."
@@ -4016,8 +4033,8 @@ msgstr "Aktualisierungseinstellungen wurden aktualisiert."
 msgid "Updated user \"{{ name }}\"."
 msgstr "Benutzer \"{{ name }}\" wurde aktualisiert."
 
-msgid "Updated user profile."
-msgstr "Benutzerprofil wurde aktualisiert."
+msgid "Updated user settings."
+msgstr "Benutzereinstellungen wurden aktualisiert."
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
 msgstr "Kabelgebundene Netzwerkverbindung \"{{ devicename }}\" wurde aktualisiert."
@@ -4083,9 +4100,6 @@ msgstr "Benutzer"
 
 msgid "User Management"
 msgstr "Benutzerverwaltung"
-
-msgid "User Settings"
-msgstr "Benutzereinstellungen"
 
 msgid "User home directory"
 msgstr "Heimatverzeichnis des Benutzers"
@@ -4248,9 +4262,6 @@ msgstr "Sie müssen die Änderungen anwenden, damit diese wirksam werden."
 
 msgid "You will be logged out due to inactivity in {{ n }} seconds."
 msgstr "Sie werden aufgrund von Inaktivität in {{ n }} Sekunden abgemeldet."
-
-msgid "Your profile"
-msgstr "Dein Profil"
 
 msgid "Zambia"
 msgstr "Sambia"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-30 21:52+0200\n"
+"POT-Creation-Date: 2026-07-09 20:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2026\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -275,6 +275,9 @@ msgstr "Absztrakt"
 msgid "Access control list"
 msgstr "Hozzáférési ellenőrzési lista "
 
+msgid "Account"
+msgstr ""
+
 msgid "Act as a WINS server."
 msgstr "WINS szerverként való viselkedés"
 
@@ -380,6 +383,11 @@ msgid ""
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
 msgstr "Megkíséreltünk egy teszt emailt küldeni. Ellenőrizze az e-mail fiókját.  Ha az e-mail nem érkezett meg, nézzen meg minden spam mappát valamint ellenőrizze, hogy a rendszernaplóban nincsenek-e Postfixhez kapcsolódó hibaüzenetek."
+
+msgid ""
+"An authentication challenge was required but no challenge information was "
+"provided. Please contact your administrator."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
@@ -495,9 +503,6 @@ msgstr "B/G (2.4 GHz)"
 
 msgid "Back"
 msgstr "Vissza"
-
-msgid "Background image"
-msgstr "Háttérkép"
 
 msgid "Background task"
 msgstr "Háttérfeladat"
@@ -651,9 +656,6 @@ msgstr "Tanúsítványok"
 
 msgid "Chad"
 msgstr "Csád"
-
-msgid "Change Password"
-msgstr "Jelszó módosítása"
 
 msgid "Changelog"
 msgstr "Változások"
@@ -1579,12 +1581,13 @@ msgid ""
 msgstr "Ha az 'Engedélyezett vendégek' opció van kiválasztva és nem rendelkezik a bejelentkezéshez engedéllyel, akkor csak vendégként csatlakozhat. Vendégként mindig hozzáfér, ha a 'Csak vendég' opció van kiválasztva. Ebben az esetben nincs szükség jelszóra a megosztások eléréséhez."
 
 msgid ""
-"If a device is not listed here, it is usually because the device already "
-"contains a file system or partitions. With the former, the file system can "
-"be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, "
-"please <a href='#/storage/disks'>wipe</a> the device as partitions are not "
-"supported."
-msgstr "Ha egy eszköz nem szerepel itt, az általában azért van, mert az eszköz már tartalmaz fájlrendszert vagy partíciókat. Az előbbiek esetében a fájlrendszer <a href='#/storage/filesystems/mount'>itt csatolható</a>. Utóbbi esetében <a href='#/storage/disks'>törölje</a> az eszközt, mivel a partíciók nem támogatottak."
+"If a device is not listed here, it is usually because the device is not "
+"empty, i.e. it already contains a file system, partitions or another "
+"signature such as a ZFS, LVM, Linux RAID or LUKS member. An existing file "
+"system can be mounted <a href='#/storage/filesystems/mount'>here</a>. "
+"Otherwise, please <a href='#/storage/disks'>wipe</a> the device to be able "
+"to reuse it."
+msgstr ""
 
 msgid ""
 "If set then the client will be prompted to supply a user name and password "
@@ -2611,6 +2614,9 @@ msgstr "Processzor"
 msgid "Profile"
 msgstr "Profil"
 
+msgid "Profile Settings"
+msgstr ""
+
 msgid "Protocol"
 msgstr "Protokoll"
 
@@ -3232,6 +3238,9 @@ msgstr "Tárolás"
 msgid "Store DOS attributes"
 msgstr "DOS attribútumok tárolása"
 
+msgid "Submit"
+msgstr ""
+
 msgid "Success"
 msgstr "Sikeres"
 
@@ -3359,6 +3368,9 @@ msgstr "Az SSH nyilvános kulcs OpenSSH vagy RFC 4716 formátumban."
 
 msgid "The action to be done when pressing the power button."
 msgstr "Feladatok végrehajtása a bekapcsoló gomb megnyomásakor."
+
+msgid "The authentication challenge URL is invalid."
+msgstr ""
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
@@ -3497,6 +3509,11 @@ msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
 msgstr "A tároló ellenőrizve lesz az új, eltávolított, vagy frissített szoftverekért."
+
+msgid ""
+"The requested authentication challenge is not supported by this browser "
+"interface. Please contact your administrator."
+msgstr ""
 
 msgid "The requested page was not found."
 msgstr "A kért oldal nem található."
@@ -4009,8 +4026,8 @@ msgstr "Frissítéskezelési beállítások frissítve."
 msgid "Updated user \"{{ name }}\"."
 msgstr "\"{{ name }}\" frlhasználó frissítve."
 
-msgid "Updated user profile."
-msgstr "Felhasználói profil frissítve."
+msgid "Updated user settings."
+msgstr ""
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
 msgstr "\"{{ devicename }}\" vezetékes hálózati kapcsolat frissítve."
@@ -4076,9 +4093,6 @@ msgstr "Felhasználó"
 
 msgid "User Management"
 msgstr "Felhasználókezelés "
-
-msgid "User Settings"
-msgstr "Felhasználó beállítások"
 
 msgid "User home directory"
 msgstr "Felhasználó saját könyvtára"
@@ -4241,9 +4255,6 @@ msgstr "Alkalmazni kell a változtatásokat, hogy érvénybe léphessenek."
 
 msgid "You will be logged out due to inactivity in {{ n }} seconds."
 msgstr "Inaktivitás miatt munkamenete lejár {{ n }} másodperc múlva."
-
-msgid "Your profile"
-msgstr "Az ön profilja"
 
 msgid "Zambia"
 msgstr "Zambia"

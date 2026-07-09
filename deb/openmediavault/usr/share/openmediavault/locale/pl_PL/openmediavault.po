@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-30 21:52+0200\n"
+"POT-Creation-Date: 2026-07-09 20:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2025\n"
 "Language-Team: Polish (Poland) (http://app.transifex.com/openmediavault/openmediavault/language/pl_PL/)\n"
@@ -275,6 +275,9 @@ msgstr "Streszczenie"
 msgid "Access control list"
 msgstr "Lista kontroli dostępu"
 
+msgid "Account"
+msgstr ""
+
 msgid "Act as a WINS server."
 msgstr "Zachowuj się jak serwer WINS."
 
@@ -379,6 +382,11 @@ msgid ""
 "An attempt to send the test email has been made. Please check your mailbox. "
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
+msgstr ""
+
+msgid ""
+"An authentication challenge was required but no challenge information was "
+"provided. Please contact your administrator."
 msgstr ""
 
 msgid ""
@@ -495,9 +503,6 @@ msgstr ""
 
 msgid "Back"
 msgstr "Wróć"
-
-msgid "Background image"
-msgstr ""
 
 msgid "Background task"
 msgstr ""
@@ -651,9 +656,6 @@ msgstr "Certyfikaty"
 
 msgid "Chad"
 msgstr "Czad"
-
-msgid "Change Password"
-msgstr "Zmień hasło"
 
 msgid "Changelog"
 msgstr "Logi zmian"
@@ -1579,11 +1581,12 @@ msgid ""
 msgstr ""
 
 msgid ""
-"If a device is not listed here, it is usually because the device already "
-"contains a file system or partitions. With the former, the file system can "
-"be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, "
-"please <a href='#/storage/disks'>wipe</a> the device as partitions are not "
-"supported."
+"If a device is not listed here, it is usually because the device is not "
+"empty, i.e. it already contains a file system, partitions or another "
+"signature such as a ZFS, LVM, Linux RAID or LUKS member. An existing file "
+"system can be mounted <a href='#/storage/filesystems/mount'>here</a>. "
+"Otherwise, please <a href='#/storage/disks'>wipe</a> the device to be able "
+"to reuse it."
 msgstr ""
 
 msgid ""
@@ -2611,6 +2614,9 @@ msgstr "Procesor"
 msgid "Profile"
 msgstr "Profil"
 
+msgid "Profile Settings"
+msgstr ""
+
 msgid "Protocol"
 msgstr "Protokół"
 
@@ -3232,6 +3238,9 @@ msgstr "Magazyn"
 msgid "Store DOS attributes"
 msgstr "Atrybuty magazynu DOS"
 
+msgid "Submit"
+msgstr ""
+
 msgid "Success"
 msgstr "Sukces"
 
@@ -3359,6 +3368,9 @@ msgstr ""
 
 msgid "The action to be done when pressing the power button."
 msgstr "Akcja zostanie wykonana po naciśnięciu przycisku zasilania."
+
+msgid "The authentication challenge URL is invalid."
+msgstr ""
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
@@ -3497,6 +3509,11 @@ msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
 msgstr "Repozytoria będą sprawdzane pod kątem zmian oprogramowania."
+
+msgid ""
+"The requested authentication challenge is not supported by this browser "
+"interface. Please contact your administrator."
+msgstr ""
 
 msgid "The requested page was not found."
 msgstr "Nie znaleziono żądanej strony."
@@ -4009,8 +4026,8 @@ msgstr "Ustawienia zarządzania aktualizacją zaktualizowane."
 msgid "Updated user \"{{ name }}\"."
 msgstr "Użytkownik \"{{ name }}\" zaktualizowany."
 
-msgid "Updated user profile."
-msgstr "Zaktualizowano profil użytkownika."
+msgid "Updated user settings."
+msgstr ""
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
 msgstr "Zaktualizowano połączenie przewodowe \"{{ devicename }}\"."
@@ -4076,9 +4093,6 @@ msgstr "Użytkownik"
 
 msgid "User Management"
 msgstr "Zarządzanie użytkownikiem"
-
-msgid "User Settings"
-msgstr ""
 
 msgid "User home directory"
 msgstr "Katalog domowy użytkownika"
@@ -4241,9 +4255,6 @@ msgstr ""
 
 msgid "You will be logged out due to inactivity in {{ n }} seconds."
 msgstr ""
-
-msgid "Your profile"
-msgstr "Twój profil"
 
 msgid "Zambia"
 msgstr "Zambia"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-30 21:52+0200\n"
+"POT-Creation-Date: 2026-07-09 20:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2025\n"
 "Language-Team: Catalan (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -271,6 +271,9 @@ msgstr "Extracte"
 msgid "Access control list"
 msgstr "Llista de control d’accés "
 
+msgid "Account"
+msgstr ""
+
 msgid "Act as a WINS server."
 msgstr "Funcionar com a servidor WINS."
 
@@ -376,6 +379,11 @@ msgid ""
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
 msgstr "S'ha intentat enviar el correu electrònic de prova. Comproveu la vostra bústia. Si el correu electrònic no arriba, comproveu les carpetes de correu brossa i també comproveu que no hi hagi errors relacionats amb la correcció de correus al registre del sistema."
+
+msgid ""
+"An authentication challenge was required but no challenge information was "
+"provided. Please contact your administrator."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
@@ -491,9 +499,6 @@ msgstr "B/G (2.4 GHz)"
 
 msgid "Back"
 msgstr "Enrere"
-
-msgid "Background image"
-msgstr ""
 
 msgid "Background task"
 msgstr "Tasca en segon pla"
@@ -647,9 +652,6 @@ msgstr "Certificats"
 
 msgid "Chad"
 msgstr "Txad"
-
-msgid "Change Password"
-msgstr "Canvia la contrasenya "
 
 msgid "Changelog"
 msgstr "Registre de canvis"
@@ -1575,12 +1577,13 @@ msgid ""
 msgstr "Si està seleccionat \"Convidats permesos\" i no es proporciona cap credencial d'inici de sessió, accediu-hi com a convidat. Accediu sempre com a convidat quan està seleccionat \"Només convidats\"; en aquest cas no es requereix cap contrasenya per connectar-se al recurs compartit. "
 
 msgid ""
-"If a device is not listed here, it is usually because the device already "
-"contains a file system or partitions. With the former, the file system can "
-"be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, "
-"please <a href='#/storage/disks'>wipe</a> the device as partitions are not "
-"supported."
-msgstr "Si un dispositiu no apareix aquí, normalment és perquè el dispositiu ja conté un sistema de fitxers o particions. Amb el primer, el sistema de fitxers es pot muntar <a href='#/storage/filesystems/mount'>aquí</a>. Per a aquest últim, si us plau, <a href='#/storage/disks'>esborreu</a> el dispositiu, ja que les particions no són compatibles."
+"If a device is not listed here, it is usually because the device is not "
+"empty, i.e. it already contains a file system, partitions or another "
+"signature such as a ZFS, LVM, Linux RAID or LUKS member. An existing file "
+"system can be mounted <a href='#/storage/filesystems/mount'>here</a>. "
+"Otherwise, please <a href='#/storage/disks'>wipe</a> the device to be able "
+"to reuse it."
+msgstr ""
 
 msgid ""
 "If set then the client will be prompted to supply a user name and password "
@@ -2607,6 +2610,9 @@ msgstr "Processador"
 msgid "Profile"
 msgstr "Perfil"
 
+msgid "Profile Settings"
+msgstr ""
+
 msgid "Protocol"
 msgstr "Protocol"
 
@@ -3228,6 +3234,9 @@ msgstr "Emmagatzematge"
 msgid "Store DOS attributes"
 msgstr "Guardar atributs DOS"
 
+msgid "Submit"
+msgstr ""
+
 msgid "Success"
 msgstr "Èxit"
 
@@ -3355,6 +3364,9 @@ msgstr "La clau pública SSH en format OpenSSH o RFC 4716. "
 
 msgid "The action to be done when pressing the power button."
 msgstr "Acció a realitzar quant es premi el botó de \"power\""
+
+msgid "The authentication challenge URL is invalid."
+msgstr ""
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
@@ -3493,6 +3505,11 @@ msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
 msgstr "El repositori serà recarregat per a cercar nous, eliminats o millorats paquets de software."
+
+msgid ""
+"The requested authentication challenge is not supported by this browser "
+"interface. Please contact your administrator."
+msgstr ""
 
 msgid "The requested page was not found."
 msgstr "No s'ha trobat la pàgina sol·licitada."
@@ -4005,8 +4022,8 @@ msgstr "Configuració de gestió d'actualitzacions actualitzada."
 msgid "Updated user \"{{ name }}\"."
 msgstr "Usuari actualitzat \"{{name}}\"."
 
-msgid "Updated user profile."
-msgstr "Perfil d'usuari actualitzat."
+msgid "Updated user settings."
+msgstr ""
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
 msgstr "S'ha actualitzat la connexió de xarxa per cable \"{{devicename}}\"."
@@ -4072,9 +4089,6 @@ msgstr "Usuari"
 
 msgid "User Management"
 msgstr "Gestió d’usuaris"
-
-msgid "User Settings"
-msgstr "Configuració d'usuari"
 
 msgid "User home directory"
 msgstr "Directori Home d'usuari"
@@ -4237,9 +4251,6 @@ msgstr "Heu d'aplicar aquests canvis perquè tinguin efecte."
 
 msgid "You will be logged out due to inactivity in {{ n }} seconds."
 msgstr ""
-
-msgid "Your profile"
-msgstr "El teu perfil"
 
 msgid "Zambia"
 msgstr "Zàmbia"

@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-30 21:52+0200\n"
+"POT-Creation-Date: 2026-07-09 20:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: 杨宇哲, 2026\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -278,6 +278,9 @@ msgstr "摘要"
 msgid "Access control list"
 msgstr "访问控制列表"
 
+msgid "Account"
+msgstr ""
+
 msgid "Act as a WINS server."
 msgstr "作为一个 WINS 服务器"
 
@@ -383,6 +386,11 @@ msgid ""
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
 msgstr "尝试发送测试邮件到你邮箱，请检查你的邮箱，如果收件箱没有检查一下垃圾邮件夹，同时检查 Postfix 系统日志是否有错误信息。"
+
+msgid ""
+"An authentication challenge was required but no challenge information was "
+"provided. Please contact your administrator."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
@@ -498,9 +506,6 @@ msgstr "B/G (2.4 GHz)"
 
 msgid "Back"
 msgstr "返回"
-
-msgid "Background image"
-msgstr "背景图片"
 
 msgid "Background task"
 msgstr "后台任务"
@@ -654,9 +659,6 @@ msgstr "证书"
 
 msgid "Chad"
 msgstr "乍得"
-
-msgid "Change Password"
-msgstr "更改密码"
 
 msgid "Changelog"
 msgstr "变更日志"
@@ -1582,12 +1584,13 @@ msgid ""
 msgstr "如果选择“允许访客”，用户没有提供登录凭证，那么让其以访客权限读写。如果选择“仅访客”，则全部用户以访客读写，用户不需要密码便可以连接共享。"
 
 msgid ""
-"If a device is not listed here, it is usually because the device already "
-"contains a file system or partitions. With the former, the file system can "
-"be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, "
-"please <a href='#/storage/disks'>wipe</a> the device as partitions are not "
-"supported."
-msgstr "若设备未在此处列出，通常是因为该设备上已经含有文件系统或分区。对于前者，该文件系统可被挂载<a href='#/storage/filesystems/mount'>于此</a>。对于后者，请<a href='#/storage/disks'>擦除</a>该设备，因为含有分区的设备不被支持。"
+"If a device is not listed here, it is usually because the device is not "
+"empty, i.e. it already contains a file system, partitions or another "
+"signature such as a ZFS, LVM, Linux RAID or LUKS member. An existing file "
+"system can be mounted <a href='#/storage/filesystems/mount'>here</a>. "
+"Otherwise, please <a href='#/storage/disks'>wipe</a> the device to be able "
+"to reuse it."
+msgstr ""
 
 msgid ""
 "If set then the client will be prompted to supply a user name and password "
@@ -2614,6 +2617,9 @@ msgstr "处理器"
 msgid "Profile"
 msgstr "介绍"
 
+msgid "Profile Settings"
+msgstr ""
+
 msgid "Protocol"
 msgstr "协议"
 
@@ -3235,6 +3241,9 @@ msgstr "存储器"
 msgid "Store DOS attributes"
 msgstr "存储 DOS 属性"
 
+msgid "Submit"
+msgstr ""
+
 msgid "Success"
 msgstr "成功"
 
@@ -3362,6 +3371,9 @@ msgstr "OpenSSH或 RFC 4716 格式的SSH公钥"
 
 msgid "The action to be done when pressing the power button."
 msgstr "按下电源时要执行的动作。"
+
+msgid "The authentication challenge URL is invalid."
+msgstr ""
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
@@ -3500,6 +3512,11 @@ msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
 msgstr "软件源将检查是否有删除或更新的软件包信息。"
+
+msgid ""
+"The requested authentication challenge is not supported by this browser "
+"interface. Please contact your administrator."
+msgstr ""
 
 msgid "The requested page was not found."
 msgstr "未找到请求的页面。"
@@ -4012,8 +4029,8 @@ msgstr "已更新更新管理设置"
 msgid "Updated user \"{{ name }}\"."
 msgstr "已更新用户“{{ name }}”。"
 
-msgid "Updated user profile."
-msgstr "已更新用户描述。"
+msgid "Updated user settings."
+msgstr ""
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
 msgstr "已更新有线网络连接“{{ devicename }}”。"
@@ -4079,9 +4096,6 @@ msgstr "用户"
 
 msgid "User Management"
 msgstr "用户管理"
-
-msgid "User Settings"
-msgstr "用户设置"
 
 msgid "User home directory"
 msgstr "使用主目录"
@@ -4244,9 +4258,6 @@ msgstr "您必须应用配置变更才会使他们生效。"
 
 msgid "You will be logged out due to inactivity in {{ n }} seconds."
 msgstr "由于长时间未操作，您将在 {{ n }} 秒后自动退出登录。"
-
-msgid "Your profile"
-msgstr "你的介绍"
 
 msgid "Zambia"
 msgstr "赞比亚"

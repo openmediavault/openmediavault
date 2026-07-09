@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-30 21:52+0200\n"
+"POT-Creation-Date: 2026-07-09 20:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Marek Pavelka, 2024-2025\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -271,6 +271,9 @@ msgstr "Abstrakt"
 msgid "Access control list"
 msgstr "Seznam řízení přístupu"
 
+msgid "Account"
+msgstr ""
+
 msgid "Act as a WINS server."
 msgstr "Chovat se jako server WINS."
 
@@ -376,6 +379,11 @@ msgid ""
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
 msgstr "Byl proveden pokus o zaslání testovacího e-mailu. Podívejte se do své pošty. Pokud e-mail nedorazil, zkontrolujte složky pro nevyžádanou poštu a také se podívejte, zda v systémovém protokolu nejsou nějaké chyby související s Postfix."
+
+msgid ""
+"An authentication challenge was required but no challenge information was "
+"provided. Please contact your administrator."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
@@ -491,9 +499,6 @@ msgstr "B/G (2,4 GHz)"
 
 msgid "Back"
 msgstr "Zpět"
-
-msgid "Background image"
-msgstr ""
 
 msgid "Background task"
 msgstr "Úloha na pozadí"
@@ -647,9 +652,6 @@ msgstr "Certifikáty"
 
 msgid "Chad"
 msgstr "Čad"
-
-msgid "Change Password"
-msgstr "Změnit heslo"
 
 msgid "Changelog"
 msgstr "Seznam změn"
@@ -1575,12 +1577,13 @@ msgid ""
 msgstr "Pokud je vybráno ‚Hosté povoleni‘ a nejsou poskytnuty žádné přihlašovací údaje, pak přistupujete jako host. Vždy přistupujete jako host, pokud je vybráno ‚Pouze hosté‘; v tomto případě není pro připojení ke sdílené složce vyžadováno žádné heslo."
 
 msgid ""
-"If a device is not listed here, it is usually because the device already "
-"contains a file system or partitions. With the former, the file system can "
-"be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, "
-"please <a href='#/storage/disks'>wipe</a> the device as partitions are not "
-"supported."
-msgstr "Pokud zde zařízení není uvedeno, je to obvykle proto, že zařízení již obsahuje souborový systém nebo oddíly. V prvním případě lze systém souborů připojit <a href='#/storage/filesystems/mount'>zde</a>. V druhém případě zařízení <a href='#/storage/disks'>vymažte</a>, protože oddíly nejsou podporovány."
+"If a device is not listed here, it is usually because the device is not "
+"empty, i.e. it already contains a file system, partitions or another "
+"signature such as a ZFS, LVM, Linux RAID or LUKS member. An existing file "
+"system can be mounted <a href='#/storage/filesystems/mount'>here</a>. "
+"Otherwise, please <a href='#/storage/disks'>wipe</a> the device to be able "
+"to reuse it."
+msgstr ""
 
 msgid ""
 "If set then the client will be prompted to supply a user name and password "
@@ -2607,6 +2610,9 @@ msgstr "Procesor"
 msgid "Profile"
 msgstr "Profil"
 
+msgid "Profile Settings"
+msgstr ""
+
 msgid "Protocol"
 msgstr "Protokol"
 
@@ -3228,6 +3234,9 @@ msgstr "Úložiště"
 msgid "Store DOS attributes"
 msgstr "Ukládání atributů DOS"
 
+msgid "Submit"
+msgstr ""
+
 msgid "Success"
 msgstr "Úspěch"
 
@@ -3355,6 +3364,9 @@ msgstr "Veřejný klíč SSH ve formátu OpenSSH nebo RFC 4716."
 
 msgid "The action to be done when pressing the power button."
 msgstr "Akce, která se provede po stisku tlačítka napájení."
+
+msgid "The authentication challenge URL is invalid."
+msgstr ""
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
@@ -3493,6 +3505,11 @@ msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
 msgstr "V repozitáři budou zkontrolovány nové, odebrané nebo aktualizované softwarové balíčky."
+
+msgid ""
+"The requested authentication challenge is not supported by this browser "
+"interface. Please contact your administrator."
+msgstr ""
 
 msgid "The requested page was not found."
 msgstr "Požadovaná stránka nebyla nalezena."
@@ -4005,8 +4022,8 @@ msgstr "Aktualizována nastavení správ aktualizací."
 msgid "Updated user \"{{ name }}\"."
 msgstr "Aktualizován uživatel „{{ name }}“."
 
-msgid "Updated user profile."
-msgstr "Aktualizován uživatelský profil."
+msgid "Updated user settings."
+msgstr ""
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
 msgstr "Aktualizováno kabelové síťové připojení „{{ devicename }}“."
@@ -4072,9 +4089,6 @@ msgstr "Uživatel"
 
 msgid "User Management"
 msgstr "Správa uživatelů"
-
-msgid "User Settings"
-msgstr "Uživatelská nastavení"
 
 msgid "User home directory"
 msgstr "Domovský adresář uživatele"
@@ -4237,9 +4251,6 @@ msgstr "Aby se tyto změny projevily, je nutné je použít."
 
 msgid "You will be logged out due to inactivity in {{ n }} seconds."
 msgstr ""
-
-msgid "Your profile"
-msgstr "Váš profil"
 
 msgid "Zambia"
 msgstr "Zambie"

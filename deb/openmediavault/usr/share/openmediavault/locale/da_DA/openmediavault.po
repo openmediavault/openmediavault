@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-30 21:52+0200\n"
+"POT-Creation-Date: 2026-07-09 20:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>, 2012-2018,2020-2023,2025-2026\n"
 "Language-Team: Danish (http://app.transifex.com/openmediavault/openmediavault/language/da/)\n"
@@ -269,6 +269,9 @@ msgstr "Abstrakt"
 msgid "Access control list"
 msgstr "Tilgå kontrol liste"
 
+msgid "Account"
+msgstr ""
+
 msgid "Act as a WINS server."
 msgstr "Optræd som en WINS-server."
 
@@ -374,6 +377,11 @@ msgid ""
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
 msgstr "Et forsøg på, at sende en test email er udført. Kontroller venligst, din mailkonto. Hvis der ikke er kommet en email, kontroller da spam mappen og kontroller også, at der ikke er nogle Postfix relateret fejl i system logen."
+
+msgid ""
+"An authentication challenge was required but no challenge information was "
+"provided. Please contact your administrator."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
@@ -489,9 +497,6 @@ msgstr "B/G (2.4 Ghz)"
 
 msgid "Back"
 msgstr "Tilbage"
-
-msgid "Background image"
-msgstr "Baggrundsbillede"
 
 msgid "Background task"
 msgstr "Baggrundsopgave"
@@ -645,9 +650,6 @@ msgstr "Certifikater"
 
 msgid "Chad"
 msgstr "Chad"
-
-msgid "Change Password"
-msgstr "Ændr Adgangskode"
 
 msgid "Changelog"
 msgstr "Changelog"
@@ -1573,11 +1575,12 @@ msgid ""
 msgstr "Hvis 'Gæster tilladt' er valgt og ingen log ind legitimationsoplysninger er fastsat vil tilgang være som gæst. Tilgå altid som gæst når 'Kun gæster' bliver valgt; i dette tilfælde er ingen adgangkode nødvendig for at forbinde til delingen."
 
 msgid ""
-"If a device is not listed here, it is usually because the device already "
-"contains a file system or partitions. With the former, the file system can "
-"be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, "
-"please <a href='#/storage/disks'>wipe</a> the device as partitions are not "
-"supported."
+"If a device is not listed here, it is usually because the device is not "
+"empty, i.e. it already contains a file system, partitions or another "
+"signature such as a ZFS, LVM, Linux RAID or LUKS member. An existing file "
+"system can be mounted <a href='#/storage/filesystems/mount'>here</a>. "
+"Otherwise, please <a href='#/storage/disks'>wipe</a> the device to be able "
+"to reuse it."
 msgstr ""
 
 msgid ""
@@ -2605,6 +2608,9 @@ msgstr "Processor"
 msgid "Profile"
 msgstr "Profil"
 
+msgid "Profile Settings"
+msgstr ""
+
 msgid "Protocol"
 msgstr "Protokol"
 
@@ -3226,6 +3232,9 @@ msgstr "Lager"
 msgid "Store DOS attributes"
 msgstr "Gem DOS attributter"
 
+msgid "Submit"
+msgstr ""
+
 msgid "Success"
 msgstr "Succes"
 
@@ -3353,6 +3362,9 @@ msgstr "Den offentlige nøgle i OpenSSH eller RFC 4716 format."
 
 msgid "The action to be done when pressing the power button."
 msgstr "Handling der skal ske, når der bliver trykket på slukknappen."
+
+msgid "The authentication challenge URL is invalid."
+msgstr ""
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
@@ -3491,6 +3503,11 @@ msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
 msgstr "Arkivet vil blive kontrolleret for ny, fjernet eller opgraderet software pakker."
+
+msgid ""
+"The requested authentication challenge is not supported by this browser "
+"interface. Please contact your administrator."
+msgstr ""
 
 msgid "The requested page was not found."
 msgstr "Den ønskede side blev ikke fundet."
@@ -4003,7 +4020,7 @@ msgstr ""
 msgid "Updated user \"{{ name }}\"."
 msgstr ""
 
-msgid "Updated user profile."
+msgid "Updated user settings."
 msgstr ""
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
@@ -4069,9 +4086,6 @@ msgid "User"
 msgstr "Bruger"
 
 msgid "User Management"
-msgstr ""
-
-msgid "User Settings"
 msgstr ""
 
 msgid "User home directory"
@@ -4235,9 +4249,6 @@ msgstr ""
 
 msgid "You will be logged out due to inactivity in {{ n }} seconds."
 msgstr ""
-
-msgid "Your profile"
-msgstr "Din profil"
 
 msgid "Zambia"
 msgstr "Zambia"

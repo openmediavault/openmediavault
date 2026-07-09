@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-30 21:52+0200\n"
+"POT-Creation-Date: 2026-07-09 20:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2024,2026\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -269,6 +269,9 @@ msgstr "アブストラクト"
 msgid "Access control list"
 msgstr "アクセスコントロールリスト"
 
+msgid "Account"
+msgstr ""
+
 msgid "Act as a WINS server."
 msgstr "WINSサーバとして機能します。"
 
@@ -374,6 +377,11 @@ msgid ""
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
 msgstr "テストメールを送信しました。 メールボックスを確認してください。 電子メールが届かない場合は、スパムフォルダーを確認し、システムログにPostfix関連のエラーがないことを確認してください。"
+
+msgid ""
+"An authentication challenge was required but no challenge information was "
+"provided. Please contact your administrator."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
@@ -489,9 +497,6 @@ msgstr "B/G (2.4 GHz)"
 
 msgid "Back"
 msgstr "戻る"
-
-msgid "Background image"
-msgstr ""
 
 msgid "Background task"
 msgstr "バックグラウンドタスク"
@@ -645,9 +650,6 @@ msgstr "証明書"
 
 msgid "Chad"
 msgstr "チャド"
-
-msgid "Change Password"
-msgstr "パスワードの変更"
 
 msgid "Changelog"
 msgstr "Changelog"
@@ -1573,11 +1575,12 @@ msgid ""
 msgstr "'ゲスト許可'が選択されていて、ログイン資格情報が提供されていない場合は、ゲストとしてアクセスします。 'ゲストのみ'が選択されている場合は、常にゲストとしてアクセスします。 この場合、共有に接続するためにパスワードは必要ありません。"
 
 msgid ""
-"If a device is not listed here, it is usually because the device already "
-"contains a file system or partitions. With the former, the file system can "
-"be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, "
-"please <a href='#/storage/disks'>wipe</a> the device as partitions are not "
-"supported."
+"If a device is not listed here, it is usually because the device is not "
+"empty, i.e. it already contains a file system, partitions or another "
+"signature such as a ZFS, LVM, Linux RAID or LUKS member. An existing file "
+"system can be mounted <a href='#/storage/filesystems/mount'>here</a>. "
+"Otherwise, please <a href='#/storage/disks'>wipe</a> the device to be able "
+"to reuse it."
 msgstr ""
 
 msgid ""
@@ -2605,6 +2608,9 @@ msgstr "プロセッサ"
 msgid "Profile"
 msgstr "プロファイル"
 
+msgid "Profile Settings"
+msgstr ""
+
 msgid "Protocol"
 msgstr "プロトコル"
 
@@ -3226,6 +3232,9 @@ msgstr "ストレージ"
 msgid "Store DOS attributes"
 msgstr "DOS属性を書き込む"
 
+msgid "Submit"
+msgstr ""
+
 msgid "Success"
 msgstr "成功"
 
@@ -3353,6 +3362,9 @@ msgstr "OpenSSHまたはRFC4716形式のSSH公開鍵。"
 
 msgid "The action to be done when pressing the power button."
 msgstr "電源ボタンを押したときに実行されるアクション。"
+
+msgid "The authentication challenge URL is invalid."
+msgstr ""
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
@@ -3491,6 +3503,11 @@ msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
 msgstr "新規、削除またはアップデートされたソフトウェアパッケージが無いか、リポジトリをチェックします。"
+
+msgid ""
+"The requested authentication challenge is not supported by this browser "
+"interface. Please contact your administrator."
+msgstr ""
 
 msgid "The requested page was not found."
 msgstr "要求されたページはありません。"
@@ -4003,8 +4020,8 @@ msgstr "アップデート管理設定を更新しました。"
 msgid "Updated user \"{{ name }}\"."
 msgstr "ユーザー \"{{ name }}\" を更新しました。"
 
-msgid "Updated user profile."
-msgstr "ユーザープロフィールを更新しました。"
+msgid "Updated user settings."
+msgstr ""
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
 msgstr "有線ネットワーク接続 \"{{ devicename }}\" を更新しました。"
@@ -4070,9 +4087,6 @@ msgstr "ユーザー"
 
 msgid "User Management"
 msgstr "ユーザーマネジメント"
-
-msgid "User Settings"
-msgstr "ユーザー設定"
 
 msgid "User home directory"
 msgstr "ユーザーのホームディレクトリ"
@@ -4235,9 +4249,6 @@ msgstr "これらの変更を有効にするためには、適用する必要が
 
 msgid "You will be logged out due to inactivity in {{ n }} seconds."
 msgstr ""
-
-msgid "Your profile"
-msgstr "あなたのプロファイル"
 
 msgid "Zambia"
 msgstr "ザンビア"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-30 21:52+0200\n"
+"POT-Creation-Date: 2026-07-09 20:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Valentin Korenjak <valentin@korenjak.si>, 2025\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -270,6 +270,9 @@ msgstr "Povzetek"
 msgid "Access control list"
 msgstr "Seznam za nadzor dostopa (ACL)"
 
+msgid "Account"
+msgstr ""
+
 msgid "Act as a WINS server."
 msgstr "Obnašaj se kot WINS strežnik"
 
@@ -375,6 +378,11 @@ msgid ""
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
 msgstr "Poskus pošiljanja testnega e-poštnega sporočila je bil opravljen. Preverite svoj poštni predal. Če e-poštno sporočilo ne prispe, preverite morebitne mape za nezaželeno pošto in preverite, ali v sistemskem dnevniku ni napak, povezanih s Postfixom."
+
+msgid ""
+"An authentication challenge was required but no challenge information was "
+"provided. Please contact your administrator."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
@@ -490,9 +498,6 @@ msgstr "B/G (2.4 GHz)"
 
 msgid "Back"
 msgstr "Nazaj"
-
-msgid "Background image"
-msgstr ""
 
 msgid "Background task"
 msgstr "Opravilo v ozadju"
@@ -646,9 +651,6 @@ msgstr "Potrdila"
 
 msgid "Chad"
 msgstr "Čad"
-
-msgid "Change Password"
-msgstr "Sprememba gesla"
 
 msgid "Changelog"
 msgstr "Dnevnik sprememb"
@@ -1574,12 +1576,13 @@ msgid ""
 msgstr "Če je izbrana možnost \"Dovoljeno gostom\" in poverilnico za prijavo ni podana, lahko dostopate kot gost. Če je izbrana možnost 'Samo za goste', vedno dostopajte kot gost; v tem primeru za povezavo z deljeno mapo geslo ni potrebno."
 
 msgid ""
-"If a device is not listed here, it is usually because the device already "
-"contains a file system or partitions. With the former, the file system can "
-"be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, "
-"please <a href='#/storage/disks'>wipe</a> the device as partitions are not "
-"supported."
-msgstr "Če naprava ni navedena tukaj, je to običajno zato, ker naprava že vsebuje datotečni sistem ali particije. V prvem primeru lahko datotečni sistem namestite <a href='#/storage/filesystems/mount'>tukaj</a>. Pri slednjem pa napravo <a href='#/storage/disks'>pobrišite </a>, ker particije niso podprte."
+"If a device is not listed here, it is usually because the device is not "
+"empty, i.e. it already contains a file system, partitions or another "
+"signature such as a ZFS, LVM, Linux RAID or LUKS member. An existing file "
+"system can be mounted <a href='#/storage/filesystems/mount'>here</a>. "
+"Otherwise, please <a href='#/storage/disks'>wipe</a> the device to be able "
+"to reuse it."
+msgstr ""
 
 msgid ""
 "If set then the client will be prompted to supply a user name and password "
@@ -2606,6 +2609,9 @@ msgstr "Procesor"
 msgid "Profile"
 msgstr "Profil"
 
+msgid "Profile Settings"
+msgstr ""
+
 msgid "Protocol"
 msgstr "Protokol"
 
@@ -3227,6 +3233,9 @@ msgstr "Shramba"
 msgid "Store DOS attributes"
 msgstr "Shrani atribute DOS"
 
+msgid "Submit"
+msgstr ""
+
 msgid "Success"
 msgstr "Uspeh"
 
@@ -3354,6 +3363,9 @@ msgstr "Javni ključ SSH v obliki OpenSSH ali RFC 4716."
 
 msgid "The action to be done when pressing the power button."
 msgstr "Operacija, ki se izvede ob pritisku na gumb za vklop."
+
+msgid "The authentication challenge URL is invalid."
+msgstr ""
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
@@ -3492,6 +3504,11 @@ msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
 msgstr "Repozitorij bo preverjen za nove, odstranjene ali nadgrajene programske pakete."
+
+msgid ""
+"The requested authentication challenge is not supported by this browser "
+"interface. Please contact your administrator."
+msgstr ""
 
 msgid "The requested page was not found."
 msgstr "Zahtevana stran ni bila najdena."
@@ -4004,8 +4021,8 @@ msgstr "Posodobljene nastavitve upravljanja posodobitev."
 msgid "Updated user \"{{ name }}\"."
 msgstr "Posodobljen uporabnik \"{{ name }}\"."
 
-msgid "Updated user profile."
-msgstr "Posodobljen uporabniški profil."
+msgid "Updated user settings."
+msgstr ""
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
 msgstr "Posodobljena žična omrežna povezava \"{{ devicename }}\"."
@@ -4071,9 +4088,6 @@ msgstr "Uporabnik"
 
 msgid "User Management"
 msgstr "Upravljanje uporabnikov"
-
-msgid "User Settings"
-msgstr "Uporabniške nastavitve"
 
 msgid "User home directory"
 msgstr "Domače mape uporabnikov"
@@ -4236,9 +4250,6 @@ msgstr "Da bi te spremembe začele veljati, jih morate uveljaviti."
 
 msgid "You will be logged out due to inactivity in {{ n }} seconds."
 msgstr ""
-
-msgid "Your profile"
-msgstr "Vaš profil"
 
 msgid "Zambia"
 msgstr "Zambija"

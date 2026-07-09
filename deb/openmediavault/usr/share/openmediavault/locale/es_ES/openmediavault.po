@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-30 21:52+0200\n"
+"POT-Creation-Date: 2026-07-09 20:39+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2024\n"
 "Language-Team: Spanish (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
@@ -274,6 +274,9 @@ msgstr "Extracto"
 msgid "Access control list"
 msgstr "ACL Lista de Control de Acceso"
 
+msgid "Account"
+msgstr ""
+
 msgid "Act as a WINS server."
 msgstr "Funcionar como servidor WINS."
 
@@ -379,6 +382,11 @@ msgid ""
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
 msgstr "Se ha intentado enviar un e-mail. Revise su buzón de correos. Si el mensaje no ha llegado, revise la bandeja de spam.\nRevise también el log del sistema por posibles errores poxtfix."
+
+msgid ""
+"An authentication challenge was required but no challenge information was "
+"provided. Please contact your administrator."
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
@@ -494,9 +502,6 @@ msgstr ""
 
 msgid "Back"
 msgstr "Volver"
-
-msgid "Background image"
-msgstr ""
 
 msgid "Background task"
 msgstr "Tarea en Background"
@@ -650,9 +655,6 @@ msgstr "Certificados"
 
 msgid "Chad"
 msgstr "Chad"
-
-msgid "Change Password"
-msgstr "Cambiar contraseña"
 
 msgid "Changelog"
 msgstr "Registro de cambios"
@@ -1578,11 +1580,12 @@ msgid ""
 msgstr "Si se selecciona \"Invitados permitidos\" y no se proporciona ninguna credencial de inicio de sesión, accederá como invitado. Accederá siempre como invitado cuando se selecciona \"Solo invitados\"; en este caso, no se requiere contraseña para conectarse al recurso compartido."
 
 msgid ""
-"If a device is not listed here, it is usually because the device already "
-"contains a file system or partitions. With the former, the file system can "
-"be mounted <a href='#/storage/filesystems/mount'>here</a>. For the latter, "
-"please <a href='#/storage/disks'>wipe</a> the device as partitions are not "
-"supported."
+"If a device is not listed here, it is usually because the device is not "
+"empty, i.e. it already contains a file system, partitions or another "
+"signature such as a ZFS, LVM, Linux RAID or LUKS member. An existing file "
+"system can be mounted <a href='#/storage/filesystems/mount'>here</a>. "
+"Otherwise, please <a href='#/storage/disks'>wipe</a> the device to be able "
+"to reuse it."
 msgstr ""
 
 msgid ""
@@ -2610,6 +2613,9 @@ msgstr "Procesador"
 msgid "Profile"
 msgstr "Perfil"
 
+msgid "Profile Settings"
+msgstr ""
+
 msgid "Protocol"
 msgstr "Protocolo"
 
@@ -3231,6 +3237,9 @@ msgstr "Almacenamiento"
 msgid "Store DOS attributes"
 msgstr "Guardar atributos DOS"
 
+msgid "Submit"
+msgstr ""
+
 msgid "Success"
 msgstr "Éxito"
 
@@ -3358,6 +3367,9 @@ msgstr "La clave publica en formato OpenSSH o RFC 4716."
 
 msgid "The action to be done when pressing the power button."
 msgstr "Acción a realizar cuando se presione el botón de encendido."
+
+msgid "The authentication challenge URL is invalid."
+msgstr ""
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
@@ -3496,6 +3508,11 @@ msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
 msgstr "El repositorio será recargado en busca de nuevos, eliminados o mejorados paquetes de software."
+
+msgid ""
+"The requested authentication challenge is not supported by this browser "
+"interface. Please contact your administrator."
+msgstr ""
 
 msgid "The requested page was not found."
 msgstr "La pagina solicitada no existe."
@@ -4008,8 +4025,8 @@ msgstr "Configuración de administración de actualizaciones actualizada."
 msgid "Updated user \"{{ name }}\"."
 msgstr "Usuario actualizado \"{{ name }}\"."
 
-msgid "Updated user profile."
-msgstr "Perfil de usuario actualizado."
+msgid "Updated user settings."
+msgstr ""
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
 msgstr "Se actualizó la conexión de red por cable \"{{ devicename }}\"."
@@ -4075,9 +4092,6 @@ msgstr "Usuario"
 
 msgid "User Management"
 msgstr "Gestión de usuarios"
-
-msgid "User Settings"
-msgstr "Opciones de usuario"
 
 msgid "User home directory"
 msgstr "Directorio Home de usuario"
@@ -4240,9 +4254,6 @@ msgstr "Debe aplicar estos cambios para que surtan efecto."
 
 msgid "You will be logged out due to inactivity in {{ n }} seconds."
 msgstr ""
-
-msgid "Your profile"
-msgstr "Tu perfil"
 
 msgid "Zambia"
 msgstr "Zambia"
