@@ -1,3 +1,9 @@
+openmediavault (8.5.2-1) stable; urgency=medium
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 09 Jul 2026 07:18:18 +0200
+
 openmediavault (8.5.1-1) stable; urgency=medium
 
   * Improve the validation of RPC requests related to the management
