@@ -1,6 +1,7 @@
 openmediavault (8.5.2-1) stable; urgency=medium
 
-  *
+  * Issue #2106: Do not offer non-empty storage devices as file system
+    candidates. Thanks to John O'Callaghan for the contribution.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 09 Jul 2026 07:18:18 +0200
 
