@@ -615,38 +615,47 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract
         // Prepare the result list.
         $result = [];
         foreach ($devs as $sd) {
-            /* Do not check for references, otherwise a device file which is configured
-               for S.M.A.R.T. monitoring is not added as a candidate.
-                        // Check if the device is referenced/used by a plugin.
-                        $db = \OMV\Config\Database::getInstance();
-                        if (TRUE === $db->exists("conf.service", [
-                              "operator" => "stringContains",
-                              "arg0" => "devicefile",
-                              "arg1" => $sd->getDeviceFile()
-                          ]))
-                            continue;
-            */
-            // Does this device already contain a file system?
-            if (in_array($sd->getCanonicalDeviceFile(), $usedDevs)) {
-                continue;
-            }
-            // Skip devices that are not empty, i.e. they still contain a
-            // partition table, a file system or a RAID/LVM/LUKS signature.
-            // This also covers signatures that are not reported by
-            // Filesystem::getFilesystems(), e.g. ZFS pool members. Such a
-            // device must be wiped before it can be reused. See issue #2106.
-            if ($sd->hasSignature()) {
-                continue;
-            }
-            // The device is a potential candidate to create a file system
-            // on it.
-            $result[] = [
-                "devicefile" => $sd->getDeviceFile(),
-                "size" => $sd->getSize(),
-                "description" => $sd->getDescription()
-            ];
+            $procs[] = $this->asyncProc(function () use ($sd, $usedDevs) {
+                /* Do not check for references, otherwise a device file which is configured
+                   for S.M.A.R.T. monitoring is not added as a candidate.
+                            // Check if the device is referenced/used by a plugin.
+                            $db = \OMV\Config\Database::getInstance();
+                            if (TRUE === $db->exists("conf.service", [
+                                  "operator" => "stringContains",
+                                  "arg0" => "devicefile",
+                                  "arg1" => $sd->getDeviceFile()
+                              ]))
+                                continue;
+                */
+                // Does this device already contain a file system?
+                if (in_array($sd->getCanonicalDeviceFile(), $usedDevs)) {
+                    return false;
+                }
+                // Skip devices that are not empty, i.e. they still contain a
+                // partition table, a file system or a RAID/LVM/LUKS signature.
+                // This also covers signatures that are not reported by
+                // Filesystem::getFilesystems(), e.g. ZFS pool members. Such a
+                // device must be wiped before it can be reused.
+                if ($sd->hasSignature()) {
+                    return false;
+                }
+                // The device is a potential candidate to create a file system
+                // on it.
+                return [
+                    "devicefile" => $sd->getDeviceFile(),
+                    "size" => $sd->getSize(),
+                    "description" => $sd->getDescription()
+                ];
+            });
         }
-        return $result;
+        // Remove items that are not eligible candidates (those items
+        // returned a boolean `false`).
+        return array_values(
+            array_filter(
+                $this->waitAsyncProcs($procs),
+                "is_assoc_array"
+            )
+        );
     }
 
     /**

@@ -20,7 +20,7 @@ data:
         name: devicefile
         label: _("Device")
         placeholder: _("Select a device ...")
-        hint: _("Select the device that will be used to create the file system. Only empty devices are listed; wipe a device to reuse it.")
+        hint: _("Select the device that will be used to create the file system.")
         valueField: devicefile
         textField: description
         store:

@@ -36,7 +36,7 @@ data:
         name: devicefiles
         label: _("Devices")
         placeholder: _("Select devices ...")
-        hint: _("Select the devices that will be used to create the file system. Only empty devices are listed; wipe a device to reuse it.")
+        hint: _("Select the devices that will be used to create the file system.")
         multiple: true
         valueField: devicefile
         textField: description
