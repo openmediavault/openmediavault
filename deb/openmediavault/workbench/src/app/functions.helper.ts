@@ -41,6 +41,7 @@ import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import cronstrue from 'cronstrue';
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
+import duration from 'dayjs/plugin/duration';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import * as _ from 'lodash';
 import * as nunjucks from 'nunjucks';
@@ -52,6 +53,7 @@ import { getCurrentLocale, translate } from '~/app/i18n.helper';
 // Initialize additional dayjs plugins.
 dayjs.extend(advancedFormat);
 dayjs.extend(relativeTime);
+dayjs.extend(duration);
 
 //////////////////////////////////////////////////////////////////////////
 // Create Nunjucks environment.
@@ -422,6 +424,45 @@ export const dateToLocale = (date: Date, dateFormat?: 'datetime' | 'time' | 'dat
 };
 
 /**
+ * Formats a duration into a string using `dayjs.duration`.
+ *
+ * @param value The duration to format. Can be a number or a numeric string
+ *   (both in seconds), or an ISO 8601 duration string (e.g., 'PT1M30S').
+ * @param formatStr The format string to use. Defaults to 'HH:mm:ss'.
+ *   See https://day.js.org/docs/en/durations/format for details.
+ * @returns The formatted duration string. Returns an empty string for
+ *   invalid input.
+ */
+export const toDuration = (value: string | number, formatStr: string = 'HH:mm:ss'): string => {
+  if (_.isNil(value) || value === '') {
+    return '';
+  }
+
+  let d: duration.Duration;
+  if (_.isNumber(value)) {
+    d = dayjs.duration(value, 'seconds');
+  } else if (_.isString(value)) {
+    if (value.startsWith('P')) {
+      d = dayjs.duration(value);
+    } else {
+      const n: number = _.toNumber(value);
+      if (!_.isFinite(n)) {
+        return '';
+      }
+      d = dayjs.duration(n, 'seconds');
+    }
+  } else {
+    return '';
+  }
+
+  if (!_.isFinite(d.asMilliseconds())) {
+    return '';
+  }
+
+  return d.format(formatStr);
+};
+
+/**
  * Convert a Cron expression into a human-readable description.
  *
  * @param value The Cron expression, e.g. `5 13 * * 5`.
@@ -561,6 +602,10 @@ nunjucksEnv.addFilter('decodeuricomponent', (value: string): string => decodeURI
  * into relative time.
  */
 nunjucksEnv.addFilter('localedate', toLocaleDate);
+/**
+ * Formats a duration into a string.
+ */
+nunjucksEnv.addFilter('duration', toDuration);
 /**
  * Returns the Unix timestamp (the number of seconds since the Unix Epoch)  the given date value.
  */
