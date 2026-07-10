@@ -187,6 +187,25 @@ describe('functions.helper', () => {
     ).toEqual('bbb');
   });
 
+  it('should format string [14]', () => {
+    expect(format('{{ 1792 | duration }}', {})).toBe('00:29:52');
+    expect(format('{{ "1792" | duration }}', {})).toBe('00:29:52');
+    expect(format('{{ 1792 | duration("m[m] ss[s]") }}', {})).toBe('29m 52s');
+    expect(format('{{ 3661 | duration("m[m]ss[s]") }}', {})).toBe('1m01s');
+    expect(format('{{ 3661 | duration("H[h]mm[m]ss[s]") }}', {})).toBe('1h01m01s');
+    expect(format('{{ (foo / 1000) | duration("H[h]mm[m]ss[s]") }}', { foo: 3661000 })).toBe(
+      '1h01m01s'
+    );
+    expect(format('{{ "PT29M52S" | duration }}', {})).toBe('00:29:52');
+    expect(format('{{ "0000" | duration }}', {})).toBe('00:00:00');
+    expect(format('{{ "PT0M" | duration }}', {})).toBe('00:00:00');
+    expect(format('{{ 0 | duration }}', {})).toBe('00:00:00');
+    expect(format('{{ "" | duration }}', {})).toBe('');
+    expect(format('{{ null | duration }}', {})).toBe('');
+    expect(format('{{ undefined | duration }}', {})).toBe('');
+    expect(format('{{ "invalid" | duration }}', {})).toBe('');
+  });
+
   it('should format deep [1]', () => {
     const data = { foo: { bar: 'xyz' } };
     expect(formatDeep('My name is {{ foo.bar }}', data)).toEqual('My name is xyz');
