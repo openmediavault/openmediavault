@@ -192,6 +192,10 @@ describe('functions.helper', () => {
     expect(format('{{ "1792" | duration }}', {})).toBe('00:29:52');
     expect(format('{{ 1792 | duration("m[m] ss[s]") }}', {})).toBe('29m 52s');
     expect(format('{{ 3661 | duration("m[m]ss[s]") }}', {})).toBe('1m01s');
+    expect(format('{{ 3661 | duration("mmm[m]ss[s]") }}', {})).toBe('61m01s');
+    expect(format('{{ 3600 | duration("mmm[m]ss[s]") }}', {})).toBe('60m00s');
+    expect(format('{{ 47165 | duration("mmm[m]ss[s]") }}', {})).toBe('786m05s');
+    expect(format('{{ foo | duration("mmm[m] ss[s]") }}', { foo: 47165 })).toBe('786m 05s');
     expect(format('{{ 3661 | duration("H[h]mm[m]ss[s]") }}', {})).toBe('1h01m01s');
     expect(format('{{ (foo / 1000) | duration("H[h]mm[m]ss[s]") }}', { foo: 3661000 })).toBe(
       '1h01m01s'

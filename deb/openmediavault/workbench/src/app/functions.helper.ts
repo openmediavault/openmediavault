@@ -430,6 +430,8 @@ export const dateToLocale = (date: Date, dateFormat?: 'datetime' | 'time' | 'dat
  *   (both in seconds), or an ISO 8601 duration string (e.g., 'PT1M30S').
  * @param formatStr The format string to use. Defaults to 'HH:mm:ss'.
  *   See https://day.js.org/docs/en/durations/format for details.
+ *   Special format `mmm[m]ss[s]` and `mmm[m] ss[s]` is also supported and
+ *   returns total minutes (can exceed 59) with seconds in the range `00..59`.
  * @returns The formatted duration string. Returns an empty string for
  *   invalid input.
  */
@@ -457,6 +459,17 @@ export const toDuration = (value: string | number, formatStr: string = 'HH:mm:ss
 
   if (!_.isFinite(d.asMilliseconds())) {
     return '';
+  }
+
+  if (['mmm[m]ss[s]', 'mmm[m] ss[s]'].includes(formatStr)) {
+    const totalSeconds: number = Math.floor(d.asSeconds());
+    const minutes: number = Math.floor(totalSeconds / 60);
+    const seconds: number = totalSeconds % 60;
+    return formatStr
+      .replace('mmm', String(minutes))
+      .replace('ss', String(seconds).padStart(2, '0'))
+      .replace('[m]', 'm')
+      .replace('[s]', 's');
   }
 
   return d.format(formatStr);
