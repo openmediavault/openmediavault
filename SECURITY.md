@@ -17,3 +17,9 @@ Please include the following information in your report:
 * Explicit consent that this reporter name may be used for acknowledgements in commits and changelogs.
 
 Reports missing required information may delay triage and response.
+
+# Issues NOT to be reported
+
+* Issues or bugs that aren't security related.
+* Issues that are related to the underlying operating system or third-party software (e.g. Debian, PHP, Python, Samba, NGINX, ...).
+* Issues that can only be exploited by the administrator itself (the admin is already a privileged user and implicitly trusted).
