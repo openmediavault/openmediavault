@@ -1,5 +1,6 @@
 openmediavault (8.5.2-1) stable; urgency=medium
 
+  * Update i18n files.
   * Issue #2106: Do not offer non-empty storage devices as file system
     candidates. Thanks to John O'Callaghan for the contribution.
 

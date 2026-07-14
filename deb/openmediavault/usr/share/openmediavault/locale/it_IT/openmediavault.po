@@ -278,7 +278,7 @@ msgid "Access control list"
 msgstr "Lista di controllo degli accessi"
 
 msgid "Account"
-msgstr ""
+msgstr "Account"
 
 msgid "Act as a WINS server."
 msgstr "Si comporta come un server WINS."
@@ -389,7 +389,7 @@ msgstr "È stato effettuato un tentativo di invio dell'email di test. Controlla 
 msgid ""
 "An authentication challenge was required but no challenge information was "
 "provided. Please contact your administrator."
-msgstr ""
+msgstr "È richiesta un'autenticazione, ma non sono state fornite le informazioni necessarie per completarla. Contattare l'amministratore di sistema."
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
@@ -1589,7 +1589,7 @@ msgid ""
 "system can be mounted <a href='#/storage/filesystems/mount'>here</a>. "
 "Otherwise, please <a href='#/storage/disks'>wipe</a> the device to be able "
 "to reuse it."
-msgstr ""
+msgstr "Se un dispositivo non è elencato qui, generalmente significa che non è vuoto, ovvero contiene già un file system, partizioni o un'altra firma, ad esempio un membro ZFS, LVM, Linux RAID o LUKS. Un file system esistente può essere montato <a href='#/storage/filesystems/mount'>qui</a>. In caso contrario, <a href='#/storage/disks'>cancellare</a> il dispositivo per poterlo riutilizzare."
 
 msgid ""
 "If set then the client will be prompted to supply a user name and password "
@@ -2617,7 +2617,7 @@ msgid "Profile"
 msgstr "Profilo"
 
 msgid "Profile Settings"
-msgstr ""
+msgstr "Impostazioni del profilo"
 
 msgid "Protocol"
 msgstr "Protocollo"
@@ -3241,7 +3241,7 @@ msgid "Store DOS attributes"
 msgstr "Memorizza gli attributi DOS"
 
 msgid "Submit"
-msgstr ""
+msgstr "Invia"
 
 msgid "Success"
 msgstr "Operazione riuscita"
@@ -3372,7 +3372,7 @@ msgid "The action to be done when pressing the power button."
 msgstr "L'azione da eseguire alla pressione del pulsante di accensione."
 
 msgid "The authentication challenge URL is invalid."
-msgstr ""
+msgstr "L'URL della richiesta di autenticazione non è valido."
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
@@ -3515,7 +3515,7 @@ msgstr "Il repository verrà controllato per verificare la disponibilità di pac
 msgid ""
 "The requested authentication challenge is not supported by this browser "
 "interface. Please contact your administrator."
-msgstr ""
+msgstr "Il metodo di autenticazione richiesto non è supportato da questa interfaccia del browser. Contattare l'amministratore di sistema."
 
 msgid "The requested page was not found."
 msgstr "La pagina richiesta non è stata trovata."
@@ -4029,7 +4029,7 @@ msgid "Updated user \"{{ name }}\"."
 msgstr "L'utente \"{{ name }}\" è stato aggiornato."
 
 msgid "Updated user settings."
-msgstr ""
+msgstr "Le impostazioni dell'utente sono state aggiornate."
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
 msgstr "La connessione di rete cablata \"{{ devicename }}\" è stata aggiornata."

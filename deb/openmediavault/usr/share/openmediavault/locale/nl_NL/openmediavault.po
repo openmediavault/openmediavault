@@ -278,7 +278,7 @@ msgid "Access control list"
 msgstr "Toegangscontrolelijst (ACL)"
 
 msgid "Account"
-msgstr ""
+msgstr "Account"
 
 msgid "Act as a WINS server."
 msgstr "Optreden als een WINS server."
@@ -389,7 +389,7 @@ msgstr "Er is een poging gedaan om de test-e-mail te verzenden. Controleer uw ma
 msgid ""
 "An authentication challenge was required but no challenge information was "
 "provided. Please contact your administrator."
-msgstr ""
+msgstr "Er was een authenticatie-uitdaging vereist, maar er werd geen uitdagingsinformatie verstrekt. Neem dan contact op met uw beheerder."
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
@@ -1589,7 +1589,7 @@ msgid ""
 "system can be mounted <a href='#/storage/filesystems/mount'>here</a>. "
 "Otherwise, please <a href='#/storage/disks'>wipe</a> the device to be able "
 "to reuse it."
-msgstr ""
+msgstr "Als een apparaat hier niet wordt vermeld, is dat meestal omdat het apparaat niet leeg is, dat wil zeggen dat het al een bestandssysteem, partities of een andere handtekening bevat zoals een ZFS, LVM, Linux RAID of LUKS-lid. Een bestaand bestandssysteem kan <a href='#/storage/filesystems/mount'>hier</a> worden aangekoppeld. Anders, <a href='#/storage/disks'>wis</a> het apparaat om het te kunnen hergebruiken."
 
 msgid ""
 "If set then the client will be prompted to supply a user name and password "
@@ -2617,7 +2617,7 @@ msgid "Profile"
 msgstr "Profiel"
 
 msgid "Profile Settings"
-msgstr ""
+msgstr "Profielinstellingen"
 
 msgid "Protocol"
 msgstr "Protocol"
@@ -3241,7 +3241,7 @@ msgid "Store DOS attributes"
 msgstr "DOS-attributen opslaan"
 
 msgid "Submit"
-msgstr ""
+msgstr "Indienen"
 
 msgid "Success"
 msgstr "Succes"
@@ -3372,7 +3372,7 @@ msgid "The action to be done when pressing the power button."
 msgstr "De actie die moet worden uitgevoerd bij het drukken van de aan/uit-knop."
 
 msgid "The authentication challenge URL is invalid."
-msgstr ""
+msgstr "De URL voor authenticatie-uitdaging is ongeldig."
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
@@ -3515,7 +3515,7 @@ msgstr "De opslagplaats wordt gecontroleerd op nieuwe, bijgewerkte of verwijderd
 msgid ""
 "The requested authentication challenge is not supported by this browser "
 "interface. Please contact your administrator."
-msgstr ""
+msgstr "De gevraagde authenticatie-uitdaging wordt niet ondersteund door deze browserinterface. Neem dan contact op met uw beheerder."
 
 msgid "The requested page was not found."
 msgstr "De opgevraagde pagina is niet gevonden."
@@ -4029,7 +4029,7 @@ msgid "Updated user \"{{ name }}\"."
 msgstr "Gebruiker \"{{ name }}\" bijgewerkt."
 
 msgid "Updated user settings."
-msgstr ""
+msgstr "Gebruikersinstellingen bijgewerkt."
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
 msgstr "Bekabelde netwerkverbinding \"{{ devicename }}\" bijgewerkt."

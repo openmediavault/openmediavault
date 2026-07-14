@@ -279,7 +279,7 @@ msgid "Access control list"
 msgstr "访问控制列表"
 
 msgid "Account"
-msgstr ""
+msgstr "帳戸"
 
 msgid "Act as a WINS server."
 msgstr "作为一个 WINS 服务器"
@@ -390,7 +390,7 @@ msgstr "尝试发送测试邮件到你邮箱，请检查你的邮箱，如果收
 msgid ""
 "An authentication challenge was required but no challenge information was "
 "provided. Please contact your administrator."
-msgstr ""
+msgstr "須要做身份驗證挑戰，但並未提供挑戰資訊。請聯絡您的管理員。"
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
@@ -1590,7 +1590,7 @@ msgid ""
 "system can be mounted <a href='#/storage/filesystems/mount'>here</a>. "
 "Otherwise, please <a href='#/storage/disks'>wipe</a> the device to be able "
 "to reuse it."
-msgstr ""
+msgstr "若裝置未在此列出，通常是因為該裝置並非空白，例如：它已經含有一個檔案系統、分割區或其它特徴，像是 ZFS、LVM、Linux RAID 或 LUKS 成員。一個現存檔案系統可以<a href='#/storage/filesystems/mount'>於此</a>掛載。不然，則請<a href='#/storage/disks'>清除</a>該裝置才能重新使用它。"
 
 msgid ""
 "If set then the client will be prompted to supply a user name and password "
@@ -2618,7 +2618,7 @@ msgid "Profile"
 msgstr "介绍"
 
 msgid "Profile Settings"
-msgstr ""
+msgstr "個人資料設定"
 
 msgid "Protocol"
 msgstr "协议"
@@ -3242,7 +3242,7 @@ msgid "Store DOS attributes"
 msgstr "存储 DOS 属性"
 
 msgid "Submit"
-msgstr ""
+msgstr "提交"
 
 msgid "Success"
 msgstr "成功"
@@ -3373,7 +3373,7 @@ msgid "The action to be done when pressing the power button."
 msgstr "按下电源时要执行的动作。"
 
 msgid "The authentication challenge URL is invalid."
-msgstr ""
+msgstr "身份驗證挑戰的 URL 無效。"
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
@@ -3516,7 +3516,7 @@ msgstr "软件源将检查是否有删除或更新的软件包信息。"
 msgid ""
 "The requested authentication challenge is not supported by this browser "
 "interface. Please contact your administrator."
-msgstr ""
+msgstr "所請求的身份驗證挑戰不被此瀏覽器介面支援。請聯絡您的管理員。"
 
 msgid "The requested page was not found."
 msgstr "未找到请求的页面。"
@@ -4030,7 +4030,7 @@ msgid "Updated user \"{{ name }}\"."
 msgstr "已更新用户“{{ name }}”。"
 
 msgid "Updated user settings."
-msgstr ""
+msgstr "已更新用户設定。"
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
 msgstr "已更新有线网络连接“{{ devicename }}”。"

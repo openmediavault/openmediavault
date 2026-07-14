@@ -272,7 +272,7 @@ msgid "Access control list"
 msgstr "存取控制列表"
 
 msgid "Account"
-msgstr ""
+msgstr "帳戸"
 
 msgid "Act as a WINS server."
 msgstr "作為一個 WINS 伺服器。"
@@ -383,7 +383,7 @@ msgstr "測試電子郵件已被試著送出。請檢查的電子郵件信箱。
 msgid ""
 "An authentication challenge was required but no challenge information was "
 "provided. Please contact your administrator."
-msgstr ""
+msgstr "須要做身份驗證挑戰，但並未提供挑戰資訊。請聯絡您的管理員。"
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
@@ -393,7 +393,7 @@ msgstr "一封包含命令輸出（若有）的電子郵件將會寄送給管理
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr "一封包含命令輸出（若有）的電子郵件將會寄送給執行該工作的使用者。"
+msgstr "一封包含命令輸出（若有）的電子郵件將會寄送給執行該工作的用户。"
 
 msgid "Andorra"
 msgstr "安道爾"
@@ -1583,7 +1583,7 @@ msgid ""
 "system can be mounted <a href='#/storage/filesystems/mount'>here</a>. "
 "Otherwise, please <a href='#/storage/disks'>wipe</a> the device to be able "
 "to reuse it."
-msgstr ""
+msgstr "若裝置未在此列出，通常是因為該裝置並非空白，例如：它已經含有一個檔案系統、分割區或其它特徴，像是 ZFS、LVM、Linux RAID 或 LUKS 成員。一個現存檔案系統可以<a href='#/storage/filesystems/mount'>於此</a>掛載。不然，則請<a href='#/storage/disks'>抹除</a>該裝置才能重新使用它。"
 
 msgid ""
 "If set then the client will be prompted to supply a user name and password "
@@ -2611,7 +2611,7 @@ msgid "Profile"
 msgstr "概廓"
 
 msgid "Profile Settings"
-msgstr ""
+msgstr "個人資料設定"
 
 msgid "Protocol"
 msgstr "通訊協定"
@@ -3235,7 +3235,7 @@ msgid "Store DOS attributes"
 msgstr "儲存 DOS 屬性"
 
 msgid "Submit"
-msgstr ""
+msgstr "提交"
 
 msgid "Success"
 msgstr "成功"
@@ -3366,7 +3366,7 @@ msgid "The action to be done when pressing the power button."
 msgstr "當按下電源按鈕時，將執行的動作。"
 
 msgid "The authentication challenge URL is invalid."
-msgstr ""
+msgstr "身份驗證挑戰的 URL 無效。"
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
@@ -3509,7 +3509,7 @@ msgstr "將對軟體套件庫查看新增、已移除或已升級的軟體套件
 msgid ""
 "The requested authentication challenge is not supported by this browser "
 "interface. Please contact your administrator."
-msgstr ""
+msgstr "所請求的身份驗證挑戰不被此瀏覽器介面支援。請聯絡您的管理員。"
 
 msgid "The requested page was not found."
 msgstr "無法找到所要求的網頁。"
@@ -3747,7 +3747,7 @@ msgid "This specifies what to do if the packet matches."
 msgstr "這指明如果數據包符合時要做什麼。"
 
 msgid "This will create a recycle bin for each user home directory."
-msgstr "這將為每個使用者家目錄建立一個回收桶。"
+msgstr "這將為每個用户之家目錄建立一個回收桶。"
 
 msgid "This will create a recycle bin for the share."
 msgstr "這將會為分享建立一個回收桶。"
@@ -3842,7 +3842,7 @@ msgid "UNKNOWN"
 msgstr "未知"
 
 msgid "USER"
-msgstr "使用者"
+msgstr "用户"
 
 msgid "UUID"
 msgstr "UUID"
@@ -4023,7 +4023,7 @@ msgid "Updated user \"{{ name }}\"."
 msgstr "已更新用戶 \"{{ name }}\"。"
 
 msgid "Updated user settings."
-msgstr ""
+msgstr "已更新用户設定。"
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
 msgstr "已更新有線網路連接 \"{{ devicename }}\"。"
