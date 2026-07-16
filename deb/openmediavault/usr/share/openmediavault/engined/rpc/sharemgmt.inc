@@ -493,64 +493,64 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract
                     last_error_msg()
                 );
             }
-        }
-        // Change group owner of directory to the configured default
-        // users group, e.g. 'users'.
-        $defaultGroup = \OMV\Environment::get(
-            "OMV_USERMGMT_DEFAULT_GROUP",
-            "users"
-        );
-        if (false === chgrp($pathName, $defaultGroup)) {
-            throw new \OMV\Exception(
-                "Failed to set file group to '%s' for '%s': %s",
-                $defaultGroup,
-                $pathName,
-                last_error_msg()
+            // Change group owner of directory to the configured default
+            // users group, e.g. 'users'.
+            $defaultGroup = \OMV\Environment::get(
+                "OMV_USERMGMT_DEFAULT_GROUP",
+                "users"
             );
-        }
-        // Set the setgid bit. Setting this permission means that all files
-        // created in the folder will inherit the group of the folder rather
-        // than the primary group of the user who creates the file.
-        $mode = fileperms($pathName) | 02000;
-        if (false === chmod($pathName, $mode)) {
-            throw new \OMV\Exception(
-                "Failed to set file mode to '%o' for '%s': %s",
-                $mode,
-                $pathName,
-                last_error_msg()
-            );
-        }
-        // Walk through the directory path to make sure group 'users' can
-        // access all subdirectories.
-        // Example:
-        // <sf_mount_dir>/<reldirpath>
-        // <sf_mount_dir>
-        //  |- dir1
-        //  |  |- dir1.1
-        //  |  '- dir1.2
-        //  |     '- dir1.2.1
-        //  '
-        $parts = explode(DIRECTORY_SEPARATOR, trim(
-            $object->get("reldirpath"),
-            DIRECTORY_SEPARATOR
-        ));
-        array_pop($parts); // Remove last directory, this is already processed.
-        if (!empty($parts)) {
-            $absPath = $meObject->get("dir");
-            // To prevent reaching the command line length limit (we can
-            // not expect how long the absolute paths of all subdirectory
-            // will be nor how many subdirectories need to be processed)
-            // when processing all subdirectories with one 'setfacl' call,
-            // each subdirectory will be processed separately.
-            foreach ($parts as $partk => $partv) {
-                $absPath = build_path(DIRECTORY_SEPARATOR, $absPath, $partv);
-                $cmdArgs = [];
-                $cmdArgs[] = '--modify';
-                $cmdArgs[] = sprintf("group:%s:--x", $defaultGroup);
-                $cmdArgs[] = escapeshellarg($absPath);
-                $cmd = new \OMV\System\Process("setfacl", $cmdArgs);
-                $cmd->setRedirect2to1();
-                $cmd->execute();
+            if (false === chgrp($pathName, $defaultGroup)) {
+                throw new \OMV\Exception(
+                    "Failed to set file group to '%s' for '%s': %s",
+                    $defaultGroup,
+                    $pathName,
+                    last_error_msg()
+                );
+            }
+            // Set the setgid bit. Setting this permission means that all files
+            // created in the folder will inherit the group of the folder rather
+            // than the primary group of the user who creates the file.
+            $mode = fileperms($pathName) | 02000;
+            if (false === chmod($pathName, $mode)) {
+                throw new \OMV\Exception(
+                    "Failed to set file mode to '%o' for '%s': %s",
+                    $mode,
+                    $pathName,
+                    last_error_msg()
+                );
+            }
+            // Walk through the directory path to make sure group 'users' can
+            // access all subdirectories.
+            // Example:
+            // <sf_mount_dir>/<reldirpath>
+            // <sf_mount_dir>
+            //  |- dir1
+            //  |  |- dir1.1
+            //  |  '- dir1.2
+            //  |     '- dir1.2.1
+            //  '
+            $parts = explode(DIRECTORY_SEPARATOR, trim(
+                $object->get("reldirpath"),
+                DIRECTORY_SEPARATOR
+            ));
+            array_pop($parts); // Remove last directory, this is already processed.
+            if (!empty($parts)) {
+                $absPath = $meObject->get("dir");
+                // To prevent reaching the command line length limit (we can
+                // not expect how long the absolute paths of all subdirectory
+                // will be nor how many subdirectories need to be processed)
+                // when processing all subdirectories with one 'setfacl' call,
+                // each subdirectory will be processed separately.
+                foreach ($parts as $partk => $partv) {
+                    $absPath = build_path(DIRECTORY_SEPARATOR, $absPath, $partv);
+                    $cmdArgs = [];
+                    $cmdArgs[] = '--modify';
+                    $cmdArgs[] = sprintf("group:%s:--x", $defaultGroup);
+                    $cmdArgs[] = escapeshellarg($absPath);
+                    $cmd = new \OMV\System\Process("setfacl", $cmdArgs);
+                    $cmd->setRedirect2to1();
+                    $cmd->execute();
+                }
             }
         }
         // Return the configuration object.
