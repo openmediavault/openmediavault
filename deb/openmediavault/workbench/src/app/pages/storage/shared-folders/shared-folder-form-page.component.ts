@@ -56,7 +56,8 @@ export class SharedFolderFormPageComponent extends BaseFormPageComponent {
         ],
         validators: {
           required: true,
-          patternType: 'shareName'
+          patternType: 'shareName',
+          maxLength: 80
         }
       },
       {
