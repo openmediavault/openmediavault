@@ -3,6 +3,8 @@ openmediavault (8.5.3-1) stable; urgency=medium
   * Fix regression in shared folder creation page.
   * Do not overwrite the permissions for a shared folder after editing
     an existing.
+  * Improve the handling of special characters in a netplan WiFi
+    configuration.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 16 Jul 2026 19:52:49 +0200
 

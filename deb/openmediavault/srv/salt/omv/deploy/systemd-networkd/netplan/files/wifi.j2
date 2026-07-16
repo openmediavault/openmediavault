@@ -81,10 +81,10 @@ network:
       wakeonlan: true
 {%- endif %}
       access-points:
-        "{{ interface.wpassid }}":
+        {{ interface.wpassid | yaml_dquote }}:
           auth:
             key-management: {{ interface.keymanagement }}
-            password: "{{ interface.wpapsk }}"
+            password: {{ interface.wpapsk | yaml_dquote }}
           hidden: {{ interface.hidden | to_bool | yesno('true,false') }}
 {%- if interface.band != 'auto' %}
           band: {{ interface.band }}
