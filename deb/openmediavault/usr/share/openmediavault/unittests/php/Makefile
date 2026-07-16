@@ -26,7 +26,7 @@ test:
 	@set -e; \
 	for file in $(PHP_FILES); do \
 		echo ">>> Processing $$file ..."; \
-		phpunit --include-path "$(PHP_INCLUDE_PATH)" --bootstrap "$(PHP_BOOTSTRAP_FILE)" $$file; \
+		phpunit --colors=auto --include-path "$(PHP_INCLUDE_PATH)" --bootstrap "$(PHP_BOOTSTRAP_FILE)" $$file; \
 		echo; \
 	done
 

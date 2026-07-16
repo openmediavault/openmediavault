@@ -136,8 +136,10 @@ class Schema extends \OMV\Json\Schema
                     // References:
                     // http://tools.ietf.org/html/draft-leach-cifs-v1-spec-01
                     // http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx
-                    if (!preg_match('/^[^.]([^"\/\\\[\]:+|<>=;,*?. ]+){0,1}([.]'.
-                      '[^"\/\\\[\]:+|<>=;,*?. ]+){0,}$/', $value)) {
+                    if (!preg_match(
+                        '/^[^"\/\\\[\]:+|<>=;,*?. ]+(?:\.[^"\/\\\[\]:+|<>=;,*?. ]+)*$/',
+                        $value
+                    )) {
                         throw new \OMV\Json\SchemaValidationException(
                             "%s: The value '%s' is not a valid share name.",
                             $name,

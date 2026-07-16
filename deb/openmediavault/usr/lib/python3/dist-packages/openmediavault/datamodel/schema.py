@@ -137,8 +137,7 @@ class Schema(openmediavault.json.Schema):
                 # http://tools.ietf.org/html/draft-leach-cifs-v1-spec-01
                 # http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx
                 if not re.match(
-                    r'^[^.]([^"/\\\[\]:+|<>=;,*?. ]+)?([.]'
-                    r'[^"/\\\[\]:+|<>=;,*?. ]+)*$',
+                    r'^[^"/\\\[\]:+|<>=;,*?. ]+(?:\.[^"/\\\[\]:+|<>=;,*?. ]+)*$',
                     value,
                 ):
                     raise openmediavault.json.SchemaValidationException(

@@ -284,6 +284,14 @@ class SchemaTestCase(unittest.TestCase):
         schema = openmediavault.datamodel.Schema({})
         schema._check_format("data", {"format": "sharename"}, "field1")
 
+    def test_check_format_sharename_2(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format("my.share", {"format": "sharename"}, "field1")
+
+    def test_check_format_sharename_3(self):
+        schema = openmediavault.datamodel.Schema({})
+        schema._check_format("Hörbücher", {"format": "sharename"}, "field1")
+
     def test_check_format_sharename_fail_1(self):
         schema = openmediavault.datamodel.Schema({})
         self.assertRaises(
@@ -299,6 +307,15 @@ class SchemaTestCase(unittest.TestCase):
             openmediavault.json.SchemaValidationException,
             lambda: schema._check_format(
                 "bar..foo", {"format": "sharename"}, "xyz"
+            )
+        )
+
+    def test_check_format_sharename_fail_3(self):
+        schema = openmediavault.datamodel.Schema({})
+        self.assertRaises(
+            openmediavault.json.SchemaValidationException,
+            lambda: schema._check_format(
+                "my share", {"format": "sharename"}, "field1"
             )
         )
 

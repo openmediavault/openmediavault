@@ -450,6 +450,53 @@ describe('CustomValidators', () => {
       });
     });
 
+    describe('shareName', () => {
+      let validator: ValidatorFn;
+
+      beforeEach(() => {
+        validator = CustomValidators.patternType('shareName');
+      });
+
+      it('should validate shareName [1]', () => {
+        formControl.setValue('shared');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should validate shareName [2]', () => {
+        formControl.setValue('my.share');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should validate shareName [3]', () => {
+        formControl.setValue('Hörbücher');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should not validate shareName [1] (leading period)', () => {
+        formControl.setValue('.share');
+        expect(validator(formControl)).toEqual({
+          pattern:
+            'This field contains invalid characters, e.g. a blank or "/[]:+|<>=;,*? character.'
+        });
+      });
+
+      it('should not validate shareName [2] (consecutive periods)', () => {
+        formControl.setValue('my..share');
+        expect(validator(formControl)).toEqual({
+          pattern:
+            'This field contains invalid characters, e.g. a blank or "/[]:+|<>=;,*? character.'
+        });
+      });
+
+      it('should not validate shareName [3] (blank)', () => {
+        formControl.setValue('my share');
+        expect(validator(formControl)).toEqual({
+          pattern:
+            'This field contains invalid characters, e.g. a blank or "/[]:+|<>=;,*? character.'
+        });
+      });
+    });
+
     describe('userName', () => {
       let validator: ValidatorFn;
 

@@ -507,6 +507,54 @@ class test_openmediavault_datamodel_schema extends \PHPUnit\Framework\TestCase
     /**
      * @doesNotPerformAssertions
      */
+    public function testCheckFormatSharename1()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat("data", [ "format" => "sharename" ], "field1");
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testCheckFormatSharename2()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat("my.share", [ "format" => "sharename" ], "field1");
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testCheckFormatSharename3()
+    {
+        $schema = $this->getSchema();
+        $schema->checkFormat("Hörbücher", [ "format" => "sharename" ], "field1");
+    }
+
+    public function testCheckFormatSharenameFail1()
+    {
+        $schema = $this->getSchema();
+        $this->expectException(\OMV\Json\SchemaValidationException::class);
+        $schema->checkFormat(".foo", [ "format" => "sharename" ], "field1");
+    }
+
+    public function testCheckFormatSharenameFail2()
+    {
+        $schema = $this->getSchema();
+        $this->expectException(\OMV\Json\SchemaValidationException::class);
+        $schema->checkFormat("bar..foo", [ "format" => "sharename" ], "xyz");
+    }
+
+    public function testCheckFormatSharenameFail3()
+    {
+        $schema = $this->getSchema();
+        $this->expectException(\OMV\Json\SchemaValidationException::class);
+        $schema->checkFormat("my share", [ "format" => "sharename" ], "field1");
+    }
+
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testCheckFormatNetbios1()
     {
         $schema = $this->getSchema();

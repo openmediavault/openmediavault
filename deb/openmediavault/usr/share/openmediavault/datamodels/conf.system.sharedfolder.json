@@ -14,7 +14,9 @@
 			"format": "uuidv4"
 		},
 		"name": {
-			"type": "string"
+			"type": "string",
+			"format": "sharename",
+			"maxLength": 80
 		},
 		"comment": {
 			"type": "string"
