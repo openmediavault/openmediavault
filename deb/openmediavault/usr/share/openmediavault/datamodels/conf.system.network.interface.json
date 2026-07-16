@@ -143,12 +143,10 @@
 			"default": "auto"
 		},
 		"wpassid": {
-			"type": "string",
-			"format": "no-multi-line"
+			"type": "string"
 		},
 		"wpapsk": {
-			"type": "string",
-			"format": "no-multi-line"
+			"type": "string"
 		},
 		"keymanagement": {
 			"type": "string",
