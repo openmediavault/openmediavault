@@ -28,7 +28,7 @@ msgid "Create"
 msgstr "Skapa"
 
 msgid "Created environment variable."
-msgstr "Skapad miljövariabel."
+msgstr "Miljövariabeln skapades."
 
 msgid "Edit"
 msgstr "Redigera"
@@ -41,13 +41,13 @@ msgstr "Namn"
 
 msgid ""
 "Please wait, applying environment variables. This can take some time ..."
-msgstr "Vänta, tillämpar miljövariabler. Detta kan ta lite tid ..."
+msgstr "Vänta medan miljövariablerna tillämpas. Det kan ta en stund…"
 
 msgid "Select an environment variable ..."
-msgstr "Välj en miljövariabel ..."
+msgstr "Välj en miljövariabel…"
 
 msgid "Updated environment variable."
-msgstr "Uppdaterad miljövariabel."
+msgstr "Miljövariabeln uppdaterades."
 
 msgid "Value"
 msgstr "Värde"

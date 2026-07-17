@@ -34,7 +34,7 @@ msgid "Command"
 msgstr "Kommando"
 
 msgid "Containers"
-msgstr "Behållare"
+msgstr "Containrar"
 
 msgid "Created"
 msgstr "Skapad"
@@ -43,7 +43,7 @@ msgid "Digest"
 msgstr "Digest"
 
 msgid "Do you really want to restart this container?"
-msgstr "Vill du verkligen starta om den här behållaren?"
+msgstr "Vill du verkligen starta om den här containern?"
 
 msgid "Do you really want to restart this pod?"
 msgstr "Vill du verkligen starta om den här podden?"
@@ -61,7 +61,7 @@ msgid "Images"
 msgstr "Avbildningar"
 
 msgid "Infra ID"
-msgstr "Infra ID"
+msgstr "Infrastruktur-ID"
 
 msgid "Inspect"
 msgstr "Inspektera"
@@ -73,7 +73,7 @@ msgid "Mem %"
 msgstr "Minne %"
 
 msgid "Mem Usage / Limit"
-msgstr "Minnesanvändning / gräns"
+msgstr "Minnesanvändning/gräns"
 
 msgid "Mount Point"
 msgstr "Monteringspunkt"
@@ -94,7 +94,7 @@ msgid "Networks"
 msgstr "Nätverk"
 
 msgid "PIDs"
-msgstr "PID:ar"
+msgstr "PID:er"
 
 msgid "Pod"
 msgstr "Podd"
@@ -142,7 +142,7 @@ msgid "The tag of the image to pull."
 msgstr "Taggen för avbildningen som ska hämtas."
 
 msgid "Updated Podman settings."
-msgstr "Uppdaterade Podman-inställningar."
+msgstr "Podman-inställningarna har uppdaterats."
 
 msgid "Used"
 msgstr "Använt"

@@ -38,7 +38,7 @@ msgid "Port"
 msgstr "Port"
 
 msgid "Port to listen on."
-msgstr "Lyssningsport."
+msgstr "Port att lyssna på."
 
 msgid "Shared folder"
 msgstr "Delad mapp"
@@ -54,7 +54,7 @@ msgstr ""
 "gruppen <em>users</em> har åtkomst till filerna."
 
 msgid "Updated File Browser settings."
-msgstr "Uppdaterade filhanterarinställningar."
+msgstr "Filhanterarens inställningar uppdaterades."
 
 msgid ""
 "Use the <em>admin:admin</em> credentials when logging in for the first time."

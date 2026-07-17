@@ -28,7 +28,7 @@ msgid "A maximum of two devices can be removed."
 msgstr "Högst två enheter kan tas bort."
 
 msgid "Add hot spares / recover RAID device."
-msgstr "Lägg till reservenheter / återställ RAID-enhet."
+msgstr "Lägg till reservdiskar/återställ RAID-enheten."
 
 msgid "At least four devices are required."
 msgstr "Minst fyra enheter krävs."
@@ -64,7 +64,7 @@ msgid "MD Devices"
 msgstr "MD-enheter"
 
 msgid "Mirror"
-msgstr "Spegel"
+msgstr "Spegling"
 
 msgid "Multiple Device"
 msgstr "Flera enheter"
@@ -94,13 +94,13 @@ msgid "Recover"
 msgstr "Återställ"
 
 msgid "Referenced"
-msgstr "Refererade"
+msgstr "Refererad"
 
 msgid "Remove"
 msgstr "Ta bort"
 
 msgid "Select devices ..."
-msgstr "Välj enheter ..."
+msgstr "Välj enheter …"
 
 msgid "Select devices to be added to the RAID device."
 msgstr "Välj enheter som ska läggas till RAID-enheten."
@@ -125,4 +125,4 @@ msgid "State"
 msgstr "Tillstånd"
 
 msgid "Stripe"
-msgstr "Stripe"
+msgstr "Striping"

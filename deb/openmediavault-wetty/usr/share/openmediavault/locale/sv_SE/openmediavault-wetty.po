@@ -35,13 +35,13 @@ msgid "Port"
 msgstr "Port"
 
 msgid "Port to listen on."
-msgstr "Lyssningsport."
+msgstr "Port som tjänsten ska lyssna på."
 
 msgid "The SSL certificate."
 msgstr "SSL-certifikatet."
 
 msgid "Updated WeTTY settings."
-msgstr "WeTTY-inställningarna uppdaterades."
+msgstr "WeTTY-inställningarna har uppdaterats."
 
 msgid "WeTTY"
 msgstr "WeTTY"

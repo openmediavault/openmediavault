@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# efef6ec5b435a041fce803c7f8af77d2_2341d43, 2020
+# efef6ec5b435a041fce803c7f8af77d2_2341d43, 2017
 # Jonatan Nyberg, 2026
 # 
 #, fuzzy
@@ -23,19 +23,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Authentication and no privacy"
-msgstr "Autentisering och ingen sekretess"
+msgstr "Autentisering utan kryptering"
 
 msgid "Authentication and privacy"
-msgstr "Autentisering och sekretess"
+msgstr "Autentisering och kryptering"
 
 msgid "Authentication passphrase"
-msgstr "Autentiseringslösenord"
+msgstr "Lösenfras för autentisering"
 
 msgid "Authentication type"
 msgstr "Autentiseringstyp"
 
 msgid "Community"
-msgstr "Gemenskap"
+msgstr "Community-sträng"
 
 msgid "Contact"
 msgstr "Kontakt"
@@ -51,7 +51,7 @@ msgid "Enabled"
 msgstr "Aktiverad"
 
 msgid "Extra options"
-msgstr "Extra tillval"
+msgstr "Extra inställningar"
 
 msgid "Host"
 msgstr "Värd"
@@ -63,25 +63,25 @@ msgid "Location information, e.g. physical location of this system."
 msgstr "Platsinformation, t.ex. fysisk plats för det här systemet."
 
 msgid "No authentication and no privacy"
-msgstr "Ingen autentisering och ingen sekretess"
+msgstr "Varken autentisering eller kryptering"
 
 msgid "Port"
 msgstr "Port"
 
 msgid "Privacy passphrase"
-msgstr "Sekretesslösenfras"
+msgstr "Lösenfras för kryptering"
 
 msgid "Privacy type"
-msgstr "Sekretesstyp"
+msgstr "Krypteringstyp"
 
 msgid "SNMP"
 msgstr "SNMP"
 
 msgid "SNMP version 1/2c"
-msgstr "SNMP version 1/2c"
+msgstr "SNMP-version 1/2c"
 
 msgid "SNMP version 3"
-msgstr "SNMP version 3"
+msgstr "SNMP-version 3"
 
 msgid "Security level"
 msgstr "Säkerhetsnivå"
@@ -90,7 +90,7 @@ msgid "Traps"
 msgstr "Trap-meddelanden"
 
 msgid "Updated SNMP settings."
-msgstr "SNMP-inställningarna uppdaterades."
+msgstr "SNMP-inställningarna har uppdaterats."
 
 msgid "User name"
 msgstr "Användarnamn"

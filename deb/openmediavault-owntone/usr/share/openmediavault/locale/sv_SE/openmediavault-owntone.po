@@ -42,7 +42,7 @@ msgid "Port"
 msgstr "Port"
 
 msgid "Port to listen on."
-msgstr "Lyssningsport."
+msgstr "Port som tjänsten ska lyssna på."
 
 msgid "Shared folder"
 msgstr "Delad mapp"
@@ -55,17 +55,18 @@ msgstr ""
 "<em>owntone</em> eller gruppen <em>users</em> har åtkomst till filerna."
 
 msgid "The name of the library as displayed by the clients."
-msgstr "Namnet på biblioteket visas av klienterna."
+msgstr "Namnet på biblioteket så som det visas för klienterna."
 
 msgid "The password for the user <em>admin</em> to access the web interface."
 msgstr ""
-"Lösenordet för användaren <em>admin</em> för att komma åt webbgränssnittet."
+"Lösenordet som användaren <em>admin</em> använder för att öppna "
+"webbgränssnittet."
 
 msgid "The password to access the library."
 msgstr "Lösenordet för att komma åt biblioteket."
 
 msgid "Updated OwnTone settings."
-msgstr "Uppdaterade OwnTone-inställningar."
+msgstr "OwnTone-inställningarna har uppdaterats."
 
 msgid "Web interface"
 msgstr "Webbgränssnitt"

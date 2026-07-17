@@ -3,8 +3,11 @@
 # This file is distributed under the same license as the openmediavault-clamav package.
 # 
 # Translators:
-# Jonatan Nyberg, 2025-2026
 # d8527209fb8c70c5b5fcb33678ff7c94_64a2687 <02f319e914d16f5dcdd2de15d3144927_23340>, 2012
+# Jonatan Nyberg, 2025-2026
+# efef6ec5b435a041fce803c7f8af77d2_2341d43, 2017
+# d8527209fb8c70c5b5fcb33678ff7c94_64a2687 <02f319e914d16f5dcdd2de15d3144927_23340>, 2012
+# Jonatan Nyberg, 2026
 # Jonatan Nyberg, 2021-2023
 # Jonatan Nyberg, 2020-2021
 # efef6ec5b435a041fce803c7f8af77d2_2341d43, 2017
@@ -41,22 +44,22 @@ msgid "August"
 msgstr "Augusti"
 
 msgid "Be verbose."
-msgstr "Var pratig."
+msgstr "Använd detaljerad loggning."
 
 msgid "Create"
 msgstr "Skapa"
 
 msgid "Created on-access scan."
-msgstr "Skapade skanning sker vid åtkomst."
+msgstr "Genomsökningen vid åtkomst skapades."
 
 msgid "Created scheduled scan."
-msgstr "Skapade schemalagd skanning."
+msgstr "Den schemalagda genomsökningen skapades."
 
 msgid "Database checks"
 msgstr "Databaskontroller"
 
 msgid "Date & Time"
-msgstr "Datum & tid"
+msgstr "Datum och tid"
 
 msgid "Day of month"
 msgstr "Dag i månaden"
@@ -74,10 +77,10 @@ msgid "Detect PUA"
 msgstr "Upptäck PUA"
 
 msgid "Detect broken executables"
-msgstr "Upptäck trasiga körbara filer"
+msgstr "Identifiera skadade körbara filer"
 
 msgid "Detect broken media"
-msgstr "Upptäck trasiga medier"
+msgstr "Identifiera skadade mediefiler"
 
 msgid "Edit"
 msgstr "Redigera"
@@ -103,25 +106,25 @@ msgid "Enable the algorithmic detection."
 msgstr "Aktivera den algoritmiska detekteringen."
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
-msgstr "Aktivera detektering av trasiga körbara filer (både PE och ELF)."
+msgstr "Aktivera identifiering av skadade körbara filer, både PE och ELF."
 
 msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
-msgstr "Aktivera detektering av trasiga mediefiler (JPEG, TIFF, PNG, GIF)."
+msgstr "Aktivera identifiering av skadade mediefiler (JPEG, TIFF, PNG, GIF)."
 
 msgid "Enable the detection of possibly unwanted applications."
-msgstr "Aktivera detektering av eventuellt oönskade applikationer."
+msgstr "Aktivera identifiering av potentiellt oönskade program."
 
 msgid "Enabled"
 msgstr "Aktiverad"
 
 msgid "Every N day of month"
-msgstr "Varje N dag i månaden"
+msgstr "Var N:e dag i månaden"
 
 msgid "Every N hour"
-msgstr "Varje N timme"
+msgstr "Var N:e timme"
 
 msgid "Every N minute"
-msgstr "Varje N minut"
+msgstr "Var N:e minut"
 
 msgid "Execute scheduled scan"
 msgstr "Utför schemalagd skanning"
@@ -190,19 +193,19 @@ msgid "Move to quarantine"
 msgstr "Flytta till karantän"
 
 msgid "Multiscan"
-msgstr "Flerskanning"
+msgstr "Parallell genomsökning"
 
 msgid "November"
 msgstr "November"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
-msgstr "Antal databasuppdateringar per dag. Ange 0 för att inaktivera."
+msgstr "Antal sökningar efter databasuppdateringar per dag. Ange 0 för att inaktivera."
 
 msgid "October"
 msgstr "Oktober"
 
 msgid "On Access Scans"
-msgstr "Vid åtkomstskanningar"
+msgstr "Genomsökningar vid åtkomst"
 
 msgid "Perform a deeper analysis of executable files."
 msgstr "Genomför en djupare analys av körbara filer."
@@ -238,13 +241,13 @@ msgid "Scan PDF"
 msgstr "Skanna PDF"
 
 msgid "Scan Portable Executable"
-msgstr "Skanna portabel körbar fil"
+msgstr "Skanna körbara PE-filer"
 
 msgid "Scan archives"
 msgstr "Skanna arkiv"
 
 msgid "Scan the directory contents in parallel using available threads."
-msgstr "Skanna mappinnehåll med tillgängliga trådar i paralell."
+msgstr "Genomsök mappens innehåll parallellt med de tillgängliga trådarna."
 
 msgid "Scheduled Scans"
 msgstr "Schemalagda skanningar"
@@ -277,7 +280,7 @@ msgid "The field should only contain * or a comma separated list of values."
 msgstr "Fältet ska bara innehålla * eller en kommaseparerad lista över värden."
 
 msgid "The location of the files to scan on-access."
-msgstr "Placeringen av filerna för att göra åtkomstsökning."
+msgstr "Platsen för filerna som ska genomsökas vid åtkomst."
 
 msgid "The location of the files to scan."
 msgstr "Platsen för filerna som ska skannas."
@@ -286,28 +289,28 @@ msgid "The location which is used as quarantine."
 msgstr "Platsen som används som karantän."
 
 msgid "The option, how to handle infected files."
-msgstr "Alternativet, hur man hanterar infekterade filer."
+msgstr "Anger hur infekterade filer ska hanteras."
 
 msgid "Thursday"
 msgstr "Torsdag"
 
 msgid "Time of execution"
-msgstr "Tiden för körandet"
+msgstr "Tidpunkt för körning"
 
 msgid "Tuesday"
 msgstr "Tisdag"
 
 msgid "Updated on-access scan."
-msgstr "Uppdaterad skanning sker vid åtkomst."
+msgstr "Genomsökningen vid åtkomst uppdaterades."
 
 msgid "Updated scheduled scan."
-msgstr "Uppdaterad schemalagd skanning."
+msgstr "Den schemalagda genomsökningen uppdaterades."
 
 msgid "Verbose"
-msgstr "Pratig"
+msgstr "Detaljerad loggning"
 
 msgid "Wednesday"
 msgstr "Onsdag"
 
 msgid "n/a"
-msgstr "ingen uppgift"
+msgstr "Ej tillgängligt"

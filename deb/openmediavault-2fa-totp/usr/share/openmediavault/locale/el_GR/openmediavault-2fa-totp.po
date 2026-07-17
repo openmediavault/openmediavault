@@ -22,22 +22,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "2FA TOTP"
-msgstr ""
+msgstr "2FA TOTP"
 
 msgid "Disable"
-msgstr ""
+msgstr "Ανενεργό"
 
 msgid "Disable 2FA TOTP"
-msgstr ""
+msgstr "Απενεργοποίηση 2FA TOTP"
 
 msgid "Edit"
 msgstr "Επεξεργασία"
 
 msgid "Enable"
-msgstr ""
+msgstr "Ενεργό"
 
 msgid "Enable 2FA TOTP"
-msgstr ""
+msgstr "Ενεργοποίηση 2FA TOTP"
 
 msgid "Enabled"
 msgstr "Ενεργό"
@@ -46,7 +46,7 @@ msgid "Name"
 msgstr "Όνομα"
 
 msgid "QR code"
-msgstr ""
+msgstr "Κωδικός QR"
 
 msgid ""
 "Scan the QR code below with your authenticator app (Google Authenticator, "
@@ -54,12 +54,17 @@ msgid ""
 "manually. Once your authenticator app is configured, enter the 6-digit code "
 "it shows to confirm the setup."
 msgstr ""
+"Σαρώστε τον κάτωθι κωδικό QR με την εφαρμογή πιστοποίησης (Google "
+"Authenticator, Authy, κλπ.). Αν η εφαρμογή σας δεν υποστηρίζει κωδικούς QR, "
+"καταχωρήστε το μυστικό κλειδί χειροκίνητα. Όταν ρυθμιστεί η εφαρμογή "
+"πιστοποίησης, καταχωρήστε τον εξαφήφιο κωδικό που εμφανίζει ως επιβεβαίωση "
+"της ρύθμισης."
 
 msgid "Secret"
-msgstr ""
+msgstr "Μυστικό"
 
 msgid "Two-Factor Authentication"
-msgstr ""
+msgstr "Πιστοποίηση Δύο Παραγόντων"
 
 msgid ""
 "Two-factor authentication (2FA) with TOTP adds an extra layer of security by"
@@ -67,12 +72,16 @@ msgid ""
 "addition to your password. You can enable or disable TOTP for your account "
 "here."
 msgstr ""
+"Η πιστοποίηση δύο παραγόντων (2FA) με TOTP προσθέτει ένα επιπλέον επίπεδο "
+"ασφαλείας, ζητώντας έναν επιπρόσθετο προσωρινό κωδικό μιας χρήσης από την "
+"εφαρμογή πιστοποίησης. Εδώ μπορείτε να ενεργοποιείτε ή να απενεργοποιείτε το"
+" ΤΟΤΡ για τον λογαριασμό σας."
 
 msgid "Updated 2FA TOTP."
-msgstr ""
+msgstr "Ενημέρωση 2FA TOTP."
 
 msgid "User name"
 msgstr "Όνομα χρήστη"
 
 msgid "Verification code"
-msgstr ""
+msgstr "Κωδικός Επαλήθευσης"

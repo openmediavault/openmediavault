@@ -28,18 +28,18 @@ msgid ""
 "A sequential IO will bypass the cache once it passes this threshold. "
 "(default:4.0M, max:3.9G)"
 msgstr ""
-"En sekventiell I/O kommer att kringgå cachen när den passerar denna tröskel."
-" (standard: 4,0 M, max: 3,9 G)"
+"Sekventiell I/O kringgår cachen när den passerar det här tröskelvärdet "
+"(standard: 4,0 M, max: 3,9 G)."
 
 msgid ""
 "Allow bcache go around the cache when there's read / write congestion. "
 "(default:true)"
 msgstr ""
-"Tillåt bcache att kringgå cachen när det finns läs-/skrivstockningar. "
-"(standard: true)"
+"Tillåt bcache att kringgå cachen vid överbelastning av läsning eller "
+"skrivning (standard: sant)."
 
 msgid "Backing Devices"
-msgstr "Uppbackningsenheter"
+msgstr "Bakomliggande enheter"
 
 msgid "Bcache"
 msgstr "Bcache"
@@ -60,7 +60,7 @@ msgid "Capacity"
 msgstr "Kapacitet"
 
 msgid "Clean"
-msgstr "Städa"
+msgstr "Ren"
 
 msgid "Clear total statistics"
 msgstr "Rensa totalstatistik"
@@ -72,7 +72,7 @@ msgid "Congest Tracking"
 msgstr "Överbelastningsspårning"
 
 msgid "Congested Read Threshold (us)"
-msgstr "Tröskel för överbelastad läsning (us)"
+msgstr "Tröskel för överbelastad läsning (µs)"
 
 msgid "Create"
 msgstr "Skapa"
@@ -87,10 +87,10 @@ msgid "Dirty"
 msgstr "Smutsig"
 
 msgid "Dirty Data"
-msgstr "Smutsiga data"
+msgstr "Ändrade data"
 
 msgid "Docs"
-msgstr "Dokument"
+msgstr "Dokumentation"
 
 msgid "Hour"
 msgstr "Timme"
@@ -100,9 +100,9 @@ msgid ""
 "by throttling background writeback and using a PD controller to smoothly "
 "adjust the rate. (default:10)"
 msgstr ""
-"Om värdet inte är noll försöker bcache hålla runt denna procentandel av "
-"cachen smutsig genom att strypa bakgrundsåterskrivning och använda en PD-"
-"kontroller för att smidigt justera hastigheten. (standard: 10)"
+"Om värdet inte är noll försöker bcache hålla ungefär den här andelen av "
+"cachen ändrad genom att begränsa återskrivning i bakgrunden och använda en "
+"PD-regulator för att justera hastigheten jämnt (standard: 10)."
 
 msgid "Inconsistent"
 msgstr "Inkonsekvent"
@@ -114,7 +114,7 @@ msgid "Missing"
 msgstr "Saknad"
 
 msgid "Missing Cache"
-msgstr "Saknad cache"
+msgstr "Cache saknas"
 
 msgid "Mounted"
 msgstr "Monterad"
@@ -123,10 +123,10 @@ msgid "Name"
 msgstr "Namn"
 
 msgid "No Cache"
-msgstr "Ingen cache"
+msgstr "Utan cache"
 
 msgid "Online"
-msgstr "Uppkopplad"
+msgstr "Online"
 
 msgid ""
 "Please note that creating a file system on a Bcache device can take longer. "
@@ -144,22 +144,22 @@ msgid "Register"
 msgstr "Registrera"
 
 msgid "Select a cache device ..."
-msgstr "Välj en cache-enhet ..."
+msgstr "Välj en cacheenhet…"
 
 msgid "Select a device ..."
-msgstr "Välj en enhet ..."
+msgstr "Välj en enhet…"
 
 msgid "Select the device that will be formatted as Bcache backing device."
-msgstr "Välj den enhet som ska formateras som Bcache-uppbackningsenhet."
+msgstr "Välj den enhet som ska formateras som bakomliggande Bcache-enhet."
 
 msgid "Select the device that will be formatted as Bcache cache device."
-msgstr "Välj den enhet som ska formateras som Bcache-cache-enhet."
+msgstr "Välj den enhet som ska formateras som Bcache-cacheenhet."
 
 msgid "Select the device that will be used as cache device."
-msgstr "Välj den enhet som ska användas som cache-enhet."
+msgstr "Välj den enhet som ska användas som cacheenhet."
 
 msgid "Sequential Cutoff"
-msgstr "Sekventiell avskärning"
+msgstr "Sekventiellt tröskelvärde"
 
 msgid "Show details"
 msgstr "Visa detaljer"
@@ -177,10 +177,10 @@ msgid "Superblock"
 msgstr "Superblock"
 
 msgid "The default is 2000 us (2 milliseconds)"
-msgstr "Standard är 2000 us (2 millisekunder)"
+msgstr "Standardvärdet är 2 000 µs (2 millisekunder)"
 
 msgid "The default is 20000 us (20 milliseconds)"
-msgstr "Standard är 20 000 us (20 millisekunder)"
+msgstr "Standardvärdet är 20 000 µs (20 millisekunder)"
 
 msgid "Total"
 msgstr "Totalt"
@@ -198,29 +198,29 @@ msgid "Unused"
 msgstr "Oanvänd"
 
 msgid "Updated backing device '{{ devicefile }}'."
-msgstr "Uppdaterad uppbackningsenhet '{{ devicefile }}'."
+msgstr "Den bakomliggande enheten ”{{ devicefile }}” uppdaterades."
 
 msgid "Updated cache device '{{ devicefile }}'."
-msgstr "Uppdaterad cache-enhet '{{ devicefile }}'."
+msgstr "Cacheenheten ”{{ devicefile }}” uppdaterades."
 
 msgid ""
 "When dirty data is written to the cache and it previously did not contain "
 "any, waits some number of seconds before initiating writeback. (default:30)"
 msgstr ""
-"När smutsiga data skrivs till cachen och den tidigare inte innehöll någon, "
-"väntar ett antal sekunder innan återskrivning påbörjas. (standard:30)"
+"När ändrade data skrivs till en tidigare ren cache väntar systemet det "
+"angivna antalet sekunder innan återskrivningen påbörjas (standard: 30)."
 
 msgid "Writeback Delay"
-msgstr "Återskrivningsfördröjning"
+msgstr "Fördröjning före återskrivning"
 
 msgid "Writeback Percent"
-msgstr "Återskrivningsprocent"
+msgstr "Återskrivningsandel"
 
 msgid "none"
 msgstr "ingen"
 
 msgid "writearound"
-msgstr "omskrivning"
+msgstr "kringgående skrivning"
 
 msgid "writeback"
 msgstr "återskrivning"

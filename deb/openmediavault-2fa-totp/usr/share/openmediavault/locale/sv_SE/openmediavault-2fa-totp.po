@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Karl Jonatan Nyberg, 2026
+# Jonatan Nyberg, 2026
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-26 09:35+0200\n"
 "PO-Revision-Date: 2026-06-26 17:34+0000\n"
-"Last-Translator: Karl Jonatan Nyberg, 2026\n"
+"Last-Translator: Jonatan Nyberg, 2026\n"
 "Language-Team: Swedish (https://app.transifex.com/openmediavault/teams/14254/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,22 +22,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "2FA TOTP"
-msgstr ""
+msgstr "Tvåfaktorsautentisering med TOTP"
 
 msgid "Disable"
-msgstr ""
+msgstr "Inaktivera"
 
 msgid "Disable 2FA TOTP"
-msgstr ""
+msgstr "Inaktivera tvåfaktorsautentisering med TOTP"
 
 msgid "Edit"
 msgstr "Redigera"
 
 msgid "Enable"
-msgstr ""
+msgstr "Aktivera"
 
 msgid "Enable 2FA TOTP"
-msgstr ""
+msgstr "Aktivera tvåfaktorsautentisering med TOTP"
 
 msgid "Enabled"
 msgstr "Aktiverad"
@@ -46,7 +46,7 @@ msgid "Name"
 msgstr "Namn"
 
 msgid "QR code"
-msgstr ""
+msgstr "QR-kod"
 
 msgid ""
 "Scan the QR code below with your authenticator app (Google Authenticator, "
@@ -54,12 +54,16 @@ msgid ""
 "manually. Once your authenticator app is configured, enter the 6-digit code "
 "it shows to confirm the setup."
 msgstr ""
+"Skanna QR-koden nedan med din autentiseringsapp, till exempel Google "
+"Authenticator eller Authy. Ange den hemliga nyckeln manuellt om appen inte "
+"stöder QR-koder. När appen har konfigurerats anger du den sexsiffriga kod "
+"som visas för att bekräfta konfigurationen."
 
 msgid "Secret"
-msgstr ""
+msgstr "Hemlig nyckel"
 
 msgid "Two-Factor Authentication"
-msgstr ""
+msgstr "Tvåfaktorsautentisering"
 
 msgid ""
 "Two-factor authentication (2FA) with TOTP adds an extra layer of security by"
@@ -67,12 +71,15 @@ msgid ""
 "addition to your password. You can enable or disable TOTP for your account "
 "here."
 msgstr ""
+"Tvåfaktorsautentisering (2FA) med TOTP ger ett extra säkerhetslager genom "
+"att kräva en tidsbaserad engångskod från autentiseringsappen utöver "
+"lösenordet. Här kan du aktivera eller inaktivera TOTP för ditt konto."
 
 msgid "Updated 2FA TOTP."
-msgstr ""
+msgstr "Inställningarna för tvåfaktorsautentisering med TOTP uppdaterades."
 
 msgid "User name"
 msgstr "Användarnamn"
 
 msgid "Verification code"
-msgstr ""
+msgstr "Verifieringskod"

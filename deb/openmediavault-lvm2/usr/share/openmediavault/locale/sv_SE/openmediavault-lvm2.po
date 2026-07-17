@@ -4,6 +4,9 @@
 # 
 # Translators:
 # d8527209fb8c70c5b5fcb33678ff7c94_64a2687 <02f319e914d16f5dcdd2de15d3144927_23340>, 2012
+# efef6ec5b435a041fce803c7f8af77d2_2341d43, 2017
+# d8527209fb8c70c5b5fcb33678ff7c94_64a2687 <02f319e914d16f5dcdd2de15d3144927_23340>, 2012
+# Jonatan Nyberg, 2026
 # Jonatan Nyberg, 2021-2022,2024
 # efef6ec5b435a041fce803c7f8af77d2_2341d43, 2017
 # Jonatan Nyberg, 2026
@@ -34,16 +37,16 @@ msgid "Create"
 msgstr "Skapa"
 
 msgid "Created logical volume '{{ name }}'."
-msgstr "Skapade den logiska volymen '{{ name }}'."
+msgstr "Den logiska volymen ”{{ name }}” skapades."
 
 msgid "Created physical volume {{ devicefile }}."
-msgstr "Skapade den fysiska volymen {{ devicefile }}."
+msgstr "Den fysiska volymen {{ devicefile }} skapades."
 
 msgid "Created snapshot of logical volume '{{ devicefile }}'."
-msgstr "Skapade ögonblicksbild av den logiska volymen '{{ devicefile }}'."
+msgstr "En ögonblicksbild av den logiska volymen ”{{ devicefile }}” skapades."
 
 msgid "Created volume group '{{ name }}'."
-msgstr "Skapade volymgruppen '{{ name }}'."
+msgstr "Volymgruppen ”{{ name }}” skapades."
 
 msgid "Device"
 msgstr "Enhet"
@@ -64,10 +67,10 @@ msgid "Extend"
 msgstr "Utöka"
 
 msgid "Extended logical volume '{{ devicefile }}'."
-msgstr "Utökade den logiska volymen '{{ devicefile }}'."
+msgstr "Den logiska volymen ”{{ devicefile }}” utökades."
 
 msgid "Extended volume group '{{ devicefile }}'."
-msgstr "Utökade volymgruppen '{{ devicefile }}'."
+msgstr "Volymgruppen ”{{ devicefile }}” utökades."
 
 msgid "Free"
 msgstr "Ledigt"
@@ -91,34 +94,34 @@ msgid "Physical Volumes"
 msgstr "Fysiska volymer"
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr "Vänta, en ögonblicksbild skapas ..."
+msgstr "Vänta medan en ögonblicksbild skapas…"
 
 msgid "Reduce"
 msgstr "Minska"
 
 msgid "Reduced volume group '{{ devicefile }}'."
-msgstr "Minskade volymgruppen '{{ devicefile }}'."
+msgstr "Volymgruppen ”{{ devicefile }}” minskades."
 
 msgid "Referenced"
-msgstr "Refererade"
+msgstr "Refererad"
 
 msgid "Resize"
 msgstr "Ändra storlek"
 
 msgid "Select a device ..."
-msgstr "Välj en enhet ..."
+msgstr "Välj en enhet …"
 
 msgid "Select a volume group ..."
-msgstr "Välj en volymgrupp ..."
+msgstr "Välj en volymgrupp …"
 
 msgid "Select devices ..."
-msgstr "Välj enheter ..."
+msgstr "Välj enheter …"
 
 msgid "Select the devices used to extend the volume group."
 msgstr "Välj de enheter som används för att utöka volymgruppen."
 
 msgid "Select the devices used to reduce from the volume group."
-msgstr "Välj de enheter som används för att minska från volymgruppen."
+msgstr "Välj de enheter som ska tas bort från volymgruppen."
 
 msgid "Size"
 msgstr "Storlek"
@@ -135,18 +138,18 @@ msgstr "Namnet på volymgruppen."
 msgid ""
 "The percentage of the total space in the volume group to allocate for the "
 "new logical volume."
-msgstr "Procentandelen av det totala utrymmet i volymgruppen som ska fördelas för den nya logiska volymen."
+msgstr "Procentandelen av volymgruppens totala utrymme som ska tilldelas den nya logiska volymen."
 
 msgid ""
 "The percentage of the total space in the volume group to use by the logical "
 "volume."
-msgstr "Procentandelen av det totala utrymmet i den volymgrupp som ska användas av den logiska volymen."
+msgstr "Procentandelen av volymgruppens totala utrymme som den logiska volymen ska använda."
 
 msgid "Updated logical volume '{{ devicefile }}'."
-msgstr "Uppdaterade den logiska volymen '{{ devicefile }}'."
+msgstr "Den logiska volymen ”{{ devicefile }}” uppdaterades."
 
 msgid "Updated volume group '{{ devicefile }}'."
-msgstr "Uppdaterade volymgruppen '{{ devicefile }}'."
+msgstr "Volymgruppen ”{{ devicefile }}” uppdaterades."
 
 msgid "Used"
 msgstr "Använt"

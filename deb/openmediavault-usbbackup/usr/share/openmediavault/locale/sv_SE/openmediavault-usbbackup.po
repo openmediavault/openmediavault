@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the openmediavault-usbbackup package.
 # 
 # Translators:
+# Jonatan Nyberg, 2026
 # Jonatan Nyberg, 2021-2022,2024
 # Jonatan Nyberg, 2019-2021
 # efef6ec5b435a041fce803c7f8af77d2_2341d43, 2017-2018
@@ -24,7 +25,7 @@ msgstr ""
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr "Ett e-postmeddelande med kommandoutdata (om någon utdata genereras) skickas till administratören."
+msgstr "Ett e-postmeddelande med eventuell kommandoutdata skickas till administratören."
 
 msgid "Archive"
 msgstr "Arkiv"
@@ -39,13 +40,13 @@ msgid "Create"
 msgstr "Skapa"
 
 msgid "Created USB backup job."
-msgstr "Skapade USB-säkerhetskopieringsjobbet."
+msgstr "USB-säkerhetskopieringsjobbet har skapats."
 
 msgid "Delete"
 msgstr "Ta bort"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr "Ta bort filer på mottagningssidan som inte finns på avsändarsidan."
+msgstr "Ta bort filer på mottagarsidan som inte finns hos avsändaren."
 
 msgid "Device"
 msgstr "Enhet"
@@ -54,12 +55,12 @@ msgid "Edit"
 msgstr "Redigera"
 
 msgid "Enable archive mode."
-msgstr "Aktivera arkivläge."
+msgstr "Aktivera arkivläget."
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr "Aktivera det här alternativet för att behålla delvis överförda filer, annars tas de bort om överföringen avbryts."
+msgstr "Aktivera det här alternativet för att behålla delvis överförda filer. Annars tas de bort om överföringen avbryts."
 
 msgid "Enabled"
 msgstr "Aktiverad"
@@ -68,13 +69,13 @@ msgid "External Storage Device"
 msgstr "Extern lagringsenhet"
 
 msgid "Extra options"
-msgstr "Extra alternativ"
+msgstr "Extra inställningar"
 
 msgid "From external storage to shared folder"
-msgstr "Från externt lagringsutrymme till delad mapp"
+msgstr "Från extern lagringsenhet till delad mapp"
 
 msgid "From shared folder to external storage"
-msgstr "Från delad mapp till externt lagringsutrymme"
+msgstr "Från delad mapp till extern lagringsenhet"
 
 msgid "Keep partially transferred files"
 msgstr "Behåll delvis överförda filer"
@@ -109,7 +110,7 @@ msgid "Quiet"
 msgstr "Tyst"
 
 msgid "Recurse into directories."
-msgstr "Gå rekursivt in i mappar."
+msgstr "Bearbeta undermappar rekursivt."
 
 msgid "Recursive"
 msgstr "Rekursiv"
@@ -121,38 +122,38 @@ msgid "Run"
 msgstr "Kör"
 
 msgid "Run backup job"
-msgstr "Kör säkerhetskopieringsjobb"
+msgstr "Kör säkerhetskopieringsjobbet"
 
 msgid "Select a device ..."
-msgstr "Välj en enhet ..."
+msgstr "Välj en enhet…"
 
 msgid "Send email"
 msgstr "Skicka e-post"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr "Ställ in destinationsbehörigheterna att vara desamma som källbehörigheterna."
+msgstr "Ange samma behörigheter för målet som för källan."
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr "Ställ in gruppen för målfilen att vara samma som för källfilen."
+msgstr "Ange samma grupp för målfilen som för källfilen."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr "Ställ in att ägaren till målfilen ska vara densamma som källfilen, men endast om den mottagande rsync körs som superanvändare."
+msgstr "Ange samma ägare för målfilen som för källfilen, men endast om rsync körs som superanvändare på mottagarsidan."
 
 msgid "Shared folder"
 msgstr "Delad mapp"
 
 msgid "Suppress non-error messages."
-msgstr "Undertryck icke-felmeddelanden."
+msgstr "Dölj meddelanden som inte gäller fel."
 
 msgid "Tags"
 msgstr "Taggar"
 
 msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
-msgstr "Alternativen \"Skicka e-post\" och \"Tyst\" utesluter varandra."
+msgstr "Alternativen ”Skicka e-post” och ”Tyst” kan inte användas samtidigt."
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "
@@ -173,20 +174,20 @@ msgstr "Den delade mappen som ska synkroniseras när den externa lagringsenheten
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr "Överför ändringstider tillsammans med filerna och uppdatera dem på fjärrsystemet."
+msgstr "Överför filernas ändringstider och uppdatera dem på fjärrsystemet."
 
 msgid "USB Backup"
 msgstr "USB-säkerhetskopiering"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr "Uppdatera destinationens åtkomstkontrollistor så att de är desamma som källans åtkomstkontrollistor."
+msgstr "Ange samma åtkomstkontrollistor för målet som för källan."
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr "Uppdatera destinationens utökade attribut så att de är desamma som de lokala."
+msgstr "Uppdatera målets utökade attribut så att de motsvarar de lokala attributen."
 
 msgid "Updated USB backup job."
-msgstr "USB-säkerhetskopieringsjobbet uppdaterades."
+msgstr "USB-säkerhetskopieringsjobbet har uppdaterats."
 
 msgid "n/a"
-msgstr "ingen uppgift"
+msgstr "Ej tillgängligt"

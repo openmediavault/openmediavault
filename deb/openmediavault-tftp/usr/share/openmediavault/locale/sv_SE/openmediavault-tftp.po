@@ -5,7 +5,7 @@
 # 
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2017
-# efef6ec5b435a041fce803c7f8af77d2_2341d43, 2020
+# efef6ec5b435a041fce803c7f8af77d2_2341d43, 2017
 # Jonatan Nyberg, 2026
 # 
 #, fuzzy
@@ -30,25 +30,25 @@ msgid "Blocksize"
 msgstr "Blockstorlek"
 
 msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr "Som standard får endast filer som redan finns laddas upp."
+msgstr "Som standard kan endast filer som redan finns laddas upp."
 
 msgid ""
 "Determine the default timeout, in microseconds, before the first packet is "
 "retransmitted."
 msgstr ""
-"Anger standardtidsgränsen i mikrosekunder innan det första paketet sänds om."
+"Ange standardtidsgränsen i mikrosekunder innan det första paketet sänds om."
 
 msgid "Enabled"
 msgstr "Aktiverad"
 
 msgid "Extra options"
-msgstr "Extra alternativ"
+msgstr "Extra inställningar"
 
 msgid "Port"
 msgstr "Port"
 
 msgid "Retry timeout"
-msgstr "Tidsgräns för nytt försök"
+msgstr "Tidsgräns för omsändning"
 
 msgid "Shared folder"
 msgstr "Delad mapp"
@@ -57,8 +57,8 @@ msgid ""
 "Specifies the maximum permitted block size. The permitted range for this "
 "parameter is from 512 to 65464."
 msgstr ""
-"Anger den maximalt tillåtna blockstorleken. Det tillåtna intervallet för "
-"denna parameter är från 512 till 65464."
+"Anger den största tillåtna blockstorleken. Värdet måste vara mellan 512 och "
+"65 464."
 
 msgid "TFTP"
 msgstr "TFTP"
@@ -67,8 +67,8 @@ msgid ""
 "The location of the files to share. Please make sure that the shared folder "
 "is publicly writable if new files are allowed."
 msgstr ""
-"Platsen för filerna som ska delas. Se till att den delade mappen är publikt "
-"skrivbar om nya filer tillåts."
+"Platsen för filerna som ska delas. Se till att den delade mappen är skrivbar"
+" för alla om nya filer får skapas."
 
 msgid "Updated TFTP settings."
-msgstr "Uppdaterade TFTP-inställningarna."
+msgstr "TFTP-inställningarna har uppdaterats."

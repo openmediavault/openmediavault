@@ -29,7 +29,7 @@ msgid "Access Modes"
 msgstr "Åtkomstlägen"
 
 msgid "App Version"
-msgstr "Appversion"
+msgstr "Programversion"
 
 msgid "Apply"
 msgstr "Tillämpa"
@@ -50,7 +50,7 @@ msgid "Certificates"
 msgstr "Certifikat"
 
 msgid "Chart"
-msgstr "Diagram"
+msgstr "Chart"
 
 msgid "Check for new recipes"
 msgstr "Sök efter nya recept"
@@ -59,19 +59,19 @@ msgid "Class"
 msgstr "Klass"
 
 msgid "Cluster IP"
-msgstr "Klustrets IP"
+msgstr "Kluster-IP"
 
 msgid "Compressed"
 msgstr "Komprimerad"
 
 msgid "Config Maps"
-msgstr "Konfigurationskartor"
+msgstr "ConfigMaps"
 
 msgid "Copy to clipboard"
 msgstr "Kopiera till urklipp"
 
 msgid "Copy token"
-msgstr "Kopiera token"
+msgstr "Kopiera åtkomsttoken"
 
 msgid "Count"
 msgstr "Antal"
@@ -92,13 +92,13 @@ msgid "Date & Time"
 msgstr "Datum & tid"
 
 msgid "Depends"
-msgstr "Beroenden"
+msgstr "Beror på"
 
 msgid "Deployments"
 msgstr "Driftsättningar"
 
 msgid "Describe"
-msgstr "Beskriv"
+msgstr "Visa beskrivning"
 
 msgid "Description"
 msgstr "Beskrivning"
@@ -142,7 +142,7 @@ msgid "Failed"
 msgstr "Misslyckades"
 
 msgid "First seen"
-msgstr "Först sedd"
+msgstr "Först observerad"
 
 msgid "GID"
 msgstr "GID"
@@ -151,7 +151,7 @@ msgid "Groups"
 msgstr "Grupper"
 
 msgid "Helm Charts"
-msgstr "Helm-diagram"
+msgstr "Helm-chartar"
 
 msgid "Homepage"
 msgstr "Webbplats"
@@ -196,10 +196,10 @@ msgid "Labels"
 msgstr "Etiketter"
 
 msgid "Last seen"
-msgstr "Senast sedd"
+msgstr "Senast observerad"
 
 msgid "Load Balancer"
-msgstr "Load Balancer"
+msgstr "Lastbalanserare"
 
 msgid "Logs"
 msgstr "Loggar"
@@ -244,16 +244,16 @@ msgid "Pending"
 msgstr "Väntar"
 
 msgid "Persistent Volume Claims"
-msgstr "Beständiga volymanspråk"
+msgstr "Anspråk på beständiga volymer"
 
 msgid "Persistent Volumes"
 msgstr "Beständiga volymer"
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr "Vänta, en ögonblicksbild skapas ..."
+msgstr "Vänta medan en ögonblicksbild skapas…"
 
 msgid "Please wait, the snapshot will be restored ..."
-msgstr "Vänta, ögonblicksbilden kommer att återställas ..."
+msgstr "Vänta medan ögonblicksbilden återställs…"
 
 msgid "Pods"
 msgstr "Poddar"
@@ -286,14 +286,14 @@ msgid "Recipes"
 msgstr "Recept"
 
 msgid "Reclaim policy"
-msgstr "Återkrävningspolicy"
+msgstr "Återvinningspolicy"
 
 msgid ""
 "Refer to the values.yaml file in the Traefik Helm chart to see what "
 "configuration options are available."
 msgstr ""
-"Se filen values.yaml i Traefik Helm-chartet för att se vilka "
-"konfigurationsalternativ som finns."
+"Se filen values.yaml i Traefiks Helm-chart för att se vilka "
+"konfigurationsalternativ som är tillgängliga."
 
 msgid "Repository"
 msgstr "Förråd"
@@ -344,13 +344,13 @@ msgid "Source"
 msgstr "Källa"
 
 msgid "Stateful Sets"
-msgstr "Tillståndsfulla uppsättningar"
+msgstr "StatefulSets"
 
 msgid "Status"
 msgstr "Status"
 
 msgid "Storage Class"
-msgstr "Förvaringsklass"
+msgstr "Lagringsklass"
 
 msgid "Succeeded"
 msgstr "Lyckades"
@@ -376,9 +376,9 @@ msgid ""
 "single-node setups and SBCs with slow disks, while etcd is recommended for "
 "high-availability setups with multiple nodes."
 msgstr ""
-"Datalagringen som används av Kubernetes-klustret. SQLite rekommenderas för "
-"inställningar med en nod och SBC:er med långsamma diskar, medan etcd "
-"rekommenderas för inställningar med hög tillgänglighet med flera noder."
+"Datalagret som används av Kubernetes-klustret. SQLite rekommenderas för "
+"konfigurationer med en nod och enkortsdatorer med långsamma diskar, medan "
+"etcd rekommenderas för högtillgängliga konfigurationer med flera noder."
 
 msgid "The field should only contain the characters a-z, 0-9 and -."
 msgstr "Fältet får endast innehålla tecknen a-z, 0-9 och -."
@@ -401,19 +401,21 @@ msgstr ""
 "target='_blank'>här</a>."
 
 msgid "The location where to store etcd on-demand snapshots."
-msgstr "Platsen där man lagrar etcd-on-demand ögonblicksbilder."
+msgstr "Platsen där ögonblicksbilder av etcd på begäran ska lagras."
 
 msgid "The manifest to apply."
 msgstr "Manifestet som ska tillämpas."
 
 msgid "The snapshot was created successfully."
-msgstr "Ögonblicksbilden skapades."
+msgstr "Ögonblicksbilden har skapats."
 
 msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
 msgstr "Ögonblicksbilden {{ spec.snapshotName }} har återställts."
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
-msgstr "Token för autentisering mot Kubernetes instrumentpanel."
+msgstr ""
+"Åtkomsttokenet som används för autentisering mot Kubernetes-"
+"instrumentpanelen."
 
 msgid "Type"
 msgstr "Typ"
@@ -428,10 +430,10 @@ msgid "Unknown"
 msgstr "Okänd"
 
 msgid "Up-to-date"
-msgstr "Uppdaterad"
+msgstr "Aktuell"
 
 msgid "Updated Kubernetes settings."
-msgstr "Uppdaterade Kubernetes-inställningar."
+msgstr "Kubernetes-inställningarna uppdaterades."
 
 msgid "Users"
 msgstr "Användare"
