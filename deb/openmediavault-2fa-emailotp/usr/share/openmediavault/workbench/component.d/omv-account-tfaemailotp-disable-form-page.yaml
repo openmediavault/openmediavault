@@ -1,31 +1,29 @@
 version: "1.0"
 type: component
 data:
-  name: omv-tfatotp-form-page
+  name: omv-account-tfaemailotp-disable-form-page
   type: formPage
   config:
-    id: tfatotp
     request:
-      service: Session
+      service: TFAEmailOtp
+      get:
+        method: sendOtpByContext
       post:
-        method: verify
-        progressMessage: _('Verifying authentication code. Please wait...')
+        method: disableByContext
     fields:
       - type: hint
-        text: _('Get the authentication code from the two-factor authentication app on your device.')
-      - type: textInput
-        name: username
-        label: _("User name")
-        icon: "user"
-        disabled: true
-        value: "{{ _routeParams.username }}"
+        hintType: info
+        text: _("A verification code has been sent to your email address. Please enter the code to confirm and disable two-factor authentication.")
+      - type: hidden
+        name: otpHash
+      - type: hidden
+        name: expiresAt
       - type: textInput
         name: code
         label: _("Verification code")
         value: ""
         autofocus: true
         autocomplete: "one-time-code"
-        icon: "mdi:shield-key"
         validators:
           required: true
           minLength: 6
@@ -33,14 +31,13 @@ data:
           pattern:
             pattern: '^[0-9]{6}$'
             errorData: _('Must be a 6-digit number.')
-    buttonAlign: center
     buttons:
       - template: submit
-        text: _('Log in')
+        text: _("Disable")
         execute:
           type: url
-          url: "/dashboard"
+          url: "/account/tfaemailotp"
       - template: cancel
         execute:
           type: url
-          url: "/login"
+          url: "/account/tfaemailotp"

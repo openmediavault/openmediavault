@@ -198,7 +198,7 @@ class TFATotp extends \OMV\Rpc\ServiceAbstract
         }
 
         $object->set("enabled", false);
-        $object->set("secret", "");
+        $object->reset("secret");
 
         $db = \OMV\Config\Database::getInstance();
         $db->set($object);

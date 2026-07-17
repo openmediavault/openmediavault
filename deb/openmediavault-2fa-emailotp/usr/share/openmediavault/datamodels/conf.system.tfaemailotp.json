@@ -1,0 +1,25 @@
+{
+	"type": "config",
+	"id": "conf.system.tfaemailotp",
+	"title": "2FA Email OTP authentication",
+	"queryinfo": {
+		"xpath": ".//system/tfaemailotp/item",
+		"iterable": true,
+		"idproperty": "uuid"
+	},
+	"properties": {
+		"uuid": {
+			"type": "string",
+			"format": "uuidv4"
+		},
+		"name": {
+			"type": "string",
+			"format": "username",
+			"default": ""
+		},
+		"enabled": {
+			"type": "boolean",
+			"default": false
+		}
+	}
+}

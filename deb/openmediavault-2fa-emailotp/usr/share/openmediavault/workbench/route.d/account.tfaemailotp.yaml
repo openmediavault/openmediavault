@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  url: "/account/tfaemailotp"
+  title: _("2FA Email OTP")
+  component: omv-account-tfaemailotp-form-page
+  editing: true

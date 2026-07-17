@@ -1,0 +1,8 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "usermgmt.tfaemailotp"
+  text: _("2FA Email OTP")
+  icon: "mdi:two-factor-authentication"
+  url: "/usermgmt/tfaemailotp"
+  position: 40

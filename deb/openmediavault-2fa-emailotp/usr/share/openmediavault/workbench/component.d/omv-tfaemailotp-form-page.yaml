@@ -1,10 +1,10 @@
 version: "1.0"
 type: component
 data:
-  name: omv-tfatotp-form-page
+  name: omv-tfaemailotp-form-page
   type: formPage
   config:
-    id: tfatotp
+    id: tfaemailotp
     request:
       service: Session
       post:
@@ -12,7 +12,7 @@ data:
         progressMessage: _('Verifying authentication code. Please wait...')
     fields:
       - type: hint
-        text: _('Get the authentication code from the two-factor authentication app on your device.')
+        text: _('A verification code has been sent to your email address. Please enter the code below.')
       - type: textInput
         name: username
         label: _("User name")
@@ -25,7 +25,6 @@ data:
         value: ""
         autofocus: true
         autocomplete: "one-time-code"
-        icon: "mdi:shield-key"
         validators:
           required: true
           minLength: 6

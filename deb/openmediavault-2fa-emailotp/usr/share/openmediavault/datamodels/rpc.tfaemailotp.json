@@ -1,0 +1,27 @@
+[{
+	"type": "rpc",
+	"id": "rpc.tfaemailotp.enableByContext",
+	"params": {
+		"type": "object",
+		"properties": {
+			"code": {
+				"type": "string",
+				"pattern": "^[0-9]{6}$",
+				"required": true
+			}
+		}
+	}
+},{
+	"type": "rpc",
+	"id": "rpc.tfaemailotp.disableByContext",
+	"params": {
+		"type": "object",
+		"properties": {
+			"code": {
+				"type": "string",
+				"pattern": "^[0-9]{6}$",
+				"required": true
+			}
+		}
+	}
+}]

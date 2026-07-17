@@ -8,6 +8,12 @@ source_file = openmediavault/usr/share/openmediavault/locale/openmediavault.pot
 source_lang = en
 type = PO
 
+[o:openmediavault:p:openmediavault:r:openmediavault-2fa-emailotp]
+file_filter = openmediavault-2fa-emailotp/usr/share/openmediavault/locale/<lang>/openmediavault-2fa-emailotp.po
+source_file = openmediavault-2fa-emailotp/usr/share/openmediavault/locale/openmediavault-2fa-emailotp.pot
+source_lang = en
+type = PO
+
 [o:openmediavault:p:openmediavault:r:openmediavault-2fa-totp]
 file_filter = openmediavault-2fa-totp/usr/share/openmediavault/locale/<lang>/openmediavault-2fa-totp.po
 source_file = openmediavault-2fa-totp/usr/share/openmediavault/locale/openmediavault-2fa-totp.pot
