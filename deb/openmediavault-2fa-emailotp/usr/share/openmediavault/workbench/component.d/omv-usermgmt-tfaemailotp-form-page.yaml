@@ -1,11 +1,11 @@
 version: "1.0"
 type: component
 data:
-  name: omv-usermgmt-tfatotp-form-page
+  name: omv-usermgmt-tfaemailotp-form-page
   type: formPage
   config:
     request:
-      service: TFATotp
+      service: TFAEmailOtp
       get:
         method: getItem
         params:
@@ -25,20 +25,12 @@ data:
         name: enabled
         label: _("Enabled")
         value: false
-      - type: passwordInput
-        name: secret
-        label: _("Secret")
-        autocomplete: new-password
-        hasCopyToClipboardButton: true
-        validators:
-          required: true
-        value: ""
     buttons:
       - template: submit
         execute:
           type: url
-          url: "/usermgmt/tfatotp"
+          url: "/usermgmt/tfaemailotp"
       - template: cancel
         execute:
           type: url
-          url: "/usermgmt/tfatotp"
+          url: "/usermgmt/tfaemailotp"

@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/usermgmt/tfaemailotp"
+  title: _("2FA Email OTP")
+  component: omv-usermgmt-tfaemailotp-datatable-page

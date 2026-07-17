@@ -1,0 +1,6 @@
+version: "1.0"
+type: route
+data:
+  url: "/account/disable-tfaemailotp"
+  title: _("Disable 2FA Email OTP")
+  component: omv-account-tfaemailotp-disable-form-page

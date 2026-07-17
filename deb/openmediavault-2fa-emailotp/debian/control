@@ -1,0 +1,18 @@
+Source: openmediavault-2fa-emailotp
+Section: admin
+XB-Plugin-Section: administration
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>= 12), gettext
+Standards-Version: 3.9.6
+Homepage: https://www.openmediavault.org
+
+Package: openmediavault-2fa-emailotp
+Architecture: all
+Depends: openmediavault (>= 8.5.4)
+Conflicts: openmediavault-2fa-totp
+Priority: optional
+Description: openmediavault two-factor authentication (2FA) with email OTP plugin
+ Sends a one-time password (OTP) via email as a second factor
+ authentication for the UI. Requires notifications to be enabled and the user
+ to have an email address set in their account.

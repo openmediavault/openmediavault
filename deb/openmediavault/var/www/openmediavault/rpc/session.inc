@@ -306,7 +306,7 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract
             return $session->getId();
         }
 
-        $role = ("admin" == array_value($permissions, "role", "user")) ?
+        $role = (\OMV\Environment::get("OMV_WEBGUI_ADMINUSER_NAME", "admin") == array_value($permissions, "role", "user")) ?
             OMV_ROLE_ADMINISTRATOR : OMV_ROLE_USER;
         return $session->initialize($username, $role);
     }

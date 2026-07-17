@@ -65,7 +65,12 @@ def call(service, method, params=None):
                 "service": service,
                 "method": method,
                 "params": params,
-                "context": {"username": "admin", "role": 0x1},
+                "context": {
+                    "username": openmediavault.getenv(
+                        "OMV_WEBGUI_ADMINUSER_NAME", "admin"
+                    ),
+                    "role": 0x1
+                },
             }
         )
         request = request + "\0"

@@ -1,3 +1,12 @@
+openmediavault-2fa-totp (8.0.1-1) stable; urgency=medium
+
+  * Update i18n files.
+  * Various improvements.
+  * Declare a conflict with openmediavault-2fa-emailotp since only one
+    second-factor authentication method may be active at a time.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 17 Jul 2026 11:33:43 +0200
+
 openmediavault-2fa-totp (8.0-2) stable; urgency=medium
 
   * Initial release. Thank you to Allan Barcelos for the groundwork the
