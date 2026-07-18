@@ -9,7 +9,7 @@ Homepage: https://www.openmediavault.org
 
 Package: openmediavault-2fa-totp
 Architecture: all
-Depends: openmediavault (>= 8.5.0)
+Depends: openmediavault (>= 8.5.4)
 Conflicts: openmediavault-2fa-emailotp
 Priority: optional
 Description: openmediavault two-factor authentication (2FA) with TOTP plugin
