@@ -1,0 +1,93 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-2fa-emailotp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Roberto Bellingeri <bellingeri@netguru.it>, 2026
+# Giovanni Scafora <scafora.giovanni@gmail.com>, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-2fa-emailotp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-17 20:44+0200\n"
+"PO-Revision-Date: 2026-07-17 18:21+0000\n"
+"Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2026\n"
+"Language-Team: Italian (https://app.transifex.com/openmediavault/teams/14254/it/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+msgid "2FA Email OTP"
+msgstr "2FA tramite OTP via e-mail"
+
+msgid ""
+"A verification code has been sent to your email address. Please enter the "
+"code to confirm and disable two-factor authentication."
+msgstr ""
+"È stato inviato un codice di verifica al tuo indirizzo e-mail. Inseriscilo "
+"per confermare la disattivazione dell'autenticazione a due fattori."
+
+msgid ""
+"A verification code has been sent to your email address. Please enter the "
+"code to confirm and enable two-factor authentication."
+msgstr ""
+"È stato inviato un codice di verifica al tuo indirizzo e-mail. Inseriscilo "
+"per confermare l'attivazione dell'autenticazione a due fattori."
+
+msgid "Disable"
+msgstr "Disabilita"
+
+msgid "Disable 2FA Email OTP"
+msgstr "Disabilita 2FA tramite OTP via e-mail"
+
+msgid "Edit"
+msgstr "Modifica"
+
+msgid "Enable"
+msgstr "Abilita"
+
+msgid "Enable 2FA Email OTP"
+msgstr "Abilita 2FA tramite OTP via e-mail"
+
+msgid "Enabled"
+msgstr "Abilitato"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "No email address is configured for this account."
+msgstr "Per questo account non è configurato alcun indirizzo e-mail."
+
+msgid ""
+"Notifications need to be enabled on this system. Please contact the "
+"administrator."
+msgstr ""
+"È necessario abilitare le notifiche su questo sistema. Contattare "
+"l'amministratore."
+
+msgid "Two-Factor Authentication"
+msgstr "Autenticazione a due fattori"
+
+msgid ""
+"Two-factor authentication (2FA) with email OTP adds an extra layer of "
+"security by sending a one-time code to your email address in addition to "
+"your password. You can enable or disable it for your account here."
+msgstr ""
+"L'autenticazione a due fattori (2FA) tramite OTP via e-mail aggiunge un "
+"ulteriore livello di sicurezza inviando un codice monouso al tuo indirizzo "
+"e-mail, oltre alla password. Da qui puoi abilitarla o disabilitarla per il "
+"tuo account."
+
+msgid "Updated 2FA Email OTP."
+msgstr ""
+
+msgid "User name"
+msgstr "Nome utente"
+
+msgid "Verification code"
+msgstr "Codice di verifica"

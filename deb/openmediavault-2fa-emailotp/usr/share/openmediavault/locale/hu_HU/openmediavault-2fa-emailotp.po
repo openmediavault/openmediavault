@@ -1,0 +1,83 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-2fa-emailotp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Grawens <szabolcs.szanyi@gmail.com>, 2026
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-2fa-emailotp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-17 20:44+0200\n"
+"PO-Revision-Date: 2026-07-17 18:21+0000\n"
+"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2026\n"
+"Language-Team: Hungarian (Hungary) (https://app.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu_HU\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "2FA Email OTP"
+msgstr ""
+
+msgid ""
+"A verification code has been sent to your email address. Please enter the "
+"code to confirm and disable two-factor authentication."
+msgstr ""
+
+msgid ""
+"A verification code has been sent to your email address. Please enter the "
+"code to confirm and enable two-factor authentication."
+msgstr ""
+
+msgid "Disable"
+msgstr ""
+
+msgid "Disable 2FA Email OTP"
+msgstr ""
+
+msgid "Edit"
+msgstr "Szerkesztés"
+
+msgid "Enable"
+msgstr ""
+
+msgid "Enable 2FA Email OTP"
+msgstr ""
+
+msgid "Enabled"
+msgstr "Engedélyezve"
+
+msgid "Name"
+msgstr "Név"
+
+msgid "No email address is configured for this account."
+msgstr ""
+
+msgid ""
+"Notifications need to be enabled on this system. Please contact the "
+"administrator."
+msgstr ""
+
+msgid "Two-Factor Authentication"
+msgstr ""
+
+msgid ""
+"Two-factor authentication (2FA) with email OTP adds an extra layer of "
+"security by sending a one-time code to your email address in addition to "
+"your password. You can enable or disable it for your account here."
+msgstr ""
+
+msgid "Updated 2FA Email OTP."
+msgstr ""
+
+msgid "User name"
+msgstr "Felhasználó neve"
+
+msgid "Verification code"
+msgstr ""

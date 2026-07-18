@@ -227,7 +227,7 @@ msgid "Min. passive port"
 msgstr "Min. passiv port"
 
 msgid "N/A"
-msgstr "Ej tillgängligt"
+msgstr "Inte tillgängligt"
 
 msgid "No session reuse required"
 msgstr "Ingen återanvändning av session krävs"

@@ -1,0 +1,91 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-2fa-emailotp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Stephan Paternotte <stephan@paternottes.net>, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-2fa-emailotp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-17 20:44+0200\n"
+"PO-Revision-Date: 2026-07-17 18:21+0000\n"
+"Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2026\n"
+"Language-Team: Dutch (Netherlands) (https://app.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl_NL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "2FA Email OTP"
+msgstr "2FA E-mail OTP"
+
+msgid ""
+"A verification code has been sent to your email address. Please enter the "
+"code to confirm and disable two-factor authentication."
+msgstr ""
+"Er is een verificatiecode naar uw e-mailadres verzonden. Voer de code in om "
+"uitschakeling van tweefactorauthenticatie te bevestigen."
+
+msgid ""
+"A verification code has been sent to your email address. Please enter the "
+"code to confirm and enable two-factor authentication."
+msgstr ""
+"Er is een verificatiecode naar uw e-mailadres verzonden. Voer de code in om "
+"de inschakeling van tweefactorauthenticatie te bevestigen."
+
+msgid "Disable"
+msgstr "Uitschakelen"
+
+msgid "Disable 2FA Email OTP"
+msgstr "2FA E-mail OTP uitschakelen"
+
+msgid "Edit"
+msgstr "Bewerken"
+
+msgid "Enable"
+msgstr "Inschakelen"
+
+msgid "Enable 2FA Email OTP"
+msgstr "2FA E-mail OTP inschakelen"
+
+msgid "Enabled"
+msgstr "Ingeschakeld"
+
+msgid "Name"
+msgstr "Naam"
+
+msgid "No email address is configured for this account."
+msgstr "Er is geen e-mailadres geconfigureerd voor dit account."
+
+msgid ""
+"Notifications need to be enabled on this system. Please contact the "
+"administrator."
+msgstr ""
+"Meldingen moeten op dit systeem worden ingeschakeld. Neem contact op met de "
+"beheerder."
+
+msgid "Two-Factor Authentication"
+msgstr "Tweefactorauthenticatie "
+
+msgid ""
+"Two-factor authentication (2FA) with email OTP adds an extra layer of "
+"security by sending a one-time code to your email address in addition to "
+"your password. You can enable or disable it for your account here."
+msgstr ""
+"Tweefactorauthenticatie (2FA) met e-mail OTP voegt een extra "
+"beveiligingslaag toe door naast uw wachtwoord een eenmalige code naar uw "
+"e-mailadres te sturen. U kunt het hier in - of uitschakelen voor uw account."
+
+msgid "Updated 2FA Email OTP."
+msgstr "2FA E-mail OTP bijgewerkt."
+
+msgid "User name"
+msgstr "Gebruikersnaam"
+
+msgid "Verification code"
+msgstr "Verificatiecode"
