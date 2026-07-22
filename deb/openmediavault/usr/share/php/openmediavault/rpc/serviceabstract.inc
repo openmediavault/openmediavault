@@ -124,7 +124,7 @@ abstract class ServiceAbstract
      */
     final public function callMethod($name, $params, $context, ...$args)
     {
-        //		$this->debug(var_export(func_get_args(), TRUE));
+        // $this->debug(var_export(func_get_args(), TRUE));
         // Do not check if the method is registered, but ensure that the
         // class implements the given method. Thus we can call other public
         // PHP class methods from within the service class.
@@ -216,7 +216,7 @@ abstract class ServiceAbstract
      */
     final protected function validateMethodParams($params, $schema)
     {
-        //		$this->debug(var_export(func_get_args(), TRUE));
+        // $this->debug(var_export(func_get_args(), TRUE));
         // Convert the given parameters into JSON. This is necessary because
         // the 'params' variable contains an associative array which can not
         // be processed by the validator.
@@ -240,7 +240,7 @@ abstract class ServiceAbstract
      */
     final protected function validateMethodContext($context, $required)
     {
-        //		$this->debug(var_export(func_get_args(), TRUE));
+        // $this->debug(var_export(func_get_args(), TRUE));
         // Validate the method calling context:
         // - Check the username
         if (array_key_exists("username", $required)) {
@@ -285,7 +285,10 @@ abstract class ServiceAbstract
     final protected function getAdminContext()
     {
         return [
-            "username" => "admin",
+            "username" => \OMV\Environment::get(
+                "OMV_WEBGUI_ADMINUSER_NAME",
+                "admin"
+            ),
             "role" => OMV_ROLE_ADMINISTRATOR
         ];
     }
@@ -301,7 +304,7 @@ abstract class ServiceAbstract
         if ($pid == -1) {
             throw new Exception("Failed to fork process.");
         } elseif ($pid > 0) { // Parent process
-            //			$this->debug("Child process forked (pid=%d)", $pid);
+            // $this->debug("Child process forked (pid=%d)", $pid);
         }
         return $pid;
     }
@@ -931,7 +934,7 @@ abstract class ServiceAbstract
         $sortDir = null,
         $search = null
     ) {
-        //		$this->debug(var_export(func_get_args(), TRUE));
+        // $this->debug(var_export(func_get_args(), TRUE));
         if (!is_null($search) && !empty(strval($search))) {
             // Note, this implementation doesn't make it unnecessarily
             // complicated. There are surely better ways to do it, but

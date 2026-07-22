@@ -33,6 +33,10 @@ abstract class ModuleAbstract
 {
     use \OMV\DebugTrait;
 
+    public function __construct()
+    {
+    }
+
     /**
      * Get the name of the module.
      * @return string The name of the module.
@@ -111,7 +115,10 @@ abstract class ModuleAbstract
     final protected function getAdminContext()
     {
         return [
-            "username" => "admin",
+            "username" => \OMV\Environment::get(
+                "OMV_WEBGUI_ADMINUSER_NAME",
+                "admin"
+            ),
             "role" => OMV_ROLE_ADMINISTRATOR
         ];
     }

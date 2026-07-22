@@ -55,11 +55,11 @@ $cmdargs = array(
       "u:" => "user:",
       "h::" => "help::"
   );
-$username = "admin";
+$username = \OMV\Environment::get("OMV_WEBGUI_ADMINUSER_NAME", "admin");
 $rc = 0;
 
 // Check the command line arguments. Exit and display usage if
-// nessecary.
+// necessary.
 $options = getopt(implode("", array_keys($cmdargs)), $cmdargs);
 foreach ($options as $optionk => $optionv) {
     switch ($optionk) {
@@ -85,7 +85,11 @@ if (($argc < 2) || ($argc > 4)) {
 // Create the RPC caller context.
 $context = array(
     "username" => $username,
-    "role" => ($username === "admin") ? OMV_ROLE_ADMINISTRATOR : OMV_ROLE_USER
+    "role" => ($username === \OMV\Environment::get(
+        "OMV_WEBGUI_ADMINUSER_NAME",
+        "admin"
+    )) ?
+        OMV_ROLE_ADMINISTRATOR : OMV_ROLE_USER
 );
 
 // Process command arguments.

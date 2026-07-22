@@ -816,7 +816,9 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract
                     $user->assertExists();
                     // Is user allowed? It does not make sense to give the WebGUI
                     // administrator permissions for a shared folder.
-                    if (in_array($user->getName(), [ "admin" ])) {
+                    if (in_array($user->getName(), [
+                            \OMV\Environment::get("OMV_WEBGUI_ADMINUSER_NAME", "admin")
+                        ])) {
                         throw new \OMV\Exception(
                             "The user '%s' is not allowed.",
                             $user->getName()

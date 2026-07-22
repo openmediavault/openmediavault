@@ -27,7 +27,15 @@ class Samba extends \OMV\Engine\Module\ServiceAbstract implements
     \OMV\Engine\Notify\IListener,
     \OMV\Engine\Module\IServiceStatus
 {
-    private $invalidUsers = ["admin"];
+    private $invalidUsers;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->invalidUsers = [
+            \OMV\Environment::get("OMV_WEBGUI_ADMINUSER_NAME", "admin")
+        ];
+    }
 
     public function getName()
     {
