@@ -4030,7 +4030,7 @@ msgid "Updated user \"{{ name }}\"."
 msgstr "已更新用户“{{ name }}”。"
 
 msgid "Updated user settings."
-msgstr "已更新用户設定。"
+msgstr "已更新用户设置。"
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
 msgstr "已更新有线网络连接“{{ devicename }}”。"
