@@ -472,27 +472,42 @@ describe('CustomValidators', () => {
         expect(validator(formControl)).toBeNull();
       });
 
-      it('should not validate shareName [1] (leading period)', () => {
+      it('should validate shareName [4] (leading period)', () => {
         formControl.setValue('.share');
-        expect(validator(formControl)).toEqual({
-          pattern:
-            'This field contains invalid characters, e.g. a blank or "/[]:+|<>=;,*? character.'
-        });
+        expect(validator(formControl)).toBeNull();
       });
 
-      it('should not validate shareName [2] (consecutive periods)', () => {
+      it('should validate shareName [5] (consecutive periods)', () => {
         formControl.setValue('my..share');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should validate shareName [6] (space within name)', () => {
+        formControl.setValue('my share');
+        expect(validator(formControl)).toBeNull();
+      });
+
+      it('should not validate shareName [1] (leading space)', () => {
+        formControl.setValue(' share');
         expect(validator(formControl)).toEqual({
           pattern:
-            'This field contains invalid characters, e.g. a blank or "/[]:+|<>=;,*? character.'
+            'This field contains invalid characters (e.g. "\\/[]:+|<>=;,*?) or has leading/trailing spaces.'
         });
       });
 
-      it('should not validate shareName [3] (blank)', () => {
-        formControl.setValue('my share');
+      it('should not validate shareName [2] (trailing space)', () => {
+        formControl.setValue('share ');
         expect(validator(formControl)).toEqual({
           pattern:
-            'This field contains invalid characters, e.g. a blank or "/[]:+|<>=;,*? character.'
+            'This field contains invalid characters (e.g. "\\/[]:+|<>=;,*?) or has leading/trailing spaces.'
+        });
+      });
+
+      it('should not validate shareName [3] (illegal character)', () => {
+        formControl.setValue('my/share');
+        expect(validator(formControl)).toEqual({
+          pattern:
+            'This field contains invalid characters (e.g. "\\/[]:+|<>=;,*?) or has leading/trailing spaces.'
         });
       });
     });

@@ -125,19 +125,14 @@ class Schema extends \OMV\Json\Schema
                     }
                     break;
                 case "sharename":
-                    // We are using the SMB/CIFS file/directory naming convention
-                    // for this:
-                    // All characters are legal in the basename and extension
-                    // except the space character (0x20) and:
-                    // "./\[]:+|<>=;,*?
-                    // A share name or server or workstation name SHOULD not
-                    // begin with a period (“.”) nor should it include two
-                    // adjacent periods (“..”).
-                    // References:
-                    // http://tools.ietf.org/html/draft-leach-cifs-v1-spec-01
-                    // http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx
+                    // Validate according to MS-FSCC share name specification:
+                    // https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-fscc/dc9978d7-6299-4c5a-a22d-a039cdc716ea
+                    // - Illegal characters: " \ / [ ] : | < > + = ; , * ?
+                    // - Control characters 0x00-0x1F are illegal
+                    // - Leading and trailing spaces are not allowed
+                    // - All other Unicode characters (incl. spaces within the name) are legal
                     if (!preg_match(
-                        '/^[^"\/\\\[\]:+|<>=;,*?. ]+(?:\.[^"\/\\\[\]:+|<>=;,*?. ]+)*$/',
+                        '~^(?![ ])[^"\x00-\x1F\\\/\[\]:|<>+=;,*?]+(?<! )$~u',
                         $value
                     )) {
                         throw new \OMV\Json\SchemaValidationException(
