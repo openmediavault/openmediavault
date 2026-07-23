@@ -38,16 +38,13 @@ const regExp = {
   // - https://github.com/shadow-maint/shadow/blob/55e75ec6b2f8878c6c269570a4470730092c1b39/lib/chkname.c#L52
   // - https://salsa.debian.org/debian/adduser/-/blob/debian/latest/adduser.conf?ref_type=heads#L88
   userName: /^[a-zA-Z0-9_.][a-zA-Z0-9_.-]*\$?$/,
-  // We are using the SMB/CIFS file/directory naming convention for this:
-  // All characters are legal in the basename and extension except the
-  // space character (0x20) and:
-  // "./\[]:+|<>=;,*?
-  // A share name or server or workstation name SHOULD not begin with a
-  // period (“.”) nor should it include two adjacent periods (“..”).
-  // References:
-  // http://tools.ietf.org/html/draft-leach-cifs-v1-spec-01
-  // http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx
-  shareName: /^[^"/\\\[\]:+|<>=;,*?. ]+(?:\.[^"/\\\[\]:+|<>=;,*?. ]+)*$/,
+  // Validate according to MS-FSCC share name specification:
+  // https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-fscc/dc9978d7-6299-4c5a-a22d-a039cdc716ea
+  // - Illegal characters: " \ / [ ] : | < > + = ; , * ?
+  // - Control characters 0x00-0x1F are illegal
+  // - Leading and trailing spaces are not allowed
+  // - All other Unicode characters (incl. spaces within the name) are legal
+  shareName: /^(?![ ])[^"\x00-\x1F\\\/\[\]:|<>+=;,*?]+(?<! )$/,
   ipv4NetCidr:
     /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/(3[0-2]|[0-2]?[0-9])$/,
   ipv6NetCidr: /^(?:[a-f0-9]{1,4}:){7}[a-f0-9]{1,4}\/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$/i,
@@ -272,7 +269,7 @@ export class CustomValidators {
         return CustomValidators.pattern(
           regExp.shareName,
           gettext(
-            'This field contains invalid characters, e.g. a blank or "/[]:+|<>=;,*? character.'
+            'This field contains invalid characters (e.g. "\\/[]:+|<>=;,*?) or has leading/trailing spaces.'
           )
         );
       case 'email':
