@@ -1,0 +1,30 @@
+version: "1.0"
+type: dashboard-widget
+data:
+  id: 16b7007d-1585-4920-8893-073af0e3356c
+  permissions:
+    role:
+      - admin
+  title: _("UPS Battery")
+  description: _("Battery charge with the low-battery shutdown threshold marked.")
+  type: chart
+  reloadPeriod: 30000
+  chart:
+    type: advanced-gauge
+    maxHeight: "150px"
+    maxWidth: "150px"
+    min: 0
+    max: 100
+    request:
+      service: Nut
+      method: getVariables
+    label:
+      formatter: template
+      formatterConfig: "{{ value | tofixed(0) }}%"
+    dataConfig:
+      - label: _("Charge")
+        prop: battery_charge
+        backgroundColor: "#4cd964"
+      - label: _("Low")
+        prop: battery_charge_low
+        backgroundColor: "#ff3b30"
