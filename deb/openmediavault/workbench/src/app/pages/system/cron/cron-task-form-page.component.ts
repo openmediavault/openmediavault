@@ -548,7 +548,7 @@ export class CronTaskFormPageComponent extends BaseFormPageComponent {
         }
       },
       {
-        type: 'textInput',
+        type: 'textarea',
         name: 'command',
         label: gettext('Command'),
         value: '',
