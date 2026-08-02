@@ -1,5 +1,6 @@
 openmediavault (8.5.5-2) stable; urgency=medium
 
+  * Update i18n files.
   * Modify the `sharename` data model format validator according to
     the MS-FSCC share name specification.
   * Modify the `devicefile` data model format validator to support
