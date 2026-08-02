@@ -1,4 +1,4 @@
-openmediavault (8.5.5-1) stable; urgency=medium
+openmediavault (8.5.5-2) stable; urgency=medium
 
   * Modify the `sharename` data model format validator according to
     the MS-FSCC share name specification.
