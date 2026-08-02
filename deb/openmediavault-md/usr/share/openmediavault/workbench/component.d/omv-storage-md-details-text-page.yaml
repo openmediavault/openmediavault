@@ -5,6 +5,7 @@ data:
   type: textPage
   config:
     hasReloadButton: true
+    hasCopyToClipboardButton: true
     request:
       service: MdMgmt
       get:
