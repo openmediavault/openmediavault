@@ -397,7 +397,7 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface
      * @param string $attributePath The path below the block sysfs subtree,
      *   e.g. `queue/logical_block_size`.
      * @return string The trimmed value.
-     * @throws \OMV\FileException If the sysfs file does not exist.
+     * @throws \OMV\FileException If the sysfs file does not exist or is not readable.
      * @access protected
      */
     protected function getSysfsValue($attributePath)
@@ -414,6 +414,43 @@ class BlockDevice implements BlockDeviceInterface, UdevInterface
                 $filename
             );
         }
-        return trim(file_get_contents($filename));
+        $content = file_get_contents($filename);
+        if (false === $content) {
+            throw new \OMV\FileException(
+                "Failed to read file '%s'.",
+                $filename
+            );
+        }
+        return trim($content);
+    }
+
+    /**
+     * Write a value to the block device sysfs subtree.
+     * @param string $attributePath The path below the block sysfs subtree,
+     *   e.g. `md/sync_action`.
+     * @param string $value The value to write.
+     * @throws \OMV\FileException If the sysfs file does not exist or is not writable.
+     * @access protected
+     */
+    protected function setSysfsValue($attributePath, $value)
+    {
+        $filename = build_path(
+            DIRECTORY_SEPARATOR,
+            "/sys/class/block",
+            $this->getDeviceName(true),
+            $attributePath
+        );
+        if (!file_exists($filename) || !is_writable($filename)) {
+            throw new \OMV\FileException(
+                "File '%s' does not exist or is not writable.",
+                $filename
+            );
+        }
+        if (false === file_put_contents($filename, $value)) {
+            throw new \OMV\FileException(
+                "Failed to write to file '%s'.",
+                $filename
+            );
+        }
     }
 }

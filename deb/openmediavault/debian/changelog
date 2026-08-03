@@ -1,3 +1,9 @@
+openmediavault (8.5.6-1) stable; urgency=medium
+
+  * Provide functionality required by the MD plugin.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 03 Aug 2026 18:04:48 +0200
+
 openmediavault (8.5.5-2) stable; urgency=medium
 
   * Update i18n files.

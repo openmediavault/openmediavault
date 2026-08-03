@@ -78,8 +78,8 @@ data:
           type: url
           url: '/storage/md/create'
       - type: iconButton
-        icon: expand
-        tooltip: _("Grow")
+        icon: mdi:database-plus
+        tooltip: _("Add")
         enabledConstraints:
           minSelected: 1
           maxSelected: 1
@@ -103,7 +103,7 @@ data:
           type: url
           url: '/storage/md/grow/{{ _selected[0].devicefile | encodeuricomponent }}'
       - type: iconButton
-        icon: remove
+        icon: mdi:database-minus
         tooltip: _("Remove")
         enabledConstraints:
           minSelected: 1
@@ -131,7 +131,7 @@ data:
           type: url
           url: '/storage/md/remove/{{ _selected[0].devicefile | encodeuricomponent }}'
       - type: iconButton
-        icon: mdi:medical-bag
+        icon: mdi:database-sync
         tooltip: _("Recover")
         enabledConstraints:
           minSelected: 1
@@ -139,6 +139,73 @@ data:
         execute:
           type: url
           url: '/storage/md/recover/{{ _selected[0].devicefile | encodeuricomponent }}'
+      - type: menu
+        icon: mdi:wrench
+        tooltip: _("Maintenance")
+        enabledConstraints:
+          minSelected: 1
+          maxSelected: 1
+          constraint:
+            - operator: notEmpty
+              arg0:
+                prop: syncaction
+        actions:
+          - type: button
+            text: _("Check")
+            enabledConstraints:
+              minSelected: 1
+              maxSelected: 1
+              constraint:
+                - operator: eq
+                  arg0:
+                    prop: syncaction
+                  arg1: idle
+            execute:
+              type: request
+              request:
+                service: MdMgmt
+                method: setSyncAction
+                params:
+                  devicefile: "{{ _selected[0].devicefile }}"
+                  action: "check"
+          - type: button
+            text: _("Repair")
+            enabledConstraints:
+              minSelected: 1
+              maxSelected: 1
+              constraint:
+                - operator: eq
+                  arg0:
+                    prop: syncaction
+                  arg1: idle
+            execute:
+              type: request
+              request:
+                service: MdMgmt
+                method: setSyncAction
+                params:
+                  devicefile: "{{ _selected[0].devicefile }}"
+                  action: repair
+          - type: button
+            text: _("Stop")
+            enabledConstraints:
+              minSelected: 1
+              maxSelected: 1
+              constraint:
+                - operator: in
+                  arg0:
+                    prop: syncaction
+                  arg1:
+                    - check
+                    - repair
+            execute:
+              type: request
+              request:
+                service: MdMgmt
+                method: setSyncAction
+                params:
+                  devicefile: "{{ _selected[0].devicefile }}"
+                  action: idle
       - type: iconButton
         icon: details
         tooltip: _("Show details")

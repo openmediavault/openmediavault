@@ -240,6 +240,17 @@ class StorageDeviceMd extends StorageDevice
         return $this->devices;
     }
 
+    /**
+     * Get the state of the RAID device.
+     *
+     * This method returns the state from `mdadm --detail` and enhances it with
+     * real-time progress information (e.g., resync/recovery percentage) from
+     * `/proc/mdstat`.
+     *
+     * @return string|false The detailed state of the array (e.g., "active",
+     *   "clean, resyncing (PENDING)", "active (recovering (3%))") or `false`
+     *   if the state cannot be determined.
+     */
     public function getState()
     {
         $this->getData();
@@ -364,9 +375,52 @@ class StorageDeviceMd extends StorageDevice
      * @see https://raid.wiki.kernel.org/index.php/Write-intent_bitmap
      * @return TRUE if write-intent bitmap is enabled, otherwise FALSE.
      */
-    public function hasWriteIntentBitmap()
+    public function hasWriteIntentBitmap(): bool
     {
         $this->getData();
         return $this->hasWriteIntentBitmap;
+    }
+
+    /**
+     * Get the current sync action of the RAID device.
+     *
+     * This function is only applicable to redundant RAID levels (e.g. RAID 1,
+     * 4, 5, 6, 10). For non-redundant levels like RAID 0, this will return
+     * NULL.
+     *
+     * @return The current sync action (e.g. 'idle', 'check', 'repair'), or
+     *   NULL if the action is not applicable to the RAID level.
+     */
+    public function getSyncAction(): ?string
+    {
+        try {
+            return $this->getSysfsValue("md/sync_action");
+        } catch (\OMV\FileException $e) {
+            // The sync_action file does not exist for non-redundant arrays.
+            return null;
+        }
+    }
+
+    /**
+     * Set the sync action for the RAID device.
+     *
+     * This function is only applicable to redundant RAID levels (e.g. RAID 1,
+     * 4, 5, 6, 10).
+     *
+     * @param string $action The action to set, e.g. 'check', 'repair', 'idle'.
+     * @throws \OMV\Exception if the sync action cannot be set.
+     */
+    public function setSyncAction(string $action)
+    {
+        try {
+            $this->setSysfsValue("md/sync_action", $action);
+        } catch (\OMV\FileException $e) {
+            throw new \OMV\Exception(
+                "Failed to set sync_action to '%s' for device %s: %s",
+                $action,
+                $this->getDeviceFile(),
+                $e->getMessage()
+            );
+        }
     }
 }
