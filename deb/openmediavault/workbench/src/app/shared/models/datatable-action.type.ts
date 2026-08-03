@@ -47,7 +47,7 @@ export type DatatableAction = {
   // select     - Internal only.
   type?: 'button' | 'iconButton' | 'menu' | 'select' | 'divider';
 
-  // An unique identifier.
+  // A unique identifier.
   id?: string;
 
   // --- button | menu ---
