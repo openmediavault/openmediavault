@@ -178,6 +178,9 @@ data:
                   arg0:
                     prop: syncaction
                   arg1: idle
+            confirmationDialogConfig:
+              template: confirmation
+              message: _("Do you really want to repair the selected RAID device? This will attempt to correct any inconsistencies found, which can overwrite data if a mismatch cannot be unambiguously resolved.")
             execute:
               type: request
               request:
@@ -198,6 +201,9 @@ data:
                   arg1:
                     - check
                     - repair
+            confirmationDialogConfig:
+              template: confirmation
+              message: _("Do you really want to stop the running check/repair action on the selected RAID device?")
             execute:
               type: request
               request:

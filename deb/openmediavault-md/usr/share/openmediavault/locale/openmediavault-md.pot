@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-md\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-03 20:45+0200\n"
+"POT-Creation-Date: 2026-08-04 17:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,6 +57,12 @@ msgid "Devices"
 msgstr ""
 
 msgid "Displays information about MD (Software RAID) devices."
+msgstr ""
+
+msgid "Do you really want to repair the selected RAID device? This will attempt to correct any inconsistencies found, which can overwrite data if a mismatch cannot be unambiguously resolved."
+msgstr ""
+
+msgid "Do you really want to stop the running check/repair action on the selected RAID device?"
 msgstr ""
 
 msgid "Grow"

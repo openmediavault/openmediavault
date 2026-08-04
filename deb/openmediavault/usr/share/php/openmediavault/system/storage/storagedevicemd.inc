@@ -410,7 +410,7 @@ class StorageDeviceMd extends StorageDevice
      * @param string $action The action to set, e.g. 'check', 'repair', 'idle'.
      * @throws \OMV\Exception if the sync action cannot be set.
      */
-    public function setSyncAction(string $action)
+    public function setSyncAction(string $action): void
     {
         try {
             $this->setSysfsValue("md/sync_action", $action);

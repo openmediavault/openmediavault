@@ -1,3 +1,11 @@
+openmediavault (8.1.5-1) stable; urgency=medium
+
+  * Add `Maintenance` action menu to repair/check redundant RAID
+    levels (e.g. 1, 4, 5, 6, 10)
+  * Modify datatable action icons.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 03 Aug 2026 18:02:16 +0200
+
 openmediavault-md (8.1.4-1) stable; urgency=medium
 
   * Several improvements.
