@@ -8,6 +8,11 @@ data:
       service: MdMgmt
       post:
         method: grow
+    hints:
+      - type: info
+        text: _("Adding disk(s) to the array reshapes it, which can take a very long time depending on its size. Do not power off or reboot the system while the reshape is in progress. Note that the file system on the array is not grown automatically.")
+        dismissible: true
+        stateId: 56eed45c-8f6c-11f1-827c-5254001e0193
     fields:
       - type: select
         name: devicefile

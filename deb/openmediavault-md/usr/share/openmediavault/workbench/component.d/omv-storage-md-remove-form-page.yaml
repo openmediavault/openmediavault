@@ -18,6 +18,11 @@ data:
             - level
       post:
         method: remove
+    hints:
+      - type: info
+        text: _("Removing disk(s) first marks them as <em>failed</em> and then removes them from the array, putting it into a degraded state with reduced redundancy. It is typically used to replace a faulty disk. Note that the RAID metadata on the removed disk(s) is not erased.")
+        dismissible: true
+        stateId: 4d1ae010-8f6c-11f1-94ef-5254001e0193
     fields:
       - type: textInput
         name: description

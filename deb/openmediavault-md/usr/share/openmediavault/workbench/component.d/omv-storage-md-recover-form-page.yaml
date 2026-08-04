@@ -4,11 +4,15 @@ data:
   name: omv-storage-md-recover-form-page
   type: formPage
   config:
-    subTitle: _("Add hot spares / recover RAID device.")
     request:
       service: MdMgmt
       post:
         method: add
+    hints:
+      - type: info
+        text: _("Adding a disk to a degraded array starts the rebuild process. The kernel automatically syncs the data onto the new disk, which can take a very long time, so do not power off or reboot the system while it is in progress. Alternatively, a disk can be added to a healthy array as a <em>hot spare</em> that will be used automatically to replace a failed disk.")
+        dismissible: true
+        stateId: 51a88df9-8f6c-11f1-960b-5254001e0193
     fields:
       - type: select
         name: devicefile
@@ -54,4 +58,3 @@ data:
         execute:
           type: url
           url: '/storage/md'
-

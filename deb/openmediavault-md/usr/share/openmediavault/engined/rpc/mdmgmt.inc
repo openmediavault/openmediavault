@@ -51,6 +51,7 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract
         $this->registerMethod("remove");
         $this->registerMethod("delete");
         $this->registerMethod("getDetail");
+        $this->registerMethod("setSyncAction");
     }
 
     /**
@@ -105,6 +106,7 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract
                 "devices" => $raid->getSlaves(),
                 "size" => $raid->getSize(),
                 "state" => $raid->getState(),
+                "syncaction" => $raid->getSyncAction(),
                 "description" => $raid->getDescription()
             ];
         }
@@ -176,6 +178,7 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract
             "devices" => $raid->getSlaves(),
             "size" => $raid->getSize(),
             "state" => $raid->getState(),
+            "syncaction" => $raid->getSyncAction(),
             "description" => $raid->getDescription()
         ];
     }
@@ -640,5 +643,26 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract
         $raid->assertExists();
         // Get the software RAID details.
         return $raid->getDetail();
+    }
+
+    /**
+     * Set the sync action for a given RAID device.
+     * @param params An array containing the following fields:
+     *   \em devicefile The RAID device file.
+     *   \em action The sync action to set.
+     * @param context The context of the caller.
+     * @return void
+     */
+    public function setSyncAction($params, $context)
+    {
+        $this->validateMethodContext($context, [
+            "role" => OMV_ROLE_ADMINISTRATOR
+        ]);
+        $this->validateMethodParams($params, "rpc.mdmgmt.setsyncaction");
+        $raid = new \OMV\System\Storage\StorageDeviceMd(
+            $params['devicefile']
+        );
+        $raid->assertExists();
+        $raid->setSyncAction($params['action']);
     }
 }
