@@ -4,9 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# 黃柏諺 <s8321414@gmail.com>, 2026
 # kochin <kochinc@outlook.com>, 2026
-# 杨宇哲, 2026
 # 
 #, fuzzy
 msgid ""
@@ -15,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-17 20:19+0200\n"
 "PO-Revision-Date: 2026-06-26 17:34+0000\n"
-"Last-Translator: 杨宇哲, 2026\n"
+"Last-Translator: kochin <kochinc@outlook.com>, 2026\n"
 "Language-Team: Chinese (Taiwan) (https://app.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,22 +22,22 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "2FA TOTP"
-msgstr "基于动态验证码的双因素认证"
+msgstr "2FA TOTP"
 
 msgid "Disable"
-msgstr "禁用"
+msgstr "停用"
 
 msgid "Disable 2FA TOTP"
-msgstr "禁用基于动态验证码的双因素认证"
+msgstr "停用 2FA TOTP"
 
 msgid "Edit"
 msgstr "編輯"
 
 msgid "Enable"
-msgstr "启用"
+msgstr "啟用"
 
 msgid "Enable 2FA TOTP"
-msgstr "启用基于动态验证码的双因素认证"
+msgstr "啟用 2FA TOTP"
 
 msgid "Enabled"
 msgstr "已啟用"
@@ -48,7 +46,7 @@ msgid "Name"
 msgstr "名稱"
 
 msgid "QR code"
-msgstr "二维码"
+msgstr "QR 碼"
 
 msgid ""
 "Scan the QR code below with your authenticator app (Google Authenticator, "
@@ -56,14 +54,14 @@ msgid ""
 "manually. Once your authenticator app is configured, enter the 6-digit code "
 "it shows to confirm the setup."
 msgstr ""
-"使用您的验证器（如 Google Authenticator、Authy "
-"等）扫描下方二维码。如果验证器不支持二维码，可以手动输入密钥。配置完成后，请输入显示的 6 位验证码以确认设置。"
+"請用您的驗證 app (Google Authenticator、Authy…等等) 掃描以下的 QR 碼。若您的 app 不支援 QR "
+"碼，則以手動輸入金鑰。一旦您的驗證 app 設置完成，請輸入它所顯示之 6 位碼來確認設定。"
 
 msgid "Secret"
-msgstr "密钥"
+msgstr "密鑰"
 
 msgid "Two-Factor Authentication"
-msgstr "双因素认证"
+msgstr "雙因素驗證"
 
 msgid ""
 "Two-factor authentication (2FA) with TOTP adds an extra layer of security by"
@@ -71,12 +69,14 @@ msgid ""
 "addition to your password. You can enable or disable it for your account "
 "here."
 msgstr ""
+"以 TOTP 做雙因素驗證(2FA)，能增加多一層的安全性，這將在您的密碼之外，再要求一個從您的驗證 app "
+"得到之有時間性單次用碼。您可以在此將它從您的帳戶中啟用或停用。"
 
 msgid "Updated 2FA TOTP."
-msgstr "已更新基于动态验证码的双因素认证"
+msgstr "已更新 2FA TOTP。"
 
 msgid "User name"
-msgstr "使用者名稱"
+msgstr "用戶名稱"
 
 msgid "Verification code"
-msgstr "验证码"
+msgstr "驗證碼"

@@ -24,23 +24,23 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "2FA Email OTP"
-msgstr ""
+msgstr "2FA 电子邮件 OTP"
 
 msgid ""
 "A verification code has been sent to your email address. Please enter the "
 "code to confirm and disable two-factor authentication."
-msgstr ""
+msgstr "一个验证码已经发送到您的电子邮箱。请输入该验证码以确认并禁用双因素认证。"
 
 msgid ""
 "A verification code has been sent to your email address. Please enter the "
 "code to confirm and enable two-factor authentication."
-msgstr ""
+msgstr "一个验证码已经发送到您的电子邮箱。请输入该验证码以确认并启用双因素认证。"
 
 msgid "Disable"
 msgstr "禁用"
 
 msgid "Disable 2FA Email OTP"
-msgstr ""
+msgstr "禁用 2FA 电子邮件 OTP"
 
 msgid "Edit"
 msgstr "编辑"
@@ -49,7 +49,7 @@ msgid "Enable"
 msgstr "启用"
 
 msgid "Enable 2FA Email OTP"
-msgstr ""
+msgstr "启用 2FA 电子邮件 OTP"
 
 msgid "Enabled"
 msgstr "已启用"
@@ -58,12 +58,12 @@ msgid "Name"
 msgstr "名称"
 
 msgid "No email address is configured for this account."
-msgstr ""
+msgstr "此账户未设置电子邮箱地址。"
 
 msgid ""
 "Notifications need to be enabled on this system. Please contact the "
 "administrator."
-msgstr ""
+msgstr "需要在此系统上启用通知功能。请联系管理员。"
 
 msgid "Two-Factor Authentication"
 msgstr "双因素认证"
@@ -73,9 +73,11 @@ msgid ""
 "security by sending a one-time code to your email address in addition to "
 "your password. You can enable or disable it for your account here."
 msgstr ""
+"基于电子邮件的单次验证码（Email "
+"OTP）的双因素认证（2FA）为您的帐户提供额外安全保护。除了密码之外，登录时还需要输入发送到您电子邮箱的一次性验证码。您可以在此处为您的账户启用或禁用该功能。"
 
 msgid "Updated 2FA Email OTP."
-msgstr ""
+msgstr "已更新 2FA 电子邮件 OTP。"
 
 msgid "User name"
 msgstr "用户名"

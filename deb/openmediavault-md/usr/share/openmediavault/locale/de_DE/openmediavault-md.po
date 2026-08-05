@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Volker Theile <votdev@gmx.de>, 2025
+# Volker Theile <votdev@gmx.de>, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-md\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-08-04 17:34+0200\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>, 2025\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2026\n"
 "Language-Team: German (https://app.transifex.com/openmediavault/teams/14254/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,8 +27,35 @@ msgstr "Es kann maximal ein Gerät entfernt werden."
 msgid "A maximum of two devices can be removed."
 msgstr "Es können maximal zwei Geräte entfernt werden."
 
-msgid "Add hot spares / recover RAID device."
-msgstr "Hot-Spares hinzufügen / RAID-Gerät wiederherstellen."
+msgid "Add"
+msgstr "Hinzufügen"
+
+msgid ""
+"Adding a disk to a degraded array starts the rebuild process. The kernel "
+"automatically syncs the data onto the new disk, which can take a very long "
+"time, so do not power off or reboot the system while it is in progress. "
+"Alternatively, a disk can be added to a healthy array as a <em>hot "
+"spare</em> that will be used automatically to replace a failed disk."
+msgstr ""
+"Das Hinzufügen einer Festplatte zu einem beschädigten Array löst den "
+"Wiederherstellungsprozess aus. Der Kernel synchronisiert die Daten "
+"automatisch auf die neue Festplatte, was sehr lange dauern kann. Schalten "
+"Sie das System daher während dieses Vorgangs weder aus noch starten Sie es "
+"neu. Alternativ kann eine Festplatte einem intakten Array als <em>Hot-"
+"Spare</em> hinzugefügt werden, die automatisch zum Ersatz einer "
+"ausgefallenen Festplatte verwendet wird."
+
+msgid ""
+"Adding disk(s) to the array reshapes it, which can take a very long time "
+"depending on its size. Do not power off or reboot the system while the "
+"reshape is in progress. Note that the file system on the array is not grown "
+"automatically."
+msgstr ""
+"Das Hinzufügen von Datenträgern zum Array führt zu einer Neuanordnung des "
+"Arrays, was je nach dessen Größe sehr lange dauern kann. Schalten Sie das "
+"System während der Neuanordnung nicht aus und starten Sie es nicht neu. "
+"Beachten Sie, dass das Dateisystem auf dem Array nicht automatisch "
+"vergrößert wird."
 
 msgid "At least four devices are required."
 msgstr "Es werden mindestens vier Geräte benötigt."
@@ -42,6 +69,9 @@ msgstr "Es werden mindestens zwei Geräte benötigt."
 msgid "Capacity"
 msgstr "Kapazität"
 
+msgid "Check"
+msgstr "Prüfen"
+
 msgid "Create"
 msgstr "Erstellen"
 
@@ -52,7 +82,24 @@ msgid "Devices"
 msgstr "Geräte"
 
 msgid "Displays information about MD (Software RAID) devices."
+msgstr "Zeigt Informationen zu MD-Geräten (Software-RAID) an."
+
+msgid ""
+"Do you really want to repair the selected RAID device? This will attempt to "
+"correct any inconsistencies found, which can overwrite data if a mismatch "
+"cannot be unambiguously resolved."
 msgstr ""
+"Möchten Sie das ausgewählte RAID-Gerät wirklich reparieren? Dabei wird "
+"versucht, alle gefundenen Inkonsistenzen zu beheben. Dies kann zur "
+"Überschreibung von Daten führen, wenn eine Diskrepanz nicht eindeutig "
+"behoben werden kann."
+
+msgid ""
+"Do you really want to stop the running check/repair action on the selected "
+"RAID device?"
+msgstr ""
+"Möchten Sie den laufenden Prüf- bzw. Reparaturvorgang auf dem ausgewählten "
+"RAID-Gerät wirklich abbrechen?"
 
 msgid "Grow"
 msgstr "Vergrößern"
@@ -61,7 +108,10 @@ msgid "Level"
 msgstr "Level"
 
 msgid "MD Devices"
-msgstr ""
+msgstr "MD Geräte"
+
+msgid "Maintenance"
+msgstr "Wartung"
 
 msgid "Mirror"
 msgstr "Mirror"
@@ -99,6 +149,22 @@ msgstr "Referenziert"
 msgid "Remove"
 msgstr "Entfernen"
 
+msgid ""
+"Removing disk(s) first marks them as <em>failed</em> and then removes them "
+"from the array, putting it into a degraded state with reduced redundancy. It"
+" is typically used to replace a faulty disk. Note that the RAID metadata on "
+"the removed disk(s) is not erased."
+msgstr ""
+"Durch das Entfernen einer oder mehrerer Festplatten werden diese zunächst "
+"als <em>ausgefallen</em> markiert und anschließend aus dem Array entfernt, "
+"wodurch das Array in einen beeinträchtigten Zustand mit reduzierter "
+"Redundanz versetzt wird. Diese Vorgehensweise wird in der Regel zum "
+"Austausch einer defekten Festplatte verwendet. Beachten Sie, dass die RAID-"
+"Metadaten auf den entfernten Festplatten nicht gelöscht werden."
+
+msgid "Repair"
+msgstr "Reparatur"
+
 msgid "Select devices ..."
 msgstr "Geräte auswählen ..."
 
@@ -126,6 +192,9 @@ msgstr "Software RAID"
 
 msgid "State"
 msgstr "Zustand"
+
+msgid "Stop"
+msgstr "Beenden"
 
 msgid "Stripe"
 msgstr "Stripe"

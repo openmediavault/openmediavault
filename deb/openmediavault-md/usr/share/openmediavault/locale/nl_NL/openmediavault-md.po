@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Stephan Paternotte <stephan@paternottes.net>, 2025
+# Stephan Paternotte <stephan@paternottes.net>, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-md\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-08-04 17:34+0200\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
-"Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025\n"
+"Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2026\n"
 "Language-Team: Dutch (Netherlands) (https://app.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,8 +27,34 @@ msgstr "Er kan maximaal één apparaat worden verwijderd."
 msgid "A maximum of two devices can be removed."
 msgstr "Er kunnen maximaal twee apparaten worden verwijderd."
 
-msgid "Add hot spares / recover RAID device."
-msgstr "Hot spares / herstel RAID-apparaat toevoegen."
+msgid "Add"
+msgstr "Toevoegen"
+
+msgid ""
+"Adding a disk to a degraded array starts the rebuild process. The kernel "
+"automatically syncs the data onto the new disk, which can take a very long "
+"time, so do not power off or reboot the system while it is in progress. "
+"Alternatively, a disk can be added to a healthy array as a <em>hot "
+"spare</em> that will be used automatically to replace a failed disk."
+msgstr ""
+"Het toevoegen van een schijf aan een gedegradeerde array start het "
+"herbouwproces. De kernel synchroniseert de gegevens automatisch met de "
+"nieuwe schijf, wat erg lang kan duren, dus schakel het systeem niet uit of "
+"start het opnieuw op terwijl het bezig is. Als alternatief kan een schijf "
+"aan een gezonde array worden toegevoegd als een <em>hot spare</em> die "
+"automatisch wordt gebruikt om een defecte schijf te vervangen."
+
+msgid ""
+"Adding disk(s) to the array reshapes it, which can take a very long time "
+"depending on its size. Do not power off or reboot the system while the "
+"reshape is in progress. Note that the file system on the array is not grown "
+"automatically."
+msgstr ""
+"Door een schijf aan de array toe te voegen, wordt deze opnieuw vormgegeven, "
+"wat erg lang kan duren, afhankelijk van de grootte. Schakel het systeem niet"
+" uit of start het opnieuw op terwijl de hervorming aan de gang is. Houd er "
+"rekening mee dat het bestandssysteem op de array niet automatisch wordt "
+"gegroeid."
 
 msgid "At least four devices are required."
 msgstr "Er zijn minimaal vier apparaten nodig."
@@ -42,6 +68,9 @@ msgstr "Er zijn minimaal twee apparaten nodig."
 msgid "Capacity"
 msgstr "Capaciteit"
 
+msgid "Check"
+msgstr "Controleren"
+
 msgid "Create"
 msgstr "Aanmaken"
 
@@ -54,6 +83,23 @@ msgstr "Apparaten"
 msgid "Displays information about MD (Software RAID) devices."
 msgstr "Geeft informatie weer over MD-apparaten (Software RAID)."
 
+msgid ""
+"Do you really want to repair the selected RAID device? This will attempt to "
+"correct any inconsistencies found, which can overwrite data if a mismatch "
+"cannot be unambiguously resolved."
+msgstr ""
+"Wilt u het geselecteerde RAID-apparaat echt repareren? Hiermee wordt "
+"geprobeerd eventuele gevonden inconsistenties te corrigeren, waardoor "
+"gegevens kunnen worden overschreven als een mismatch niet ondubbelzinnig kan"
+" worden opgelost."
+
+msgid ""
+"Do you really want to stop the running check/repair action on the selected "
+"RAID device?"
+msgstr ""
+"Wilt u echt de lopende controle/reparatie actie op het geselecteerde RAID-"
+"apparaat stoppen?"
+
 msgid "Grow"
 msgstr "Uitbreiden"
 
@@ -62,6 +108,9 @@ msgstr "Niveau"
 
 msgid "MD Devices"
 msgstr "MD-apparaten"
+
+msgid "Maintenance"
+msgstr "Onderhoud"
 
 msgid "Mirror"
 msgstr "Mirror"
@@ -99,6 +148,21 @@ msgstr "Met verwijzing"
 msgid "Remove"
 msgstr "Verwijderen"
 
+msgid ""
+"Removing disk(s) first marks them as <em>failed</em> and then removes them "
+"from the array, putting it into a degraded state with reduced redundancy. It"
+" is typically used to replace a faulty disk. Note that the RAID metadata on "
+"the removed disk(s) is not erased."
+msgstr ""
+"Het verwijderen van schijven markeert deze eerst als <em>mislukt</em> en "
+"verwijdert ze vervolgens uit de array, waardoor deze in een verslechterde "
+"toestand komt met verminderde redundantie. Het wordt doorgaans gebruikt om "
+"een defecte schijf te vervangen. Houd er rekening mee dat de RAID-"
+"metagegevens op de verwijderde schijf (en) niet worden gewist."
+
+msgid "Repair"
+msgstr "Repareren"
+
 msgid "Select devices ..."
 msgstr "Selecteer apparaten…"
 
@@ -126,6 +190,9 @@ msgstr "Software RAID"
 
 msgid "State"
 msgstr "Toestand"
+
+msgid "Stop"
+msgstr "Stoppen"
 
 msgid "Stripe"
 msgstr "Stripe"

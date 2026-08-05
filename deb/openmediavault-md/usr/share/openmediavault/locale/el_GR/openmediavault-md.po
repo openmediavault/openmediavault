@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Kostas Moho, 2025
+# Kostas Moho, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-md\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-08-04 17:34+0200\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
-"Last-Translator: Kostas Moho, 2025\n"
+"Last-Translator: Kostas Moho, 2026\n"
 "Language-Team: Greek (Greece) (https://app.transifex.com/openmediavault/teams/14254/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,20 +27,48 @@ msgstr "Μπορεί να αφαιρεθεί μέχρι μία συσκευή."
 msgid "A maximum of two devices can be removed."
 msgstr "Μπορούν να αφαιρεθούν μέχρι δύο συσκευές."
 
-msgid "Add hot spares / recover RAID device."
-msgstr "Προσθήκη εφεδρείας / ανάκτηση συσκευής RAID."
+msgid "Add"
+msgstr "Προσθήκη"
+
+msgid ""
+"Adding a disk to a degraded array starts the rebuild process. The kernel "
+"automatically syncs the data onto the new disk, which can take a very long "
+"time, so do not power off or reboot the system while it is in progress. "
+"Alternatively, a disk can be added to a healthy array as a <em>hot "
+"spare</em> that will be used automatically to replace a failed disk."
+msgstr ""
+"Η προσθήκη ενός δίσκου σε μια υποβαθμισμένη συστοιχία εκκινεί την διαδικασία"
+" αναδόμησης. Ο πηρύνας συγχρονίζει αυτόματα όλα τα δεδομένα προς τον νέο "
+"δίσκο, κι αυτό μπορεί να πάρει πάρα πολύ χρόνο, άρα όσο διενεργείται δεν "
+"πρέπει να σβήνει ή να επανεκκινείται το σύστημα. Εναλλακτικά, μπορεί να "
+"προστεθεί ο δίσκος σε μια υγιή συστοιχία ως <em>εφεδρικός</em> που θα "
+"χρησιμοποιηθεί αυτόματα για να αντικαταστήσει έναν δίσκο που αστόχησε."
+
+msgid ""
+"Adding disk(s) to the array reshapes it, which can take a very long time "
+"depending on its size. Do not power off or reboot the system while the "
+"reshape is in progress. Note that the file system on the array is not grown "
+"automatically."
+msgstr ""
+"Η προσθήκη δίσκου σε μια συστοιχία την ανασχηματίζει, διαδικασία ίσως "
+"χρονοβόρα αναλογικά με το μέγεθος. Το σύστημα πρέπει να μην σβήνει ούτε να "
+"επανεκκινείται όσο διαρκεί αυτή η διαδικασία. Το σύστημα αρχείων της "
+"συστοιχίας δεν διευρύνεται αυτόματα."
 
 msgid "At least four devices are required."
 msgstr "Απαιτούνται τουλάχιστον τέσσερις συσκευές."
 
 msgid "At least three devices are required."
-msgstr "Απαιτούνται τουλάχιστον τρείς συσκευές."
+msgstr "Απαιτούνται τουλάχιστον τρεις συσκευές."
 
 msgid "At least two devices are required."
 msgstr "Απαιτούνται τουλάχιστον δύο συσκευές."
 
 msgid "Capacity"
 msgstr "Χωρητικότητα"
+
+msgid "Check"
+msgstr "Έλεγχος"
 
 msgid "Create"
 msgstr "Δημιουργία"
@@ -54,6 +82,22 @@ msgstr "Συσκευές"
 msgid "Displays information about MD (Software RAID) devices."
 msgstr "Εμφάνιση πληροφοριών για τις συσκευές MD (RAID λογισμικού)."
 
+msgid ""
+"Do you really want to repair the selected RAID device? This will attempt to "
+"correct any inconsistencies found, which can overwrite data if a mismatch "
+"cannot be unambiguously resolved."
+msgstr ""
+"Να εκτελεστεί επιδιόρθωση της επιλεγμένης συσκευής RAID; Θα επιχειρηθεί "
+"διόρθωση τυχόν ασυνεπειών, που ίσως οδηγήσει σε αντικατάσταση δεδομένων αν "
+"κάποια ασυμφωνία δεν μπορέσει να επιλυθεί με σαφήνεια."
+
+msgid ""
+"Do you really want to stop the running check/repair action on the selected "
+"RAID device?"
+msgstr ""
+"Να τερματιστεί η εκτελούμενη εργασία ελέγχου/επιδιόρθωσης στην επιλεγμένη "
+"συσκευή RAID;"
+
 msgid "Grow"
 msgstr "Μεγέθυνση"
 
@@ -62,6 +106,9 @@ msgstr "Επίπεδο"
 
 msgid "MD Devices"
 msgstr "Συσκευές MD"
+
+msgid "Maintenance"
+msgstr "Συντήρηση"
 
 msgid "Mirror"
 msgstr "Καθρεφτισμός"
@@ -99,6 +146,21 @@ msgstr "Αναφερόμενα"
 msgid "Remove"
 msgstr "Αφαίρεση"
 
+msgid ""
+"Removing disk(s) first marks them as <em>failed</em> and then removes them "
+"from the array, putting it into a degraded state with reduced redundancy. It"
+" is typically used to replace a faulty disk. Note that the RAID metadata on "
+"the removed disk(s) is not erased."
+msgstr ""
+"Η αφαίρεση δίσκου πρώτα τον σημειώνει ως <em>χαλασμένο</em> κι έπειτα τον "
+"αφαιρεί από τη συστοιχία, η οποία τίθεται σε υποβαθμισμένη κατάσταση με "
+"μειωμένη ανθεκτικότητα. Συνήθως χρησιμοποιείται για την αντικατάσταση ενός "
+"προβληματικού δίσκου. Δεν διαγράφονται τα μεταδεδομένα RAID του δίσκου που "
+"αφαιρείται."
+
+msgid "Repair"
+msgstr "Επισκευή"
+
 msgid "Select devices ..."
 msgstr "Επιλογή συσκευών"
 
@@ -123,6 +185,9 @@ msgstr "RAID με λογισμικό"
 
 msgid "State"
 msgstr "Καθεστώς"
+
+msgid "Stop"
+msgstr "Λήξη"
 
 msgid "Stripe"
 msgstr "Μοίρασμα"

@@ -8,15 +8,16 @@
 # songming <by@songming.me>, 2024
 # kochin <kochinc@outlook.com>, 2025
 # irrelevant91, 2025
+# 黃柏諺 <s8321414@gmail.com>, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-md\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-08-04 17:34+0200\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
-"Last-Translator: irrelevant91, 2025\n"
+"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2026\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,8 +31,25 @@ msgstr "最多一个设备可被移除。"
 msgid "A maximum of two devices can be removed."
 msgstr "最多两个设备可被移除。"
 
-msgid "Add hot spares / recover RAID device."
-msgstr "添加热备/恢复 RAID 设备"
+msgid "Add"
+msgstr "新增"
+
+msgid ""
+"Adding a disk to a degraded array starts the rebuild process. The kernel "
+"automatically syncs the data onto the new disk, which can take a very long "
+"time, so do not power off or reboot the system while it is in progress. "
+"Alternatively, a disk can be added to a healthy array as a <em>hot "
+"spare</em> that will be used automatically to replace a failed disk."
+msgstr ""
+"將磁碟新增至狀態異常的陣列中，會啟動重建流程。核心會自動將資料同步至新磁碟，此過程可能需要相當長的時間，因此在重建進行期間，請勿關機或重新啟動系統。此外，亦可將磁碟新增至狀態正常的陣列中，作為<em>熱備用磁碟</em>，系統將自動使用該磁碟來替換故障的磁碟。"
+
+msgid ""
+"Adding disk(s) to the array reshapes it, which can take a very long time "
+"depending on its size. Do not power off or reboot the system while the "
+"reshape is in progress. Note that the file system on the array is not grown "
+"automatically."
+msgstr ""
+"將磁碟新增至陣列會重新調整其結構，根據陣列大小不同，此過程可能需要相當長的時間。在重新調整結構進行期間，請勿關機或重新啟動系統。請注意，陣列上的檔案系統並不會自動擴充。"
 
 msgid "At least four devices are required."
 msgstr "至少需要四台设备。"
@@ -45,6 +63,9 @@ msgstr "至少需要两台设备。"
 msgid "Capacity"
 msgstr "容量"
 
+msgid "Check"
+msgstr "檢查"
+
 msgid "Create"
 msgstr "新建"
 
@@ -57,6 +78,17 @@ msgstr "设备"
 msgid "Displays information about MD (Software RAID) devices."
 msgstr "显示关于 MD (软 RAID) 设备的信息。"
 
+msgid ""
+"Do you really want to repair the selected RAID device? This will attempt to "
+"correct any inconsistencies found, which can overwrite data if a mismatch "
+"cannot be unambiguously resolved."
+msgstr "您真的要修復所選的 RAID 裝置嗎？此操作將嘗試修正所發現的任何不一致處，若無法明確解決不一致問題，可能會覆寫資料。"
+
+msgid ""
+"Do you really want to stop the running check/repair action on the selected "
+"RAID device?"
+msgstr "您真的要停止選取的 RAID 裝置上正在執行的檢查／修復作業嗎？"
+
 msgid "Grow"
 msgstr "扩充"
 
@@ -65,6 +97,9 @@ msgstr "级别"
 
 msgid "MD Devices"
 msgstr "MD 设备"
+
+msgid "Maintenance"
+msgstr "維護"
 
 msgid "Mirror"
 msgstr "镜像"
@@ -102,6 +137,18 @@ msgstr "被引用"
 msgid "Remove"
 msgstr "移除"
 
+msgid ""
+"Removing disk(s) first marks them as <em>failed</em> and then removes them "
+"from the array, putting it into a degraded state with reduced redundancy. It"
+" is typically used to replace a faulty disk. Note that the RAID metadata on "
+"the removed disk(s) is not erased."
+msgstr ""
+"移除磁碟會先將其標記為<em>故障</em>，然後從陣列中移除，使陣列進入冗餘度降低的降級狀態。此操作通常用於更換故障磁碟。請注意，被移除磁碟上的 "
+"RAID 中介資料並不會被清除。"
+
+msgid "Repair"
+msgstr "修復"
+
 msgid "Select devices ..."
 msgstr "选择设备 ..."
 
@@ -124,6 +171,9 @@ msgstr "软 RAID"
 
 msgid "State"
 msgstr "状态"
+
+msgid "Stop"
+msgstr "停止"
 
 msgid "Stripe"
 msgstr "条带"

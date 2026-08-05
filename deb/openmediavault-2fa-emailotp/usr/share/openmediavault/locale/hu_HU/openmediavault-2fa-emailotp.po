@@ -23,32 +23,36 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "2FA Email OTP"
-msgstr ""
+msgstr "2FA E-mail OTP"
 
 msgid ""
 "A verification code has been sent to your email address. Please enter the "
 "code to confirm and disable two-factor authentication."
 msgstr ""
+"Ellenőrző kódot küldtünk az Ön e-mail címére. Kérjük, írja be a kódot a "
+"kétfaktoros hitelesítés megerősítéséhez és letiltásához."
 
 msgid ""
 "A verification code has been sent to your email address. Please enter the "
 "code to confirm and enable two-factor authentication."
 msgstr ""
+"Ellenőrző kódot küldtünk az Ön e-mail címére. Kérjük, írja be a kódot a "
+"kétfaktoros hitelesítés megerősítéséhez és engedélyezéséhez."
 
 msgid "Disable"
-msgstr ""
+msgstr "Letiltás"
 
 msgid "Disable 2FA Email OTP"
-msgstr ""
+msgstr "2FA E-mail OTP letiltása"
 
 msgid "Edit"
 msgstr "Szerkesztés"
 
 msgid "Enable"
-msgstr ""
+msgstr "Engedélyezés"
 
 msgid "Enable 2FA Email OTP"
-msgstr ""
+msgstr "2FA E-mail OTP engedélyezése"
 
 msgid "Enabled"
 msgstr "Engedélyezve"
@@ -57,27 +61,33 @@ msgid "Name"
 msgstr "Név"
 
 msgid "No email address is configured for this account."
-msgstr ""
+msgstr "Ehhez a fiókhoz nincs beállítva e-mail-cím."
 
 msgid ""
 "Notifications need to be enabled on this system. Please contact the "
 "administrator."
 msgstr ""
+"Ezen a rendszeren engedélyezni kell az értesítéseket. Kérjük, forduljon a "
+"rendszergazdához."
 
 msgid "Two-Factor Authentication"
-msgstr ""
+msgstr "Kétfaktoros hitelesítés"
 
 msgid ""
 "Two-factor authentication (2FA) with email OTP adds an extra layer of "
 "security by sending a one-time code to your email address in addition to "
 "your password. You can enable or disable it for your account here."
 msgstr ""
+"Az e-mailes egyszeri jelszóval (OTP) történő kétfaktoros hitelesítés (2FA) "
+"további biztonsági réteget biztosít azzal, hogy a jelszava mellett egy "
+"egyszeri kódot is elküld az Ön e-mail-címére. Itt engedélyezheti vagy "
+"letilthatja ezt a funkciót a fiókjában."
 
 msgid "Updated 2FA Email OTP."
-msgstr ""
+msgstr "2FA E-mail OTP frissítve"
 
 msgid "User name"
 msgstr "Felhasználó neve"
 
 msgid "Verification code"
-msgstr ""
+msgstr "Ellenőrző kód"

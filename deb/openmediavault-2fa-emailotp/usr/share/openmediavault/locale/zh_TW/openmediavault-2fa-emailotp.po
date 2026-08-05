@@ -4,9 +4,8 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# 黃柏諺 <s8321414@gmail.com>, 2026
-# kochin <kochinc@outlook.com>, 2026
 # 杨宇哲, 2026
+# kochin <kochinc@outlook.com>, 2026
 # 
 #, fuzzy
 msgid ""
@@ -15,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-17 20:44+0200\n"
 "PO-Revision-Date: 2026-07-17 18:21+0000\n"
-"Last-Translator: 杨宇哲, 2026\n"
+"Last-Translator: kochin <kochinc@outlook.com>, 2026\n"
 "Language-Team: Chinese (Taiwan) (https://app.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,23 +23,23 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "2FA Email OTP"
-msgstr ""
+msgstr "2FA 電子郵件 OTP"
 
 msgid ""
 "A verification code has been sent to your email address. Please enter the "
 "code to confirm and disable two-factor authentication."
-msgstr ""
+msgstr "一個認證碼已被送到您的電子郵件位址。請輸入該認證碼來確認並停用雙因素驗證。"
 
 msgid ""
 "A verification code has been sent to your email address. Please enter the "
 "code to confirm and enable two-factor authentication."
-msgstr ""
+msgstr "一個認證碼已被送到您的電子郵件位址。請輸入該認證碼來確認並啟用雙因素驗證。"
 
 msgid "Disable"
-msgstr "禁用"
+msgstr "停用"
 
 msgid "Disable 2FA Email OTP"
-msgstr ""
+msgstr "停用 2FA 電子郵件 OTP"
 
 msgid "Edit"
 msgstr "編輯"
@@ -49,7 +48,7 @@ msgid "Enable"
 msgstr "启用"
 
 msgid "Enable 2FA Email OTP"
-msgstr ""
+msgstr "啟用 2FA 電子郵件 OTP"
 
 msgid "Enabled"
 msgstr "已啟用"
@@ -58,27 +57,29 @@ msgid "Name"
 msgstr "名稱"
 
 msgid "No email address is configured for this account."
-msgstr ""
+msgstr "此帳戶並未設置電子郵件地址。"
 
 msgid ""
 "Notifications need to be enabled on this system. Please contact the "
 "administrator."
-msgstr ""
+msgstr "此系統上必須將通知啟用。請聯絡管理員。"
 
 msgid "Two-Factor Authentication"
-msgstr "双因素认证"
+msgstr "雙因素驗證"
 
 msgid ""
 "Two-factor authentication (2FA) with email OTP adds an extra layer of "
 "security by sending a one-time code to your email address in addition to "
 "your password. You can enable or disable it for your account here."
 msgstr ""
+"以電子郵件 OTP "
+"做雙因素驗證(2FA)，能增加多一層的安全性，這將在您的密碼之外，再送一個單次用碼到您的電子郵件地址。您可以在此將它從您的帳戶中啟用或停用。"
 
 msgid "Updated 2FA Email OTP."
-msgstr ""
+msgstr "已更新 2FA 電子郵件 OTP。"
 
 msgid "User name"
-msgstr "使用者名稱"
+msgstr "用戶名稱"
 
 msgid "Verification code"
-msgstr "验证码"
+msgstr "驗證碼"

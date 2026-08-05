@@ -71,6 +71,8 @@ msgid ""
 "addition to your password. You can enable or disable it for your account "
 "here."
 msgstr ""
+"基于时间的单次验证码（TOTP）的双因素认证（2FA）为您的帐户提供额外安全保护。除了密码之外，登录时还需要输入验证器 App "
+"中产生的基于时间的一次性验证码。您可以在此处为您的账户启用或禁用该功能。"
 
 msgid "Updated 2FA TOTP."
 msgstr "已更新 2FA TOTP"

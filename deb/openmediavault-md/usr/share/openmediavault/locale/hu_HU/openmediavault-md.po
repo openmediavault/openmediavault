@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-md\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-08-04 17:34+0200\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2025\n"
 "Language-Team: Hungarian (Hungary) (https://app.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
@@ -27,8 +27,23 @@ msgstr "Legfeljebb egy eszköz távolítható el. "
 msgid "A maximum of two devices can be removed."
 msgstr "Legfeljebb két eszköz távolítható el."
 
-msgid "Add hot spares / recover RAID device."
-msgstr "Tartalék kapacitás hozzáadása / RAID tömb helyreállítása."
+msgid "Add"
+msgstr ""
+
+msgid ""
+"Adding a disk to a degraded array starts the rebuild process. The kernel "
+"automatically syncs the data onto the new disk, which can take a very long "
+"time, so do not power off or reboot the system while it is in progress. "
+"Alternatively, a disk can be added to a healthy array as a <em>hot "
+"spare</em> that will be used automatically to replace a failed disk."
+msgstr ""
+
+msgid ""
+"Adding disk(s) to the array reshapes it, which can take a very long time "
+"depending on its size. Do not power off or reboot the system while the "
+"reshape is in progress. Note that the file system on the array is not grown "
+"automatically."
+msgstr ""
 
 msgid "At least four devices are required."
 msgstr "Legalább négy eszközre van szükség."
@@ -41,6 +56,9 @@ msgstr "Legalább két eszközre van szükség."
 
 msgid "Capacity"
 msgstr "Kapacitás"
+
+msgid "Check"
+msgstr ""
 
 msgid "Create"
 msgstr "Létrehozás"
@@ -55,6 +73,17 @@ msgid "Displays information about MD (Software RAID) devices."
 msgstr ""
 "Az MD (szoftveres RAID) eszközökkel kapcsolatos információkat jeleníti meg."
 
+msgid ""
+"Do you really want to repair the selected RAID device? This will attempt to "
+"correct any inconsistencies found, which can overwrite data if a mismatch "
+"cannot be unambiguously resolved."
+msgstr ""
+
+msgid ""
+"Do you really want to stop the running check/repair action on the selected "
+"RAID device?"
+msgstr ""
+
 msgid "Grow"
 msgstr "Növelés"
 
@@ -63,6 +92,9 @@ msgstr "Szint"
 
 msgid "MD Devices"
 msgstr "MD eszközök"
+
+msgid "Maintenance"
+msgstr ""
 
 msgid "Mirror"
 msgstr "Tükör"
@@ -100,6 +132,16 @@ msgstr "Hivatkozott"
 msgid "Remove"
 msgstr "Eltávolítás"
 
+msgid ""
+"Removing disk(s) first marks them as <em>failed</em> and then removes them "
+"from the array, putting it into a degraded state with reduced redundancy. It"
+" is typically used to replace a faulty disk. Note that the RAID metadata on "
+"the removed disk(s) is not erased."
+msgstr ""
+
+msgid "Repair"
+msgstr ""
+
 msgid "Select devices ..."
 msgstr "Eszközök kiválasztása…"
 
@@ -124,6 +166,9 @@ msgstr "Szoftveres RAID"
 
 msgid "State"
 msgstr "Állapot"
+
+msgid "Stop"
+msgstr ""
 
 msgid "Stripe"
 msgstr "Sáv"

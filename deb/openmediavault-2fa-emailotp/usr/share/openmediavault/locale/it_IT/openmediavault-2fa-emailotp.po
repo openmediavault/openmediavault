@@ -84,7 +84,7 @@ msgstr ""
 "tuo account."
 
 msgid "Updated 2FA Email OTP."
-msgstr ""
+msgstr "2FA tramite OTP via e-mail è stata aggiornata."
 
 msgid "User name"
 msgstr "Nome utente"
