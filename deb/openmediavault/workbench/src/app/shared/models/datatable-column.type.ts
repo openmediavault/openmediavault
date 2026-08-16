@@ -24,6 +24,9 @@ export type DatatableColumn = TableColumn & {
    * The name of the template.
    * text - Render plain text. HTML special characters like "&", "<",
    *        ">", '"', or "'" will be escaped.
+   *        If `tooltip` is set to `true` in the `cellTemplateConfig`,
+   *        then the column value will be displayed as tooltip. If the
+   *        value contains HTML tags, then the tooltip won't be shown.
    *        {
    *          cellTemplateName: 'text',
    *          cellTemplateConfig: {
