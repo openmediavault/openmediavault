@@ -14,6 +14,9 @@ data:
       prop: canonicaldevicefile
       flexGrow: 1
       sortable: true
+      cellTemplateName: text
+      cellTemplateConfig:
+        tooltip: '{{ canonicaldevicefile }}{% if comment | length > 0 %} [{{ comment }}]{% endif %}'
     - name: _("Label")
       prop: label
       flexGrow: 1

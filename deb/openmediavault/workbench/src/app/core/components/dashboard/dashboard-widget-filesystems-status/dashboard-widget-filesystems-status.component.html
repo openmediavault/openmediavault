@@ -9,7 +9,8 @@
     <div *ngFor="let item of data.data"
          class="item omv-display-flex omv-flex-column omv-align-content-stretch omv-justify-content-start omv-align-items-stretch"
          [ngClass]="{'error': item.status === 3, 'warning': (item.status === 1) && !item.mounted}">
-      <div class="item-text omv-text-truncate">
+      <div class="item-text omv-text-truncate"
+           [matTooltip]="'{{ canonicaldevicefile }}{% if comment | length > 0 %} [{{ comment }}]{% endif %}' | template:item">
         {{ item.canonicaldevicefile }}
       </div>
       <div *ngIf="item.mounted"
