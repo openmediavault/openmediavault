@@ -26,18 +26,27 @@ export type DatatableColumn = TableColumn & {
    *        ">", '"', or "'" will be escaped.
    *        If `tooltip` is set to `true` in the `cellTemplateConfig`,
    *        then the column value will be displayed as tooltip. If the
-   *        value contains HTML tags, then the tooltip won't be shown.
+   *        column value contains HTML tags, then the tooltip won't be
+   *        shown.
    *        {
    *          cellTemplateName: 'text',
    *          cellTemplateConfig: {
    *            tooltip: true
    *          }
    *        }
+   *        If `tooltip` is a template string, then this string will
+   *        be rendered and shown instead of the column value.
+   *        {
+   *          cellTemplateName: 'text',
+   *          cellTemplateConfig: {
+   *            tooltip: '{{ canonicaldevicefile }}{% if comment | length > 0 %} [{{ comment }}]{% endif %}'
+   *          }
+   *        }
    * html - Render HTML code.
    * image - Render an image. By default, the value of the configured
    *         column property is used as the image source. The `src`
    *         can be overwritten via the `cellTemplateConfig`. The
-   *         `src` can be a tokenized string that will be formatted
+   *         `src` can be a template string that will be formatted
    *         using the row values, e.g. `{{ foo }}`.
    *         {
    *           ...
@@ -86,7 +95,7 @@ export type DatatableColumn = TableColumn & {
    *        If the value is a string, the optional `separator` is used to
    *        split it into substrings.
    *        The value to be rendered can be mapped. The mapped value can
-   *        be a tokenized string that will be formatted using the row
+   *        be a template string that will be formatted using the row
    *        values.
    *        Alternatively the value to be rendered can be converted using
    *        a template.

@@ -86,8 +86,9 @@
 
 <ng-template #textTpl
              let-value="value"
-             let-column="column">
-  <span [matTooltip]="column?.cellTemplateConfig?.tooltip ? (value | br2nl | preventHtml) : null"
+             let-column="column"
+             let-row="row">
+  <span [matTooltip]="column?.cellTemplateConfig?.tooltip ? ((column?.cellTemplateConfig?.tooltip === true) ? value : (column?.cellTemplateConfig?.tooltip | template:row) | br2nl | preventHtml) : null"
         [innerHTML]="value | escapeHtml">
   </span>
 </ng-template>
