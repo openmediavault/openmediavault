@@ -34,7 +34,7 @@ data:
         validators:
           required: true
           pattern:
-            pattern: "^(?!default$)[a-zA-Z0-9_-]+$"
+            pattern: "^(?!default$)[a-z0-9_-]+$"
             errorData: _("Invalid identifier")
       - type: textInput
         name: comment
