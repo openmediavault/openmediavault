@@ -1,6 +1,7 @@
 openmediavault-nut (8.0.5-1) stable; urgency=medium
 
   * Deny the UPS name `default`.
+  * Allow uppercase characters in UPS names.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 18 Aug 2026 22:37:17 +0200
 

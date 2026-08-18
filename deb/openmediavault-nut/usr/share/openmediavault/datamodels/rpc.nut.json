@@ -15,7 +15,7 @@
 			},
 			"upsname": {
 				"type": "string",
-				"pattern": "^(?!default$)[a-z0-9_-]+$",
+				"pattern": "^(?!default$)[a-zA-Z0-9_-]+$",
 				"required": true
 			},
 			"comment": {
