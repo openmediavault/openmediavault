@@ -1,3 +1,9 @@
+openmediavault-nut (8.0.5-1) stable; urgency=medium
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 18 Aug 2026 22:37:17 +0200
+
 openmediavault-nut (8.0.4-1) stable; urgency=medium
 
   * Issue #1612: Add dashboard widgets.
