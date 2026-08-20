@@ -160,8 +160,8 @@ configure_nut_default_upssched_cmd:
 
 # Create a udev rule for the given port if necessary.
 {% set port = nut_config.driverconf | regex_search('port\s*=\s*([a-zA-Z0-9\/]*)\s*.*') %}
-# Result looks like: ('auto',) or ('/dev/ttyS1',)
-{% if port | length == 1 and port[0] not in (None, 'auto') %}
+# Result looks like: ('auto',) or ('/dev/ttyS1',) or None
+{% if nut_config.mode == 'standalone' and port is not none and port | length == 1 and port[0] not in (None, 'auto') %}
 
 configure_nut_udev_serialups_rule:
   file.managed:
@@ -218,13 +218,25 @@ monitor_nut_server_service:
 
 {% else %}
 
-disable_nut_driver_enumerator_service:
-  service.disabled:
-    - name: nut-driver-enumerator
+# `ups.conf` was just (re)written above and declares no device section in
+# `netclient` mode, so running the enumerator here makes it notice that any
+# previously registered `nut-driver@*` instance, e.g. left over from a
+# former standalone configuration, is now stale and unregister it. This
+# properly stops and disables the instance and removes its generated
+# systemd drop-in.
+retire_nut_driver_service_instances:
+  module.run:
+    - service.restart:
+      - name: nut-driver-enumerator
+    - require:
+      - file: configure_nut_ups_conf
 
-stop_all_nut_driver_service_instances:
-  cmd.run:
-    - name: "systemctl stop 'nut-driver@*'"
+disable_nut_driver_enumerator_service:
+  service.dead:
+    - name: nut-driver-enumerator
+    - enable: False
+    - require:
+      - module: retire_nut_driver_service_instances
 
 {% endif %}
 
@@ -269,11 +281,17 @@ stop_nut_server_service:
     - enable: False
 
 disable_nut_driver_enumerator_service:
-  service.disabled:
+  service.dead:
     - name: nut-driver-enumerator
+    - enable: False
 
-stop_all_nut_driver_service_instances:
+# The whole service is disabled, but `ups.conf` is not touched in this
+# branch and may still declare device sections, so the enumerator can not
+# be safely re-run here to reconcile things (it would just re-register and
+# start the instances again). Disable and stop any `nut-driver@*` instance
+# directly instead, so none of them come back on the next reboot.
+disable_all_nut_driver_service_instances:
   cmd.run:
-    - name: "systemctl stop 'nut-driver@*'"
+    - name: "systemctl disable --now 'nut-driver@*'"
 
 {% endif %}

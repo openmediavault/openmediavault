@@ -1,6 +1,8 @@
 {{ pillar['headers']['multiline'] -}}
+{%- if config.mode == 'standalone' %}
 [{{ config.upsname }}]
 {{ config.driverconf }}
 {%- if config.comment | length > 0 %}
 desc = {{ config.comment }}
+{%- endif %}
 {%- endif %}
