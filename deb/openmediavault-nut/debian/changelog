@@ -1,5 +1,6 @@
 openmediavault-nut (8.0.5-1) stable; urgency=medium
 
+  * Update i18n files.
   * Deny the UPS name `default`.
   * Allow uppercase characters in UPS names.
   * Issue #2261: Fix problems related to `netclient` mode.
