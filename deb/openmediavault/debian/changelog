@@ -1,5 +1,6 @@
 openmediavault (8.5.7-1) stable; urgency=medium
 
+  * Improve PHP session garbage collection process.
   * Issue #2258: Display tags in filesystem dashboard widgets.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 16 Aug 2026 13:11:04 +0200
