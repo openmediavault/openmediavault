@@ -813,8 +813,9 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract
      *   \em devicefile The device file of the logical volume.
      * @param context The context of the caller.
      * @return The logical volume details containing the fields
-     *   \em devicefile, \em uuid, \em name, \em size, \em vgname,
-     *   \em attributes, \em vgattributes and \em isavailable.
+     *   \em devicefile, \em uuid, \em name, \em size, \em maxsize,
+     *   \em vgname, \em attributes, \em vgattributes and
+     *   \em isavailable.
      */
     public function getLogicalVolume($params, $context)
     {
@@ -830,11 +831,17 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract
         // Get the logical volume details.
         $lv = new \OMV\System\Storage\Lvm\LogicalVolume($params['name']);
         $lv->assertExists();
+        // Get the volume group details to calculate the maximum size the
+        // logical volume can be extended to, e.g. its current size plus
+        // the unallocated space of the volume group.
+        $vg = new \OMV\System\Storage\Lvm\VolumeGroup($lv->getVGName());
+        $vg->assertExists();
         return [
             "devicefile" => $lv->getPreferredDeviceFile(),
             "uuid" => $lv->getUuid(),
             "name" => $lv->getName(),
             "size" => $lv->getSize(),
+            "maxsize" => bcadd($lv->getSize(), $vg->getFree()),
             "vgname" => $lv->getVGName(),
             "attributes" => $lv->getAttributes(),
             "vgattributes" => $lv->getVGAttributes(),
@@ -915,7 +922,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract
      * Extend a logical volume.
      * @param params An array containing the following fields:
      *   \em devicefile The device file of the logical volume to modify.
-     *   \em size The percentage of the total space in the volume group.
+     *   \em percentage The percentage of the total space in the volume group.
      * @param context The context of the caller.
      * @return void
      */
@@ -933,7 +940,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract
         // Check if logical volume exists.
         $lv = new \OMV\System\Storage\Lvm\LogicalVolume($params['devicefile']);
         $lv->assertExists();
-        $lv->extend($params['size']);
+        $lv->extend($params['percentage']);
         // Notify configuration changes.
         $dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
         $dispatcher->notify(
@@ -941,7 +948,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract
             "org.openmediavault.conf.system.storage.lvm.logicalvolume",
             [
               "devicefile" => $params['devicefile'],
-              "size" => $params['size']
+              "size" => $params['percentage']
           ]
         );
     }
@@ -950,7 +957,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract
      * Reduce a logical volume.
      * @param params An array containing the following fields:
      *   \em devicefile The device file of the logical volume to modify.
-     *   \em size The percentage of the total space in the volume group.
+     *   \em percentage The percentage of the total space in the volume group.
      * @param context The context of the caller.
      * @return void
      */
@@ -968,7 +975,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract
         // Check if logical volume exists.
         $lv = new \OMV\System\Storage\Lvm\LogicalVolume($params['devicefile']);
         $lv->assertExists();
-        $lv->reduce($params['size']);
+        $lv->reduce($params['percentage']);
         // Notify configuration changes.
         $dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
         $dispatcher->notify(
@@ -976,7 +983,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract
             "org.openmediavault.conf.system.storage.lvm.logicalvolume",
             [
               "devicefile" => $params['devicefile'],
-              "size" => $params['size']
+              "size" => $params['percentage']
           ]
         );
     }

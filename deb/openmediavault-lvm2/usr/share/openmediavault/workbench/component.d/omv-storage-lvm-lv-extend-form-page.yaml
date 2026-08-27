@@ -12,10 +12,7 @@ data:
           name: "{{ _routeParams.devicefile }}"
         transform:
           capacity: "{{ size | binaryunit }}"
-        filter:
-          mode: omit
-          props:
-            - size
+          maxcapacity: "{{ maxsize | binaryunit }}"
       post:
         method: extendLogicalVolume
     fields:
@@ -51,14 +48,38 @@ data:
         value: ""
         disabled: true
         submitValue: false
-      - type: slider
-        name: size
-        label: _("Size")
-        hint: _("The percentage of the total space in the volume group to use by the logical volume.")
-        value: 100,
-        validators:
-          min: 1
-          max: 100
+      - type: textInput
+        name: maxcapacity
+        label: _("Max. capacity")
+        value: ""
+        disabled: true
+        submitValue: false
+      - type: container
+        fields:
+          - type: slider
+            name: percentage
+            label: _("Percentage")
+            hint: _("The percentage of the total space in the volume group to use by the logical volume.")
+            value: 100
+            validators:
+              min: 1
+              max: 100
+          - type: textInput
+            name: newcapacity
+            label: _("New capacity")
+            value: ""
+            disabled: true
+            submitValue: false
+            modifiers:
+              - type: value
+                typeConfig: "{{ (maxsize * percentage / 100) | default(0, true) | binaryunit }}"
+                deps:
+                  - maxsize
+                  - percentage
+      - type: hidden
+        name: maxsize
+        value: "0"
+        submitValue: false
     buttons:
       - template: submit
         execute:

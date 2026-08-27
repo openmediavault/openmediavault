@@ -176,7 +176,7 @@
 				"format": "devicefile",
 				"required": true
 			},
-			"size": {
+			"percentage": {
 				"type": "integer",
 				"minimum": 1,
 				"maximum": 100,
@@ -195,7 +195,7 @@
 				"format": "devicefile",
 				"required": true
 			},
-			"size": {
+			"percentage": {
 				"type": "integer",
 				"minimum": 1,
 				"maximum": 100,
