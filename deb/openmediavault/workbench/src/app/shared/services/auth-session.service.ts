@@ -25,25 +25,45 @@ import { Permissions, Roles } from '~/app/shared/models/permissions.model';
 export class AuthSessionService {
   constructor() {}
 
+  /**
+   * Stores the username and permissions in session storage.
+   * @param username The username to store.
+   * @param permissions The permissions to store.
+   */
   set(username: string, permissions: Permissions): void {
     sessionStorage.setItem('username', username);
     sessionStorage.setItem('permissions', Permissions.toJSON(permissions));
   }
 
+  /**
+   * Returns the stored username, if present.
+   * @returns The stored username, or null if none exists.
+   */
   getUsername(): string | null {
     return sessionStorage.getItem('username');
   }
 
+  /**
+   * Returns the stored permissions or an empty permissions object.
+   * @returns The stored permissions object.
+   */
   getPermissions(): Permissions {
     const item = sessionStorage.getItem('permissions') || '{}';
     return Permissions.fromJSON(item);
   }
 
+  /**
+   * Removes the stored auth session data.
+   */
   revoke(): void {
     sessionStorage.removeItem('username');
     sessionStorage.removeItem('permissions');
   }
 
+  /**
+   * Checks whether the current session includes the admin role.
+   * @returns True if the admin role is present, otherwise false.
+   */
   hasAdminRole(): boolean {
     const permissions = this.getPermissions();
     return (permissions.role ?? []).includes(Roles.admin);
