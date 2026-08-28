@@ -1,7 +1,9 @@
 import { Directive, ElementRef, HostListener, Input, OnInit } from '@angular/core';
 import { NgControl } from '@angular/forms';
 import * as _ from 'lodash';
+import { Subscription } from 'rxjs';
 
+import { Unsubscribe } from '~/app/decorators';
 import { binaryUnit, toBytes } from '~/app/functions.helper';
 
 @Directive({
@@ -19,7 +21,10 @@ export class BinaryUnitDirective implements OnInit {
   @Input()
   fractionDigits?: number;
 
-  private el: HTMLInputElement;
+  @Unsubscribe()
+  private subscriptions = new Subscription();
+
+  private readonly el: HTMLInputElement;
 
   constructor(
     private elementRef: ElementRef,
@@ -36,19 +41,32 @@ export class BinaryUnitDirective implements OnInit {
   ngOnInit() {
     this.defaultUnit = _.defaultTo(this.defaultUnit, 'B');
     this.fractionDigits = _.defaultTo(this.fractionDigits, 0);
-    this.setValue(this.el.value);
+    this.setValue(this.ngControl.control.value);
+    this.subscriptions.add(
+      this.ngControl.control.valueChanges.subscribe((value) => {
+        // Do not reformat while the user is actively typing into the
+        // field, otherwise it would be impossible to enter a value at
+        // all, e.g. because the cursor jumps to the end after every
+        // keystroke. The `blur` handler takes care of that case.
+        if (document.activeElement !== this.el) {
+          this.setValue(value);
+        }
+      })
+    );
   }
 
-  setValue(value: string) {
-    if (/^[\d.]+$/.test(value)) {
-      value += this.defaultUnit;
+  setValue(value: string | number) {
+    if (/^[\d.]+$/.test(String(value))) {
+      value = `${value}${this.defaultUnit}`;
     }
     // Reformat input to preferred appearance.
     const bytes = toBytes(value);
-    value = binaryUnit(bytes, this.fractionDigits);
-    if (!_.isEmpty(value)) {
-      this.el.value = value;
-      this.ngControl.control.setValue(value);
+    const formatted = binaryUnit(bytes, this.fractionDigits);
+    // Only update the control if the formatted value actually changed to
+    // avoid triggering an endless `valueChanges` loop.
+    if (!_.isEmpty(formatted) && formatted !== this.ngControl.control.value) {
+      this.el.value = formatted;
+      this.ngControl.control.setValue(formatted);
     }
   }
 }

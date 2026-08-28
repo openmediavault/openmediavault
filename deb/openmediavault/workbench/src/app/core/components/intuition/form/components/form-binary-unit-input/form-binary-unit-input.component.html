@@ -14,7 +14,8 @@
          [autocomplete]="config.autocomplete"
          [required]="config.validators?.required"
          binaryUnit
-         [defaultUnit]="config.defaultUnit">
+         [defaultUnit]="config.defaultUnit"
+         [fractionDigits]="config.fractionDigits">
   <mat-icon *ngIf="config.hasCopyToClipboardButton"
             matSuffix
             matTooltip="{{ 'Copy to clipboard' | transloco }}"
