@@ -11,8 +11,8 @@ data:
         params:
           name: "{{ _routeParams.devicefile }}"
         transform:
-          capacity: "{{ size | binaryunit }}"
-          maxcapacity: "{{ maxsize | binaryunit }}"
+          capacity: "{{ size }}"
+          maxcapacity: "{{ maxsize }}"
       post:
         method: extendLogicalVolume
     fields:
@@ -42,18 +42,22 @@ data:
           sorters:
             - dir: asc
               prop: name
-      - type: textInput
+      - type: binaryUnitInput
         name: capacity
         label: _("Capacity")
         value: ""
         disabled: true
         submitValue: false
-      - type: textInput
+        defaultUnit: B
+        fractionDigits: 2
+      - type: binaryUnitInput
         name: maxcapacity
         label: _("Max. capacity")
         value: ""
         disabled: true
         submitValue: false
+        defaultUnit: B
+        fractionDigits: 2
       - type: container
         fields:
           - type: slider
@@ -64,15 +68,17 @@ data:
             validators:
               min: 1
               max: 100
-          - type: textInput
+          - type: binaryUnitInput
             name: newcapacity
             label: _("New capacity")
             value: ""
             disabled: true
             submitValue: false
+            defaultUnit: B
+            fractionDigits: 2
             modifiers:
               - type: value
-                typeConfig: "{{ (maxsize * percentage / 100) | default(0, true) | binaryunit }}"
+                typeConfig: "{{ maxsize * percentage / 100 }}"
                 deps:
                   - maxsize
                   - percentage
