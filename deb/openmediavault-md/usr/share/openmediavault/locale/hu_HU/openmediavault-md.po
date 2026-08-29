@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2025
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2026
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-04 17:34+0200\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
-"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2025\n"
+"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2026\n"
 "Language-Team: Hungarian (Hungary) (https://app.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +28,7 @@ msgid "A maximum of two devices can be removed."
 msgstr "Legfeljebb két eszköz távolítható el."
 
 msgid "Add"
-msgstr ""
+msgstr "Hozzáadás"
 
 msgid ""
 "Adding a disk to a degraded array starts the rebuild process. The kernel "
@@ -37,6 +37,13 @@ msgid ""
 "Alternatively, a disk can be added to a healthy array as a <em>hot "
 "spare</em> that will be used automatically to replace a failed disk."
 msgstr ""
+"Ha egy meghibásodott tömbhöz lemezt adunk hozzá, elindul az újjáépítési "
+"folyamat. A rendszermag automatikusan szinkronizálja az adatokat az új "
+"lemezre, ami nagyon hosszú időt vehet igénybe, ezért a folyamat közben ne "
+"kapcsoljuk ki és ne indítsuk újra a rendszert. Alternatív megoldásként egy "
+"lemezt hozzáadhatunk egy hibamentes tömbhöz „<em>hot spare</em>”-ként, "
+"amelyet a rendszer automatikusan használ majd egy meghibásodott lemez "
+"pótlására."
 
 msgid ""
 "Adding disk(s) to the array reshapes it, which can take a very long time "
@@ -44,6 +51,11 @@ msgid ""
 "reshape is in progress. Note that the file system on the array is not grown "
 "automatically."
 msgstr ""
+"A lemez(ek) a tömbhöz való hozzáadásával átalakul a lemez, ami a tömb "
+"méretétől függően nagyon hosszú időt vehet igénybe. Az átalakítás "
+"folyamatban lévő ideje alatt ne kapcsolja ki és ne indítsa újra a rendszert."
+" Vegye figyelembe, hogy a tömbön található fájlrendszer nem bővül "
+"automatikusan."
 
 msgid "At least four devices are required."
 msgstr "Legalább négy eszközre van szükség."
@@ -58,7 +70,7 @@ msgid "Capacity"
 msgstr "Kapacitás"
 
 msgid "Check"
-msgstr ""
+msgstr "Keresés"
 
 msgid "Create"
 msgstr "Létrehozás"
@@ -78,11 +90,16 @@ msgid ""
 "correct any inconsistencies found, which can overwrite data if a mismatch "
 "cannot be unambiguously resolved."
 msgstr ""
+"Valóban meg akarja javítani a kijelölt RAID-eszközt? A művelet megpróbálja "
+"kijavítani az esetleges inkonzisztenciákat, ami adatfelülíráshoz vezethet, "
+"ha az eltéréseket nem lehet egyértelműen megoldani."
 
 msgid ""
 "Do you really want to stop the running check/repair action on the selected "
 "RAID device?"
 msgstr ""
+"Valóban le szeretné állítani a kijelölt RAID-eszközön futó "
+"ellenőrzési/javítási műveletet?"
 
 msgid "Grow"
 msgstr "Növelés"
@@ -94,7 +111,7 @@ msgid "MD Devices"
 msgstr "MD eszközök"
 
 msgid "Maintenance"
-msgstr ""
+msgstr "Karbantartás"
 
 msgid "Mirror"
 msgstr "Tükör"
@@ -138,9 +155,15 @@ msgid ""
 " is typically used to replace a faulty disk. Note that the RAID metadata on "
 "the removed disk(s) is not erased."
 msgstr ""
+"A lemez(ek) eltávolítása során azok először <em>meghibásodottként</em> "
+"kerülnek megjelölésre, majd eltávolításra kerülnek a tömbből, ami a "
+"rendszert csökkentett redundanciájú, károsodott állapotba hozza. Ezt a "
+"műveletet általában egy meghibásodott lemez cseréjéhez használják. Fontos "
+"megjegyezni, hogy az eltávolított lemezeken található RAID-metadatok nem "
+"kerülnek törlésre."
 
 msgid "Repair"
-msgstr ""
+msgstr "Javítás"
 
 msgid "Select devices ..."
 msgstr "Eszközök kiválasztása…"
@@ -168,7 +191,7 @@ msgid "State"
 msgstr "Állapot"
 
 msgid "Stop"
-msgstr ""
+msgstr "Leállítás"
 
 msgid "Stripe"
 msgstr "Sáv"

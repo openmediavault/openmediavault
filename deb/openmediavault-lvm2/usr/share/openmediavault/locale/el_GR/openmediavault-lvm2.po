@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-08-29 07:35+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Kostas Moho, 2012-2015,2017,2019,2021,2024\n"
 "Language-Team: Greek (Greece) (http://app.transifex.com/openmediavault/openmediavault/language/el_GR/)\n"
@@ -81,8 +81,17 @@ msgstr "Διαχείριση Λογικών Τόμων"
 msgid "Logical Volumes"
 msgstr "Λογικοί Τόμοι"
 
+msgid "Max. capacity"
+msgstr ""
+
 msgid "Name"
 msgstr "Όνομα"
+
+msgid "New capacity"
+msgstr ""
+
+msgid "Percentage"
+msgstr ""
 
 msgid "Physical Volumes"
 msgstr "Φυσικοί Τόμοι"

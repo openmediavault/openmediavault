@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-08-29 07:35+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: irrelevant91, 2025\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -84,8 +84,17 @@ msgstr "逻辑卷管理"
 msgid "Logical Volumes"
 msgstr "逻辑卷"
 
+msgid "Max. capacity"
+msgstr ""
+
 msgid "Name"
 msgstr "名称"
+
+msgid "New capacity"
+msgstr ""
+
+msgid "Percentage"
+msgstr ""
 
 msgid "Physical Volumes"
 msgstr "多个物理卷"

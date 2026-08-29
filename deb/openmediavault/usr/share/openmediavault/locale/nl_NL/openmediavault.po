@@ -1192,7 +1192,7 @@ msgid "Enable recycle bin"
 msgstr "Prullenbak inschakelen"
 
 msgid "Enable remote logging of syslog to the specified host."
-msgstr "Logboekregistratie op afstand van syslog naar de opgegeven host inschakelen."
+msgstr "Externe logboekregistratie van syslog naar de opgegeven host inschakelen."
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
@@ -2707,7 +2707,7 @@ msgid "Remaining"
 msgstr "Resterend"
 
 msgid "Remote"
-msgstr "Op afstand"
+msgstr "Extern"
 
 msgid "Replace"
 msgstr "Vervangen"

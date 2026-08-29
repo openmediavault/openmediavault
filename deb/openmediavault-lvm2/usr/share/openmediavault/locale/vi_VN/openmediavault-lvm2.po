@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-08-29 07:35+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Dung Ba Minh, 2026\n"
 "Language-Team: Vietnamese (Viet Nam) (http://app.transifex.com/openmediavault/openmediavault/language/vi_VN/)\n"
@@ -81,8 +81,17 @@ msgstr "Logical Volume Management"
 msgid "Logical Volumes"
 msgstr "Các phân vùng ảo"
 
+msgid "Max. capacity"
+msgstr ""
+
 msgid "Name"
 msgstr "Tên"
+
+msgid "New capacity"
+msgstr ""
+
+msgid "Percentage"
+msgstr ""
 
 msgid "Physical Volumes"
 msgstr "Các phân vùng vật lý"

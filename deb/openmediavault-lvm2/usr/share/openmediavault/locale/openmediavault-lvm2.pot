@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-lvm2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-08-29 07:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -80,7 +80,16 @@ msgstr ""
 msgid "Logical Volumes"
 msgstr ""
 
+msgid "Max. capacity"
+msgstr ""
+
 msgid "Name"
+msgstr ""
+
+msgid "New capacity"
+msgstr ""
+
+msgid "Percentage"
 msgstr ""
 
 msgid "Physical Volumes"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-08-29 07:35+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2020\n"
 "Language-Team: Korean (Korea) (http://app.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -82,8 +82,17 @@ msgstr "논리 볼륨 관리"
 msgid "Logical Volumes"
 msgstr ""
 
+msgid "Max. capacity"
+msgstr ""
+
 msgid "Name"
 msgstr "이름"
+
+msgid "New capacity"
+msgstr ""
+
+msgid "Percentage"
+msgstr ""
 
 msgid "Physical Volumes"
 msgstr ""

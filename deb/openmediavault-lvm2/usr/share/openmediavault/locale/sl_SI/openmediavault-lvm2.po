@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-08-29 07:35+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
 "Last-Translator: Valentin Korenjak <valentin@korenjak.si>, 2025\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -82,8 +82,17 @@ msgstr ""
 msgid "Logical Volumes"
 msgstr ""
 
+msgid "Max. capacity"
+msgstr ""
+
 msgid "Name"
 msgstr "Ime"
+
+msgid "New capacity"
+msgstr ""
+
+msgid "Percentage"
+msgstr ""
 
 msgid "Physical Volumes"
 msgstr ""
