@@ -37,6 +37,7 @@ follow symlinks = {{ config.homesfollowsymlinks | to_bool | yesno }}
 wide links = {{ config.homeswidelinks | to_bool | yesno }}
 {%- set vfs_objects = vfs_objects.split(' ') %}
 {%- if enable_timemachine_vfs | to_bool %}
+{%- set _ = vfs_objects.append('catia') %}
 {%- set _ = vfs_objects.append('fruit') %}
 {%- set _ = vfs_objects.append('streams_xattr') %}
 {%- endif %}
