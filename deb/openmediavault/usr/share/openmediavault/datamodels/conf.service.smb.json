@@ -56,6 +56,10 @@
 			"type": "boolean",
 			"default": false
 		},
+		"homesmacoscompat": {
+			"type": "boolean",
+			"default": false
+		},
 		"homesinheritacls": {
 			"type": "boolean",
 			"default": false
@@ -165,6 +169,10 @@
 								"type": "string"
 							},
 							"audit": {
+								"type": "boolean",
+								"default": false
+							},
+							"macoscompat": {
 								"type": "boolean",
 								"default": false
 							},

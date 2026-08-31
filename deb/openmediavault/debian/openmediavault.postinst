@@ -686,6 +686,9 @@ case "$1" in
 			deb-systemd-invoke restart php8.4-fpm.service || :
 			omv_module_set_dirty samba
 		fi
+		if dpkg --compare-versions "$2" lt-nl "8.5.8"; then
+			omv_module_set_dirty samba
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the

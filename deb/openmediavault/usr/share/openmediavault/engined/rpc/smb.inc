@@ -198,6 +198,11 @@ class Smb extends \OMV\Rpc\ServiceAbstract
         // Prepare the configuration object.
         $object = new \OMV\Config\ConfigObject("conf.service.smb.share");
         $object->setAssoc($params);
+        // Time Machine requires the macOS compatibility VFS modules, so
+        // force it on regardless of how the share was created (UI or RPC).
+        if (true === $object->get("timemachine")) {
+            $object->set("macoscompat", true);
+        }
         // Set the configuration object.
         $db = \OMV\Config\Database::getInstance();
         // Check uniqueness:

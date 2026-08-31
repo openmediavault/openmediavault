@@ -29,9 +29,6 @@
 # http://blog.jonaspasche.com/2010/11/24/endlich-verstehen-samba-rechtevergabe
 
 {% set config = salt['omv_conf.get']('conf.service.smb') %}
-{% set timemachine_shares = salt['omv_conf.get_by_filter'](
-  'conf.service.smb.share',
-  {'operator': 'equals', 'arg0': 'timemachine', 'arg1': '1'}) %}
 
 configure_samba_shares:
   file.append:
@@ -41,4 +38,3 @@ configure_samba_shares:
     - template: jinja
     - context:
         config: {{ config | json }}
-        enable_timemachine_vfs: {{ timemachine_shares | length > 0 }}

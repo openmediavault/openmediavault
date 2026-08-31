@@ -477,6 +477,7 @@
 			<homesenable>0</homesenable>
 			<homesbrowseable>1</homesbrowseable>
 			<homesrecyclebin>0</homesrecyclebin>
+			<homesmacoscompat>0</homesmacoscompat>
 			<homesinheritacls>0</homesinheritacls>
 			<homesinheritpermissions>0</homesinheritpermissions>
 			<homesfollowsymlinks>0|1</homesfollowsymlinks>
@@ -506,6 +507,7 @@
 					<hostsallow></hostsallow>
 					<hostsdeny></hostsdeny>
 					<audit>0|1</audit>
+					<macoscompat>0|1</macoscompat>
 					<transportencryption>0|1</transportencryption>
 					<followsymlinks>0|1</followsymlinks>
 					<widelinks>0|1</widelinks>
