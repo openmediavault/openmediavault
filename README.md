@@ -22,7 +22,7 @@ A detailed instruction about how to install `openmediavault` can be found in the
 
 ## Supporters
 
-Thanks to the companies supporting openmediavault's open-source work.
+Thanks to the companies supporting the open-source work of `openmediavault`.
 
 [<img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.svg" width="150" alt="JetBrains logo." />](https://jb.gg/OpenSource)
 
