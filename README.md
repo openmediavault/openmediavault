@@ -20,6 +20,12 @@ A detailed instruction about how to install `openmediavault` can be found in the
 - [Forum](https://forum.openmediavault.org)
 - [Blog](https://blog.openmediavault.org)
 
+## Supporters
+
+Thanks to [JetBrains](https://www.jetbrains.com/) for supporting us with licenses for their tools.
+
+[<img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.svg" width="150" alt="JetBrains logo." />](https://jb.gg/OpenSource)
+
 ## Donation
 
 `openmediavault` is free, but costs money and time to produce, support and distribute. This gift to the developer would demonstrate your appreciation of this software and help its future development.
