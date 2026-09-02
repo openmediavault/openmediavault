@@ -245,30 +245,6 @@ class StorageDeviceHPSA(StorageDevice):
         return self.raid_level.startswith('RAID')
 
     @property
-    def smart_device_type(self):
-        # Note, we need to distinguish between RAID and HBA mode here.
-        if self.is_raid:
-            return super().smart_device_type
-        # $ hpssacli ctrl slot=0 pd all show detail
-        # ...
-        # physicaldrive 1I:1:5
-        # Port: 1I
-        # Box: 1
-        # Bay: 5
-        # Status: OK
-        # Disk Name: /dev/sde
-        # ...
-
-        # The drive bay is encoded in the devpath of the device via the
-        # SCSI address (HCTL), e.g.
-        # /devices/pci0000:00/0000:00:02.2/0000:02:00.0/host1/scsi_host/host1/port-1:6/end_device-1:6/target1:0:5/1:0:5:0/block/sde
-
-        # Return 'cciss,N'. The non-negative integer N (in the
-        # range from 0 to 15 inclusive) denotes which disk on the
-        # controller is monitored.
-        return 'cciss,{}'.format(self.hctl.target - 1)
-
-    @property
     def raid_level(self) -> str:
         """
         Get the RAID level of the device. If it is a logical device,
