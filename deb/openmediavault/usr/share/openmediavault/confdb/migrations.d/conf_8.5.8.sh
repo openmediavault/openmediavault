@@ -1,3 +1,5 @@
+#!/usr/bin/env dash
+#
 # This file is part of OpenMediaVault.
 #
 # @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
@@ -17,26 +19,11 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
-# Documentation/Howto:
-# http://us5.samba.org/samba/docs/man/manpages-3/smb.conf.5.html
+set -e
 
-{% set config = salt['omv_conf.get']('conf.service.smb') %}
-{% set homedir_config = salt['omv_conf.get']('conf.system.usermngmnt.homedir') %}
+. /usr/share/openmediavault/scripts/helper-functions
 
-{% if config.homesenable | to_bool and homedir_config.enable | to_bool %}
+omv_config_add_key "/config/services/smb" "homesmacoscompat" "0"
+omv_config_add_key "/config/services/smb/shares/share" "macoscompat" "0"
 
-configure_samba_homes:
-  file.append:
-    - name: "/etc/samba/smb.conf"
-    - sources:
-      - salt://{{ tpldir }}/files/homes.j2
-    - template: jinja
-    - context:
-        config: {{ config | json }}
-        homedir_config: {{ homedir_config | json }}
-{% if config.enable | to_bool %}
-    - watch_in:
-      - service: start_samba_service
-{% endif %}
-
-{% endif %}
+exit 0

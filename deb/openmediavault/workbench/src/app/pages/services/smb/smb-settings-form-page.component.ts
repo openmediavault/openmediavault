@@ -118,6 +118,15 @@ export class SmbSettingsFormPageComponent extends BaseFormPageComponent {
       },
       {
         type: 'checkbox',
+        name: 'homesmacoscompat',
+        label: gettext('macOS compatibility'),
+        hint: gettext(
+          'Improve interoperability with macOS clients: correctly handle filenames using characters reserved in SMB, and apply Samba tuning recommended for macOS.'
+        ),
+        value: false
+      },
+      {
+        type: 'checkbox',
         name: 'homesfollowsymlinks',
         label: gettext('Follow symlinks'),
         hint: gettext('Allow following symbolic links in the home directories.'),

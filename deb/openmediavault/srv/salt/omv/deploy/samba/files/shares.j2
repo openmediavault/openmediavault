@@ -27,9 +27,15 @@
 {%- set fruit_veto_appledouble = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_VETOAPPLEDOUBLE', 'no') -%}
 {%- set fruit_wipe_intentionally_left_blank_rfork = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_WIPEINTENTIONALLYLEFTBLANKRFORK', 'yes') -%}
 {%- set fruit_delete_empty_adfiles = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_DELETEEMPTYADFILES', 'yes') -%}
+{%- set fruit_model = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_MODEL', 'MacSamba') -%}
+{%- set fruit_posix_rename = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_POSIXRENAME', 'yes') -%}
+{%- set fruit_zero_file_id = salt['pillar.get']('default:OMV_SAMBA_SHARE_FRUIT_ZEROFILEID', 'yes') -%}
 {%- set shadow_sort = salt['pillar.get']('default:OMV_SAMBA_SHARE_SHADOW_SORT', 'desc') -%}
 {%- set dfree_command = salt['pillar.get']('default:OMV_SAMBA_SHARE_DFREECOMMAND', '/usr/sbin/omv-btrfs-dfree') -%}
 {%- set dfree_cache_time = salt['pillar.get']('default:OMV_SAMBA_SHARE_DFREECACHETIME', '30') -%}
+{%- set enable_macos_vfs = (config.shares.share | selectattr('timemachine') | list | length > 0)
+  or (config.shares.share | selectattr('macoscompat') | list | length > 0)
+  or config.homesmacoscompat -%}
 #======================= Share Definitions =======================
 {%- for share in config.shares.share | selectattr('enable') %}
 {%- set sf_name = salt['omv_conf.get_sharedfolder_name'](share.sharedfolderref) %}
@@ -59,11 +65,12 @@ full_audit:failure = {{ full_audit_failure }}
 full_audit:facility = {{ full_audit_facility }}
 full_audit:priority = {{ full_audit_priority }}
 {%- endif %}
-{%- if enable_timemachine_vfs | to_bool %}
+{%- if enable_macos_vfs %}
+{%- set _ = vfs_objects.append('catia') %}
 {%- set _ = vfs_objects.append('fruit') %}
 {%- set _ = vfs_objects.append('streams_xattr') %}
 {%- endif %}
-{%- if share.timemachine | to_bool %}
+{%- if share.macoscompat | to_bool or share.timemachine | to_bool %}
 fruit:encoding = {{ fruit_encoding }}
 fruit:locking = {{ fruit_locking }}
 fruit:metadata = {{ fruit_metadata }}
@@ -71,6 +78,11 @@ fruit:resource = {{ fruit_resource }}
 fruit:veto_appledouble = {{ fruit_veto_appledouble }}
 fruit:wipe_intentionally_left_blank_rfork = {{ fruit_wipe_intentionally_left_blank_rfork }}
 fruit:delete_empty_adfiles = {{ fruit_delete_empty_adfiles }}
+fruit:model = {{ fruit_model }}
+fruit:posix_rename = {{ fruit_posix_rename }}
+fruit:zero_file_id = {{ fruit_zero_file_id }}
+{%- endif %}
+{%- if share.timemachine | to_bool %}
 fruit:time machine = yes
 {%- if share.timemachinemaxsize | length > 0 %}
 fruit:time machine max size = {{ share.timemachinemaxsize }}

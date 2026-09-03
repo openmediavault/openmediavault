@@ -106,9 +106,27 @@ export class SmbShareFormPageComponent extends BaseFormPageComponent {
       },
       {
         type: 'checkbox',
+        name: 'macoscompat',
+        label: gettext('macOS compatibility'),
+        hint: gettext(
+          'Improve interoperability with macOS clients: correctly handle filenames using characters reserved in SMB, and apply Samba tuning recommended for macOS.'
+        ),
+        value: false,
+        modifiers: [
+          {
+            type: 'checked',
+            opposite: false,
+            constraint: { operator: 'truthy', arg0: { prop: 'timemachine' } }
+          }
+        ]
+      },
+      {
+        type: 'checkbox',
         name: 'timemachine',
         label: gettext('Time Machine support'),
-        hint: gettext('Enable Time Machine support for this share.'),
+        hint: gettext(
+          'Enable Time Machine support for this share. Automatically enables macOS compatibility, which Time Machine requires.'
+        ),
         value: false
       },
       {
