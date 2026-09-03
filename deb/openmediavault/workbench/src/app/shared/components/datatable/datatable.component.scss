@@ -167,6 +167,21 @@ omv-datatable {
         padding: 0 1.2rem;
       }
 
+      .omv-datatable-footer-actions {
+        display: flex;
+        align-items: center;
+      }
+
+      .omv-datatable-page-size {
+        font-size: var(--mat-font-size-body-1);
+        width: 4rem;
+
+        .mat-form-field-infix {
+          padding-bottom: unset;
+          border-top: unset;
+        }
+      }
+
       .datatable-pager {
         margin: 0 10px;
 
