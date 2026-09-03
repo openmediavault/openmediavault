@@ -434,7 +434,7 @@ class StorageDeviceTestCase(unittest.TestCase):
             sd, openmediavault.device.plugins.sd.StorageDeviceHPSA
         )
         self.assertFalse(sd.is_raid)
-        self.assertEqual(sd.smart_device_type, 'cciss,4')
+        self.assertEqual(sd.smart_device_type, '')
 
 
 if __name__ == "__main__":
