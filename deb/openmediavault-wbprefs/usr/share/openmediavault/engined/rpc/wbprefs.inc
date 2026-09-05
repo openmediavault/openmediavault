@@ -25,6 +25,11 @@ namespace Engined\Rpc;
 
 class WbPrefs extends \OMV\Rpc\ServiceAbstract
 {
+    // Define unsupported protocols to block dangerous stream wrappers like 'php'.
+    // Note: 'file://' and other protocols are intentionally allowed to enable
+    // loading local files/wallpapers and offer as many sources as possible.
+    private $unsupportedProtocols = ["php"];
+
     public function getName()
     {
         return "WbPrefs";
@@ -64,6 +69,10 @@ class WbPrefs extends \OMV\Rpc\ServiceAbstract
             )) {
                 throw new \OMV\Exception("Invalid URL '%s'.", $url);
             }
+            $scheme = strtolower(parse_url($url, PHP_URL_SCHEME));
+            if (in_array($scheme, $this->unsupportedProtocols)) {
+                throw new \OMV\Exception("Unsupported protocol '%s'.", $scheme);
+            }
             $imgInfo = getimagesize($url);
             $supportedTypes = [ IMAGETYPE_JPEG, IMAGETYPE_PNG ];
             if (false === $imgInfo || !in_array($imgInfo[2], $supportedTypes)) {
@@ -72,6 +81,8 @@ class WbPrefs extends \OMV\Rpc\ServiceAbstract
                     $url
                 );
             }
+            // Redirects are intentionally allowed here to support downloading
+            // from external wallpaper hosters and providers.
             $contextOptions = stream_context_create([
                 'http' => [ 'timeout' => 30, 'follow_location' => 1 ],
                 'https' => [ 'timeout' => 30, 'follow_location' => 1 ]
