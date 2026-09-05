@@ -381,10 +381,10 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract
             $cmdArgs[] = sprintf("-subj %s", escapeshellarg($subject));
         }
         if (!empty($subjectAltName)) {
-            $cmdArgs[] = sprintf(
-                "-addext 'subjectAltName=%s'",
+            $cmdArgs[] = sprintf("-addext %s", escapeshellarg(sprintf(
+                "subjectAltName=%s",
                 join(",", $subjectAltName)
-            );
+            )));
         }
         $cmd = new \OMV\System\Process("openssl", $cmdArgs);
         $cmd->setRedirect2to1();
