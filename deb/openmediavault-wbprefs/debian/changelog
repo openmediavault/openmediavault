@@ -1,3 +1,9 @@
+openmediavault-wbprefs (8.0.5-1) stable; urgency=medium
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 05 Sep 2026 10:44:07 +0200
+
 openmediavault-wbprefs (8.0.4-1) stable; urgency=medium
 
   * Support authentication verification page.
