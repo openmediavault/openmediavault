@@ -128,6 +128,188 @@ class test_openmediavault_config_database extends \PHPUnit\Framework\TestCase
         $this->assertEquals(count($objects), 2);
     }
 
+    public function testBuildQueryByFilterQuotedLiteral()
+    {
+        // A value containing a single quote must be enclosed in double
+        // quotes, otherwise the XPath expression could be manipulated.
+        $queryBuilder = new \OMV\Config\DatabaseBackendQueryBuilder(
+            "conf.system.notification.notification"
+        );
+        $xpath = $queryBuilder->buildQueryByFilter([
+            'operator' => 'stringEquals',
+            'arg0' => 'id',
+            'arg1' => "' or '1'='1"
+        ]);
+        $this->assertEquals(
+            $xpath,
+            ".//system/notification/notifications/".
+            "notification[id=\"' or '1'='1\"]"
+        );
+    }
+
+    public function testBuildQueryByFilterQuotedLiteralConcat()
+    {
+        // A value containing both quote characters must be assembled via
+        // `concat()` because XPath 1.0 does not know any escape sequences.
+        $queryBuilder = new \OMV\Config\DatabaseBackendQueryBuilder(
+            "conf.system.notification.notification"
+        );
+        $xpath = $queryBuilder->buildQueryByFilter([
+            'operator' => 'stringContains',
+            'arg0' => 'id',
+            'arg1' => "mix'ed \"quotes\""
+        ]);
+        $this->assertEquals(
+            $xpath,
+            ".//system/notification/notifications/notification".
+            "[contains(id,concat('mix', \"'\", 'ed \"quotes\"'))]"
+        );
+    }
+
+    public function testBuildQueryByFilterQuotedLiteralEdgeCases()
+    {
+        $testcases = [
+            ["'", '"\'"'],
+            ["a'b'c", '"a\'b\'c"'],
+            ["a''b", '"a\'\'b"'],
+            ["'abc", '"\'abc"'],
+            ["abc'", '"abc\'"']
+        ];
+        $queryBuilder = new \OMV\Config\DatabaseBackendQueryBuilder(
+            "conf.system.notification.notification"
+        );
+        foreach ($testcases as [$value, $quoted]) {
+            $xpath = $queryBuilder->buildQueryByFilter([
+                'operator' => 'stringEquals',
+                'arg0' => 'id',
+                'arg1' => $value
+            ]);
+            $this->assertEquals(
+                $xpath,
+                ".//system/notification/notifications/notification".
+                sprintf("[id=%s]", $quoted)
+            );
+        }
+    }
+
+    public function testGetByFilterInjection()
+    {
+        // The value must be treated as string literal, thus it must not
+        // match any configuration object. Note, the raw interpolation of
+        // this value would result in the predicate [id='' or '1'='1']
+        // which matches all objects.
+        $db = new \OMV\Config\Database();
+        $objects = $db->getByFilter("conf.system.notification.notification", [
+            'operator' => 'stringEquals',
+            'arg0' => 'id',
+            'arg1' => "' or '1'='1"
+        ]);
+        $this->assertIsArray($objects);
+        $this->assertEmpty($objects);
+    }
+
+    public function testGetByFilterQuotedLiteral()
+    {
+        // Store configuration objects that contain quote characters and
+        // try to find them again. This ensures that the built XPath
+        // expression is valid and really matches the expected object.
+        $this->useTmpConfigDatabase();
+        $db = new \OMV\Config\Database();
+        $db->getBackend()->setVersioning(false);
+        $values = ["single'quote", 'double"quote', "both'and\"quote"];
+        foreach ($values as $value) {
+            $newObject = new \OMV\Config\ConfigObject(
+                "conf.system.notification.notification"
+            );
+            $newObject->setAssoc([
+                'uuid' => \OMV\Environment::get('OMV_CONFIGOBJECT_NEW_UUID'),
+                'id' => $value,
+                'enable' => false
+            ]);
+            $db->set($newObject);
+        }
+        foreach ($values as $value) {
+            foreach (['stringEquals', 'stringContains'] as $operator) {
+                $objects = $db->getByFilter(
+                    "conf.system.notification.notification",
+                    [
+                        'operator' => $operator,
+                        'arg0' => 'id',
+                        'arg1' => $value
+                    ]
+                );
+                $this->assertIsArray($objects);
+                $this->assertEquals(count($objects), 1);
+                $this->assertEquals($objects[0]->get("id"), $value);
+            }
+        }
+    }
+
+    public function testGetByFilterQuotedLiteralEdgeCases()
+    {
+        $this->useTmpConfigDatabase();
+        $db = new \OMV\Config\Database();
+        $db->getBackend()->setVersioning(false);
+        $values = ["'", "a'b'c", "a''b", "'abc", "abc'"];
+        foreach ($values as $value) {
+            $newObject = new \OMV\Config\ConfigObject(
+                "conf.system.notification.notification"
+            );
+            $newObject->setAssoc([
+                'uuid' => \OMV\Environment::get('OMV_CONFIGOBJECT_NEW_UUID'),
+                'id' => $value,
+                'enable' => false
+            ]);
+            $db->set($newObject);
+        }
+        foreach ($values as $value) {
+            $objects = $db->getByFilter(
+                "conf.system.notification.notification",
+                [
+                    'operator' => 'stringEquals',
+                    'arg0' => 'id',
+                    'arg1' => $value
+                ]
+            );
+            $this->assertIsArray($objects);
+            $this->assertEquals(count($objects), 1);
+            $this->assertEquals($objects[0]->get("id"), $value);
+        }
+    }
+
+    public function testGetByFilterStringEnumQuotedLiteral()
+    {
+        $this->useTmpConfigDatabase();
+        $db = new \OMV\Config\Database();
+        $db->getBackend()->setVersioning(false);
+        $values = ["single'quote", 'double"quote', "both'and\"quote"];
+        foreach ($values as $value) {
+            $newObject = new \OMV\Config\ConfigObject(
+                "conf.system.notification.notification"
+            );
+            $newObject->setAssoc([
+                'uuid' => \OMV\Environment::get('OMV_CONFIGOBJECT_NEW_UUID'),
+                'id' => $value,
+                'enable' => false
+            ]);
+            $db->set($newObject);
+        }
+        $objects = $db->getByFilter(
+            "conf.system.notification.notification",
+            [
+                'operator' => 'stringEnum',
+                'arg0' => 'id',
+                'arg1' => $values
+            ]
+        );
+        $this->assertEquals(
+            array_map(function ($object) {
+                return $object->get("id");
+            }, $objects),
+            $values
+        );
+    }
+
     public function testExists()
     {
         $db = new \OMV\Config\Database();

@@ -650,17 +650,32 @@ class DatabaseQuery(abc.ABC):
                 parts.append("%s=%s" % (filter['arg0'], enumv))
             result = "(%s)" % " or ".join(parts)
         elif filter['operator'] in ['==', 'stringEquals']:
-            result = "%s='%s'" % (filter['arg0'], filter['arg1'])
+            result = "%s=%s" % (
+                filter['arg0'],
+                self._quote_xpath_literal(filter['arg1']),
+            )
         elif filter['operator'] in ['!==', 'stringNotEquals']:
-            result = "%s!='%s'" % (filter['arg0'], filter['arg1'])
+            result = "%s!=%s" % (
+                filter['arg0'],
+                self._quote_xpath_literal(filter['arg1']),
+            )
         elif "stringContains" == filter['operator']:
-            result = "contains(%s,'%s')" % (filter['arg0'], filter['arg1'])
+            result = "contains(%s,%s)" % (
+                filter['arg0'],
+                self._quote_xpath_literal(filter['arg1']),
+            )
         elif "stringStartsWith" == filter['operator']:
-            result = "starts-with(%s,'%s')" % (filter['arg0'], filter['arg1'])
+            result = "starts-with(%s,%s)" % (
+                filter['arg0'],
+                self._quote_xpath_literal(filter['arg1']),
+            )
         elif "stringEnum" == filter['operator']:
             parts = []
             for enumv in filter['arg1']:
-                parts.append("%s='%s'" % (filter['arg0'], enumv))
+                parts.append(
+                    "%s=%s"
+                    % (filter['arg0'], self._quote_xpath_literal(enumv))
+                )
             result = "(%s)" % " or ".join(parts)
         elif filter['operator'] in ['!', 'not']:
             result = "not(%s)" % (
@@ -681,6 +696,29 @@ class DatabaseQuery(abc.ABC):
                 "The operator '%s' is not defined." % filter['operator']
             )
         return result
+
+    @staticmethod
+    def _quote_xpath_literal(value):
+        """
+        Build a valid XPath 1.0 string literal from the given value.
+        If the value contains both single and double quotes, the literal
+        must be assembled via 'concat()' because XPath 1.0 does not
+        support escaping inside string literals.
+        :param value: The value to be quoted.
+        :returns: The value as an XPath string literal.
+        """
+        value = str(value)
+        if "'" not in value:
+            return "'%s'" % value
+        if '"' not in value:
+            return '"%s"' % value
+        parts = []
+        for part in value.split("'"):
+            if part:
+                parts.append("'%s'" % part)
+            parts.append('"\'"')
+        parts.pop()
+        return "concat(%s)" % ", ".join(parts)
 
 
 class DatabaseGetByFilterQuery(DatabaseQuery):

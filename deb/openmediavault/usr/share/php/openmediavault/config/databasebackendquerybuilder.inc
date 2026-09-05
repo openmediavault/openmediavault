@@ -207,7 +207,7 @@ class DatabaseBackendQueryBuilder
                 $result = sprintf(
                     "%s=%s",
                     $filter['arg0'],
-                    escapeshellarg($filter['arg1'])
+                    $this->quoteXPathLiteral($filter['arg1'])
                 );
                 break;
             case "!==":
@@ -215,21 +215,21 @@ class DatabaseBackendQueryBuilder
                 $result = sprintf(
                     "%s!=%s",
                     $filter['arg0'],
-                    escapeshellarg($filter['arg1'])
+                    $this->quoteXPathLiteral($filter['arg1'])
                 );
                 break;
             case "stringContains":
                 $result = sprintf(
                     "contains(%s,%s)",
                     $filter['arg0'],
-                    escapeshellarg($filter['arg1'])
+                    $this->quoteXPathLiteral($filter['arg1'])
                 );
                 break;
             case "stringStartsWith":
                 $result = sprintf(
                     "starts-with(%s,%s)",
                     $filter['arg0'],
-                    escapeshellarg($filter['arg1'])
+                    $this->quoteXPathLiteral($filter['arg1'])
                 );
                 break;
             case "stringEnum":
@@ -238,7 +238,7 @@ class DatabaseBackendQueryBuilder
                     $parts[] = sprintf(
                         "%s=%s",
                         $filter['arg0'],
-                        escapeshellarg($enumv)
+                        $this->quoteXPathLiteral($enumv)
                     );
                 }
                 $result = sprintf("(%s)", implode(" or ", $parts));
@@ -359,5 +359,34 @@ class DatabaseBackendQueryBuilder
             return $qi['xpath'];
         }
         return $this->buildQueryByFilter($filter);
+    }
+
+    /**
+     * Build a valid XPath 1.0 string literal from the given value.
+     * If the value contains both single and double quotes, the literal
+     * must be assembled via `concat()` because XPath 1.0 does not
+     * support escaping inside string literals.
+     * @param mixed $value The value to be quoted.
+     * @return string The value as an XPath string literal.
+     */
+    private function quoteXPathLiteral($value)
+    {
+        $value = strval($value);
+        if (false === strpos($value, "'")) {
+            return sprintf("'%s'", $value);
+        }
+        if (false === strpos($value, '"')) {
+            return sprintf('"%s"', $value);
+        }
+        $parts = [];
+        foreach (explode("'", $value) as $index => $part) {
+            if (0 < $index) {
+                $parts[] = "\"'\"";
+            }
+            if ("" !== $part) {
+                $parts[] = sprintf("'%s'", $part);
+            }
+        }
+        return sprintf("concat(%s)", implode(", ", $parts));
     }
 }

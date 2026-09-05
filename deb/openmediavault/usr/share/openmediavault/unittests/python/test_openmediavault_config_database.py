@@ -290,6 +290,187 @@ class DatabaseTestCase(unittest.TestCase):
             ".//system/notification/notifications/notification[id!='monit']",
         )
 
+    def test_filter_query_quoted_literal(self):
+        # A value containing a single quote must be enclosed in double
+        # quotes, otherwise the XPath expression could be manipulated.
+        query = openmediavault.config.DatabaseGetByFilterQuery(
+            "conf.system.notification.notification",
+            openmediavault.config.DatabaseFilter(
+                {
+                    'operator': 'stringEquals',
+                    'arg0': 'id',
+                    'arg1': "' or '1'='1",
+                }
+            ),
+        )
+        self.assertEqual(
+            query.xpath,
+            ".//system/notification/notifications/"
+            "notification[id=\"' or '1'='1\"]",
+        )
+
+    def test_filter_query_quoted_literal_concat(self):
+        # A value containing both quote characters must be assembled
+        # via 'concat()' because XPath 1.0 does not know any escape
+        # sequences.
+        query = openmediavault.config.DatabaseGetByFilterQuery(
+            "conf.system.notification.notification",
+            openmediavault.config.DatabaseFilter(
+                {
+                    'operator': 'stringContains',
+                    'arg0': 'id',
+                    'arg1': "mix'ed \"quotes\"",
+                }
+            ),
+        )
+        self.assertEqual(
+            query.xpath,
+            ".//system/notification/notifications/notification"
+            "[contains(id,concat('mix', \"'\", 'ed \"quotes\"'))]",
+        )
+
+    def test_filter_query_quoted_literal_edge_cases(self):
+        testcases = [
+            ("'", '"\'"'),
+            ("a'b'c", '"a\'b\'c"'),
+            ("a''b", '"a\'\'b"'),
+            ("'abc", '"\'abc"'),
+            ("abc'", '"abc\'"'),
+        ]
+        for value, quoted in testcases:
+            query = openmediavault.config.DatabaseGetByFilterQuery(
+                "conf.system.notification.notification",
+                openmediavault.config.DatabaseFilter(
+                    {
+                        'operator': 'stringEquals',
+                        'arg0': 'id',
+                        'arg1': value,
+                    }
+                ),
+            )
+            self.assertEqual(
+                query.xpath,
+                ".//system/notification/notifications/notification"
+                "[id=%s]" % quoted,
+            )
+
+    def test_get_by_filter_injection(self):
+        # The value must be treated as string literal, thus it must not
+        # match any configuration object. Note, the raw interpolation of
+        # this value would result in the predicate [id='' or '1'='1']
+        # which matches all objects.
+        db = openmediavault.config.Database()
+        objs = db.get_by_filter(
+            "conf.system.notification.notification",
+            openmediavault.config.DatabaseFilter(
+                {
+                    'operator': 'stringEquals',
+                    'arg0': 'id',
+                    'arg1': "' or '1'='1",
+                }
+            ),
+        )
+        self.assertEqual(objs, [])
+
+    def test_get_by_filter_quoted_literal(self):
+        # Store configuration objects that contain quote characters and
+        # try to find them again. This ensures that the built XPath
+        # expression is valid and really matches the expected object.
+        self._use_tmp_config_database()
+        db = openmediavault.config.Database()
+        values = ["single'quote", 'double"quote', "both'and\"quote"]
+        for value in values:
+            obj = openmediavault.config.Object(
+                "conf.system.notification.notification"
+            )
+            obj.set_dict(
+                {
+                    'uuid': openmediavault.getenv(
+                        'OMV_CONFIGOBJECT_NEW_UUID'
+                    ),
+                    'id': value,
+                    'enable': False,
+                }
+            )
+            db.set(obj)
+        for value in values:
+            for operator in ['stringEquals', 'stringContains']:
+                objs = db.get_by_filter(
+                    "conf.system.notification.notification",
+                    openmediavault.config.DatabaseFilter(
+                        {
+                            'operator': operator,
+                            'arg0': 'id',
+                            'arg1': value,
+                        }
+                    ),
+                )
+                self.assertEqual(len(objs), 1)
+                self.assertEqual(objs[0].get("id"), value)
+
+    def test_get_by_filter_quoted_literal_edge_cases(self):
+        self._use_tmp_config_database()
+        db = openmediavault.config.Database()
+        values = ["'", "a'b'c", "a''b", "'abc", "abc'"]
+        for value in values:
+            obj = openmediavault.config.Object(
+                "conf.system.notification.notification"
+            )
+            obj.set_dict(
+                {
+                    'uuid': openmediavault.getenv(
+                        'OMV_CONFIGOBJECT_NEW_UUID'
+                    ),
+                    'id': value,
+                    'enable': False,
+                }
+            )
+            db.set(obj)
+        for value in values:
+            objs = db.get_by_filter(
+                "conf.system.notification.notification",
+                openmediavault.config.DatabaseFilter(
+                    {
+                        'operator': 'stringEquals',
+                        'arg0': 'id',
+                        'arg1': value,
+                    }
+                ),
+            )
+            self.assertEqual(len(objs), 1)
+            self.assertEqual(objs[0].get("id"), value)
+
+    def test_get_by_filter_string_enum_quoted_literal(self):
+        self._use_tmp_config_database()
+        db = openmediavault.config.Database()
+        values = ["single'quote", 'double"quote', "both'and\"quote"]
+        for value in values:
+            obj = openmediavault.config.Object(
+                "conf.system.notification.notification"
+            )
+            obj.set_dict(
+                {
+                    'uuid': openmediavault.getenv(
+                        'OMV_CONFIGOBJECT_NEW_UUID'
+                    ),
+                    'id': value,
+                    'enable': False,
+                }
+            )
+            db.set(obj)
+        objs = db.get_by_filter(
+            "conf.system.notification.notification",
+            openmediavault.config.DatabaseFilter(
+                {
+                    'operator': 'stringEnum',
+                    'arg0': 'id',
+                    'arg1': values,
+                }
+            ),
+        )
+        self.assertEqual(sorted([obj.get("id")
+                         for obj in objs]), sorted(values))
+
     def test_is_unique(self):
         db = openmediavault.config.Database()
         obj = db.get(
