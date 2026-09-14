@@ -437,7 +437,8 @@ class test_openmediavault_system_storage_smartinformation extends \PHPUnit\Frame
             "",
             "ID# ATTRIBUTE_NAME          FLAGS    VALUE WORST THRESH FAIL RAW_VALUE",
             "  1 Raw_Read_Error_Rate     POSR-K   100   040   051    In_the_past 0",
-            "  5 Reallocated_Sector_Ct   PO--CK   001   001   005    FAILING_NOW 100",
+            "  5 Reallocated_Sector_Ct   PO--CK   252   252   010    -           0",
+            "  7 Seek_Error_Rate         POSR-K   001   001   005    FAILING_NOW 100",
         ];
         $si = new FakeSmartInformation($output);
         $this->assertSame(
@@ -479,6 +480,70 @@ class test_openmediavault_system_storage_smartinformation extends \PHPUnit\Frame
         $si = new FakeSmartInformation($output);
         $this->assertSame(
             \OMV\System\Storage\SmartInformation::SMART_ASSESSMENT_BAD_STATUS,
+            $si->getOverallStatus()
+        );
+    }
+
+    public function testNvmeAvailableSpareBelowThreshold(): void
+    {
+        $output = $this->getNvmeOutput();
+        foreach ($output as $k => $v) {
+            if (str_starts_with($v, "Available Spare:")) {
+                $output[$k] = "Available Spare:                    5%";
+                break;
+            }
+        }
+        $si = new FakeSmartInformation($output);
+        $this->assertSame(
+            \OMV\System\Storage\SmartInformation::SMART_ASSESSMENT_BAD_ATTRIBUTE_NOW,
+            $si->getOverallStatus()
+        );
+    }
+
+    public function testNvmePercentageUsedExhausted(): void
+    {
+        $output = $this->getNvmeOutput();
+        foreach ($output as $k => $v) {
+            if (str_starts_with($v, "Percentage Used:")) {
+                $output[$k] = "Percentage Used:                    105%";
+                break;
+            }
+        }
+        $si = new FakeSmartInformation($output);
+        $this->assertSame(
+            \OMV\System\Storage\SmartInformation::SMART_ASSESSMENT_BAD_ATTRIBUTE_NOW,
+            $si->getOverallStatus()
+        );
+    }
+
+    public function testNvmeMediaErrorsTriggersBadSector(): void
+    {
+        $output = $this->getNvmeOutput();
+        foreach ($output as $k => $v) {
+            if (str_starts_with($v, "Media and Data Integrity Errors:")) {
+                $output[$k] = "Media and Data Integrity Errors:    12";
+                break;
+            }
+        }
+        $si = new FakeSmartInformation($output);
+        $this->assertSame(
+            \OMV\System\Storage\SmartInformation::SMART_ASSESSMENT_BAD_SECTOR,
+            $si->getOverallStatus()
+        );
+    }
+
+    public function testScsiGrownDefectListTriggersBadSector(): void
+    {
+        $output = $this->getSasOutput();
+        foreach ($output as $k => $v) {
+            if (str_starts_with($v, "Elements in grown defect list:")) {
+                $output[$k] = "Elements in grown defect list: 4";
+                break;
+            }
+        }
+        $si = new FakeSmartInformation($output);
+        $this->assertSame(
+            \OMV\System\Storage\SmartInformation::SMART_ASSESSMENT_BAD_SECTOR,
             $si->getOverallStatus()
         );
     }

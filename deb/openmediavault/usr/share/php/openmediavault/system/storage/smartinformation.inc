@@ -711,13 +711,21 @@ class SmartInformation
             return false;
         }
         // If the SMART attributes are not present, e.g. NVMe and SAS devices,
-        // then try to get the information from the 'SMART DATA SECTION'.
+        // then evaluate the device health from the SMART data section.
         if (empty($attributes)) {
-            // NVMe devices report health via the self-assessment test result
-            // and the Critical Warning bitmask (e.g. spare below threshold,
-            // reliability degraded, or read-only mode). A non-zero critical
-            // warning indicates an unrecoverable hardware state even if the
-            // overall self-assessment string still reports PASSED.
+            // NVMe evaluation is derived from the NVM Express Base Specification
+            // (Section 5.14.1.2 "SMART / Health Information Log"):
+            // - Level 1 (BAD_STATUS): Self-assessment failed or Critical Warning bitmask > 0
+            //   (spare below threshold, temperature, reliability degraded, read-only mode,
+            //   or volatile memory backup device failure).
+            // - Level 2 (BAD_ATTRIBUTE_NOW): Available spare capacity dropped below the
+            //   standardized manufacturer threshold, or percentage used >= 100% (endurance exhausted).
+            // - Level 3 (BAD_SECTOR): Media and data integrity errors > 0 (unrecovered ECC/CRC
+            //   errors; functional equivalent to bad sectors).
+            //
+            // SCSI / SAS evaluation is derived from the SCSI Primary Commands (SPC) standard:
+            // - Level 1 (BAD_STATUS): Self-assessment failed.
+            // - Level 3 (BAD_SECTOR): Grown defect list > 0.
             //
             // === START OF READ SMART DATA SECTION ===
             // SMART Health Status: OK
@@ -740,7 +748,19 @@ class SmartInformation
             $passed = false;
             $regexHealth = '/^SMART (Health Status:\s+OK|overall-health self-assessment test result:\s+PASSED)$/i';
             $regexCritWarn = '/^Critical Warning:\s+0x([0-9a-fA-F]+)/i';
+            $regexAvailSpare = '/^Available Spare:\s+(\d+)%/i';
+            $regexAvailSpareThresh = '/^Available Spare Threshold:\s+(\d+)%/i';
+            $regexPercentageUsed = '/^Percentage Used:\s+(\d+)%/i';
+            $regexMediaErrors = '/^Media and Data Integrity Errors:\s+(\d+)/i';
+            $regexGrownDefect = '/^Elements in grown defect list:\s+(\d+)/i';
+
             $criticalWarning = 0;
+            $availableSpare = null;
+            $availableSpareThreshold = null;
+            $percentageUsed = null;
+            $mediaErrors = 0;
+            $scsiUncorrected = 0;
+
             foreach ($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
                 if (1 == preg_match($regexHealth, $cmdOutputv)) {
                     $passed = true;
@@ -748,11 +768,43 @@ class SmartInformation
                 if (1 == preg_match($regexCritWarn, $cmdOutputv, $matches)) {
                     $criticalWarning = hexdec($matches[1]);
                 }
+                if (1 == preg_match($regexAvailSpare, $cmdOutputv, $matches)) {
+                    $availableSpare = intval($matches[1]);
+                }
+                if (1 == preg_match($regexAvailSpareThresh, $cmdOutputv, $matches)) {
+                    $availableSpareThreshold = intval($matches[1]);
+                }
+                if (1 == preg_match($regexPercentageUsed, $cmdOutputv, $matches)) {
+                    $percentageUsed = intval($matches[1]);
+                }
+                if (1 == preg_match($regexMediaErrors, $cmdOutputv, $matches)) {
+                    $mediaErrors += intval($matches[1]);
+                }
+                if (1 == preg_match($regexGrownDefect, $cmdOutputv, $matches)) {
+                    $scsiUncorrected += intval($matches[1]);
+                }
             }
-            if ($passed && 0 === $criticalWarning) {
-                return self::SMART_ASSESSMENT_GOOD;
+
+            // Level 1: SelfAssessmentFailed
+            if (!$passed || 0 !== $criticalWarning) {
+                return self::SMART_ASSESSMENT_BAD_STATUS;
             }
-            return self::SMART_ASSESSMENT_BAD_STATUS;
+
+            // Level 2: AttributeFailingNow (NVMe spare below threshold or endurance exhausted)
+            if (!is_null($availableSpare) && !is_null($availableSpareThreshold) &&
+                $availableSpareThreshold > 0 && $availableSpare < $availableSpareThreshold) {
+                return self::SMART_ASSESSMENT_BAD_ATTRIBUTE_NOW;
+            }
+            if (!is_null($percentageUsed) && $percentageUsed >= 100) {
+                return self::SMART_ASSESSMENT_BAD_ATTRIBUTE_NOW;
+            }
+
+            // Level 3: SectorErrors (NVMe media errors or SCSI grown defects)
+            if ($mediaErrors > 0 || $scsiUncorrected > 0) {
+                return self::SMART_ASSESSMENT_BAD_SECTOR;
+            }
+
+            return self::SMART_ASSESSMENT_GOOD;
         }
         // Checks are adapted from libatasmart.
         // See http://git.0pointer.net/libatasmart.git
