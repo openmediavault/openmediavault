@@ -499,9 +499,29 @@ class test_openmediavault_system_storage_smartinformation extends \PHPUnit\Frame
         );
     }
 
-    public function testAtaExcessiveBadSectors(): void
+    public function testAtaBadSectorMany(): void
     {
-        // 1 TB = 1,000,000,000,000 bytes; threshold = intval(log(1e12/512, 2) * 1024) = 31603
+        // Following libatasmart upstream commit df3b96ab: when Reallocated_Sector_Ct
+        // reaches or exceeds its manufacturer threshold (VALUE <= THRESH, FAILING_NOW),
+        // the assessment is BAD_SECTOR_MANY.
+        $output = [
+            "=== START OF READ SMART DATA SECTION ===",
+            "SMART overall-health self-assessment test result: PASSED",
+            "",
+            "ID# ATTRIBUTE_NAME          FLAGS    VALUE WORST THRESH FAIL RAW_VALUE",
+            "  5 Reallocated_Sector_Ct   PO--CK   001   001   005    FAILING_NOW 35000",
+        ];
+        $si = new FakeSmartInformation($output);
+        $this->assertSame(
+            \OMV\System\Storage\SmartInformation::SMART_ASSESSMENT_BAD_SECTOR_MANY,
+            $si->getOverallStatus()
+        );
+    }
+
+    public function testAtaHighBadSectorCountWithoutThresholdBreach(): void
+    {
+        // High raw sector count that has not breached the manufacturer threshold
+        // returns BAD_SECTOR (not BAD_SECTOR_MANY).
         $output = [
             "=== START OF READ SMART DATA SECTION ===",
             "SMART overall-health self-assessment test result: PASSED",
@@ -511,7 +531,7 @@ class test_openmediavault_system_storage_smartinformation extends \PHPUnit\Frame
         ];
         $si = new FakeSmartInformation($output);
         $this->assertSame(
-            \OMV\System\Storage\SmartInformation::SMART_ASSESSMENT_BAD_SECTOR_MANY,
+            \OMV\System\Storage\SmartInformation::SMART_ASSESSMENT_BAD_SECTOR,
             $si->getOverallStatus()
         );
     }

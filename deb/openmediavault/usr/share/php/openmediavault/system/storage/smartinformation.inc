@@ -756,32 +756,29 @@ class SmartInformation
         }
         // Checks are adapted from libatasmart.
         // See http://git.0pointer.net/libatasmart.git
-        // Get number of bad sectors.
+        // Get number of bad sectors and check if any sector attribute is failing now.
         $numSectors = 0;
+        $reallocatedSectorBad = false;
+        $currentPendingSectorBad = false;
         $attrData = $this->getAttribute(5); // Reallocated_Sector_Ct
         if (is_array($attrData)) {
             $numSectors += $attrData['rawvalue'];
+            if (self::SMART_ASSESSMENT_BAD_ATTRIBUTE_NOW === $attrData['assessment']) {
+                $reallocatedSectorBad = true;
+            }
         }
         $attrData = $this->getAttribute(197); // Current_Pending_Sector
         if (is_array($attrData)) {
             $numSectors += $attrData['rawvalue'];
-        }
-        // Check if the number of bad sectors is greater than a
-        // certain threshold.
-        // !!! Note, currently this check is only available on 64bit systems
-        // because i'm too lazy to implement the log function using the BC
-        // math library to support this check on 32bit systems (the getSize()
-        // method may return really big integers for storage devices nowadays
-        // which can't be handled on 32bit systems anymore).
-        if (is_64bits() && !is_null($this->sd)) {
-            // Get the size of the device in bytes.
-            $size = intval($this->sd->getSize());
-            // Use base-2 logarithm (u64log2) as defined in libatasmart:
-            // sector_threshold = log2(capacity_sectors) * 1024
-            $sectorThreshold = intval(log($size / 512, 2) * 1024);
-            if ($numSectors >= $sectorThreshold) {
-                return self::SMART_ASSESSMENT_BAD_SECTOR_MANY;
+            if (self::SMART_ASSESSMENT_BAD_ATTRIBUTE_NOW === $attrData['assessment']) {
+                $currentPendingSectorBad = true;
             }
+        }
+        // Following libatasmart (commit df3b96ab): if reallocated or current
+        // pending sectors have reached or exceeded the manufacturer threshold,
+        // the disk is classified as BAD_SECTOR_MANY.
+        if ($reallocatedSectorBad || $currentPendingSectorBad) {
+            return self::SMART_ASSESSMENT_BAD_SECTOR_MANY;
         }
         // Check if any of the SMART attributes is bad.
         // Follow the libatasmart severity cascade: an acute failing attribute
