@@ -2,6 +2,10 @@ openmediavault (8.5.9-1) stable; urgency=medium
 
   * Fix S.M.A.R.T. status assessment for ATA and NVMe devices, including
     critical NVMe warning conditions.
+  * Add udev rule to create /dev/md/md* symlinks to work around an
+    upstream mdadm regression in Debian 13 that triggers false
+    `DeviceDisappeared` and `NewArray` alerts during daily monitoring
+    (Debian bug #1040638).
   * Issue #2271: Fix monit config for rrdcached. Use systemctl restart
     instead of start.
 

@@ -1,0 +1,34 @@
+# This file is part of OpenMediaVault.
+#
+# @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2026 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
+
+# @deprecated This rule is a temporary workaround for an upstream regression
+# in mdadm (Debian bug #1040638) and should be removed in OMV9/Debian 14.
+#
+# When mdadm --monitor parses mdadm.conf entries like 'ARRAY /dev/md0 ...', it
+# unconditionally prepends '/dev/md/' to basename(devname), searching for
+# '/dev/md/md0' instead of '/dev/md0'. When the symlink does not exist, mdadm
+# emits false 'DeviceDisappeared' and 'NewArray' events on every monitor run.
+#
+# Upstream references:
+# - https://bugs.debian.org/1040638
+# - https://github.com/md-raid-utilities/mdadm/commit/574b11602fb210c5b3e5f6fe460ab21e7c7d998c
+# - https://github.com/md-raid-utilities/mdadm/commit/456c6bed0b9e0866c75f0f7c8579d5f4f3f3e966
+ACTION=="add|change", \
+  SUBSYSTEM=="block", ENV{DEVTYPE}=="disk", KERNEL=="md*", \
+  SYMLINK+="md/%k"

@@ -691,6 +691,8 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "8.5.9"; then
 			omv_module_set_dirty monit
+            udevadm control --reload-rules || :
+			udevadm trigger || :
 		fi
 
 		########################################################################
