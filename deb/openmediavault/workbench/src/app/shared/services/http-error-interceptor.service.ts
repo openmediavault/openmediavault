@@ -72,7 +72,9 @@ export class HttpErrorInterceptorService implements HttpInterceptor {
               this.router.navigate(['/503']);
               break;
             case 401:
-              // Revoke the session and redirect the login page.
+              // Show the notification, revoke the session and redirect to
+              // the login page.
+              this.notificationService.show(NotificationType.error, title, message, traceback);
               this.authSessionService.revoke();
               this.router.navigate(['/login']);
               break;

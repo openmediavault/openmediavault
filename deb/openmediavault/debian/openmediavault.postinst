@@ -741,4 +741,16 @@ case "$1" in
 	;;
 esac
 
+########################################################################
+# Create volatile runtime directories specified in tmpfiles.d
+# configuration files (see debian/openmediavault.tmpfiles).
+########################################################################
+case "$1" in
+	configure|abort-upgrade|abort-deconfigure|abort-remove)
+		if [ -x "$(command -v systemd-tmpfiles)" ]; then
+			systemd-tmpfiles ${DPKG_ROOT:+--root="$DPKG_ROOT"} --create openmediavault.conf || :
+		fi
+	;;
+esac
+
 exit 0

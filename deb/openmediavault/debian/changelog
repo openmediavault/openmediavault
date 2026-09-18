@@ -1,5 +1,6 @@
 openmediavault (8.5.9-1) stable; urgency=medium
 
+  * Rate-limit authentication challenge verification attempts.
   * Fix S.M.A.R.T. status assessment for ATA and NVMe devices, including
     critical NVMe warning conditions.
   * Add udev rule to create /dev/md/md* symlinks to work around an

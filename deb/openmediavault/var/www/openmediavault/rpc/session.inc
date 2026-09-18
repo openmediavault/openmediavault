@@ -64,6 +64,23 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract
             $params['username'] = trim($params['username']);
         }
 
+        $session = &\OMV\Session::getInstance();
+        $remaining = $session->getPendingAuthRateLimitRemaining(
+            $params['username']
+        );
+        if ($remaining > 0) {
+            $this->logAuthEvent(LOG_ALERT, sprintf(
+                "Login attempt blocked for %s from %s (%d seconds remaining)",
+                $params['username'],
+                $server->getClientIP(),
+                $remaining
+            ));
+            throw new \OMV\HttpErrorException(
+                429,
+                _("Too many failed verification attempts. Please try again later.")
+            );
+        }
+
         $authResult = \OMV\Rpc\Rpc::call(
             "UserMgmt",
             "authUser",
@@ -193,6 +210,11 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract
         $challenge = array_value($authData, "challenge");
 
         if (!is_null($challenge)) {
+            $token = $session->reservePendingAuthAttempt($username);
+            if (is_null($token)) {
+                $this->denyPendingAuth($username, $server);
+            }
+
             try {
                 $verifyResult = \OMV\Rpc\Rpc::call(
                     "UserMgmt",
@@ -212,16 +234,28 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract
                     "verified",
                     false
                 )) {
+                    $delay = $session->finishPendingAuthAttempt(
+                        $username,
+                        $token,
+                        false
+                    );
                     $this->logAuthEvent(LOG_ALERT, sprintf(
                         "Challenge verification failed for %s from %s",
                         $username,
                         $server->getClientIP()
                     ));
+
+                    if ($delay > 0) {
+                        $this->denyPendingAuth($username, $server);
+                    }
+
                     throw new \OMV\HttpErrorException(
-                        401,
+                        400,
                         _("Challenge verification failed.")
                     );
                 }
+
+                $session->finishPendingAuthAttempt($username, $token, true);
             } catch (\OMV\HttpErrorException $e) {
                 throw $e;
             } catch (\Exception $e) {
@@ -280,6 +314,36 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract
         $_ = defer("closelog");
 
         syslog($level, $message);
+    }
+
+    /**
+     * Reject the verification attempt because too many authentication challenge
+     * verification attempts have been failed.
+     * @param username The name of the user.
+     * @param server The SuperGlobalServer instance.
+     * @return void
+     * @throw \OMV\HttpErrorException
+     */
+    private function denyPendingAuth($username, $server)
+    {
+        $session = &\OMV\Session::getInstance();
+        $remaining = $session->getPendingAuthRateLimitRemaining($username);
+
+        $this->logAuthEvent(LOG_ALERT, sprintf(
+            "Challenge verification blocked for %s from %s (%d seconds remaining)",
+            $username,
+            $server->getClientIP(),
+            $remaining
+        ));
+
+        if ($remaining >= \OMV\Session::PENDING_AUTH_MAX_DELAY_SECONDS) {
+            $session->clearPendingAuth();
+        }
+
+        throw new \OMV\HttpErrorException(
+            429,
+            _("Too many failed verification attempts. Please try again later.")
+        );
     }
 
     /**

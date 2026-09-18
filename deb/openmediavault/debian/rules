@@ -29,3 +29,4 @@ override_dh_installsystemd:
 	dh_installsystemd -r --no-start --name=openmediavault-cleanup-php
 	dh_installsystemd -r --no-start --name=openmediavault-engined
 	dh_installsystemd -r --no-start --name=openmediavault-issue
+	dh_installtmpfiles
