@@ -8,6 +8,7 @@ openmediavault (8.5.9-1) stable; urgency=medium
     (Debian bug #1040638).
   * Issue #2271: Fix monit config for rrdcached. Use systemctl restart
     instead of start.
+  * Issue #2272: Add SMART support for QNAP TR-002 (individual mode).
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 10 Sep 2026 11:19:25 +0200
 

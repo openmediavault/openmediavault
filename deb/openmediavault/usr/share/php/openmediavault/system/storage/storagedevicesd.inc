@@ -49,6 +49,8 @@ class StorageDeviceSD extends StorageDevice implements SmartInterface
         if (true === $this->isUsb()) {
             // Identify by ID_MODEL_ID or `/sys/block/<XXX>/device/model`.
             $modelMap = [
+                "TR-002 DISK00" => "sat", // QNAP TR-002
+                "TR-002 DISK01" => "sat",
                 "TR-004 DISK00" => "jmb39x-q,0", // QNAP TR-004
                 "TR-004 DISK01" => "jmb39x-q,1",
                 "TR-004 DISK02" => "jmb39x-q,2",
