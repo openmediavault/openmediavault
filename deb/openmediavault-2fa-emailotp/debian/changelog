@@ -1,3 +1,9 @@
+openmediavault-2fa-emailotp (8.0.1-1) stable; urgency=medium
+
+  * Fix bug when trying to disable 2FA for an account.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 19 Sep 2026 14:02:53 +0200
+
 openmediavault-2fa-emailotp (8.0-1) stable; urgency=medium
 
   * Initial release.
