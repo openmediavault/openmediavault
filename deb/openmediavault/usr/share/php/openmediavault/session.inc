@@ -30,7 +30,13 @@ require_once("openmediavault/functions.inc");
  */
 class Session
 {
+    public const PENDING_AUTH_MAX_DELAY_SECONDS = 300;
+
     private const PENDING_AUTH_TTL_SECONDS = 300;
+    private const PENDING_AUTH_BASE_DELAY_SECONDS = 5;
+    private const PENDING_AUTH_RESET_TIMEOUT_SECONDS = 900;
+    private const PENDING_AUTH_ATTEMPT_TTL_SECONDS = 30;
+    private const PENDING_AUTH_RATE_LIMIT_DIR = "/run/openmediavault/auth";
 
     /**
      * Returns the session singleton.
@@ -154,6 +160,150 @@ class Session
             "created" => time(),
             "expires" => time() + self::PENDING_AUTH_TTL_SECONDS
         ];
+    }
+
+    /**
+     * Reserve an authentication challenge verification attempt for the
+     * specified user.
+     * @param username The user name.
+     * @return A token, or NULL if verification is currently rate-limited.
+     */
+    public function reservePendingAuthAttempt($username): ?string
+    {
+        $jsonFile = new \OMV\Json\File($this->buildPendingAuthRateLimitFilename(
+            $username
+        ));
+        $jsonFile->open("c+");
+        $_ = defer([$jsonFile, 'close']);
+        $data = $jsonFile->isEmpty() ? [] : $jsonFile->read();
+        $now = time();
+        if ($now < array_value($data, "expires", 0)) {
+            return null;
+        }
+        $token = bin2hex(random_bytes(16));
+        $jsonFile->write([
+            "attempts" => array_value($data, "attempts", 0),
+            "last_failure" => array_value($data, "last_failure", 0),
+            "expires" => $now + self::PENDING_AUTH_ATTEMPT_TTL_SECONDS,
+            "token" => $token
+        ]);
+        return $token;
+    }
+
+    /**
+     * Finish an authentication challenge verification attempt.
+     * @param username The user name.
+     * @param token The attempt token.
+     * @param success Set to TRUE if the verification succeeded.
+     * @return The delay in seconds the user must wait before retrying.
+     */
+    public function finishPendingAuthAttempt($username, $token, $success): int
+    {
+        $jsonFile = new \OMV\Json\File($this->buildPendingAuthRateLimitFilename(
+            $username
+        ));
+        if (!$jsonFile->exists()) {
+            return 0;
+        }
+        $jsonFile->open("c+");
+        $_ = defer([$jsonFile, 'close']);
+        if ($jsonFile->isEmpty()) {
+            return 0;
+        }
+        $data = $jsonFile->read();
+        if ($token !== array_value($data, "token")) {
+            return 0;
+        }
+        if ($success) {
+            $jsonFile->unlink();
+            return 0;
+        }
+
+        $now = time();
+        $lastFailure = array_value($data, "last_failure", 0);
+        $attempts = array_value($data, "attempts", 0);
+        // Reset attempts if no failure occurred within the reset timeout.
+        if ($now - $lastFailure > self::PENDING_AUTH_RESET_TIMEOUT_SECONDS) {
+            $attempts = 0;
+        }
+        $attempts++;
+        $delay = $this->calculatePendingAuthDelay($attempts);
+        $jsonFile->write([
+            "attempts" => $attempts,
+            "last_failure" => $now,
+            "expires" => ($delay > 0) ? $now + $delay : 0,
+            "token" => ""
+        ]);
+        return $delay;
+    }
+
+    /**
+     * Calculate the rate-limit delay in seconds using exponential backoff.
+     * @param attempts The number of consecutive failed attempts.
+     * @return The delay in seconds.
+     */
+    private function calculatePendingAuthDelay(int $attempts): int
+    {
+        if ($attempts <= 2) {
+            return 0;
+        }
+        $exponent = min($attempts - 3, 10);
+        return min(
+            self::PENDING_AUTH_MAX_DELAY_SECONDS,
+            self::PENDING_AUTH_BASE_DELAY_SECONDS * (2 ** $exponent)
+        );
+    }
+
+    /**
+     * Get the remaining rate-limit lockout time in seconds for the specified
+     * user.
+     * @param username The user name.
+     * @return The remaining lockout time in seconds, or 0 if not rate-limited.
+     */
+    public function getPendingAuthRateLimitRemaining($username): int
+    {
+        $jsonFile = new \OMV\Json\File($this->buildPendingAuthRateLimitFilename(
+            $username
+        ));
+        if (!$jsonFile->exists()) {
+            return 0;
+        }
+        $jsonFile->open("r", LOCK_SH);
+        $_ = defer([$jsonFile, 'close']);
+        if ($jsonFile->isEmpty()) {
+            return 0;
+        }
+        $expires = array_value($jsonFile->read(), "expires", 0);
+        return max(0, $expires - time());
+    }
+
+    /**
+     * Clear the authentication challenge rate limit state for the specified
+     * user.
+     * @param username The user name.
+     * @return void
+     */
+    public function clearPendingAuthRateLimit($username)
+    {
+        $jsonFile = new \OMV\Json\File($this->buildPendingAuthRateLimitFilename(
+            $username
+        ));
+        $jsonFile->unlink();
+    }
+
+    /**
+     * Build the private filename used for a user's authentication challenge
+     * rate limit state.
+     * @param username The user name.
+     * @return The filename.
+     */
+    private function buildPendingAuthRateLimitFilename($username): string
+    {
+        return sprintf(
+            "%s/%s",
+            self::PENDING_AUTH_RATE_LIMIT_DIR,
+            hash("sha256", mb_strtolower($username))
+        );
     }
 
     /**
