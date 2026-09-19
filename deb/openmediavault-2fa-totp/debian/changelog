@@ -1,5 +1,6 @@
 openmediavault-2fa-totp (8.0.2-1) stable; urgency=medium
 
+  * Update i18n files.
   * Fix bug when trying to disable 2FA for an account.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 19 Sep 2026 14:02:45 +0200

@@ -25,7 +25,7 @@ msgid "2FA TOTP"
 msgstr ""
 
 msgid "Disable"
-msgstr ""
+msgstr "Đã bị vô hiệu hóa"
 
 msgid "Disable 2FA TOTP"
 msgstr ""
@@ -34,7 +34,7 @@ msgid "Edit"
 msgstr "Chỉnh sửa"
 
 msgid "Enable"
-msgstr ""
+msgstr "Kích hoạt"
 
 msgid "Enable 2FA TOTP"
 msgstr ""
@@ -46,7 +46,7 @@ msgid "Name"
 msgstr "Tên "
 
 msgid "QR code"
-msgstr ""
+msgstr "Mã QR"
 
 msgid ""
 "Scan the QR code below with your authenticator app (Google Authenticator, "
@@ -54,12 +54,16 @@ msgid ""
 "manually. Once your authenticator app is configured, enter the 6-digit code "
 "it shows to confirm the setup."
 msgstr ""
+"Hãy quét mã QR bên dưới bằng ứng dụng xác thực của bạn (Google "
+"Authenticator, Authy, v.v.). Nếu ứng dụng không hỗ trợ mã QR, hãy nhập thủ "
+"công mã bí mật. Sau khi đã thiết lập xong ứng dụng xác thực, hãy nhập mã gồm"
+" 6 chữ số do ứng dụng hiển thị để xác nhận quá trình thiết lập."
 
 msgid "Secret"
 msgstr ""
 
 msgid "Two-Factor Authentication"
-msgstr ""
+msgstr "Xác thực 02 yếu tố"
 
 msgid ""
 "Two-factor authentication (2FA) with TOTP adds an extra layer of security by"
@@ -75,4 +79,4 @@ msgid "User name"
 msgstr "Tên người dùng"
 
 msgid "Verification code"
-msgstr ""
+msgstr "Mã xác thực"
