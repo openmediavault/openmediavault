@@ -1,3 +1,10 @@
+openmediavault-nut (8.0.6-1) stable; urgency=medium
+
+  * Issue #2274: Ensure generated passwords do not contain characters
+    that irritate the NUT config parser.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 21 Sep 2026 00:25:56 +0200
+
 openmediavault-nut (8.0.5-1) stable; urgency=medium
 
   * Update i18n files.
