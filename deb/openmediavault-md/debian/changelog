@@ -1,6 +1,6 @@
 openmediavault-md (8.1.6-1) stable; urgency=medium
 
-  * Treat 'active' state of RAID devices as healthy in dashboard widget.
+  * Treat `active` state of RAID devices as healthy in dashboard widget.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 16 Sep 2026 07:07:23 +0200
 
