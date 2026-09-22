@@ -206,6 +206,7 @@ class Apt extends \OMV\Rpc\ServiceAbstract
             foreach ($params['packages'] as $packagek => $packagev) {
                 $cmdArgs[] = escapeshellarg($packagev);
             }
+            $this->assertCorePackageNotRemoved($cmdArgs);
             $cmd = new \OMV\System\Process("apt-get", $cmdArgs);
             $cmd->setRedirect2to1();
             $cmd->setEnv("DEBIAN_FRONTEND", "noninteractive");
@@ -251,6 +252,7 @@ class Apt extends \OMV\Rpc\ServiceAbstract
             $cmdArgs[] = "--show-upgraded";
             $cmdArgs[] = "--option DPkg::Options::=\"--force-confold\"";
             $cmdArgs[] = "dist-upgrade";
+            $this->assertCorePackageNotRemoved($cmdArgs);
             $cmd = new \OMV\System\Process("apt-get", $cmdArgs);
             $cmd->setRedirect2to1();
             $cmd->setEnv("DEBIAN_FRONTEND", "noninteractive");
@@ -481,5 +483,31 @@ class Apt extends \OMV\Rpc\ServiceAbstract
             }
             return $output;
         });
+    }
+
+    /**
+     * Simulate the given apt-get command and make sure it will not remove
+     * the `openmediavault` core package itself.
+     * @param cmdArgs The apt-get command line arguments used for the
+     *   real operation.
+     * @return void
+     * @throws \OMV\AssertException
+     */
+    private function assertCorePackageNotRemoved(array $cmdArgs)
+    {
+        $cmd = new \OMV\System\Process("apt-get", array_merge(
+            ["--simulate"],
+            $cmdArgs
+        ));
+        $cmd->setRedirect2to1();
+        $cmd->setEnv("DEBIAN_FRONTEND", "noninteractive");
+        $this->exec($cmd, $output);
+        foreach ($output as $line) {
+            if (1 === preg_match('/^Remv openmediavault(:| |$)/', $line)) {
+                throw new \OMV\AssertException(
+                    "Aborting, the operation would remove the 'openmediavault' package itself."
+                );
+            }
+        }
     }
 }
