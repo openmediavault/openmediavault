@@ -2,16 +2,37 @@
 {%- set script_prefix = salt['pillar.get']('default:OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT_PREFIX', 'clamdscan-') -%}
 {%- set cmd_args = salt['pillar.get']('default:OMV_CLAMAV_CLAMDSCAN_CMDARGS', '--fdpass --stdout') -%}
 {%- set runfile = '/run' | path_join(script_prefix ~ job.uuid) -%}
+{%- set sharedfolder_mount_path = salt['omv_conf.get_sharedfolder_mount_path'](job.sharedfolderref) -%}
+{%- if job.virusaction == 'quarantine' -%}
+{%- set quarantine_mount_path = salt['omv_conf.get_sharedfolder_mount_path'](clamav_config.quarantine.sharedfolderref) -%}
+{%- endif -%}
 #!/usr/bin/env dash
 {{ pillar['headers']['multiline'] -}}
 . /usr/share/openmediavault/scripts/helper-functions
 cleanup() {
+    # Preserve the clamdscan or signal-handler result through cleanup.
+    status=$?
+    # Reset traps to default to avoid recursive cleanup calls upon exit and
+    # prevent signals from interrupting ongoing cleanup operations.
+    trap - 0 1 2 5 15
     omv_kill_children $$
     rm -f "{{ runfile }}"
-    exit
+    exit ${status}
 }
 [ -e "{{ runfile }}" ] && exit 1
-trap cleanup 0 1 2 5 15
+if ! omv_is_mounted "{{ sharedfolder_mount_path }}" ; then
+     omv_error "Shared folder storage device not mounted at <{{ sharedfolder_mount_path }}>!"
+     exit 1
+fi
+{%- if job.virusaction == 'quarantine' %}
+if ! omv_is_mounted "{{ quarantine_mount_path }}" ; then
+     omv_error "Quarantine shared folder storage device not mounted at <{{ quarantine_mount_path }}>!"
+     exit 1
+fi
+{%- endif %}
+trap cleanup 0
+# Let cleanup remove the lock file while retaining a failing exit status.
+trap 'exit 1' 1 2 5 15
 touch "{{ runfile }}"
 omv_log "Please wait, scanning shared folder <{{ salt['omv_conf.get_sharedfolder_name'](job.sharedfolderref) }}> ...\n"
 clamdscan {{ cmd_args }}
@@ -19,12 +40,14 @@ clamdscan {{ cmd_args }}
 {%- if job.virusaction == 'quarantine' %}{{ separator }}--move="{{ salt['omv_conf.get_sharedfolder_path'](clamav_config.quarantine.sharedfolderref) }}"{%- endif %}
 {%- if job.multiscan | to_bool %}{{ separator }}--multiscan{%- endif %}
 {%- if job.verbose | to_bool %}{{ separator }}--verbose{%- endif -%}
-{{ separator }}"{{ salt['omv_conf.get_sharedfolder_path'](job.sharedfolderref) }}" & wait $!
+{{ separator }}"{{ salt['omv_conf.get_sharedfolder_path'](job.sharedfolderref) }}" &
+wait $!
+status=$?
 {%- if not job.option_quiet | to_bool %}
-if [ $? -eq 0 ]; then
+if [ ${status} -eq 0 ]; then
     omv_log "The scan has completed successfully."
 else
     omv_error "The scan failed."
 fi
 {%- endif %}
-exit 0
+exit ${status}

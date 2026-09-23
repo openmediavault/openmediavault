@@ -24,9 +24,14 @@
 {{ pillar['headers']['multiline'] -}}
 . /usr/share/openmediavault/scripts/helper-functions
 cleanup() {
+    # Preserve the rsync or signal-handler result through cleanup.
+    status=$?
+    # Reset traps to default to avoid recursive cleanup calls upon exit and
+    # prevent signals from interrupting ongoing cleanup operations.
+    trap - 0 1 2 5 15
     omv_kill_children $$
     rm -f "{{ runfile }}"
-    exit
+    exit ${status}
 }
 [ -e "{{ runfile }}" ] && exit 1
 {%- if job.type == 'local' or job.mode == 'push' %}
@@ -41,7 +46,9 @@ if ! omv_is_mounted "{{ destmntdir }}" ; then
     exit 1
 fi
 {%- endif %}
-trap cleanup 0 1 2 5 15
+trap cleanup 0
+# Let cleanup remove the lock file while retaining a failing exit status.
+trap 'exit 1' 1 2 5 15
 touch "{{ runfile }}"
 {%- if not job.optionquiet | to_bool %}
 omv_log "Please wait, syncing <{{ srcuri }}> to <{{ desturi }}> ...\n"
@@ -84,12 +91,14 @@ rsync --verbose --log-file="{{ logfile }}"
     {%- set desturi = desturi | quote -%}
   {%- endif -%}
 {%- endif -%}
-{{ separator }}{{ srcuri }}{{ separator }}{{ desturi }} & wait $!
+{{ separator }}{{ srcuri }}{{ separator }}{{ desturi }} &
+wait $!
+status=$?
 {%- if not job.optionquiet | to_bool %}
-if [ $? -eq 0 ]; then
+if [ ${status} -eq 0 ]; then
     omv_log "The synchronisation has completed successfully."
 else
     omv_error "The synchronisation failed."
 fi
 {%- endif %}
-exit 0
+exit ${status}

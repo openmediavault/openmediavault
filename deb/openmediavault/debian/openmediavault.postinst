@@ -694,6 +694,9 @@ case "$1" in
             udevadm control --reload-rules || :
 			udevadm trigger || :
 		fi
+		if dpkg --compare-versions "$2" lt-nl "8.5.10"; then
+		  omv_module_set_dirty rsync
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the

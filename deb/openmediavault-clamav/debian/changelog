@@ -1,3 +1,9 @@
+openmediavault-clamav (8.0.3-1) stable; urgency=medium
+
+  * Fix error status handling in cron script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 23 Sep 2026 18:21:21 +0200
+
 openmediavault-clamav (8.0.2-1) stable; urgency=medium
 
   * Set `MaxThreads` to the number of available CPU cores. Use the
