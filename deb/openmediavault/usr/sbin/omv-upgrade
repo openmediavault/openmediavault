@@ -24,14 +24,31 @@ set -e
 export LC_ALL=C.UTF-8
 export DEBIAN_FRONTEND=noninteractive
 
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_UPGRADE_APT_ARGS=${OMV_UPGRADE_APT_ARGS:-"--yes --allow-downgrades --allow-change-held-packages --fix-missing --fix-broken --auto-remove --allow-unauthenticated --option DPkg::Options::=--force-confold"}
+
 # Update package database and update distribution. This is done via
 # 'dist-upgrade' because newer version have modified package dependencies
 # which can not be resolved by 'upgrade'. Configuration files modified by
 # the user will be overwritten, otherwise it is not possible to install
 # packages non-interactively.
 apt-get update || :
-apt-get --yes --allow-downgrades --allow-change-held-packages --fix-missing \
-	--fix-broken --auto-remove --allow-unauthenticated \
-	--show-upgraded --option DPkg::Options::="--force-confold" dist-upgrade
+
+# In rare cases involving broken or conflicting dependencies, '--auto-remove'
+# or '--fix-broken' can remove the 'openmediavault' package itself.
+# Simulate the upgrade first and abort if that would happen.
+# /etc/apt/apt.conf.d/99openmediavault-noautoremove additionally prevents
+# 'apt-get --auto-remove' from ever pruning 'openmediavault' as an unused
+# dependency.
+if apt-get --simulate ${OMV_UPGRADE_APT_ARGS} dist-upgrade | \
+	grep -qE '^Remv openmediavault([: ])'; then
+	echo "omv-upgrade: Aborting, the simulated upgrade would remove the" \
+		"'openmediavault' package itself." >&2
+	exit 1
+fi
+
+apt-get --show-upgraded ${OMV_UPGRADE_APT_ARGS} dist-upgrade
 
 exit 0

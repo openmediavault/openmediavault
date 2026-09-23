@@ -1,0 +1,6 @@
+// Never let 'apt-get --auto-remove' (used by e.g. omv-upgrade(8) and
+// unattended-upgrades) remove the openmediavault core package, no matter
+// whether it is (accidentally) flagged as automatically installed.
+APT::NeverAutoRemove {
+	"^openmediavault$";
+};
