@@ -112,6 +112,50 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract
                 "propposixacl" => $fsb->hasPosixAclSupport()
             ];
         }
+        // Ensure that configured devices from existing jobs are included in
+        // the candidates list so they are always displayed in the UI and can
+        // be selected, even if the device is currently unplugged or uses a
+        // different device file representation.
+        $db = \OMV\Config\Database::getInstance();
+        $objects = $db->get("conf.service.usbbackup.job");
+        foreach ($objects as $objectk => $objectv) {
+            $deviceFile = $objectv->get("devicefile");
+            if (false === array_search_ex($result, "devicefile", $deviceFile)) {
+                $data = [
+                    "uuid" => $objectv->get("uuid"),
+                    "devicefile" => $deviceFile,
+                    "label" => "",
+                    "type" => "",
+                    "description" => $deviceFile,
+                    "propposixacl" => false
+                ];
+                try {
+                    if (is_devicefile($deviceFile)) {
+                        $fs = \OMV\System\Filesystem\Filesystem::getImpl(
+                            $deviceFile
+                        );
+                        if (!is_null($fs)) {
+                            $data = array_merge($data, [
+                                "label" => $fs->getLabel(),
+                                "type" => $fs->getType()
+                            ]);
+                            $parentDeviceFile = $fs->getParentDeviceFile();
+                            if (is_devicefile($parentDeviceFile)) {
+                                $sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
+                                    $parentDeviceFile
+                                );
+                                if (!is_null($sd)) {
+                                    $data['description'] = $sd->getDescription();
+                                }
+                            }
+                        }
+                    }
+                } catch (\Exception $e) {
+                    // Nothing to do here.
+                }
+                $result[] = $data;
+            }
+        }
         return $result;
     }
 

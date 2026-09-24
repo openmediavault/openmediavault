@@ -1,6 +1,7 @@
 openmediavault-usbbackup (8.0.2-1) stable; urgency=medium
 
   * Fix error handling, mount verification and unmounting.
+  * Populate `Device` field when editing a backup job.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 23 Sep 2026 18:07:55 +0200
 
