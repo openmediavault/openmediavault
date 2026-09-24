@@ -98,7 +98,7 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract
             }
             // Skip everything which is not an USB, eSATA, SAS, SD or eMMC
             // device or is a read-only medium.
-            if (!($sd->isHotPluggable() || $sd->isAta() || $sd->isMmc()) ||
+            if (!($sd->isHotPluggable() || $sd->isMmc()) ||
                     $sd->isReadOnly()) {
                 continue;
             }
