@@ -1,10 +1,11 @@
 openmediavault (8.5.10-1) stable; urgency=medium
 
   * Run a simulation before installing packages.
+  * Fix error status handling in rsync cron script.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 23 Sep 2026 18:29:13 +0200
 
-openmediavault (8.5.9-2) stable; urgency=medium
+openmediavault (8.5.9-1) stable; urgency=medium
 
   * Rate-limit authentication challenge verification attempts.
   * Fix S.M.A.R.T. status assessment for ATA and NVMe devices, including

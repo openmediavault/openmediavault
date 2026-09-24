@@ -4,6 +4,7 @@
 {%- set runfile = '/run' | path_join(script_prefix ~ job.uuid) -%}
 {%- set id = job.devicefile | md5 -%}
 {%- set mount_path = id | make_mount_path -%}
+{%- set sharedfolder_mount_path = salt['omv_conf.get_sharedfolder_mount_path'](job.sharedfolderref) -%}
 {%- if job.mode == 'push' -%}
   {%- set srcuri = salt['omv_conf.get_sharedfolder_path'](job.sharedfolderref) -%}
   {%- set desturi = ((mount_path | rstrip('/')) ~ '/' ~ (job.reldirpath | strip('/'))) | path_prettify -%}
@@ -15,9 +16,14 @@
 {{ pillar['headers']['multiline'] -}}
 . /usr/share/openmediavault/scripts/helper-functions
 cleanup() {
+    # Preserve the rsync or signal-handler result through cleanup.
+    status=$?
+    # Reset traps to default to avoid recursive cleanup calls upon exit and
+    # prevent signals from interrupting ongoing cleanup operations.
+    trap - 0 1 2 5 15
     omv_kill_children $$
     rm -f "{{ runfile }}"
-    exit
+    exit ${status}
 }
 [ -e "{{ runfile }}" ] && exit 1
 # Make sure the storage device is mounted.
@@ -25,7 +31,15 @@ if ! omv_is_mounted "{{ mount_path }}" ; then
      omv_error "External storage device '{{ job.devicefile }}' not mounted at <{{ mount_path }}>!"
      exit 1
 fi
-trap cleanup 0 1 2 5 15
+if ! omv_is_mounted "{{ sharedfolder_mount_path }}" ; then
+     # A missing source mount must not be treated as an empty directory,
+     # especially when rsync is configured with --delete.
+     omv_error "Shared folder storage device not mounted at <{{ sharedfolder_mount_path }}>!"
+     exit 1
+fi
+trap cleanup 0
+# Let cleanup remove the lock file while retaining a failing exit status.
+trap 'exit 1' 1 2 5 15
 touch "{{ runfile }}"
 {%- if job.mode == 'push' %}
 # Create target directory on external storage device.
@@ -58,12 +72,14 @@ rsync --verbose --log-file="{{ logfile }}"
 {%- if job.optionxattrs | to_bool %}{{ separator }}--xattrs{%- endif %}
 {%- if job.optionpartial | to_bool %}{{ separator }}--partial{%- endif %}
 {%- if job.extraoptions | length > 0 %}{{ separator }}{{ job.extraoptions }}{%- endif -%}
-{{ separator }}"{{ srcuri }}" "{{ desturi | rstrip('/') }}" & wait $!
+{{ separator }}"{{ srcuri }}" "{{ desturi | rstrip('/') }}" &
+wait $!
+status=$?
 {%- if not job.optionquiet | to_bool %}
-if [ $? -eq 0 ]; then
+if [ ${status} -eq 0 ]; then
     omv_log "The synchronisation has completed successfully."
 else
     omv_error "The synchronisation failed."
 fi
 {%- endif %}
-exit 0
+exit ${status}

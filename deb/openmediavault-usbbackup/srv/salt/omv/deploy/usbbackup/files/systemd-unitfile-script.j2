@@ -13,17 +13,28 @@
 . /usr/share/openmediavault/scripts/helper-functions
 outfile=$(mktemp)
 cleanup() {
+    # Preserve the result of the backup or signal handler through cleanup.
+    status=$?
+    # Reset traps to default to avoid recursive cleanup calls upon exit and
+    # prevent signals from interrupting ongoing cleanup operations.
+    trap - 0 1 2 5 15
     # Kill all child processes.
     omv_kill_children $$
     # Remove temporary files.
     rm -f "{{ runfile }}"
     rm -f "${outfile}"
     # Umount the storage device.
-    umount "{{ devicefile }}" || true
+    if omv_is_mounted "{{ mount_path }}"; then
+        # Flush the specific file system buffers before unmounting.
+        sync --file-system "{{ mount_path }}" || true
+        # Unmount the mount point created by this script, not another mount of
+        # the same device that may exist elsewhere.
+        umount "{{ mount_path }}" || status=1
+    fi
     rmdir "{{ mount_path }}" || true
     # Spin down the disk.
     smartctl {{ usbbackup_cleanup_smartctl_args }} "{{ devicefile }}" || true
-    exit
+    exit ${status}
 }
 if [ -e "{{ runfile }}" ]; then
     omv_error "The sync job is already running."
@@ -45,14 +56,26 @@ if ! omv_is_mounted "{{ mount_path }}"; then
     omv_beep_error
     exit 1
 fi
-trap cleanup 0 1 2 5 15
+trap cleanup 0
+# Let cleanup perform the unmount while retaining a failing service status.
+trap 'exit 1' 1 2 5 15
 touch "{{ runfile }}"
 # Execute the rsync backup scripts.
 omv_beep_start
 {%- for job in jobs %}
-{{ usbbackup_scripts_dir | path_join(usbbackup_rsync_script_prefix ~ job.uuid) }} | tee ${outfile}
+# Do not use a pipeline here: it would replace the rsync script exit status
+# with tee's exit status and make failed backup jobs appear successful.
+{{ usbbackup_scripts_dir | path_join(usbbackup_rsync_script_prefix ~ job.uuid) }} >"${outfile}" 2>&1
+status=$?
+cat "${outfile}"
 {%- if job.sendemail | to_bool %}
 mail -E -s "USB Backup (shared folder={{ salt['omv_conf.get_sharedfolder_name'](job.sharedfolderref) }}, device={{ devicefile }}){{ ' - ' ~ job.comment | replace('\n', ' ') if job.comment | length > 0 else '' }}" -a "From: USB Backup <root>" root <${outfile}
 {%- endif %}
+if [ ${status} -ne 0 ]; then
+    omv_beep_error
+    # Fail-fast: Abort immediately if a job fails. Do not process subsequent
+    # jobs for this device to prevent unpredictable states or data loss.
+    exit ${status}
+fi
 {%- endfor %}
 omv_beep_ok
