@@ -192,8 +192,69 @@ class StorageDeviceSD extends StorageDevice implements SmartInterface
         return false;
     }
 
+    /**
+     * Check if the device is connected to an external or hot-plug capable
+     * SATA (eSATA) port.
+     *
+     * References:
+     * - Serial ATA Advanced Host Controller Interface (AHCI) 1.3.1 Spec:
+     *   - Section 3.1.1 (Offset 00h: CAP - Host Capabilities, bit 5 SXS)
+     *   - Section 3.3.7 (Offset 18h: PxCMD - Port Command and Status,
+     *     bit 18 HPCP, bit 21 ESP)
+     * - Linux kernel drivers/ata/ahci.c: ahci_mark_external_port()
+     *
+     * @return bool Returns TRUE if the SATA port is hot-plug capable or
+     *   external, otherwise FALSE.
+     */
+    private function isAhciHotPluggable(): bool
+    {
+        if (false === $this->isAta()) {
+            return false;
+        }
+        try {
+            $hctl = $this->getHCTL();
+        } catch (\OMV\Exception $e) {
+            return false;
+        }
+        $portCmdFile = sprintf(
+            "/sys/class/scsi_host/host%d/ahci_port_cmd",
+            $hctl['host']
+        );
+        if (!file_exists($portCmdFile)) {
+            return false;
+        }
+        $portCmdContent = file_get_contents($portCmdFile);
+        if (false === $portCmdContent) {
+            return false;
+        }
+        $portCmd = hexdec(trim($portCmdContent));
+        // Check if the port is hot-plug capable (PORT_CMD_HPCP = BIT(18) = 0x40000).
+        if ($portCmd & 0x40000) {
+            return true;
+        }
+        // Check if the port is an external SATA port (PORT_CMD_ESP = BIT(21) = 0x200000).
+        // According to AHCI spec, ESP requires controller support (HOST_CAP_SXS = BIT(5) = 0x20).
+        if ($portCmd & 0x200000) {
+            $hostCapsFile = sprintf(
+                "/sys/class/scsi_host/host%d/ahci_host_caps",
+                $hctl['host']
+            );
+            if (file_exists($hostCapsFile)) {
+                $hostCapsContent = file_get_contents($hostCapsFile);
+                if (false !== $hostCapsContent) {
+                    $hostCaps = hexdec(trim($hostCapsContent));
+                    if ($hostCaps & 0x20) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
     public function isHotPluggable(): bool
     {
-        return $this->isSAS() || parent::isHotPluggable();
+        return $this->isSAS() || $this->isAhciHotPluggable() ||
+            parent::isHotPluggable();
     }
 }

@@ -213,8 +213,56 @@ class StorageDevice(openmediavault.device.StorageDevice):
         return False
 
     @cached_property
+    def _is_ahci_hot_pluggable(self) -> bool:
+        """
+        Check if the device is connected to an external or hot-plug capable
+        SATA (eSATA) port.
+
+        References:
+        - Serial ATA Advanced Host Controller Interface (AHCI) 1.3.1 Spec:
+          - Section 3.1.1 (Offset 00h: CAP - Host Capabilities, bit 5 SXS)
+          - Section 3.3.7 (Offset 18h: PxCMD - Port Command and Status,
+            bit 18 HPCP, bit 21 ESP)
+        - Linux kernel drivers/ata/ahci.c: ahci_mark_external_port()
+        """
+        if not self.is_ata:
+            return False
+        try:
+            host = self.hctl.host
+        except Exception:
+            return False
+        port_cmd_file = f'/sys/class/scsi_host/host{host}/ahci_port_cmd'
+        if not os.path.exists(port_cmd_file):
+            return False
+        try:
+            with open(port_cmd_file, 'r') as f:
+                port_cmd = int(f.read().strip(), 16)
+        except (IOError, ValueError):
+            return False
+        # Check if the port is hot-plug capable (PORT_CMD_HPCP = BIT(18) = 0x40000).
+        if port_cmd & 0x40000:
+            return True
+        # Check if the port is an external SATA port (PORT_CMD_ESP = BIT(21) = 0x200000).
+        # According to AHCI spec, ESP requires controller support (HOST_CAP_SXS = BIT(5) = 0x20).
+        if port_cmd & 0x200000:
+            host_caps_file = f'/sys/class/scsi_host/host{host}/ahci_host_caps'
+            if os.path.exists(host_caps_file):
+                try:
+                    with open(host_caps_file, 'r') as f:
+                        host_caps = int(f.read().strip(), 16)
+                    if host_caps & 0x20:
+                        return True
+                except (IOError, ValueError):
+                    pass
+        return False
+
+    @cached_property
     def is_hot_pluggable(self) -> bool:
-        return self._is_sas or super().is_hot_pluggable
+        return (
+            self._is_sas
+            or self._is_ahci_hot_pluggable
+            or super().is_hot_pluggable
+        )
 
 
 class StorageDeviceARCMSR(StorageDevice):

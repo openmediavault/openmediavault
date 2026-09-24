@@ -164,6 +164,18 @@ class StorageDevice(BlockDevice):
         return False
 
     @property
+    def is_ata(self) -> bool:
+        """
+        Check if the given device is an ATA/SATA device.
+        :return: Returns ``True`` if the device is connected via ATA/SATA,
+            otherwise ``False``.
+        :rtype: bool
+        """
+        if self.has_udev_property('ID_BUS'):
+            return self.udev_property('ID_BUS').lower() == 'ata'
+        return False
+
+    @property
     def is_usb(self) -> bool:
         """
         Check if the given device is an USB device.
