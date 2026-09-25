@@ -19,6 +19,7 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  HostBinding,
   Inject,
   OnDestroy,
   OnInit,
@@ -50,6 +51,9 @@ import { RpcBgResponse, RpcService } from '~/app/shared/services/rpc.service';
   encapsulation: ViewEncapsulation.None
 })
 export class TaskDialogComponent implements OnInit, OnDestroy {
+  @HostBinding('class')
+  className = 'omv-display-flex omv-flex-column omv-h-100';
+
   @Output()
   readonly finishEvent = new EventEmitter<string>();
 

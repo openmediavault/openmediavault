@@ -22,6 +22,8 @@ export type TaskDialogConfig = {
   icon?: string;
   // Width of the dialog (in px or percent).
   width?: string;
+  // Height of the dialog (in px or percent).
+  height?: string;
   // Set to `false` to do not automatically scroll down the
   // content. Defaults to `true`.
   autoScroll?: boolean;

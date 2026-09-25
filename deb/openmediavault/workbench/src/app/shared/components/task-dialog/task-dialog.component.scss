@@ -4,8 +4,9 @@
 
 omv-task-dialog {
   .mat-dialog-content {
+    max-height: none !important;
+
     .omv-task-dialog-content {
-      height: 300px;
       white-space: break-spaces;
     }
   }

@@ -206,7 +206,8 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
           });
           const dialog = this.dialogService.open(TaskDialogComponent, {
             width: _.get(taskDialog.config, 'width', '75%'),
-            data: _.omit(taskDialog.config, ['width'])
+            height: _.get(taskDialog.config, 'height', '75%'),
+            data: _.omit(taskDialog.config, ['width', 'height'])
           });
           dialog.afterClosed().subscribe((res) => {
             // Navigate to the configured URL or reload the datatable,

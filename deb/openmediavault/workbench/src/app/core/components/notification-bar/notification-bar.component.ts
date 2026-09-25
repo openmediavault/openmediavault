@@ -111,6 +111,7 @@ export class NotificationBarComponent implements OnInit {
     this.sidenav.close();
     this.dialogService.open(TaskDialogComponent, {
       width: '75%',
+      height: '75%',
       data: {
         title: gettext('Background task'),
         startOnInit: true,

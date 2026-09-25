@@ -2,6 +2,7 @@ openmediavault (8.5.10-1) stable; urgency=medium
 
   * Run a simulation before installing packages.
   * Fix error status handling in rsync cron script.
+  * Issue #2280: Increase vertical height of the task dialog.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 23 Sep 2026 18:29:13 +0200
 
