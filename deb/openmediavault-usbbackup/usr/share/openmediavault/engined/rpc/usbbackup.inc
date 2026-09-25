@@ -108,7 +108,7 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract
                 "devicefile" => $fs->getPredictableDeviceFile(),
                 "label" => $objectv['label'],
                 "type" => $objectv['type'],
-                "description" => $sd->getDescription(),
+                "description" => $fs->getDescription(),
                 "propposixacl" => $fsb->hasPosixAclSupport()
             ];
         }
@@ -120,41 +120,25 @@ class OMVRpcServiceUsbBackup extends \OMV\Rpc\ServiceAbstract
         $objects = $db->get("conf.service.usbbackup.job");
         foreach ($objects as $objectk => $objectv) {
             $deviceFile = $objectv->get("devicefile");
-            if (false === array_search_ex($result, "devicefile", $deviceFile)) {
-                $data = [
-                    "uuid" => $objectv->get("uuid"),
-                    "devicefile" => $deviceFile,
-                    "label" => "",
-                    "type" => "",
-                    "description" => $deviceFile,
-                    "propposixacl" => false
-                ];
-                try {
-                    if (is_devicefile($deviceFile)) {
-                        $fs = \OMV\System\Filesystem\Filesystem::getImpl(
-                            $deviceFile
-                        );
-                        if (!is_null($fs)) {
-                            $data = array_merge($data, [
-                                "label" => $fs->getLabel(),
-                                "type" => $fs->getType()
-                            ]);
-                            $parentDeviceFile = $fs->getParentDeviceFile();
-                            if (is_devicefile($parentDeviceFile)) {
-                                $sd = \OMV\System\Storage\StorageDevice::getStorageDevice(
-                                    $parentDeviceFile
-                                );
-                                if (!is_null($sd)) {
-                                    $data['description'] = $sd->getDescription();
-                                }
-                            }
-                        }
-                    }
-                } catch (\Exception $e) {
-                    // Nothing to do here.
-                }
-                $result[] = $data;
+
+            // Check if the device file is already in the result list.
+            // If so, skip it.
+            if (array_search_ex($result, "devicefile", $deviceFile)) {
+                continue;
             }
+
+            $result[] = [
+                "uuid" => "",
+                "devicefile" => $deviceFile,
+                "label" => "",
+                "type" => "",
+                "description" => sprintf(
+                    "%s [%s]",
+                    $deviceFile,
+                    gettext("Disconnected")
+                ),
+                "propposixacl" => false
+            ];
         }
         return $result;
     }
