@@ -696,6 +696,7 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "8.5.10"; then
 		  omv_module_set_dirty rsync
+		  omv_module_set_dirty rsyslog
 		fi
 
 		########################################################################

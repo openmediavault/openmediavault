@@ -1,0 +1,16 @@
+{{ pillar['headers']['multiline'] -}}
+{%- if notification_config.enable | to_bool -%}
+#
+# https://www.rsyslog.com/regex/
+# Sep 25 14:34:40 arrakis kernel: I/O error, dev sdb, sector 1478353920 op 0x0:(READ) flags 0x84700 phys_seg 64 prio class 2
+# Sep 25 18:46:07 arrakis kernel: I/O error, dev sdb, sector 641848 op 0x1:(WRITE) flags 0x4000 phys_seg 64 prio class 0
+$template diskioerrorMailSubject,"I/O error detected on device '%msg:R,ERE,1,DFLT:dev (.+), sector--end%'"
+$template diskioerrorMailBody,"An I/O error has been detected on device '%msg:R,ERE,1,DFLT:dev (.+), sector--end%' at %timereported%.\n\nLog message:\n%msg%\n\nPlease check the disk health immediately to prevent data loss."
+$ModLoad ommail
+$ActionMailFrom root
+$ActionMailTo root
+$ActionMailSubject diskioerrorMailSubject
+$ActionExecOnlyOnceEveryInterval 600
+:msg, regex, "I/O error, dev .* sector" :ommail:;diskioerrorMailBody
+& stop
+{%- endif -%}
