@@ -49,6 +49,15 @@ class FSTab extends \OMV\Engine\Module\ServiceAbstract implements \OMV\Engine\No
      */
     final public function onDelete($type, $path, $object)
     {
+        // This is a safety check that should only trigger in error cases
+        // or misconfigurations (e.g. manual DB manipulations or if a plugin
+        // like openmediavault-sharerootfs that manages a rootfs mount point
+        // object is removed/modified in an unexpected state). Under normal
+        // operations, the root file system is never removed; we must never
+        // schedule an unmount/unlink task for it.
+        if ("/" === array_value($object, "dir", "")) {
+            return;
+        }
         $this->addTask("delete", "deleteEntry", $object);
     }
 
@@ -62,9 +71,12 @@ class FSTab extends \OMV\Engine\Module\ServiceAbstract implements \OMV\Engine\No
         // already be wiped or the device is not accessible anymore, e.g.
         // an unplugged USB device.
         $mp = new \OMV\System\MountPoint($params['dir']);
+        // The root file system must never be unmounted or deleted. This case
+        // should only ever be encountered in error states or misconfigurations.
+        // Return gracefully instead of throwing an exception, which would abort
+        // configuration deployment and leave the task permanently in the queue.
         if ("/" == $mp->getPath()) {
-            throw new \OMV\Exception("Unmounting the root file system ".
-                "has been aborted.");
+            return;
         }
         if (false === $mp->exists()) {
             return;

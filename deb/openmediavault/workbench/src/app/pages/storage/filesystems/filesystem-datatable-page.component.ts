@@ -314,6 +314,8 @@ export class FilesystemDatatablePageComponent implements OnInit {
         enabledConstraints: {
           constraint: [
             { operator: 'n', arg0: { prop: 'mountpoint' } },
+            // The root file system must never be unmounted.
+            { operator: 'ne', arg0: { prop: 'mountpoint' }, arg1: '/' },
             // Disable button if file system is in use or read-only.
             {
               operator: 'if',

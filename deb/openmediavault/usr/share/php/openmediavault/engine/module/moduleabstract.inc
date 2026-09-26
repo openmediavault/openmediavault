@@ -182,26 +182,36 @@ abstract class ModuleAbstract
         }
         $jsonFile->open("c+");
         $tasks = $jsonFile->read();
-        // Get list of tasks to be executed.
-        $runTasks = array_filter_ex($tasks, "id", $id);
-        if (is_null($runTasks)) {
+        if (!is_array($tasks)) {
+            $jsonFile->close();
             return;
         }
-        foreach ($runTasks as $taskk => $taskv) {
-            $this->debug(
-                "Executing task (callback=%s::%s)",
-                get_class($this),
-                $taskv['func']
-            );
-            call_user_func_array(array($this, $taskv['func']), [
-                $taskv['params']
-            ]);
+        // Execute pending tasks matching the specified identifier. Tasks are
+        // removed from the queue only after they complete successfully. If a
+        // task fails (throws an exception), it remains in the task list so
+        // that the system does not end up in an inconsistent state and the
+        // operation can be retried after the root cause (e.g. busy resource)
+        // is resolved.
+        try {
+            foreach ($tasks as $taskk => $taskv) {
+                if (array_value($taskv, "id") !== $id) {
+                    continue;
+                }
+                $this->debug(
+                    "Executing task (callback=%s::%s)",
+                    get_class($this),
+                    $taskv['func']
+                );
+                call_user_func_array(array($this, $taskv['func']), [
+                    $taskv['params']
+                ]);
+                unset($tasks[$taskk]);
+            }
+        } finally {
+            // Write back remaining tasks (including any failed ones).
+            $tasks = array_values($tasks);
+            $jsonFile->write($tasks);
+            $jsonFile->close();
         }
-        // Remove executed tasks from list. Note, the array must be
-        // re-indexed.
-        $tasks = array_values(array_diff_key($tasks, $runTasks));
-        // Write back list of not executed task.
-        $jsonFile->write($tasks);
-        $jsonFile->close();
     }
 }
