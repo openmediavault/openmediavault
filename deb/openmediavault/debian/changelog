@@ -4,7 +4,7 @@ openmediavault (8.5.10-1) stable; urgency=medium
   * Fix error status handling in rsync cron script.
   * Monitor systemd journal for disk I/O errors and send a warning
     email if they occur.
-  * Fix crash in omv-mkaptidx when a package has no origin.
+  * Fix crash in `omv-mkaptidx` when a package has no origin.
   * Issue #2280: Increase vertical height of the task dialog.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 23 Sep 2026 18:29:13 +0200
