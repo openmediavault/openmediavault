@@ -21,11 +21,11 @@
   'conf.system.notification.notification',
   {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'misc'})[0] %}
 
-configure_rsyslog_diskioerror:
+configure_rsyslog_blockioerror:
   file.managed:
-    - name: "/etc/rsyslog.d/openmediavault-diskioerror.conf"
+    - name: "/etc/rsyslog.d/openmediavault-blockioerror.conf"
     - source:
-      - salt://{{ tpldir }}/files/etc_rsyslog.d_openmediavault-diskioerror.conf.j2
+      - salt://{{ tpldir }}/files/etc_rsyslog.d_openmediavault-blockioerror.conf.j2
     - context:
         notification_config: {{ notification_config | json }}
     - template: jinja

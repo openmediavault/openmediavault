@@ -18,9 +18,9 @@
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 {% set config = salt['omv_conf.get']('conf.system.syslog.remote') %}
-{% set notification_config = salt['omv_conf.get_by_filter'](
+{% set notification_configs = salt['omv_conf.get_by_filter'](
   'conf.system.notification.notification',
-  {'operator': 'stringEquals', 'arg0': 'id', 'arg1': 'authentication'})[0] %}
+  {'operator': 'stringEnum', 'arg0': 'id', 'arg1': ['authentication', 'misc']}) %}
 {% set dirpath = '/srv/salt' | path_join(tpldir) %}
 
 include:
@@ -30,7 +30,7 @@ include:
 {% endif %}
 {% endfor %}
 
-{% if config.enable | to_bool or notification_config.enable | to_bool %}
+{% if config.enable | to_bool or (notification_configs | selectattr('enable') | list | length > 0) %}
 
 test_rsyslog_config:
   cmd.run:
