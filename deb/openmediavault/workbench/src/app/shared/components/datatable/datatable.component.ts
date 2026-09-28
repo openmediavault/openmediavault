@@ -61,6 +61,12 @@ export type DataTableCellChanged = {
   column: DatatableColumn;
 };
 
+// The key used to persist the user's preferred page size. This is
+// deliberately global (not per `stateId`) so the choice applies to
+// every datatable, while still being stored per user and device type
+// in the backend via the `UserLocalStorageService`.
+const PAGE_SIZE_STORAGE_KEY = 'datatable_pagesize';
+
 @Component({
   selector: 'omv-datatable',
   templateUrl: './datatable.component.html',
@@ -194,7 +200,9 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   autoReload?: boolean | number = false;
 
   // Page size to show. To disable paging, set the limit to 0.
-  // Defaults to 25.
+  // Defaults to 25. This value can be changed by the user via the
+  // page size selector in the footer; the choice is persisted as a
+  // global per-user setting via the `UserLocalStorageService`.
   @Input()
   limit? = 25;
 
@@ -251,6 +259,15 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   public icon = Icon;
   public rows = [];
   public offset = 0;
+  // The page size options offered in the footer selector. The special
+  // value `0` ('All') is rendered separately in the template. The list
+  // is augmented in `ngOnInit` with the current limit if it is not one
+  // of the presets.
+  public pageSizeOptions = [10, 25, 50, 100];
+  // Whether this datatable was configured with paging enabled. Used to
+  // decide if the user's global page size preference may be applied and
+  // if the page size selector is shown.
+  public pagingEnabled = true;
   public selection = new DatatableSelection();
   public filteredColumns: DatatableColumn[];
   public messages: {
@@ -299,6 +316,18 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
     this.initTemplates();
     // Sanitize configuration.
     this.sanitizeConfig();
+    // Remember whether this datatable was configured with paging so
+    // that a stored global preference does not enable paging on views
+    // that intentionally disabled it (limit = 0).
+    this.pagingEnabled = this.limit > 0;
+    // Apply the user's preferred page size (if any) before the data is
+    // loaded for the first time.
+    this.loadPageSize();
+    // Make sure the current limit is always selectable in the footer,
+    // even if it is not one of the presets (e.g. a page-specific limit).
+    if (this.limit > 0 && !this.pageSizeOptions.includes(this.limit)) {
+      this.pageSizeOptions = [...this.pageSizeOptions, this.limit].sort((a, b) => a - b);
+    }
     // Initialize timer or simply load the data once.
     // Note, we'll also use the RxJS timer when loading the data only once,
     // that's because this will prevent us from getting an 'Expression has
@@ -342,7 +371,10 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   reloadData(): void {
     const params: DataTableLoadParams = {};
     if (this.remotePaging) {
-      _.merge(params, { offset: this.offset, limit: this.limit });
+      // A limit of `0` ('All') must be sent as `-1` to disable paging
+      // on the server; the backend interprets any `limit >= 0` as a
+      // slice, so `0` would otherwise return no rows at all.
+      _.merge(params, { offset: this.offset, limit: this.limit > 0 ? this.limit : -1 });
     }
     if (this.remoteSorting && !_.isEmpty(this.sorters)) {
       _.merge(params, { dir: this.sorters[0].dir, prop: this.sorters[0].prop });
@@ -403,6 +435,19 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   onPage({ count, pageSize, limit, offset }): void {
     if (this.remotePaging) {
       this.offset = offset;
+      this.reloadData();
+    }
+  }
+
+  onPageSizeChange(limit: number): void {
+    this.limit = limit;
+    // Jump back to the first page, otherwise the current offset might
+    // be out of range for the new page size.
+    this.offset = 0;
+    this.savePageSize();
+    // In client-side paging mode the '[limit]' input change is enough
+    // to redraw the table, only remote paging needs a reload.
+    if (this.remotePaging) {
       this.reloadData();
     }
   }
@@ -569,5 +614,24 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
       `datatable_state_${this.stateId}`,
       JSON.stringify(columnsConfig)
     );
+  }
+
+  private loadPageSize(): void {
+    // Do not override views that intentionally disabled paging.
+    if (!this.pagingEnabled) {
+      return;
+    }
+    const value = this.userLocalStorageService.get(PAGE_SIZE_STORAGE_KEY);
+    if (_.isString(value)) {
+      const limit = _.toNumber(value);
+      // The value '0' is valid and means 'All'.
+      if (_.isFinite(limit) && limit >= 0) {
+        this.limit = limit;
+      }
+    }
+  }
+
+  private savePageSize(): void {
+    this.userLocalStorageService.set(PAGE_SIZE_STORAGE_KEY, String(this.limit));
   }
 }
