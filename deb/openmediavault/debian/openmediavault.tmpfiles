@@ -1,2 +1,3 @@
 d /run/openmediavault 0755 openmediavault-webgui openmediavault-webgui -
 d /run/openmediavault/auth 0750 openmediavault-webgui openmediavault-webgui -
+d /run/openmediavault/sessions 0700 openmediavault-webgui openmediavault-webgui -

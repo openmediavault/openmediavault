@@ -26,7 +26,6 @@ override_dh_installsystemd:
 	dh_installsystemd -r --no-start --name=openmediavault-beep-up
 	dh_installsystemd -r --no-start --name=openmediavault-beep-down
 	dh_installsystemd -r --no-start --name=openmediavault-cleanup-monit
-	dh_installsystemd -r --no-start --name=openmediavault-cleanup-php
 	dh_installsystemd -r --no-start --name=openmediavault-engined
 	dh_installsystemd -r --no-start --name=openmediavault-issue
 	dh_installtmpfiles

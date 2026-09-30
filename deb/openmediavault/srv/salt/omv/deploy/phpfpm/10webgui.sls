@@ -72,16 +72,21 @@ configure_phpfpm_webgui:
         ; https://tools.ietf.org/html/draft-west-first-party-cookies-07
         php_value[session.cookie_samesite] = "Strict"
 
+        ; Use a dedicated, volatile session directory that is owned by the
+        ; pool user. Debian's default `/var/lib/php/sessions` can not be
+        ; listed by unprivileged users, which breaks the PHP garbage
+        ; collection, and it is swept by the `phpsessionclean` timer using
+        ; the *global* `session.gc_maxlifetime`, ignoring this pool's value.
+        ; The directory is created by `/usr/lib/tmpfiles.d/openmediavault.conf`.
+        ; http://php.net/session.save-path
+        php_value[session.save_path] = "/run/openmediavault/sessions"
+
         ; After this number of seconds, stored data will be seen as 'garbage' and
         ; cleaned up by the garbage collection process. This must be at least as
         ; long as the maximum "Session timeout" configurable in the webadmin
         ; settings (see conf.webadmin.json, "timeout", max. 1440 minutes),
         ; otherwise a session could be garbage collected before the application
         ; itself considers it expired.
-        ; Note: Debian's `phpsessionclean` systemd timer sweeps session files
-        ; based on the *global* php.ini gc_maxlifetime (not this pool override),
-        ; so a session's file may still be reaped earlier than this value unless
-        ; this pool's own probabilistic GC (below) gets a chance to run first.
         ; http://php.net/session.gc-maxlifetime
         php_value[session.gc_probability] = 1
         php_value[session.gc_divisor] = 1000

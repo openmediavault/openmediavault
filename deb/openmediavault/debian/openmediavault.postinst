@@ -200,7 +200,6 @@ case "$1" in
 		deb-systemd-helper enable openmediavault-beep-up.service
 		deb-systemd-helper enable openmediavault-beep-down.service
 		deb-systemd-helper enable openmediavault-cleanup-monit.service
-		deb-systemd-helper enable openmediavault-cleanup-php.service
 		deb-systemd-helper enable openmediavault-engined.service
 		deb-systemd-helper enable openmediavault-issue.service
 
@@ -697,6 +696,8 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "8.5.10"; then
 		  omv_module_set_dirty rsync
 		  omv_module_set_dirty rsyslog
+		  omv_module_set_dirty phpfpm
+		  deb-systemd-helper purge openmediavault-cleanup-php.service || :
 		fi
 
 		########################################################################

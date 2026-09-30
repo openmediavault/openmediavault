@@ -6,6 +6,9 @@ openmediavault (8.5.10-1) stable; urgency=medium
     email if they occur.
   * Fix crash in `omv-mkaptidx` when a package has no origin.
   * Issue #2280: Increase vertical height of the task dialog.
+  * Store PHP session files in the volatile directory
+    `/run/openmediavault/sessions`. Users need to log in again once
+    after the configuration has been applied.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 23 Sep 2026 18:29:13 +0200
 
