@@ -541,9 +541,6 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract
             // The configured file system is not in the list of detected
             // file systems. Append all available file system information
             // to the result list and mark it as 'Missing'.
-            // If the missing mount point is the root file system (e.g. after
-            // partition UUID changed), mark it as read-only and in-use.
-            $isRoot = ("/" === $mntentv->get("dir"));
             $result[] = array_merge($this->getFsInfo(null, $fsb), [
                 "devicefile" => is_devicefile($mntentv->get("fsname")) ?
                     $mntentv->get("fsname") : "",
@@ -557,8 +554,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract
                 "usagewarnthreshold" => $mntentv->get("usagewarnthreshold"),
                 "mountopts" => $mntentv->get("opts"),
                 "status" => 3, // Missing
-                "_used" => $isRoot ? true : $db->isReferenced($mntentv),
-                "_readonly" => $isRoot ? true : false
+                "_used" => $db->isReferenced($mntentv)
             ]);
         }
         // Filter result.
@@ -1045,10 +1041,6 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract
         ]);
         // Validate the parameters of the RPC service method.
         $this->validateMethodParams($params, "rpc.filesystemmgmt.umountbydir");
-        // Never allow unmounting the root file system.
-        if ("/" === $params['dir']) {
-            throw new \OMV\Exception("The root file system cannot be unmounted.");
-        }
         // Try to obtain the mount point configuration object if this exists.
         $meObject = \OMV\Rpc\Rpc::call("FsTab", "getByDir", [
             "dir" => $params['dir']
@@ -1064,15 +1056,14 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract
 
     private static function umount($meObject, $context): void
     {
-        // Never allow unmounting the root file system.
-        if ("/" === $meObject['dir']) {
-            throw new \OMV\Exception("The root file system cannot be unmounted.");
-        }
-        // Get the file system and unmount it.
-        $fs = \OMV\System\Filesystem\Filesystem::getImpl($meObject['fsname']);
-        if (!is_null($fs) && $fs->exists()) {
-            if (true === $fs->isMounted()) {
-                $fs->umount(true);
+        // Get the file system and unmount it. Never attempt to unmount
+        // the root file system.
+        if ("/" !== $meObject['dir']) {
+            $fs = \OMV\System\Filesystem\Filesystem::getImpl($meObject['fsname']);
+            if (!is_null($fs) && $fs->exists()) {
+                if (true === $fs->isMounted()) {
+                    $fs->umount(true);
+                }
             }
         }
         // Delete the mount point configuration object. Unmount the file
