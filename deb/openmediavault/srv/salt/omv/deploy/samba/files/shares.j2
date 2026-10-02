@@ -40,6 +40,7 @@
 {%- for share in config.shares.share | selectattr('enable') %}
 {%- set sf_name = salt['omv_conf.get_sharedfolder_name'](share.sharedfolderref) %}
 {%- set sf_path = salt['omv_conf.get_sharedfolder_path'](share.sharedfolderref) %}
+{%- set tm_max_size_enabled = (share.timemachine | to_bool) and ((share.timemachinemaxsize | regex_replace('[KMGTP]$', '') | int) > 0) %}
 [{{ sf_name }}]
 {%- if share.comment | length > 0 %}
 comment = {{ share.comment }}
@@ -84,7 +85,7 @@ fruit:zero_file_id = {{ fruit_zero_file_id }}
 {%- endif %}
 {%- if share.timemachine | to_bool %}
 fruit:time machine = yes
-{%- if share.timemachinemaxsize | length > 0 %}
+{%- if tm_max_size_enabled %}
 fruit:time machine max size = {{ share.timemachinemaxsize }}
 {%- endif %}
 {%- endif %}
@@ -100,7 +101,9 @@ shadow:format = _%Y%m%dT%H%M%S
 shadow:delimiter = _
 shadow:snapprefix = ^{{ sf_name }}\(@hourly\)\{0,1\}\(@daily\)\{0,1\}\(@weekly\)\{0,1\}\(@monthly\)\{0,1\}\(@yearly\)\{0,1\}$
 shadow:localtime = no
+{%- if not tm_max_size_enabled %}
 dfree command = {{ dfree_command }}
+{%- endif %}
 dfree cache time = {{ dfree_cache_time }}
 {%- endif %}
 {%- if share.recyclebin | to_bool %}

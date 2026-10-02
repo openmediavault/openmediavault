@@ -697,6 +697,7 @@ case "$1" in
 		  omv_module_set_dirty rsync
 		  omv_module_set_dirty rsyslog
 		  omv_module_set_dirty phpfpm
+		  omv_module_set_dirty samba
 		  deb-systemd-helper purge openmediavault-cleanup-php.service || :
 		fi
 

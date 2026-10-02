@@ -6,6 +6,8 @@ openmediavault (8.5.10-1) stable; urgency=medium
     email if they occur.
   * Fix crash in `omv-mkaptidx` when a package has no origin.
   * Issue #2280: Increase vertical height of the task dialog.
+  * Issue #2284: Do not set the Samba dfree command on Btrfs if a
+    Time Machine max size is set.
   * Store PHP session files in the volatile directory
     `/run/openmediavault/sessions`. Users need to log in again once
     after the configuration has been applied.
