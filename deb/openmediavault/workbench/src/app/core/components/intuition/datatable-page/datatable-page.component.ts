@@ -43,6 +43,7 @@ import { Icon } from '~/app/shared/enum/icon.enum';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
 import { DataStore } from '~/app/shared/models/data-store.type';
 import { DatatableAction } from '~/app/shared/models/datatable-action.type';
+import { DatatableData } from '~/app/shared/models/datatable-data.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
 import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
@@ -67,6 +68,15 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
   protected count = 0;
   protected selection = new DatatableSelection();
 
+  // The parameters of the request that provided the current rows, e.g.
+  // the sorting or searching. These are also used to load the child rows
+  // in tree mode.
+  private loadParams: DataTableLoadParams = {};
+
+  // The IDs of the expanded rows in tree mode. These rows are expanded
+  // again after the data has been reloaded.
+  private expandedTreeRowIds = new Set<any>();
+
   constructor(
     @Inject(PageContextService) pageContextService: PageContextService,
     private blockUiService: BlockUiService,
@@ -83,6 +93,10 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     });
   }
 
+  protected get isTreeMode(): boolean {
+    return !!this.config.treeFromRelation && !!this.config.treeToRelation;
+  }
+
   onLoadDataEvent(params: DataTableLoadParams) {
     this.subscriptions.add(
       this.loadData(params).subscribe({
@@ -91,6 +105,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
           if (_.isPlainObject(this.config.store.proxy)) {
             this.count = res.total;
           }
+          this.expandTreeRows(res.data);
         },
         error: () => {
           // Reset store and table in case of an error.
@@ -106,6 +121,35 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
    */
   reloadData() {
     this.table.reloadData();
+  }
+
+  /**
+   * Expand or collapse the given row in tree mode. The child rows are
+   * loaded when the row is expanded for the first time.
+   */
+  onTreeAction(row: DatatableData): void {
+    const id = _.get(row, this.config.treeToRelation);
+    switch (row.treeStatus) {
+      case 'disabled':
+      case 'loading':
+        return;
+      case 'expanded':
+        this.expandedTreeRowIds.delete(id);
+        row.treeStatus = 'collapsed';
+        break;
+      default:
+        // `collapsed` or no status at all.
+        this.expandedTreeRowIds.add(id);
+        if (_.some(this.config.store.data, [this.config.treeFromRelation, id])) {
+          row.treeStatus = 'expanded';
+        } else {
+          row.treeStatus = 'loading';
+          this.loadTreeChildRows(row);
+        }
+        break;
+    }
+    // Force the datatable to rebuild the tree.
+    this.config.store.data = [...this.config.store.data];
   }
 
   onSelectionChange(selection: DatatableSelection) {
@@ -335,6 +379,11 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
       buttonAlign: 'end',
       buttons: []
     });
+    // The datatable can only build the tree from rows that are loaded
+    // together, so remote paging is not supported in tree mode.
+    if (this.isTreeMode) {
+      this.config.remotePaging = false;
+    }
     // Map icon from 'foo' to 'mdi:foo' if necessary.
     this.config.icon = _.get(Icon, this.config.icon, this.config.icon);
     // Pre-setup actions based on the specified template type.
@@ -383,32 +432,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
       proxy: this.formatWithPageContext(this.config.store.proxy),
       filters: this.formatWithPageContext(this.config.store.filters)
     };
-    if (_.isPlainObject(store.proxy)) {
-      _.defaultsDeep(store.proxy.get, {
-        params: {
-          start: 0,
-          limit: -1
-        }
-      });
-      // Convert paging and sorting parameters.
-      if (_.isNumber(params.offset) && _.isNumber(params.limit)) {
-        _.merge(store.proxy.get.params, {
-          start: params.offset * params.limit,
-          limit: params.limit
-        });
-      }
-      if (_.isString(params.dir) && _.isString(params.prop)) {
-        _.merge(store.proxy.get.params, {
-          sortdir: params.dir,
-          sortfield: params.prop
-        });
-      }
-      if (!_.isUndefined(params.search)) {
-        _.merge(store.proxy.get.params, {
-          search: params.search
-        });
-      }
-    }
+    this.applyLoadParams(store, params);
     // The `DataStoreService` writes the loaded data into the given store,
     // so pass it on to the configured store the datatable is bound to.
     // This includes the `fields`, which the service sets if they are not
@@ -417,8 +441,50 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
       tap((res: DataStoreResponse) => {
         this.config.store.data = res.data;
         this.config.store.fields = store.fields;
+        // Keep the parameters together with the rows they have provided,
+        // they are used to load the child rows in tree mode.
+        this.loadParams = params;
       })
     );
+  }
+
+  /**
+   * Convert the given load parameters (paging, sorting and searching)
+   * to request parameters of the store proxy. The store must be a copy
+   * of the configured store with a formatted proxy.
+   * @param store The store to modify.
+   * @param params The parameters of the load request.
+   * @param paging Set to `false` to ignore the paging parameters.
+   *   Defaults to `true`.
+   */
+  private applyLoadParams(store: DataStore, params: DataTableLoadParams, paging = true): void {
+    if (!_.isPlainObject(store.proxy)) {
+      return;
+    }
+    _.defaultsDeep(store.proxy.get, {
+      params: {
+        start: 0,
+        limit: -1
+      }
+    });
+    // Convert paging and sorting parameters.
+    if (paging && _.isNumber(params.offset) && _.isNumber(params.limit)) {
+      _.merge(store.proxy.get.params, {
+        start: params.offset * params.limit,
+        limit: params.limit
+      });
+    }
+    if (_.isString(params.dir) && _.isString(params.prop)) {
+      _.merge(store.proxy.get.params, {
+        sortdir: params.dir,
+        sortfield: params.prop
+      });
+    }
+    if (!_.isUndefined(params.search)) {
+      _.merge(store.proxy.get.params, {
+        search: params.search
+      });
+    }
   }
 
   private sanitizeActionsConfig(actions: DatatablePageActionConfig[]) {
@@ -495,5 +561,88 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
   private navigate(url: string) {
     const formattedUrl = format(url, this.pageContext);
     this.router.navigateByUrl(formattedUrl);
+  }
+
+  private loadTreeChildRows(row: DatatableData): void {
+    // Child rows can only be loaded via a proxy that has a `get` request.
+    if (!_.isPlainObject(this.config.store.proxy) || !_.has(this.config.store.proxy, 'get')) {
+      row.treeStatus = 'disabled';
+      return;
+    }
+    const id = _.get(row, this.config.treeToRelation);
+    // Use a copy of the store, so the loaded child rows are not written to
+    // the configured store. The request properties are formatted with the
+    // row that is available as `_parent`. The data of the configured store
+    // is not passed on, it is not needed to load the child rows.
+    const store: DataStore = {
+      ...this.config.store,
+      data: [],
+      proxy: this.formatWithPageContext(this.config.store.proxy, { _parent: row }),
+      filters: this.formatWithPageContext(this.config.store.filters)
+    };
+    // Use the same sorting and searching as for the root rows. Paging
+    // is not supported in tree mode.
+    this.applyLoadParams(store, this.loadParams, false);
+    this.subscriptions.add(
+      this.dataStoreService.load(store).subscribe({
+        next: (res: DataStoreResponse) => {
+          // Discard the response if the data has been reloaded meanwhile.
+          if (!_.includes(this.config.store.data, row)) {
+            return;
+          }
+          // Ignore rows that already exist, e.g. if the store proxy
+          // always returns the whole tree.
+          const ids = new Set(_.map(this.config.store.data, this.config.treeToRelation));
+          const childRows = _.reject(res.data, (childRow: DatatableData) =>
+            ids.has(_.get(childRow, this.config.treeToRelation))
+          );
+          _.forEach(childRows, (childRow: DatatableData) => {
+            if (!_.has(childRow, this.config.treeFromRelation)) {
+              _.set(childRow, this.config.treeFromRelation, id);
+            }
+          });
+          const data = [...this.config.store.data, ...childRows];
+          // Check the whole data, the child rows may already have been
+          // added by the response of another request.
+          if (_.some(data, [this.config.treeFromRelation, id])) {
+            row.treeStatus = 'expanded';
+          } else {
+            // Do not try to load the child rows again after a reload.
+            this.expandedTreeRowIds.delete(id);
+            row.treeStatus = 'disabled';
+          }
+          this.config.store.data = data;
+          this.expandTreeRows(childRows);
+        },
+        error: () => {
+          // Discard the error if the data has been reloaded meanwhile.
+          if (!_.includes(this.config.store.data, row)) {
+            return;
+          }
+          this.expandedTreeRowIds.delete(id);
+          row.treeStatus = 'collapsed';
+          this.config.store.data = [...this.config.store.data];
+        }
+      })
+    );
+  }
+
+  /**
+   * Expand the given rows if they were expanded before the data has
+   * been reloaded.
+   */
+  private expandTreeRows(rows: DatatableData[]): void {
+    if (!this.isTreeMode) {
+      return;
+    }
+    _.forEach(rows, (row: DatatableData) => {
+      // A missing status is handled like `collapsed`.
+      if (
+        (_.isNil(row.treeStatus) || row.treeStatus === 'collapsed') &&
+        this.expandedTreeRowIds.has(_.get(row, this.config.treeToRelation))
+      ) {
+        this.onTreeAction(row);
+      }
+    });
   }
 }
