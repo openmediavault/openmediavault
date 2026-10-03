@@ -125,7 +125,7 @@ const routes: Routes = [
       {
         path: 'standby',
         component: StandbyPageComponent,
-        data: { backgroundImage: 'standby.jpg' }
+        data: { backgroundImage: 'standby.png' }
       },
       {
         path: 'shutdown',
