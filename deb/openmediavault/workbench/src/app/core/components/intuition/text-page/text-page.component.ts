@@ -115,8 +115,8 @@ export class TextPageComponent extends AbstractPageComponent<TextPageConfig> imp
     }
     return this.rpcService[request.get.task ? 'requestTask' : 'request'](
       request.service,
-      request.get.method,
-      request.get.params
+      this.formatWithPageContext(request.get.method),
+      this.formatWithPageContext(request.get.params)
     );
   }
 
@@ -173,10 +173,5 @@ export class TextPageComponent extends AbstractPageComponent<TextPageConfig> imp
           break;
       }
     });
-  }
-
-  protected override onPageInit() {
-    // Format tokenized configuration properties.
-    this.formatConfig(['title', 'subTitle', 'request.get.method', 'request.get.params']);
   }
 }

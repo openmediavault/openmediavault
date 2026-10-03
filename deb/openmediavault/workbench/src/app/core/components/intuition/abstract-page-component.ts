@@ -103,16 +103,19 @@ export abstract class AbstractPageComponent<T> implements AfterViewInit, OnInit 
   protected onPageInit(): void {}
 
   /**
-   * Format the given configuration properties using the page context.
-   * @param props The list of tokenized properties to format.
+   * Format the given tokenized configuration value using the page
+   * context. The configuration itself is not modified, so the tokens
+   * are kept and can be formatted again, e.g. with other data.
+   * @param value The value to format.
+   * @param data Additional data to replace the tokens, e.g. the form
+   *   values. It takes precedence over the page context.
+   * @return Returns a formatted deep copy of the value or the value
+   *   itself if it cannot be formatted.
    */
-  protected formatConfig(props: Array<string>): void {
-    _.forEach(props, (prop) => {
-      const value = _.get(this.config as Record<string, any>, prop);
-      if (isFormatable(value)) {
-        _.set(this.config as Record<string, any>, prop, formatDeep(value, this.pageContext));
-      }
-    });
+  protected formatWithPageContext<V>(value: V, data: Record<string, any> = {}): V {
+    return isFormatable(value)
+      ? (formatDeep(value, _.merge({}, this.pageContext, data)) as V)
+      : value;
   }
 
   /**

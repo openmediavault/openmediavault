@@ -20,7 +20,7 @@ import { Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { concat, Observable, Subscription } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+import { finalize, tap } from 'rxjs/operators';
 
 import { AbstractPageComponent } from '~/app/core/components/intuition/abstract-page-component';
 import { FormDialogComponent } from '~/app/core/components/intuition/form-dialog/form-dialog.component';
@@ -41,6 +41,7 @@ import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-di
 import { DEFAULT_TEXTS } from '~/app/shared/constants/text.constants';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
+import { DataStore } from '~/app/shared/models/data-store.type';
 import { DatatableAction } from '~/app/shared/models/datatable-action.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
 import { BlockUiService } from '~/app/shared/services/block-ui.service';
@@ -370,20 +371,18 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
     }
   }
 
-  protected override onPageInit() {
-    // Format tokenized configuration properties.
-    this.formatConfig([
-      'store.proxy.service',
-      'store.proxy.get.method',
-      'store.proxy.get.params',
-      'store.proxy.post.method',
-      'store.proxy.post.params',
-      'store.filters'
-    ]);
-  }
-
   protected override doLoadData(params: DataTableLoadParams): Observable<DataStoreResponse> {
-    const store = this.config.store;
+    // Do not modify the configured store. Use a copy with the formatted
+    // request properties instead, so the tokens are kept and the paging,
+    // sorting and searching parameters set below are not stored in the
+    // configuration. Note, `transform` and `itemTemplates` must not be
+    // formatted here, the `DataStoreService` formats them using the
+    // loaded data.
+    const store: DataStore = {
+      ...this.config.store,
+      proxy: this.formatWithPageContext(this.config.store.proxy),
+      filters: this.formatWithPageContext(this.config.store.filters)
+    };
     if (_.isPlainObject(store.proxy)) {
       _.defaultsDeep(store.proxy.get, {
         params: {
@@ -410,7 +409,16 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
         });
       }
     }
-    return this.dataStoreService.load(store);
+    // The `DataStoreService` writes the loaded data into the given store,
+    // so pass it on to the configured store the datatable is bound to.
+    // This includes the `fields`, which the service sets if they are not
+    // configured.
+    return this.dataStoreService.load(store).pipe(
+      tap((res: DataStoreResponse) => {
+        this.config.store.data = res.data;
+        this.config.store.fields = store.fields;
+      })
+    );
   }
 
   private sanitizeActionsConfig(actions: DatatablePageActionConfig[]) {
