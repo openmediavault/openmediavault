@@ -41,7 +41,10 @@
                    [remotePaging]="config.remotePaging"
                    [remoteSearching]="config.remoteSearching"
                    [sorters]="config.sorters"
-                   [sortType]="config.sortType">
+                   [sortType]="config.sortType"
+                   [treeFromRelation]="config.treeFromRelation"
+                   [treeToRelation]="config.treeToRelation"
+                   (treeActionEvent)="onTreeAction($event)">
       <omv-datatable-actions [actions]="config.actions"
                              [selection]="selection"
                              [table]="table">

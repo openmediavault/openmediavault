@@ -41,6 +41,13 @@ omv-datatable {
     padding-left: 20px;
   }
 
+  .omv-datatable-tree-toggle {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+  }
+
   // Datatable
   .ngx-datatable {
     /* stylelint-disable no-descending-specificity */

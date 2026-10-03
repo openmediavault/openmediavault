@@ -71,6 +71,23 @@ export type DatatablePageConfig = {
   autoReload?: boolean | number;
   sorters?: Array<Sorter>;
   sortType?: 'single' | 'multi';
+  // The name of the property that references the parent row. The
+  // tree mode is enabled if this and `treeToRelation` are set. Each
+  // row must have a `treeStatus` property, e.g. set via the store
+  // `transform` option, which is `collapsed` for rows that may have
+  // child rows and `disabled` for others. Use `isTreeColumn` to
+  // define the column that displays the toggle button.
+  // The child rows are loaded via the store proxy when a row is
+  // expanded for the first time. The RPC parameters can contain
+  // tokens that are formatted with the expanded row, which is
+  // available as `_parent`. The `treeFromRelation` property of the
+  // loaded rows is set automatically if it does not exist.
+  // Example:
+  // params:
+  //   path: "{{ _parent.path | default('/') }}"
+  treeFromRelation?: string;
+  // The name of the property that is referenced by `treeFromRelation`.
+  treeToRelation?: string;
   store?: DataStore;
   actions?: Array<DatatablePageActionConfig>;
   // The page footer buttons.

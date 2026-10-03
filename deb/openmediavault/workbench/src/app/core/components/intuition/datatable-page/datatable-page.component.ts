@@ -41,7 +41,9 @@ import { TaskDialogComponent } from '~/app/shared/components/task-dialog/task-di
 import { DEFAULT_TEXTS } from '~/app/shared/constants/text.constants';
 import { Icon } from '~/app/shared/enum/icon.enum';
 import { NotificationType } from '~/app/shared/enum/notification-type.enum';
+import { DataStore } from '~/app/shared/models/data-store.type';
 import { DatatableAction } from '~/app/shared/models/datatable-action.type';
+import { DatatableData } from '~/app/shared/models/datatable-data.type';
 import { DatatableSelection } from '~/app/shared/models/datatable-selection.model';
 import { BlockUiService } from '~/app/shared/services/block-ui.service';
 import { ClipboardService } from '~/app/shared/services/clipboard.service';
@@ -65,6 +67,13 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
 
   protected count = 0;
   protected selection = new DatatableSelection();
+
+  // The unformatted RPC parameters of the store proxy. They are used
+  // to load the child rows in tree mode.
+  private treeParams: Record<string, any>;
+  // The IDs of the expanded rows in tree mode. These rows are expanded
+  // again after the data has been reloaded.
+  private expandedTreeRowIds = new Set<any>();
 
   constructor(
     @Inject(PageContextService) pageContextService: PageContextService,
@@ -90,6 +99,7 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
           if (_.isPlainObject(this.config.store.proxy)) {
             this.count = res.total;
           }
+          this.expandTreeRows(res.data);
         },
         error: () => {
           // Reset store and table in case of an error.
@@ -105,6 +115,31 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
    */
   reloadData() {
     this.table.reloadData();
+  }
+
+  /**
+   * Expand or collapse the given row in tree mode. The child rows are
+   * loaded when the row is expanded for the first time.
+   */
+  onTreeAction(row: DatatableData): void {
+    const id = _.get(row, this.config.treeToRelation);
+    switch (row.treeStatus) {
+      case 'collapsed':
+        this.expandedTreeRowIds.add(id);
+        if (_.some(this.config.store.data, [this.config.treeFromRelation, id])) {
+          row.treeStatus = 'expanded';
+        } else {
+          row.treeStatus = 'loading';
+          this.loadTreeChildRows(row);
+        }
+        break;
+      case 'expanded':
+        this.expandedTreeRowIds.delete(id);
+        row.treeStatus = 'collapsed';
+        break;
+    }
+    // Force the datatable to rebuild the tree.
+    this.config.store.data = [...this.config.store.data];
   }
 
   onSelectionChange(selection: DatatableSelection) {
@@ -371,6 +406,9 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
   }
 
   protected override onPageInit() {
+    if (this.config.treeFromRelation && this.config.treeToRelation) {
+      this.treeParams = _.cloneDeep(_.get(this.config.store, 'proxy.get.params', {}));
+    }
     // Format tokenized configuration properties.
     this.formatConfig([
       'store.proxy.service',
@@ -487,5 +525,63 @@ export class DatatablePageComponent extends AbstractPageComponent<DatatablePageC
   private navigate(url: string) {
     const formattedUrl = format(url, this.pageContext);
     this.router.navigateByUrl(formattedUrl);
+  }
+
+  private loadTreeChildRows(row: DatatableData): void {
+    if (!_.isPlainObject(this.config.store.proxy)) {
+      row.treeStatus = 'disabled';
+      return;
+    }
+    const store: DataStore = _.cloneDeep(_.omit(this.config.store, 'data'));
+    store.proxy.get.params = _.defaults(
+      formatDeep(this.treeParams, _.merge({}, this.pageContext, { _parent: row })),
+      { start: 0, limit: -1 }
+    );
+    this.subscriptions.add(
+      this.dataStoreService.load(store).subscribe({
+        next: (res: DataStoreResponse) => {
+          // Discard the response if the data has been reloaded meanwhile.
+          if (!_.includes(this.config.store.data, row)) {
+            return;
+          }
+          // Ignore rows that already exist, e.g. if the store proxy
+          // always returns the whole tree.
+          const ids = new Set(_.map(this.config.store.data, this.config.treeToRelation));
+          const childRows = _.reject(res.data, (childRow: DatatableData) =>
+            ids.has(_.get(childRow, this.config.treeToRelation))
+          );
+          _.forEach(childRows, (childRow: DatatableData) => {
+            if (!_.has(childRow, this.config.treeFromRelation)) {
+              _.set(childRow, this.config.treeFromRelation, _.get(row, this.config.treeToRelation));
+            }
+          });
+          row.treeStatus = childRows.length > 0 ? 'expanded' : 'disabled';
+          this.config.store.data = [...this.config.store.data, ...childRows];
+          this.expandTreeRows(childRows);
+        },
+        error: () => {
+          row.treeStatus = 'collapsed';
+          this.config.store.data = [...this.config.store.data];
+        }
+      })
+    );
+  }
+
+  /**
+   * Expand the given rows if they were expanded before the data has
+   * been reloaded.
+   */
+  private expandTreeRows(rows: DatatableData[]): void {
+    if (!this.config.treeFromRelation || !this.config.treeToRelation) {
+      return;
+    }
+    _.forEach(rows, (row: DatatableData) => {
+      if (
+        row.treeStatus === 'collapsed' &&
+        this.expandedTreeRowIds.has(_.get(row, this.config.treeToRelation))
+      ) {
+        this.onTreeAction(row);
+      }
+    });
   }
 }
