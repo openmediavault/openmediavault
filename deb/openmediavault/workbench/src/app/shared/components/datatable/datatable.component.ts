@@ -110,6 +110,8 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   copyToClipboardTpl: TemplateRef<any>;
   @ViewChild('cronToHumanTpl', { static: true })
   cronToHumanTpl: TemplateRef<any>;
+  @ViewChild('treeToggleTpl', { static: true })
+  treeToggleTpl: TemplateRef<any>;
 
   // Define a query selector if the datatable is used in an
   // overflow container.
@@ -228,6 +230,19 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   @Input()
   sorters?: Sorter[] = [];
 
+  // The name of the property that references the parent row. The
+  // tree mode is enabled if this and `treeToRelation` are set. The
+  // tree status of a row is defined by its `treeStatus` property,
+  // which can be `collapsed`, `expanded`, `loading` or `disabled`.
+  // Use `isTreeColumn` to define the column that displays the toggle
+  // button.
+  @Input()
+  treeFromRelation?: string;
+
+  // The name of the property that is referenced by `treeFromRelation`.
+  @Input()
+  treeToRelation?: string;
+
   // Event emitted when the data must be loaded.
   @Output()
   readonly loadDataEvent = new EventEmitter<DataTableLoadParams>();
@@ -243,6 +258,10 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   // This applies only to columns of type 'buttonToggle'.
   @Output()
   readonly cellDataChangedEvent = new EventEmitter<DataTableCellChanged>();
+
+  // Event emitted when the tree toggle button of a row has been clicked.
+  @Output()
+  readonly treeActionEvent = new EventEmitter<DatatableData>();
 
   @Unsubscribe()
   private subscriptions = new Subscription();
@@ -526,6 +545,9 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
       // Convert column configuration.
       if (_.isString(column.cellTemplateName) && column.cellTemplateName.length) {
         column.cellTemplate = this.cellTemplates[column.cellTemplateName];
+      }
+      if (column.isTreeColumn) {
+        column.treeToggleTemplate = this.treeToggleTpl;
       }
       // Translate the column header.
       if (_.isString(column.name) && column.name.length) {

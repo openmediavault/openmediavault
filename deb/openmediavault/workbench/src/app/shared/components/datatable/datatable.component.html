@@ -65,7 +65,10 @@
                [sorts]="sorters"
                [sortType]="sortType"
                (sort)="onSort($event)"
-               (page)="onPage($event)">
+               (page)="onPage($event)"
+               [treeFromRelation]="treeFromRelation"
+               [treeToRelation]="treeToRelation"
+               (treeAction)="treeActionEvent.emit($event.row)">
 </ngx-datatable>
 
 <mat-menu #columnMenu="matMenu">
@@ -235,6 +238,23 @@
   <span matTooltipClass="omv-text-wrap"
         [matTooltip]="column.cellTemplateConfig | template:row | br2nl | preventHtml"
         [innerHTML]="column.cellTemplateConfig | template:row | sanitizeHtml">
+  </span>
+</ng-template>
+
+<ng-template #treeToggleTpl
+             let-cellContext="cellContext">
+  <button *ngIf="cellContext.treeStatus !== 'disabled'"
+          mat-icon-button
+          class="omv-datatable-tree-toggle"
+          [disabled]="cellContext.treeStatus === 'loading'"
+          [attr.aria-expanded]="cellContext.treeStatus === 'expanded'"
+          [attr.aria-label]="'Expand/Collapse' | transloco"
+          (click)="$event.stopPropagation(); cellContext.onTreeAction()">
+    <mat-icon svgIcon="{{ cellContext.treeStatus === 'expanded' ? icon.chevronDown : icon.chevronRight }}">
+    </mat-icon>
+  </button>
+  <span *ngIf="cellContext.treeStatus === 'disabled'"
+        class="omv-datatable-tree-toggle">
   </span>
 </ng-template>
 
