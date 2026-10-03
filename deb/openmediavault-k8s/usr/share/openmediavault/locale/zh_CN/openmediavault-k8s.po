@@ -9,6 +9,7 @@
 # kochin <kochinc@outlook.com>, 2025
 # 黃柏諺 <s8321414@gmail.com>, 2026
 # irrelevant91, 2026
+# 杨宇哲, 2026
 # 
 #, fuzzy
 msgid ""
@@ -17,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-26 11:58+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: irrelevant91, 2026\n"
+"Last-Translator: 杨宇哲, 2026\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -68,7 +69,7 @@ msgid "Compressed"
 msgstr "已压缩"
 
 msgid "Config Maps"
-msgstr "设置地图"
+msgstr "配置映射"
 
 msgid "Copy to clipboard"
 msgstr "复制到剪贴板"

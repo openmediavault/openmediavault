@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Toshihiro Kan <kansuke4649@gmail.com>, 2023
+# Toshihiro Kan <kansuke4649@gmail.com>, 2026
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-03 21:46+0100\n"
 "PO-Revision-Date: 2023-10-11 19:57+0000\n"
-"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2023\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2026\n"
 "Language-Team: Japanese (Japan) (https://app.transifex.com/openmediavault/teams/14254/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,130 +22,130 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Block I/O"
-msgstr ""
+msgstr "ブロックI/O"
 
 msgid "CID"
-msgstr ""
+msgstr "CID"
 
 msgid "CPU %"
-msgstr ""
+msgstr "CPU %"
 
 msgid "Command"
-msgstr ""
+msgstr "コマンド"
 
 msgid "Containers"
-msgstr ""
+msgstr "コンテナ"
 
 msgid "Created"
-msgstr ""
+msgstr "作成済み"
 
 msgid "Digest"
-msgstr ""
+msgstr "ダイジェスト"
 
 msgid "Do you really want to restart this container?"
-msgstr ""
+msgstr "このコンテナを本当に再起動しますか？"
 
 msgid "Do you really want to restart this pod?"
-msgstr ""
+msgstr "このポッドを本当に再起動しますか？"
 
 msgid "Driver"
-msgstr ""
+msgstr "ドライバ"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Image"
-msgstr ""
+msgstr "イメージ"
 
 msgid "Images"
 msgstr "イメージ"
 
 msgid "Infra ID"
-msgstr ""
+msgstr "Infra ID"
 
 msgid "Inspect"
-msgstr ""
+msgstr "Inspect"
 
 msgid "Logs"
-msgstr ""
+msgstr "ログ"
 
 msgid "Mem %"
-msgstr ""
+msgstr "Mem %"
 
 msgid "Mem Usage / Limit"
-msgstr ""
+msgstr "Mem Usage / Limit"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "マウントポイント"
 
 msgid "Mounts"
-msgstr ""
+msgstr "マウント"
 
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 msgid "Names"
-msgstr ""
+msgstr "名前"
 
 msgid "Network I/O"
-msgstr ""
+msgstr "ネットワークI/O"
 
 msgid "Networks"
-msgstr ""
+msgstr "ネットワーク"
 
 msgid "PIDs"
-msgstr ""
+msgstr "PIDs"
 
 msgid "Pod"
-msgstr ""
+msgstr "Pod"
 
 msgid "Podman"
-msgstr ""
+msgstr "Podman"
 
 msgid "Pods"
-msgstr ""
+msgstr "Pods"
 
 msgid "Ports"
-msgstr ""
+msgstr "ポート"
 
 msgid "Pull"
-msgstr ""
+msgstr "Pull"
 
 msgid "Pull image"
-msgstr ""
+msgstr "Pull image"
 
 msgid "Repository"
-msgstr ""
+msgstr "リポジトリ"
 
 msgid "Restart"
-msgstr ""
+msgstr "再起動"
 
 msgid "Size"
-msgstr ""
+msgstr "サイズ"
 
 msgid "Started"
-msgstr ""
+msgstr "開始済み"
 
 msgid "State"
-msgstr ""
+msgstr "状態"
 
 msgid "Statistics"
-msgstr ""
+msgstr "統計"
 
 msgid "Status"
-msgstr ""
+msgstr "ステータス"
 
 msgid "Tag"
-msgstr ""
+msgstr "タグ"
 
 msgid "The tag of the image to pull."
-msgstr ""
+msgstr "プルするイメージののタグ。"
 
 msgid "Updated Podman settings."
-msgstr ""
+msgstr "Podmanの設定を更新しました。"
 
 msgid "Used"
-msgstr ""
+msgstr "使用済み"
 
 msgid "Volumes"
-msgstr ""
+msgstr "ボリューム"

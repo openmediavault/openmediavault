@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-md package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Toshihiro Kan <kansuke4649@gmail.com>, 2026
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-04 17:34+0200\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2026\n"
 "Language-Team: Japanese (Japan) (https://app.transifex.com/openmediavault/teams/14254/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,13 +22,13 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "A maximum of one device can be removed."
-msgstr ""
+msgstr "最大1つのデバイスを取り外すことができます。"
 
 msgid "A maximum of two devices can be removed."
-msgstr ""
+msgstr "最大2つのデバイスを取り外すことができます。"
 
 msgid "Add"
-msgstr ""
+msgstr "追加"
 
 msgid ""
 "Adding a disk to a degraded array starts the rebuild process. The kernel "
@@ -33,6 +37,8 @@ msgid ""
 "Alternatively, a disk can be added to a healthy array as a <em>hot "
 "spare</em> that will be used automatically to replace a failed disk."
 msgstr ""
+"障害状態のアレイにディスクを追加すると、再構築プロセスが開始されます。カーネルは自動的にデータを新しいディスクに同期しますが、この処理には非常に長い時間がかかる場合があるため、処理中はシステムの電源を切ったり再起動したりしないでください。あるいは、正常なアレイにディスクを<em>hot"
+" spare</em>として追加することも可能です。このディスクは、障害が発生したディスクの代替として自動的に使用されます。"
 
 msgid ""
 "Adding disk(s) to the array reshapes it, which can take a very long time "
@@ -40,92 +46,94 @@ msgid ""
 "reshape is in progress. Note that the file system on the array is not grown "
 "automatically."
 msgstr ""
+"アレイにディスクを追加すると、アレイの再構成が行われますが、そのサイズによっては非常に長い時間がかかる場合があります。再構成の進行中は、システムの電源を切ったり再起動したりしないでください。なお、アレイ上のファイルシステムは自動的に拡張されません。"
 
 msgid "At least four devices are required."
-msgstr ""
+msgstr "最低4つのデバイスが必要です。"
 
 msgid "At least three devices are required."
-msgstr ""
+msgstr "最低3つのデバイスが必要です。"
 
 msgid "At least two devices are required."
-msgstr ""
+msgstr "最低2つのデバイスが必要です。"
 
 msgid "Capacity"
-msgstr ""
+msgstr "容量"
 
 msgid "Check"
-msgstr ""
+msgstr "チェック"
 
 msgid "Create"
-msgstr ""
+msgstr "作成"
 
 msgid "Device"
-msgstr ""
+msgstr "デバイス"
 
 msgid "Devices"
-msgstr ""
+msgstr "デバイス"
 
 msgid "Displays information about MD (Software RAID) devices."
-msgstr ""
+msgstr "MD（ソフトウェアRAID）デバイスに関する情報を表示します。"
 
 msgid ""
 "Do you really want to repair the selected RAID device? This will attempt to "
 "correct any inconsistencies found, which can overwrite data if a mismatch "
 "cannot be unambiguously resolved."
 msgstr ""
+"選択したRAIDデバイスを本当に修復しますか？これにより、検出された不整合の修正が試みられますが、不整合を明確に解決できない場合、データが上書きされる可能性があります。"
 
 msgid ""
 "Do you really want to stop the running check/repair action on the selected "
 "RAID device?"
-msgstr ""
+msgstr "選択したRAIDデバイスで実行中のチェック/修復処理を本当に中止しますか？"
 
 msgid "Grow"
-msgstr ""
+msgstr "Grow"
 
 msgid "Level"
-msgstr ""
+msgstr "Level"
 
 msgid "MD Devices"
-msgstr ""
+msgstr "MDデバイス"
 
 msgid "Maintenance"
-msgstr ""
+msgstr "メンテナンス"
 
 msgid "Mirror"
-msgstr ""
+msgstr "ミラー"
 
 msgid "Multiple Device"
-msgstr ""
+msgstr "複数のデバイス"
 
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 msgid "RAID 10"
-msgstr ""
+msgstr "RAID 10"
 
 msgid "RAID 2"
-msgstr ""
+msgstr "RAID 2"
 
 msgid "RAID 3"
-msgstr ""
+msgstr "RAID 3"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
-msgstr ""
+msgstr "RAID 5"
 
 msgid "RAID 6"
-msgstr ""
+msgstr "RAID 6"
 
 msgid "Recover"
-msgstr ""
+msgstr "リカバー"
 
 msgid "Referenced"
-msgstr ""
+msgstr "参照先"
 
 msgid "Remove"
-msgstr ""
+msgstr "削除"
 
 msgid ""
 "Removing disk(s) first marks them as <em>failed</em> and then removes them "
@@ -133,35 +141,36 @@ msgid ""
 " is typically used to replace a faulty disk. Note that the RAID metadata on "
 "the removed disk(s) is not erased."
 msgstr ""
+"ディスクを取り外すと、まずそのディスクが<em>failed</em>としてマークされ、その後アレイから削除されます。これにより、アレイは冗長性が低下したデグレード状態になります。これは通常、故障したディスクを交換する際に使用されます。なお、取り外されたディスク上のRAIDメタデータは消去されないことに注意してください。"
 
 msgid "Repair"
-msgstr ""
+msgstr "修理"
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "デバイスを選択 ..."
 
 msgid "Select devices to be added to the RAID device."
-msgstr ""
+msgstr "RAIDデバイスに追加するデバイスを選択します。"
 
 msgid "Select devices to be removed from the RAID device."
-msgstr ""
+msgstr "RAIDデバイスから削除するデバイスを選択します。"
 
 msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
-msgstr ""
+msgstr "RAIDデバイスの作成に使用されるデバイスを選択してください。 USB経由で接続されているデバイスは表示されません。（信頼性が低いため）"
 
 msgid "Show details"
-msgstr ""
+msgstr "詳細の表示"
 
 msgid "Software RAID"
-msgstr ""
+msgstr "ソフトウェアRAID"
 
 msgid "State"
-msgstr ""
+msgstr "状態"
 
 msgid "Stop"
-msgstr ""
+msgstr "停止"
 
 msgid "Stripe"
-msgstr ""
+msgstr "ストライプ"

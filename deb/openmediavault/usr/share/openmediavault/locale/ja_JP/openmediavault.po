@@ -76,7 +76,7 @@ msgid "1 minute"
 msgstr "1分"
 
 msgid "1 month"
-msgstr "1 月"
+msgstr "1 か月"
 
 msgid "1 week"
 msgstr "1 週間"
@@ -270,7 +270,7 @@ msgid "Access control list"
 msgstr "アクセスコントロールリスト"
 
 msgid "Account"
-msgstr ""
+msgstr "アカウント"
 
 msgid "Act as a WINS server."
 msgstr "WINSサーバとして機能します。"
@@ -360,7 +360,7 @@ msgid "Allow symbolic links to areas that are outside the home directories."
 msgstr "ホームディレクトリ以外の領域へのシンボリックリンクを許可する。"
 
 msgid "Allow symbolic links to areas that are outside the share."
-msgstr ""
+msgstr "共有フォルダ外の場所へのシンボリックリンクを許可する。"
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
@@ -381,17 +381,17 @@ msgstr "テストメールを送信しました。 メールボックスを確�
 msgid ""
 "An authentication challenge was required but no challenge information was "
 "provided. Please contact your administrator."
-msgstr ""
+msgstr "認証チャレンジが必要でしたが、チャレンジ情報が提供されませんでした。管理者にお問い合わせください。"
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr ""
+msgstr "コマンドの実行結果（出力がある場合）が記載された電子メールが管理者に送信されます。"
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr ""
+msgstr "コマンドの実行結果（出力がある場合）が記載された電子メールが、そのジョブを実行したユーザーに送信されます。"
 
 msgid "Andorra"
 msgstr "アンドラ"
@@ -607,7 +607,7 @@ msgid "CPU Utilization"
 msgstr "CPU 使用率"
 
 msgid "CPU frequency scaling"
-msgstr ""
+msgstr "CPU周波数スケーリング"
 
 msgid "Cambodia"
 msgstr "カンボジア"
@@ -1056,7 +1056,7 @@ msgid "Do you really want to install the plugin?"
 msgstr "プラグインをインストールしてもよろしいですか？"
 
 msgid "Do you really want to log out?"
-msgstr ""
+msgstr "本当にログアウトしますか？"
 
 msgid "Do you really want to put the system into standby?"
 msgstr "システムをスタンバイ状態にしてもよろしいですか？"
@@ -1160,7 +1160,7 @@ msgid ""
 "critical.</li><li>performance - Keeps the CPU running at maximum frequency "
 "at all times. Use this when you need consistent peak performance and power "
 "consumption is not a concern.</li></ul>"
-msgstr ""
+msgstr "CPU周波数スケーリングの監視を有効にし、システムの負荷に応じてCPUのパフォーマンスを動的に調整できるようにします。CPU周波数ガバナーは、CPUの周波数がどのように調整されるかを決定します。<ul><li>schedutil - スケジューラの使用率に基づいてCPU周波数を調整することで、パフォーマンスと電力効率のバランスを取ります。システムがアイドル状態のときは省エネを図りつつ、良好なパフォーマンスを発揮するため、ほとんどのユーザーに推奨されます。</li><li>powersave - 常にCPUを最低周波数で動作させ、省エネ効果を最大化します。消費電力の削減が最優先であり、パフォーマンスがそれほど重要ではない場合に使用してください。</li><li>performance - CPUを常に最大周波数で動作させ続けます。安定した最高性能が必要で、消費電力が問題にならない場合に使用してください。</li></ul>"
 
 msgid "Enable NetBIOS"
 msgstr "NetBIOSを有効化"
@@ -1266,10 +1266,10 @@ msgid "Failed to copy data to the clipboard."
 msgstr "データをクリップボードにコピーできませんでした。"
 
 msgid "Failed to start session."
-msgstr ""
+msgstr "セッションの開始に失敗しました。"
 
 msgid "Failed to write session data."
-msgstr ""
+msgstr "セッションデータの書き込みに失敗しました。"
 
 msgid "Falkland Islands"
 msgstr "フォークランド諸島"
@@ -1296,10 +1296,10 @@ msgid "File Systems"
 msgstr "ファイルシステム"
 
 msgid "File access control lists"
-msgstr ""
+msgstr "ファイルのアクセス制御リスト"
 
 msgid "File owner and group"
-msgstr ""
+msgstr "ファイルの所有者とグループ"
 
 msgid "File path"
 msgstr "ファイルのパス"
@@ -1321,13 +1321,13 @@ msgid ""
 msgstr "指定された数よりも大きいファイルは、ごみ箱に入れられません。"
 
 msgid "Filesystem is being created."
-msgstr ""
+msgstr "ファイルシステムを作成中です。"
 
 msgid "Filesystem is detected."
-msgstr ""
+msgstr "ファイルシステムが検出されました。"
 
 msgid "Filesystem is missing."
-msgstr ""
+msgstr "ファイルシステムが見つかりません。"
 
 msgid "Fingerprint (SHA-1)"
 msgstr "フィンガープリント（SHA-1）"
@@ -1348,13 +1348,13 @@ msgid "Flags"
 msgstr "フラグ"
 
 msgid "Follow symlinks"
-msgstr ""
+msgstr "シンボリックリンクを追跡する"
 
 msgid "Force SSL/TLS"
 msgstr "Force SSL/TLS"
 
 msgid "Force a specific MAC address on this interface."
-msgstr ""
+msgstr "このインターフェースで特定のMACアドレスを強制的に設定する。"
 
 msgid "Force secure connection only."
 msgstr "セキュアコネクションを強制します。"
@@ -1516,13 +1516,13 @@ msgid "Hosts allow"
 msgstr "許可するホスト"
 
 msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "ファイルシステムのマウントが許可されているホスト。 例：192.168.178.0/24"
 
 msgid "Hosts deny"
 msgstr "拒否するホスト"
 
 msgid "Hot-Pluggable"
-msgstr ""
+msgstr "ホットプラグ対応"
 
 msgid "Hour"
 msgstr "時"
@@ -1581,7 +1581,7 @@ msgid ""
 "system can be mounted <a href='#/storage/filesystems/mount'>here</a>. "
 "Otherwise, please <a href='#/storage/disks'>wipe</a> the device to be able "
 "to reuse it."
-msgstr ""
+msgstr "ここにデバイスが表示されない場合、通常はそのデバイスが空ではないためです。つまり、すでにファイルシステムやパーティション、あるいはZFS、LVM、Linux RAID、LUKSメンバーなどのシグネチャが含まれているということです。既存のファイルシステムは<a href='#/storage/filesystems/mount'>ここ</a>でマウントできます。それ以外の場合は、デバイスを再利用できるようにするために<a href='#/storage/disks'>ワイプ</a>を行ってください。"
 
 msgid ""
 "If set then the client will be prompted to supply a user name and password "
@@ -1633,7 +1633,7 @@ msgid ""
 "Improve interoperability with macOS clients: correctly handle filenames "
 "using characters reserved in SMB, and apply Samba tuning recommended for "
 "macOS."
-msgstr ""
+msgstr "macOS クライアントとの相互運用性を向上させる：SMB で予約されている文字を含むファイル名を正しく処理し、macOS 向けに推奨されている Samba のチューニングを適用する。"
 
 msgid "India"
 msgstr "インド"
@@ -1660,10 +1660,10 @@ msgid "Install plugin"
 msgstr "プラグインのインストール"
 
 msgid "Install public key to remote machine"
-msgstr ""
+msgstr "リモートマシンに公開鍵をインストールする"
 
 msgid "Install security updates unattended."
-msgstr ""
+msgstr "セキュリティ更新プログラムを無人インストールする。"
 
 msgid "Install updates"
 msgstr "アップデートのインストール"
@@ -1842,7 +1842,7 @@ msgstr "1月間のリミット"
 msgid ""
 "Limit the reported disk size, thus preventing Time Machine from using the "
 "whole real disk space for backup."
-msgstr ""
+msgstr "報告されるディスク容量に制限を設けることで、Time Machineがバックアップのために実際のディスク容量のすべてを使用することを防ぎます。"
 
 msgid "Limit weekly"
 msgstr "1週間のリミット"
@@ -1878,10 +1878,10 @@ msgid "Log level"
 msgstr "ログレベル"
 
 msgid "Log out"
-msgstr ""
+msgstr "ログアウト"
 
 msgid "Logged in as <strong>{{ username }}</strong>"
-msgstr ""
+msgstr "<strong>{{ username }} </strong>としてログインしました"
 
 msgid "Logout"
 msgstr "ログアウト"
@@ -1941,7 +1941,7 @@ msgid "Malta"
 msgstr "マルタ"
 
 msgid "Management of CPU frequency scaling."
-msgstr ""
+msgstr "CPU周波数スケーリングの管理。"
 
 msgid "Management of scheduled tasks."
 msgstr "スケジュールされたタスクの管理。"
@@ -2261,10 +2261,10 @@ msgstr "実行されていません"
 
 msgid ""
 "Note that SMB1 is deprecated and should only be used in mandatory cases."
-msgstr ""
+msgstr "SMB1は非推奨となっているため、どうしても必要な場合のみ使用してください。"
 
 msgid "Note, only one client can be configured per share."
-msgstr ""
+msgstr "1つの共有につき設定できるクライアントは1台のみです。"
 
 msgid "Nothing"
 msgstr "何もしない"
@@ -2273,7 +2273,7 @@ msgid "Notification"
 msgstr "通知"
 
 msgid "Notification schedule"
-msgstr ""
+msgstr "通知スケジュール"
 
 msgid "Notifications"
 msgstr "通知"
@@ -2442,13 +2442,13 @@ msgstr "ピトケアン諸島"
 msgid ""
 "Please check the <a href=\"https://download.samba.org/pub/rsync/rsync.1\" "
 "target=\"_blank\">manual page</a> for more details."
-msgstr ""
+msgstr "詳細については、<a href=\"https://download.samba.org/pub/rsync/rsync.1\" target=\"_blank\">マニュアルページ</a>をご確認ください。"
 
 msgid ""
 "Please check the <a "
 "href=\"https://download.samba.org/pub/rsync/rsyncd.conf.5\" "
 "target=\"_blank\">manual page</a> for more details."
-msgstr ""
+msgstr "詳細については、<a href=\"https://download.samba.org/pub/rsync/rsyncd.conf.5\" target=\"_blank\">マニュアルページ</a>をご確認ください。"
 
 msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
@@ -2470,16 +2470,16 @@ msgid "Please choose the method to wipe the device."
 msgstr "端末のワイプ方法を選択してください。"
 
 msgid "Please note that values >= 128 do not permit the disk to spin down."
-msgstr ""
+msgstr "128以上の値を設定すると、ディスクのスピンダウンが行われなくなる点にご注意ください。"
 
 msgid "Please wait ..."
 msgstr "お待ちください ..."
 
 msgid "Please wait, a shared folder will be created ..."
-msgstr ""
+msgstr "しばらくお待ちください。共有フォルダを作成中です……"
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr ""
+msgstr "しばらくお待ちください。スナップショットを作成中です……"
 
 msgid "Please wait, deleting selected item(s) ..."
 msgstr "選択した項目を削除しているため、しばらくお待ちください ..."
@@ -2615,7 +2615,7 @@ msgid "Profile"
 msgstr "プロファイル"
 
 msgid "Profile Settings"
-msgstr ""
+msgstr "プロファイル設定"
 
 msgid "Protocol"
 msgstr "プロトコル"
@@ -2696,7 +2696,7 @@ msgid "Relative path"
 msgstr "相対パス"
 
 msgid "Reliable system and kernel logging daemon."
-msgstr ""
+msgstr "信頼性の高いシステムおよびカーネルログ記録デーモン。"
 
 msgid "Reload"
 msgstr "再読み込み"
@@ -2735,7 +2735,7 @@ msgid "Result"
 msgstr "結果"
 
 msgid "Retention period"
-msgstr ""
+msgstr "保存期間"
 
 msgid "Retention time"
 msgstr "保持時間"
@@ -2974,7 +2974,7 @@ msgid "Send command output via email"
 msgstr "電子メールを介してコマンドの出力を送る"
 
 msgid "Send notifications about pending package updates."
-msgstr ""
+msgstr "保留中のパッケージの更新に関する通知を送信する。"
 
 msgid "Sender email"
 msgstr "送信者のメールアドレス"
@@ -3031,7 +3031,7 @@ msgid ""
 " fail to coincide with any of the scheduled test that have been specified. "
 "In this case the scheduled test will be run following the next device "
 "polling."
-msgstr ""
+msgstr "ディスクチェックの間隔を N 秒に設定します。このポーリング間隔を 60 分以上に設定する場合は注意が必要です。ポーリングのタイミングが、指定したスケジュールされたテストのいずれとも一致しなくなる可能性があります。その場合、スケジュールされたテストは、次回のデバイスポーリング後に実行されます。"
 
 msgid "Settings"
 msgstr "設定"
@@ -3100,7 +3100,7 @@ msgid "Sleep"
 msgstr "Sleep"
 
 msgid "Sleeping"
-msgstr ""
+msgstr "スリープ"
 
 msgid "Slovakia"
 msgstr "スロバキア"
@@ -3112,7 +3112,7 @@ msgid "Snapshots"
 msgstr "スナップショット"
 
 msgid "Software"
-msgstr ""
+msgstr "ソフトウェア"
 
 msgid "Software Failure.   Press left mouse button to continue."
 msgstr "ソフトウェアの不具合。   マウスの左ボタンで続行します。"
@@ -3173,7 +3173,7 @@ msgid ""
 msgstr "リンクリカバリーが検出された後、スレーブを有効にする前に待機する時間をミリ秒単位で指定します。"
 
 msgid "Specifies the type of key to create."
-msgstr ""
+msgstr "作成するキーのタイプを指定します。"
 
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr "スーパーユーザーとしてログインすることを許可するかを指定します。"
@@ -3188,7 +3188,7 @@ msgstr "どのスレーブがプライマリデバイスかを指定します。
 
 msgid ""
 "Specify how often to receive notifications about available package updates."
-msgstr ""
+msgstr "利用可能なパッケージの更新に関する通知を受け取る頻度を指定してください。"
 
 msgid "Speed"
 msgstr "スピード"
@@ -3227,10 +3227,10 @@ msgid "Stop"
 msgstr "ストップ"
 
 msgid "Stopped by debugger during trace"
-msgstr ""
+msgstr "トレース中にデバッガーで停止しました"
 
 msgid "Stopped by job control signal"
-msgstr ""
+msgstr "ジョブ制御信号により停止しました"
 
 msgid "Storage"
 msgstr "ストレージ"
@@ -3239,7 +3239,7 @@ msgid "Store DOS attributes"
 msgstr "DOS属性を書き込む"
 
 msgid "Submit"
-msgstr ""
+msgstr "送信"
 
 msgid "Success"
 msgstr "成功"
@@ -3254,7 +3254,7 @@ msgid "Sunday"
 msgstr "日曜"
 
 msgid "Support name resolution and network discovery for legacy systems."
-msgstr ""
+msgstr "レガシーシステムの名前解決およびネットワーク検出をサポートします。"
 
 msgid "Suppress non-error messages"
 msgstr "非エラーメッセージを抑制する"
@@ -3349,10 +3349,10 @@ msgid "Thailand"
 msgstr "タイ"
 
 msgid "The HTTP and HTTPS ports must not be the same."
-msgstr ""
+msgstr "HTTPとHTTPSのポート番号は同じにしてはなりません。"
 
 msgid "The NFS versions provided by the service."
-msgstr ""
+msgstr "サービスが提供するNFSのバージョン。"
 
 msgid "The NT description field."
 msgstr "NTの説明フィールド。"
@@ -3370,7 +3370,7 @@ msgid "The action to be done when pressing the power button."
 msgstr "電源ボタンを押したときに実行されるアクション。"
 
 msgid "The authentication challenge URL is invalid."
-msgstr ""
+msgstr "認証チャレンジのURLが無効です。"
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
@@ -3391,14 +3391,14 @@ msgstr "送信先のリモートサーバ 例） [USER@]HOST:DEST, [USER@]HOST::
 msgid ""
 "The documentation page provides helpful information about your storage "
 "system."
-msgstr ""
+msgstr "このドキュメントページでは、お使いのストレージシステムに関する役立つ情報を提供しています。"
 
 msgid ""
 "The domain name of the system. If your system is part of a private network "
 "without a registered domain, use <em>internal</em> as suggested by <a "
 "href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
 "target=\"_blank\">ICANN</a>."
-msgstr ""
+msgstr "システムのドメイン名。システムが、登録されたドメインを持たないプライベートネットワークの一部である場合は、<a href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" target=\"_blank\">ICANN</a>の推奨に従い、<em>internal</em>を使用してください。"
 
 msgid "The field should only contain * or a comma separated list of values."
 msgstr "フィールドには、* またはカンマで区切られた値のリストのみを含める必要があります。"
@@ -3413,16 +3413,16 @@ msgid "The file system to mount."
 msgstr "マウントするファイルシステム。"
 
 msgid "The following modules have been updated: {{ modules }}"
-msgstr ""
+msgstr "以下のモジュールが更新されました：{{ modules }}"
 
 msgid "The following modules will be updated:"
 msgstr "以下のモジュールが更新されます:"
 
 msgid "The forum page is the best place to ask questions and find answers."
-msgstr ""
+msgstr "フォーラムページは、質問をしたり答えを見つけたりするのに最適な場所です。"
 
 msgid "The home of the project and source of news and updates."
-msgstr ""
+msgstr "このプロジェクトの拠点であり、ニュースや最新情報の発信元です。"
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "ホスト名はネットワーク上でシステムを識別するためのラベルです。"
@@ -3455,25 +3455,25 @@ msgid "The name of the share."
 msgstr "共有の名前。"
 
 msgid "The number of custom snapshots to keep."
-msgstr ""
+msgstr "保持するカスタムスナップショットの数。"
 
 msgid "The number of daily snapshots to keep."
-msgstr ""
+msgstr "保存する1日あたりのスナップショットの数。"
 
 msgid "The number of days the certificate is valid for."
 msgstr "この日数だけ証明書は有効です。"
 
 msgid "The number of hourly snapshots to keep."
-msgstr ""
+msgstr "保持する1時間ごとのスナップショットの数。"
 
 msgid "The number of monthly snapshots to keep."
-msgstr ""
+msgstr "保存する月ごとのスナップショットの数。"
 
 msgid "The number of weekly snapshots to keep."
-msgstr ""
+msgstr "保持する週ごとのスナップショットの数。"
 
 msgid "The number of yearly snapshots to keep."
-msgstr ""
+msgstr "保存する年間スナップショットの数。"
 
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
@@ -3491,19 +3491,19 @@ msgid "The port on which SSH is running on the remote system."
 msgstr "リモートシステム上で実行されているSSHのポート。"
 
 msgid "The private key in PEM format."
-msgstr ""
+msgstr "PEM形式の秘密鍵。"
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port."
 msgstr "ソース/デスティネーションポートと組み合わせたプロトコルはサポートされていません。"
 
 msgid "The public key in OpenSSH format."
-msgstr ""
+msgstr "OpenSSH形式の公開鍵。"
 
 msgid ""
 "The relative path of the folder to share. Use '/' to share the root of the "
 "file system. The specified folder will be created if it does not exist."
-msgstr ""
+msgstr "共有するフォルダの相対パス。ファイルシステムのルートを共有するには'/'を使用してください。指定したフォルダが存在しない場合は、作成されます。"
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3513,7 +3513,7 @@ msgstr "新規、削除またはアップデートされたソフトウェアパ
 msgid ""
 "The requested authentication challenge is not supported by this browser "
 "interface. Please contact your administrator."
-msgstr ""
+msgstr "このブラウザのインターフェースでは、要求された認証チャレンジに対応していません。管理者にお問い合わせください。"
 
 msgid "The requested page was not found."
 msgstr "要求されたページはありません。"
@@ -3522,7 +3522,7 @@ msgid ""
 "The retention period (in seconds) before a snapshot can be deleted. This "
 "ensures that a snapshot that has just been created cannot be deleted again "
 "immediately."
-msgstr ""
+msgstr "スナップショットを削除できるようになるまでの保持期間（秒単位）。これにより、作成されたばかりのスナップショットが直ちに削除されることを防ぎます。"
 
 msgid "The server is unavailable to handle this request right now."
 msgstr "サーバーは現在、このリクエストを処理することができません。"
@@ -3558,7 +3558,7 @@ msgid ""
 msgstr "値は、スレーブ ネットワーク インターフェイスのいずれかでなければなりません {{ slaves | join(\", \") }}"
 
 msgid "The value must be one of the slave network interfaces."
-msgstr ""
+msgstr "この値は、スレーブのネットワークインターフェースのいずれかである必要があります。"
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "ワークグループはサーバがクライアントから参照される際に表示されます。"
@@ -3592,7 +3592,7 @@ msgstr "共有が、net viewとブラウズリストで利用可能な共有の�
 msgid ""
 "This field contains invalid characters (e.g. \"\\/[]:+|<>=;,*?) or has "
 "leading/trailing spaces."
-msgstr ""
+msgstr "このフィールドには無効な文字（例：「\\/[]:+|<>=;,*?」など）が含まれているか、先頭または末尾にスペースがあります。"
 
 msgid ""
 "This field contains invalid characters, only alphanumeric characters and "
@@ -3602,7 +3602,7 @@ msgstr "このフィールドには無効な文字が含まれています。英
 msgid ""
 "This field is automatically filled with the subject of the certificate if "
 "left blank."
-msgstr ""
+msgstr "この欄を空白のままにすると、証明書の件名が自動的に入力されます。"
 
 msgid "This field is required."
 msgstr "このフィールドは必須です。"
@@ -3611,13 +3611,13 @@ msgid "This field must have the format <hh:mm:ss>."
 msgstr "このフィールドは <hh:mm:ss>のフォーマットで記述する必要があります。"
 
 msgid "This field must match the format SIZE[K|M|G|T|P]."
-msgstr ""
+msgstr "このフィールドは、SIZE[K|M|G|T|P]. という形式に一致する必要があります。"
 
 msgid "This field should be a IP network address in CIDR notation."
 msgstr "このフィールドは、CIDR記法によるIPネットワークアドレスである必要があります。"
 
 msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
-msgstr ""
+msgstr "このフィールドにはMACアドレスを入力してください。例：00:80:41:ae:fd:7e."
 
 msgid "This field should be a domain name or an IP address."
 msgstr "このフィールドは、ドメイン名またはIPアドレスである必要があります。"
@@ -3745,7 +3745,7 @@ msgstr "このパラメータは、ドットで始まるファイルは隠しフ
 msgid ""
 "This setting controls the minimum protocol version that the server will "
 "allow the client to use."
-msgstr ""
+msgstr "この設定は、サーバーがクライアントに許可するプロトコルの最小バージョンを指定します。"
 
 msgid "This specifies what to do if the packet matches."
 msgstr "パケットが一致した場合にどうするかを指定します。"
@@ -4027,7 +4027,7 @@ msgid "Updated user \"{{ name }}\"."
 msgstr "ユーザー \"{{ name }}\" を更新しました。"
 
 msgid "Updated user settings."
-msgstr ""
+msgstr "ユーザー設定を更新しました。"
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
 msgstr "有線ネットワーク接続 \"{{ devicename }}\" を更新しました。"
@@ -4109,7 +4109,7 @@ msgstr "ユーザー"
 msgid ""
 "Users must be assigned to the <em>_ssh</em> group to be able to log in via "
 "SSH."
-msgstr ""
+msgstr "SSH経由でログインするには、ユーザーを<em>_ssh</em>グループに割り当てる必要があります。"
 
 msgid "Utilization"
 msgstr "使用率"
@@ -4201,7 +4201,7 @@ msgstr "西サハラ"
 msgid ""
 "While the background task is still running, you can attach the Workbench "
 "terminal dialog to it in the notification bar."
-msgstr ""
+msgstr "バックグラウンドタスクが実行中の間、通知バーからWorkbenchのターミナルダイアログをそのタスクにアタッチすることができます。"
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
@@ -4254,7 +4254,7 @@ msgid "You must apply these changes in order for them to take effect."
 msgstr "これらの変更を有効にするためには、適用する必要があります。"
 
 msgid "You will be logged out due to inactivity in {{ n }} seconds."
-msgstr ""
+msgstr "{{ n }}秒間操作がないため、ログアウトされます。"
 
 msgid "Zambia"
 msgstr "ザンビア"
@@ -4287,7 +4287,7 @@ msgid "in %s"
 msgstr "%s の中"
 
 msgid "macOS compatibility"
-msgstr ""
+msgstr "macOSとの互換性"
 
 msgid "selected"
 msgstr "選択済み"

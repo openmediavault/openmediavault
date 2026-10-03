@@ -417,7 +417,7 @@ msgid "Antigua and Barbuda"
 msgstr "Antigua e Barbuda"
 
 msgid "Applied the configuration changes."
-msgstr "Sono state applicate le modifiche della configurazione."
+msgstr "Sono state applicate le modifiche alla configurazione."
 
 msgid "Apply"
 msgstr "Applica"
@@ -2752,7 +2752,7 @@ msgid "Reunion"
 msgstr "Riunione"
 
 msgid "Reverted the configuration changes."
-msgstr "Le modifiche della configurazione sono state annullate."
+msgstr "Le modifiche alla configurazione sono state annullate."
 
 msgid "Romania"
 msgstr "Romania"

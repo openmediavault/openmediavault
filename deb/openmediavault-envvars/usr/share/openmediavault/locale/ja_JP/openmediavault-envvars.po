@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-envvars package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Toshihiro Kan <kansuke4649@gmail.com>, 2026
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-23 20:04+0200\n"
 "PO-Revision-Date: 2026-04-23 18:04+0000\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2026\n"
 "Language-Team: Japanese (Japan) (https://app.transifex.com/openmediavault/teams/14254/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,32 +22,32 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Apply"
-msgstr ""
+msgstr "適用"
 
 msgid "Create"
-msgstr ""
+msgstr "作成"
 
 msgid "Created environment variable."
-msgstr ""
+msgstr "環境変数が作成されました。"
 
 msgid "Edit"
-msgstr ""
+msgstr "編集"
 
 msgid "Environment Variables"
-msgstr ""
+msgstr "環境変数"
 
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 msgid ""
 "Please wait, applying environment variables. This can take some time ..."
-msgstr ""
+msgstr "しばらくお待ちください。環境変数を適用しています。これには少し時間がかかる場合があります……"
 
 msgid "Select an environment variable ..."
-msgstr ""
+msgstr "環境変数を選択してください ..."
 
 msgid "Updated environment variable."
-msgstr ""
+msgstr "環境変数を更新しました。"
 
 msgid "Value"
-msgstr ""
+msgstr "値"

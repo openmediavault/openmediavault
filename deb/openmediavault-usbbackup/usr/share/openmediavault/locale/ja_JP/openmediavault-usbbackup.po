@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-usbbackup package.
 # 
 # Translators:
-# Toshihiro Kan <kansuke4649@gmail.com>, 2014,2017,2019,2021-2022
+# Toshihiro Kan <kansuke4649@gmail.com>, 2014,2017,2019,2021-2022,2026
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-03 21:46+0100\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
-"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014,2017,2019,2021-2022\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014,2017,2019,2021-2022,2026\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr ""
+msgstr "コマンドの実行結果（出力がある場合）が記載された電子メールが管理者に送信されます。"
 
 msgid "Archive"
 msgstr "アーカイブ"
@@ -149,7 +149,7 @@ msgid "Tags"
 msgstr "Tags"
 
 msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
-msgstr ""
+msgstr "「メールを送信」と「静かに」のオプションは、互いに排他的です。"
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "
@@ -160,7 +160,7 @@ msgid ""
 "The relative directory path on the external storage device from/to which the"
 " content of the shared folder is to be synchronized. The directory is "
 "created if it does not exist."
-msgstr ""
+msgstr "共有フォルダのコンテンツを同期する元となる、または同期先の外部ストレージデバイス上の相対ディレクトリパス。ディレクトリが存在しない場合は作成されます。"
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "

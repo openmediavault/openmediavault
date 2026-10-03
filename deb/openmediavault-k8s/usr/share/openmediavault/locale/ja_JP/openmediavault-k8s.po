@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Toshihiro Kan <kansuke4649@gmail.com>, 2024
+# Toshihiro Kan <kansuke4649@gmail.com>, 2026
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-26 11:58+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2024\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2026\n"
 "Language-Team: Japanese (Japan) (https://app.transifex.com/openmediavault/teams/14254/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,355 +22,360 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Absolute Path"
-msgstr ""
+msgstr "絶対パス"
 
 msgid "Access Modes"
-msgstr ""
+msgstr "アクセスモード"
 
 msgid "App Version"
-msgstr ""
+msgstr "Appバージョン"
 
 msgid "Apply"
-msgstr ""
+msgstr "適用"
 
 msgid "Architecture"
-msgstr ""
+msgstr "アーキテクチャー"
 
 msgid "Available"
-msgstr ""
+msgstr "利用可能"
 
 msgid "Capacity"
-msgstr ""
+msgstr "容量"
 
 msgid "Certificate"
-msgstr ""
+msgstr "証明書"
 
 msgid "Certificates"
-msgstr ""
+msgstr "証明書"
 
 msgid "Chart"
-msgstr ""
+msgstr "チャート"
 
 msgid "Check for new recipes"
-msgstr ""
+msgstr "新しいレシピを確認する"
 
 msgid "Class"
-msgstr ""
+msgstr "クラス"
 
 msgid "Cluster IP"
-msgstr ""
+msgstr "クラスターIP"
 
 msgid "Compressed"
-msgstr ""
+msgstr "圧縮済み"
 
 msgid "Config Maps"
-msgstr ""
+msgstr "Config Maps"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "クリップボードへコピー"
 
 msgid "Copy token"
-msgstr ""
+msgstr "トークンをコピー"
 
 msgid "Count"
-msgstr ""
+msgstr "カウント"
 
 msgid "Created"
-msgstr ""
+msgstr "作成済み"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "ダッシュボード"
 
 msgid "Data"
-msgstr ""
+msgstr "日付"
 
 msgid "Datastore"
-msgstr ""
+msgstr "データストア"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "日付と時刻"
 
 msgid "Depends"
-msgstr ""
+msgstr "依存"
 
 msgid "Deployments"
-msgstr ""
+msgstr "展開"
 
 msgid "Describe"
-msgstr ""
+msgstr "説明"
 
 msgid "Description"
-msgstr ""
+msgstr "説明"
 
 msgid "Do you really want to restore this snapshot?"
-msgstr ""
+msgstr "このスナップショットを本当に復元しますか？"
 
 msgid "Download"
-msgstr ""
+msgstr "ダウンロード"
 
 msgid ""
 "Downloading the kubeconfig file to the local system enables secure remote "
 "management of the Kubernetes cluster using command-line tools like kubectl."
 msgstr ""
+"kubeconfig ファイルをローカルシステムにダウンロードすることで、kubectl などのコマンドラインツールを使用して、Kubernetes "
+"クラスタを安全にリモート管理できるようになります。"
 
 msgid "Enabled"
 msgstr "有効化済み"
 
 msgid "Events"
-msgstr ""
+msgstr "イベント"
 
 msgid "Expose"
-msgstr ""
+msgstr "Expose"
 
 msgid "Exposed"
-msgstr ""
+msgstr "Exposed"
 
 msgid "Exposed port"
-msgstr ""
+msgstr "Exposed port"
 
 msgid "External IP"
-msgstr ""
+msgstr "外部IP"
 
 msgid "Extra configuration"
-msgstr ""
+msgstr "追加設定"
 
 msgid "Failed"
-msgstr ""
+msgstr "失敗"
 
 msgid "First seen"
-msgstr ""
+msgstr "First seen"
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Groups"
-msgstr ""
+msgstr "グループ"
 
 msgid "Helm Charts"
-msgstr ""
+msgstr "Helm Charts"
 
 msgid "Homepage"
-msgstr ""
+msgstr "ホームページ"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Image"
-msgstr ""
+msgstr "イメージ"
 
 msgid "Images"
 msgstr "イメージ"
 
 msgid "Import"
-msgstr ""
+msgstr "インポート"
 
 msgid "Ingredients"
-msgstr ""
+msgstr "Ingredients"
 
 msgid "Ingress Routes"
-msgstr ""
+msgstr "Ingress Routes"
 
 msgid "Ingresses"
-msgstr ""
+msgstr "Ingresses"
 
 msgid "Job"
-msgstr ""
+msgstr "ジョブ"
 
 msgid "Kubeconfig"
-msgstr ""
+msgstr "Kubeconfig"
 
 msgid "Kubernetes"
-msgstr ""
+msgstr "Kubernetes"
 
 msgid "Kubernetes - Pods"
-msgstr ""
+msgstr "Kubernetes - Pods"
 
 msgid "Kubernetes - Resources"
-msgstr ""
+msgstr "Kubernetes - リソース"
 
 msgid "Labels"
-msgstr ""
+msgstr "ラベル"
 
 msgid "Last seen"
-msgstr ""
+msgstr "Last seen"
 
 msgid "Load Balancer"
-msgstr ""
+msgstr "ロードバランサ"
 
 msgid "Logs"
-msgstr ""
+msgstr "ログ"
 
 msgid "Manifest"
-msgstr ""
+msgstr "マニフェスト"
 
 msgid "Message"
-msgstr ""
+msgstr "メッセージ"
 
 msgid "Monitoring - Kubernetes"
-msgstr ""
+msgstr "モニタリング - Kubernetes"
 
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 msgid "Namespace"
-msgstr ""
+msgstr "ネームスペース"
 
 msgid "Namespaces"
-msgstr ""
+msgstr "ネームスペース"
 
 msgid "NodePort IP"
-msgstr ""
+msgstr "NodePort IP"
 
 msgid "Normal"
-msgstr ""
+msgstr "ノーマル"
 
 msgid "Object"
-msgstr ""
+msgstr "オブジェクト"
 
 msgid "Open UI"
 msgstr "UIを開く"
 
 msgid "PV"
-msgstr ""
+msgstr "PV"
 
 msgid "PVC"
-msgstr ""
+msgstr "PVC"
 
 msgid "Pending"
-msgstr ""
+msgstr "ペンディング"
 
 msgid "Persistent Volume Claims"
-msgstr ""
+msgstr "Persistent Volume Claims"
 
 msgid "Persistent Volumes"
-msgstr ""
+msgstr "Persistent Volumes"
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr ""
+msgstr "しばらくお待ちください。スナップショットを作成中です……"
 
 msgid "Please wait, the snapshot will be restored ..."
-msgstr ""
+msgstr "しばらくお待ちください。スナップショットを復元中です……"
 
 msgid "Pods"
-msgstr ""
+msgstr "Pods"
 
 msgid "Port"
 msgstr "ポート"
 
 msgid "Ports"
-msgstr ""
+msgstr "ポート"
 
 msgid "Protocol"
-msgstr ""
+msgstr "プロトコル"
 
 msgid "README"
-msgstr ""
+msgstr "README"
 
 msgid "Ready"
-msgstr ""
+msgstr "Ready"
 
 msgid "Reason"
-msgstr ""
+msgstr "Reason"
 
 msgid "Recipe Information"
-msgstr ""
+msgstr "Recipe 情報"
 
 msgid "Recipe Version"
-msgstr ""
+msgstr "Recipe バージョン"
 
 msgid "Recipes"
-msgstr ""
+msgstr "Recipes"
 
 msgid "Reclaim policy"
-msgstr ""
+msgstr "Reclaim policy"
 
 msgid ""
 "Refer to the values.yaml file in the Traefik Helm chart to see what "
 "configuration options are available."
-msgstr ""
+msgstr "利用可能な設定オプションについては、TraefikのHelmチャート内のvalues.yamlファイルを参照してください。"
 
 msgid "Repository"
-msgstr ""
+msgstr "リポジトリ"
 
 msgid "Resources"
-msgstr ""
+msgstr "リソース"
 
 msgid "Restore"
-msgstr ""
+msgstr "リストア"
 
 msgid "Running"
-msgstr ""
+msgstr "実行中"
 
 msgid "SQLite"
-msgstr ""
+msgstr "SQLite"
 
 msgid "Secrets"
-msgstr ""
+msgstr "シークレット"
 
 msgid "Section"
-msgstr ""
+msgstr "セクション"
 
 msgid "Services"
-msgstr ""
+msgstr "サービス"
 
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 msgid "Shared Folders"
-msgstr ""
+msgstr "共有フォルダ"
 
 msgid "Show README"
-msgstr ""
+msgstr "READMEを表示"
 
 msgid "Show the number of pods per status phase."
-msgstr ""
+msgstr "ステータスフェーズごとのポッド数を表示します。"
 
 msgid "Show the total number of several resources."
-msgstr ""
+msgstr "複数のリソースの総数を表示します。"
 
 msgid "Size"
-msgstr ""
+msgstr "サイズ"
 
 msgid "Snapshots"
-msgstr ""
+msgstr "スナップショット"
 
 msgid "Source"
-msgstr ""
+msgstr "ソース"
 
 msgid "Stateful Sets"
-msgstr ""
+msgstr "Stateful Sets"
 
 msgid "Status"
-msgstr ""
+msgstr "ステータス"
 
 msgid "Storage Class"
-msgstr ""
+msgstr "ストレージクラス"
 
 msgid "Succeeded"
-msgstr ""
+msgstr "成功しました"
 
 msgid "Tag"
-msgstr ""
+msgstr "タグ"
 
 msgid "Tags"
 msgstr "タグ"
 
 msgid "Target Namespace"
-msgstr ""
+msgstr "ターゲットネームスペース"
 
 msgid ""
 "The SSL certificate used by the LoadBalancer service. If not set, a self-"
 "signed certificate from cert-manager is used."
 msgstr ""
+"ロードバランサ サービスで使用される SSL 証明書。設定されていない場合は、cert-manager による自己署名証明書が使用されます。"
 
 msgid ""
 "The datastore used by the Kubernetes cluster. SQLite is recommended for "
 "single-node setups and SBCs with slow disks, while etcd is recommended for "
 "high-availability setups with multiple nodes."
 msgstr ""
+"Kubernetes クラスターで使用されるデータストア。シングルノード構成やディスクの速度が遅い SBC には SQLite "
+"が推奨され、複数のノードからなる高可用性構成には etcd が推奨されます。"
 
 msgid "The field should only contain the characters a-z, 0-9 and -."
-msgstr ""
+msgstr "このフィールドには、a-z、0-9、および「-」のみを入力してください。"
 
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
@@ -381,57 +386,63 @@ msgid ""
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>here</a>."
 msgstr ""
+"レシピ内で、システム全体の情報や設定データベースにアクセスするために、以下のプレースホルダーを使用できます。<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr"
+" "
+"(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>プレースホルダーは二重中括弧で囲む必要があります。利用可能なその他のフィルターの概要については、<a "
+"href='https://twig.symfony.com/doc/filters/index.html' "
+"target='_blank'>こちら</a>をご覧ください。"
 
 msgid "The location where to store etcd on-demand snapshots."
-msgstr ""
+msgstr "etcdのオンデマンドスナップショットを保存する場所。"
 
 msgid "The manifest to apply."
-msgstr ""
+msgstr "適用するマニフェスト。"
 
 msgid "The snapshot was created successfully."
-msgstr ""
+msgstr "スナップショットの作成に成功しました。"
 
 msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
-msgstr ""
+msgstr "スナップショット {{ spec.snapshotName }} の復元が正常に完了しました。"
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
-msgstr ""
+msgstr "Kubernetes ダッシュボードへの認証に使用するトークン。"
 
 msgid "Type"
-msgstr ""
+msgstr "タイプ"
 
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 msgid "UUID"
-msgstr ""
+msgstr "UUID"
 
 msgid "Unknown"
-msgstr ""
+msgstr "不明"
 
 msgid "Up-to-date"
-msgstr ""
+msgstr "Up-to-date"
 
 msgid "Updated Kubernetes settings."
-msgstr ""
+msgstr "Kubernetesの設定を更新しました。"
 
 msgid "Users"
-msgstr ""
+msgstr "ユーザー"
 
 msgid "Version"
-msgstr ""
+msgstr "バージョン"
 
 msgid "View"
-msgstr ""
+msgstr "表示"
 
 msgid "Volume"
-msgstr ""
+msgstr "ボリューム"
 
 msgid "Warning"
-msgstr ""
+msgstr "警告"
 
 msgid "YAML"
-msgstr ""
+msgstr "YAML"
 
 msgid "etcd"
-msgstr ""
+msgstr "etcd"

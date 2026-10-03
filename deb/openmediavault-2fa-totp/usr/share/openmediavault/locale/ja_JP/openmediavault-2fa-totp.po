@@ -22,31 +22,31 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "2FA TOTP"
-msgstr ""
+msgstr "2FA TOTP"
 
 msgid "Disable"
-msgstr ""
+msgstr "無効化"
 
 msgid "Disable 2FA TOTP"
-msgstr ""
+msgstr "2FA TOTPの無効化"
 
 msgid "Edit"
-msgstr ""
+msgstr "編集"
 
 msgid "Enable"
-msgstr ""
+msgstr "有効化"
 
 msgid "Enable 2FA TOTP"
-msgstr ""
+msgstr "2FA TOTPの有効化"
 
 msgid "Enabled"
 msgstr "有効化済み"
 
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 msgid "QR code"
-msgstr ""
+msgstr "QRコード"
 
 msgid ""
 "Scan the QR code below with your authenticator app (Google Authenticator, "
@@ -54,12 +54,14 @@ msgid ""
 "manually. Once your authenticator app is configured, enter the 6-digit code "
 "it shows to confirm the setup."
 msgstr ""
+"認証アプリ（Google "
+"Authenticator、Authyなど）で、以下のQRコードをスキャンしてください。お使いのアプリがQRコードに対応していない場合は、シークレットキーを手動で入力してください。認証アプリの設定が完了したら、アプリに表示される6桁のコードを入力して設定を確認してください。"
 
 msgid "Secret"
-msgstr ""
+msgstr "シークレット"
 
 msgid "Two-Factor Authentication"
-msgstr ""
+msgstr "二要素認証"
 
 msgid ""
 "Two-factor authentication (2FA) with TOTP adds an extra layer of security by"
@@ -67,12 +69,14 @@ msgid ""
 "addition to your password. You can enable or disable it for your account "
 "here."
 msgstr ""
+"TOTP "
+"を利用した二要素認証（2FA）では、パスワードに加えて、認証アプリから取得した時間ベースのワンタイムコードの入力を求めることで、セキュリティをさらに強化します。アカウントでのこの機能の有効化または無効化は、こちらから行えます。"
 
 msgid "Updated 2FA TOTP."
-msgstr ""
+msgstr "2FA TOTPを更新しました。"
 
 msgid "User name"
-msgstr ""
+msgstr "ユーザー名"
 
 msgid "Verification code"
-msgstr ""
+msgstr "確認コード"

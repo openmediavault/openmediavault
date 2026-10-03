@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-wbprefs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Toshihiro Kan <kansuke4649@gmail.com>, 2026
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-08 19:29+0100\n"
 "PO-Revision-Date: 2026-03-07 00:03+0000\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2026\n"
 "Language-Team: Japanese (Japan) (https://app.transifex.com/openmediavault/teams/14254/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,43 +22,43 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Apply"
-msgstr ""
+msgstr "適用"
 
 msgid "Login"
-msgstr ""
+msgstr "ログイン"
 
 msgid "Page"
-msgstr ""
+msgstr "ページ"
 
 msgid "Reset"
-msgstr ""
+msgstr "リセット"
 
 msgid "Reset the wallpaper to the default image."
-msgstr ""
+msgstr "壁紙をデフォルトの画像にリセットします。"
 
 msgid "Shutdown"
-msgstr ""
+msgstr "シャットダウン"
 
 msgid "Standby"
-msgstr ""
+msgstr "スタンバイ"
 
 msgid "The URL from which the image is to be fetched."
-msgstr ""
+msgstr "イメージ取得元のURLです。"
 
 msgid "The URL must start with http://, https:// or file://."
-msgstr ""
+msgstr "URLは、http://、https://、またはfile://で始まる必要があります。"
 
 msgid "The page for which the wallpaper is to be set."
-msgstr ""
+msgstr "壁紙を設定するページ。"
 
 msgid "The wallpaper has been updated."
-msgstr ""
+msgstr "壁紙が更新されました。"
 
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 msgid "Wallpaper"
-msgstr ""
+msgstr "壁紙"
 
 msgid "You may need to clear your browser's cache to see your changes."
-msgstr ""
+msgstr "変更内容を反映させるには、ブラウザのキャッシュを消去する必要がある場合があります。"

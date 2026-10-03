@@ -1047,7 +1047,7 @@ msgid "Djibouti"
 msgstr "Djibouti"
 
 msgid "Do you really want to apply the configuration changes?"
-msgstr "Wilt u echt de aanpassingen in de configuratie toepassen?"
+msgstr "Wilt u echt de wijzigingen in de configuratie toepassen?"
 
 msgid "Do you really want to copy the permissions from the shared folder?"
 msgstr "Wilt u echt de machtigingen kopiëren vanuit de gedeelde map?"
@@ -1084,7 +1084,7 @@ msgid "Do you really want to shutdown the system?"
 msgstr "Wilt u echt het systeem uischakelen?"
 
 msgid "Do you really want to undo the configuration changes?"
-msgstr "Wilt u echt de aanpassingen aan de configuratie terugdraaien?"
+msgstr "Wilt u de wijzigingen aan de configuratie echt terugdraaien?"
 
 msgid "Do you really want to uninstall the plugin?"
 msgstr "Wilt u echt de plug-in verwijderen?"
@@ -2409,7 +2409,7 @@ msgid "People's Democratic Republic of Yemen"
 msgstr "Democratische Volksrepubliek Jemen"
 
 msgid "Perform a trial run with no changes made"
-msgstr "Voer een test uit zonder gemaakte aanpassingen"
+msgstr "Voer een test uit zonder dat er wijzigingen worden aangebracht"
 
 msgid "Performance Statistics"
 msgstr "Prestatiestatistieken"
