@@ -320,7 +320,9 @@ export class FormPageComponent
         const doRpcRequestFn = () => {
           // Process the RPC parameters.
           if (_.isPlainObject(request.post.params)) {
-            const params = formatDeep(request.post.params, _.merge(this.pageContext, values));
+            // The tokens can reference the form values, so the parameters
+            // are formatted now and not during the page initialization.
+            const params = this.formatWithPageContext(request.post.params, values);
             let tmp = _.merge({}, values, params);
             if (_.get(request.post, 'intersectParams', false)) {
               const keys = _.intersection(_.keys(request.post.params), _.keys(values));
@@ -337,7 +339,7 @@ export class FormPageComponent
           }
           this.rpcService[request.post.task ? 'requestTask' : 'request'](
             request.service,
-            request.post.method,
+            this.formatWithPageContext(request.post.method),
             values
           )
             .pipe(
@@ -445,13 +447,6 @@ export class FormPageComponent
   }
 
   protected override onPageInit() {
-    // Format tokenized configuration properties.
-    this.formatConfig([
-      'request.get.method',
-      'request.get.params',
-      'request.post.method',
-      'request.post.params'
-    ]);
     // Load the content if form page is in 'editing' mode.
     if (this.pageContext._editing) {
       const intervalDuration =
@@ -488,8 +483,8 @@ export class FormPageComponent
     }
     return this.rpcService[request.get.task ? 'requestTask' : 'request'](
       request.service,
-      request.get.method,
-      request.get.params
+      this.formatWithPageContext(request.get.method),
+      this.formatWithPageContext(request.get.params)
     );
   }
 

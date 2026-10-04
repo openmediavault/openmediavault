@@ -25,4 +25,19 @@ describe('TextPageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render title tokens with the page context', () => {
+    // The titles are not formatted in the configuration, the template does it.
+    component.config.title = 'Title {{ name }}';
+    component.config.subTitle = 'Subtitle {{ name }}';
+    component.pageContextService.set({ name: 'Test' });
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('mat-card-title').textContent).toContain(
+      'Title Test'
+    );
+    expect(fixture.nativeElement.querySelector('mat-card-subtitle').textContent).toContain(
+      'Subtitle Test'
+    );
+  });
 });
