@@ -269,7 +269,7 @@ class Apt extends \OMV\Rpc\ServiceAbstract
 
     /**
      * Update APT cache.
-     * http://newbiedoc.sourceforge.net/system/apt-get-intro.html
+     * https://web.archive.org/web/20241215094049/http://newbiedoc.sourceforge.net/system/apt-get-intro.html
      * http://www.cyberciti.biz/tips/linux-debian-package-management-cheat-sheet.html
      * @param params The method parameters.
      * @param context The context of the caller.

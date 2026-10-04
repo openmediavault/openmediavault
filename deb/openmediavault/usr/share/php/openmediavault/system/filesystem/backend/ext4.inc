@@ -45,7 +45,6 @@ class Ext4 extends Ext3
         if (is_a($sd, "StorageDeviceMd")) {
             // Append extra options for MD (Multiple Device) software
             // RAID devices.
-            // http://article.gmane.org/gmane.comp.file-systems.ext4/33938
             // http://serverfault.com/a/419628
             $options .= sprintf(" %s", \OMV\Environment::get(
                 "OMV_MKFS_EXTRAOPTIONS_EXT4_MD",

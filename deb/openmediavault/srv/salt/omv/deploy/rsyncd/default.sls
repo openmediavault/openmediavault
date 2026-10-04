@@ -18,8 +18,7 @@
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# http://www.linux-user.de/ausgabe/2006/04/090-rsync/
-# http://ubuntuforums.org/showthread.php?p=7865055
+# https://web.archive.org/web/20100330160403/http://www.linux-user.de/ausgabe/2006/04/090-rsync/
 # http://everythinglinux.org/rsync/
 # http://www.fredshack.com/docs/rsync.html
 

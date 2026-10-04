@@ -22,7 +22,7 @@
 # https://docs.k3s.io/installation/private-registry#rewrites
 # https://docs.k3s.io/helm
 # https://github.com/k3s-io/k3s/issues/1086#issuecomment-1342838441
-# https://qdnqn.com/how-to-configure-traefik-on-k3s/
+# https://web.archive.org/web/20251213033823/https://qdnqn.com/how-to-configure-traefik-on-k3s/
 # https://community.traefik.io/t/adding-entrypoints-to-a-helm-deployed-traefik-on-k3s/14813/5
 # https://kubernetes.io/docs/concepts/storage/volumes/#hostpath-volume-types
 # https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistent-volumes

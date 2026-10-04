@@ -18,7 +18,7 @@
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# http://ticktoo.com/blog/32-Linux+Software+Raid%3A+mdadm+Performance+Tuning
+# https://web.archive.org/web/20140706111959/http://ticktoo.com/blog/32-Linux+Software+Raid%3A+mdadm+Performance+Tuning
 # http://www.cyberciti.biz/tips/linux-raid-increase-resync-rebuild-speed.html
 
 {% set speed_limit_min = salt['pillar.get']('default:OMV_SYSCTL_DEV_RAID_SPEEDLIMITMIN', '10000') %}

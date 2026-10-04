@@ -121,7 +121,6 @@ ENV{ID_VENDOR_ID}=="152d", \
   SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
 
 # ORICO 2.5 inch Hard Drive Adapter (27UTS)
-# http://my.orico.cc/goods.php?id=6355
 ATTRS{idVendor}=="0080", \
   ATTRS{idProduct}=="a001", \
   IMPORT{program}="serial_id %N", \
@@ -133,10 +132,9 @@ ATTRS{idVendor}=="0080", \
 # https://devicehunt.com/view/type/usb/vendor/152D/device/0567
 #
 # ORICO 3.5 inch 5 Bay Magnetic-type USB3.0 Hard Drive Enclosure (DS500U3)
-# http://my.orico.cc/goods.php?id=6659
 #
 # ORICO 3.5-Inch Multi-Bay Hard Drive Enclosure (9548U3)
-# https://www.orico.cc/us/product/detail/6764/9528U3-BK.html
+# https://web.archive.org/web/20200210171300/https://www.orico.cc/us/product/detail/6764/9528U3-BK.html
 #
 # Icy Dock Black Vortex MB174U3S-4SB Quad Bay usb 3.0 eSATA external 3.5" SATA HDD Enclosure
 # https://www.icydock.com/goods.php?id=191
@@ -374,7 +372,7 @@ ENV{ID_VENDOR_ID}=="2109", \
 
 # JMS551 - Sharkoon SATA QuickPort Duo
 # https://devicehunt.com/view/type/usb/vendor/152D/device/0561
-# http://www.hornettek.com/hdd-enclosure/dual-bay/hornettek-usb-3-0-dual-2-5-hdd-sdd-enclosure-w-raid-ht-rab237.html
+# https://web.archive.org/web/20210428211400/http://www.hornettek.com/hdd-enclosure/dual-bay/hornettek-usb-3-0-dual-2-5-hdd-sdd-enclosure-w-raid-ht-rab237.html
 #
 # P: /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-2/2-2:1.0/host0/target0:0:0/0:0:0:0/block/sda/sda1
 # N: sda1
@@ -433,7 +431,7 @@ ENV{ID_VENDOR_ID}=="152d", \
   SYMLINK="disk/by-path/$env{ID_PATH}", \
   SYMLINK+="disk/by-id/$env{ID_BUS}-$env{ID_SERIAL}"
 
-# https://www.owcdigital.com/products/mercury-elite-pro-dual-mini
+# https://web.archive.org/web/20220628151749/https://www.owcdigital.com/products/mercury-elite-pro-dual-mini
 #
 # DEVPATH=/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb2/2-1/2-1:1.0/host3/target3:0:0/3:0:0:0/block/sdd
 # DEVNAME=/dev/sdd
@@ -709,7 +707,7 @@ ENV{ID_VENDOR_ID}=="0578", \
 # https://devicehunt.com/view/type/usb/vendor/152D/device/0576
 #
 # TerraMaster D5-300
-# https://www.terra-master.com/global/d5-300.html
+# https://web.archive.org/web/20240905091331/https://www.terra-master.com/global/d5-300.html
 #
 # P: /devices/pci0000:00/0000:00:0a.0/usb4/4-1/4-1:1.0/host1/target1:0:0/1:0:0:0/block/sdb
 # M: sdb

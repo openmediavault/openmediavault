@@ -192,7 +192,7 @@ abstract class BackendAbstract
     /**
      * Does the filesystem support POSIX ACL.
      * @see http://de.wikipedia.org/wiki/Access_Control_List
-     * @see http://www.suse.de/~agruen/acl/linux-acls/online
+     * @see https://web.archive.org/web/20120919003839/http://www.suse.de/~agruen/acl/linux-acls/online
      * @return TRUE if the filesystem supports POSIX ACL, otherwise FALSE.
      */
     public function hasPosixAclSupport()

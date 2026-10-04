@@ -18,8 +18,8 @@
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# http://www.vdr-wiki.de/wiki/index.php/Debian_-_WAKE_ON_LAN
-# http://www.brueck-computer.de/index2.php?modul=1404&link=1
+# https://web.archive.org/web/20241010045413/http://www.vdr-wiki.de/wiki/index.php/Debian_-_WAKE_ON_LAN
+# https://web.archive.org/web/20121122051322/http://www.brueck-computer.de/index2.php?modul=1404&link=1
 
 configure_default_halt:
   file.managed:

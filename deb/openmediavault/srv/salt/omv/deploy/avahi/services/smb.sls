@@ -19,7 +19,7 @@
 
 # Documentation/Howto:
 # https://www.ohnekontur.de/2010/03/23/netatalk-2-0-5-time-machine-support/
-# https://gist.github.com/jasonm23/2848434#gistcomment-338252
+# https://web.archive.org/web/20250827134004/https://gist.github.com/jasonm23/2848434#gistcomment-338252
 # /System/Library/CoreServices/CoreTypes.bundle/Contents/Info.plist
 
 {% set smb_config = salt['omv_conf.get']('conf.service.smb') %}

@@ -158,7 +158,7 @@ class Schema extends \OMV\Json\Schema
                     }
                     break;
                 case "domainname":
-                    // http://shauninman.com/archive/2006/05/08/validating_domain_names
+                    // https://web.archive.org/web/20230607192429/http://shauninman.com/archive/2006/05/08/validating_domain_names
                     if (!preg_match('/^[a-zA-Z0-9]([-a-zA-Z0-9]{0,61}'.
                       '[a-zA-Z0-9])?([.][a-zA-Z0-9]([-a-zA-Z0-9]{0,61}'.
                       '[a-zA-Z0-9])?)*$/', $value)) {

@@ -19,7 +19,7 @@
 
 # Documentation/Howto:
 # http://wiki.samba.org/index.php/1.0._Configuring_Samba
-# http://www.tim-bormann.de/anleitung-installation-samba-server-als-dateiserver-unter-debian-linux
+# https://web.archive.org/web/20260310060523/http://www.tim-bormann.de/anleitung-installation-samba-server-als-dateiserver-unter-debian-linux
 
 {% set config = salt['omv_conf.get']('conf.service.smb') %}
 {% set dirpath = '/srv/salt' | path_join(tpldir) %}

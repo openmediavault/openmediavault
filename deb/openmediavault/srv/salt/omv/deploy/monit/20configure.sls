@@ -21,16 +21,16 @@
 # http://mmonit.com/monit/documentation/monit.html
 # http://mmonit.com/wiki/Monit/ConfigurationExamples
 # http://www.cyberciti.biz/tips/howto-monitor-and-restart-linux-unix-service.html
-# https://www.adminlife.net/allgemein/howto-monit-unter-debian-etch
+# https://web.archive.org/web/20111208062534/https://www.adminlife.net/allgemein/howto-monit-unter-debian-etch
 # http://www.howtoforge.com/server_monitoring_monit_munin
 # https://www.howtoforge.de/anleitung/server-uberwachung-mit-munin-und-monit/
-# http://www.howtoforge.de/howto/wie-man-sich-mit-monit-per-sms-warnen-lasst-bei-einem-serverabsturz
-# http://www.musicinfo.org/node/81
+# https://web.archive.org/web/20110701023924/http://www.howtoforge.de/howto/wie-man-sich-mit-monit-per-sms-warnen-lasst-bei-einem-serverabsturz
+# https://web.archive.org/web/20100528084648/http://www.musicinfo.org/node/81
 # http://www.cyberciti.biz/faq/tag/etcinitdmonit
-# http://www.tim-bormann.de/linux-dienste-berwachen-mit-monit
-# http://en.gentoo-wiki.com/wiki/Monit
+# https://web.archive.org/web/20260119152636/http://www.tim-bormann.de/linux-dienste-berwachen-mit-monit
+# https://web.archive.org/web/20130412155058/http://en.gentoo-wiki.com/wiki/Monit
 # http://www.debianadmin.com/monitoring-debian-servers-using-monit.html
-# http://www.uibk.ac.at/zid/systeme/linux/monit.html
+# https://web.archive.org/web/20151009163821/http://www.uibk.ac.at/zid/systeme/linux/monit.html
 # http://wiki.ubuntuusers.de/Monit
 # https://vpetersson.com/2010/07/09/setting-up-monit-to-monitor-apache-and-postgresql-on-ubuntu/
 

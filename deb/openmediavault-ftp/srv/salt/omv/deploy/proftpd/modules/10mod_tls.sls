@@ -19,7 +19,7 @@
 
 # Documentation/Howto:
 # http://www.proftpd.org/docs/contrib/mod_tls.html
-# https://www.fairssl.net/en/create-ssl
+# https://web.archive.org/web/20231130005927/https://www.fairssl.net/en/create-ssl
 
 {% set config = salt['omv_conf.get']('conf.service.ftp') %}
 

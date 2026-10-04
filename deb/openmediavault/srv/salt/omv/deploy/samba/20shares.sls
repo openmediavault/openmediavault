@@ -23,8 +23,8 @@
 # https://wiki.samba.org/index.php/Configure_Samba_to_Work_Better_with_Mac_OS_X
 # http://www.cyberciti.biz/tips/how-do-i-set-permissions-to-samba-shares.html
 # https://www.oreilly.com/openbook/samba/book/ch06_02.html
-# https://www.bsi.bund.de/ContentBSI/grundschutz/kataloge/m/m04/m04332.html
-# http://www.redhat.com/advice/tips/sambatrash.html
+# https://web.archive.org/web/20120406112042/https://www.bsi.bund.de/ContentBSI/grundschutz/kataloge/m/m04/m04332.html
+# https://web.archive.org/web/20131024082248/http://www.redhat.com/advice/tips/sambatrash.html
 # http://askubuntu.com/questions/258284/setting-up-an-anonymous-public-samba-share-to-be-accessed-via-windows-7-and-xbmc
 # http://blog.jonaspasche.com/2010/11/24/endlich-verstehen-samba-rechtevergabe
 

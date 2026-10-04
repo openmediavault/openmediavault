@@ -20,7 +20,7 @@
 # Documentation/Howto:
 # https://www.kernel.org/doc/Documentation/sysctl/vm.txt
 # https://www.kernel.org/doc/Documentation/laptops/laptop-mode.txt
-# http://lonesysadmin.net/2013/12/22/better-linux-disk-caching-performance-vm-dirty_ratio
+# https://web.archive.org/web/20260618013841/http://lonesysadmin.net/2013/12/22/better-linux-disk-caching-performance-vm-dirty_ratio
 # https://major.io/2008/08/07/reduce-disk-io-for-small-reads-using-memory
 
 {% set dirty_background_ratio = salt['pillar.get']('default:OMV_SYSCTL_VM_DIRTYBACKGROUNDRATIO', '1') %}

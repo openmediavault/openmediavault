@@ -20,7 +20,7 @@
 # Documentation/Howto:
 # http://www.cyberciti.biz/faq/disable-the-mail-alert-by-crontab-command
 # http://www.cyberciti.biz/faq/how-do-i-add-jobs-to-cron-under-linux-or-unix-oses
-# http://wiki.dreamhost.com/index.php/Crontab
+# https://web.archive.org/web/20151207115432/http://wiki.dreamhost.com/index.php/Crontab
 
 {% set config = salt['omv_conf.get']('conf.system.powermngmnt') %}
 {% set cron_jobs = salt['omv_conf.get_by_filter'](

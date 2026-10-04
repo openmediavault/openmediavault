@@ -19,7 +19,7 @@
 
 # Documentation/Howto:
 # https://www.samba.org/samba/docs/old/Samba3-HOWTO/VFS.html
-# http://www.redhat.com/advice/tips/sambatrash.html
+# https://web.archive.org/web/20131024082248/http://www.redhat.com/advice/tips/sambatrash.html
 
 {% set scripts_dir = salt['pillar.get']('default:OMV_CRONSCRIPTS_DIR', '/var/lib/openmediavault/cron.d') %}
 {% set cron_scripts_prefix = salt['pillar.get']('default:OMV_SAMBA_SHARE_RECYCLE_CRONSCRIPT_PREFIX', 'samba-recycle-') %}
