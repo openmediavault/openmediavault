@@ -18,7 +18,7 @@
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# http://wiki.nginx.org/Pitfalls#Taxing_Rewrites
+# https://github.com/nginxinc/nginx-wiki/blob/master/source/start/topics/tutorials/config_pitfalls.rst#taxing-rewrites
 # http://security.stackexchange.com/questions/54639/nginx-recommended-ssl-ciphers-for-security-compatibility-with-pfs
 # http://en.wikipedia.org/wiki/List_of_HTTP_header_fields
 # http://www.pedaldrivenprogramming.com/2015/04/upgrading-wheezy-to-jessie:-nginx-and-php-fpm/

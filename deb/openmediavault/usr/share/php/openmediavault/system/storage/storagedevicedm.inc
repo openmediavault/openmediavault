@@ -39,7 +39,7 @@ class StorageDeviceDM extends StorageDevice
     {
         // The DM_UUID prefix should be set to subsystem owning the device:
         // LVM, CRYPT, DMRAID, MPATH, PART
-        // @see https://github.com/karelzak/util-linux/blob/master/misc-utils/lsblk.c#L389
+        // @see https://github.com/util-linux/util-linux/blob/717273665856652571bc644dfe1d4f7e09bbf118/lsblk-cmd/lsblk.c#L458
         $path = sprintf("/sys/block/%s/dm/uuid", $this->getDeviceName(true));
         if (!file_exists($path)) {
             return null;

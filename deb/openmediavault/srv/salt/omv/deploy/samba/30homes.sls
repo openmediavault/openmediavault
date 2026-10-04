@@ -18,7 +18,7 @@
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# http://us5.samba.org/samba/docs/man/manpages-3/smb.conf.5.html
+# https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html
 
 {% set config = salt['omv_conf.get']('conf.service.smb') %}
 {% set homedir_config = salt['omv_conf.get']('conf.system.usermngmnt.homedir') %}

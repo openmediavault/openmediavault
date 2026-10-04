@@ -18,7 +18,7 @@
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# https://www.freedesktop.org/software/systemd/man/systemd.link.html
+# https://www.freedesktop.org/software/systemd/man/latest/systemd.link.html
 
 {% set set_mac_addr_policy = salt['omv_conf.get_by_filter'](
   'conf.system.network.interface',

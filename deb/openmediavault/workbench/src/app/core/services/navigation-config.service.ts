@@ -44,7 +44,7 @@ type MenuItem = {
   text: string;
   // The icon to be displayed, e.g. the shorthand of an icon listed
   // in 'icon.enums' like 'plus' or 'mdi:xxx' for an icon that is
-  // not listed there. See https://materialdesignicons.com/ for the
+  // not listed there. See https://pictogrammers.com/library/mdi/ for the
   // names of the available icons.
   icon?: string;
   // The routing url used to access the page in the browser, e.g.

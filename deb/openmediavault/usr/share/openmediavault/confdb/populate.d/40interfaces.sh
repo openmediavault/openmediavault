@@ -39,7 +39,7 @@ done
 
 # Configure ethernet network interfaces.
 # Understanding systemd's predictable network device names:
-# https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c
+# https://github.com/systemd/systemd/blob/main/src/udev/udev-builtin-net_id.c
 grep -iP "^\s*iface\s+(eth[0-9]+|en[a-z0-9]+)\s+(inet6?)\s+(static|dhcp|auto)" ${OMV_INTERFACES_CONFIG} |
     while read type devname family method; do
         # Skip if interface already exists (handles interfaces with both inet and inet6 lines).

@@ -20,7 +20,7 @@
 # Documentation/Howto:
 # http://linux.koolsolutions.com/2009/01/30/installing-linux-on-usb-part-4-noatime-and-relatime-mount-options/
 # http://techgage.com/article/enabling_and_testing_ssd_trim_support_under_linux
-# https://wiki.archlinux.org/index.php/Solid_State_Drives
+# https://wiki.archlinux.org/title/Solid_state_drive
 # http://wiki.ubuntuusers.de/SSD/TRIM
 # http://superuser.com/questions/228657/which-linux-filesystem-works-best-with-ssd
 

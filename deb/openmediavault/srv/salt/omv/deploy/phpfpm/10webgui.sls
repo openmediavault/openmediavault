@@ -47,29 +47,29 @@ configure_phpfpm_webgui:
         php_value[pam.servicename] = "openmediavault-webgui";
 
         ; Maximum allowed size for uploaded files.
-        ; http://php.net/upload-max-filesize
+        ; https://www.php.net/manual/en/ini.core.php#ini.upload-max-filesize
         php_value[upload_max_filesize] = 25M
 
         ; Maximum size of POST data that PHP will accept.
-        ; http://php.net/post-max-size
+        ; https://www.php.net/manual/en/ini.core.php#ini.post-max-size
         php_value[post_max_size] = 25M
 
         ; Do not expose to the world that PHP is installed on the server.
-        ; http://php.net/expose-php
+        ; https://www.php.net/manual/en/ini.core.php#ini.expose-php
         php_value[expose_php] = Off
 
         ; Name of the session (used as cookie name).
-        ; http://php.net/session.name
+        ; https://www.php.net/manual/en/session.configuration.php#ini.session.name
         php_value[session.name] = OPENMEDIAVAULT-SESSIONID
 
         ; Whether or not to add the httpOnly flag to the cookie, which makes it
         ; inaccessible to browser scripting languages such as JavaScript.
-        ; http://php.net/session.cookie-httponly
+        ; https://www.php.net/manual/en/session.configuration.php#ini.session.cookie-httponly
         php_value[session.cookie_httponly] = On
 
         ; Add SameSite attribute to cookie to help mitigate Cross-Site Request Forgery (CSRF/XSRF)
         ; Current valid values are "Lax" or "Strict"
-        ; https://tools.ietf.org/html/draft-west-first-party-cookies-07
+        ; https://datatracker.ietf.org/doc/html/draft-west-first-party-cookies-07
         php_value[session.cookie_samesite] = "Strict"
 
         ; Use a dedicated, volatile session directory that is owned by the
@@ -78,7 +78,7 @@ configure_phpfpm_webgui:
         ; collection, and it is swept by the `phpsessionclean` timer using
         ; the *global* `session.gc_maxlifetime`, ignoring this pool's value.
         ; The directory is created by `/usr/lib/tmpfiles.d/openmediavault.conf`.
-        ; http://php.net/session.save-path
+        ; https://www.php.net/manual/en/session.configuration.php#ini.session.save-path
         php_value[session.save_path] = "/run/openmediavault/sessions"
 
         ; After this number of seconds, stored data will be seen as 'garbage' and
@@ -87,17 +87,17 @@ configure_phpfpm_webgui:
         ; settings (see conf.webadmin.json, "timeout", max. 1440 minutes),
         ; otherwise a session could be garbage collected before the application
         ; itself considers it expired.
-        ; http://php.net/session.gc-maxlifetime
+        ; https://www.php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime
         php_value[session.gc_probability] = 1
         php_value[session.gc_divisor] = 1000
         php_value[session.gc_maxlifetime] = 86400
 
         ; Default timeout for socket based streams (seconds)
-        ; http://php.net/default-socket-timeout
+        ; https://www.php.net/manual/en/filesystem.configuration.php#ini.default-socket-timeout
         php_value[default_socket_timeout] = 90
 
         ; Maximum execution time of each script, in seconds
-        ; http://php.net/max-execution-time
+        ; https://www.php.net/manual/en/info.configuration.php#ini.max-execution-time
         ; Note: This directive is hardcoded to 0 for the CLI SAPI
         php_value[max_execution_time] = 90
     - mode: '0644'

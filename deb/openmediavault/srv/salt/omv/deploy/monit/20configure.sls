@@ -23,7 +23,7 @@
 # http://www.cyberciti.biz/tips/howto-monitor-and-restart-linux-unix-service.html
 # https://www.adminlife.net/allgemein/howto-monit-unter-debian-etch
 # http://www.howtoforge.com/server_monitoring_monit_munin
-# http://www.howtoforge.de/howto/server-uberwachung-mit-munin-und-monit
+# https://www.howtoforge.de/anleitung/server-uberwachung-mit-munin-und-monit/
 # http://www.howtoforge.de/howto/wie-man-sich-mit-monit-per-sms-warnen-lasst-bei-einem-serverabsturz
 # http://www.musicinfo.org/node/81
 # http://www.cyberciti.biz/faq/tag/etcinitdmonit
@@ -32,7 +32,7 @@
 # http://www.debianadmin.com/monitoring-debian-servers-using-monit.html
 # http://www.uibk.ac.at/zid/systeme/linux/monit.html
 # http://wiki.ubuntuusers.de/Monit
-# http://viktorpetersson.com/2010/07/09/setting-up-monit-to-monitor-apache-and-postgresql-on-ubuntu
+# https://vpetersson.com/2010/07/09/setting-up-monit-to-monitor-apache-and-postgresql-on-ubuntu/
 
 {% set email_config = salt['omv_conf.get']('conf.system.notification.email') %}
 

@@ -19,7 +19,7 @@
 
 # Documentation/Howto:
 # https://collectd.org/wiki/index.php/Plugin:Disk
-# https://github.com/stedolan/jq/wiki/Cookbook
+# https://github.com/jqlang/jq/wiki/Cookbook
 
 {% set disks = [] %}
 # Get the configured mount points.

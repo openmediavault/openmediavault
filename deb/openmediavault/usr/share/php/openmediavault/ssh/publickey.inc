@@ -54,7 +54,7 @@ class PublicKey
         return true;
     }
 
-    // http://tools.ietf.org/html/rfc4253#section-6.6
+    // https://datatracker.ietf.org/doc/html/rfc4253#section-6.6
     public static function isOpenSSH(string $data): bool
     {
         // Format: <algorithm> <key> <comment>

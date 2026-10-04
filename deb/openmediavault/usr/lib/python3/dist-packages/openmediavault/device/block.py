@@ -212,7 +212,7 @@ class BlockDevice:
     def device_number(self) -> int:
         """
         The device number of the associated device as integer.
-        See `<https://www.kernel.org/doc/Documentation/devices.txt> for more information`_.
+        See `<https://docs.kernel.org/admin-guide/devices.html> for more information`_.
         :rtype: int
         """
         context = pyudev.Context()
@@ -223,7 +223,7 @@ class BlockDevice:
     def major_device_number(self) -> int:
         """
         Get the major device number.
-        See `<https://www.kernel.org/doc/Documentation/devices.txt> for more information`_.
+        See `<https://docs.kernel.org/admin-guide/devices.html> for more information`_.
         :return: Returns the major device number.
         :rtype: int
         """
@@ -233,7 +233,7 @@ class BlockDevice:
     def minor_device_number(self) -> int:
         """
         Get the minor device number.
-        See `<https://www.kernel.org/doc/Documentation/devices.txt> for more information`_.
+        See `<https://docs.kernel.org/admin-guide/devices.html> for more information`_.
         :return: Returns the minor device number.
         :rtype: int
         """

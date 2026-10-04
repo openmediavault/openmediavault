@@ -175,7 +175,7 @@ export type FormFieldConfig = {
 
   // --- textarea | textInput | fileInput | folderBrowser | password ---
   // Defaults to 'off'.
-  // See https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocapitalize
+  // See https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/autocapitalize
   autocapitalize?: 'none' | 'sentences' | 'words' | 'characters';
 
   // --- image ---
@@ -273,7 +273,7 @@ export type FormFieldConfig = {
   step?: number;
 
   // --- numberInput | password | textInput | binaryUnitInput ---
-  // See https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete.
+  // See https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete.
   autocomplete?: string;
   // Note, this button is only visible if the browser supports
   // that. The following requirements must be met:

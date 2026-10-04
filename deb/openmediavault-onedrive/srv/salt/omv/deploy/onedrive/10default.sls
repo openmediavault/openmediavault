@@ -19,7 +19,7 @@
 
 # Documentation/Howto:
 # https://github.com/abraunegg/onedrive
-# https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md
+# https://github.com/abraunegg/onedrive/blob/master/docs/usage.md
 
 # Testing
 # onedrive --confdir /var/cache/onedrive --display-config

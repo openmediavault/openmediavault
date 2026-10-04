@@ -18,10 +18,10 @@
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# https://www.freedesktop.org/software/systemd/man/systemd-resolved.service.html#/etc/resolv.conf
+# https://www.freedesktop.org/software/systemd/man/latest/systemd-resolved.service.html#/etc/resolv.conf
 # https://unix.stackexchange.com/questions/548830/whats-the-difference-between-run-systemd-resolve-stub-resolv-conf-and-run-sys
 # https://superuser.com/questions/1490670/does-systemd-networkd-systemd-resolved-add-search-domains-specified-in-dhcp#comment2249615_1490670
-# https://wiki.archlinux.org/title/systemd-resolved
+# https://wiki.archlinux.org/title/Systemd-resolved
 
 {% set resolvconf_target = salt['pillar.get']('default:OMV_SYSTEMD_NETWORKD_RESOLVCONF_TARGET', '/run/systemd/resolve/stub-resolv.conf') %}
 

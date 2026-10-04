@@ -27,7 +27,7 @@ namespace OMV\System;
  * Helper class that implements functions regarding the power management.
  * References:
  * https://www.kernel.org/doc/Documentation/power/swsusp.txt
- * https://wiki.archlinux.org/index.php/Suspend_and_Hibernate
+ * https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate
  * @ingroup api
  */
 class PowerManagement

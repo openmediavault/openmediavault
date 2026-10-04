@@ -18,7 +18,7 @@
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# http://www.samba.org/samba/docs/man/Samba-HOWTO-Collection/VFS.html#id2651247
+# https://www.samba.org/samba/docs/old/Samba3-HOWTO/VFS.html
 # http://www.redhat.com/advice/tips/sambatrash.html
 
 {% set scripts_dir = salt['pillar.get']('default:OMV_CRONSCRIPTS_DIR', '/var/lib/openmediavault/cron.d') %}

@@ -55,11 +55,11 @@ class SuperGlobalServer extends Dictionary
     public function getClientIP(): string
     {
         $requestHeaders = [
-            // https://developers.cloudflare.com/fundamentals/reference/http-request-headers/#cf-connecting-ip
+            // https://developers.cloudflare.com/fundamentals/reference/http-headers/#cf-connecting-ip
             'HTTP_CF_CONNECTING_IP',
             'HTTP_CLIENT_IP',
             'HTTP_FORWARDED',
-            // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For
+            // https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Forwarded-For
             'HTTP_FORWARDED_FOR',
             'HTTP_X_CLUSTER_CLIENT_IP',
             'HTTP_X_FORWARDED',

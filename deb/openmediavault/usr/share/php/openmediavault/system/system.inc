@@ -342,7 +342,7 @@ class System
         // Total:   2101825536    98390016  1823117312
         //
         // Some information about the 'Mem' metrics.
-        // See https://psutil.readthedocs.io/en/latest/#psutil.virtual_memory
+        // See https://psutil.io/api/#psutil.virtual_memory
         //
         // total     - Total physical memory (exclusive swap).
         // available - The memory that can be given instantly to processes

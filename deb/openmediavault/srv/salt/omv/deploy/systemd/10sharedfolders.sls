@@ -18,7 +18,7 @@
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# https://www.freedesktop.org/software/systemd/man/bootup.html#System%20Manager%20Bootup
+# https://www.freedesktop.org/software/systemd/man/latest/bootup.html#System%20Manager%20Bootup
 
 {% set sharedfolders_dir_enabled = salt['pillar.get']('default:OMV_SHAREDFOLDERS_DIR_ENABLED', 'no') %}
 {% set sharedfolders_dir = salt['pillar.get']('default:OMV_SHAREDFOLDERS_DIR', '/sharedfolders') %}

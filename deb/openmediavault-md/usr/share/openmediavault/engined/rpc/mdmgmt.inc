@@ -414,8 +414,8 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract
         $cmd->execute();
         // Specify the new number of active devices in the array.
         // See for more details:
-        // https://raid.wiki.kernel.org/index.php/Growing
-        // https://raid.wiki.kernel.org/index.php/Write-intent_bitmap
+        // https://archive.kernel.org/oldwiki/raid.wiki.kernel.org/index.php/Growing.html
+        // https://archive.kernel.org/oldwiki/raid.wiki.kernel.org/index.php/Write-intent_bitmap.html
         $cmdArgs = [];
         $cmdArgs[] = "--grow";
         $cmdArgs[] = sprintf("--raid-devices=%d", $numDevices);

@@ -27,7 +27,7 @@ namespace OMV\System\Filesystem\Backend;
  * References:
  * - https://en.wikipedia.org/wiki/Reiser4
  * - https://archive.kernel.org/oldwiki/reiser4.wiki.kernel.org/
- * - https://wiki.archlinux.org/title/Reiser4/
+ * - https://wiki.archlinux.org/title/Reiser4
  */
 class Reiser4 extends BackendAbstract
 {

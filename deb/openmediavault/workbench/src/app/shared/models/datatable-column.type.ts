@@ -91,7 +91,7 @@ export type DatatableColumn = TableColumn & {
    * code - Render value as preformatted text using a non-proportional font.
    * localeDateTime - Render date/time using the browser locale.
    * relativeTime - Render relative time like '2 minutes ago'.
-   * chip - Render the value as a chip (https://material.angular.io/components/chips/overview).
+   * chip - Render the value as a chip (https://material.angular.dev/components/chips/overview).
    *        If the value is a string, the optional `separator` is used to
    *        split it into substrings.
    *        The value to be rendered can be mapped. The mapped value can

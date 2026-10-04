@@ -10,7 +10,7 @@ $ sudo apt-get install virtualbox
 $ sudo apt-get install nfs-kernel-server
 ```
 
-3. Download Vagrant from https://www.vagrantup.com/downloads.html
+3. Download Vagrant from https://developer.hashicorp.com/vagrant/install
 ```
 $ sudo apt-get install vagrant
 ```
@@ -32,7 +32,7 @@ $ sudo apt install qemu-kvm virt-manager
 $ sudo apt-get install nfs-kernel-server
 ```
 
-3. Download Vagrant from https://www.vagrantup.com/downloads.html
+3. Download Vagrant from https://developer.hashicorp.com/vagrant/install
 ```
 $ sudo apt-get install vagrant vagrant-libvirt
 ```

@@ -20,7 +20,7 @@
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# http://linux-raid.osdl.org/index.php/RAID_setup
+# https://archive.kernel.org/oldwiki/raid.wiki.kernel.org/index.php/RAID_setup.html
 # http://wiki.linuxquestions.org/wiki/Fstab
 
 set -e

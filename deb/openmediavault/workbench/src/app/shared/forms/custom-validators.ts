@@ -59,7 +59,7 @@ const regExp = {
   numeric: /^[-]?\d+$/,
   decimal: /^[-]?\d+(.\d+)?$/,
   time: /^\d{2}:\d{2}:\d{2}$/,
-  // See https://tools.ietf.org/html/rfc4716#section-3.4
+  // See https://datatracker.ietf.org/doc/html/rfc4716#section-3.4
   sshPubKeyRfc4716:
     /^---- BEGIN SSH2 PUBLIC KEY ----(\n|\r|\f)((.+)?((\n|\r|\f).+)*)(\n|\r|\f)---- END SSH2 PUBLIC KEY ----[\n\r\f]*$/,
   sshPubKeyOpenSsh:

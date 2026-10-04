@@ -19,7 +19,7 @@
 
 # Documentation/Howto:
 # http://www.ibm.com/developerworks/linux/library/l-lpic1-v3-104-4/index.html
-# https://wiki.archlinux.org/index.php/disk_quota
+# https://wiki.archlinux.org/title/Disk_quota
 # https://github.com/systemd/systemd/issues/29905
 
 {% set mountpoints = salt['omv_conf.get_by_filter'](

@@ -66,7 +66,7 @@ class StorageDevice(openmediavault.device.StorageDevice):
         """
         # The DM_UUID prefix should be set to subsystem owning the device:
         # LVM, CRYPT, DMRAID, MPATH, PART
-        # @see https://github.com/karelzak/util-linux/blob/master/misc-utils/lsblk.c#L389
+        # @see https://github.com/util-linux/util-linux/blob/717273665856652571bc644dfe1d4f7e09bbf118/lsblk-cmd/lsblk.c#L458
         file = '/sys/block/{}/dm/uuid'.format(self.device_name(True))
         try:
             with open(file, 'r') as f:

@@ -62,7 +62,7 @@ def is_ethernet(name):
     #   d<number>
     #
     # Understanding systemd’s predictable network device names:
-    # https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c
+    # https://github.com/systemd/systemd/blob/main/src/udev/udev-builtin-net_id.c
     return bool(
         re.match(
             r'^eth[0-9]+|'
@@ -108,7 +108,7 @@ def is_wifi(name):
     #   [P<domain>][p<bus>s<slot>][f<function>][u<port>][..][c<config>][i<interface>]
     #
     # Understanding systemd’s predictable network device names:
-    # https://github.com/systemd/systemd/blob/master/src/udev/udev-builtin-net_id.c
+    # https://github.com/systemd/systemd/blob/main/src/udev/udev-builtin-net_id.c
     return bool(
         re.match(
             r'^wlan[0-9]+|wl(b\d+|c\d+|o\d+(n\S+|d\d+)?|'

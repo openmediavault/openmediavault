@@ -18,9 +18,9 @@
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# https://filebrowser.org/installation
+# https://github.com/filebrowser/filebrowser
 # https://github.com/filebrowser/filebrowser/blob/master/Dockerfile
-# https://github.com/filebrowser/filebrowser/blob/master/docker/root/defaults/settings.json
+# https://github.com/filebrowser/filebrowser/blob/master/docker/common/defaults/settings.json
 # https://caddyserver.com/docs/caddyfile
 
 # Testing:

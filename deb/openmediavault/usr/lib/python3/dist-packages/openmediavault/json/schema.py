@@ -394,7 +394,7 @@ class Schema:
     # pylint: disable=too-many-branches
     def _check_format(self, value, schema, name):
         """
-        Check https://tools.ietf.org/html/draft-zyp-json-schema-03#section-5.23
+        Check https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-03#section-5.23
         """
         if "format" not in schema:
             return

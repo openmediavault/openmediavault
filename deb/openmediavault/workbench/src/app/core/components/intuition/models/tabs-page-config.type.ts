@@ -23,7 +23,7 @@ import { TextPageConfig } from '~/app/core/components/intuition/models/text-page
 export type TabsPageConfig = {
   // The tab page switches between views within a single route. Set
   // to `false` to navigate between multiple routes. Please refer to
-  // https://material.angular.io/components/tabs/overview#tabs-and-navigation
+  // https://material.angular.dev/components/tabs/overview#tabs-and-navigation
   // for more information. Defaults to `true`.
   singleRoute?: boolean;
   tabs: Array<TabPageConfig>;
