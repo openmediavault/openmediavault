@@ -42,10 +42,12 @@
 create_photoprism_appdata_storage_dir:
   file.directory:
     - name: "{{ appdata_sf_path }}/storage/"
+    - mode: '0777'
 
 create_photoprism_appdata_db_dir:
   file.directory:
     - name: "{{ appdata_sf_path }}/db/"
+    - mode: '0777'
 
 create_photoprism_app_container_systemd_unit_file:
   file.managed:
