@@ -129,7 +129,7 @@ function killChld()
 
 /**
  * Daemonize the application.
- * @see http://www.freedesktop.org/software/systemd/man/daemon.html
+ * @see https://www.freedesktop.org/software/systemd/man/latest/daemon.html
  * @see http://stackoverflow.com/a/17955149
  * @see https://stackoverflow.com/questions/881388/what-is-the-reason-for-performing-a-double-fork-when-creating-a-daemon
  */

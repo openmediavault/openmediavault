@@ -19,9 +19,9 @@
 
 # Documentation/Howto:
 # https://help.ubuntu.com/community/IptablesHowTo
-# http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_:_Ch14_:_Linux_Firewalls_Using_iptables
+# https://web.archive.org/web/20201109025014/http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_:_Ch14_:_Linux_Firewalls_Using_iptables
 # http://www.cyberciti.biz/tips/linux-iptables-how-to-specify-a-range-of-ip-addresses-or-ports.html
-# http://manpages.debian.org/cgi-bin/man.cgi?query=iptables&apropos=0&sektion=0&manpath=Debian+7.8+wheezy&format=html&locale=en
+# https://manpages.debian.org/iptables/iptables.8.en.html
 
 {% set rules_config = salt['omv_conf.get']('conf.system.network.iptables.rule') %}
 {% set num_inet_rules = salt['omv_conf.get_by_filter'](

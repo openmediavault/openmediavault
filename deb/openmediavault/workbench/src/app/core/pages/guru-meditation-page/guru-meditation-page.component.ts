@@ -30,7 +30,7 @@ import { DialogService } from '~/app/shared/services/dialog.service';
 export class GuruMeditationPageComponent implements OnInit, OnDestroy {
   // https://web.archive.org/web/20120628060356/http://www.scotek.demon.co.uk/guru.html
   // https://www.amigalove.com/viewtopic.php?t=500
-  // https://github.com/deplinenoise/amiga-sdk/blob/master/sdkinclude/exec/alerts.i
+  // https://github.com/MiSTer-devel/Minimig-AGA_MiSTer/blob/16934d346e0c3584aee8cc8fee5a4ba45b85f25d/extra/rtg_driver/include/exec/alerts.i
   message = 'Guru Meditation #31000000.48454C50';
   url = '/';
 

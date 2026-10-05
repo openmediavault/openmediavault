@@ -20,7 +20,7 @@
 # Documentation/Howto:
 # http://linuxwiki.de/OpenSSH
 # https://help.ubuntu.com/community/SSH/OpenSSH/Configuring
-# https://tools.ietf.org/html/rfc4716
+# https://datatracker.ietf.org/doc/html/rfc4716
 
 # Converting SSH2 public key (OpenSSH -> RFC4716)
 # ssh-keygen -e -f ~/.ssh/id_rsa.pub

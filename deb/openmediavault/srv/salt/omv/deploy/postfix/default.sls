@@ -21,10 +21,9 @@
 # http://www.postfix.org/postconf.5.html
 # http://www.postfix.org/pipe.8.html
 # http://www.gtkdb.de/index_7_727.html
-# http://irbs.net/internet/postfix/0503/2148.html
-# http://gate.io/blogpost34
+# https://web.archive.org/web/20120520100952/http://irbs.net/internet/postfix/0503/2148.html
 # http://www.cyberciti.biz/tips/howto-postfix-flush-mail-queue.html
-# http://www.tuxfutter.de/wiki/Einrichten_eines_Mailservers_mit_Postfix
+# https://web.archive.org/web/20150922002642/http://www.tuxfutter.de/wiki/Einrichten_eines_Mailservers_mit_Postfix
 # http://dokuwiki.tachtler.net/doku.php?id=tachtler:postfix_centos_6
 # http://serverfault.com/questions/536648/postfix-pass-a-copy-of-an-email-to-a-script-but-deliver-the-original-one-to-mai
 

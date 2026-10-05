@@ -21,12 +21,12 @@
 # http://blog.shadypixel.com/monitoring-a-ups-with-nut-on-debian-or-ubuntu-linux/
 # http://www.die-welt.net/2011/02/mustek-powemust-1000-usb-on-debian-squeeze/
 # http://beeznest.wordpress.com/2008/07/14/howto-setup-nut-network-ups-tools-on-debian/
-# http://kiserai.net/blog/2009/03/07/belkin-universal-ups-with-nut-debian
-# http://rogerprice.org/NUT.html
-# http://linuxman.wikispaces.com/NUT
+# https://web.archive.org/web/20150528001529/http://kiserai.net/blog/2009/03/07/belkin-universal-ups-with-nut-debian
+# https://web.archive.org/web/20220505010736/http://rogerprice.org/NUT.html
+# https://web.archive.org/web/20120714050511/http://linuxman.wikispaces.com/NUT
 # http://ifireball.wordpress.com/2011/10/13/configuring-aviem-pro2100-ups-on-debian-6-0-stablesqueeze/
 # http://blog.shadypixel.com/monitoring-a-ups-with-nut-on-debian-or-ubuntu-linux
-# http://adi.roiban.ro/2011/11/10/monitor-the-ups-in-ubuntu-with-network-ups-tools
+# https://web.archive.org/web/20120325011834/http://adi.roiban.ro/2011/11/10/monitor-the-ups-in-ubuntu-with-network-ups-tools
 
 {% set nut_config = salt['omv_conf.get']('conf.service.nut') %}
 

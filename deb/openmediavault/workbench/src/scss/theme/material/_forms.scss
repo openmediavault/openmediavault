@@ -17,7 +17,7 @@
 @use '@angular/material' as mat;
 
 @mixin theme($mode, $theme-config, $typography-config) {
-  // Workaround for https://github.com/angular/material2/issues/4580.
+  // Workaround for https://github.com/angular/components/issues/4580.
   // @deprecated in Angular15
   .mat-form-field {
     // Copy-paste from @mat-form-field-typography();

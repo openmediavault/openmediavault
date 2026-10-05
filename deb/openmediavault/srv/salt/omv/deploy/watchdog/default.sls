@@ -21,8 +21,8 @@
 # http://0pointer.de/blog/projects/watchdog.html
 # https://wiki.archlinux.org/title/Kernel_module
 # https://www.kernel.org/doc/html/latest/watchdog/watchdog-parameters.html
-# https://www.freedesktop.org/software/systemd/man/systemd-system.conf.html
-# https://www.freedesktop.org/software/systemd/man/modules-load.d.html
+# https://www.freedesktop.org/software/systemd/man/latest/systemd-system.conf.html
+# https://www.freedesktop.org/software/systemd/man/latest/modules-load.d.html
 # https://www.thomas-krenn.com/de/wiki/Watchdog
 
 # Testing

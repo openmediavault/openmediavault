@@ -372,7 +372,7 @@ class StorageDeviceMd extends StorageDevice
     /**
      * Check whether the RAID device has write-intent bitmap enabled.
      * Note, only 'internal' bitmaps are detected and reported.
-     * @see https://raid.wiki.kernel.org/index.php/Write-intent_bitmap
+     * @see https://archive.kernel.org/oldwiki/raid.wiki.kernel.org/index.php/Write-intent_bitmap.html
      * @return TRUE if write-intent bitmap is enabled, otherwise FALSE.
      */
     public function hasWriteIntentBitmap(): bool

@@ -50,7 +50,7 @@ const regExp = {
   ipv6NetCidr: /^(?:[a-f0-9]{1,4}:){7}[a-f0-9]{1,4}\/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$/i,
   // See https://datatracker.ietf.org/doc/html/rfc1123#section-2
   hostName: /^[a-zA-Z0-9]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9]){0,1}$/,
-  // See http://shauninman.com/archive/2006/05/08/validating_domain_names
+  // See https://web.archive.org/web/20230607192429/http://shauninman.com/archive/2006/05/08/validating_domain_names
   domainName:
     /^[a-zA-Z0-9]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])?([.][a-zA-Z0-9]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])?)*$/,
   // https://github.com/samba-team/samba/blob/samba-4.13.13/python/samba/__init__.py#L317
@@ -59,7 +59,7 @@ const regExp = {
   numeric: /^[-]?\d+$/,
   decimal: /^[-]?\d+(.\d+)?$/,
   time: /^\d{2}:\d{2}:\d{2}$/,
-  // See https://tools.ietf.org/html/rfc4716#section-3.4
+  // See https://datatracker.ietf.org/doc/html/rfc4716#section-3.4
   sshPubKeyRfc4716:
     /^---- BEGIN SSH2 PUBLIC KEY ----(\n|\r|\f)((.+)?((\n|\r|\f).+)*)(\n|\r|\f)---- END SSH2 PUBLIC KEY ----[\n\r\f]*$/,
   sshPubKeyOpenSsh:

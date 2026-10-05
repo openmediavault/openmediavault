@@ -807,7 +807,7 @@ class SmartInformation
             return self::SMART_ASSESSMENT_GOOD;
         }
         // Checks are adapted from libatasmart.
-        // See http://git.0pointer.net/libatasmart.git
+        // See https://web.archive.org/web/20251113085835/http://git.0pointer.net/libatasmart.git
         // Get number of bad sectors and check if any sector attribute is failing now.
         $numSectors = 0;
         $reallocatedSectorBad = false;

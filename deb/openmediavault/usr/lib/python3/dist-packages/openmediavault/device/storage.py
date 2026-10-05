@@ -126,7 +126,7 @@ class StorageDevice(BlockDevice):
     def is_rotational(self) -> bool:
         """
         Check if the device is of rotational or non-rotational type.
-        See https://www.kernel.org/doc/Documentation/block/queue-sysfs.txt
+        See https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-block
         :return: Return True if device is rotational, otherwise False.
         :rtype: bool
         """

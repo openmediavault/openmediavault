@@ -18,9 +18,9 @@
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# http://wiki.dreamhost.com/index.php/Crontab/
-# https://www.systutorials.com/docs/linux/man/5-clamd.conf/
-# https://www.systutorials.com/docs/linux/man/5-freshclam.conf/
+# https://web.archive.org/web/20151207115432/http://wiki.dreamhost.com/index.php/Crontab/
+# https://www.systutorials.com/linux-manual-page-5-clamd.conf/
+# https://www.systutorials.com/linux-manual-page-5-freshclam.conf/
 # https://blog.clamav.net/2019/09/understanding-and-transitioning-to.html
 
 {% set cron_scripts_dir = salt['pillar.get']('default:OMV_CRONSCRIPTS_DIR', '/var/lib/openmediavault/cron.d') %}

@@ -243,7 +243,7 @@ class Process
         if (false === empty($this->inputFromFile)) {
             $cmdArgs[] = sprintf("<%s", $this->inputFromFile);
         }
-        // https://wiki.ubuntu.com/DashAsBinSh#A.3C.3C.3C
+        // https://web.archive.org/web/20260920235424/https://wiki.ubuntu.com/DashAsBinSh#A.3C.3C.3C
         if (false === empty($this->inputFromHereString)) {
             $cmdArgs[] = sprintf("<<'EOF'\n%s\nEOF", $this->inputFromHereString);
         }

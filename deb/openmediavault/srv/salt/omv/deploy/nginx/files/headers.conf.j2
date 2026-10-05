@@ -7,17 +7,17 @@
 {{ pillar['headers']['multiline'] }}
 {%- if config.enablessl | to_bool and config.forcesslonly | to_bool %}
 # HSTS (HTTP Strict Transport Security)
-# https://developer.mozilla.org/en-US/docs/Security/HTTP_Strict_Transport_Security
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security
 # https://en.wikipedia.org/wiki/SSL_stripping#SSL_stripping
 add_header Strict-Transport-Security "{{ hsts_header }}" always;
 {%- endif %}
 {%- if csp_enabled | to_bool %}
 # Content Security Policy (CSP)
-# https://www.owasp.org/index.php/Content_Security_Policy
+# https://community.owasp.org/controls/Content_Security_Policy
 add_header Content-Security-Policy "{{ csp_header }}" always;
 {%- endif %}
 {%- if xframe_enabled | to_bool %}
-# https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Frame-Options
 add_header X-Frame-Options "{{ xframe_header }}" always;
 {%- endif %}
 # http://blogs.msdn.com/b/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx
@@ -25,5 +25,5 @@ add_header X-Content-Type-Options "nosniff" always;
 # https://wiki.mozilla.org/Security/Features/XSS_Filter
 # http://blogs.msdn.com/b/ieinternals/archive/2011/01/31/controlling-the-internet-explorer-xss-filter-with-the-x-xss-protection-http-header.aspx
 add_header X-XSS-Protection "1; mode=block" always;
-# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Permissions-Policy
 add_header Permissions-Policy "{{ permissions_policy_header }}" always;

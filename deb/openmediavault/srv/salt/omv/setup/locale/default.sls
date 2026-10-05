@@ -19,7 +19,7 @@
 
 # Make sure locale is set up correct. The Python click library requires
 # a valid configuration.
-# https://click.palletsprojects.com/en/7.x/python3/#python-3-surrogate-handling
+# https://click.palletsprojects.com/en/stable/unicode-support/
 # https://www.thomas-krenn.com/de/wiki/Locales_unter_Ubuntu_konfigurieren
 
 # Get the current configured locale.

@@ -47,7 +47,7 @@ Please make sure your code is free of any linting errors before submitting a pul
 
 ### Python
 
-Python code should adhere to the [PEP 8](https://www.python.org/dev/peps/pep-0008/) style guide.
+Python code should adhere to the [PEP 8](https://peps.python.org/pep-0008/) style guide.
 
 - **Formatting**: Use `autopep8` to automatically format your code. To format the Python code within a plugin directory, you can use the command `fakeroot debian/rules omv_fix_py`.
 - **Linting**: Run `fakeroot debian/rules omv_lint_py` to check for linting errors.

@@ -19,8 +19,8 @@
 
 # Documentation/Howto:
 # https://help.ubuntu.com/community/Smartmontools
-# http://en.gentoo-wiki.com/wiki/Smartmontools
-# http://www.linux-user.de/ausgabe/2004/10/056-smartmontools
+# https://web.archive.org/web/20130411075754/http://en.gentoo-wiki.com/wiki/Smartmontools
+# https://web.archive.org/web/20100414004631/http://www.linux-user.de/ausgabe/2004/10/056-smartmontools
 
 {% set config = salt['omv_conf.get']('conf.service.smartmontools') %}
 

@@ -252,7 +252,7 @@ class SystemCtl
 
     /**
      * Escape strings for usage in system unit names.
-     * @see https://www.freedesktop.org/software/systemd/man/systemd-escape.html
+     * @see https://www.freedesktop.org/software/systemd/man/latest/systemd-escape.html
      * @param str The string to escape.
      * @param options An array of 'systemd-escape' options.
      * @return Returns the escaped string.

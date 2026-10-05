@@ -19,7 +19,7 @@
 
 # Documentation/Howto:
 # https://docs.photoprism.app/getting-started/
-# https://github.com/photoprism/photoprism/blob/develop/docker-compose.latest.yml
+# https://github.com/photoprism/photoprism/blob/develop/compose.latest.yaml
 # https://caddyserver.com/docs/caddyfile
 
 # Testing:

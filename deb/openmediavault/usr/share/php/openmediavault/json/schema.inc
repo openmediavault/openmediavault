@@ -27,9 +27,9 @@ require_once("openmediavault/functions.inc");
 
 /**
  * Implements a JSON schema validator.
- * @see https://tools.ietf.org/html/draft-zyp-json-schema-03
- * @see http://json-schema.org/latest/json-schema-core.html
- * @see http://json-schema.org/latest/json-schema-validation.html
+ * @see https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-03
+ * @see https://json-schema.org/draft/2020-12/json-schema-core
+ * @see https://json-schema.org/draft/2020-12/json-schema-validation
  */
 class Schema
 {
@@ -591,7 +591,7 @@ class Schema
     }
 
     /**
-     * @see https://tools.ietf.org/html/draft-zyp-json-schema-03#section-5.23
+     * @see https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-03#section-5.23
      */
     protected function checkFormat($value, $schema, $name)
     {

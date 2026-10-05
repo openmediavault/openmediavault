@@ -196,7 +196,7 @@ class SysVInitScript
      * 100-149  reserved for distribution use
      * 150-199  reserved for application use
      * 200-254  reserved
-     * See http://refspecs.freestandards.org/LSB_3.1.0/LSB-Core-generic/LSB-Core-generic/iniscrptact.html
+     * See https://refspecs.linuxfoundation.org/LSB_3.1.0/LSB-Core-generic/LSB-Core-generic/iniscrptact.html
      */
     public function status()
     {

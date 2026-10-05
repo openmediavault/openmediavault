@@ -325,8 +325,8 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract
                 continue;
             }
             // Escape RDN attribute value, see
-            // http://www-03.ibm.com/systems/i/software/ldap/underdn.html
-            // http://msdn.microsoft.com/en-us/library/windows/desktop/aa366101(v=vs.85).aspx
+            // https://web.archive.org/web/20131022200805/http://www-03.ibm.com/systems/i/software/ldap/underdn.html
+            // https://learn.microsoft.com/en-us/previous-versions/windows/desktop/ldap/distinguished-names
             $replace = [];
             foreach ([ ',', '+', '<', '>', ';', '\r', '=', '#', '/' ] as $v) {
                 $replace[$v] = sprintf("\\%s", mb_strtoupper(str_pad(dechex(

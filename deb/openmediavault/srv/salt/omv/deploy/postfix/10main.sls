@@ -20,7 +20,7 @@
 # Documentation/Howto:
 # http://www.postfix.org/TLS_README.html
 # https://en.wikipedia.org/wiki/SMTPS
-# http://blog.mailgun.com/25-465-587-what-port-should-i-use/
+# https://www.mailgun.com/blog/email/which-smtp-port-understanding-ports-25-465-587/
 
 {% set config = salt['omv_conf.get']('conf.system.notification.email') %}
 {% set dns_config = salt['omv_conf.get']('conf.system.network.dns') %}

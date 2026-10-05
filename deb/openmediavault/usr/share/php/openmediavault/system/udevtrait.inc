@@ -25,7 +25,7 @@ namespace OMV\System;
 
 /**
  * Implements the interface to access udev information.
- * @see https://www.freedesktop.org/software/systemd/man/udev.html
+ * @see https://www.freedesktop.org/software/systemd/man/latest/udev.html
  * @ingroup api
  */
 trait UdevTrait

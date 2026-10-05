@@ -166,7 +166,7 @@ abstract class BackendAbstract
     /**
      * Check whether the filesystem supports the discard/TRIM commands to
      * the underlying block device when blocks are freed.
-     * See https://wiki.archlinux.org/index.php/Solid_State_Drives#TRIM.
+     * See https://wiki.archlinux.org/title/Solid_state_drive#TRIM.
      * @return TRUE if the filesystem supports the discard/TRIM commands,
      *   otherwise FALSE.
      */
@@ -192,7 +192,7 @@ abstract class BackendAbstract
     /**
      * Does the filesystem support POSIX ACL.
      * @see http://de.wikipedia.org/wiki/Access_Control_List
-     * @see http://www.suse.de/~agruen/acl/linux-acls/online
+     * @see https://web.archive.org/web/20120919003839/http://www.suse.de/~agruen/acl/linux-acls/online
      * @return TRUE if the filesystem supports POSIX ACL, otherwise FALSE.
      */
     public function hasPosixAclSupport()
@@ -292,7 +292,7 @@ abstract class BackendAbstract
             //   times.
             if (false === $sd->isRotational()) {
                 // File systems that support TRIM.
-                // See https://wiki.archlinux.org/index.php/Solid_State_Drives#TRIM
+                // See https://wiki.archlinux.org/title/Solid_state_drive#TRIM
                 if ($this->hasFstabDiscardSupport()) {
                     array_push($options, "discard");
                 }

@@ -139,7 +139,7 @@ interface BlockDeviceInterface
 
     /**
      * Get the device number, e.g. 8:17.
-     * @link See https://www.kernel.org/doc/Documentation/devices.txt for
+     * @link See https://docs.kernel.org/admin-guide/devices.html for
      *   more information. @endlink
      * @return string|boolean The device number as string or FALSE on failure.
      */
@@ -147,7 +147,7 @@ interface BlockDeviceInterface
 
     /**
      * Get the major device number.
-     * @link See https://www.kernel.org/doc/Documentation/devices.txt for
+     * @link See https://docs.kernel.org/admin-guide/devices.html for
      *   more information. @endlink
      * @return integer|boolean The major device number or FALSE on failure.
      */
@@ -155,7 +155,7 @@ interface BlockDeviceInterface
 
     /**
      * Get the minor device number.
-     * @link See https://www.kernel.org/doc/Documentation/devices.txt for
+     * @link See https://docs.kernel.org/admin-guide/devices.html for
      *   more information. @endlink
      * @return integer|boolean The minor device number or FALSE on failure.
      */

@@ -175,7 +175,7 @@ def deploy_run(names: List[str], no_color, quiet, append_dirty):
             openmediavault.log.error("The state '%s' does not exist", name)
             sys.exit(100)
     # Execute the states.
-    # https://docs.saltstack.com/en/latest/ref/runners/all/salt.runners.state.html#salt.runners.state.orchestrate
+    # https://docs.saltproject.io/en/latest/ref/runners/all/salt.runners.state.html#salt.runners.state.orchestrate
     names = list(map(lambda x: "omv.deploy.{}".format(x), names))
     mopts = salt.config.minion_config(__salt_minion_config_file)
     caller = salt.client.Caller(mopts=mopts)

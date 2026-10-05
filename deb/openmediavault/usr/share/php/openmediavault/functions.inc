@@ -959,7 +959,7 @@ function inet_getnetmask($bits, $forceipv6 = false)
  */
 function in_range($var, $min, $max): bool
 {
-    // See http://php.net/manual/en/filter.filters.validate.php.
+    // See https://www.php.net/manual/en/filter.constants.php.
     return (false !== filter_var($var, FILTER_VALIDATE_INT, [
       'options' => [
           'min_range' => $min,

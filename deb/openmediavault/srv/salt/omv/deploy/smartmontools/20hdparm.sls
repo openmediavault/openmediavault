@@ -19,7 +19,7 @@
 
 # Documentation/Howto:
 # https://www.smartmontools.org/browser/trunk/smartmontools/smartctl.8.in
-# https://wiki.archlinux.org/title/hdparm
+# https://wiki.archlinux.org/title/Hdparm
 # https://lukas.zapletalovi.com/posts/2020/configuring-hdd-to-spin-down-in-linux-via-smart/
 
 {% set smartmontools_config = salt['omv_conf.get']('conf.service.smartmontools') %}

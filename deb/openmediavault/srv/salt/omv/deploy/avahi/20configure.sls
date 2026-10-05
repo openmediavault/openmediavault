@@ -21,9 +21,9 @@
 # https://help.ubuntu.com/community/HowToZeroconf
 # http://wiki.ubuntuusers.de/Avahi
 # http://www.kde4.de/?page_id=389
-# http://wiki.archlinux.org/index.php/Avahi
-# http://en.gentoo-wiki.com/wiki/Avahi
-# http://www.zaphu.com/2008/04/29/ubuntu-guide-configure-avahi-to-broadcast-services-via-bonjour-to-mac-os-x/
+# https://wiki.archlinux.org/title/Avahi
+# https://web.archive.org/web/20130329162903/http://en.gentoo-wiki.com/wiki/Avahi
+# https://web.archive.org/web/20170404182432/http://www.zaphu.com/2008/04/29/ubuntu-guide-configure-avahi-to-broadcast-services-via-bonjour-to-mac-os-x/
 # http://www.dns-sd.org/ServiceTypes.html
 
 configure_default_avahi_daemon:

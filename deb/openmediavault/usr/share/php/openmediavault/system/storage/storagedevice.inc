@@ -112,7 +112,7 @@ class StorageDevice extends \OMV\System\BlockDevice implements StorageDeviceInte
 
     /**
      * Check if the device is of rotational or non-rotational type.
-     * See https://www.kernel.org/doc/Documentation/block/queue-sysfs.txt
+     * See https://www.kernel.org/doc/Documentation/ABI/stable/sysfs-block
      * @return boolean TRUE if device is rotational, otherwise FALSE.
      */
     public function isRotational()
