@@ -21,3 +21,6 @@ configure_collectd_conf_uptime_plugin:
   file.managed:
     - name: "/etc/collectd/collectd.conf.d/uptime.conf"
     - contents: "LoadPlugin uptime"
+    - user: root
+    - group: root
+    - mode: '0644'

@@ -27,3 +27,6 @@ configure_collectd_conf_syslog_plugin:
         <Plugin syslog>
             LogLevel {{ log_level }}
         </Plugin>
+    - user: root
+    - group: root
+    - mode: '0644'

@@ -26,6 +26,9 @@ create_apt_periodic_custom:
     - name: "/etc/apt/apt.conf.d/98openmediavault-periodic-custom"
     - contents: |
         APT::Periodic::Unattended-Upgrade "1";
+    - user: root
+    - group: root
+    - mode: '0644'
 
 {% else %}
 

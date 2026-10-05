@@ -72,3 +72,6 @@ configure_collectd_conf_disk_plugin:
     - template: jinja
     - context:
         disks: {{ disks | unique | json }}
+    - user: root
+    - group: root
+    - mode: '0644'

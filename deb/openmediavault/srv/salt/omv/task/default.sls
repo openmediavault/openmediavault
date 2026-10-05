@@ -32,3 +32,6 @@ cleanup_tasks:
         tasks:
     - require:
       - salt: deploy_all_tasks
+    - user: root
+    - group: root
+    - mode: '0600'

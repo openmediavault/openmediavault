@@ -40,3 +40,6 @@ configure_collectd_conf_interface_plugin:
     - template: jinja
     - context:
         interfaces: {{ interfaces | json }}
+    - user: root
+    - group: root
+    - mode: '0644'

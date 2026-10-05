@@ -34,5 +34,8 @@ configure_collectd_conf_nut_plugin:
             UPS "{{ config.upsname }}@localhost:{{ port }}"
             {%- endif %}
         </Plugin>
+    - user: root
+    - group: root
+    - mode: '0644'
 
 {% endif %}

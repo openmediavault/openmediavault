@@ -44,3 +44,6 @@ configure_collectd_conf_rrdcached_plugin:
             CreateFiles {{ create_files }}
             CollectStatistics {{ collect_statistics }}
         </Plugin>
+    - user: root
+    - group: root
+    - mode: '0644'

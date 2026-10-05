@@ -29,3 +29,6 @@ configure_collectd_conf_df_plugin:
     - template: jinja
     - context:
         mountpoints: {{ mountpoints | json }}
+    - user: root
+    - group: root
+    - mode: '0644'

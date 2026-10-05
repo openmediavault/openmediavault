@@ -23,6 +23,9 @@ systemd_journald_create_conf_dir:
   file.directory:
     - name: "/etc/systemd/journald.conf.d/"
     - makedirs: True
+    - user: root
+    - group: root
+    - mode: '0755'
 
 systemd_journald_create_conf_file:
   file.managed:
@@ -32,6 +35,9 @@ systemd_journald_create_conf_file:
         {{ pillar['headers']['warning'] }}
         [Journal]
         SystemMaxUse={{ system_max_use }}
+    - user: root
+    - group: root
+    - mode: '0644'
 
 restart_systemd_journald_service:
   service.running:

@@ -31,3 +31,6 @@ configure_collectd_conf_unixsock_plugin:
             SocketGroup "{{ socket_group }}"
             SocketPerms "{{ socket_perms }}"
         </Plugin>
+    - user: root
+    - group: root
+    - mode: '0644'

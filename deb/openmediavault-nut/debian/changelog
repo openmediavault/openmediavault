@@ -1,3 +1,9 @@
+openmediavault-nut (8.0.7-1) stable; urgency=medium
+
+  * Set explicit file permissions for the collectd configuration file.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 05 Oct 2026 22:56:55 +0200
+
 openmediavault-nut (8.0.6-1) stable; urgency=medium
 
   * Issue #2274: Ensure generated passwords do not contain characters

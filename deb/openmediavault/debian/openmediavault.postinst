@@ -702,6 +702,10 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "8.5.11"; then
 			omv_module_set_dirty rsyslog
+			omv_module_set_dirty apt
+			omv_module_set_dirty collectd
+			omv_module_set_dirty systemd-journald
+			omv_module_set_dirty task
 		fi
 
 		########################################################################

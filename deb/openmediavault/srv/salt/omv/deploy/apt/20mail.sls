@@ -29,12 +29,18 @@ create_apt_listchanges_mail:
     - contents: |
         [apt]
         email_address=root
+    - user: root
+    - group: root
+    - mode: '0644'
 
 create_apt_unattended_upgrade_mail:
   file.managed:
     - name: "/etc/apt/apt.conf.d/98openmediavault-unattended-upgrade-mail"
     - contents: |
         Unattended-Upgrade::Mail "root";
+    - user: root
+    - group: root
+    - mode: '0644'
 
 {% else %}
 
