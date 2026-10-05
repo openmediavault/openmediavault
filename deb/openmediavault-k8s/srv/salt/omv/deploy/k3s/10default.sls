@@ -59,6 +59,9 @@ create_k3s_manifest_dir:
   file.directory:
     - name: "/var/lib/rancher/k3s/server/manifests/"
     - makedirs: True
+    - user: root
+    - group: root
+    - dir_mode: '0755'
 
 cleanup_k3s_manifest_dir:
   module.run:
@@ -270,6 +273,9 @@ create_k3s_config_dir:
   file.directory:
     - name: "/etc/rancher/k3s/"
     - makedirs: True
+    - user: root
+    - group: root
+    - dir_mode: '0755'
 
 create_k3s_config:
   file.managed:
