@@ -1,8 +1,7 @@
 openmediavault (8.5.11-1) stable; urgency=medium
 
   * Remove obsolete rsyslog configuration files.
-  * Set explicit file permissions in various Salt states to avoid
-    world-writable configuration files.
+  * Set explicit file permissions in various Salt states.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 04 Oct 2026 01:42:01 +0200
 
