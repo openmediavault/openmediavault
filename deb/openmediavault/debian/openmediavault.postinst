@@ -700,6 +700,9 @@ case "$1" in
 		  omv_module_set_dirty samba
 		  deb-systemd-helper purge openmediavault-cleanup-php.service || :
 		fi
+		if dpkg --compare-versions "$2" lt-nl "8.5.11"; then
+			omv_module_set_dirty rsyslog
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the
