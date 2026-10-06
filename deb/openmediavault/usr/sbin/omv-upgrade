@@ -42,13 +42,15 @@ apt-get update || :
 # /etc/apt/apt.conf.d/99openmediavault-noautoremove additionally prevents
 # 'apt-get --auto-remove' from ever pruning 'openmediavault' as an unused
 # dependency.
+omv_info "Simulating upgrade ..."
 if apt-get --simulate ${OMV_UPGRADE_APT_ARGS} dist-upgrade | \
 	grep -qE '^Remv openmediavault([: ])'; then
-	echo "omv-upgrade: Aborting, the simulated upgrade would remove the" \
-		"'openmediavault' package itself." >&2
+	omv_error "Aborting, the simulated upgrade would remove the" \
+	  "'openmediavault' package itself." >&2
 	exit 1
 fi
 
+omv_info "Performing upgrade ..."
 apt-get --show-upgraded ${OMV_UPGRADE_APT_ARGS} dist-upgrade
 
 exit 0
