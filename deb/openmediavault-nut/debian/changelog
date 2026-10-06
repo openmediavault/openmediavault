@@ -1,6 +1,7 @@
 openmediavault-nut (8.0.7-1) stable; urgency=medium
 
   * Set explicit file permissions for the collectd configuration file.
+    Thanks to Ma Xiaohan.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 05 Oct 2026 22:56:55 +0200
 
