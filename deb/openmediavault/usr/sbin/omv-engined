@@ -183,7 +183,7 @@ function daemonize()
     }
 
     // Change the file mode mask.
-    umask(0);
+    umask(022);
 
     // Change the current working directory.
     if (false === chdir("/")) {
