@@ -2,6 +2,8 @@ openmediavault-k8s (8.2.7-1) stable; urgency=medium
 
   * Set explicit directory permissions for the K3S configuration and
     manifest directories.
+  * Use K3S v1.35.9+k3s1 on new installations. Existing installations won't
+    be upgraded automatically.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 05 Oct 2026 22:56:55 +0200
 
