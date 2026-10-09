@@ -707,6 +707,9 @@ case "$1" in
 			omv_module_set_dirty systemd-journald
 			omv_module_set_dirty task
 		fi
+		if dpkg --compare-versions "$2" lt-nl "8.5.12"; then
+			omv_module_set_dirty rsyslog
+		fi
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the

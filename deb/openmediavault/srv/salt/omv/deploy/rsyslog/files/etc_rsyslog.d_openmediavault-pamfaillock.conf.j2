@@ -3,11 +3,20 @@
 #
 # https://www.rsyslog.com/regex/
 # May 11 16:30:37 omv6box omv-engined[71484]: pam_faillock(openmediavault:auth): Consecutive login failures for user admin account temporarily locked
-$template pamfaillockMailSubject,"Too many failed login attempts from user '%msg:R,ERE,1,DFLT:user (.+) account--end%'"
-$template pamfaillockMailBody,"User '%msg:R,ERE,1,DFLT:user (.+) account--end%' has been banned at %timereported% after consecutive failed login attempts. Access is denied for 3 minutes. After that time, the user is able to log in again with the correct password."
-$ActionMailFrom root
-$ActionMailTo root
-$ActionMailSubject pamfaillockMailSubject
-:msg, regex, "pam_faillock\(.*:auth\): Consecutive login failures for user .* account temporarily locked" :ommail:;pamfaillockMailBody
-& stop
+template(name="pamfaillockMailSubject" type="string"
+  string="Too many failed login attempts from user '%msg:R,ERE,1,DFLT:user (.+) account--end%'")
+template(name="pamfaillockMailBody" type="string"
+  string="User '%msg:R,ERE,1,DFLT:user (.+) account--end%' has been banned at %timereported% after consecutive failed login attempts. Access is denied for 3 minutes. After that time, the user is able to log in again with the correct password.")
+if re_match($msg, "pam_faillock\\(.*:auth\\): Consecutive login failures for user .* account temporarily locked") then {
+  action(
+    type="ommail"
+    server="127.0.0.1"
+    port="25"
+    mailfrom="root"
+    mailto="root"
+    subject.template="pamfaillockMailSubject"
+    template="pamfaillockMailBody"
+  )
+  stop
+}
 {%- endif -%}

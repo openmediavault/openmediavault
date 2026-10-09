@@ -36,7 +36,11 @@ test_rsyslog_config:
   cmd.run:
     - name: "rsyslogd -N1"
 
-start_rsyslog_service:
+enable_rsyslog_service:
+  service.enabled:
+    - name: rsyslog
+
+restart_rsyslog_service:
   module.run:
     - service.restart:
       - name: rsyslog
