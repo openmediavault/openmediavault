@@ -26,6 +26,14 @@ set -e
 
 case "$1" in
 	configure)
+	  # Stop and disable various services that are disabled by default.
+    deb-systemd-helper disable mdcheck_start.timer || :
+    deb-systemd-invoke stop mdcheck_start.timer || :
+    deb-systemd-invoke mask mdcheck_start.timer || :
+    deb-systemd-helper disable mdcheck_continue.timer || :
+    deb-systemd-invoke stop mdcheck_continue.timer || :
+    deb-systemd-invoke mask mdcheck_continue.timer || :
+
 		########################################################################
 		# Append notification configuration.
 		# Note, we are not using the `omv-confdbadm create "conf.service.xxx"`
