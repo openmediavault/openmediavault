@@ -5,6 +5,7 @@
 # 
 # Translators:
 # Raul Fernandez Garcia <raulfg3@gmail.com>, 2024
+# Heather Freelig, 2026
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-03 21:46+0100\n"
 "PO-Revision-Date: 2024-06-14 17:38+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2024\n"
+"Last-Translator: Heather Freelig, 2026\n"
 "Language-Team: Spanish (Spain) (https://app.transifex.com/openmediavault/teams/14254/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,19 +54,19 @@ msgid "Edit"
 msgstr "Editar"
 
 msgid "Enabled"
-msgstr "Habilitado"
+msgstr "Activado"
 
 msgid "Other Software"
 msgstr "Otro Software"
 
 msgid "Signed-By"
-msgstr "Firmado Por:"
+msgstr "Firmado por"
 
 msgid "Suites"
 msgstr "Suites"
 
 msgid "Tags"
-msgstr "Tags"
+msgstr "Etiquetas"
 
 msgid ""
 "The GPG/PGP key used to verify packages and repository metadata. This "
@@ -81,7 +82,7 @@ msgid ""
 "'https://ftp.debian.org/debian'. Configure multiple URIs at once by "
 "separating them with a blank."
 msgstr ""
-"El URI debe especificar la base del repositorio de paquetes, p.e. "
+"El URI debe especificar la base del repositorio de paquetes, por ejemplo, "
 "'https://ftp.debian.org/debian'. Configure varios URI a la vez separándolos "
 "con un espacio en blanco."
 
@@ -97,14 +98,14 @@ msgid ""
 "The suite is the name of the release, e.g. 'stable', 'testing', 'unstable' "
 "or 'sandworm'."
 msgstr ""
-"La suite es el nombre de la versión, ej:. 'stable', 'testing', 'unstable' o "
-"'sandworm'."
+"La suite es el nombre de la versión, por ejemplo, 'stable', 'testing', "
+"'unstable' o 'sandworm'."
 
 msgid "Types"
 msgstr "Tipos"
 
 msgid "URIs"
-msgstr "URIs"
+msgstr "URI"
 
 msgid "Updated APT source."
 msgstr "Fuente APT actualizada."

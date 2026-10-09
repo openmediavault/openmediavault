@@ -5,6 +5,7 @@
 # 
 # Translators:
 # Raul Fernandez Garcia <raulfg3@gmail.com>, 2023
+# Heather Freelig, 2026
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-04 17:34+0200\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2023\n"
+"Last-Translator: Heather Freelig, 2026\n"
 "Language-Team: Spanish (Spain) (https://app.transifex.com/openmediavault/teams/14254/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,13 +23,13 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "A maximum of one device can be removed."
-msgstr "Se puede eliminar como máximo 1 disco."
+msgstr "Como máximo, se puede eliminar un dispositivo."
 
 msgid "A maximum of two devices can be removed."
-msgstr ""
+msgstr "Como máximo, se pueden eliminar dos dispositivos."
 
 msgid "Add"
-msgstr ""
+msgstr "Añadir"
 
 msgid ""
 "Adding a disk to a degraded array starts the rebuild process. The kernel "
@@ -37,6 +38,12 @@ msgid ""
 "Alternatively, a disk can be added to a healthy array as a <em>hot "
 "spare</em> that will be used automatically to replace a failed disk."
 msgstr ""
+"Añadir un disco a una matriz degradada inicia el proceso de reconstrucción. "
+"El kernel sincroniza automáticamente los datos en el nuevo disco, lo cual "
+"puede llevar mucho tiempo, por lo que no apague ni reinicie el sistema "
+"mientras esté en progreso. Alternativamente, se puede añadir un disco a una "
+"matriz sana como un <em>hot spare</em> que se utilizará automáticamente para"
+" reemplazar un disco fallido."
 
 msgid ""
 "Adding disk(s) to the array reshapes it, which can take a very long time "
@@ -44,62 +51,71 @@ msgid ""
 "reshape is in progress. Note that the file system on the array is not grown "
 "automatically."
 msgstr ""
+"Añadir disco(s) a la matriz la reestructura, lo cual puede llevar mucho "
+"tiempo dependiendo de su tamaño. No apague ni reinicie el sistema mientras "
+"la reestructuración esté en progreso. Tenga en cuenta que el sistema de "
+"archivos de la matriz no se expande automáticamente."
 
 msgid "At least four devices are required."
-msgstr "Se necesitan al menos 4 discos."
+msgstr "Se requieren al menos cuatro dispositivos."
 
 msgid "At least three devices are required."
-msgstr "Se necesitan al menos 3 discos."
+msgstr "Se requieren al menos tres dispositivos."
 
 msgid "At least two devices are required."
-msgstr "Se necesitan al menos 2 discos."
+msgstr "Se requieren al menos dos dispositivos."
 
 msgid "Capacity"
 msgstr "Capacidad"
 
 msgid "Check"
-msgstr ""
+msgstr "Comprobar"
 
 msgid "Create"
 msgstr "Crear"
 
 msgid "Device"
-msgstr "Disco"
+msgstr "Dispositivo"
 
 msgid "Devices"
-msgstr "Discos"
+msgstr "Dispositivos"
 
 msgid "Displays information about MD (Software RAID) devices."
-msgstr ""
+msgstr "Muestra información sobre los dispositivos MD (RAID por software)."
 
 msgid ""
 "Do you really want to repair the selected RAID device? This will attempt to "
 "correct any inconsistencies found, which can overwrite data if a mismatch "
 "cannot be unambiguously resolved."
 msgstr ""
+"¿Realmente desea reparar el dispositivo RAID seleccionado? Esto intentará "
+"corregir cualquier inconsistencia encontrada, lo cual puede sobrescribir "
+"datos si un desajuste no se puede resolver de forma inequívoca."
 
 msgid ""
 "Do you really want to stop the running check/repair action on the selected "
 "RAID device?"
 msgstr ""
+"¿Realmente desea detener la acción de comprobación/reparación en ejecución "
+"en el dispositivo RAID seleccionado?"
 
 msgid "Grow"
-msgstr "Crecer"
+msgstr "Ampliar"
 
 msgid "Level"
 msgstr "Nivel"
 
 msgid "MD Devices"
-msgstr ""
+msgstr "Dispositivos MD"
 
 msgid "Maintenance"
-msgstr ""
+msgstr "Mantenimiento"
 
 msgid "Mirror"
 msgstr "Espejo"
 
 msgid "Multiple Device"
-msgstr "Múltiples dispositivos."
+msgstr "Dispositivo múltiple"
 
 msgid "Name"
 msgstr "Nombre"
@@ -126,7 +142,7 @@ msgid "Recover"
 msgstr "Recuperar"
 
 msgid "Referenced"
-msgstr ""
+msgstr "Referenciado"
 
 msgid "Remove"
 msgstr "Eliminar"
@@ -137,25 +153,30 @@ msgid ""
 " is typically used to replace a faulty disk. Note that the RAID metadata on "
 "the removed disk(s) is not erased."
 msgstr ""
+"Eliminar disco(s) primero los marca como <em>failed</em> y luego los elimina"
+" de la matriz, poniéndola en un estado degradado con redundancia reducida. "
+"Normalmente se utiliza para reemplazar un disco defectuoso. Tenga en cuenta "
+"que los metadatos RAID en los disco(s) eliminados no se borran."
 
 msgid "Repair"
-msgstr ""
+msgstr "Reparar"
 
 msgid "Select devices ..."
-msgstr "Seleccionar Discos ..."
+msgstr "Seleccionar dispositivos..."
 
 msgid "Select devices to be added to the RAID device."
-msgstr "Seleccionar discos para añadir al RAID."
+msgstr "Seleccione los dispositivos que se añadirán al dispositivo RAID."
 
 msgid "Select devices to be removed from the RAID device."
-msgstr "Seleccionar discos para eliminar del RAID."
+msgstr "Seleccione los dispositivos que se eliminarán del dispositivo RAID."
 
 msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
 msgstr ""
-"Seleccionar discos para usar en la creación del RAID. Los discos USB, NO "
-"serán listados (demasiado inestables)"
+"Seleccione los dispositivos que se utilizarán para crear el dispositivo "
+"RAID. Los dispositivos conectados a través de USB no se incluirán en la "
+"lista (demasiado poco fiables)."
 
 msgid "Show details"
 msgstr "Mostrar detalles"
@@ -167,7 +188,7 @@ msgid "State"
 msgstr "Estado"
 
 msgid "Stop"
-msgstr ""
+msgstr "Detener"
 
 msgid "Stripe"
-msgstr "Bandas"
+msgstr "Seccionamiento"

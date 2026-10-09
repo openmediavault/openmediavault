@@ -5,6 +5,7 @@
 # 
 # Translators:
 # Raul Fernandez Garcia <raulfg3@gmail.com>, 2024
+# Heather Freelig, 2026
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-26 11:58+0100\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2024\n"
+"Last-Translator: Heather Freelig, 2026\n"
 "Language-Team: Spanish (Spain) (https://app.transifex.com/openmediavault/teams/14254/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,13 +23,13 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Absolute Path"
-msgstr "Ruta Absoluta"
+msgstr "Ruta absoluta"
 
 msgid "Access Modes"
 msgstr "Modos de acceso"
 
 msgid "App Version"
-msgstr "Versión"
+msgstr "Versión de la aplicación"
 
 msgid "Apply"
 msgstr "Aplicar"
@@ -49,7 +50,7 @@ msgid "Certificates"
 msgstr "Certificados"
 
 msgid "Chart"
-msgstr "Grafica"
+msgstr "Gráfica"
 
 msgid "Check for new recipes"
 msgstr "Buscar nuevas recetas"
@@ -58,13 +59,13 @@ msgid "Class"
 msgstr "Clase"
 
 msgid "Cluster IP"
-msgstr "Cluster IP"
+msgstr "IP del clúster"
 
 msgid "Compressed"
 msgstr "Comprimido"
 
 msgid "Config Maps"
-msgstr "Mapa de Configuración"
+msgstr "Mapas de configuración"
 
 msgid "Copy to clipboard"
 msgstr "Copiar al portapapeles"
@@ -73,28 +74,28 @@ msgid "Copy token"
 msgstr "Copiar token"
 
 msgid "Count"
-msgstr ""
+msgstr "Contador"
 
 msgid "Created"
 msgstr "Creado"
 
 msgid "Dashboard"
-msgstr "Panel"
+msgstr "Tablero"
 
 msgid "Data"
 msgstr "Datos"
 
 msgid "Datastore"
-msgstr "Almacén"
+msgstr "Almacén de datos"
 
 msgid "Date & Time"
-msgstr "Fecha y Hora"
+msgstr "Fecha y hora"
 
 msgid "Depends"
-msgstr ""
+msgstr "Depende"
 
 msgid "Deployments"
-msgstr "Implementaciones"
+msgstr "Despliegues"
 
 msgid "Describe"
 msgstr "Describir"
@@ -103,45 +104,45 @@ msgid "Description"
 msgstr "Descripción"
 
 msgid "Do you really want to restore this snapshot?"
-msgstr "¿Realmente quieres restaurar esta instantánea?"
+msgstr "¿Realmente desea restaurar esta instantánea?"
 
 msgid "Download"
-msgstr "Descargas"
+msgstr "Descargar"
 
 msgid ""
 "Downloading the kubeconfig file to the local system enables secure remote "
 "management of the Kubernetes cluster using command-line tools like kubectl."
 msgstr ""
-"La descarga del archivo kubeconfig al sistema local permite la "
-"administración remota segura del clúster de Kubernetes mediante herramientas"
-" de línea de comandos como kubectl."
+"La descarga del archivo kubeconfig en el sistema local permite la gestión "
+"remota segura del clúster de Kubernetes mediante herramientas de línea de "
+"comandos como kubectl."
 
 msgid "Enabled"
-msgstr "Habilitado"
+msgstr "Activado"
 
 msgid "Events"
-msgstr ""
+msgstr "Eventos"
 
 msgid "Expose"
-msgstr ""
+msgstr "Exponer"
 
 msgid "Exposed"
-msgstr ""
+msgstr "Expuesto"
 
 msgid "Exposed port"
-msgstr ""
+msgstr "Puerto expuesto"
 
 msgid "External IP"
-msgstr "IP Externa"
+msgstr "IP externa"
 
 msgid "Extra configuration"
-msgstr ""
+msgstr "Configuración adicional"
 
 msgid "Failed"
-msgstr ""
+msgstr "Fallido"
 
 msgid "First seen"
-msgstr ""
+msgstr "Visto por primera vez"
 
 msgid "GID"
 msgstr "GID"
@@ -153,7 +154,7 @@ msgid "Helm Charts"
 msgstr "Helm Charts"
 
 msgid "Homepage"
-msgstr "Homepage"
+msgstr "Página principal"
 
 msgid "ID"
 msgstr "ID"
@@ -162,7 +163,7 @@ msgid "Image"
 msgstr "Imagen"
 
 msgid "Images"
-msgstr "Imagenes"
+msgstr "Imágenes"
 
 msgid "Import"
 msgstr "Importar"
@@ -171,10 +172,10 @@ msgid "Ingredients"
 msgstr "Ingredientes"
 
 msgid "Ingress Routes"
-msgstr "Ruta de ingreso"
+msgstr "Rutas de entrada"
 
 msgid "Ingresses"
-msgstr "Ingreso"
+msgstr "Entradas"
 
 msgid "Job"
 msgstr "Trabajo"
@@ -186,22 +187,22 @@ msgid "Kubernetes"
 msgstr "Kubernetes"
 
 msgid "Kubernetes - Pods"
-msgstr ""
+msgstr "Kubernetes - Pods"
 
 msgid "Kubernetes - Resources"
-msgstr ""
+msgstr "Kubernetes - Recursos"
 
 msgid "Labels"
 msgstr "Etiquetas"
 
 msgid "Last seen"
-msgstr ""
+msgstr "Visto por última vez"
 
 msgid "Load Balancer"
-msgstr "Balance de carga"
+msgstr "Balanceador de carga"
 
 msgid "Logs"
-msgstr "Logs"
+msgstr "Registros"
 
 msgid "Manifest"
 msgstr "Manifiesto"
@@ -210,7 +211,7 @@ msgid "Message"
 msgstr "Mensaje"
 
 msgid "Monitoring - Kubernetes"
-msgstr ""
+msgstr "Monitoreo - Kubernetes"
 
 msgid "Name"
 msgstr "Nombre"
@@ -222,16 +223,16 @@ msgid "Namespaces"
 msgstr "Espacios de nombres"
 
 msgid "NodePort IP"
-msgstr "IP del NodePort"
+msgstr "IP de NodePort"
 
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 msgid "Object"
-msgstr ""
+msgstr "Objeto"
 
 msgid "Open UI"
-msgstr "Abrir UI"
+msgstr "Abrir interfaz de usuario"
 
 msgid "PV"
 msgstr "PV"
@@ -240,19 +241,19 @@ msgid "PVC"
 msgstr "PVC"
 
 msgid "Pending"
-msgstr ""
+msgstr "Pendiente"
 
 msgid "Persistent Volume Claims"
-msgstr "Reclamaciones de volumen persistente"
+msgstr "Solicitudes de volumen persistente"
 
 msgid "Persistent Volumes"
 msgstr "Volúmenes persistentes"
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr "Por favor, espere, la instantánea está siendo creada ..."
+msgstr "Por favor espere, se creará una instantánea..."
 
 msgid "Please wait, the snapshot will be restored ..."
-msgstr "Por favor, espere, la instantánea está siendo restaurada ..."
+msgstr "Por favor espere, se restaurará la instantánea..."
 
 msgid "Pods"
 msgstr "Pods"
@@ -264,16 +265,16 @@ msgid "Ports"
 msgstr "Puertos"
 
 msgid "Protocol"
-msgstr ""
+msgstr "Protocolo"
 
 msgid "README"
-msgstr ""
+msgstr "README"
 
 msgid "Ready"
 msgstr "Listo"
 
 msgid "Reason"
-msgstr ""
+msgstr "Motivo"
 
 msgid "Recipe Information"
 msgstr "Información de la receta"
@@ -285,12 +286,14 @@ msgid "Recipes"
 msgstr "Recetas"
 
 msgid "Reclaim policy"
-msgstr "Política de reclamaciones"
+msgstr "Política de recuperación"
 
 msgid ""
 "Refer to the values.yaml file in the Traefik Helm chart to see what "
 "configuration options are available."
 msgstr ""
+"Consulte el archivo values.yaml en el Traefik Helm chart para ver qué "
+"opciones de configuración están disponibles."
 
 msgid "Repository"
 msgstr "Repositorio"
@@ -302,7 +305,7 @@ msgid "Restore"
 msgstr "Restaurar"
 
 msgid "Running"
-msgstr ""
+msgstr "En ejecución"
 
 msgid "SQLite"
 msgstr "SQLite"
@@ -317,19 +320,19 @@ msgid "Services"
 msgstr "Servicios"
 
 msgid "Settings"
-msgstr "Opciones"
+msgstr "Configuración"
 
 msgid "Shared Folders"
 msgstr "Carpetas compartidas"
 
 msgid "Show README"
-msgstr ""
+msgstr "Mostrar README"
 
 msgid "Show the number of pods per status phase."
-msgstr ""
+msgstr "Muestra el número de pods por fase de estado."
 
 msgid "Show the total number of several resources."
-msgstr ""
+msgstr "Muestra el número total de varios recursos."
 
 msgid "Size"
 msgstr "Tamaño"
@@ -338,10 +341,10 @@ msgid "Snapshots"
 msgstr "Instantáneas"
 
 msgid "Source"
-msgstr ""
+msgstr "Fuente"
 
 msgid "Stateful Sets"
-msgstr ""
+msgstr "Stateful Sets"
 
 msgid "Status"
 msgstr "Estado"
@@ -350,13 +353,13 @@ msgid "Storage Class"
 msgstr "Clases de almacenamiento"
 
 msgid "Succeeded"
-msgstr ""
+msgstr "Completado con éxito"
 
 msgid "Tag"
 msgstr "Etiqueta"
 
 msgid "Tags"
-msgstr "Tags"
+msgstr "Etiquetas"
 
 msgid "Target Namespace"
 msgstr "Espacio de nombres de destino"
@@ -365,6 +368,8 @@ msgid ""
 "The SSL certificate used by the LoadBalancer service. If not set, a self-"
 "signed certificate from cert-manager is used."
 msgstr ""
+"El certificado SSL utilizado por el servicio LoadBalancer. Si no se "
+"configura, se utiliza un certificado autofirmado de cert-manager."
 
 msgid ""
 "The datastore used by the Kubernetes cluster. SQLite is recommended for "
@@ -372,12 +377,12 @@ msgid ""
 "high-availability setups with multiple nodes."
 msgstr ""
 "El almacén de datos utilizado por el clúster de Kubernetes. Se recomienda "
-"usar SQLite para configuraciones de un solo nodo y SBC con discos lentos, "
+"SQLite para configuraciones de un solo nodo y SBC con discos lentos, "
 "mientras que se recomienda etcd para configuraciones de alta disponibilidad "
 "con múltiples nodos."
 
 msgid "The field should only contain the characters a-z, 0-9 and -."
-msgstr ""
+msgstr "El campo solo debe contener los caracteres a-z, 0-9 y -."
 
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
@@ -388,22 +393,29 @@ msgid ""
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>here</a>."
 msgstr ""
+"Los siguientes marcadores de posición se pueden utilizar en las recetas para"
+" acceder a la información global del sistema y a la base de datos de "
+"configuración:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>Debe indicar los marcadores de posición con llaves "
+"dobles. Puede encontrar una descripción general de los filtros adicionales "
+"disponibles <a href='https://twig.symfony.com/doc/filters/index.html' "
+"target='_blank'>aquí</a>."
 
 msgid "The location where to store etcd on-demand snapshots."
 msgstr "La ubicación donde almacenar instantáneas bajo demanda de etcd."
 
 msgid "The manifest to apply."
-msgstr "El manifiesto a aplicar"
+msgstr "El manifiesto a aplicar."
 
 msgid "The snapshot was created successfully."
-msgstr "La instantánea ha sido creada satisfactoriamente."
+msgstr "La instantánea se creó correctamente."
 
 msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
 msgstr ""
 "La instantánea {{ spec.snapshotName }} se ha restaurado correctamente."
 
 msgid "The token to authenticate to the Kubernetes Dashboard."
-msgstr "El token para autenticarse en el panel de Kubernetes."
+msgstr "El token para autenticarse en el Tablero de Kubernetes."
 
 msgid "Type"
 msgstr "Tipo"
@@ -412,34 +424,34 @@ msgid "UID"
 msgstr "UID"
 
 msgid "UUID"
-msgstr ""
+msgstr "UUID"
 
 msgid "Unknown"
-msgstr ""
+msgstr "Desconocido"
 
 msgid "Up-to-date"
-msgstr "Hasta hoy"
+msgstr "Actualizado"
 
 msgid "Updated Kubernetes settings."
-msgstr "Actualizar las opciones de Kubernetes."
+msgstr "Configuración de Kubernetes actualizada."
 
 msgid "Users"
 msgstr "Usuarios"
 
 msgid "Version"
-msgstr ""
+msgstr "Versión"
 
 msgid "View"
-msgstr "Vista"
+msgstr "Ver"
 
 msgid "Volume"
 msgstr "Volumen"
 
 msgid "Warning"
-msgstr ""
+msgstr "Advertencia"
 
 msgid "YAML"
-msgstr ""
+msgstr "YAML"
 
 msgid "etcd"
 msgstr "etcd"

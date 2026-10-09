@@ -5,6 +5,7 @@
 # 
 # Translators:
 # Raul Fernandez Garcia <raulfg3@gmail.com>, 2026
+# Heather Freelig, 2026
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-17 20:19+0200\n"
 "PO-Revision-Date: 2026-06-26 17:34+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2026\n"
+"Last-Translator: Heather Freelig, 2026\n"
 "Language-Team: Spanish (Spain) (https://app.transifex.com/openmediavault/teams/14254/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,31 +23,31 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "2FA TOTP"
-msgstr ""
+msgstr "TOTP para 2FA"
 
 msgid "Disable"
-msgstr ""
+msgstr "Desactivar"
 
 msgid "Disable 2FA TOTP"
-msgstr ""
+msgstr "Desactivar TOTP para 2FA"
 
 msgid "Edit"
 msgstr "Editar"
 
 msgid "Enable"
-msgstr ""
+msgstr "Activar"
 
 msgid "Enable 2FA TOTP"
-msgstr ""
+msgstr "Activar TOTP para 2FA"
 
 msgid "Enabled"
-msgstr "Habilitado"
+msgstr "Activado"
 
 msgid "Name"
 msgstr "Nombre"
 
 msgid "QR code"
-msgstr ""
+msgstr "Código QR"
 
 msgid ""
 "Scan the QR code below with your authenticator app (Google Authenticator, "
@@ -54,12 +55,17 @@ msgid ""
 "manually. Once your authenticator app is configured, enter the 6-digit code "
 "it shows to confirm the setup."
 msgstr ""
+"Escanee el código QR a continuación con su aplicación de autenticación "
+"(Google Authenticator, Authy, etc.). Si su aplicación no admite códigos QR, "
+"introduzca la clave secreta manualmente. Una vez configurada su aplicación "
+"de autenticación, introduzca el código de 6 dígitos que muestra para "
+"confirmar la configuración."
 
 msgid "Secret"
-msgstr ""
+msgstr "Clave secreta"
 
 msgid "Two-Factor Authentication"
-msgstr ""
+msgstr "Autenticación de dos factores"
 
 msgid ""
 "Two-factor authentication (2FA) with TOTP adds an extra layer of security by"
@@ -67,12 +73,16 @@ msgid ""
 "addition to your password. You can enable or disable it for your account "
 "here."
 msgstr ""
+"La autenticación de dos factores (2FA) con TOTP añade una capa adicional de "
+"seguridad al requerir un código de un solo uso basado en el tiempo de su "
+"aplicación de autenticación, además de su contraseña. Puede activarla o "
+"desactivarla para su cuenta aquí."
 
 msgid "Updated 2FA TOTP."
-msgstr ""
+msgstr "Se ha actualizado el TOTP para 2FA."
 
 msgid "User name"
-msgstr ""
+msgstr "Nombre de usuario"
 
 msgid "Verification code"
-msgstr ""
+msgstr "Código de verificación"

@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the openmediavault package.
 # 
 # Translators:
+# Heather Freelig, 2026
 # José Manuel Caínzos <josem.cainzos@gmail.com>, 2012-2013
 # José Manuel Caínzos <josem.cainzos@gmail.com>, 2013
 # José Manuel Caínzos <josem.cainzos@gmail.com>, 2012
@@ -15,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-07 19:44+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2024\n"
+"Last-Translator: Heather Freelig, 2026\n"
 "Language-Team: Spanish (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,13 +25,13 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "# Members"
-msgstr ""
+msgstr "# Miembros"
 
 msgid "%CPU"
-msgstr ""
+msgstr "%CPU"
 
 msgid "%MEM"
-msgstr ""
+msgstr "%MEM"
 
 msgid "%d days"
 msgstr "%d días"
@@ -57,13 +58,13 @@ msgid "%s [on %s, %s]"
 msgstr "%s [en %s, %s]"
 
 msgid "%s [on N/A, %s]"
-msgstr ""
+msgstr "%s [en N/D, %s]"
 
 msgid "%s ago"
-msgstr "%s ago"
+msgstr "hace %s"
 
 msgid "1 - Minimum power usage with standby (spindown)"
-msgstr "1 - Consumo mínimo en reposo (spindown)"
+msgstr "1 - Consumo mínimo de energía con parada de motor (spindown)"
 
 msgid "1 GiB"
 msgstr "1 GiB"
@@ -105,10 +106,10 @@ msgid "120 minutes"
 msgstr "120 minutos"
 
 msgid "127 - Intermediate power usage with standby"
-msgstr "127 - Consumo medio con reposo"
+msgstr "127 - Consumo de energía intermedio con parada de motor"
 
 msgid "128 - Minimum power usage without standby (no spindown)"
-msgstr "128 - Consumo mínimo sin reposo (no spindown)"
+msgstr "128 - Consumo mínimo de energía sin parada de motor (sin spindown)"
 
 msgid "15 min"
 msgstr "15 min"
@@ -123,7 +124,7 @@ msgid "180 minutes"
 msgstr "180 minutos"
 
 msgid "192 - Intermediate power usage without standby"
-msgstr "192 - Consumo medio sin reposo"
+msgstr "192 - Consumo de energía intermedio sin parada de motor"
 
 msgid "2 GiB"
 msgstr "2 GiB"
@@ -162,7 +163,7 @@ msgid "250 MiB"
 msgstr "250 MiB"
 
 msgid "254 - Maximum performance, maximum power usage"
-msgstr "254 - Máximo rendimiento, máximo consumo"
+msgstr "254 - Máximo rendimiento, máximo consumo de energía"
 
 msgid "3 days"
 msgstr "3 días"
@@ -195,7 +196,7 @@ msgid "4 days"
 msgstr "4 días"
 
 msgid "4 minutes"
-msgstr "4 minotos"
+msgstr "4 minutos"
 
 msgid "4 years"
 msgstr "4 años"
@@ -231,7 +232,7 @@ msgid "60 minutes"
 msgstr "60 minutos"
 
 msgid "64 - Intermediate power usage with standby"
-msgstr "64 - Consumo medio con reposo"
+msgstr "64 - Consumo de energía intermedio con parada de motor"
 
 msgid "75 MiB"
 msgstr "75 MiB"
@@ -243,27 +244,27 @@ msgid "9 months"
 msgstr "9 meses"
 
 msgid "A (5 GHz)"
-msgstr ""
+msgstr "A (5 GHz)"
 
 msgid ""
 "A reboot is needed to fully apply the changes introduced by package "
 "installation or upgrade."
-msgstr "Es necesario reiniciar para aplicar completamente los cambios introducidos por la instalación o actualización del paquete."
+msgstr "Se requiere un reinicio para aplicar por completo los cambios introducidos por la instalación o actualización de paquetes."
 
 msgid "A running background task was detected."
-msgstr "ha sido detectada una tarea corriendo en background."
+msgstr "Se ha detectado una tarea en ejecución en segundo plano."
 
 msgid "A scheduled task to create a snapshot has been created."
-msgstr "Ha sido creada una tarea programada para crear un snapshot."
+msgstr "Se ha creado una tarea programada para crear una instantánea."
 
 msgid "A secure shell (SSH) server."
-msgstr "Servidor seguro (SSH)"
+msgstr "Un servidor de shell seguro (SSH)."
 
 msgid "ACL"
 msgstr "ACL"
 
 msgid "About"
-msgstr "Acerca"
+msgstr "Acerca de"
 
 msgid "Absolute Path"
 msgstr "Ruta absoluta"
@@ -272,10 +273,10 @@ msgid "Abstract"
 msgstr "Extracto"
 
 msgid "Access control list"
-msgstr "ACL Lista de Control de Acceso"
+msgstr "Lista de control de acceso"
 
 msgid "Account"
-msgstr ""
+msgstr "Cuenta"
 
 msgid "Act as a WINS server."
 msgstr "Funcionar como servidor WINS."
@@ -291,7 +292,7 @@ msgid ""
 "Activate S.M.A.R.T. monitoring for this device. Note that only monitored "
 "devices are listed in the scheduled tasks. Monitoring cannot be switched off"
 " as long as there are scheduled tasks for this device."
-msgstr "Activar monitoreo S.M.A.R.T. de este dispositivo. Tenga en cuenta que solo los dispositivos monitoreados aparecen en las tareas programadas. La monitorización no se puede desactivar mientras haya tareas programadas para este dispositivo."
+msgstr "Activar la supervisión S.M.A.R.T. para este dispositivo. Tenga en cuenta que solo los dispositivos supervisados aparecen en la lista de tareas programadas. La supervisión no se puede desactivar mientras existan tareas programadas para este dispositivo."
 
 msgid "Active"
 msgstr "Activo"
@@ -306,28 +307,28 @@ msgid "Address"
 msgstr "Dirección"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
-msgstr "Administrador: Lectura/Escritura, Usuarios: Sin acceso, Otros: Sin acceso"
+msgstr "Administrador: lectura/escritura, usuarios: sin acceso, otros: sin acceso"
 
 msgid "Administrator: read/write, Users: read-only, Others: no access"
-msgstr "Administrador: Lectura/Escritura, Usuarios: Solo lectura, Otros: Sin acceso"
+msgstr "Administrador: lectura/escritura, usuarios: solo lectura, otros: sin acceso"
 
 msgid "Administrator: read/write, Users: read-only, Others: read-only"
-msgstr "Administrador: Lectura/Escritura, Usuarios:Solo lectura, Otros: Solo lectura"
+msgstr "Administrador: lectura/escritura, usuarios: solo lectura, otros: solo lectura"
 
 msgid "Administrator: read/write, Users: read/write, Others: no access"
-msgstr "Administrador: Lectura/Escritura, Usuarios:Lectura/Escritura, Otros:Sin acceso"
+msgstr "Administrador: lectura/escritura, usuarios: lectura/escritura, otros: sin acceso"
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
-msgstr "Administrador: Lectura/Escritura, Usuarios:Lectura/Escritura, Otros: Solo lectura"
+msgstr "Administrador: lectura/escritura, usuarios: lectura/escritura, otros: solo lectura"
 
 msgid "Advanced Acoustic Management"
-msgstr "AAM Manejo Avanzado de Acustica"
+msgstr "Gestión acústica avanzada"
 
 msgid "Advanced Power Management"
-msgstr "APM - Uso avanzado de Energía"
+msgstr "Gestión de energía"
 
 msgid "Advanced settings"
-msgstr "Propiedades avanzadas"
+msgstr "Configuración avanzada"
 
 msgid "Afghanistan"
 msgstr "Afganistán"
@@ -345,27 +346,27 @@ msgid "All"
 msgstr "Todos"
 
 msgid "All Snapshots"
-msgstr "Todos los Snapshots"
+msgstr "Todas las instantáneas"
 
 msgid "All packages will be upgraded. Do you want to proceed?"
-msgstr "Todos los paquetes serán actualizados. Quieres proceder?"
+msgstr "Se actualizarán todos los paquetes. ¿Desea continuar?"
 
 msgid ""
 "Allow clients to attempt to access extended attributes on a share. The "
 "underlying filesystem exposed by the share must support extended attributes."
-msgstr ""
+msgstr "Permite a los clientes intentar acceder a los atributos extendidos en un recurso compartido. El sistema de archivos subyacente expuesto por el recurso compartido debe admitir atributos extendidos."
 
 msgid "Allow following symbolic links in the home directories."
-msgstr ""
+msgstr "Permitir seguir enlaces simbólicos en los directorios de inicio."
 
 msgid "Allow following symbolic links in the share."
-msgstr ""
+msgstr "Permitir seguir enlaces simbólicos en el recurso compartido."
 
 msgid "Allow symbolic links to areas that are outside the home directories."
-msgstr ""
+msgstr "Permitir enlaces simbólicos a áreas que están fuera de los directorios de inicio."
 
 msgid "Allow symbolic links to areas that are outside the share."
-msgstr ""
+msgstr "Permitir enlaces simbólicos a áreas que están fuera del recurso compartido."
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients."
@@ -375,28 +376,28 @@ msgid "Allowed clients"
 msgstr "Clientes permitidos"
 
 msgid "American Samoa"
-msgstr "Samoa"
+msgstr "Samoa Americana"
 
 msgid ""
 "An attempt to send the test email has been made. Please check your mailbox. "
 "If the email does not arrive, check any spam folders and also check there "
 "are no Postfix related errors in the system log."
-msgstr "Se ha intentado enviar un e-mail. Revise su buzón de correos. Si el mensaje no ha llegado, revise la bandeja de spam.\nRevise también el log del sistema por posibles errores poxtfix."
+msgstr "Se ha intentado enviar el correo electrónico de prueba. Revise su buzón de correo. Si el correo electrónico no llega, revise las carpetas de correo no deseado y compruebe también que no haya errores relacionados con Postfix en el registro del sistema."
 
 msgid ""
 "An authentication challenge was required but no challenge information was "
 "provided. Please contact your administrator."
-msgstr ""
+msgstr "Se requería un desafío de autenticación, pero no se proporcionó información sobre el mismo. Por favor, póngase en contacto con su administrador."
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr ""
+msgstr "Se envía un mensaje de correo electrónico con la salida del comando (si se produce alguna) al administrador."
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "user who performs the job."
-msgstr ""
+msgstr "Se envía un mensaje de correo electrónico con la salida del comando (si se produce alguna) al usuario que ejecuta la tarea."
 
 msgid "Andorra"
 msgstr "Andorra"
@@ -405,16 +406,16 @@ msgid "Angola"
 msgstr "Angola"
 
 msgid "Anguilla"
-msgstr "Anguilla"
+msgstr "Anguila"
 
 msgid "Antarctica"
 msgstr "Antártida"
 
 msgid "Antigua and Barbuda"
-msgstr "Antigua y Barbados"
+msgstr "Antigua y Barbuda"
 
 msgid "Applied the configuration changes."
-msgstr "Aplicar los cambios realizados en la configuración."
+msgstr "Se aplicaron los cambios de configuración."
 
 msgid "Apply"
 msgstr "Aplicar"
@@ -429,7 +430,7 @@ msgid "Architecture"
 msgstr "Arquitectura"
 
 msgid "Archive mode"
-msgstr "Modo Archivo"
+msgstr "Modo archivo"
 
 msgid "Argentina"
 msgstr "Argentina"
@@ -438,25 +439,25 @@ msgid "Armenia"
 msgstr "Armenia"
 
 msgid "Aruba"
-msgstr "Aruba (Países Bajos)"
+msgstr "Aruba"
 
 msgid "Asynchronous I/O"
 msgstr "E/S asíncrona"
 
 msgid "At least four devices are required."
-msgstr "Se necesitan al menos 4 discos."
+msgstr "Se requieren al menos cuatro dispositivos."
 
 msgid "At least one device is required."
-msgstr "Al menos un dispositivo es necesario."
+msgstr "Se requiere al menos un dispositivo."
 
 msgid "At least one network interface is required."
-msgstr "Se necesita al menos un interface de Red."
+msgstr "Se requiere al menos una interfaz de red."
 
 msgid "At least two devices are required."
-msgstr "Se necesitan al menos 2 discos."
+msgstr "Se requieren al menos dos dispositivos."
 
 msgid "At reboot"
-msgstr "Al Reiniciar"
+msgstr "Al reiniciar"
 
 msgid "Attach"
 msgstr "Adjuntar"
@@ -477,46 +478,46 @@ msgid "Austria"
 msgstr "Austria"
 
 msgid "Authenticate users"
-msgstr "Usuarios autenticados"
+msgstr "Autenticar usuarios"
 
 msgid "Authentication"
-msgstr "Autentificación"
+msgstr "Autenticación"
 
 msgid "Authentication required"
-msgstr "Se requiere autentificación"
+msgstr "Se requiere autenticación"
 
 msgid "Automatic"
-msgstr ""
+msgstr "Automático"
 
 msgid "Automatic logout"
-msgstr ""
+msgstr "Cierre de sesión automático"
 
 msgid "Available"
 msgstr "Disponible"
 
 msgid "Azerbaijan"
-msgstr "Azerbayán"
+msgstr "Azerbaiyán"
 
 msgid "B/G (2.4 GHz)"
-msgstr ""
+msgstr "B/G (2.4 GHz)"
 
 msgid "Back"
 msgstr "Volver"
 
 msgid "Background task"
-msgstr "Tarea en Background"
+msgstr "Tarea en segundo plano"
 
 msgid "Bad"
-msgstr "Mal"
+msgstr "Defectuoso"
 
 msgid "Bahamas"
 msgstr "Bahamas"
 
 msgid "Bahrain"
-msgstr "Bahrain"
+msgstr "Bahréin"
 
 msgid "Band"
-msgstr ""
+msgstr "Banda"
 
 msgid "Bangladesh"
 msgstr "Bangladesh"
@@ -528,13 +529,13 @@ msgid "Base path"
 msgstr "Ruta base"
 
 msgid "Belarus"
-msgstr "Bielorusia"
+msgstr "Bielorrusia"
 
 msgid "Belgium"
 msgstr "Bélgica"
 
 msgid "Belize"
-msgstr "Belize"
+msgstr "Belice"
 
 msgid "Benin"
 msgstr "Benín"
@@ -546,22 +547,22 @@ msgid "Bhutan"
 msgstr "Bután"
 
 msgid "Block layer cache [%s, %s]"
-msgstr "Block layer cache [%s, %s]"
+msgstr "Caché de la capa de bloques [%s, %s]"
 
 msgid "Bolivia"
 msgstr "Bolivia"
 
 msgid "Bond"
-msgstr "Bond=acopladas"
+msgstr "Enlace"
 
 msgid "Boot"
-msgstr "Boot (Arranque)"
+msgstr "Arranque"
 
 msgid "Bosnia and Herzegovina"
 msgstr "Bosnia y Herzegovina"
 
 msgid "Botswana"
-msgstr "Botswana"
+msgstr "Botsuana"
 
 msgid "Bouvet Island"
 msgstr "Isla Bouvet (Noruega)"
@@ -588,7 +589,7 @@ msgid "Browseable"
 msgstr "Navegable"
 
 msgid "Brunei"
-msgstr "Brunei"
+msgstr "Brunéi"
 
 msgid "Bulgaria"
 msgstr "Bulgaria"
@@ -600,19 +601,19 @@ msgid "Burundi"
 msgstr "Burundi"
 
 msgid "COMMAND"
-msgstr ""
+msgstr "Comando"
 
 msgid "CPU"
 msgstr "CPU"
 
 msgid "CPU Usage"
-msgstr "CPU en Uso"
-
-msgid "CPU Utilization"
 msgstr "Uso de CPU"
 
+msgid "CPU Utilization"
+msgstr "Utilización de CPU"
+
 msgid "CPU frequency scaling"
-msgstr ""
+msgstr "Escalado de frecuencia de la CPU"
 
 msgid "Cambodia"
 msgstr "Camboya"
@@ -621,7 +622,7 @@ msgid "Cameroon"
 msgstr "Camerún"
 
 msgid "Canada"
-msgstr "Canada"
+msgstr "Canadá"
 
 msgid "Cancel"
 msgstr "Cancelar"
@@ -642,7 +643,7 @@ msgid "Central African Republic"
 msgstr "República Centroafricana"
 
 msgid "Certain date"
-msgstr "En una Fecha concreta"
+msgstr "Fecha concreta"
 
 msgid "Certificate"
 msgstr "Certificado"
@@ -660,16 +661,16 @@ msgid "Changelog"
 msgstr "Registro de cambios"
 
 msgid "Check for new plugins"
-msgstr "Buscar nuevos plugins"
+msgstr "Buscar nuevos complementos"
 
 msgid "Check for new updates"
 msgstr "Buscar nuevas actualizaciones"
 
 msgid "Check interval"
-msgstr "Validar intervalo"
+msgstr "Intervalo de comprobación"
 
 msgid "Checking for new plugins ..."
-msgstr "Buscando nuevos plugin ..."
+msgstr "Buscando nuevos complementos..."
 
 msgid "Chile"
 msgstr "Chile"
@@ -687,10 +688,10 @@ msgid "City"
 msgstr "Ciudad"
 
 msgid "Cleaning up recycle bin on the share."
-msgstr "Vaciar papelera de reciclaje del compartido."
+msgstr "Vaciando la papelera de reciclaje en la carpeta compartida."
 
 msgid "Clear"
-msgstr "Limpiar"
+msgstr "Borrar"
 
 msgid "Client"
 msgstr "Cliente"
@@ -705,7 +706,7 @@ msgid "Close"
 msgstr "Cerrar"
 
 msgid "Close the session on inactivity after the specified time."
-msgstr "Cierra la sesión tras el periodo especificado de inactividad."
+msgstr "Cerrar la sesión por inactividad después del tiempo especificado."
 
 msgid "Cocos (Keeling) Islands"
 msgstr "Islas Cocos (Keeling)"
@@ -720,19 +721,19 @@ msgid "Comment"
 msgstr "Comentario"
 
 msgid "Common Name"
-msgstr "Nombre propio"
+msgstr "Nombre común"
 
 msgid "Community-maintained updates"
-msgstr "Actualizaciones Community-maintained"
+msgstr "Actualizaciones mantenidas por la comunidad"
 
 msgid "Comoros"
-msgstr "Comores"
+msgstr "Comoras"
 
 msgid "Compress"
 msgstr "Comprimir"
 
 msgid "Compress file data during the transfer."
-msgstr "Comprimir los datos durante la transferencia."
+msgstr "Comprimir los datos del archivo durante la transferencia."
 
 msgid "Compression"
 msgstr "Compresión"
@@ -741,7 +742,7 @@ msgid ""
 "Compression is worth using if your connection is slow. The efficiency of the"
 " compression depends on the type of the file, and varies widely. Useful for "
 "internet transfer only."
-msgstr "La compresión merece la pena si su conexión es lenta. La eficiencia de la compresión depende del tipo de archivo y varía ampliamente. Útil solo para transferencias por Internet."
+msgstr "La compresión merece la pena si su conexión es lenta. La eficiencia de la compresión depende del tipo de archivo y varía ampliamente. Útil solo para transferencias por internet."
 
 msgid "Confirm"
 msgstr "Confirmar"
@@ -762,22 +763,22 @@ msgid "Connect even if the network is not broadcasting its SSID name."
 msgstr "Conectar incluso si la red no transmite su nombre SSID."
 
 msgid "Connect to hidden network"
-msgstr "Conectar a una red oculta"
+msgstr "Conectar a red oculta"
 
 msgid "Connections"
 msgstr "Conexiones"
 
 msgid "Control and monitor storage systems using S.M.A.R.T."
-msgstr "Contrala y monitoriza el almacenamiento usando  S.M.A.R.T."
+msgstr "Controlar y monitorizar los sistemas de almacenamiento utilizando S.M.A.R.T."
 
 msgid "Conveyance self-test"
-msgstr "Auto prueba de transferencia"
+msgstr "Autocomprobación de transporte"
 
 msgid "Cook Islands"
 msgstr "Islas Cook"
 
 msgid "Copied SSH certificate to {{ hostname }}."
-msgstr "Se ha copiado el certificado SSH  en {{ hostname }}."
+msgstr "Se ha copiado el certificado SSH en {{ hostname }}."
 
 msgid "Copy"
 msgstr "Copiar"
@@ -798,64 +799,64 @@ msgid "Create"
 msgstr "Crear"
 
 msgid "Create and mount a file system."
-msgstr "Crea y monta un sistema d earcivos."
+msgstr "Crear y montar un sistema de archivos."
 
 msgid "Create file system"
-msgstr "Crear un sistema de archivos"
+msgstr "Crear sistema de archivos"
 
 msgid "Create | Import"
 msgstr "Crear | Importar"
 
 msgid "Created NFS share."
-msgstr "Compartido NFS creado."
+msgstr "Se ha creado la carpeta compartida NFS."
 
 msgid "Created Rsync server module \"{{ name }}\"."
-msgstr "Creado modulo Rsync server \"{{ name }}\"."
+msgstr "Se ha creado el módulo del servidor Rsync \"{{ name }}\"."
 
 msgid "Created Rsync task."
-msgstr "Tarea Rsync creada."
+msgstr "Se ha creado la tarea Rsync."
 
 msgid "Created SMB/CIFS share."
-msgstr "Compartido NFS/CIFS creado."
+msgstr "Se ha creado la carpeta compartida SMB/CIFS."
 
 msgid "Created SSH certificate."
-msgstr "Certificado SSH creado."
+msgstr "Se ha creado el certificado SSH."
 
 msgid "Created SSL certificate."
-msgstr "Certificado SSL creado."
+msgstr "Se ha creado el certificado SSL."
 
 msgid "Created VLAN network connection."
-msgstr "Conexión VLAN creada."
+msgstr "Se ha creado la conexión de red VLAN"
 
 msgid "Created bond network connection."
-msgstr "Conexión acoplada de Red creada."
+msgstr "Se ha creado la conexión de red de enlace."
 
 msgid "Created bridge network connection."
-msgstr "Conexión puente de Red creada."
+msgstr "Se ha creado la conexión de red en puente."
 
 msgid "Created firewall rule."
-msgstr "Regla de Firewall creada."
+msgstr "Se ha creado la regla del cortafuegos."
 
 msgid "Created group \"{{ name }}\"."
-msgstr "Creado el grupo \"{{ name }}\"."
+msgstr "Se ha creado el grupo \"{{ name }}\"."
 
 msgid "Created scheduled task."
-msgstr "Tarea Programada creada."
+msgstr "Se ha creado la tarea programada."
 
 msgid "Created user \"{{ name }}\"."
-msgstr "Creado el usuario \"{{ name }}\"."
+msgstr "Se ha creado el usuario \"{{ name }}\"."
 
 msgid "Created wired network connection."
-msgstr "Conexión cableada de Red creada."
+msgstr "Se ha creado la conexión de red cableada."
 
 msgid "Created wireless network connection."
-msgstr "Conexión WiFi de Red creada."
+msgstr "Se ha creado la conexión de red inalámbrica."
 
 msgid "Creating"
-msgstr ""
+msgstr "Creando"
 
 msgid "Creation Time"
-msgstr "Fecha de creaccón"
+msgstr "Hora de creación"
 
 msgid "Croatia"
 msgstr "Croacia"
@@ -864,7 +865,7 @@ msgid "Cuba"
 msgstr "Cuba"
 
 msgid "Currently logged in users"
-msgstr "Usuarios conectados ahora al sistema"
+msgstr "Usuarios conectados actualmente"
 
 msgid "Cyprus"
 msgstr "Chipre"
@@ -882,16 +883,16 @@ msgid "Daemon"
 msgstr "Demonio"
 
 msgid "Daily"
-msgstr "Diariamente"
+msgstr "Diario"
 
 msgid "Dark mode"
 msgstr "Modo oscuro"
 
 msgid "Dashboard"
-msgstr "Dashboard"
+msgstr "Tablero"
 
 msgid "Database record not found."
-msgstr ""
+msgstr "Registro de la base de datos no encontrado."
 
 msgid "Date & Time"
 msgstr "Fecha y hora"
@@ -903,7 +904,7 @@ msgid "Day of week"
 msgstr "Día de la semana"
 
 msgid "Debug"
-msgstr "Depurar"
+msgstr "Depuración"
 
 msgid "December"
 msgstr "Diciembre"
@@ -912,7 +913,7 @@ msgid "Delete"
 msgstr "Borrar"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr "Borrar archivos en el lado receptor que NO existan en el lado emisor."
+msgstr "Borrar los archivos en el destino que no existan en el origen."
 
 msgid "Denmark"
 msgstr "Dinamarca"
@@ -927,13 +928,13 @@ msgid ""
 "Destination address can be either a network IP address (with /mask), a IP "
 "range or a plain IP address. A \"!\" argument before the address "
 "specification inverts the sense of the address."
-msgstr "La dirección de destino puede ser una dirección IP de red (con / máscara), un rango de IP o una dirección IP simple. A \"!\" antes de la especificación de la dirección invierte el sentido de la dirección."
+msgstr "La dirección de destino puede ser una dirección IP de red (con /máscara), un rango de IP o una dirección IP simple. El argumento \"!\" antes de especificar la dirección invierte el sentido de la misma."
 
 msgid "Destination port"
-msgstr "Puerto destino"
+msgstr "Puerto de destino"
 
 msgid "Destination server"
-msgstr "Servidor destino"
+msgstr "Servidor de destino"
 
 msgid "Destination shared folder"
 msgstr "Carpeta compartida de destino"
@@ -948,31 +949,31 @@ msgid "Device Information"
 msgstr "Información del dispositivo"
 
 msgid "Device Mapper %s [%s, %s]"
-msgstr "Dispositivo de mapeo %s [%s, %s]"
+msgstr "Device Mapper %s [%s, %s]"
 
 msgid "Device Symlinks"
-msgstr "Enlaces al dispositivo"
+msgstr "Enlaces simbólicos del dispositivo"
 
 msgid "Device has a few bad sectors."
-msgstr "El Disco tiene sectores defectuosos."
+msgstr "El dispositivo tiene unos pocos sectores defectuosos."
 
 msgid "Device has many bad sectors."
-msgstr "El disco tiene muchos sectores dañados."
+msgstr "El dispositivo tiene muchos sectores defectuosos."
 
 msgid "Device is being used outside design parameters."
-msgstr "El disco ha sido usado fuera de parámetros de diseño."
+msgstr "El dispositivo se está utilizando fuera de los parámetros de diseño."
 
 msgid "Device was used outside of design parameters in the past."
-msgstr "El disco ha sido usado fuera de parámetros de diseño en el pasado."
+msgstr "El dispositivo se utilizó fuera de los parámetros de diseño en el pasado."
 
 msgid "Device(s)"
-msgstr "Disco(s)"
+msgstr "Dispositivo(s)"
 
 msgid "Devices"
 msgstr "Dispositivos"
 
 msgid "Diagnostics"
-msgstr "Diagnóstico"
+msgstr "Diagnósticos"
 
 msgid "Difference"
 msgstr "Diferencia"
@@ -981,19 +982,19 @@ msgid "Direction"
 msgstr "Dirección"
 
 msgid "Directory does not exist."
-msgstr ""
+msgstr "El directorio no existe."
 
 msgid "Disabled"
 msgstr "Deshabilitado"
 
 msgid "Disallow account modification"
-msgstr "Deshabilita la modificación de la cuenta"
+msgstr "No permitir la modificación de la cuenta"
 
 msgid "Disallow the user to modify their own account."
 msgstr "No permitir que el usuario modifique su propia cuenta."
 
 msgid "Disk Temperatures"
-msgstr "Temperatura del disco"
+msgstr "Temperaturas de los discos"
 
 msgid "Disks"
 msgstr "Discos"
@@ -1005,43 +1006,43 @@ msgid "Dismiss all"
 msgstr "Descartar todo"
 
 msgid "Displays information about the file systems in a grid."
-msgstr "Muestra la información del sistema en una parrilla."
+msgstr "Muestra información sobre los sistemas de archivos en una cuadrícula."
 
 msgid "Displays information about the file systems in a table."
-msgstr "Muestra la información del sistema en una tabla."
+msgstr "Muestra información sobre los sistemas de archivos en una tabla."
 
 msgid "Displays information about the network interfaces in a grid."
-msgstr "Muestra la información de los interfaces de red en una parrilla."
+msgstr "Muestra información sobre las interfaces de red en una cuadrícula."
 
 msgid "Displays information about the network interfaces in a table."
-msgstr "Muestra la información de los interfaces de red en una tabla."
+msgstr "Muestra información sobre las interfaces de red en una tabla."
 
 msgid "Displays information about the services in a grid."
-msgstr "Muestra la información de los servicios en una parrilla."
+msgstr "Muestra información sobre los servicios en una cuadrícula."
 
 msgid "Displays information about the services in a table."
-msgstr "Muestra la información de los servicios en una tabla."
+msgstr "Muestra información sobre los servicios en una tabla."
 
 msgid "Displays links to help and support pages."
-msgstr ""
+msgstr "Muestra enlaces a páginas de ayuda y soporte técnico."
 
 msgid "Displays the S.M.A.R.T. status of all monitored disk devices."
-msgstr "Muestra el estado S.M.A.R.T. de todos los discos monitorizados."
+msgstr "Muestra el estado S.M.A.R.T. de todos los dispositivos de disco monitorizados."
 
 msgid "Displays the system time."
 msgstr "Muestra la hora del sistema."
 
 msgid "Displays the system uptime."
-msgstr "Mostrar tiempo desde inicio."
+msgstr "Muestra el tiempo de actividad del sistema."
 
 msgid "Displays the temperature of all disk devices."
-msgstr "Muestra la temperatura de todos los discos."
+msgstr "Muestra la temperatura de todos los dispositivos de disco."
 
 msgid "Displays various system information."
 msgstr "Muestra información variada del sistema."
 
 msgid "Djibouti"
-msgstr "Djibouti"
+msgstr "Yibuti"
 
 msgid "Do you really want to apply the configuration changes?"
 msgstr "¿Seguro que quiere aplicar los cambios en la configuración?"
@@ -1052,50 +1053,50 @@ msgstr "¿Realmente desea copiar los permisos de la carpeta compartida?"
 msgid ""
 "Do you really want to delete the selected item(s) <strong>{{ items | "
 "join(\", \") }}</strong>?"
-msgstr "¿Desea realmente borrar los elemento(s) <strong>{{ elemento | Entrada(\", \") }}</strong>?"
+msgstr "¿Realmente desea borrar los elementos seleccionados (s) <strong>{{ items | join(\", \") }}**</strong>?"
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "¿Realmente desea borrar los elementos seleccionados?"
 
 msgid "Do you really want to install the plugin?"
-msgstr "¿Desea realmente instalar el plugin?"
+msgstr "¿Realmente desea instalar el complemento?"
 
 msgid "Do you really want to log out?"
-msgstr ""
+msgstr "¿Realmente desea cerrar sesión?"
 
 msgid "Do you really want to put the system into standby?"
-msgstr "¿Realmente desea poner el sistema en standby?"
+msgstr "¿Realmente desea poner el sistema en espera?"
 
 msgid "Do you really want to reboot the system?"
 msgstr "¿Realmente desea reiniciar el sistema?"
 
 msgid "Do you really want to reset the UI settings to their default values?"
-msgstr "¿Realmente desea devolver la configuración de la Interfaz de Usuario a sus valores por defecto?"
+msgstr "¿Realmente desea restablecer la configuración de la interfaz de usuario a sus valores predeterminados?"
 
 msgid ""
 "Do you really want to resize the file system? You have to do that after a "
 "RAID has been grown for example."
-msgstr "¿Desea redimensionar el tamaño del sistema de archivos?. Solo puede hacerlo después de haber recrecido el RAID de discos por ejemplo."
+msgstr "¿Realmente desea cambiar el tamaño del sistema de archivos? Debe hacer esto después de que un RAID se haya expandido, por ejemplo."
 
 msgid "Do you really want to shutdown the system?"
-msgstr "¿Realmente desea apagar el equipo?"
+msgstr "¿Realmente desea apagar el sistema?"
 
 msgid "Do you really want to undo the configuration changes?"
-msgstr "¿Desea realmente deshacer los cambios en la configuración?"
+msgstr "¿Realmente desea deshacer los cambios de configuración?"
 
 msgid "Do you really want to uninstall the plugin?"
-msgstr "¿desea realmente desinstalar el plugin?"
+msgstr "¿Realmente desea desinstalar el complemento?"
 
 msgid ""
 "Do you really want to unmount this file system? Please make sure that the "
 "file system is not used by any service before unmounting. Note, the file "
 "system will not be deleted by this action."
-msgstr "¿desea realmente desmontar el sistema de archivos? Por favor asegúrese de que el sistema de archivos no está en uso por ningún servicio antes de desmontarlo. Nota: El sistema de archivos no será borrado, solo desmontado."
+msgstr "¿Realmente desea desmontar este sistema de archivos? Por favor, asegúrese de que ningún servicio esté utilizando el sistema de archivos antes de desmontarlo. Tenga en cuenta que el sistema de archivos no se eliminará con esta acción."
 
 msgid ""
 "Do you really want to wipe the device {{ canonicaldevicefile }}? All data "
 "will be lost."
-msgstr "¿desea realmente borrar el disco?   {{ canonicaldevicefile }} Todos los datos serán borrados."
+msgstr "¿Realmente desea limpiar el dispositivo {{ canonicaldevicefile }}? Todos los datos se perderán."
 
 msgid "Documentation"
 msgstr "Documentación"
@@ -1104,7 +1105,7 @@ msgid "Domain name"
 msgstr "Nombre de dominio"
 
 msgid "Domains used when resolving host names."
-msgstr "Dominios usados para resolver los nombres de host."
+msgstr "Dominios utilizados al resolver nombres de host."
 
 msgid "Dominica"
 msgstr "Dominica"
@@ -1113,16 +1114,16 @@ msgid "Dominican Republic"
 msgstr "República Dominicana"
 
 msgid "Down"
-msgstr "Bajar"
+msgstr "Abajo"
 
 msgid "Down delay"
-msgstr "Retraso bajada"
+msgstr "Retraso de bajada"
 
 msgid "Download"
 msgstr "Descargar"
 
 msgid "Dronning Maud Land"
-msgstr "Tierra de la Reina Maud (Noruega)"
+msgstr "Tierra de la Reina Maud"
 
 msgid "Each line represents a group."
 msgstr "Cada línea representa un grupo."
@@ -1130,7 +1131,7 @@ msgstr "Cada línea representa un grupo."
 msgid ""
 "Each line represents a user. Note, the password must be entered in plain "
 "text."
-msgstr "Cada línea representa un usuario. La contraseña debe ser introducida en texto plano."
+msgstr "Cada línea representa un usuario. Nota: La contraseña debe introducirse en texto plano."
 
 msgid "East Timor"
 msgstr "Timor Oriental"
@@ -1148,10 +1149,10 @@ msgid "El Salvador"
 msgstr "El Salvador"
 
 msgid "Email"
-msgstr "Email"
+msgstr "Correo electrónico"
 
 msgid "Empty now"
-msgstr "Vaciando ahora"
+msgstr "Vaciar ahora"
 
 msgid ""
 "Enable CPU frequency scaling monitoring to allow dynamic adjustment of CPU "
@@ -1165,19 +1166,19 @@ msgid ""
 "critical.</li><li>performance - Keeps the CPU running at maximum frequency "
 "at all times. Use this when you need consistent peak performance and power "
 "consumption is not a concern.</li></ul>"
-msgstr ""
+msgstr "Permite la monitorización del escalado de frecuencia de la CPU para permitir el ajuste dinámico del rendimiento del procesador en función de la carga del sistema. El perfil governor de frecuencia de la CPU determina cómo se ajusta dicha frecuencia.<ul><li>schedutil - Equilibra el rendimiento y la eficiencia energética ajustando la frecuencia de la CPU en función de la utilización del planificador. Recomendado para la mayoría de los usuarios, ya que proporciona un buen rendimiento al tiempo que ahorra energía cuando el sistema está inactivo.</li><li>powersave - Mantiene la CPU funcionando a la frecuencia mínima en todo momento para maximizar el ahorro de energía. Utilice esto cuando el consumo de energía sea la principal preocupación y el rendimiento no sea crítico.</li><li>performance - Mantiene la CPU funcionando a la frecuencia máxima en todo momento. Utilice esto cuando necesite un rendimiento máximo constante y el consumo de energía no sea una preocupación.</li></ul>"
 
 msgid "Enable NetBIOS"
 msgstr "Habilitar NetBIOS"
 
 msgid "Enable Time Machine support for this share."
-msgstr "Habilitar el soporte Time Machine para este compartido."
+msgstr "Habilitar el soporte de Time Machine para esta carpeta compartida."
 
 msgid "Enable WINS server"
 msgstr "Habilitar servidor WINS"
 
 msgid "Enable automatic snapshot clean up."
-msgstr "Habilitar limpieza automática de snapshot."
+msgstr "Habilitar la limpieza automática de las instantáneas."
 
 msgid "Enable keyboard-interactive authentication."
 msgstr "Habilita la autentificación interactiva por teclado."
@@ -1189,32 +1190,32 @@ msgid "Enable recycle bin"
 msgstr "Habilitar papelera de reciclaje"
 
 msgid "Enable remote logging of syslog to the specified host."
-msgstr "Habilitar la grabación de syslog en el host remoto especificado."
+msgstr "Habilitar el registro remoto de syslog en el host especificado."
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr "Habilite está opción pra mantener los archivos parcialmente transferidos, si no , serán borrados en caso de interrumpirse la transmisión."
+msgstr "Habilitar esta opción para mantener los archivos parcialmente transferidos; de lo contrario, se eliminarán si se interrumpe la transferencia."
 
 msgid "Enable user home directories."
-msgstr "Habilita el uso de directorios home."
+msgstr "Habilitar los directorios personales de los usuarios."
 
 msgid "Enable write-cache"
-msgstr "Habilita la cache-de-escritura"
+msgstr "Habilitar la caché de escritura"
 
 msgid "Enabled"
 msgstr "Habilitado"
 
 msgid "Enabled widgets"
-msgstr "Habilita los widgets"
+msgstr "Widgets habilitados"
 
 msgid "Encryption mode"
-msgstr "Encriptación usada"
+msgstr "Modo de cifrado"
 
 msgid ""
 "Enforce transport encryption for this share. Clients that do not support "
 "encryption will be denied access to the share."
-msgstr "Aplique el cifrado de transporte para este recurso compartido. A los clientes que no admitan el cifrado se les negará el acceso al recurso compartido."
+msgstr "Forzar el cifrado de transporte para esta carpeta compartida. Se denegará el acceso a la carpeta compartida a los clientes que no admitan el cifrado."
 
 msgid "Equatorial Guinea"
 msgstr "Guinea Ecuatorial"
@@ -1238,19 +1239,19 @@ msgid "Events"
 msgstr "Eventos"
 
 msgid "Every N day of month"
-msgstr "El dia seleccionado"
+msgstr "Cada N días del mes"
 
 msgid "Every N hour"
-msgstr "En la hora seleccionada"
+msgstr "Cada N horas"
 
 msgid "Every N minute"
-msgstr "Cada minuto N"
+msgstr "Cada N minutos"
 
 msgid "Everyone: read/write"
-msgstr "Todo el mundo: Lectura/Escritura"
+msgstr "Todos: lectura/escritura"
 
 msgid "Execute only"
-msgstr "Ejecutar solo"
+msgstr "Solo ejecutar"
 
 msgid "Extended Information"
 msgstr "Información extendida"
@@ -1265,10 +1266,10 @@ msgid "FTP-Proxy"
 msgstr "FTP-Proxy"
 
 msgid "Failed"
-msgstr "Falló"
+msgstr "Fallido"
 
 msgid "Failed to copy data to the clipboard."
-msgstr "Error al copiar datos al portapapeles."
+msgstr "Error al copiar los datos al portapapeles."
 
 msgid "Failed to start session."
 msgstr "Error al iniciar sesión."
@@ -1283,7 +1284,7 @@ msgid "Family"
 msgstr "Familia"
 
 msgid "Faroe Islands"
-msgstr "Islas Faroe"
+msgstr "Islas Feroe"
 
 msgid "Fatal error"
 msgstr "Error fatal"
@@ -1292,25 +1293,25 @@ msgid "February"
 msgstr "Febrero"
 
 msgid "Fiji"
-msgstr "Fidji"
+msgstr "Fiyi"
 
 msgid "File System Usage"
-msgstr ""
+msgstr "Uso del sistema de archivos"
 
 msgid "File Systems"
-msgstr "Sistema de Archivos"
+msgstr "Sistemas de archivos"
 
 msgid "File access control lists"
 msgstr "Lista de control de accesos a archivos"
 
 msgid "File owner and group"
-msgstr "Propietario y grupo"
+msgstr "Propietario y grupo del archivo"
 
 msgid "File path"
 msgstr "Ruta archivo"
 
 msgid "File system"
-msgstr "Sistema de Archivos"
+msgstr "Sistema de archivos"
 
 msgid "Filename"
 msgstr "Nombre de archivo"
@@ -1318,63 +1319,63 @@ msgstr "Nombre de archivo"
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
-msgstr "Los archivos de la papelera serán borrados automáticamente despues de un nº determinado de dias. 0 para borrado manual."
+msgstr "Los archivos de la papelera de reciclaje se eliminarán automáticamente después del número de días especificado. Establezca en 0 para el borrado manual."
 
 msgid ""
 "Files that are larger than the specified number will not be put into the "
 "recycle bin."
-msgstr "Archivos de mayor tamaño que el numero especificado no serán mandados a la papelera de reciclaje."
+msgstr "Los archivos que superen el tamaño especificado no se enviarán a la papelera de reciclaje."
 
 msgid "Filesystem is being created."
-msgstr ""
+msgstr "Se está creando el sistema de archivos."
 
 msgid "Filesystem is detected."
-msgstr ""
+msgstr "Se ha detectado el sistema de archivos."
 
 msgid "Filesystem is missing."
-msgstr ""
+msgstr "El sistema de archivos ha desaparecido."
 
 msgid "Fingerprint (SHA-1)"
-msgstr "Huella (SHA-1)"
+msgstr "Huella digital (SHA-1)"
 
 msgid "Fingerprint (SHA-256)"
-msgstr "Huella (SHA-256)"
+msgstr "Huella digital (SHA-256)"
 
 msgid "Finland"
 msgstr "Finlandia"
 
 msgid "Firewall"
-msgstr "Firewall"
+msgstr "Cortafuegos"
 
 msgid "Firmware version"
-msgstr "Version del Firmware"
+msgstr "Versión del firmware"
 
 msgid "Flags"
-msgstr "Banderas"
+msgstr "Opciones"
 
 msgid "Follow symlinks"
-msgstr ""
+msgstr "Seguir enlaces simbólicos"
 
 msgid "Force SSL/TLS"
 msgstr "Forzar SSL/TLS"
 
 msgid "Force a specific MAC address on this interface."
-msgstr "Forzar una MAC especifica para esta interfaz."
+msgstr "Forzar una dirección MAC específica en esta interfaz."
 
 msgid "Force secure connection only."
-msgstr "Forzar conexión segura solo."
+msgstr "Forzar únicamente conexiones seguras."
 
 msgid "Forum"
-msgstr "Forum"
+msgstr "Foro"
 
 msgid "Framework for Multicast DNS Service Discovery."
-msgstr "Marco para el descubrimiento de servicios DNS de multidifusión."
+msgstr "Entorno de trabajo para el descubrimiento de servicios DNS por multidifusión."
 
 msgid "France"
 msgstr "Francia"
 
 msgid "Free"
-msgstr "Libre"
+msgstr "Disponible"
 
 msgid "French Guiana"
 msgstr "Guinea Francesa"
@@ -1392,7 +1393,7 @@ msgid "Friday"
 msgstr "Viernes"
 
 msgid "Full"
-msgstr "Lleno"
+msgstr "Completo"
 
 msgid "GID"
 msgstr "GID"
@@ -1404,7 +1405,7 @@ msgid "Gambia"
 msgstr "Gambia"
 
 msgid "Gateway"
-msgstr "Gateway"
+msgstr "Puerta de enlace"
 
 msgid "General"
 msgstr "General"
@@ -1422,7 +1423,7 @@ msgid "Gibraltar"
 msgstr "Gibraltar"
 
 msgid "Good"
-msgstr "Bien"
+msgstr "Bueno"
 
 msgid "Greece"
 msgstr "Grecia"
@@ -1440,7 +1441,7 @@ msgid "Groups"
 msgstr "Grupos"
 
 msgid "Grow"
-msgstr "Crecer / Ampliar"
+msgstr "Ampliar"
 
 msgid "Guadeloupe"
 msgstr "Guadalupe"
@@ -1452,10 +1453,10 @@ msgid "Guatemala"
 msgstr "Guatemala"
 
 msgid "Guests allowed"
-msgstr "Se permite invitados"
+msgstr "Permitir invitados"
 
 msgid "Guests only"
-msgstr "Invitado solamente"
+msgstr "Solo invitados"
 
 msgid "Guinea"
 msgstr "Guinea"
@@ -1464,22 +1465,22 @@ msgid "Guinea-Bissau"
 msgstr "Guinea-Bissau"
 
 msgid "Guyana"
-msgstr "República Cooperativa de Guyana"
+msgstr "Guyana"
 
 msgid "HTTP-Proxy"
-msgstr "HTTP-Proxy"
+msgstr "Proxy HTTP"
 
 msgid "HTTPS-Proxy"
-msgstr "HTTPS-Proxy"
+msgstr "Proxy HTTPS"
 
 msgid "Haiti"
 msgstr "Haití"
 
 msgid "Hardware Address"
-msgstr "Dirección de Hardware"
+msgstr "Dirección de hardware"
 
 msgid "Heard Island and McDonald Islands"
-msgstr "Islas Heard y McDonald (Australia)"
+msgstr "Islas Heard y McDonald"
 
 msgid "Help"
 msgstr "Ayuda"
@@ -1491,19 +1492,19 @@ msgid "Hide"
 msgstr "Ocultar"
 
 msgid "Hide dot files"
-msgstr "Ocultar archivos dot\".\""
+msgstr "Ocultar archivos que empiezan por un punto"
 
 msgid "High-performance mail transport agent."
 msgstr "Agente de transporte de correo de alto rendimiento."
 
 msgid "Home"
-msgstr "Home"
+msgstr "Inicio"
 
 msgid "Home directories"
-msgstr "Directorios Home"
+msgstr "Directorios de inicio"
 
 msgid "Homepage"
-msgstr "Página de inicio"
+msgstr "Página web"
 
 msgid "Honduras"
 msgstr "Honduras"
@@ -1512,22 +1513,22 @@ msgid "Hong Kong S.A.R., China"
 msgstr "Hong Kong R.A.E, China"
 
 msgid "Host"
-msgstr "Equipo"
+msgstr "Host"
 
 msgid "Hostname"
-msgstr "Nombre de equipo"
+msgstr "Nombre de host"
 
 msgid "Hosts allow"
-msgstr "Equipos permitidos"
+msgstr "Hosts permitidos"
 
 msgid "Hosts allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "Equipos permitidos para montar el sistema de archivos, p. ej. 192.168.178.0/24."
 
 msgid "Hosts deny"
-msgstr "Equipos denegados"
+msgstr "Hosts denegados"
 
 msgid "Hot-Pluggable"
-msgstr "Hot-Pluggable"
+msgstr "Intercambiable en caliente"
 
 msgid "Hour"
 msgstr "Hora"
@@ -1539,7 +1540,7 @@ msgid "Hungary"
 msgstr "Hungría"
 
 msgid "Hybrid sleep"
-msgstr "Sueño híbrido"
+msgstr "Suspensión híbrida"
 
 msgid "ID"
 msgstr "ID"
@@ -1547,10 +1548,10 @@ msgstr "ID"
 msgid ""
 "IP addresses in CIDR notation or host names of clients that are allowed to "
 "access the NTP server."
-msgstr "Dirección IP con notación CIDR o nombre de clientes que tengan permiso para acceder al servidor NTP."
+msgstr "Direcciones IP en notación CIDR o nombres de host de los clientes que tienen permitido acceder al servidor NTP."
 
 msgid "IP addresses of domain name servers used to resolve host names."
-msgstr "Dirección IP de los servidores DNS que deben resolver los nombres de host."
+msgstr "Direcciones IP de los servidores de nombres de dominio utilizadas para resolver nombres de host."
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -1565,10 +1566,10 @@ msgid "Identify"
 msgstr "Identificar"
 
 msgid "Identify As"
-msgstr "Identificado como"
+msgstr "Identificar como"
 
 msgid "Identify network interface"
-msgstr "Identificar la tarjeta de red"
+msgstr "Identificar la interfaz de red"
 
 msgid "Idle"
 msgstr "Inactivo"
@@ -1577,7 +1578,7 @@ msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
 "access as guest. Always access as guest when 'Guests only' is selecting; in "
 "this case no password is required to connect to the share."
-msgstr "Si se selecciona \"Invitados permitidos\" y no se proporciona ninguna credencial de inicio de sesión, accederá como invitado. Accederá siempre como invitado cuando se selecciona \"Solo invitados\"; en este caso, no se requiere contraseña para conectarse al recurso compartido."
+msgstr "Si se selecciona 'Permitir invitados' y no se proporciona ninguna credencial de inicio de sesión, se accederá como invitado. Se accederá siempre como invitado cuando se selecciona 'Solo invitados'; en este caso, no se requiere contraseña para conectarse a la carpeta compartida."
 
 msgid ""
 "If a device is not listed here, it is usually because the device is not "
@@ -1586,25 +1587,25 @@ msgid ""
 "system can be mounted <a href='#/storage/filesystems/mount'>here</a>. "
 "Otherwise, please <a href='#/storage/disks'>wipe</a> the device to be able "
 "to reuse it."
-msgstr ""
+msgstr "Si un dispositivo no aparece listado aquí, normalmente se debe a que no está vacío, es decir, ya contiene un sistema de archivos, particiones u otra firma como un miembro de ZFS, LVM, RAID de Linux o LUKS. Un sistema de archivos existente se puede montar <a href='#/storage/filesystems/mount'>aquí</a>. De lo contrario, por favor <a href='#/storage/disks'>borre</a> el dispositivo para poder reutilizarlo."
 
 msgid ""
 "If set then the client will be prompted to supply a user name and password "
 "to connect to the module."
-msgstr "Si se activa, se pedirá al cliente que proporcione un usuario y contraseña para conectarse."
+msgstr "Si se establece, se le solicitará al cliente que proporcione un nombre de usuario y contraseña para conectarse al módulo."
 
 msgid ""
 "If this option is set, the daemon will chroot to the shared folder path "
 "before starting the file transfer with the client. Then it is not possible "
 "to map users and groups by name and the daemon is not being able to follow "
 "symbolic links that are either absolute or outside of the new root path."
-msgstr "Si se marca esta opción, el demonio hará chroot a la ruta de la carpeta compartida antes de empezar la transferencia con el cliente. Por tanto, no será posible relacionar usuarios y grupos por nombre y el demonio no podrá seguir los enlaces simbólicos que sean absolutos ni los que salgan del nuevo directorio raíz."
+msgstr "Si se establece esta opción, el demonio realizará chroot a la ruta de la carpeta compartida antes de iniciar la transferencia de archivos con el cliente. Por lo tanto, no será posible asignar usuarios y grupos por su nombre y el demonio no podrá seguir los enlaces simbólicos que sean absolutos o estén fuera de la nueva ruta raíz."
 
 msgid "If this option is set, then any attempted downloads will fail."
-msgstr "Si se marca esta opción, cualquier intento de descarga fallará."
+msgstr "Si se establece esta opción, cualquier intento de descarga fallará."
 
 msgid "If this option is set, then any attempted uploads will fail."
-msgstr "Si se marca esta opción, cualquier intento de subida fallará."
+msgstr "Si se establece esta opción, cualquier intento de subida fallará."
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
@@ -1612,12 +1613,12 @@ msgid ""
 "attribute, before mapping DOS attributes to UNIX permission bits. When set, "
 "DOS attributes will be stored onto an extended attribute in the UNIX file "
 "system, associated with the file or directory."
-msgstr "Si este parametro se habilita, SAMBA intentará leer primero los atributos DOS  (SYSTEM, HIDDEN, ARCHIVE o READ-ONLY) y despues los mapeará como bit de permisos UNIX, es decir se almacenarán como atributos extendidos del sistema UNIX asociados al archivo o carpeta accedido."
+msgstr "Si se establece este parámetro, Samba intentará leer primero los atributos de DOS (SYSTEM, HIDDEN, ARCHIVE o READ-ONLY) desde un atributo extendido del sistema de archivos, antes de asignar los atributos de DOS a los bits de permisos de UNIX. Cuando se establece, los atributos de DOS se almacenarán en un atributo extendido en el sistema de archivos de UNIX, asociado con el archivo o directorio."
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
 "share."
-msgstr "Si se marca esta opción, los usuarios no podán crear o modificar archivos en el compartido."
+msgstr "Si se establece este parámetro, los usuarios no podrán crear ni modificar archivos en la carpeta compartida."
 
 msgid "Import"
 msgstr "Importar"
@@ -1638,13 +1639,13 @@ msgid ""
 "Improve interoperability with macOS clients: correctly handle filenames "
 "using characters reserved in SMB, and apply Samba tuning recommended for "
 "macOS."
-msgstr ""
+msgstr "Mejorar la interoperabilidad con clientes macOS: manejar correctamente los nombres de archivos que utilizan caracteres reservados en SMB y aplicar los ajustes de rendimiento de Samba recomendados para macOS."
 
 msgid "India"
 msgstr "India"
 
 msgid "Indicates whether updates are available."
-msgstr "Indica cuando están disponibles las actualizaciones."
+msgstr "Indica si hay actualizaciones disponibles."
 
 msgid "Indonesia"
 msgstr "Indonesia"
@@ -1653,7 +1654,7 @@ msgid "Information"
 msgstr "Información"
 
 msgid "Inherit ACLs"
-msgstr "Heredar ACL"
+msgstr "Heredar las ACL"
 
 msgid "Inherit permissions"
 msgstr "Heredar permisos"
@@ -1662,13 +1663,13 @@ msgid "Install"
 msgstr "Instalar"
 
 msgid "Install plugin"
-msgstr "Instalar plugin"
+msgstr "Instalar complemento"
 
 msgid "Install public key to remote machine"
-msgstr ""
+msgstr "Instalar llave pública en la máquina remota"
 
 msgid "Install security updates unattended."
-msgstr ""
+msgstr "Instalar actualizaciones de seguridad de forma desatendida."
 
 msgid "Install updates"
 msgstr "Instalar actualizaciones"
@@ -1677,57 +1678,57 @@ msgid "Install updates from"
 msgstr "Instalar actualizaciones de"
 
 msgid "Installed"
-msgstr "Instaladas"
+msgstr "Instalado"
 
 msgid ""
 "Installs the public SSH key on a remote system as an authorized key. Make "
 "sure password authentication is enabled on that remote system."
-msgstr "Instalar la clave pública SSH en un sistema remoto como clave autorizada. Asegúrese de que la autentificación por contraseña está habilitada en el sistema remoto."
+msgstr "Instala la clave pública SSH en un sistema remoto como clave autorizada. Asegurarse de que la autenticación por contraseña esté habilitada en ese sistema remoto."
 
 msgid "Interfaces"
 msgstr "Interfaces"
 
 msgid "Invalid IP address."
-msgstr "IP no válida."
+msgstr "Dirección IP no válida."
 
 msgid "Invalid NetBIOS name."
 msgstr "Nombre NetBIOS no válido."
 
 msgid "Invalid PGP public key."
-msgstr "Clave pública PGP inválida."
+msgstr "Clave pública PGP no válida."
 
 msgid "Invalid SSH public key (OpenSSH format)."
-msgstr "Clave publica SSH inválida (Formato OpenSSH)"
+msgstr "Clave pública SSH no válida (formato OpenSSH)."
 
 msgid "Invalid SSH public key (OpenSSH or RFC 4716 format)"
-msgstr "Clave publica SSH inválida (Formato OpenSSH o RFC 4716)"
+msgstr "Clave pública SSH no válida (formato OpenSSH o RFC 4716)"
 
 msgid "Invalid SSH public key (RFC 4716 format)."
-msgstr "Clave publica SSH inválida  (Formato RFC 4716)"
+msgstr "Clave pública SSH no válida (formato RFC 4716)."
 
 msgid "Invalid User-Agent."
-msgstr "Agente de usuario No válido."
+msgstr "Agente de usuario no válido."
 
 msgid "Invalid domain name."
-msgstr "Nombre de dominio inválido."
+msgstr "Nombre de dominio no válido."
 
 msgid "Invalid group name."
-msgstr "Nombre de grupo inválido."
+msgstr "Nombre de grupo no válido."
 
 msgid "Invalid host name."
-msgstr "Nombre de host inválido."
+msgstr "Nombre de host no válido."
 
 msgid "Invalid user name."
-msgstr "Nombre de usuario inválido."
+msgstr "Nombre de usuario no válido."
 
 msgid "Invalid user."
-msgstr "Usuario No válido."
+msgstr "Usuario no válido."
 
 msgid "Iran"
 msgstr "Irán"
 
 msgid "Iraq"
-msgstr "Iraq"
+msgstr "Irak"
 
 msgid "Ireland"
 msgstr "Irlanda"
@@ -1738,7 +1739,7 @@ msgstr "Israel"
 msgid ""
 "It may take a while to detect the new devices, thus it might be necessary to"
 " reload the table several times. Do you want to proceed?"
-msgstr "Puede tardar un poco en detectarse nuevos discos. Puede ser necesario recargar la tabla varias veces. ¿desea proceder?"
+msgstr "Puede llevar un tiempo detectar los nuevos dispositivos, por lo tanto, podría ser necesario recargar la tabla varias veces. ¿Realmente desea proceder?"
 
 msgid "Italy"
 msgstr "Italia"
@@ -1756,7 +1757,7 @@ msgid "Japan"
 msgstr "Japón"
 
 msgid "Johnston Island"
-msgstr "Atolón Johnston (EEUU)"
+msgstr "Isla Johnston"
 
 msgid "Jordan"
 msgstr "Jordania"
@@ -1768,7 +1769,7 @@ msgid "June"
 msgstr "Junio"
 
 msgid "Kazakhstan"
-msgstr "Kazajstán"
+msgstr "Kazajistán"
 
 msgid "Keep partially transferred files"
 msgstr "Mantener los archivos parcialmente transferidos"
@@ -1780,10 +1781,10 @@ msgid "Kernel"
 msgstr "Kernel"
 
 msgid "Key size"
-msgstr "Tamaño de la clave"
+msgstr "Tamaño de clave"
 
 msgid "Kiribati"
-msgstr "República de Kiribati"
+msgstr "Kiribati"
 
 msgid "Kuwait"
 msgstr "Kuwait"
@@ -1795,7 +1796,7 @@ msgid "LBA of first error"
 msgstr "LBA del primer error"
 
 msgid "LVM logical volume %s [%s, %s]"
-msgstr "LVM Volumen Lógico %s [%s, %s]"
+msgstr "Volumen lógico LVM %s [%s, %s]"
 
 msgid "Label"
 msgstr "Etiqueta"
@@ -1815,7 +1816,7 @@ msgstr "Líbano"
 msgid ""
 "Length of time in seconds to blink one or more LEDs on the specific ethernet"
 " port."
-msgstr "Duración del tiempo en segundos que parpadea uno o más LED's en el puerto ethernet especificado."
+msgstr "Duración del tiempo en segundos para hacer parpadear uno o más LED en el puerto Ethernet específico."
 
 msgid "Lesotho"
 msgstr "Lesoto"
@@ -1830,36 +1831,36 @@ msgid "Liechtenstein"
 msgstr "Liechtenstein"
 
 msgid "Lifetime"
-msgstr "Tiempo de vida"
+msgstr "Vida útil"
 
 msgid "Limit custom"
-msgstr "Limite variable"
+msgstr "Límite personalizado"
 
 msgid "Limit daily"
-msgstr "Limite diario"
+msgstr "Límite diario"
 
 msgid "Limit hourly"
-msgstr "Limite horario"
+msgstr "Límite horario"
 
 msgid "Limit monthly"
-msgstr "Limite mensual"
+msgstr "Límite mensual"
 
 msgid ""
 "Limit the reported disk size, thus preventing Time Machine from using the "
 "whole real disk space for backup."
-msgstr ""
+msgstr "Limitar el tamaño de disco reportado, evitando así que Time Machine utilice todo el espacio real del disco para la copia de seguridad."
 
 msgid "Limit weekly"
-msgstr "Limite semanal"
+msgstr "Límite semanal"
 
 msgid "Limit yearly"
-msgstr "Limite anual"
+msgstr "Límite anual"
 
 msgid "Link"
 msgstr "Enlace"
 
 msgid "List module"
-msgstr "Módulo de listas"
+msgstr "Listar módulo"
 
 msgid "Lithuania"
 msgstr "Lituania"
@@ -1868,7 +1869,7 @@ msgid "Load Average"
 msgstr "Carga media"
 
 msgid "Loading ..."
-msgstr "Cargando ..."
+msgstr "Cargando..."
 
 msgid "Local"
 msgstr "Local"
@@ -1877,28 +1878,28 @@ msgid "Location"
 msgstr "Ubicación"
 
 msgid "Log in"
-msgstr "Log in"
+msgstr "Iniciar sesión"
 
 msgid "Log level"
-msgstr "Nivel de Log"
+msgstr "Nivel de registro"
 
 msgid "Log out"
-msgstr ""
+msgstr "Cerrar sesión"
 
 msgid "Logged in as <strong>{{ username }}</strong>"
-msgstr ""
+msgstr "Conectado como <strong>{{ username }}</strong>"
 
 msgid "Logout"
-msgstr "Salir"
+msgstr "Cerrar sesión"
 
 msgid "Logs"
-msgstr "Logs"
+msgstr "Registros"
 
 msgid "Long self-test"
-msgstr "Auto prueba larga"
+msgstr "Autoprueba larga"
 
 msgid "Loop device [%s, %s]"
-msgstr "Dispositivo de Loop [%s, %s]"
+msgstr "Dispositivo de bucle [%s, %s]"
 
 msgid "Luxembourg"
 msgstr "Luxemburgo"
@@ -1910,7 +1911,7 @@ msgid "MAC address"
 msgstr "Dirección MAC"
 
 msgid "MII monitoring frequency"
-msgstr "Frecuencia de monitorización (ethernet)"
+msgstr "Frecuencia de monitorización MII"
 
 msgid "MTU"
 msgstr "MTU"
@@ -1919,7 +1920,7 @@ msgid "Macao S.A.R., China"
 msgstr "Macao R.A.S., China"
 
 msgid "Macedonia"
-msgstr "Macedonia"
+msgstr "Macedonia del Norte"
 
 msgid "Madagascar"
 msgstr "Madagascar"
@@ -1928,7 +1929,7 @@ msgid "Maintainer"
 msgstr "Mantenedor"
 
 msgid "Make sure that the guest user <em>nobody</em> can access the files."
-msgstr "Asegúrese de que el usuario invitado <em>nobody</em> puede acceder a los archivos."
+msgstr "Asegurarse de que el usuario invitado <em>nobody</em> no pueda acceder a los archivos."
 
 msgid "Malawi"
 msgstr "Malawi"
@@ -1946,7 +1947,7 @@ msgid "Malta"
 msgstr "Malta"
 
 msgid "Management of CPU frequency scaling."
-msgstr ""
+msgstr "Gestión del escalado de frecuencia de la CPU."
 
 msgid "Management of scheduled tasks."
 msgstr "Gestión de tareas programadas."
@@ -1966,12 +1967,12 @@ msgstr "Martinica"
 msgid ""
 "Match if the destination port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
-msgstr "Marcar si el puerto destino es uno de los siguientes puertos : Ej: 21 o 443 o del 1024-65535."
+msgstr "Coincidir si el puerto de destino es uno de los puertos indicados, p. ej., 21 o !443 o 1024-65535."
 
 msgid ""
 "Match if the source port is one of the given ports, e.g. 21 or !443 or "
 "1024-65535."
-msgstr "Marcar si el puerto origen es uno de los siguientes puertos : Ej: 21 o 443 o del 1024-65535."
+msgstr "Coincidir si el puerto de origen es uno de los puertos indicados, p. ej., 21 o !443 o 1024-65535."
 
 msgid "Mauritania"
 msgstr "Mauritania"
@@ -1980,25 +1981,25 @@ msgid "Mauritius"
 msgstr "Mauricio"
 
 msgid "Max. connections"
-msgstr "Nº Max. de conexiones"
+msgstr "Máx. conexiones"
 
 msgid "Maximum"
 msgstr "Máximo"
 
 msgid "Maximum disk size"
-msgstr ""
+msgstr "Tamaño máximo del disco"
 
 msgid "Maximum file size"
-msgstr "Tamaño Max. de archivo"
+msgstr "Tamaño máximo del archivo"
 
 msgid "Maximum performance, maximum acoustic output"
-msgstr "Máximo rendimiento, máximo ruido"
+msgstr "Máximo rendimiento, máxima emisión acústica"
 
 msgid "May"
 msgstr "Mayo"
 
 msgid "Mayotte"
-msgstr "Mayotte (Francia)"
+msgstr "Mayotte"
 
 msgid "Members"
 msgstr "Miembros"
@@ -2007,7 +2008,7 @@ msgid "Memory"
 msgstr "Memoria"
 
 msgid "Memory Usage"
-msgstr "Uso de Memoria"
+msgstr "Uso de memoria"
 
 msgid "Message"
 msgstr "Mensaje"
@@ -2016,22 +2017,22 @@ msgid "Messages"
 msgstr "Mensajes"
 
 msgid "Method"
-msgstr "Metodo"
+msgstr "Método"
 
 msgid "Metric"
-msgstr "Metrica"
+msgstr "Métrica"
 
 msgid "Metropolitan France"
 msgstr "Francia Metropolitana"
 
 msgid "Mexico"
-msgstr "Mexico"
+msgstr "México"
 
 msgid "MiB Mem"
-msgstr ""
+msgstr "MiB Mem"
 
 msgid "MiB Swap"
-msgstr ""
+msgstr "MiB Swap"
 
 msgid "Micronesia"
 msgstr "Micronesia"
@@ -2043,19 +2044,19 @@ msgid "Minimum"
 msgstr "Mínimo"
 
 msgid "Minimum performance, minimum acoustic output"
-msgstr "Mínimo rendimiento, mínimo ruido"
+msgstr "Mínimo rendimiento, mínima emisión acústica"
 
 msgid "Minimum protocol version"
-msgstr "Mínima versión de protocolo"
+msgstr "Versión mínima del protocolo"
 
 msgid "Minute"
 msgstr "Minutos"
 
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Miscelánea"
 
 msgid "Missing"
-msgstr "Perdido"
+msgstr "Desaparecido"
 
 msgid "Mode"
 msgstr "Modo"
@@ -2082,22 +2083,22 @@ msgid "Monitored"
 msgstr "Monitorizado"
 
 msgid "Monitoring"
-msgstr "Monitorizar"
+msgstr "Monitorización"
 
 msgid "Monitoring - CPU usage"
-msgstr ""
+msgstr "Monitoreo - Uso de CPU"
 
 msgid "Monitoring - File systems"
-msgstr ""
+msgstr "Monitoreo - Sistemas de archivos"
 
 msgid "Monitoring - Load average"
-msgstr ""
+msgstr "Monitoreo - Carga promedio"
 
 msgid "Monitoring - Memory usage"
-msgstr ""
+msgstr "Monitoreo - Uso de memoria"
 
 msgid "Monitoring - Processes"
-msgstr ""
+msgstr "Monitoreo - Procesos"
 
 msgid "Monitoring enabled"
 msgstr "Monitorización habilitada"
@@ -2106,7 +2107,7 @@ msgid "Month"
 msgstr "Mes"
 
 msgid "Monthly"
-msgstr "Cada mes"
+msgstr "Mensualmente"
 
 msgid "Montserrat"
 msgstr "Montserrat"
@@ -2124,10 +2125,10 @@ msgid "Mount Point"
 msgstr "Punto de montaje"
 
 msgid "Mount an existing file system."
-msgstr "Montar un sistema de archivos."
+msgstr "Montar un sistema de archivos existente."
 
 msgid "Mounted"
-msgstr "Montados"
+msgstr "Montado"
 
 msgid "Mozambique"
 msgstr "Mozambique"
@@ -2136,16 +2137,16 @@ msgid "Myanmar"
 msgstr "Myanmar"
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 msgid "NFS"
 msgstr "NFS"
 
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 msgid "NTP time servers, separated by comma."
-msgstr "Servidores de hora NTP, separados por coma \",\""
+msgstr "Servidores de hora NTP, separados por comas."
 
 msgid "Name"
 msgstr "Nombre"
@@ -2154,7 +2155,7 @@ msgid "Namibia"
 msgstr "Namibia"
 
 msgid "Nauru"
-msgstr "República de Nauru"
+msgstr "Nauru"
 
 msgid "Nepal"
 msgstr "Nepal"
@@ -2163,10 +2164,10 @@ msgid "Netherlands"
 msgstr "Países Bajos"
 
 msgid "Netherlands Antilles"
-msgstr "Antillas Holandesas"
+msgstr "Antillas Neerlandesas"
 
 msgid "Netmask"
-msgstr "Mascara de Red"
+msgstr "Máscara de red"
 
 msgid "Network"
 msgstr "Red"
@@ -2196,7 +2197,7 @@ msgid "Nicaragua"
 msgstr "Nicaragua"
 
 msgid "Niger"
-msgstr "Niger"
+msgstr "Níger"
 
 msgid "Nigeria"
 msgstr "Nigeria"
@@ -2256,7 +2257,7 @@ msgid "Not UDP"
 msgstr "No UDP"
 
 msgid "Not a directory."
-msgstr ""
+msgstr "No es un directorio."
 
 msgid "Not mounted"
 msgstr "No montado"
@@ -2266,36 +2267,36 @@ msgstr "No ejecutándose"
 
 msgid ""
 "Note that SMB1 is deprecated and should only be used in mandatory cases."
-msgstr "Atención, SMB1 esta obsoleto y solo debería ser usado cuando no se tenga más remedio."
+msgstr "Tenga en cuenta que SMB1 está obsoleto y solo debe utilizarse en casos obligatorios."
 
 msgid "Note, only one client can be configured per share."
-msgstr ""
+msgstr "Nota: solo se puede configurar un cliente por recurso compartido."
 
 msgid "Nothing"
 msgstr "Nada"
 
 msgid "Notification"
-msgstr "Aviso"
+msgstr "Notificación"
 
 msgid "Notification schedule"
-msgstr ""
+msgstr "Programación de notificaciones"
 
 msgid "Notifications"
-msgstr "Avisos"
+msgstr "Notificaciones"
 
 msgid "November"
 msgstr "Noviembre"
 
 msgid "Num"
-msgstr "Número"
+msgstr "Núm."
 
 msgid "OK"
-msgstr "OK"
+msgstr "Aceptar"
 
 msgid ""
 "Obsolete cached data found. Page will be reloaded. If the problem persists, "
 "press Ctrl-Shift-R or Ctrl-F5 to force a hard reload of the page."
-msgstr "Se encontraron datos en caché obsoletos. La página será recargada. Si el problema persiste, presione Ctrl-Shift-R o Ctrl-F5 para forzar una recarga completa de la página."
+msgstr "Se encontraron datos en caché obsoletos. Se recargará la página. Si el problema persiste, presione Ctrl-Shift-R o Ctrl-F5 para forzar una recarga completa de la página."
 
 msgid "October"
 msgstr "Octubre"
@@ -2304,10 +2305,10 @@ msgid "Offline immediate test"
 msgstr "Prueba inmediata sin conexión"
 
 msgid "Old Version"
-msgstr ""
+msgstr "Versión antigua"
 
 msgid "Old-age"
-msgstr "Edad"
+msgstr "Desgaste por uso"
 
 msgid "Oman"
 msgstr "Omán"
@@ -2319,19 +2320,19 @@ msgid "Options"
 msgstr "Opciones"
 
 msgid "Organization Name"
-msgstr "Nombre de la Organización"
+msgstr "Nombre de la organización"
 
 msgid "Organization Unit"
-msgstr "Organización"
+msgstr "Unidad organizativa"
 
 msgid "Others"
 msgstr "Otros"
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
-msgstr "Dirección del servidor de correo SMTP de salida, p.ej. smtp.miempresa.com."
+msgstr "Dirección del servidor de correo saliente SMTP, p. ej., smtp.mycorp.com."
 
 msgid "Outlying Oceania"
-msgstr "Oceanía"
+msgstr "Oceanía periférica"
 
 msgid "Owner"
 msgstr "Propietario"
@@ -2340,7 +2341,7 @@ msgid "PID"
 msgstr "PID"
 
 msgid "PR"
-msgstr ""
+msgstr "PR"
 
 msgid "Pacific Islands Trust Territory"
 msgstr "Territorio en Fideicomiso de las Islas del Pacífico"
@@ -2352,10 +2353,10 @@ msgid "Package management."
 msgstr "Gestión de paquetes."
 
 msgid "Pakistan"
-msgstr "Pakistan"
+msgstr "Pakistán"
 
 msgid "Palau"
-msgstr "República de Palau"
+msgstr "Palau"
 
 msgid "Palestinian Territory"
 msgstr "Territorios Palestinos"
@@ -2364,28 +2365,28 @@ msgid "Panama"
 msgstr "Panamá"
 
 msgid "Panama Canal Zone"
-msgstr "Canal de Panamá"
+msgstr "Zona del Canal de Panamá"
 
 msgid "Papua New Guinea"
-msgstr "Papua y nueva Guinea"
+msgstr "Papúa Nueva Guinea"
 
 msgid "Paraguay"
 msgstr "Paraguay"
 
 msgid "Parent Device"
-msgstr "Dispositivo padre"
+msgstr "Dispositivo principal"
 
 msgid "Parent UUID"
-msgstr "Parent UUID"
+msgstr "UUID principal"
 
 msgid "Parent device"
-msgstr "Dispositivo padre"
+msgstr "Dispositivo principal"
 
 msgid "Password"
 msgstr "Contraseña"
 
 msgid "Password authentication"
-msgstr "Autentificación por contraseña"
+msgstr "Autenticación por contraseña"
 
 msgid "Password does not match."
 msgstr "La contraseña no coincide."
@@ -2394,16 +2395,16 @@ msgid "Password doesn't match."
 msgstr "La contraseña no coincide."
 
 msgid "Paste a RSA or ECC certificate in X.509 PEM format here."
-msgstr "Copiar un certificado RSA o ECC en formato X.509 PEM aqui."
+msgstr "Pegar un certificado RSA o ECC en formato X.509 PEM aquí."
 
 msgid "Paste a RSA or ECC private key in X.509 PEM format here."
-msgstr "Copiar una clave privada RSA o ECC en formato X.509 PEM aqui."
+msgstr "Pegar una clave privada RSA o ECC en formato X.509 PEM aquí."
 
 msgid "Pending configuration changes"
-msgstr "Cambios pendientes de configuración"
+msgstr "Cambios de configuración pendientes"
 
 msgid "People's Democratic Republic of Yemen"
-msgstr "Republica Democratica del Yemen"
+msgstr "República Democrática Popular del Yemen"
 
 msgid "Perform a trial run with no changes made"
 msgstr "Realizar una prueba sin realizar cambios"
@@ -2415,7 +2416,7 @@ msgid "Period of validity"
 msgstr "Periodo de validez"
 
 msgid "Permission"
-msgstr "Permisos"
+msgstr "Permiso"
 
 msgid "Permissions"
 msgstr "Permisos"
@@ -2424,106 +2425,106 @@ msgid "Permissions of group."
 msgstr "Permisos del grupo."
 
 msgid "Permissions of others (e.g. anonymous FTP users)."
-msgstr "Permisos de otros (Ej: usuarios anonimos FTP)"
+msgstr "Permisos de otros (p. ej., usuarios anónimos de FTP)."
 
 msgid "Permissions of owner."
 msgstr "Permisos del propietario."
 
 msgid "Permit root login"
-msgstr "Permitir acceso root"
+msgstr "Permitir inicio de sesión de root"
 
 msgid "Permit to do SSH tunneling."
 msgstr "Permitir túneles SSH."
 
 msgid "Peru"
-msgstr "Peru"
+msgstr "Perú"
 
 msgid "Philippines"
 msgstr "Filipinas"
 
 msgid "Pitcairn"
-msgstr "Isla Pitcairn"
+msgstr "Pitcairn"
 
 msgid ""
 "Please check the <a href=\"https://download.samba.org/pub/rsync/rsync.1\" "
 "target=\"_blank\">manual page</a> for more details."
-msgstr ""
+msgstr "Por favor, consulte la <a href=\"https://download.samba.org/pub/rsync/rsync.1\" target=\"_blank\">página del manual</a> para más detalles"
 
 msgid ""
 "Please check the <a "
 "href=\"https://download.samba.org/pub/rsync/rsyncd.conf.5\" "
 "target=\"_blank\">manual page</a> for more details."
-msgstr ""
+msgstr "Por favor, consulte la <a href=\"https://download.samba.org/pub/rsync/rsyncd.conf.5\" target=\"_blank\">página del manual</a> para más detalles."
 
 msgid ""
 "Please check the <a href=\"https://man.openbsd.org/sshd_config.5\" "
 "target=\"_blank\">manual page</a> for more details."
-msgstr "Por favor revise la página <a href=\"https://man.openbsd.org/sshd_config.5\" target=\"_blank\"> del manual</a> para más detalles."
+msgstr "Por favor, consulte la <a href=\"https://man.openbsd.org/sshd_config.5\" target=\"_blank\">página del manual</a>para más detalles. "
 
 msgid ""
 "Please check the <a "
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Por favor vea: <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>página del manual</a> para más detalles."
+msgstr "Por favor, consulte la <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>página del manual</a> para más detalles."
 
 msgid ""
 "Please check the <a href='https://manpages.debian.org/nfs-kernel-"
 "server/exports.5.html' target='_blank'>manual page</a> for more details."
-msgstr "Por favor, revise <a href='https://manpages.debian.org/nfs-kernel-server/exports.5.html' target='_blank'>la pagina del manual</a>, para más detalles."
+msgstr "Por favor, consulte la <a href='https://manpages.debian.org/nfs-kernel-server/exports.5.html' target='_blank'>página del manual</a> para más detalles."
 
 msgid "Please choose the method to wipe the device."
-msgstr "Por favor elija el método de borrado del disco."
+msgstr "Elija el método para borrar el dispositivo."
 
 msgid "Please note that values >= 128 do not permit the disk to spin down."
-msgstr ""
+msgstr "Tenga en cuenta que los valores >= 128 no permiten que el disco reduzca las revoluciones spin down."
 
 msgid "Please wait ..."
-msgstr "Por favor espere ..."
+msgstr "Por favor, espere..."
 
 msgid "Please wait, a shared folder will be created ..."
-msgstr "Por favor, espere, se está creando una carpeta compartida..."
+msgstr "Por favor, espere, se creará una carpeta compartida..."
 
 msgid "Please wait, a snapshot will be created ..."
 msgstr "Por favor, espere, se está creando una instantánea..."
 
 msgid "Please wait, deleting selected item(s) ..."
-msgstr "Espere, borrando elemento(s) seleccionado(s) ..."
+msgstr "Por favor espere, borrando los elementos seleccionado(s)..."
 
 msgid "Please wait, identifying network device ..."
-msgstr "Espere, identificando tarjeta de red ..."
+msgstr "Por favor, espere, identificando el dispositivo de red..."
 
 msgid "Please wait, installing public SSH key on remote system ..."
-msgstr "Espere, instalando clave pública SSH en el sistema remoto ..."
+msgstr "Por favor, espere, instalando la clave pública SSH en el sistema remoto..."
 
 msgid "Please wait, processing selected item(s) ..."
-msgstr "Espere, procesando elemento(s) seleccionado(s) ..."
+msgstr "Por favor espere, procesando los elementos seleccionado(s)..."
 
 msgid "Please wait, reverting configuration changes ..."
-msgstr "Espere, revertiendo los cambios de la configuración ..."
+msgstr "Por favor, espere, revirtiendo los cambios de configuración..."
 
 msgid "Please wait, sending a test email ..."
-msgstr "Espere, enviando e-mail de prueba ..."
+msgstr "Por favor espere, enviando un correo electrónico de prueba..."
 
 msgid "Please wait, the configuration changes are being applied ..."
-msgstr "Espere, los cambios en la configuración se están aplicando ..."
+msgstr "Por favor, espere, se están aplicando los cambios de configuración..."
 
 msgid "Please wait, the data is being loaded ..."
-msgstr "Espere, los datos están siendo cargados ..."
+msgstr "Por favor, espere, se están cargando los datos..."
 
 msgid "Please wait, the statistic graphs will be regenerated ..."
-msgstr "Espere, las estadísticas se están regenerando ..."
+msgstr "Por favor, espere, se regenerarán los gráficos estadísticos..."
 
 msgid "Please wait, unmounting the file system ..."
-msgstr "Espere, desmontando el sistema de archivos ..."
+msgstr "Por favor, espere, desmontando el sistema de archivos..."
 
 msgid "Please wait, updating access control lists ..."
-msgstr "Espere, actualizando la lista de control de acceso ..."
+msgstr "Por favor, espere, actualizando las ACL..."
 
 msgid "Please wait, updating the permissions ..."
-msgstr "Espero, Actualizando permisos ..."
+msgstr "Por favor, espere, actualizando los permisos..."
 
 msgid "Plugins"
-msgstr "Plugins"
+msgstr "Complementos"
 
 msgid "Poland"
 msgstr "Polonia"
@@ -2535,58 +2536,58 @@ msgid "Portugal"
 msgstr "Portugal"
 
 msgid "Power"
-msgstr "Energia"
+msgstr "Alimentación"
 
 msgid "Power Management"
-msgstr "Gestión de energía"
+msgstr "Gestión de alimentación"
 
 msgid "Power Mode"
-msgstr "Modo de energía"
+msgstr "Modo de alimentación"
 
 msgid "Power Off"
 msgstr "Apagar"
 
 msgid "Power button"
-msgstr "Boton de encendido"
+msgstr "Botón de apagado"
 
 msgid "Power cycle count"
-msgstr "Contador de arranques"
+msgstr "Contador de ciclos de encendido"
 
 msgid "Power mode"
-msgstr "Modo de energía"
+msgstr "Modo de alimentación"
 
 msgid "Powered on"
 msgstr "Encendido"
 
 msgid "Pre-release updates"
-msgstr "Actualizaciones Pre-release"
+msgstr "Actualizaciones preliminares"
 
 msgid "Prefail"
-msgstr "Pre-Fallo"
+msgstr "Fallo inminente"
 
 msgid "Prefix address"
-msgstr "Prefijo"
+msgstr "Dirección del prefijo"
 
 msgid "Prefix length"
 msgstr "Longitud del prefijo"
 
 msgid "Preserve ACLs"
-msgstr "Mantener ACLs"
+msgstr "Mantener las ACL"
 
 msgid "Preserve extended attributes"
 msgstr "Mantener atributos extendidos"
 
 msgid "Preserve group"
-msgstr "Preservar grupo"
+msgstr "Mantener el grupo"
 
 msgid "Preserve modification times"
-msgstr "Mantener la hora de modificación"
+msgstr "Mantener las horas de modificación"
 
 msgid "Preserve owner"
-msgstr "Preservar propietario"
+msgstr "Mantener el propietario"
 
 msgid "Preserve permissions"
-msgstr "Conservar permisos"
+msgstr "Mantener los permisos"
 
 msgid ""
 "Prevent a disk from being spun-up when it is periodically "
@@ -2599,13 +2600,13 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr "Previene despertar al disco cuando es interrogado.<ul><li>Never - Poll Interroga el disco independientemente de su estado. Esto hace que el disco sea \"despertado\" cuando es interrogado </li><li>Sleep - Interroga a menos que el disco este en modo \"dormido\".</li><li>Standby - interroga a menos que el disco este en modo \"dormido\" o \"Standby\". En estos modos , la mayoría de discos no están girando, por lo que si V.D. desea evitar que el disco se despierte, esta opción es la que probablemente desea.</li><li>Idle - Interroga el disco a menos que este en modo SLEEP, STANDBY o IDLE mode. En el modo IDLE la mayoria de los discos están girando, por lo que probablemente, NO es lo que V.D. desea.</li></ul>"
+msgstr "Evita que un disco se active (spin-up) cuando es consultado periódicamente.<ul><li>Never - Consulta el dispositivo independientemente de su modo de energía. Esto puede causar que un disco que está desactivado se active cuando se verifique.</li><li>Sleep - Consulta el dispositivo a menos que esté en modo SLEEP.</li><li>Standby - Consulta el dispositivo a menos que esté en modo SLEEP o STANDBY. En estos modos, la mayoría de los discos no están girando, por lo que si desea evitar que un disco se active en cada consulta, esto es probablemente lo que busca.</li><li>Idle - Consulta el dispositivo a menos que esté en modo SLEEP, STANDBY o IDLE. En el estado IDLE, la mayoría de los discos siguen girando, por lo que probablemente esto no es lo que desea.</li></ul>"
 
 msgid "Primary"
-msgstr "Primario"
+msgstr "Primaria"
 
 msgid "Primary email"
-msgstr "E-mail principal"
+msgstr "Correo electrónico principal"
 
 msgid "Private key"
 msgstr "Clave privada"
@@ -2620,7 +2621,7 @@ msgid "Profile"
 msgstr "Perfil"
 
 msgid "Profile Settings"
-msgstr ""
+msgstr "Ajustes del perfil"
 
 msgid "Protocol"
 msgstr "Protocolo"
@@ -2635,16 +2636,16 @@ msgid "Public key"
 msgstr "Clave pública"
 
 msgid "Public key authentication"
-msgstr "Autentificación de clave pública"
+msgstr "Autenticación de clave pública"
 
 msgid "Puerto Rico"
 msgstr "Puerto Rico"
 
 msgid "Pull"
-msgstr "Pull"
+msgstr "Descargar"
 
 msgid "Push"
-msgstr "Push"
+msgstr "Subir"
 
 msgid "Qatar"
 msgstr "Catar"
@@ -2656,10 +2657,10 @@ msgid "Quota"
 msgstr "Cuota"
 
 msgid "RES"
-msgstr ""
+msgstr "RES"
 
 msgid "RSync server"
-msgstr "Servidor rsync"
+msgstr "Servidor RSync"
 
 msgid "Raw value"
 msgstr "Valor en bruto"
@@ -2686,7 +2687,7 @@ msgid "Recipient"
 msgstr "Destinatario"
 
 msgid "Recurse into directories"
-msgstr "Navegar recursivamente entre los directorios"
+msgstr "Recorrer directorios recursivamente"
 
 msgid "Recursive"
 msgstr "Recursivo"
@@ -2701,7 +2702,7 @@ msgid "Relative path"
 msgstr "Ruta relativa"
 
 msgid "Reliable system and kernel logging daemon."
-msgstr ""
+msgstr "Demonio de registro confiable del sistema y del kernel."
 
 msgid "Reload"
 msgstr "Recargar"
@@ -2716,7 +2717,7 @@ msgid "Replace"
 msgstr "Reemplazar"
 
 msgid "Replace all existing permissions."
-msgstr "Remplazar todos los permisos."
+msgstr "Reemplazar todos los permisos existentes."
 
 msgid "Report"
 msgstr "Informe"
@@ -2734,7 +2735,7 @@ msgid "Repository"
 msgstr "Repositorio"
 
 msgid "Reset UI to defaults"
-msgstr "Volver a valores por defecto de la WebGUI"
+msgstr "Restablecer la interfaz a los valores predeterminados"
 
 msgid "Result"
 msgstr "Resultado"
@@ -2755,16 +2756,16 @@ msgid "Romania"
 msgstr "Rumania"
 
 msgid "Row No."
-msgstr "Fila nº."
+msgstr "Núm. de fila"
 
 msgid "Rsync"
 msgstr "Rsync"
 
 msgid "Rsync - Jobs"
-msgstr "Trabajos-Rsync"
+msgstr "RSync - Tareas"
 
 msgid "Rsync - Server"
-msgstr "Servidor-Rsync"
+msgstr "Servidor RSync"
 
 msgid "Rules"
 msgstr "Reglas"
@@ -2773,13 +2774,13 @@ msgid "Run"
 msgstr "Ejecutar"
 
 msgid "Run rsync task"
-msgstr "Ejecutar la tarea de Rsync"
+msgstr "Ejecutar la tarea de RSync"
 
 msgid "Run scheduled task"
 msgstr "Ejecutar la tarea programada"
 
 msgid "Running"
-msgstr "Ejecutándose"
+msgstr "En ejecución"
 
 msgid "Russia"
 msgstr "Rusia"
@@ -2788,7 +2789,7 @@ msgid "Rwanda"
 msgstr "Ruanda"
 
 msgid "S"
-msgstr ""
+msgstr "S"
 
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
@@ -2797,10 +2798,10 @@ msgid "S.M.A.R.T. Status"
 msgstr "Estado S.M.A.R.T."
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
-msgstr "La monitorización S.M.A.R.T. debe ser activada para el dispositivo seleccionado."
+msgstr "Se debe activar la monitorización S.M.A.R.T."
 
 msgid "SHR"
-msgstr ""
+msgstr "SHR"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -2878,7 +2879,7 @@ msgid "Saudi Arabia"
 msgstr "Arabia Saudí"
 
 msgid "Save"
-msgstr "Salvar"
+msgstr "Guardar"
 
 msgid "Scan for new devices"
 msgstr "Buscar nuevos dispositivos"
@@ -2893,10 +2894,10 @@ msgid "Scheduling"
 msgstr "Programación"
 
 msgid "Search domains"
-msgstr "Buscar dominios"
+msgstr "Dominios de búsqueda"
 
 msgid "Secondary email"
-msgstr "E-mail secundario"
+msgstr "Correo electrónico secundario"
 
 msgid "Seconds"
 msgstr "Segundos"
@@ -2914,75 +2915,75 @@ msgid "Security"
 msgstr "Seguridad"
 
 msgid "Select a country ..."
-msgstr "Seleccionar un pais ..."
+msgstr "Seleccionar un país..."
 
 msgid "Select a device ..."
 msgstr "Seleccionar un dispositivo ..."
 
 msgid "Select a file system ..."
-msgstr "Seleccionar un sistema de archivos ..."
+msgstr "Seleccionar un sistema de archivos..."
 
 msgid "Select a group ..."
-msgstr "Seleccionar un grupo ..."
+msgstr "Seleccionar un grupo..."
 
 msgid "Select a shared folder ..."
-msgstr "Seleccionar una carpeta compartida ..."
+msgstr "Seleccionar una carpeta compartida..."
 
 msgid "Select a shell ..."
-msgstr "Seleccionar una Shell ..."
+msgstr "Seleccionar una shell..."
 
 msgid "Select a system log ..."
-msgstr "Seleccionar un Log de sistema ..."
+msgstr "Seleccionar un registro del sistema..."
 
 msgid "Select all"
 msgstr "Seleccionar todo"
 
 msgid "Select an authentication mode ..."
-msgstr "Seleccionar un modo de autentificación ..."
+msgstr "Seleccionar un modo de autenticación..."
 
 msgid "Select an user ..."
-msgstr "Seleccionar un usuario ..."
+msgstr "Seleccionar un usuario..."
 
 msgid "Select devices ..."
-msgstr "Seleccionar un disco ..."
+msgstr "Seleccionar dispositivos..."
 
 msgid "Select groups ..."
-msgstr "Seleccionar grupos ..."
+msgstr "Seleccionar grupos..."
 
 msgid "Select interface devices ..."
-msgstr "Seleccionar tarjetas de red ..."
+msgstr "Seleccionar dispositivos de red..."
 
 msgid "Select members ..."
-msgstr "Seleccionar miembros ..."
+msgstr "Seleccionar miembros..."
 
 msgid "Select permissions ..."
 msgstr "Seleccionar permisos ..."
 
 msgid "Select slave devices ..."
-msgstr "Seleccionar dispositivos esclavos ..."
+msgstr "Seleccionar dispositivos esclavos..."
 
 msgid "Select the device that will be used to create the file system."
-msgstr "Seleccionar el disco donde crear el sistema de archivos."
+msgstr "Seleccionar el dispositivo que se utilizará para crear el sistema de archivos."
 
 msgid "Select the devices that will be used to create the file system."
-msgstr "Seleccione los discos a usar para crear el sistema de archivos."
+msgstr "Seleccionar los dispositivos que se utilizarán para crear el sistema de archivos."
 
 msgid "Self-Test Logs"
-msgstr "Logs de Auto-Test"
+msgstr "Registros de autoevaluación"
 
 msgid ""
 "Send a notification when the used file system capacity exceeds the specified"
 " threshold."
-msgstr "Mandar una notificación cuando el espacio en uso, sobrepase el limite establecido."
+msgstr "Enviar una notificación cuando la capacidad del sistema de archivos utilizado supere el límite especificado."
 
 msgid "Send command output via email"
-msgstr "Enviar la salida del comando por email"
+msgstr "Enviar la salida del comando por correo electrónico"
 
 msgid "Send notifications about pending package updates."
-msgstr ""
+msgstr "Enviar notificaciones sobre actualizaciones de paquetes pendientes."
 
 msgid "Sender email"
-msgstr "E-mail del remitente"
+msgstr "Correo electrónico del remitente"
 
 msgid "Senegal"
 msgstr "Senegal"
@@ -2994,10 +2995,10 @@ msgid "Serbia And Montenegro"
 msgstr "Serbia y Montenegro"
 
 msgid "Serial Number"
-msgstr "Número de Serie"
+msgstr "Número de serie"
 
 msgid "Serial number"
-msgstr "Número de Serie"
+msgstr "Número de serie"
 
 msgid "Server"
 msgstr "Servidor"
@@ -3019,16 +3020,16 @@ msgstr "Sesión no autenticada."
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr "Hacer que los permisos en destino , sean idénticos a los de origen."
+msgstr "Establecer los permisos de destino para que sean idénticos a los de origen."
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
-msgstr "Hacer que el grupo de destino sea el mismo que el del origen."
+msgstr "Establecer el grupo del archivo de destino para que sea el mismo que el del archivo de origen."
 
 msgid ""
 "Set the owner of the destination file to be the same as the source file, but"
 " only if the receiving rsync is being run as the super-user."
-msgstr "Hacer que el propietario del destino sea el mismo que el del origen, pero SOLO si el servicio RSYNC ha sido ejecutado por un super-usuario."
+msgstr "Establecer el propietario del archivo de destino para que sea el mismo que el del archivo de origen, pero solo si el rsync receptor se ejecuta como superusuario."
 
 msgid ""
 "Sets the interval between disk checks to N seconds. Take caution when "
@@ -3036,7 +3037,7 @@ msgid ""
 " fail to coincide with any of the scheduled test that have been specified. "
 "In this case the scheduled test will be run following the next device "
 "polling."
-msgstr ""
+msgstr "Establece el intervalo entre las comprobaciones del disco a N segundos. Tenga precaución al configurar este intervalo de consulta en más de sesenta minutos. Es posible que las horas de consulta no coincidan con ninguna de las pruebas programadas que se hayan especificado. En este caso, la prueba programada se ejecutará después de la siguiente consulta del dispositivo."
 
 msgid "Settings"
 msgstr "Configuración"
@@ -3045,13 +3046,13 @@ msgid "Seychelles"
 msgstr "Seychelles"
 
 msgid "Share"
-msgstr "Compartido"
+msgstr "Compartir"
 
 msgid "Shared Folders"
-msgstr "Carpetas Compartidas"
+msgstr "Carpetas compartidas"
 
 msgid "Shared folder"
-msgstr "Carpeta Compartida"
+msgstr "Carpeta compartida"
 
 msgid "Shared folder name"
 msgstr "Nombre de la carpeta compartida"
@@ -3063,19 +3064,19 @@ msgid "Shared folder permissions"
 msgstr "Permisos de la carpeta compartida"
 
 msgid "Shared folder permissions have been copied."
-msgstr "Los permisos de la carpeta compartida, han sido copiados."
+msgstr "Se han copiado los permisos de la carpeta compartida."
 
 msgid "Shares"
-msgstr "Compartidos"
+msgstr "Recursos compartidos"
 
 msgid "Shell"
-msgstr "Shell"
+msgstr "shell"
 
 msgid "Short self-test"
-msgstr "Auto prueba corta"
+msgstr "Autoprueba corta"
 
 msgid "Show changelog"
-msgstr "Mostrar cambios"
+msgstr "Mostrar el registro de cambios"
 
 msgid "Show details"
 msgstr "Mostrar detalles"
@@ -3084,7 +3085,7 @@ msgid "Show/Hide columns"
 msgstr "Mostrar/ocultar columnas"
 
 msgid "Show/Hide navigation"
-msgstr "Mostra/ocultar navegación"
+msgstr "Mostrar/ocultar navegación"
 
 msgid "Shutdown"
 msgstr "Apagar"
@@ -3102,10 +3103,10 @@ msgid "Slaves"
 msgstr "Esclavos"
 
 msgid "Sleep"
-msgstr "Sleep"
+msgstr "Suspensión"
 
 msgid "Sleeping"
-msgstr ""
+msgstr "En reposo"
 
 msgid "Slovakia"
 msgstr "Eslovaquia"
@@ -3114,16 +3115,16 @@ msgid "Slovenia"
 msgstr "Eslovenia"
 
 msgid "Snapshots"
-msgstr "Snapshots"
+msgstr "Instantáneas"
 
 msgid "Software"
-msgstr ""
+msgstr "Software"
 
 msgid "Software Failure.   Press left mouse button to continue."
-msgstr "Fallo de software.  pulse botón izquierdo del ratón para continuar."
+msgstr "Fallo de software. Presione el botón izquierdo del ratón para continuar."
 
 msgid "Solomon Islands"
-msgstr "Islas Solomon"
+msgstr "Islas Salomón"
 
 msgid "Somalia"
 msgstr "Somalia"
@@ -3135,7 +3136,7 @@ msgid ""
 "Source address can be either a network IP address (with /mask), a IP range "
 "or a plain IP address. A \"!\" argument before the address specification "
 "inverts the sense of the address."
-msgstr "La dirección de origen puede ser una dirección IP de red (con /máscara), un rango de IP o una dirección IP simple. A \"!\" antes de la especificación de la dirección invierte el sentido de la dirección."
+msgstr "La dirección de origen puede ser una dirección IP de red (con /máscara), un rango de IP o una dirección IP estándar. Un argumento «!» antes de la especificación de la dirección invierte el sentido de la misma."
 
 msgid "Source port"
 msgstr "Puerto de origen"
@@ -3147,7 +3148,7 @@ msgid "Source shared folder"
 msgstr "Carpeta compartida origen"
 
 msgid "South Africa"
-msgstr "Suráfrica"
+msgstr "Sudáfrica"
 
 msgid "South Georgia and the South Sandwich Islands"
 msgstr "Islas Georgias del Sur y Sandwich del Sur"
@@ -3162,44 +3163,44 @@ msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "Especifica la frecuencia de monitorización del enlace MII en milisegundos."
 
 msgid "Specifies the interface devices."
-msgstr "Especifica los dispositivos de red."
+msgstr "Especifica los dispositivos de interfaz."
 
 msgid "Specifies the slave devices."
-msgstr "Especifica el dispositivo esclavo."
+msgstr "Especifica los dispositivos esclavos."
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before disabling a slave after "
 "a link failure has been detected."
-msgstr "Especifica el tiempo, en milisegundos, que espera antes de desactivar un esclavo después de que haya sido detectada una caída del enlace."
+msgstr "Especifica el tiempo, en milisegundos, que se debe esperar antes de desactivar un esclavo después de que se detecte una falla en el enlace."
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before enabling a slave after a"
 " link recovery has been detected."
-msgstr "Especifica el tiempo, en milisegundos, que espera antes de activar un esclavo después de que haya sido detectado un enlace recuperado."
+msgstr "Especifica el tiempo, en milisegundos, que se debe esperar antes de activar un esclavo después de que se detecte la recuperación del enlace."
 
 msgid "Specifies the type of key to create."
 msgstr "Especifica el tipo de clave a crear."
 
 msgid "Specifies whether it is allowed to login as superuser."
-msgstr "Especifica si está permitido el login como superusuario."
+msgstr "Especifica si está permitido iniciar sesión como superusuario."
 
 msgid ""
 "Specifies whether the system performance statistics are collected "
 "periodically."
-msgstr "Habilita que las estadísticas de rendimiento se almacenen periodicamente."
+msgstr "Especifica si las estadísticas de rendimiento del sistema se recopilan periódicamente."
 
 msgid "Specifies which slave is the primary device."
-msgstr "Especifica qué esclavo es el dispositivo primario."
+msgstr "Especifica qué esclavo es el dispositivo principal."
 
 msgid ""
 "Specify how often to receive notifications about available package updates."
-msgstr ""
+msgstr "Especifique la frecuencia con la que recibir notificaciones sobre actualizaciones de paquetes disponibles."
 
 msgid "Speed"
 msgstr "Velocidad"
 
 msgid "Spindown time"
-msgstr "Tiempo para detener el disco"
+msgstr "Tiempo de parada del motor del disco"
 
 msgid "Sri Lanka"
 msgstr "Sri Lanka"
@@ -3208,10 +3209,10 @@ msgid "Standby"
 msgstr "Reposo"
 
 msgid "Standby mode"
-msgstr "Modo Standby"
+msgstr "Modo de reposo"
 
 msgid "Start"
-msgstr "Comienzo"
+msgstr "Iniciar"
 
 msgid "State"
 msgstr "Estado"
@@ -3220,22 +3221,22 @@ msgid "State/Province"
 msgstr "Estado/Provincia"
 
 msgid "Static"
-msgstr "Estatico"
+msgstr "Estático"
 
 msgid "Statistics collection and monitoring daemon."
-msgstr "Demonio de recopilación y seguimiento de estadísticas."
+msgstr "Demonio de monitorización y recolección de estadísticas."
 
 msgid "Status"
 msgstr "Estado"
 
 msgid "Stop"
-msgstr "Parado"
+msgstr "Detener"
 
 msgid "Stopped by debugger during trace"
-msgstr ""
+msgstr "Detenido por el depurador durante la traza"
 
 msgid "Stopped by job control signal"
-msgstr ""
+msgstr "Detenido por una señal de control de trabajos"
 
 msgid "Storage"
 msgstr "Almacenamiento"
@@ -3244,13 +3245,13 @@ msgid "Store DOS attributes"
 msgstr "Guardar atributos DOS"
 
 msgid "Submit"
-msgstr ""
+msgstr "Enviar"
 
 msgid "Success"
 msgstr "Éxito"
 
 msgid "Sudan"
-msgstr "Sudan"
+msgstr "Sudán"
 
 msgid "Summary"
 msgstr "Sumario"
@@ -3259,10 +3260,10 @@ msgid "Sunday"
 msgstr "Domingo"
 
 msgid "Support name resolution and network discovery for legacy systems."
-msgstr "Soporta resolución de nombres y detección de redes para sistemas heredados."
+msgstr "Admitir la resolución de nombres y la detección de redes para sistemas heredados."
 
 msgid "Suppress non-error messages"
-msgstr "Suprime mensajes que no sean de error"
+msgstr "Ocultar los mensajes que no sean de error."
 
 msgid "Suriname"
 msgstr "Surinam"
@@ -3271,10 +3272,10 @@ msgid "Suspend"
 msgstr "Suspender"
 
 msgid "Svalbard and Jan Mayen"
-msgstr "Islas de Svalbard y Jan Mayen"
+msgstr "Svalbard y Jan Mayen"
 
 msgid "Swaziland"
-msgstr "Reino de Suazilandia"
+msgstr "Suazilandia"
 
 msgid "Sweden"
 msgstr "Suecia"
@@ -3295,7 +3296,7 @@ msgid "System Information"
 msgstr "Información del sistema"
 
 msgid "System Logs"
-msgstr "Logs del sistema"
+msgstr "Registros del sistema"
 
 msgid "System Time"
 msgstr "Hora del sistema"
@@ -3309,10 +3310,10 @@ msgstr "Cliente y servidor de sincronización del reloj del sistema."
 msgid ""
 "System monitoring is disabled. To enable it, please go to the <a "
 "href='#/system/monitoring'>settings page</a>."
-msgstr "La supervisión del sistema está deshabilitada. Para habilitarlo, vaya a la <a href='#/system/monitoring'>página de configuración</a>."
+msgstr "La monitorización del sistema está deshabilitada. Para habilitarla, vaya a la <a href='#/system/monitoring'>página de configuración</a>."
 
 msgid "System restart required"
-msgstr "Se requiere un reinicio del sistema"
+msgstr "Reinicio del sistema requerido"
 
 msgid "System time"
 msgstr "Hora del sistema"
@@ -3324,13 +3325,13 @@ msgid "TCP forwarding"
 msgstr "Reenvío TCP"
 
 msgid "TIME+"
-msgstr ""
+msgstr "TIME+"
 
 msgid "Tags"
-msgstr "Tags"
+msgstr "Etiquetas"
 
 msgid "Taiwan"
-msgstr "Taiwan"
+msgstr "Taiwán"
 
 msgid "Tajikistan"
 msgstr "Tayikistán"
@@ -3348,97 +3349,97 @@ msgid "Temperature monitoring"
 msgstr "Monitorización de temperatura"
 
 msgid "Test"
-msgstr "Test"
+msgstr "Prueba"
 
 msgid "Thailand"
 msgstr "Tailandia"
 
 msgid "The HTTP and HTTPS ports must not be the same."
-msgstr ""
+msgstr "Los puertos HTTP y HTTPS no deben ser los mismos."
 
 msgid "The NFS versions provided by the service."
-msgstr "Versión NFS proporcionada por el sistema."
+msgstr "Las versiones de NFS proporcionadas por el servicio."
 
 msgid "The NT description field."
-msgstr "El campo NT de descripción."
+msgstr "El campo de descripción NT."
 
 msgid "The RSA key length."
-msgstr "Longitud de la clave RSA."
+msgstr "La longitud de la clave RSA."
 
 msgid "The SSH certificate used for authentication."
-msgstr "El certificado SSH usado para autentificación."
+msgstr "El certificado SSH usado para autenticación."
 
 msgid "The SSH public key in OpenSSH or RFC 4716 format."
-msgstr "La clave publica en formato OpenSSH o RFC 4716."
+msgstr "La clave pública SSH en formato OpenSSH o RFC 4716."
 
 msgid "The action to be done when pressing the power button."
-msgstr "Acción a realizar cuando se presione el botón de encendido."
+msgstr "Acción a realizar cuando se presione el botón de apagado."
 
 msgid "The authentication challenge URL is invalid."
-msgstr ""
+msgstr "La URL de desafío de autenticación no es válida."
 
 msgid ""
 "The dashboard has not yet been configured. To personalize it, please go to "
 "the <a href='#/dashboard/settings'>settings page</a>."
-msgstr "El panel aún no se ha configurado. Para personalizarlo, vaya a la <a href='#/dashboard/settings'>página de configuración</a>."
+msgstr "El tablero de control aún no se ha configurado. Para personalizarlo, vaya a la <a href='#/dashboard/settings'>página de configuración</a>."
 
 msgid "The data has been copied to the clipboard."
-msgstr "Los datos han sido copiados al prtapapeles."
+msgstr "Se han copiado los datos al portapapeles."
 
 msgid "The default SMTP mail server port, e.g. 25, 465 or 587."
-msgstr "El puerto del servidor de correo SMTP predeterminado, p. 25, 465 o 587."
+msgstr "El puerto del servidor de correo SMTP predeterminado, p. ej., 25, 465 o 587."
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
 "rsync://[USER@]HOST[:PORT]/DEST."
-msgstr "El servidor remoto de destino, p.ej. [USER@]HOST:DEST, [USER@]HOST::DEST o rsync://[USER@]HOST[:PORT]/DEST."
+msgstr "El servidor remoto de destino, p. ej., [USER@]HOST:DEST, [USER@]HOST::DEST o rsync://[USER@]HOST[:PORT]/DEST."
 
 msgid ""
 "The documentation page provides helpful information about your storage "
 "system."
-msgstr ""
+msgstr "La página de documentación proporciona información útil sobre su sistema de almacenamiento."
 
 msgid ""
 "The domain name of the system. If your system is part of a private network "
 "without a registered domain, use <em>internal</em> as suggested by <a "
 "href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" "
 "target=\"_blank\">ICANN</a>."
-msgstr ""
+msgstr "El nombre de dominio del sistema. Si su sistema forma parte de una red privada sin un dominio registrado, use <em>internal</em> como sugiere la <a href=\"https://datatracker.ietf.org/doc/html/draft-davies-internal-tld-01\" target=\"_blank\">ICANN</a>."
 
 msgid "The field should only contain * or a comma separated list of values."
 msgstr "El campo solo debe contener * o una lista de valores separados por comas."
 
 msgid "The file mode of the shared folder path."
-msgstr "Modo de archivo de la ruta a las carpetas compartidas."
+msgstr "El modo de archivo de la ruta de la carpeta compartida."
 
 msgid "The file system on which the shared folder is to be created."
-msgstr "El sistema de archivos en el que será creada la carpeta compartida."
+msgstr "El sistema de archivos en el que se creará la carpeta compartida."
 
 msgid "The file system to mount."
-msgstr "Sistema de archivos a montar."
+msgstr "El sistema de archivos a montar."
 
 msgid "The following modules have been updated: {{ modules }}"
-msgstr ""
+msgstr "Se han actualizado los siguientes módulos: {{ modules }}"
 
 msgid "The following modules will be updated:"
 msgstr "Se actualizarán los siguientes módulos:"
 
 msgid "The forum page is the best place to ask questions and find answers."
-msgstr ""
+msgstr "La página del foro es el mejor lugar para hacer preguntas y encontrar respuestas."
 
 msgid "The home of the project and source of news and updates."
-msgstr ""
+msgstr "El hogar del proyecto y fuente de noticias y actualizaciones."
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "El nombre de host es una etiqueta que identifica al sistema en la red."
 
 msgid "The hostname of the remote system."
-msgstr "Nombre del Host remoto."
+msgstr "El nombre de host del sistema remoto."
 
 msgid ""
 "The information about available software is out-of-date. Do you want to "
 "reload this information?"
-msgstr "La información sobre el software disponible está desactualizada. ¿Quieres recargar esta información?"
+msgstr "La información sobre el software disponible está desactualizada. ¿Desea volver a cargar esta información?"
 
 msgid "The location of the files to share."
 msgstr "La ubicación de los archivos a compartir."
@@ -3446,39 +3447,39 @@ msgstr "La ubicación de los archivos a compartir."
 msgid ""
 "The location of the files to share. The share will be accessible at "
 "/export/<name>."
-msgstr "La ubicación de los archivos a compartir. El compartido será accesible en /export/<name>."
+msgstr "La ubicación de los archivos a compartir. El recurso compartido estará accesible en /export/<name>."
 
 msgid "The location of the user home directories."
-msgstr "La ubicación de los directorios home de los usuarios."
+msgstr "La ubicación de los directorios de inicio de los usuarios."
 
 msgid ""
 "The maximum transmission unit in bytes to set for the device. Set to 0 to "
 "use the default value."
-msgstr "La unidad máxima de transmisión en bytes para el dispositivo.. poner a 0 para usar el valor por defecto."
+msgstr "La unidad máxima de transmisión en bytes a establecer para el dispositivo. Establézcalo en 0 para utilizar el valor predeterminado."
 
 msgid "The name of the share."
-msgstr "El nombre del compartido."
+msgstr "El nombre del recurso compartido."
 
 msgid "The number of custom snapshots to keep."
-msgstr "Número de snapshots personalizados a mantener."
+msgstr "El número de instantáneas personalizadas a mantener."
 
 msgid "The number of daily snapshots to keep."
-msgstr "Número de snapshots diarios a mantener."
+msgstr "El número de instantáneas diarias a mantener."
 
 msgid "The number of days the certificate is valid for."
 msgstr "El número de días de validez del certificado."
 
 msgid "The number of hourly snapshots to keep."
-msgstr "Número de snapshots horarios a mantener."
+msgstr "El número de instantáneas por hora a mantener."
 
 msgid "The number of monthly snapshots to keep."
-msgstr "Número de snapshots mensuales a mantener."
+msgstr "El número de instantáneas mensuales a mantener."
 
 msgid "The number of weekly snapshots to keep."
-msgstr "Número de snapshots semanales a mantener."
+msgstr "El número de instantáneas semanales a mantener."
 
 msgid "The number of yearly snapshots to keep."
-msgstr "Número de snapshots anuales a mantener."
+msgstr "El número de instantáneas anuales a mantener."
 
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
@@ -3490,50 +3491,50 @@ msgid ""
 " mask and directory mask but the inherit permissions parameter overrides "
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
-msgstr "Los permisos sobre los nuevos archivos y directorios se establecen por la máscara de creación y la máscara de directorio, pero el parámetro de herencia de permisos prevalece. Puede ser útil especialmente en sistemas con muchos usuarios para permitir una utilización de una misma compartición de una forma flexible para cada usuario."
+msgstr "Los permisos en los nuevos archivos y directorios se rigen normalmente por la máscara de creación y la máscara de directorio, pero el parámetro de herencia de permisos invalida esto. Esto puede ser especialmente útil en sistemas con muchos usuarios para permitir que cada usuario utilice un mismo recurso compartido de forma flexible."
 
 msgid "The port on which SSH is running on the remote system."
-msgstr "El puerto en el que corre el servicio SSH en el sistema remoto."
+msgstr "El puerto en el que se ejecuta SSH en el sistema remoto."
 
 msgid "The private key in PEM format."
-msgstr "La clave en formato PEM."
+msgstr "La clave privada en formato PEM."
 
 msgid ""
 "The protocol is not supported in conjunction with a source/destination port."
-msgstr "El protocolo no se admite junto con un puerto de origen / destino."
+msgstr "El protocolo no es compatible en combinación con un puerto de origen/destino."
 
 msgid "The public key in OpenSSH format."
-msgstr "La clave publica en formato OpenSSH."
+msgstr "La clave pública en formato OpenSSH."
 
 msgid ""
 "The relative path of the folder to share. Use '/' to share the root of the "
 "file system. The specified folder will be created if it does not exist."
-msgstr ""
+msgstr "La ruta relativa de la carpeta a compartir. Use '/' para compartir la raíz del sistema de archivos. La carpeta especificada se creará si no existe."
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
-msgstr "El repositorio será recargado en busca de nuevos, eliminados o mejorados paquetes de software."
+msgstr "Se comprobará el repositorio en busca de paquetes de software nuevos, eliminados o actualizados."
 
 msgid ""
 "The requested authentication challenge is not supported by this browser "
 "interface. Please contact your administrator."
-msgstr ""
+msgstr "El desafío de autenticación solicitado no es compatible con esta interfaz de navegador. Por favor, póngase en contacto con su administrador."
 
 msgid "The requested page was not found."
-msgstr "La pagina solicitada no existe."
+msgstr "La página solicitada no se encontró."
 
 msgid ""
 "The retention period (in seconds) before a snapshot can be deleted. This "
 "ensures that a snapshot that has just been created cannot be deleted again "
 "immediately."
-msgstr "El período de retención (en segundos) antes de que se pueda eliminar un snapshot. Esto garantiza que un anapshot que se acaba de crear no se pueda volver a eliminar inmediatamente."
+msgstr "El periodo de retención (en segundos) antes de que se pueda eliminar una instantánea. Esto garantiza que una instantánea que se acaba de crear no se pueda volver a eliminar inmediatamente."
 
 msgid "The server is unavailable to handle this request right now."
-msgstr "El servidor no está disponible para procesar está petición ahora mismo."
+msgstr "El servidor no está disponible para procesar esta petición ahora mismo."
 
 msgid "The shared folder from which the permissions are copied."
-msgstr "La carpeta compartida de la que se va a copiar los permisos."
+msgstr "La carpeta compartida desde la que se copian los permisos."
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
 msgstr "La carpeta compartida {{ _selected[0].name }} se creó correctamente."
@@ -3541,18 +3542,18 @@ msgstr "La carpeta compartida {{ _selected[0].name }} se creó correctamente."
 msgid ""
 "The snapshot '{{ _response.name }}' has been created for the shared folder "
 "'{{ _response.sharedfolder }}'."
-msgstr "El Snapshot '{{ _response.name }}' Ha sido creado en la carpeta '{{ _response.sharedfolder }}'."
+msgstr "La instantánea '{{ _response.name }}' se ha creado para la carpeta compartida '{{ _response.sharedfolder }}'."
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
-msgstr "El servidor remoto, p.ej. [USER@]HOST:SRC, [USER@]HOST::SRC o rsync://[USER@]HOST[:PORT]/SRC."
+msgstr "El servidor remoto de origen, p. ej., [USER@]HOST:SRC, [USER@]HOST::SRC o rsync://[USER@]HOST[:PORT]/SRC."
 
 msgid "The system will reboot now. This may take some time ..."
-msgstr "El sistema se reiniciará ahora. Puede tardar un poco ..."
+msgstr "El sistema se reiniciará ahora. Esto puede tardar algún tiempo..."
 
 msgid "The users that are allowed to access this module."
-msgstr "Usuarios permitidos a acceder a este modulo."
+msgstr "Los usuarios que tienen permitido acceder a este módulo."
 
 msgid "The value does not match the pattern /{{ pattern }}/."
 msgstr "El valor no coincide con el patrón /{{ pattern }}/."
@@ -3560,10 +3561,10 @@ msgstr "El valor no coincide con el patrón /{{ pattern }}/."
 msgid ""
 "The value must be on of the slave network interfaces {{ slaves | join(\", "
 "\") }}."
-msgstr "El valor debe estar en una de las interfaces de red esclavas {{ slaves | join(\", \") }}."
+msgstr "El valor debe ser una de las interfaces de red esclavas {{ slaves | join(\", \") }}."
 
 msgid "The value must be one of the slave network interfaces."
-msgstr ""
+msgstr "El valor debe ser una de las interfaces de red esclavas."
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "El grupo de trabajo en el que aparecerá el servidor cuando lo examinen los clientes."
@@ -3575,13 +3576,13 @@ msgid ""
 "These settings are used by the services to configure the access rights for "
 "the group \"{{ _routeParams.name }}\". Please note that these settings have "
 "no effect on file system permissions."
-msgstr "Los servicios utilizan estos ajustes para configurar los derechos de acceso del grupo \"{{_routeParams.name}}\". Tenga en cuenta que esta configuración no tiene ningún efecto sobre los permisos del sistema de archivos."
+msgstr "Los servicios utilizan estos ajustes para configurar los derechos de acceso del grupo \"{{ _routeParams.name }}\". Tenga en cuenta que esta configuración no tiene ningún efecto sobre los permisos del sistema de archivos."
 
 msgid ""
 "These settings are used by the services to configure the access rights for "
 "the user \"{{ _routeParams.name }}\". Please note that these settings have "
 "no effect on file system permissions."
-msgstr "Los servicios utilizan estos ajustes para configurar los derechos de acceso del usuario \"{{_routeParams.name}}\". Tenga en cuenta que esta configuración no tiene ningún efecto sobre los permisos del sistema de archivos."
+msgstr "Los servicios utilizan estos ajustes para configurar los derechos de acceso del usuario \"{{ _routeParams.name }}\". Tenga en cuenta que esta configuración no tiene ningún efecto sobre los permisos del sistema de archivos."
 
 msgid ""
 "These settings are used by the services to configure the user and group "
@@ -3592,12 +3593,12 @@ msgstr "Los servicios utilizan estos ajustes para configurar los derechos de acc
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
 "a net view and in the browse list."
-msgstr "Controla si la compartición será visible en la lista de comparticiones disponibles en la vista de red de la lista de navegación."
+msgstr "Esto controla si este recurso compartido se muestra en la lista de recursos compartidos disponibles en una vista de red y en la lista de navegación."
 
 msgid ""
 "This field contains invalid characters (e.g. \"\\/[]:+|<>=;,*?) or has "
 "leading/trailing spaces."
-msgstr ""
+msgstr "Este campo contiene caracteres no válidos (por ejemplo, \"\\/[]:+|<>=;,*?) o tiene espacios al principio o al final."
 
 msgid ""
 "This field contains invalid characters, only alphanumeric characters and "
@@ -3610,25 +3611,25 @@ msgid ""
 msgstr "Este campo se completa automáticamente con el asunto del certificado si se deja en blanco."
 
 msgid "This field is required."
-msgstr "Campo requerido."
+msgstr "Este campo es obligatorio."
 
 msgid "This field must have the format <hh:mm:ss>."
-msgstr "Este campo debe tener el formato: <hh:mm:ss>."
+msgstr "Este campo debe tener el formato <hh:mm:ss>."
 
 msgid "This field must match the format SIZE[K|M|G|T|P]."
-msgstr ""
+msgstr "Este campo debe coincidir con el formato TAMAÑO[K|M|G|T|P]."
 
 msgid "This field should be a IP network address in CIDR notation."
 msgstr "Este campo debe ser una dirección de red IP en notación CIDR."
 
 msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
-msgstr "Este campo debe ser una dirección MAC, Ej. 00:80:41:ae:fd:7e."
+msgstr "Este campo debe ser una dirección MAC, p. ej., 00:80:41:ae:fd:7e."
 
 msgid "This field should be a domain name or an IP address."
 msgstr "Este campo debe ser un nombre de dominio o una dirección IP."
 
 msgid "This field should be a host name or an IP address in CIDR notation."
-msgstr "Este campo debe ser una dirección de red IP en notación CIDR."
+msgstr "Este campo debe ser un nombre de host o una dirección IP en notación CIDR."
 
 msgid "This field should be a list of IP addresses separated by <,> or <;>."
 msgstr "Este campo debe ser una lista de direcciones IP separadas por <,> o <;>."
@@ -3639,26 +3640,26 @@ msgid ""
 msgstr "Este campo debe ser una lista de nombres de dominio o direcciones IP separadas por <,> o <;>."
 
 msgid "This field should be a list of domain names or IP addresses."
-msgstr "Este campo debe ser una lista de nombre de dominio o direcciones IP."
+msgstr "Este campo debe ser una lista de nombres de dominio o direcciones IP."
 
 msgid ""
 "This field should be a list of host names or IP addresses in CIDR notation "
 "separated by <,> or <;>."
-msgstr "Este campo debe ser una lista de nombres de host o direcciones IP separadas por <,> o <;>."
+msgstr "Este campo debe ser una lista de nombres de host o direcciones IP en notación CIDR separadas por <,> o <;>."
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252."
 msgstr "Este campo debe ser una máscara de red dentro del rango 128.0.0.0 - 255.255.255.252."
 
 msgid "This field should be a network port in the range of 1 to 65535."
-msgstr "El campo debe ser un numero de puerto entre 1 y 65535."
+msgstr "Este campo debe ser un número de puerto en el rango de 1 a 65535."
 
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)."
-msgstr "Este campo debe ser un puerto o un rango (ej. 21 o !443 o 1024-65535)."
+msgstr "Este campo debe ser un puerto o un rango de puertos (p. ej., 21 o !443 o 1024-65535)."
 
 msgid "This field should be an IP address."
-msgstr "El campo debe ser una dirección IP."
+msgstr "Este campo debe ser una dirección IP."
 
 msgid "This field should be an IPv4 address."
 msgstr "El campo debe ser una dirección IPv4."
@@ -3667,29 +3668,29 @@ msgid "This field should be an IPv6 address."
 msgstr "El campo debe ser una dirección IPv6."
 
 msgid "This field should be an email address."
-msgstr "El campo debe ser una dirección de correo email."
+msgstr "Este campo debe ser una dirección de correo electrónico."
 
 msgid "This field should contain a decimal value."
 msgstr "Este campo debe contener un valor decimal."
 
 msgid "This field should contain a number with a binary prefix."
-msgstr "Este campo debe contener un numero con prefijo binario."
+msgstr "Este campo debe contener un número con prefijo binario."
 
 msgid "This field should contain a numeric value."
-msgstr "Este campo debe contener un número."
+msgstr "Este campo debe contener un valor numérico."
 
 msgid "This function is effective only if the hard drive supports it."
-msgstr "Esta opción es efectiva solo si la soporta el dispositivo."
+msgstr "Esta función es efectiva solo si el disco duro la admite."
 
 msgid ""
 "This is a text field that is seen next to a share when a client queries the "
 "server."
-msgstr "Campo de texto que aparecerá al lado de una compartición cuando los clientes examinen el servidor."
+msgstr "Este es un campo de texto que se muestra junto a un recurso compartido cuando un cliente consulta al servidor."
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
 "for a listing of available modules."
-msgstr "Determina si un módule será listado cuando los clientes pidan una lista de módulos disponibles."
+msgstr "Esta opción determina si este módulo debe listarse cuando el cliente solicita una lista de módulos disponibles."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of host which are NOT "
@@ -3698,7 +3699,7 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr "Una lista separada por coma, espacio o tabulador de hosts a los que no se permite el acceso a este módulo. Prevalece la lista de hosts permitidos cuando haya conflictos. En el caso de que sea necesario denegar a todos por defecto, utilice la palabra ALL (o la máscara 0.0.0.0/0) y luego especifique en la lista de permitidos los hosts a los que se permitirá el acceso. Deje este campo en blanco para utilizar la configuración por defecto."
+msgstr "Esta opción es un conjunto de hosts separados por comas, espacios o tabuladores a los que NO se les permite acceder a este módulo. En caso de conflicto entre las listas, la lista de permitidos tiene prioridad. En caso de que sea necesario denegar todo de forma predeterminada, utilice la palabra clave ALL (o la máscara de red 0.0.0.0/0) y luego especifique explícitamente en el parámetro hosts allow aquellos hosts a los que se les debe permitir el acceso. Deje este campo vacío para utilizar la configuración predeterminada."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of host which are NOT "
@@ -3707,40 +3708,40 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr "Una lista separada por coma, espacio o tabulador de hosts a los que no se permite el acceso a esta compartición. Prevalece la lista de hosts permitidos cuando haya conflictos. En el caso de que sea necesario denegar a todos por defecto, utilice la palabra ALL (o la máscara 0.0.0.0/0) y luego especifique en la lista de permitidos los hosts a los que se permitirá el acceso. Deje este campo en blanco para utilizar la configuración por defecto."
+msgstr "Esta opción es un conjunto de hosts separados por comas, espacios o tabuladores a los que NO se les permite acceder a este recurso compartido. En caso de conflicto entre las listas, la lista de permitidos tiene prioridad. En caso de que sea necesario denegar todo de forma predeterminada, utilice la palabra clave ALL (o la máscara de red 0.0.0.0/0) y luego especifique explícitamente en el parámetro hosts allow aquellos hosts a los que se les debe permitir el acceso. Deje este campo vacío para utilizar la configuración predeterminada."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of hosts which are "
 "permitted to access this module. You can specify the hosts by name or IP "
 "number. Leave this field empty to use default settings."
-msgstr "Una lista separada por coma, espacio o tabulador de hosts a los que se permite el acceso a este módulo. Puede indicar los hosts por nombre o dirección IP. Deje este campo en blanco para utilizar la configuración por defecto."
+msgstr "Esta opción es un conjunto de hosts separados por comas, espacios o tabuladores a los que se les permite acceder a este módulo. Puede especificar los hosts por su nombre o dirección IP. Deje este campo vacío para utilizar la configuración predeterminada."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of hosts which are "
 "permitted to access this share. You can specify the hosts by name or IP "
 "number. Leave this field empty to use default settings."
-msgstr "Una lista separada por coma, espacio o tabulador de hosts a los que se permite el acceso a esta compartición. Puede indicar los hosts por nombre o dirección IP. Deje este campo en blanco para utilizar la configuración por defecto."
+msgstr "Esta opción es un conjunto de hosts separados por comas, espacios o tabuladores a los que se les permite acceder a este recurso compartido. Puede especificar los hosts por su nombre o dirección IP. Deje este campo vacío para utilizar la configuración predeterminada."
 
 msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
-msgstr "Especifica el nombre de grupo que utilizarán las transferencias a/desde este módulo."
+msgstr "Esta opción especifica el nombre de grupo con el que deben realizarse las transferencias de archivos hacia y desde ese módulo."
 
 msgid ""
 "This option specifies the maximum number of simultaneous connections. 0 "
 "means no limit."
-msgstr "Especifica el número máximo de conexiones simultáneas. 0 significa sin límite."
+msgstr "Esta opción especifica el número máximo de conexiones simultáneas. 0 significa sin límite."
 
 msgid ""
 "This option specifies the user name that file transfers to and from that "
 "module should take place."
-msgstr "Especifica el nombre de usuario que utilizarán las transferencias a/desde este módulo."
+msgstr "Esta opción especifica el nombre de usuario con el que deben realizarse las transferencias de archivos hacia y desde ese módulo."
 
 msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
-msgstr "Asegura que, si existen acls por defecto en los directorios padre, serán respetadas cuando se creen nuevos archivos o subdirectorios."
+msgstr "Este parámetro se puede utilizar para garantizar que si existen las ACL predeterminadas en los directorios principales, siempre se respeten al crear un nuevo archivo o subdirectorio en estos directorios principales."
 
 msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
@@ -3753,16 +3754,16 @@ msgid ""
 msgstr "Esta configuración controla la versión mínima del protocolo que el servidor permitirá que utilice el cliente."
 
 msgid "This specifies what to do if the packet matches."
-msgstr "Que se debe hacer si el paquete coincide."
+msgstr "Esto especifica qué hacer si el paquete coincide."
 
 msgid "This will create a recycle bin for each user home directory."
-msgstr "Esto creará una papelera de reciclaje para cada usuario en home."
+msgstr "Esto creará una papelera de reciclaje para el directorio de inicio de cada usuario."
 
 msgid "This will create a recycle bin for the share."
-msgstr "Esto creará una papelera de reciclaje para el compartido."
+msgstr "Esto creará una papelera de reciclaje para el recurso compartido."
 
 msgid "Threshold"
-msgstr "Margen"
+msgstr "Umbral"
 
 msgid "Thursday"
 msgstr "Jueves"
@@ -3783,13 +3784,13 @@ msgid "Time zone"
 msgstr "Zona horaria"
 
 msgid "Tip"
-msgstr "Tip"
+msgstr "Consejo"
 
 msgid "Togo"
 msgstr "Togo"
 
 msgid "Tokelau"
-msgstr "Tokelau (Nueva Zelanda)"
+msgstr "Tokelau"
 
 msgid "Tonga"
 msgstr "Tonga"
@@ -3800,7 +3801,7 @@ msgstr "Total"
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr "Trasferir fecha de modificación a todos los archivos y actualizar en el sistema remoto."
+msgstr "Transferir las horas de modificación junto con los archivos y actualizarlas en el sistema remoto."
 
 msgid "Transmit Hash Policy"
 msgstr "Transmitir política de Hash"
@@ -3809,7 +3810,7 @@ msgid "Transport encryption"
 msgstr "Cifrado de transporte"
 
 msgid "Trial run"
-msgstr "Prueba"
+msgstr "Simulación de ejecución"
 
 msgid "Trinidad and Tobago"
 msgstr "Trinidad y Tobago"
@@ -3818,7 +3819,7 @@ msgid "Tuesday"
 msgstr "Martes"
 
 msgid "Tunisia"
-msgstr "Tunez"
+msgstr "Túnez"
 
 msgid "Turkey"
 msgstr "Turquía"
@@ -3827,7 +3828,7 @@ msgid "Turkmenistan"
 msgstr "Turkmenistán"
 
 msgid "Turks and Caicos Islands"
-msgstr "Islas Turcos y Caicos"
+msgstr "Islas Turcas y Caicos"
 
 msgid "Tuvalu"
 msgstr "Tuvalu"
@@ -3836,10 +3837,10 @@ msgid "Type"
 msgstr "Tipo"
 
 msgid "U.S. Miscellaneous Pacific Islands"
-msgstr "Islas Ultramarinas de Estados Unidos"
+msgstr "Islas del Pacífico misceláneas de EE. UU."
 
 msgid "U.S. Virgin Islands"
-msgstr "Islas Vírgenes (EEUU)"
+msgstr "Islas Vírgenes de EE. UU."
 
 msgid "UDP"
 msgstr "UDP"
@@ -3851,7 +3852,7 @@ msgid "UNKNOWN"
 msgstr "Desconocido"
 
 msgid "USER"
-msgstr ""
+msgstr "USER"
 
 msgid "UUID"
 msgstr "UUID"
@@ -3863,7 +3864,7 @@ msgid "Ukraine"
 msgstr "Ucrania"
 
 msgid "Unavailable"
-msgstr ""
+msgstr "No disponible"
 
 msgid "Undo"
 msgstr "Deshacer"
@@ -3875,13 +3876,13 @@ msgid "Uninstall plugin"
 msgstr "Desinstalar plugin"
 
 msgid "Uninterruptible sleep"
-msgstr ""
+msgstr "Espera no interrumpible"
 
 msgid "Union of Soviet Socialist Republics"
 msgstr "Unión de Repúblicas Socialistas Soviéticas"
 
 msgid "Unit"
-msgstr "Unidades"
+msgstr "Unidad"
 
 msgid "United Arab Emirates"
 msgstr "Emiratos Árabes Unidos"
@@ -3905,44 +3906,44 @@ msgid "Unrestricted"
 msgstr "Sin restricciones"
 
 msgid "Up"
-msgstr "Subida"
+msgstr "Activa"
 
 msgid "Up delay"
-msgstr "Retardo de subida"
+msgstr "Retardo de activación"
 
 msgid "Update Management"
 msgstr "Gestión de actualizaciones"
 
 msgid "Update management"
-msgstr ""
+msgstr "Gestión de actualizaciones"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr "Actualice las ACL de destino para que sean las mismas que las ACL de origen."
+msgstr "Actualizar las ACL de destino para que sean idénticas a las ACL de origen."
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr "Actualice los atributos extendidos de destino para que sean los mismos que los locales."
+msgstr "Actualizar los atributos extendidos de destino para que sean idénticos a los locales."
 
 msgid "Updated NFS settings."
 msgstr "Configuración de NFS actualizada."
 
 msgid "Updated NFS share."
-msgstr "Compartido NFS actualizado."
+msgstr "Recurso compartido NFS actualizado."
 
 msgid "Updated Rsync Server settings."
-msgstr "Configuración de Servidor Rsync actualizada."
+msgstr "Configuración del Servidor RSync actualizada."
 
 msgid "Updated Rsync server module \"{{ name }}\"."
-msgstr "Módulo de servidor Rsync actualizado \"{{name}}\"."
+msgstr "Módulo del servidor RSync \"{{ name }}\" actualizado."
 
 msgid "Updated Rsync task."
-msgstr "Tarea de Rsync actualizada."
+msgstr "Tarea de RSync actualizada."
 
 msgid "Updated SMB/CIFS settings."
 msgstr "Configuración de SMB/CIFS actualizada."
 
 msgid "Updated SMB/CIFS share."
-msgstr "Compartido SMB/CIFS actualizado."
+msgstr "Recurso compartido SMB/CIFS actualizado."
 
 msgid "Updated SSH certificate."
 msgstr "Certificado SSH actualizado."
@@ -3951,61 +3952,61 @@ msgid "Updated SSH settings."
 msgstr "Configuración de SSH actualizada."
 
 msgid "Updated VLAN network connection \"{{ devicename }}\"."
-msgstr "Conexión de red VLAN actualizada \"{{ devicename }}\"."
+msgstr "Conexión de red VLAN \"{{ devicename }}\" actualizada."
 
 msgid "Updated access control list of shared folder."
-msgstr "Actualizada la lista de control de acceso de la carpeta compartida."
+msgstr "Lista de control de acceso de la carpeta compartida actualizada."
 
 msgid "Updated bond network connection \"{{ devicename }}\"."
-msgstr "Conexión de red bond actualizada \"{{ devicename }}\"."
+msgstr "Conexión de red bond \"{{ devicename }}\" actualizada."
 
 msgid "Updated bridge network connection \"{{ devicename }}\"."
-msgstr "Conexión de red puente actualizada \"{{ devicename }}\"."
+msgstr "Conexión de red puente \"{{ devicename }}\" actualizada."
 
 msgid "Updated dashboard settings."
-msgstr "Configuración de tablero actualizada."
+msgstr "Configuración del tablero de control actualizada."
 
 msgid "Updated date & time settings."
-msgstr "Configuración de hora actualizada."
+msgstr "Configuración de fecha y hora actualizada."
 
 msgid "Updated file system settings."
-msgstr "Actualizadas las opciones del sistema."
+msgstr "Configuración del sistema de archivos actualizada."
 
 msgid "Updated firewall rule."
-msgstr "Regla de firewall actualizada."
+msgstr "Regla del cortafuegos actualizada."
 
 msgid "Updated firewall rules."
-msgstr "Reglas de firewall actualizadas."
+msgstr "Reglas del cortafuegos actualizadas."
 
 msgid "Updated group \"{{ name }}\"."
-msgstr "Grupo actualizado \"{{ name }}\"."
+msgstr "Grupo \"{{ name }}\" actualizado."
 
 msgid "Updated monitoring settings."
-msgstr "Opciones de monitorización actualizadas."
+msgstr "Configuración de supervisión actualizada."
 
 msgid "Updated network settings."
-msgstr "Opciones de red actualizadas."
+msgstr "Configuración de red actualizada."
 
 msgid "Updated notification event settings."
-msgstr "Eventos de notificación actualizados."
+msgstr "Configuración de eventos de notificación actualizada."
 
 msgid "Updated notification settings."
-msgstr "Opciones de notificación actualizadas."
+msgstr "Configuración de notificaciones actualizada."
 
 msgid "Updated password."
 msgstr "Contraseña actualizada."
 
 msgid "Updated permissions of group \"{{ name }}\"."
-msgstr "Actualizar los permisos de grupo \"{{ name }}\"."
+msgstr "Permisos del grupo \"{{ name }}\" actualizados."
 
 msgid "Updated permissions of shared folder."
-msgstr "Permisos actualizados de la carpeta compartida."
+msgstr "Permisos de la carpeta compartida actualizados."
 
 msgid "Updated permissions of user \"{{ name }}\"."
-msgstr "Actualizar los permisos de usuario \"{{ name }}\"."
+msgstr "Permisos del usuario \"{{ name }}\" actualizados."
 
 msgid "Updated power management settings."
-msgstr "Opciones de monitorización de energía actualizadas."
+msgstr "Configuración de gestión de energía actualizada."
 
 msgid "Updated proxy settings."
 msgstr "Configuración de proxy actualizada."
@@ -4014,31 +4015,31 @@ msgid "Updated quota."
 msgstr "Cuota actualizada."
 
 msgid "Updated remote system-logs settings."
-msgstr "Actualizadas las opciones de system-logs remoto."
+msgstr "Configuración de registros del sistema remotos actualizada."
 
 msgid "Updated scheduled task."
 msgstr "Tarea programada actualizada."
 
 msgid "Updated settings."
-msgstr "Opciones actualizadas."
+msgstr "Configuración actualizada."
 
 msgid "Updated shared folder."
 msgstr "Carpeta compartida actualizada."
 
 msgid "Updated update management settings."
-msgstr "Configuración de administración de actualizaciones actualizada."
+msgstr "Configuración de la gestión de actualizaciones actualizada."
 
 msgid "Updated user \"{{ name }}\"."
-msgstr "Usuario actualizado \"{{ name }}\"."
+msgstr "Usuario \"{{ name }}\" actualizado."
 
 msgid "Updated user settings."
-msgstr ""
+msgstr "Se ha actualizado la configuración del usuario."
 
 msgid "Updated wired network connection \"{{ devicename }}\"."
-msgstr "Se actualizó la conexión de red por cable \"{{ devicename }}\"."
+msgstr "Conexión de red cableada \"{{ devicename }}\" actualizada."
 
 msgid "Updated wireless network connection \"{{ devicename }}\"."
-msgstr "Se actualizó la conexión de red WiFi \"{{ devicename }}\"."
+msgstr "Conexión de red inalámbrica \"{{ devicename }}\" actualizada."
 
 msgid "Updated workbench settings."
 msgstr "Configuración del área de trabajo actualizada."
@@ -4050,7 +4051,7 @@ msgid "Updates Available"
 msgstr "Actualizaciones disponibles"
 
 msgid "Updates available"
-msgstr "Actualización disponible"
+msgstr "Actualizaciones disponibles"
 
 msgid "Upgrade system"
 msgstr "Actualizar sistema"
@@ -4062,19 +4063,19 @@ msgid "Uruguay"
 msgstr "Uruguay"
 
 msgid "Usage Warning Threshold"
-msgstr "Advertencia de umbral de uso"
+msgstr "Umbral de advertencia de uso"
 
 msgid "Use NTP server"
 msgstr "Usar el servidor NTP"
 
 msgid "Use chroot"
-msgstr "Habilitar chroot"
+msgstr "Usar chroot"
 
 msgid "Use global settings"
 msgstr "Usar opciones globales"
 
 msgid "Use sendfile"
-msgstr "Usar Sendfile"
+msgstr "Usar sendfile"
 
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "
@@ -4082,7 +4083,7 @@ msgid ""
 "Samba to be faster. Samba automatically turns this off for clients that use "
 "protocol levels lower than NT LM 0.12 and when it detects a client is "
 "Windows 9x."
-msgstr "Utilice la llamada al sistema de archivos de envío más eficiente para los archivos que están exclusivamente bloqueados. Esto puede hacer un uso más eficiente de la CPU del sistema y hacer que Samba sea más rápido. Samba lo desactiva automáticamente para los clientes que utilizan niveles de protocolo inferiores a NT LM 0.12 y cuando detecta un cliente es Windows 9x."
+msgstr "Usar la llamada al sistema sendfile, que es más eficiente, para los archivos que tienen bloqueos de tipo oplock exclusivos. Esto puede hacer un uso más eficiente de las CPU del sistema y hacer que Samba sea más rápido. Samba desactiva esto automáticamente para los clientes que utilizan niveles de protocolo inferiores a NT LM 0.12 y cuando detecta que un cliente es Windows 9x."
 
 msgid "Use the specified WINS server."
 msgstr "Usar el servidor WINS especificado."
@@ -4091,7 +4092,7 @@ msgid "Used"
 msgstr "Usado"
 
 msgid "Used capacity"
-msgstr "Capacidad"
+msgstr "Capacidad usada"
 
 msgid "User"
 msgstr "Usuario"
@@ -4100,13 +4101,13 @@ msgid "User Management"
 msgstr "Gestión de usuarios"
 
 msgid "User home directory"
-msgstr "Directorio Home de usuario"
+msgstr "Directorio de inicio de usuario"
 
 msgid "User name"
 msgstr "Nombre de usuario"
 
 msgid "User/Group permissions"
-msgstr "Permisos de Usuario/Grupo"
+msgstr "Permisos de usuario/grupo"
 
 msgid "Users"
 msgstr "Usuarios"
@@ -4114,7 +4115,7 @@ msgstr "Usuarios"
 msgid ""
 "Users must be assigned to the <em>_ssh</em> group to be able to log in via "
 "SSH."
-msgstr "Los usuarios deben estar asignados al grupo <em>_ssh</em> para poder iniciar sesión mediante SSH."
+msgstr "Los usuarios deben estar asignados al grupo <em>_ssh</em>para poder iniciar sesión mediante SSH. "
 
 msgid "Utilization"
 msgstr "Utilización"
@@ -4123,13 +4124,13 @@ msgid "Uzbekistan"
 msgstr "Uzbekistán"
 
 msgid "VIRT"
-msgstr ""
+msgstr "VIRT"
 
 msgid "VLAN"
 msgstr "VLAN"
 
 msgid "VLAN id"
-msgstr "VLAN id"
+msgstr "ID de VLAN"
 
 msgid "Valid from"
 msgstr "Válido desde"
@@ -4183,7 +4184,7 @@ msgid "Wake Island"
 msgstr "Isla Wake"
 
 msgid "Wake-on-LAN"
-msgstr "WOL"
+msgstr "Wake-on-LAN"
 
 msgid "Wallis and Futuna"
 msgstr "Wallis y Futuna"
@@ -4195,10 +4196,10 @@ msgid "Wednesday"
 msgstr "Miércoles"
 
 msgid "Weekly"
-msgstr "Semanalmente"
+msgstr "Semanal"
 
 msgid "Welcome to openmediavault"
-msgstr "Bienvenido a Openmediavault"
+msgstr "Bienvenido a OpenMediaVault"
 
 msgid "Western Sahara"
 msgstr "Sáhara Occidental"
@@ -4206,19 +4207,19 @@ msgstr "Sáhara Occidental"
 msgid ""
 "While the background task is still running, you can attach the Workbench "
 "terminal dialog to it in the notification bar."
-msgstr ""
+msgstr "Mientras la tarea en segundo plano aún se esté ejecutando, puede acoplar el cuadro de diálogo de la terminal de Workbench a ella en la barra de notificaciones."
 
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
 msgid "Wide links"
-msgstr ""
+msgstr "Enlaces simbólicos externos"
 
 msgid "Wipe"
 msgstr "Borrar"
 
 msgid "Wiping device"
-msgstr "Borrar Disco"
+msgstr "Borrando dispositivo"
 
 msgid "Workbench"
 msgstr "Área de trabajo"
@@ -4233,33 +4234,33 @@ msgid "Write only"
 msgstr "Solo escritura"
 
 msgid "Write-only"
-msgstr "Solo-Escritura"
+msgstr "Solo escritura"
 
 msgid "Write/Execute"
-msgstr "Escribir/Ejecutar"
+msgstr "Escritura/ejecución"
 
 msgid "Xen virtual disk device"
-msgstr "Dispositivo de Disco virtual Xen"
+msgstr "Dispositivo de disco virtual Xen"
 
 msgid "Yearly"
-msgstr "Anualmente"
+msgstr "Anual"
 
 msgid "Yemen"
 msgstr "Yemen"
 
 msgid "Yes"
-msgstr "Si"
+msgstr "Sí"
 
 msgid ""
 "You have made changes that have not yet been saved. Do you want to discard "
 "them?"
-msgstr "Ha realizado cambios que aún no se han guardado. ¿Quieres descartarlos?"
+msgstr "Ha realizado cambios que aún no se han guardado. ¿Desea descartarlos?"
 
 msgid "You must apply these changes in order for them to take effect."
 msgstr "Debe aplicar estos cambios para que surtan efecto."
 
 msgid "You will be logged out due to inactivity in {{ n }} seconds."
-msgstr ""
+msgstr "Se cerrará la sesión por inactividad en {{ n }} segundos."
 
 msgid "Zambia"
 msgstr "Zambia"
@@ -4268,10 +4269,10 @@ msgid "Zimbabwe"
 msgstr "Zimbabue"
 
 msgid "Zombie"
-msgstr ""
+msgstr "Zombie"
 
 msgid "a day"
-msgstr "un dia"
+msgstr "un día"
 
 msgid "a few seconds"
 msgstr "unos pocos segundos"
@@ -4292,7 +4293,7 @@ msgid "in %s"
 msgstr "en %s"
 
 msgid "macOS compatibility"
-msgstr ""
+msgstr "Compatibilidad con macOS"
 
 msgid "selected"
 msgstr "seleccionado"
@@ -4301,4 +4302,4 @@ msgid "total"
 msgstr "total"
 
 msgid "{{ percent }}% of {{ total }}"
-msgstr ""
+msgstr "{{ percent }}% de {{ total }}"

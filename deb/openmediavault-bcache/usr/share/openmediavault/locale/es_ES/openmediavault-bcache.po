@@ -5,6 +5,7 @@
 # 
 # Translators:
 # Raul Fernandez Garcia <raulfg3@gmail.com>, 2024
+# Heather Freelig, 2026
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-03 21:46+0100\n"
 "PO-Revision-Date: 2024-11-20 12:26+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2024\n"
+"Last-Translator: Heather Freelig, 2026\n"
 "Language-Team: Spanish (Spain) (https://app.transifex.com/openmediavault/teams/14254/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,196 +23,213 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "5 Minutes"
-msgstr ""
+msgstr "5 minutos"
 
 msgid ""
 "A sequential IO will bypass the cache once it passes this threshold. "
 "(default:4.0M, max:3.9G)"
 msgstr ""
+"Una operación de E/S secuencial omitirá la caché una vez que supere este "
+"umbral. (default:4.0M, max:3.9G)"
 
 msgid ""
 "Allow bcache go around the cache when there's read / write congestion. "
 "(default:true)"
 msgstr ""
+"Permitir que bcache omita la caché cuando haya congestión de "
+"lectura/escritura. (default:true)"
 
 msgid "Backing Devices"
-msgstr ""
+msgstr "Dispositivos subyacentes"
 
 msgid "Bcache"
-msgstr ""
+msgstr "Bcache"
 
 msgid "Bcache Device"
-msgstr ""
+msgstr "Dispositivo Bcache"
 
 msgid "Cache Device"
-msgstr ""
+msgstr "Dispositivo de caché"
 
 msgid "Cache Devices"
-msgstr ""
+msgstr "Dispositivos de caché"
 
 msgid "Cache Mode"
-msgstr ""
+msgstr "Modo de caché"
 
 msgid "Capacity"
 msgstr "Capacidad"
 
 msgid "Clean"
-msgstr ""
+msgstr "Limpio"
 
 msgid "Clear total statistics"
-msgstr ""
+msgstr "Borrar estadísticas totales"
 
 msgid "Configuration"
-msgstr "Comfiguración"
+msgstr "Configuración"
 
 msgid "Congest Tracking"
-msgstr ""
+msgstr "Seguimiento de congestión"
 
 msgid "Congested Read Threshold (us)"
-msgstr ""
+msgstr "Umbral de lectura congestionada (us)"
 
 msgid "Create"
 msgstr "Crear"
 
 msgid "Day"
-msgstr ""
+msgstr "Día"
 
 msgid "Device"
-msgstr "Disco"
+msgstr "Dispositivo"
 
 msgid "Dirty"
-msgstr ""
+msgstr "Sucio"
 
 msgid "Dirty Data"
-msgstr ""
+msgstr "Datos sucios"
 
 msgid "Docs"
-msgstr ""
+msgstr "Documentación"
 
 msgid "Hour"
-msgstr ""
+msgstr "Hora"
 
 msgid ""
 "If nonzero, bcache tries to keep around this percentage of the cache dirty "
 "by throttling background writeback and using a PD controller to smoothly "
 "adjust the rate. (default:10)"
 msgstr ""
+"Si no es cero, bcache intenta mantener aproximadamente este porcentaje de la"
+" caché como sucio regulando la escritura en segundo plano y utilizando un "
+"controlador PD para ajustar el ritmo de forma suave. (default:10)"
 
 msgid "Inconsistent"
-msgstr ""
+msgstr "Inconsistente"
 
 msgid "Metadata"
-msgstr ""
+msgstr "Metadatos"
 
 msgid "Missing"
-msgstr ""
+msgstr "Ausente"
 
 msgid "Missing Cache"
-msgstr ""
+msgstr "Caché ausente"
 
 msgid "Mounted"
-msgstr ""
+msgstr "Montado"
 
 msgid "Name"
 msgstr "Nombre"
 
 msgid "No Cache"
-msgstr ""
+msgstr "Sin caché"
 
 msgid "Online"
-msgstr ""
+msgstr "En línea"
 
 msgid ""
 "Please note that creating a file system on a Bcache device can take longer. "
 "It is therefore possible that the file system is not immediately available "
 "for mounting."
 msgstr ""
+"Tenga en cuenta que la creación de un sistema de archivos en un dispositivo "
+"Bcache puede llevar más tiempo. Por lo tanto, es posible que el sistema de "
+"archivos no esté disponible de inmediato para su montaje."
 
 msgid "Recovery Actions"
-msgstr ""
+msgstr "Acciones de recuperación"
 
 msgid "Register"
-msgstr ""
+msgstr "Registrar"
 
 msgid "Select a cache device ..."
-msgstr ""
+msgstr "Seleccione un dispositivo de caché ..."
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "Seleccione un dispositivo ..."
 
 msgid "Select the device that will be formatted as Bcache backing device."
 msgstr ""
+"Seleccione el dispositivo que será formateado como dispositivo subyacente de"
+" Bcache."
 
 msgid "Select the device that will be formatted as Bcache cache device."
 msgstr ""
+"Seleccione el dispositivo que será formateado como dispositivo de caché de "
+"Bcache."
 
 msgid "Select the device that will be used as cache device."
-msgstr ""
+msgstr "Seleccione el dispositivo que se utilizará como dispositivo de caché."
 
 msgid "Sequential Cutoff"
-msgstr ""
+msgstr "Umbral secuencial"
 
 msgid "Show details"
 msgstr "Mostrar detalles"
 
 msgid "Start without cache"
-msgstr ""
+msgstr "Arrancar sin caché"
 
 msgid "State"
 msgstr "Estado"
 
 msgid "Statistics"
-msgstr "Estadisticas"
+msgstr "Estadísticas"
 
 msgid "Superblock"
-msgstr ""
+msgstr "Superbloque"
 
 msgid "The default is 2000 us (2 milliseconds)"
-msgstr ""
+msgstr "El valor predeterminado es 2000 us (2 milisegundos)."
 
 msgid "The default is 20000 us (20 milliseconds)"
-msgstr ""
+msgstr "El valor predeterminado es 20000 us (20 milisegundos)."
 
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 msgid "Unit"
-msgstr ""
+msgstr "Unidad"
 
 msgid "Unregister"
-msgstr ""
+msgstr "Desregistrar"
 
 msgid "Unregistered"
-msgstr ""
+msgstr "Desregistrado"
 
 msgid "Unused"
-msgstr ""
+msgstr "Sin usar"
 
 msgid "Updated backing device '{{ devicefile }}'."
-msgstr ""
+msgstr "Se ha actualizado el dispositivo subyacente '{{ devicefile }}'."
 
 msgid "Updated cache device '{{ devicefile }}'."
-msgstr ""
+msgstr "Se ha actualizado el dispositivo de caché '{{ devicefile }}'."
 
 msgid ""
 "When dirty data is written to the cache and it previously did not contain "
 "any, waits some number of seconds before initiating writeback. (default:30)"
 msgstr ""
+"Cuando se escriben datos sucios en la caché y esta no contenía ninguno "
+"previamente, espera una cierta cantidad de segundos antes de iniciar la "
+"escritura en segundo plano. (default:30)"
 
 msgid "Writeback Delay"
-msgstr ""
+msgstr "Retraso de escritura en segundo plano"
 
 msgid "Writeback Percent"
-msgstr ""
+msgstr "Porcentaje de escritura en segundo plano"
 
 msgid "none"
-msgstr ""
+msgstr "ninguno"
 
 msgid "writearound"
-msgstr ""
+msgstr "writearound"
 
 msgid "writeback"
-msgstr ""
+msgstr "writeback"
 
 msgid "writethrough"
-msgstr ""
+msgstr "writethrough"

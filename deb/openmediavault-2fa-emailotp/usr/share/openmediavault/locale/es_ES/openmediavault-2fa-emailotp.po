@@ -5,6 +5,7 @@
 # 
 # Translators:
 # Raul Fernandez Garcia <raulfg3@gmail.com>, 2026
+# Heather Freelig, 2026
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-17 20:44+0200\n"
 "PO-Revision-Date: 2026-07-17 18:21+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2026\n"
+"Last-Translator: Heather Freelig, 2026\n"
 "Language-Team: Spanish (Spain) (https://app.transifex.com/openmediavault/teams/14254/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,61 +23,74 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "2FA Email OTP"
-msgstr ""
+msgstr "OTP por correo electrónico para 2FA"
 
 msgid ""
 "A verification code has been sent to your email address. Please enter the "
 "code to confirm and disable two-factor authentication."
 msgstr ""
+"Se ha enviado un código de verificación a su dirección de correo "
+"electrónico. Introduzca el código para confirmar y desactivar la "
+"autenticación de dos factores."
 
 msgid ""
 "A verification code has been sent to your email address. Please enter the "
 "code to confirm and enable two-factor authentication."
 msgstr ""
+"Se ha enviado un código de verificación a su dirección de correo "
+"electrónico. Introduzca el código para confirmar y activar la autenticación "
+"de dos factores."
 
 msgid "Disable"
-msgstr ""
+msgstr "Desactivar"
 
 msgid "Disable 2FA Email OTP"
-msgstr ""
+msgstr "Desactivar OTP por correo electrónico para 2FA"
 
 msgid "Edit"
 msgstr "Editar"
 
 msgid "Enable"
-msgstr ""
+msgstr "Activar"
 
 msgid "Enable 2FA Email OTP"
-msgstr ""
+msgstr "Activar OTP por correo electrónico para 2FA"
 
 msgid "Enabled"
-msgstr "Habilitado"
+msgstr "Activado"
 
 msgid "Name"
 msgstr "Nombre"
 
 msgid "No email address is configured for this account."
 msgstr ""
+"No hay ninguna dirección de correo electrónico configurada para esta cuenta."
 
 msgid ""
 "Notifications need to be enabled on this system. Please contact the "
 "administrator."
 msgstr ""
+"Es necesario activar las notificaciones en este sistema. Por favor, póngase "
+"en contacto con el administrador."
 
 msgid "Two-Factor Authentication"
-msgstr ""
+msgstr "Autenticación de dos factores"
 
 msgid ""
 "Two-factor authentication (2FA) with email OTP adds an extra layer of "
 "security by sending a one-time code to your email address in addition to "
 "your password. You can enable or disable it for your account here."
 msgstr ""
+"La autenticación de dos factores (2FA) con OTP por correo electrónico añade "
+"una capa adicional de seguridad al enviar un código de un solo uso a su "
+"dirección de correo electrónico, además de su contraseña. Puede activarla o "
+"desactivarla para su cuenta aquí."
 
 msgid "Updated 2FA Email OTP."
-msgstr ""
+msgstr "Se ha actualizado el OTP por correo electrónico para 2FA."
 
 msgid "User name"
-msgstr ""
+msgstr "Nombre de usuario"
 
 msgid "Verification code"
-msgstr ""
+msgstr "Código de verificación"

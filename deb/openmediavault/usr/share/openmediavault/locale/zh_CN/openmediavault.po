@@ -3601,7 +3601,7 @@ msgstr "设置后共享会出现在网络的共享列表中。"
 msgid ""
 "This field contains invalid characters (e.g. \"\\/[]:+|<>=;,*?) or has "
 "leading/trailing spaces."
-msgstr "这个字段包含无效字符（例如：\"/[]:+|<>=;,*?），或首尾包含空格。"
+msgstr "这个字段包含无效字符（例如：\"\\/[]:+|<>=;,*?），或首尾包含空格。"
 
 msgid ""
 "This field contains invalid characters, only alphanumeric characters and "

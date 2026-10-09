@@ -8,6 +8,7 @@
 # Volker Theile <votdev@gmx.de>, 2023
 # José Manuel Caínzos <josem.cainzos@gmail.com>, 2023
 # Raul Fernandez Garcia <raulfg3@gmail.com>, 2025
+# Heather Freelig, 2026
 # 
 #, fuzzy
 msgid ""
@@ -16,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-03 21:46+0100\n"
 "PO-Revision-Date: 2023-01-30 10:17+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2025\n"
+"Last-Translator: Heather Freelig, 2026\n"
 "Language-Team: Spanish (Spain) (https://app.transifex.com/openmediavault/teams/14254/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,13 +29,13 @@ msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s significa ilimitado."
 
 msgid "A powerful modular FTP/SFTP/FTPS server."
-msgstr "Servidor modular FTP/SFTP/FTPS"
+msgstr "Un potente servidor modular FTP/SFTP/FTPS."
 
 msgid "Access mode"
-msgstr ""
+msgstr "Modo de acceso"
 
 msgid "Advanced settings"
-msgstr "Propiedades avanzadas"
+msgstr "Configuración avanzada"
 
 msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr ""
@@ -44,21 +45,24 @@ msgid ""
 "Allow users to log in without a password. Make sure the user <em>ftp</em> or"
 " group <em>nogroup</em> can access the files."
 msgstr ""
+"Permitir que los usuarios inicien sesión sin contraseña. Asegúrese de que el"
+" usuario <em>ftp</em> o el grupo <em>nogroup</em> puedan acceder a los "
+"archivos."
 
 msgid "Anonymous FTP"
 msgstr "FTP Anónimo"
 
 msgid "Authenticated user ID"
-msgstr ""
+msgstr "ID de usuario autenticado"
 
 msgid "Authentication method"
-msgstr ""
+msgstr "Método de autenticación"
 
 msgid "Ban Rules"
 msgstr "Reglas de baneo"
 
 msgid "Ban statistics:"
-msgstr "Estadística de excluidos:"
+msgstr "Estadísticas de bloqueados:"
 
 msgid "Bandwidth restriction"
 msgstr "Restricciones de ancho de banda"
@@ -67,16 +71,16 @@ msgid "Certificate"
 msgstr "Certificado"
 
 msgid "Completion status"
-msgstr ""
+msgstr "Estado de finalización"
 
 msgid "Create"
 msgstr "Crear"
 
 msgid "Created FTP ban rule."
-msgstr "regla de baneo FTP creada."
+msgstr "Se ha creado la regla de bloqueo de FTP."
 
 msgid "Created FTP share."
-msgstr "Compartido FTP creado"
+msgstr "Se ha creado el recurso compartido FTP."
 
 msgid "Currently logged in users:"
 msgstr "Usuarios conectados al sistema:"
@@ -88,10 +92,11 @@ msgid "Deny logins which do not have a valid shell."
 msgstr "Denegar intentos de login que no tengan una shell válida."
 
 msgid "Direction"
-msgstr ""
+msgstr "Dirección"
 
 msgid "Display the home directory of the user in the browse list."
-msgstr "Mostrar el directorio home del usuario en la lista de navegación."
+msgstr ""
+"Mostrar el directorio principal del usuario en la lista de navegación."
 
 msgid "Edit"
 msgstr "Editar"
@@ -100,15 +105,16 @@ msgid "Enable SSL/TLS connections."
 msgstr "Habilita conexiones SSL/TLS."
 
 msgid "Enable file transfer logging."
-msgstr "Habilitar Log de la transferencia."
+msgstr "Habilitar el registro de transferencias de archivos."
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
 "incoming active mode data connections and outgoing passive mode data "
 "connections."
 msgstr ""
-"Habilitar búsqueda DNS inversa de la IP remota para conexiones activas "
-"entrantes y para conexiones pasivas salientes "
+"Habilitar la búsqueda DNS inversa realizada en la dirección IP del host "
+"remoto para conexiones de datos entrantes en modo activo y conexiones de "
+"datos salientes en modo pasivo."
 
 msgid "Enabled"
 msgstr "Habilitado"
@@ -120,13 +126,13 @@ msgid "Expire"
 msgstr "Caduca"
 
 msgid "Extra options"
-msgstr "Opciones Extra"
+msgstr "Opciones adicionales"
 
 msgid "FTP"
 msgstr "FTP"
 
 msgid "FTP - Transfer log"
-msgstr ""
+msgstr "FTP - Registro de transferencias"
 
 msgid "FXP"
 msgstr "FXP"
@@ -139,13 +145,13 @@ msgstr ""
 "pasar por el cliente que ejecuta la transferencia."
 
 msgid "Filename"
-msgstr ""
+msgstr "Nombre de archivo"
 
 msgid "Filesize"
-msgstr ""
+msgstr "Tamaño de archivo"
 
 msgid "Home directories"
-msgstr "Directorios Home"
+msgstr "Directorios principales"
 
 msgid "Ident protocol"
 msgstr "Protocolo de Identificación"
@@ -156,13 +162,13 @@ msgid ""
 "to use your public address and opening the passive ports used on your "
 "firewall as well."
 msgstr ""
-"Si su equipo actúa como una pasarela NAT o reenviador de puertos para el "
-"servidor, esta opción será útil para permitir que funcionen las "
+"Si su host actúa como una puerta de enlace NAT o de reenvío de puertos para "
+"el servidor, esta opción es útil para permitir que funcionen las "
 "transferencias pasivas. También tendrá que usar su dirección pública y abrir"
-" los puertos pasivos en su firewall."
+" los puertos pasivos utilizados en su cortafuegos."
 
 msgid "Implicit SSL"
-msgstr "SSL Implicito"
+msgstr "SSL implícito"
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -174,33 +180,34 @@ msgid ""
 "range be large enough to handle many simultaneous passive connections (for "
 "example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr ""
-"En algunos casos tendrá que especificar una rango de puertos pasivos para "
-"evitar las limitaciones del firewall. Los puertos pasivos limitan el rango "
-"de puertos que el servidor utilizará cuando envíe el comando PASV de un "
-"cliente. El servidor elegirá aleatoriamente un número del rango especificado"
-" hasta que encuentre un puerto abierto. El puerto debe estar en el rango de "
-"los puerto sin provilegios (es decir, 1024 o mayor). Se recomienda "
-"encarecidamente que el rango sea lo suficientemente amplio para poder "
-"manejar muchas conexiones pasivas simultáneas (p.ej., 49152-65534, el rango "
-"IANA de puertos efímeros)."
+"En algunos casos tendrá que especificar un rango de puertos pasivos para "
+"evitar las limitaciones del cortafuegos. Los puertos pasivos limitan el "
+"rango de puertos que el servidor seleccionará cuando reciba el comando PASV "
+"desde un cliente. El servidor elegirá aleatoriamente un número dentro del "
+"rango especificado hasta que encuentre un puerto abierto. El rango de "
+"puertos seleccionado debe estar en el rango sin privilegios (por ejemplo, "
+"mayor o igual a 1024). Se recomienda encarecidamente que el rango elegido "
+"sea lo suficientemente amplio como para manejar muchas conexiones pasivas "
+"simultáneas (por ejemplo, 49152-65534, el rango de puertos efímeros "
+"registrado por la IANA)."
 
 msgid "Masquerade address"
 msgstr "Dirección IP enmascarada"
 
 msgid "Max. clients"
-msgstr "Número máximo de clientes"
+msgstr "Máx. de clientes"
 
 msgid "Max. connections per host"
-msgstr "Nº Max. de conexiones por host"
+msgstr "Máx. de conexiones por host"
 
 msgid "Max. login attempts"
-msgstr "Nº Max. de login"
+msgstr "Máx. de intentos de inicio de sesión"
 
 msgid "Max. passive port"
-msgstr "Max. puerto pasivo"
+msgstr "Máx. puerto pasivo"
 
 msgid "Maximum download rate (KiB/s)"
-msgstr "Velocidad max. de descarga (KiB/s)"
+msgstr "Velocidad máxima de descarga (KiB/s)"
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -212,28 +219,29 @@ msgstr ""
 "indefinidamente, sin enviar datos)."
 
 msgid "Maximum number of allowed password attempts before disconnection."
-msgstr "Numero max. de contraseñas fallidas antes de desconectar."
+msgstr ""
+"Número máximo de intentos de contraseña permitidos antes de la desconexión."
 
 msgid "Maximum number of connections per IP (0 = unlimited)."
-msgstr "Max. numero de conexiones por IP (0=ilimitado)"
+msgstr "Número máximo de conexiones por IP (0 = ilimitado)."
 
 msgid "Maximum number of simultaneous clients."
-msgstr "Numero max. de clientes simultaneos."
+msgstr "Número máximo de clientes simultáneos."
 
 msgid "Maximum upload rate (KiB/s)"
-msgstr "Velocidad max. de subida (KiB/s)"
+msgstr "Velocidad máxima de subida (KiB/s)"
 
 msgid "Message"
 msgstr "Mensaje"
 
 msgid "Min. passive port"
-msgstr "Min. puerto pasivo"
+msgstr "Mín. puerto pasivo"
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 msgid "No session reuse required"
-msgstr "no se requiere reutilizar la sesión"
+msgstr "No se requiere reutilización de sesión"
 
 msgid "Occurrence"
 msgstr "Instancia"
@@ -248,15 +256,16 @@ msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr ""
-"Por favor, vea <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
-"target='_blank'>página del manual</a> para más detalles."
+"Por favor, consulte la <a "
+"href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
+"target='_blank'>página del manual</a>  para más detalles."
 
 msgid ""
 "Please check the <a "
 "href='http://www.proftpd.org/docs/directives/configuration_full.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr ""
-"Por favor vea: <a "
+"Por favor, consulte la <a "
 "href='http://www.proftpd.org/docs/directives/configuration_full.html' "
 "target='_blank'>página del manual</a> para más detalles."
 
@@ -264,7 +273,7 @@ msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
 "name.html' target='_blank'>manual page</a> for more details."
 msgstr ""
-"Por favor revise la <a "
+"Por favor, consulte la <a "
 "href='http://www.proftpd.org/docs/directives/linked/by-name.html' "
 "target='_blank'>página del manual</a> para más detalles."
 
@@ -272,10 +281,10 @@ msgid "Port"
 msgstr "Puerto"
 
 msgid "Refresh time"
-msgstr "refresco"
+msgstr "Tiempo de refresco"
 
 msgid "Remote host"
-msgstr ""
+msgstr "Host remoto"
 
 msgid "Require valid shell"
 msgstr "Se requiere una Shell válida"
@@ -305,15 +314,16 @@ msgid "Shares"
 msgstr "Compartidos"
 
 msgid "Special action flag"
-msgstr ""
+msgstr "Indicador de acción especial"
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
 "masquerade address by resolving the IP address. Set this value to 0 to "
 "disable this option."
 msgstr ""
-"Especifica la cantidad de tiempo en segundos, entre la comprobación y la actualización de la mascara, para resolver una dirección IP.\n"
-"Poner este valor a cero \"0\" para deshabilitar la opción."
+"Especifica la cantidad de tiempo, en segundos, entre la comprobación y la "
+"actualización de la dirección de enmascaramiento mediante la resolución de "
+"la dirección IP. Establezca este valor en 0 para desactivar esta opción."
 
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr "Especifica el tiempo en hh:mm:ss para que expire el baneo"
@@ -330,7 +340,7 @@ msgstr ""
 "Especifica si se le permite iniciar sesión como superusuario directamente."
 
 msgid "Tags"
-msgstr "Tags"
+msgstr "Etiquetas"
 
 msgid "The SSL certificate."
 msgstr "El certificado SSL."
@@ -380,19 +390,19 @@ msgid "This rule is triggered whenever the selected event directive occurs."
 msgstr "Esta regla se disparará en cuanto ocurra el evento seleccionado."
 
 msgid "Time interval"
-msgstr "Intervalo"
+msgstr "Intervalo de tiempo"
 
 msgid "Timeout"
 msgstr "Tiempo límite"
 
 msgid "Transfer log"
-msgstr "Log de transferencia"
+msgstr "Registro de transferencias"
 
 msgid "Transfer time"
-msgstr ""
+msgstr "Tiempo de transferencia"
 
 msgid "Transfer type"
-msgstr ""
+msgstr "Tipo de transferencia"
 
 msgid "Updated FTP ban rule."
 msgstr "Regla de baneo FTP actualizada."
@@ -404,7 +414,7 @@ msgid "Use the following bandwidth restriction."
 msgstr "Utilice la siguiente restricción de ancho de banda."
 
 msgid "User name"
-msgstr ""
+msgstr "Nombre de usuario"
 
 msgid "Welcome message"
 msgstr "Mensaje de bienvenida"

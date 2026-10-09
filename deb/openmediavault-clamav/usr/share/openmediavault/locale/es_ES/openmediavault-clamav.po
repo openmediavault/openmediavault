@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the openmediavault-clamav package.
 # 
 # Translators:
+# Heather Freelig, 2026
 # Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2014,2017,2021-2022
 msgid ""
 msgstr ""
@@ -10,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-03 21:46+0100\n"
 "PO-Revision-Date: 2012-05-18 22:06+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2014,2017,2021-2022\n"
+"Last-Translator: Heather Freelig, 2026\n"
 "Language-Team: Spanish (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,12 +20,12 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Algorithmic detection"
-msgstr "Detección Algoritmica"
+msgstr "Detección algorítmica"
 
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr ""
+msgstr "Se envía un mensaje de correo electrónico con la salida del comando (si se produce alguna) al administrador."
 
 msgid "Antivirus"
 msgstr "Antivirus"
@@ -36,19 +37,19 @@ msgid "August"
 msgstr "Agosto"
 
 msgid "Be verbose."
-msgstr "Dar detalles"
+msgstr "Mostrar detalles"
 
 msgid "Create"
 msgstr "Crear"
 
 msgid "Created on-access scan."
-msgstr "Crear escaneo al acceder."
+msgstr "Se ha creado el análisis al acceder."
 
 msgid "Created scheduled scan."
-msgstr "Crear escaneo programado."
+msgstr "Se ha creado el análisis programado."
 
 msgid "Database checks"
-msgstr "Comprobación de la BBDD"
+msgstr "Comprobaciones de la base de datos"
 
 msgid "Date & Time"
 msgstr "Fecha y Hora"
@@ -69,45 +70,45 @@ msgid "Detect PUA"
 msgstr "Detectar PUA"
 
 msgid "Detect broken executables"
-msgstr "Detectar ejecutables rotos"
+msgstr "Detectar ejecutables dañados"
 
 msgid "Detect broken media"
-msgstr ""
+msgstr "Detectar soportes dañados"
 
 msgid "Edit"
 msgstr "Editar"
 
 msgid "Enable HTML detection and normalisation."
-msgstr "Habilitar detección HTML y normalización."
+msgstr "Activar la detección y normalización HTML."
 
 msgid "Enable archive scanning."
-msgstr "Habilitar escaneo de archivos"
+msgstr "Activar el análisis de archivos comprimidos."
 
 msgid "Enable scanning of ELF files."
-msgstr "Habilita escaneado de archivos ELF."
+msgstr "Activar el análisis de archivos ELF."
 
 msgid ""
 "Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
 "files."
-msgstr "Habilita escaneado de archivos OLE2, como los documentos de Microsoft Office y los archivos *.msi."
+msgstr "Activar el análisis de archivos OLE2, como documentos de Microsoft Office y archivos .msi."
 
 msgid "Enable scanning within PDF files."
-msgstr "Habilita escaneado de archivos PDF."
+msgstr "Activar el análisis dentro de archivos PDF."
 
 msgid "Enable the algorithmic detection."
-msgstr "Habilitar detección algoritmica."
+msgstr "Activar la detección algorítmica."
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
-msgstr "Habilita escaneado de archivos ejecutables (PE y ELF)"
+msgstr "Activar la detección de ejecutables dañados (tanto PE como ELF)."
 
 msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
-msgstr ""
+msgstr "Activar la detección de archivos de imagen dañados (JPEG, TIFF, PNG, GIF)."
 
 msgid "Enable the detection of possibly unwanted applications."
-msgstr "Habilitar detección de aplicaciones sospechosas."
+msgstr "Activar la detección de aplicaciones potencialmente no deseadas."
 
 msgid "Enabled"
-msgstr "Habilitado"
+msgstr "Activado"
 
 msgid "Every N day of month"
 msgstr "Cada día N del mes"
@@ -122,22 +123,22 @@ msgid "Execute scheduled scan"
 msgstr "Ejecutar escaneo programado"
 
 msgid "Extra options"
-msgstr "Opciones extras"
+msgstr "Opciones extra"
 
 msgid "February"
 msgstr "Febrero"
 
 msgid "Follow directory symlinks"
-msgstr "Seguir enlaces de directorios simbolicos"
+msgstr "Seguir enlaces simbólicos de directorios"
 
 msgid "Follow directory symlinks."
-msgstr "Seguir los enlaces simbolicos de directorios."
+msgstr "Seguir los enlaces simbólicos de directorios."
 
 msgid "Follow file symlinks"
-msgstr "Seguir enlaces de archivos simbolicos"
+msgstr "Seguir enlaces simbólicos de archivos"
 
 msgid "Follow regular file symlinks."
-msgstr "Seguir los enlaces simbolicos de archivos."
+msgstr "Seguir los enlaces simbólicos de archivos regulares."
 
 msgid "Friday"
 msgstr "Viernes"
@@ -158,10 +159,10 @@ msgid "June"
 msgstr "Junio"
 
 msgid "Log clean files"
-msgstr "Log de archivos limpios"
+msgstr "Registro de archivos limpios"
 
 msgid "Log clean files. This drastically increases the log size."
-msgstr "Log de todos los archivos. Esto incrementa drasticamente el tamaño del log."
+msgstr "Registro de archivos limpios. Esto incrementa drásticamente el tamaño del registro."
 
 msgid "March"
 msgstr "Marzo"
@@ -191,7 +192,7 @@ msgid "November"
 msgstr "Noviembre"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
-msgstr "Numero de consultas de actualización de la BBDD por día. 0 para deshabilitarlo."
+msgstr "Número de comprobaciones de actualización de la base de datos por día. Configurar en 0 para desactivar"
 
 msgid "October"
 msgstr "Octubre"
@@ -200,7 +201,7 @@ msgid "On Access Scans"
 msgstr "Escaneos al acceder"
 
 msgid "Perform a deeper analysis of executable files."
-msgstr "Ejecutar un analisis en profundidad de los ejecutables"
+msgstr "Ejecutar un análisis en profundidad de los archivos ejecutables"
 
 msgid "Perform nothing"
 msgstr "No hacer nada"
@@ -209,7 +210,7 @@ msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
 "daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
 "details."
-msgstr "Por favor, revise la pagina <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'> del manual</a> para más detalles."
+msgstr "Por favor, consulte la <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'>página del manual</a> para más detalles."
 
 msgid "Quarantine"
 msgstr "Cuarentena"
@@ -227,13 +228,13 @@ msgid "Scan HTML"
 msgstr "Escanear HTML"
 
 msgid "Scan OLE2"
-msgstr "Escanear OLE32"
+msgstr "Escanear OLE2"
 
 msgid "Scan PDF"
 msgstr "Escanear PDF"
 
 msgid "Scan Portable Executable"
-msgstr "Escanear auto-ejecutables"
+msgstr "Escanear ejecutables portables"
 
 msgid "Scan archives"
 msgstr "Escanear archivos"
@@ -242,13 +243,13 @@ msgid "Scan the directory contents in parallel using available threads."
 msgstr "Escanear el contenido de los directorios en paralelo usando todos los hilos disponibles."
 
 msgid "Scheduled Scans"
-msgstr "Escanear programados"
+msgstr "Análisis programados"
 
 msgid "Scheduling"
 msgstr "Programación"
 
 msgid "Send email"
-msgstr "Enviar e-mail"
+msgstr "Enviar correo electrónico"
 
 msgid "September"
 msgstr "Septiembre"
@@ -266,7 +267,7 @@ msgid "Sunday"
 msgstr "Domingo"
 
 msgid "Tags"
-msgstr "Tags"
+msgstr "Etiquetas"
 
 msgid "The field should only contain * or a comma separated list of values."
 msgstr "El campo solo debe contener * o una lista de valores separados por comas."
@@ -275,13 +276,13 @@ msgid "The location of the files to scan on-access."
 msgstr "Ubicación de los archivos a escanear al acceder."
 
 msgid "The location of the files to scan."
-msgstr "Ubicación de los archivos a comprobar"
+msgstr "La ubicación de los archivos a escanear."
 
 msgid "The location which is used as quarantine."
-msgstr "Ruta de los archivos en cuarentena"
+msgstr "La ubicación que se utiliza como cuarentena."
 
 msgid "The option, how to handle infected files."
-msgstr "Como tratar a los archivos infectados"
+msgstr "La opción de cómo gestionar los archivos infectados."
 
 msgid "Thursday"
 msgstr "Jueves"
@@ -293,16 +294,16 @@ msgid "Tuesday"
 msgstr "Martes"
 
 msgid "Updated on-access scan."
-msgstr "Actualizar al realizar el escaneo."
+msgstr "Se ha actualizado el análisis al acceder."
 
 msgid "Updated scheduled scan."
-msgstr "Escaneo programado, actualizado."
+msgstr "Se ha actualizado el análisis programado."
 
 msgid "Verbose"
 msgstr "Detallado"
 
 msgid "Wednesday"
-msgstr "Miercoles"
+msgstr "Miércoles"
 
 msgid "n/a"
 msgstr "n/a"
