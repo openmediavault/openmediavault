@@ -64,6 +64,26 @@ npm run build:prod
 npm run fix
 ```
 
+## Testing Changes in a Running System (Vagrant VM)
+
+`vagrant/debian/` contains a Vagrant setup for a VM with a full openmediavault installation. Use it to test and verify changes instead of guessing.
+
+```bash
+cd vagrant/debian
+vagrant status                # Is the VM running?
+vagrant up                    # Start the VM (only if needed)
+vagrant ssh -c '<command>'    # Run a command in the VM (user `vagrant`, passwordless `sudo`)
+```
+
+- If the VM does not exist yet, ask the user to deploy it first (`vagrant up` takes a long time).
+- Filter the harmless `[fog][WARNING] ...` output with `| grep -v fog`.
+- Do not run `vagrant destroy`, `halt` or `provision` without asking the user.
+- `deb/` is mounted in the VM at `/home/vagrant/openmediavault/`, but OMV does not use it. Files in `deb/<package>/<path>` are installed to `/<path>` (e.g. `deb/openmediavault/srv/salt/...` to `/srv/salt/...`), except the UI in `workbench/`, which must be built. Copy changed files to their installed location. Restart `openmediavault-engined` after changing engined modules or RPC code.
+- Apply Salt changes with `sudo omv-salt deploy run --no-color <module>` and check for `Failed: 0` in the summary. Put the system into the relevant starting condition first, then compare before/after.
+- Read or change the OMV configuration with `omv-confdbadm`, then deploy the module.
+- Render Jinja templates (`*.j2`) with Salt in the VM; elsewhere `pillar` and the custom filters are missing.
+- Tell the user what you changed in the VM (copied files, service or configuration changes).
+
 ## Git Usage
 
 - You **may** read repository contents, inspect history, and stage changes.
