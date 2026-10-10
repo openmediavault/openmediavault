@@ -66,6 +66,48 @@
                [sortType]="sortType"
                (sort)="onSort($event)"
                (page)="onPage($event)">
+  <ngx-datatable-footer>
+    <ng-template ngx-datatable-footer-template
+                 let-rowCount="rowCount"
+                 let-pageSize="pageSize"
+                 let-selectedCount="selectedCount"
+                 let-curPage="curPage"
+                 let-offset="offset">
+      <div class="page-count">
+        <span *ngIf="selectionType !== 'none'">
+          {{ selectedCount?.toLocaleString() }} {{ messages.selectedMessage }} /
+        </span>
+        {{ rowCount?.toLocaleString() }} {{ messages.totalMessage }}
+      </div>
+      <div class="omv-datatable-footer-actions">
+        <mat-form-field *ngIf="pagingEnabled"
+                        class="omv-datatable-page-size">
+          <mat-select [value]="limit"
+                      (selectionChange)="onPageSizeChange($event.value)"
+                      matTooltip="{{ 'Items per page' | transloco }}"
+                      [attr.aria-label]="'Items per page' | transloco">
+            <mat-option *ngFor="let size of pageSizeOptions"
+                        [value]="size">
+              {{ size }}
+            </mat-option>
+            <mat-option [value]="0">
+              {{ 'All' | transloco }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <datatable-pager [pagerLeftArrowIcon]="'datatable-icon-left'"
+                         [pagerRightArrowIcon]="'datatable-icon-right'"
+                         [pagerPreviousIcon]="'datatable-icon-prev'"
+                         [pagerNextIcon]="'datatable-icon-skip'"
+                         [page]="curPage"
+                         [size]="pageSize"
+                         [count]="rowCount"
+                         [hidden]="limit <= 0 || rowCount / pageSize <= 1"
+                         (change)="table.onFooterPage($event)">
+        </datatable-pager>
+      </div>
+    </ng-template>
+  </ngx-datatable-footer>
 </ngx-datatable>
 
 <mat-menu #columnMenu="matMenu">
