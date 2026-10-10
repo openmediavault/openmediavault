@@ -65,7 +65,10 @@
                [sorts]="sorters"
                [sortType]="sortType"
                (sort)="onSort($event)"
-               (page)="onPage($event)">
+               (page)="onPage($event)"
+               [treeFromRelation]="treeFromRelation"
+               [treeToRelation]="treeToRelation"
+               (treeAction)="treeActionEvent.emit($event.row)">
 </ngx-datatable>
 
 <mat-menu #columnMenu="matMenu">
@@ -236,6 +239,23 @@
         [matTooltip]="column.cellTemplateConfig | template:row | br2nl | preventHtml"
         [innerHTML]="column.cellTemplateConfig | template:row | sanitizeHtml">
   </span>
+</ng-template>
+
+<ng-template #treeToggleTpl
+             let-cellContext="cellContext">
+  <button mat-icon-button
+          class="omv-datatable-tree-toggle"
+          [disabled]="cellContext.treeStatus === 'loading' || cellContext.treeStatus === 'disabled'"
+          [attr.aria-busy]="cellContext.treeStatus === 'loading' || null"
+          [attr.aria-expanded]="cellContext.treeStatus === 'expanded'"
+          [attr.aria-hidden]="cellContext.treeStatus === 'disabled' || null"
+          [attr.aria-label]="(cellContext.treeStatus === 'loading' ? 'Loading ...' : 'Expand/Collapse') | transloco"
+          (click)="$event.stopPropagation(); cellContext.onTreeAction()">
+    <mat-icon *ngIf="cellContext.treeStatus !== 'disabled'"
+              [class.omv-icon-rotate-360-infinite]="cellContext.treeStatus === 'loading'"
+              svgIcon="{{ cellContext.treeStatus === 'loading' ? icon.loading : (cellContext.treeStatus === 'expanded' ? icon.chevronDown : icon.chevronRight) }}">
+    </mat-icon>
+  </button>
 </ng-template>
 
 <ng-template #shapeShifterTpl
