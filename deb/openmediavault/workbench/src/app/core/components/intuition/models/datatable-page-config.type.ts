@@ -71,6 +71,43 @@ export type DatatablePageConfig = {
   autoReload?: boolean | number;
   sorters?: Array<Sorter>;
   sortType?: 'single' | 'multi';
+  // The name of the property that references the parent row. The
+  // tree mode is enabled if this and `treeToRelation` are set. Each
+  // row must have a `treeStatus` property, e.g. set via the store
+  // `transform` option, which is `collapsed` for rows that may have
+  // child rows and `disabled` for others. Use `isTreeColumn` to
+  // define the column that displays the toggle button.
+  // The child rows are loaded via the store proxy when a row is
+  // expanded for the first time. The RPC parameters can contain
+  // tokens that are formatted with the expanded row, which is
+  // available as `_parent`. The `treeFromRelation` property of the
+  // loaded rows is set automatically if it does not exist.
+  // The values of `treeToRelation` must be unique and set. Do not use
+  // falsy values (e.g. 0 or an empty string) for `treeToRelation` or
+  // `treeFromRelation`.
+  // The sorting and searching parameters of the last request to load
+  // the root rows are also used to load the child rows.
+  // Note, `remotePaging` is disabled in tree mode. The datatable can
+  // only build the tree from rows that are loaded together.
+  // Note, the datatable sets the `level` property of each row, so
+  // the data should not contain a property with that name.
+  // Note, the client-side search does not respect the hierarchy. Rows
+  // that match the search but whose parent does not are shown at the
+  // top level, and child rows that have not been loaded yet cannot be
+  // found.
+  // Note, reloading the data (e.g. via `autoReload`) discards the
+  // loaded child rows, which are requested again for the rows that
+  // are expanded. This is not recommended if the child rows are
+  // loaded lazily.
+  // Note, output with dangerous characters (e.g. `&` or `'`) is
+  // escaped automatically. Use the `safe` filter for values like
+  // paths to bypass this behaviour.
+  // Example:
+  // params:
+  //   path: "{{ _parent.path | default('/') | safe }}"
+  treeFromRelation?: string;
+  // The name of the property that is referenced by `treeFromRelation`.
+  treeToRelation?: string;
   store?: DataStore;
   actions?: Array<DatatablePageActionConfig>;
   // The page footer buttons.
