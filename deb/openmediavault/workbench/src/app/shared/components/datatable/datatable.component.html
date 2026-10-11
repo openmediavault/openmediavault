@@ -211,7 +211,7 @@
                        class="omv-flex-1"
                        [value]="button.value"
                        (change)="onButtonToggleChange($event, row, column)">
-      <span>{{ button.text }}</span>
+      <span>{{ button.text | transloco }}</span>
     </mat-button-toggle>
   </mat-button-toggle-group>
 </ng-template>
