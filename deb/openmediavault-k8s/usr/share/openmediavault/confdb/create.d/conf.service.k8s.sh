@@ -28,12 +28,10 @@ set -e
 # <config>
 #   <services>
 #     <k8s>
-#     	<enable>0</enable>
-#     	<datastore>etcd|sqlite</datastore>
-#     	<webport>8080</webport>
-#     	<websecureport>8443</websecureport>
+#       <enable>0</enable>
+#       <datastore>etcd|sqlite</datastore>
 #       <lbports>
-#         <lbport>
+#         <item>
 #           <name>xxx</name>
 #           <port>1-65535</port>
 #           <exposedport>1-65535</exposedport>
@@ -41,8 +39,8 @@ set -e
 #           <expose>0|1</expose>
 #           <comment>xxx</comment>
 #           <extravalues>xxx</extravalues>
-#         </lbport>
-#       </ports>
+#         </item>
+#       </lbports>
 #       <snapshots_sharedfolderref></snapshots_sharedfolderref>
 #       <sslcertificateref></sslcertificateref>
 #     </k8s>
