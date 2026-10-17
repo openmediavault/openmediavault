@@ -708,6 +708,7 @@ case "$1" in
 			omv_module_set_dirty task
 		fi
 		if dpkg --compare-versions "$2" lt-nl "8.5.12"; then
+			omv_module_set_dirty apt
 			omv_module_set_dirty rsyslog
 		fi
 

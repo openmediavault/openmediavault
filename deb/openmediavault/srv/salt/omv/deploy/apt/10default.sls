@@ -64,6 +64,17 @@ configure_apt_sources_list_debian_{{ grains['oscodename'] }}_updates:
 
 {% endif %}
 
+configure_apt_mirrors_openmediavault:
+  file.managed:
+    - name: "/etc/apt/mirrors/openmediavault.txt"
+    - source:
+      - salt://{{ tpldir }}/files/etc-apt-mirrors-openmediavault_txt.j2
+    - template: jinja
+    - makedirs: True
+    - user: root
+    - group: root
+    - mode: '0644'
+
 configure_apt_sources_list_openmediavault:
   file.managed:
     - name: "/etc/apt/sources.list.d/openmediavault.list"
@@ -75,6 +86,8 @@ configure_apt_sources_list_openmediavault:
     - user: root
     - group: root
     - mode: '0644'
+    - require:
+      - file: configure_apt_mirrors_openmediavault
 
 {% set apt_conf_files = salt['cmd.run_stdout']('grep --recursive --files-with-matches --regexp="^APT::Default-Release.*" --ignore-case "/etc/apt/apt.conf" "/etc/apt/apt.conf.d/"', ignore_retcode=True) %}
 {% for file in (apt_conf_files.split('\n') if apt_conf_files else []) %}

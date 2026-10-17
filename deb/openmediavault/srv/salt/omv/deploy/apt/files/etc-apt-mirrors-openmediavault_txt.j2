@@ -1,0 +1,11 @@
+{%- set repo_url = salt['pillar.get']('default:OMV_APT_REPOSITORY_URL', 'https://packages.openmediavault.org/public/') -%}
+{%- set alt_repo_url = salt['pillar.get']('default:OMV_APT_ALT_REPOSITORY_URL', 'https://packages.openmediavault.io/') -%}
+{{ pillar['headers']['multiline'] -}}
+# The mirrors are tried in the order of their priority (lowest number first).
+# The next mirror is only used if the file could not be retrieved from the
+# previous one.
+# See https://manpages.debian.org/unstable/apt/apt-transport-mirror.1.html
+{{ repo_url }}	priority:1
+{{ alt_repo_url }}	priority:2
+https://openmediavault.github.io/packages/	priority:3
+https://downloads.sourceforge.net/project/openmediavault/packages/	priority:4
