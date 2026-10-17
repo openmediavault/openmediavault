@@ -386,6 +386,15 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract
                 join(",", $subjectAltName)
             )));
         }
+        $cmdArgs[] = sprintf("-addext %s", escapeshellarg(
+            "basicConstraints=critical,CA:FALSE"
+        ));
+        $cmdArgs[] = sprintf("-addext %s", escapeshellarg(
+            "keyUsage=critical,digitalSignature,keyEncipherment"
+        ));
+        $cmdArgs[] = sprintf("-addext %s", escapeshellarg(
+            "extendedKeyUsage=serverAuth"
+        ));
         $cmd = new \OMV\System\Process("openssl", $cmdArgs);
         $cmd->setRedirect2to1();
         $cmd->setQuiet(true);
