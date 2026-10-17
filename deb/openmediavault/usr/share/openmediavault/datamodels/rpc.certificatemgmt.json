@@ -31,7 +31,7 @@
 		"properties": {
 			"size": {
 				"type": "integer",
-				"enum": [ 512, 1024, 2048, 4096 ],
+				"enum": [ 2048, 4096 ],
 				"required": true
 			},
 			"days": {
