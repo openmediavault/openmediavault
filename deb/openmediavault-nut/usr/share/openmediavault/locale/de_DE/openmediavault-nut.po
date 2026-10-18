@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the openmediavault-nut package.
 # 
 # Translators:
-# Volker Theile <votdev@gmx.de>, 2023
+# Volker Theile <votdev@gmx.de>, 2023,2026
 # Volker Theile <votdev@gmx.de>, 2014
 # warhog <warhog@gmx.de>, 2012
 msgid ""
@@ -12,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
-"Last-Translator: Volker Theile <votdev@gmx.de>, 2023\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2023,2026\n"
 "Language-Team: German (http://app.transifex.com/openmediavault/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -79,7 +79,7 @@ msgid "Low"
 msgstr ""
 
 msgid "Manufacturer"
-msgstr ""
+msgstr "Hersteller"
 
 msgid "Message"
 msgstr "Nachricht"
@@ -142,7 +142,7 @@ msgid "Temperature"
 msgstr "Temperatur"
 
 msgid "The name used to uniquely identify your UPS on local or remote system."
-msgstr ""
+msgstr "Der Name, der zur eindeutigen Identifizierung Ihrer USV auf einem lokalen oder entfernten System verwendet wird."
 
 msgid ""
 "The number of power supplies that the UPS feeds on this system (usually 1), "
@@ -171,7 +171,7 @@ msgid "UPS Information"
 msgstr ""
 
 msgid "UPS device and battery information."
-msgstr ""
+msgstr "Informationen zum USV-Gerät und zur Batterie."
 
 msgid "UPS goes on battery"
 msgstr "USV im Batteriebetrieb"
