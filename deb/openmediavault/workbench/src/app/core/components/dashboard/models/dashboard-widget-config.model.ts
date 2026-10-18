@@ -153,6 +153,25 @@ export type DashboardWidgetConfig = {
     min?: number;
     max?: number;
     displayValue?: boolean;
+    // Optional gauge settings.
+    gauge?: {
+      // In degrees. Defaults to 270.
+      circumference?: number;
+      // In degrees. Defaults to -135.
+      rotation?: number;
+      // The portion of the chart that is cut out of the middle,
+      // e.g. `85%`. Defaults to `90%` minus 5% per dataset.
+      cutout?: string;
+      // Color of the unfilled part of the arc. Defaults to a color
+      // matching the light or dark color scheme.
+      trackColor?: string;
+      // Color the arc depending on its value. The color of the highest
+      // threshold that is lower than or equal to the value is used,
+      // otherwise the `backgroundColor` of the data configuration.
+      // Example:
+      // [{ value: 60, color: '#ffcc00' }, { value: 75, color: '#ff3b30' }]
+      thresholds?: Array<{ value: number; color: string }>;
+    };
   };
 
   text?: {
