@@ -51,7 +51,7 @@ msgid "Device"
 msgstr "Apparaat"
 
 msgid "Disconnected"
-msgstr ""
+msgstr "Niet verbonden"
 
 msgid "Edit"
 msgstr "Bewerken"

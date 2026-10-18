@@ -26,25 +26,25 @@ msgid ""
 msgstr "'Standalone' voor lokale UPS, 'Netclient' voor externe UPS op een NUT-server."
 
 msgid "Battery charge with the low-battery shutdown threshold marked."
-msgstr ""
+msgstr "Batterij lading met de drempel voor laag-niveau gemarkeerd."
 
 msgid "Battery date"
-msgstr ""
+msgstr "Batterij datum"
 
 msgid "Battery low"
-msgstr ""
+msgstr "Batterij laag niveau"
 
 msgid "Battery type"
-msgstr ""
+msgstr "Batterij type"
 
 msgid "Battery voltage"
-msgstr ""
+msgstr "Batterij voltage"
 
 msgid "Charge"
 msgstr "Opladen"
 
 msgid "Charge warning"
-msgstr ""
+msgstr "Lading waarschuwing"
 
 msgid "Comment"
 msgstr "Commentaar"
@@ -68,7 +68,7 @@ msgid "Identifier"
 msgstr "Identificatie"
 
 msgid "Input voltage"
-msgstr ""
+msgstr "Invoervoltage"
 
 msgid "Invalid identifier"
 msgstr "Ongeldige identificatie"
@@ -77,10 +77,10 @@ msgid "Load"
 msgstr "Belasting"
 
 msgid "Low"
-msgstr ""
+msgstr "Laag"
 
 msgid "Manufacturer"
-msgstr ""
+msgstr "Fabrikant"
 
 msgid "Message"
 msgstr "Bericht"
@@ -119,10 +119,10 @@ msgid "Remote monitoring"
 msgstr "Externe observatie"
 
 msgid "Runtime"
-msgstr ""
+msgstr "Arbeidsduur"
 
 msgid "Runtime low"
-msgstr ""
+msgstr "Arbeidsduur laag"
 
 msgid "Service disabled"
 msgstr "Dienst uitgeschakeld"
@@ -166,13 +166,13 @@ msgid "UPS"
 msgstr "UPS"
 
 msgid "UPS Battery"
-msgstr ""
+msgstr "UPS-batterij"
 
 msgid "UPS Information"
-msgstr ""
+msgstr "UPS informatie"
 
 msgid "UPS device and battery information."
-msgstr ""
+msgstr "UPS-apparaat en batterij-informatie"
 
 msgid "UPS goes on battery"
 msgstr "UPS werkt op de accu"

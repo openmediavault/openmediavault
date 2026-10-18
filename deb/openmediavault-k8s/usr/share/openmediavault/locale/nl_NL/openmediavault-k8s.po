@@ -400,7 +400,7 @@ msgid "The manifest to apply."
 msgstr "Het manifest dat moet worden toegepast."
 
 msgid "The names 'web' and 'websecure' are reserved."
-msgstr ""
+msgstr "De namen 'web' en 'websecure' zijn gereserveerd."
 
 msgid "The snapshot was created successfully."
 msgstr "De momentopname is met succes aangemaakt."
