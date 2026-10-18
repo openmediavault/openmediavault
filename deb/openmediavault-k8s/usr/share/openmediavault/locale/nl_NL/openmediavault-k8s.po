@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-26 11:58+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2026\n"
 "Language-Team: Dutch (Netherlands) (https://app.transifex.com/openmediavault/teams/14254/nl_NL/)\n"
@@ -67,20 +67,11 @@ msgstr "Gecomprimeerd"
 msgid "Config Maps"
 msgstr "Config Maps"
 
-msgid "Copy to clipboard"
-msgstr "Kopiëren naar klembord"
-
-msgid "Copy token"
-msgstr "Token kopiëren"
-
 msgid "Count"
 msgstr "Aantal"
 
 msgid "Created"
 msgstr "Aangemaakt"
-
-msgid "Dashboard"
-msgstr "Bedieningspaneel"
 
 msgid "Data"
 msgstr "Gegevens"
@@ -102,6 +93,9 @@ msgstr "Beschrijven"
 
 msgid "Description"
 msgstr "Beschrijving"
+
+msgid "Digest"
+msgstr "Samenvatting"
 
 msgid "Do you really want to restore this snapshot?"
 msgstr "Wilt u echt deze momentopname terugzetten?"
@@ -230,9 +224,6 @@ msgstr "Normaal"
 
 msgid "Object"
 msgstr "Object"
-
-msgid "Open UI"
-msgstr "Gebruikersinterface openen"
 
 msgid "PV"
 msgstr "PV"
@@ -408,14 +399,14 @@ msgstr "De locatie waar etcd momentopnames op aanvraag worden opgeslagen."
 msgid "The manifest to apply."
 msgstr "Het manifest dat moet worden toegepast."
 
+msgid "The names 'web' and 'websecure' are reserved."
+msgstr ""
+
 msgid "The snapshot was created successfully."
 msgstr "De momentopname is met succes aangemaakt."
 
 msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
 msgstr "De momentopname {{ spec.snapshotName }} is met succes teruggezet."
-
-msgid "The token to authenticate to the Kubernetes Dashboard."
-msgstr "Het token om te authenticeren op het Kubernetes bedieningspaneel."
 
 msgid "Type"
 msgstr "Type"

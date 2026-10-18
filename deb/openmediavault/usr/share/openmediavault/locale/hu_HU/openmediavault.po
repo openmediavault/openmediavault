@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-07 19:44+0200\n"
+"POT-Creation-Date: 2026-10-18 08:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2026\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -1252,6 +1252,9 @@ msgstr "Mindenki: olvasás/írás"
 
 msgid "Execute only"
 msgstr "Csak végrehajtás"
+
+msgid "Expand/Collapse"
+msgstr ""
 
 msgid "Extended Information"
 msgstr "További információ"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Heather Freelig, 2026\n"
 "Language-Team: Spanish (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
@@ -32,13 +32,13 @@ msgid "Compress"
 msgstr "Comprimir"
 
 msgid "Compress file data during the transfer."
-msgstr "Comprimir los datos durante la transferencia"
+msgstr "Comprimir los datos de los archivos durante la transferencia."
 
 msgid "Create"
 msgstr "Crear"
 
 msgid "Created USB backup job."
-msgstr "Crear una tarea de backup USB."
+msgstr "Tarea de copia de seguridad USB creada."
 
 msgid "Delete"
 msgstr "Borrar"
@@ -49,25 +49,28 @@ msgstr "Borrar archivos en la parte receptora que no existan en la parte emisora
 msgid "Device"
 msgstr "Dispositivo"
 
+msgid "Disconnected"
+msgstr ""
+
 msgid "Edit"
 msgstr "Editar"
 
 msgid "Enable archive mode."
-msgstr "Habilitar modo archivo"
+msgstr "Habilitar el modo de archivo."
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr "Habilite está opción para mantener los archivos parcialmente transferidos, si no , serán borrados en caso de interrumpirse la transmisión."
+msgstr "Habilitar esta opción para mantener los archivos parcialmente transferidos; de lo contrario, se eliminarán si la transferencia se interrumpe."
 
 msgid "Enabled"
 msgstr "Habilitado"
 
 msgid "External Storage Device"
-msgstr "Disco duro externo"
+msgstr "Dispositivo de almacenamiento externo"
 
 msgid "Extra options"
-msgstr "Opciones Extra"
+msgstr "Opciones extra"
 
 msgid "From external storage to shared folder"
 msgstr "Del almacenamiento externo a la carpeta compartida"
@@ -84,7 +87,7 @@ msgstr "Modo"
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Por favor vea: <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>página del manual</a> para más detalles."
+msgstr "Por favor, consulte la <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>página del manual</a> para más detalles."
 
 msgid "Preserve ACLs"
 msgstr "Conservar ACLs"
@@ -93,13 +96,13 @@ msgid "Preserve extended attributes"
 msgstr "Mantener atributos extendidos"
 
 msgid "Preserve group"
-msgstr "Preservar Grupo"
+msgstr "Preservar grupo"
 
 msgid "Preserve modification times"
-msgstr "Preservar hora de modificación."
+msgstr "Preservar las horas de modificación"
 
 msgid "Preserve owner"
-msgstr "Preservar Propietario"
+msgstr "Preservar propietario"
 
 msgid "Preserve permissions"
 msgstr "Conservar permisos"
@@ -108,7 +111,7 @@ msgid "Quiet"
 msgstr "Silencioso"
 
 msgid "Recurse into directories."
-msgstr "Recorrer recursivamente los directorios"
+msgstr "Recorrer directorios recursivamente."
 
 msgid "Recursive"
 msgstr "Recursivo"
@@ -120,17 +123,17 @@ msgid "Run"
 msgstr "Ejecutar"
 
 msgid "Run backup job"
-msgstr "Ejecutar tarea de backup"
+msgstr "Ejecutar tarea de copia de seguridad"
 
 msgid "Select a device ..."
 msgstr "Selecciona un dispositivo ..."
 
 msgid "Send email"
-msgstr "Enviar email"
+msgstr "Enviar correo electrónico"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr "Establecer los permisos del destino como los permisos del origen"
+msgstr "Establecer los permisos del destino para que sean los mismos que los del origen."
 
 msgid ""
 "Set the group of the destination file to be the same as the source file."
@@ -145,10 +148,10 @@ msgid "Shared folder"
 msgstr "Carpeta compartida"
 
 msgid "Suppress non-error messages."
-msgstr "Suprime mensajes que no sean de error"
+msgstr "Ocultar los mensajes que no sean de error."
 
 msgid "Tags"
-msgstr "Tags"
+msgstr "Etiquetas"
 
 msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
 msgstr "Las opciones 'Enviar correo electrónico' y 'Silencioso' se excluyen mutuamente."
@@ -167,25 +170,25 @@ msgstr "La ruta relativa del directorio en el dispositivo de almacenamiento exte
 msgid ""
 "The shared folder to synchronise when the external storage device is "
 "connected."
-msgstr "La carpeta compartida a sincronizar cuando el dispositivo externo sea conectado."
+msgstr "La carpeta compartida a sincronizar cuando se conecte el dispositivo de almacenamiento externo."
 
 msgid ""
 "Transfer modification times along with the files and update them on the "
 "remote system."
-msgstr "Copiar la hora de modificación de los archivos en el destino remoto y hacerla idéntica a la hora original."
+msgstr "Transferir las horas de modificación junto con los archivos y actualizarlas en el sistema remoto"
 
 msgid "USB Backup"
-msgstr "USB Backup"
+msgstr "Copia de seguridad USB"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr "Actualizar las ACLs de destino con las ACLs del origen"
+msgstr "Actualizar las ACL de destino para que sean las mismas que las del origen."
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
 msgstr "Actualizar los atributos extendidos del destino con los locales."
 
 msgid "Updated USB backup job."
-msgstr "Actualizar tarea de backup USB."
+msgstr "Tarea de copia de seguridad USB actualizada."
 
 msgid "n/a"
-msgstr "n/a"
+msgstr "no disponible"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: Grawens <szabolcs.szanyi@gmail.com>, 2014,2021\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -26,8 +26,26 @@ msgid ""
 "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
 msgstr "Helyi UPS esetén „önálló”, NUT-kizsolgálón lévő távoli UPS esetén „hálózati kliens”."
 
+msgid "Battery charge with the low-battery shutdown threshold marked."
+msgstr ""
+
+msgid "Battery date"
+msgstr ""
+
+msgid "Battery low"
+msgstr ""
+
+msgid "Battery type"
+msgstr ""
+
+msgid "Battery voltage"
+msgstr ""
+
 msgid "Charge"
 msgstr "Töltés"
+
+msgid "Charge warning"
+msgstr ""
 
 msgid "Comment"
 msgstr "Megjegyzés"
@@ -50,17 +68,29 @@ msgstr "Engedélyezve"
 msgid "Identifier"
 msgstr "Azonosító"
 
+msgid "Input voltage"
+msgstr ""
+
 msgid "Invalid identifier"
 msgstr "Érvénytelen azonosító"
 
 msgid "Load"
 msgstr "Terhelés"
 
+msgid "Low"
+msgstr ""
+
+msgid "Manufacturer"
+msgstr ""
+
 msgid "Message"
 msgstr "Üzenet"
 
 msgid "Mode"
 msgstr "Mód"
+
+msgid "Model"
+msgstr "Modell"
 
 msgid "Netclient"
 msgstr "Hálózati kliens"
@@ -89,6 +119,12 @@ msgstr "Program"
 msgid "Remote monitoring"
 msgstr "Távfelügyelet"
 
+msgid "Runtime"
+msgstr ""
+
+msgid "Runtime low"
+msgstr ""
+
 msgid "Service disabled"
 msgstr "Szolgáltatás letiltva"
 
@@ -100,6 +136,9 @@ msgstr "Leállítás időzítése"
 
 msgid "Standalone"
 msgstr "Önálló"
+
+msgid "Status"
+msgstr "Állapot"
 
 msgid "Temperature"
 msgstr "Hőmérséklet"
@@ -126,6 +165,15 @@ msgstr "További információkért a UPS beállításáról, nézze meg a háló
 
 msgid "UPS"
 msgstr "UPS"
+
+msgid "UPS Battery"
+msgstr ""
+
+msgid "UPS Information"
+msgstr ""
+
+msgid "UPS device and battery information."
+msgstr ""
 
 msgid "UPS goes on battery"
 msgstr "Akkumulátoros üzemmód"

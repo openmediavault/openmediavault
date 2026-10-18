@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Quim Farriol <qfarriol@valette.cat>, 2025
+# Quim Farriol <qfarriol@valette.cat>, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-26 11:58+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2025\n"
+"Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2026\n"
 "Language-Team: Catalan (Spain) (https://app.transifex.com/openmediavault/teams/14254/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -66,20 +66,11 @@ msgstr "Comprimit"
 msgid "Config Maps"
 msgstr "Configuració de mapes"
 
-msgid "Copy to clipboard"
-msgstr "Copiar al portapapers"
-
-msgid "Copy token"
-msgstr "Copia el testimoni"
-
 msgid "Count"
 msgstr ""
 
 msgid "Created"
 msgstr "Creat"
-
-msgid "Dashboard"
-msgstr "Panell"
 
 msgid "Data"
 msgstr "Dada"
@@ -101,6 +92,9 @@ msgstr "Descriu"
 
 msgid "Description"
 msgstr "Descripció"
+
+msgid "Digest"
+msgstr "Digerir"
 
 msgid "Do you really want to restore this snapshot?"
 msgstr "Realment voleu restaurar aquesta instantània?"
@@ -229,9 +223,6 @@ msgstr ""
 
 msgid "Object"
 msgstr ""
-
-msgid "Open UI"
-msgstr "Open UI"
 
 msgid "PV"
 msgstr "PV"
@@ -402,14 +393,14 @@ msgstr "La ubicació on s'emmagatzemen les instantànies sota demanda etcd."
 msgid "The manifest to apply."
 msgstr "El manifest a aplicar."
 
+msgid "The names 'web' and 'websecure' are reserved."
+msgstr ""
+
 msgid "The snapshot was created successfully."
 msgstr "La instantània s'ha creat correctament."
 
 msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
 msgstr "La instantània {{ spec.snapshotName }} s'ha restaurat correctament."
-
-msgid "The token to authenticate to the Kubernetes Dashboard."
-msgstr "El testimoni per autenticar-se al tauler de control de Kubernetes."
 
 msgid "Type"
 msgstr "Tipus"

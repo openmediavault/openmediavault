@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-07 19:44+0200\n"
+"POT-Creation-Date: 2026-10-18 08:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg, 2021-2026\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -1253,6 +1253,9 @@ msgstr "Alla: läsa/skriva"
 
 msgid "Execute only"
 msgstr "Utför endast"
+
+msgid "Expand/Collapse"
+msgstr ""
 
 msgid "Extended Information"
 msgstr "Utökad information"

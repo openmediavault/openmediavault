@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-26 11:58+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2026\n"
 "Language-Team: German (https://app.transifex.com/openmediavault/teams/14254/de/)\n"
@@ -66,20 +66,11 @@ msgstr "Komprimiert"
 msgid "Config Maps"
 msgstr "Config Maps"
 
-msgid "Copy to clipboard"
-msgstr "In die Zwischenablage kopieren"
-
-msgid "Copy token"
-msgstr "Token kopieren"
-
 msgid "Count"
 msgstr "Anzahl"
 
 msgid "Created"
 msgstr "Erstellt"
-
-msgid "Dashboard"
-msgstr "Dashboard"
 
 msgid "Data"
 msgstr "Data"
@@ -101,6 +92,9 @@ msgstr "Beschreibe"
 
 msgid "Description"
 msgstr "Beschreibung"
+
+msgid "Digest"
+msgstr "Digest"
 
 msgid "Do you really want to restore this snapshot?"
 msgstr "Wollen Sie diesen Schnappschuss wirklich wiederherstellen?"
@@ -229,9 +223,6 @@ msgstr "Normal"
 
 msgid "Object"
 msgstr "Objekt"
-
-msgid "Open UI"
-msgstr "Benutzeroberfläche öffnen"
 
 msgid "PV"
 msgstr "PV"
@@ -399,14 +390,14 @@ msgstr ""
 msgid "The manifest to apply."
 msgstr "Das anzuwendende Manifest."
 
+msgid "The names 'web' and 'websecure' are reserved."
+msgstr ""
+
 msgid "The snapshot was created successfully."
 msgstr "Der Schnappschuss wurde erfolgreich erstellt."
 
 msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
 msgstr ""
-
-msgid "The token to authenticate to the Kubernetes Dashboard."
-msgstr "Das Token zur Authentifizierung beim Kubernetes Dashboard."
 
 msgid "Type"
 msgstr "Typ"

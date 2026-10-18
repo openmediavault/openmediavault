@@ -4,16 +4,16 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# zubr139, 2025
+# zubr139, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-26 11:58+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: zubr139, 2025\n"
+"Last-Translator: zubr139, 2026\n"
 "Language-Team: Ukrainian (https://app.transifex.com/openmediavault/teams/14254/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -66,20 +66,11 @@ msgstr ""
 msgid "Config Maps"
 msgstr ""
 
-msgid "Copy to clipboard"
-msgstr ""
-
-msgid "Copy token"
-msgstr ""
-
 msgid "Count"
 msgstr ""
 
 msgid "Created"
 msgstr "Створено"
-
-msgid "Dashboard"
-msgstr ""
 
 msgid "Data"
 msgstr ""
@@ -101,6 +92,9 @@ msgstr ""
 
 msgid "Description"
 msgstr ""
+
+msgid "Digest"
+msgstr "Дайджест"
 
 msgid "Do you really want to restore this snapshot?"
 msgstr ""
@@ -226,9 +220,6 @@ msgstr ""
 
 msgid "Object"
 msgstr ""
-
-msgid "Open UI"
-msgstr "Відкрити інтерфейс користувача"
 
 msgid "PV"
 msgstr ""
@@ -388,13 +379,13 @@ msgstr ""
 msgid "The manifest to apply."
 msgstr "Маніфест для застосування."
 
+msgid "The names 'web' and 'websecure' are reserved."
+msgstr ""
+
 msgid "The snapshot was created successfully."
 msgstr ""
 
 msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
-msgstr ""
-
-msgid "The token to authenticate to the Kubernetes Dashboard."
 msgstr ""
 
 msgid "Type"

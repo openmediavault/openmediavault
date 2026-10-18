@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-07 19:44+0200\n"
+"POT-Creation-Date: 2026-10-18 08:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Dung Ba Minh, 2026\n"
 "Language-Team: Vietnamese (Viet Nam) (http://app.transifex.com/openmediavault/openmediavault/language/vi_VN/)\n"
@@ -1246,6 +1246,9 @@ msgstr "Tất cả thành viên: đọc/ghi"
 
 msgid "Execute only"
 msgstr "Chỉ thực thi "
+
+msgid "Expand/Collapse"
+msgstr ""
 
 msgid "Extended Information"
 msgstr "Thông tin mở rộng"

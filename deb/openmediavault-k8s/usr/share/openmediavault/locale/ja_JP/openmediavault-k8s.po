@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-26 11:58+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2026\n"
 "Language-Team: Japanese (Japan) (https://app.transifex.com/openmediavault/teams/14254/ja_JP/)\n"
@@ -66,20 +66,11 @@ msgstr "圧縮済み"
 msgid "Config Maps"
 msgstr "Config Maps"
 
-msgid "Copy to clipboard"
-msgstr "クリップボードへコピー"
-
-msgid "Copy token"
-msgstr "トークンをコピー"
-
 msgid "Count"
 msgstr "カウント"
 
 msgid "Created"
 msgstr "作成済み"
-
-msgid "Dashboard"
-msgstr "ダッシュボード"
 
 msgid "Data"
 msgstr "日付"
@@ -101,6 +92,9 @@ msgstr "説明"
 
 msgid "Description"
 msgstr "説明"
+
+msgid "Digest"
+msgstr "ダイジェスト"
 
 msgid "Do you really want to restore this snapshot?"
 msgstr "このスナップショットを本当に復元しますか？"
@@ -228,9 +222,6 @@ msgstr "ノーマル"
 
 msgid "Object"
 msgstr "オブジェクト"
-
-msgid "Open UI"
-msgstr "UIを開く"
 
 msgid "PV"
 msgstr "PV"
@@ -399,14 +390,14 @@ msgstr "etcdのオンデマンドスナップショットを保存する場所�
 msgid "The manifest to apply."
 msgstr "適用するマニフェスト。"
 
+msgid "The names 'web' and 'websecure' are reserved."
+msgstr ""
+
 msgid "The snapshot was created successfully."
 msgstr "スナップショットの作成に成功しました。"
 
 msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
 msgstr "スナップショット {{ spec.snapshotName }} の復元が正常に完了しました。"
-
-msgid "The token to authenticate to the Kubernetes Dashboard."
-msgstr "Kubernetes ダッシュボードへの認証に使用するトークン。"
 
 msgid "Type"
 msgstr "タイプ"

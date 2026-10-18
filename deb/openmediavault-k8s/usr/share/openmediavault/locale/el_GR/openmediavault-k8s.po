@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-26 11:58+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Kostas Moho, 2026\n"
 "Language-Team: Greek (Greece) (https://app.transifex.com/openmediavault/teams/14254/el_GR/)\n"
@@ -66,20 +66,11 @@ msgstr "Συμπιεσμένο"
 msgid "Config Maps"
 msgstr "Χάρτες Ρυθμίσεων"
 
-msgid "Copy to clipboard"
-msgstr "Αντιγραφή στο πρόχειρο"
-
-msgid "Copy token"
-msgstr "Αντιγραφή τεκμηρίου."
-
 msgid "Count"
 msgstr "Μέτρηση"
 
 msgid "Created"
 msgstr "Δημιουργία"
-
-msgid "Dashboard"
-msgstr "Ταμπλό"
 
 msgid "Data"
 msgstr "Δεδομένα"
@@ -101,6 +92,9 @@ msgstr "Περιγραφή"
 
 msgid "Description"
 msgstr "Περιγραφή"
+
+msgid "Digest"
+msgstr "Σύνοψη"
 
 msgid "Do you really want to restore this snapshot?"
 msgstr "Να αποκατασταθεί αυτό το στιγμιότυπο;"
@@ -229,9 +223,6 @@ msgstr "Κανονικό"
 
 msgid "Object"
 msgstr "Αντικείμενο"
-
-msgid "Open UI"
-msgstr "Open UI"
 
 msgid "PV"
 msgstr "PV"
@@ -406,14 +397,14 @@ msgstr "Η θέση αποθήκευσης των αιτούμενων στιγ�
 msgid "The manifest to apply."
 msgstr "Η δήλωση προς εφαρμογή."
 
+msgid "The names 'web' and 'websecure' are reserved."
+msgstr ""
+
 msgid "The snapshot was created successfully."
 msgstr "Το στιγμιότυπο δημιουργήθηκε επιτυχώς"
 
 msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
 msgstr "Το στιγμιότυπο {{ spec.snapshotName }} αποκαταστάθηκε επιτυχώς."
-
-msgid "The token to authenticate to the Kubernetes Dashboard."
-msgstr "Το τεκμήριο για την πιστοποίηση στο Ταμπλώ του Kubernetes."
 
 msgid "Type"
 msgstr "Τύπος"

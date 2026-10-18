@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: LeeYang <150183966@qq.com>, 2021\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -23,8 +23,26 @@ msgid ""
 "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
 msgstr "“单机版”是本地链接的 UPS，“网络版”是通过 NUT 服务连接的远程 UPS。"
 
+msgid "Battery charge with the low-battery shutdown threshold marked."
+msgstr ""
+
+msgid "Battery date"
+msgstr ""
+
+msgid "Battery low"
+msgstr ""
+
+msgid "Battery type"
+msgstr ""
+
+msgid "Battery voltage"
+msgstr ""
+
 msgid "Charge"
 msgstr "充电量"
+
+msgid "Charge warning"
+msgstr ""
 
 msgid "Comment"
 msgstr "注释"
@@ -47,17 +65,29 @@ msgstr "已启用"
 msgid "Identifier"
 msgstr "标识符"
 
+msgid "Input voltage"
+msgstr ""
+
 msgid "Invalid identifier"
 msgstr "标识符语法不符"
 
 msgid "Load"
 msgstr "负载"
 
+msgid "Low"
+msgstr ""
+
+msgid "Manufacturer"
+msgstr ""
+
 msgid "Message"
 msgstr "消息"
 
 msgid "Mode"
 msgstr "模式"
+
+msgid "Model"
+msgstr "型号"
 
 msgid "Netclient"
 msgstr "网络版"
@@ -86,6 +116,12 @@ msgstr "程序"
 msgid "Remote monitoring"
 msgstr "远程监控"
 
+msgid "Runtime"
+msgstr ""
+
+msgid "Runtime low"
+msgstr ""
+
 msgid "Service disabled"
 msgstr "服务已停用"
 
@@ -97,6 +133,9 @@ msgstr "关机计时器"
 
 msgid "Standalone"
 msgstr "单机版"
+
+msgid "Status"
+msgstr "状态"
 
 msgid "Temperature"
 msgstr "温度"
@@ -123,6 +162,15 @@ msgstr "获取更多UPS配置信息请查看 <a href='http://www.networkupstools
 
 msgid "UPS"
 msgstr "UPS"
+
+msgid "UPS Battery"
+msgstr ""
+
+msgid "UPS Information"
+msgstr ""
+
+msgid "UPS device and battery information."
+msgstr ""
 
 msgid "UPS goes on battery"
 msgstr "UPS 使用电池供电"

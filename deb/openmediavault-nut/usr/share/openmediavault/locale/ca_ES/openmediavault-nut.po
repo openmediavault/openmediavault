@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2021\n"
 "Language-Team: Catalan (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
@@ -24,8 +24,26 @@ msgid ""
 "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
 msgstr "\"Standalone\" per a SAI local, \"Netclient\" per a SAI remots en un servidor NUT."
 
+msgid "Battery charge with the low-battery shutdown threshold marked."
+msgstr ""
+
+msgid "Battery date"
+msgstr ""
+
+msgid "Battery low"
+msgstr ""
+
+msgid "Battery type"
+msgstr ""
+
+msgid "Battery voltage"
+msgstr ""
+
 msgid "Charge"
 msgstr "Càrrega"
+
+msgid "Charge warning"
+msgstr ""
 
 msgid "Comment"
 msgstr "Comentari"
@@ -48,17 +66,29 @@ msgstr "Activat"
 msgid "Identifier"
 msgstr "Identificador"
 
+msgid "Input voltage"
+msgstr ""
+
 msgid "Invalid identifier"
 msgstr "Identificador no vàlid"
 
 msgid "Load"
 msgstr "Consum"
 
+msgid "Low"
+msgstr ""
+
+msgid "Manufacturer"
+msgstr ""
+
 msgid "Message"
 msgstr "Missatge"
 
 msgid "Mode"
 msgstr "Mode"
+
+msgid "Model"
+msgstr "Model"
 
 msgid "Netclient"
 msgstr "Client remot"
@@ -87,6 +117,12 @@ msgstr "Programació"
 msgid "Remote monitoring"
 msgstr "Control remot"
 
+msgid "Runtime"
+msgstr ""
+
+msgid "Runtime low"
+msgstr ""
+
 msgid "Service disabled"
 msgstr "Servei deshabilitat"
 
@@ -98,6 +134,9 @@ msgstr "Temporitzador d'apagada"
 
 msgid "Standalone"
 msgstr "Autònom"
+
+msgid "Status"
+msgstr "Estat"
 
 msgid "Temperature"
 msgstr "Temperatura"
@@ -124,6 +163,15 @@ msgstr "Per obtenir més informació de com configurar el SAI visiteu el manual 
 
 msgid "UPS"
 msgstr "SAI"
+
+msgid "UPS Battery"
+msgstr ""
+
+msgid "UPS Information"
+msgstr ""
+
+msgid "UPS device and battery information."
+msgstr ""
 
 msgid "UPS goes on battery"
 msgstr "El SAI està usant la bateria"

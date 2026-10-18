@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: omv nas <myomv100@gmail.com>, 2020,2023\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -23,8 +23,26 @@ msgid ""
 "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
 msgstr "\"مستقل\" لـ UPS المحلي ، \"Netclient\" لـ UPS البعيد على خادم NUT."
 
+msgid "Battery charge with the low-battery shutdown threshold marked."
+msgstr ""
+
+msgid "Battery date"
+msgstr ""
+
+msgid "Battery low"
+msgstr ""
+
+msgid "Battery type"
+msgstr ""
+
+msgid "Battery voltage"
+msgstr ""
+
 msgid "Charge"
 msgstr "شحن"
+
+msgid "Charge warning"
+msgstr ""
 
 msgid "Comment"
 msgstr "تعليق"
@@ -47,17 +65,29 @@ msgstr "ممكن"
 msgid "Identifier"
 msgstr "محدد"
 
+msgid "Input voltage"
+msgstr ""
+
 msgid "Invalid identifier"
 msgstr "معرف غير صالح"
 
 msgid "Load"
 msgstr "تحميل"
 
+msgid "Low"
+msgstr ""
+
+msgid "Manufacturer"
+msgstr ""
+
 msgid "Message"
 msgstr "رسالة"
 
 msgid "Mode"
 msgstr "الوضع"
+
+msgid "Model"
+msgstr "الطراز"
 
 msgid "Netclient"
 msgstr "Netclient"
@@ -86,6 +116,12 @@ msgstr "برنامج"
 msgid "Remote monitoring"
 msgstr "مراقبة عن بعد"
 
+msgid "Runtime"
+msgstr ""
+
+msgid "Runtime low"
+msgstr ""
+
 msgid "Service disabled"
 msgstr "الخدمة معطلة"
 
@@ -97,6 +133,9 @@ msgstr "مؤقت إيقاف التشغيل"
 
 msgid "Standalone"
 msgstr "مستقل"
+
+msgid "Status"
+msgstr "الحالة"
 
 msgid "Temperature"
 msgstr "درجة الحرارة"
@@ -123,6 +162,15 @@ msgstr "للحصول على مزيد من المعلومات حول كيفية �
 
 msgid "UPS"
 msgstr "UPS"
+
+msgid "UPS Battery"
+msgstr ""
+
+msgid "UPS Information"
+msgstr ""
+
+msgid "UPS device and battery information."
+msgstr ""
 
 msgid "UPS goes on battery"
 msgstr "UPS  محول إلى البطارية"

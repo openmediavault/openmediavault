@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025-2026\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -25,8 +25,26 @@ msgid ""
 "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
 msgstr "'Standalone' voor lokale UPS, 'Netclient' voor externe UPS op een NUT-server."
 
+msgid "Battery charge with the low-battery shutdown threshold marked."
+msgstr ""
+
+msgid "Battery date"
+msgstr ""
+
+msgid "Battery low"
+msgstr ""
+
+msgid "Battery type"
+msgstr ""
+
+msgid "Battery voltage"
+msgstr ""
+
 msgid "Charge"
 msgstr "Opladen"
+
+msgid "Charge warning"
+msgstr ""
 
 msgid "Comment"
 msgstr "Commentaar"
@@ -49,17 +67,29 @@ msgstr "Ingeschakeld"
 msgid "Identifier"
 msgstr "Identificatie"
 
+msgid "Input voltage"
+msgstr ""
+
 msgid "Invalid identifier"
 msgstr "Ongeldige identificatie"
 
 msgid "Load"
 msgstr "Belasting"
 
+msgid "Low"
+msgstr ""
+
+msgid "Manufacturer"
+msgstr ""
+
 msgid "Message"
 msgstr "Bericht"
 
 msgid "Mode"
 msgstr "Modus"
+
+msgid "Model"
+msgstr "Model"
 
 msgid "Netclient"
 msgstr "Netclient"
@@ -88,6 +118,12 @@ msgstr "Toepassing"
 msgid "Remote monitoring"
 msgstr "Externe observatie"
 
+msgid "Runtime"
+msgstr ""
+
+msgid "Runtime low"
+msgstr ""
+
 msgid "Service disabled"
 msgstr "Dienst uitgeschakeld"
 
@@ -99,6 +135,9 @@ msgstr "Uitschakeltimer"
 
 msgid "Standalone"
 msgstr "Standalone"
+
+msgid "Status"
+msgstr "Status"
 
 msgid "Temperature"
 msgstr "Temperatuur"
@@ -125,6 +164,15 @@ msgstr "Voor meer informatie over hoe u uw UPS kunt configureren kijk dan op Net
 
 msgid "UPS"
 msgstr "UPS"
+
+msgid "UPS Battery"
+msgstr ""
+
+msgid "UPS Information"
+msgstr ""
+
+msgid "UPS device and battery information."
+msgstr ""
 
 msgid "UPS goes on battery"
 msgstr "UPS werkt op de accu"

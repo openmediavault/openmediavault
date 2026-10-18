@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: irrelevant91, 2025\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
@@ -50,6 +50,9 @@ msgstr "删除接收端存在而发送端不存在的文件。"
 
 msgid "Device"
 msgstr "设备"
+
+msgid "Disconnected"
+msgstr ""
 
 msgid "Edit"
 msgstr "编辑"

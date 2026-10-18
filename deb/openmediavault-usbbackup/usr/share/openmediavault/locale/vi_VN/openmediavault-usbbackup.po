@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Dung Ba Minh, 2026\n"
 "Language-Team: Vietnamese (Viet Nam) (http://app.transifex.com/openmediavault/openmediavault/language/vi_VN/)\n"
@@ -46,6 +46,9 @@ msgstr "Xóa các tệp trên bên nhận nếu chúng không tồn tại trên 
 
 msgid "Device"
 msgstr "Thiết bị"
+
+msgid "Disconnected"
+msgstr ""
 
 msgid "Edit"
 msgstr "Chỉnh sửa"

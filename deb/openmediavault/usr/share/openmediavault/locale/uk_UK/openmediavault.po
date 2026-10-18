@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-07 19:44+0200\n"
+"POT-Creation-Date: 2026-10-18 08:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: zubr139, 2013-2019,2021-2022,2025\n"
 "Language-Team: Ukrainian (http://app.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -1248,6 +1248,9 @@ msgstr "Всі: читання/запис"
 
 msgid "Execute only"
 msgstr "Лишень виконати"
+
+msgid "Expand/Collapse"
+msgstr ""
 
 msgid "Extended Information"
 msgstr "Розширена інформація"

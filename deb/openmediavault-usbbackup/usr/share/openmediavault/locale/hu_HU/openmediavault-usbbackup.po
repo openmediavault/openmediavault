@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021,2024\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -51,6 +51,9 @@ msgstr "Fájlok törlése a fogadó oldalon, ha a feladó nem létezik."
 
 msgid "Device"
 msgstr "Meghajtó"
+
+msgid "Disconnected"
+msgstr ""
 
 msgid "Edit"
 msgstr "Szerkesztés"

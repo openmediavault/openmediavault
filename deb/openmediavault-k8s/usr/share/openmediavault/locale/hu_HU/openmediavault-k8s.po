@@ -4,7 +4,6 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Sári Gábor <sari.gabor@gmail.com>, 2024
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2026
 # 
 #, fuzzy
@@ -12,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-26 11:58+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2026\n"
 "Language-Team: Hungarian (Hungary) (https://app.transifex.com/openmediavault/teams/14254/hu_HU/)\n"
@@ -67,20 +66,11 @@ msgstr "Tömörített"
 msgid "Config Maps"
 msgstr "Beállítástérkép"
 
-msgid "Copy to clipboard"
-msgstr "Másolás vágólapra"
-
-msgid "Copy token"
-msgstr "Token másolása"
-
 msgid "Count"
 msgstr "Szám"
 
 msgid "Created"
 msgstr "Létrehozva"
-
-msgid "Dashboard"
-msgstr "Műszerfal"
 
 msgid "Data"
 msgstr "Adatok"
@@ -102,6 +92,9 @@ msgstr "Leírás"
 
 msgid "Description"
 msgstr "Leírás"
+
+msgid "Digest"
+msgstr "Kivonat"
 
 msgid "Do you really want to restore this snapshot?"
 msgstr "Valóban vissza szeretné állítani ezt a pillanatképet?"
@@ -230,9 +223,6 @@ msgstr "Normál"
 
 msgid "Object"
 msgstr "Tárgy"
-
-msgid "Open UI"
-msgstr "UI megnyitása"
 
 msgid "PV"
 msgstr "PV"
@@ -408,15 +398,15 @@ msgstr "Az etcd igény szerinti pillanatképek tárolási helye."
 msgid "The manifest to apply."
 msgstr "Az alkalmazandó manifesztum. "
 
+msgid "The names 'web' and 'websecure' are reserved."
+msgstr ""
+
 msgid "The snapshot was created successfully."
 msgstr "A pillanatfelvétel sikeresen létrejött."
 
 msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
 msgstr ""
 "A(z) {{ spec.snapshotName}} pillanatkép sikeresen vissza lett állítva."
-
-msgid "The token to authenticate to the Kubernetes Dashboard."
-msgstr "A Kubernetes Műszerfalon való hitelesítéshez szükséges token."
 
 msgid "Type"
 msgstr "Típus"

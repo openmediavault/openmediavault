@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: zubr139, 2013,2015,2021\n"
 "Language-Team: Ukrainian (http://app.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -22,8 +22,26 @@ msgid ""
 "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
 msgstr "\"Автономний\" для локального ДБЖ, \"Netclient\" для віддаленого ДБЖ на сервері NUT."
 
+msgid "Battery charge with the low-battery shutdown threshold marked."
+msgstr ""
+
+msgid "Battery date"
+msgstr ""
+
+msgid "Battery low"
+msgstr ""
+
+msgid "Battery type"
+msgstr ""
+
+msgid "Battery voltage"
+msgstr ""
+
 msgid "Charge"
 msgstr "Заряд"
+
+msgid "Charge warning"
+msgstr ""
 
 msgid "Comment"
 msgstr "Коментар"
@@ -46,17 +64,29 @@ msgstr "Увімкнено"
 msgid "Identifier"
 msgstr "Ідентифікатор"
 
+msgid "Input voltage"
+msgstr ""
+
 msgid "Invalid identifier"
 msgstr "Недійсний ідентифікатор"
 
 msgid "Load"
 msgstr "Завантаження"
 
+msgid "Low"
+msgstr ""
+
+msgid "Manufacturer"
+msgstr ""
+
 msgid "Message"
 msgstr "Повідомлення"
 
 msgid "Mode"
 msgstr "Режим"
+
+msgid "Model"
+msgstr "Модель"
 
 msgid "Netclient"
 msgstr "Netclient"
@@ -85,6 +115,12 @@ msgstr "Програма"
 msgid "Remote monitoring"
 msgstr "Віддалений моніторинг"
 
+msgid "Runtime"
+msgstr ""
+
+msgid "Runtime low"
+msgstr ""
+
 msgid "Service disabled"
 msgstr "Служба вимкнення"
 
@@ -96,6 +132,9 @@ msgstr "Таймер вимкнення"
 
 msgid "Standalone"
 msgstr "Автономний"
+
+msgid "Status"
+msgstr "Статус"
 
 msgid "Temperature"
 msgstr "Температура"
@@ -122,6 +161,15 @@ msgstr "Щоб отримати більш детальну інформацію
 
 msgid "UPS"
 msgstr "ДБЖ"
+
+msgid "UPS Battery"
+msgstr ""
+
+msgid "UPS Information"
+msgstr ""
+
+msgid "UPS device and battery information."
+msgstr ""
 
 msgid "UPS goes on battery"
 msgstr "ДБЖ працює від батареї"

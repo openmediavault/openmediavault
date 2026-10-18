@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Valentin Korenjak <valentin@korenjak.si>, 2025\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -47,6 +47,9 @@ msgstr "Izbriši datoteke, ki obstajajo na strani naslovnika in ne obstajajo na 
 
 msgid "Device"
 msgstr "Naprava"
+
+msgid "Disconnected"
+msgstr ""
 
 msgid "Edit"
 msgstr "Uredi"

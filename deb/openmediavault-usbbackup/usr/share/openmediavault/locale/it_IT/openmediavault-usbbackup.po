@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
 "Language-Team: Italian (http://app.transifex.com/openmediavault/openmediavault/language/it/)\n"
@@ -48,6 +48,9 @@ msgstr "Elimina i file dalla cartella di destinazione se non presenti nella cart
 
 msgid "Device"
 msgstr "Dispositivo"
+
+msgid "Disconnected"
+msgstr ""
 
 msgid "Edit"
 msgstr "Modifica"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-26 11:58+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>, 2025\n"
 "Language-Team: Galician (Spain) (https://app.transifex.com/openmediavault/teams/14254/gl_ES/)\n"
@@ -67,19 +67,10 @@ msgstr ""
 msgid "Config Maps"
 msgstr ""
 
-msgid "Copy to clipboard"
-msgstr ""
-
-msgid "Copy token"
-msgstr ""
-
 msgid "Count"
 msgstr ""
 
 msgid "Created"
-msgstr ""
-
-msgid "Dashboard"
 msgstr ""
 
 msgid "Data"
@@ -101,6 +92,9 @@ msgid "Describe"
 msgstr ""
 
 msgid "Description"
+msgstr ""
+
+msgid "Digest"
 msgstr ""
 
 msgid "Do you really want to restore this snapshot?"
@@ -226,9 +220,6 @@ msgid "Normal"
 msgstr ""
 
 msgid "Object"
-msgstr ""
-
-msgid "Open UI"
 msgstr ""
 
 msgid "PV"
@@ -389,13 +380,13 @@ msgstr ""
 msgid "The manifest to apply."
 msgstr ""
 
+msgid "The names 'web' and 'websecure' are reserved."
+msgstr ""
+
 msgid "The snapshot was created successfully."
 msgstr ""
 
 msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
-msgstr ""
-
-msgid "The token to authenticate to the Kubernetes Dashboard."
 msgstr ""
 
 msgid "Type"

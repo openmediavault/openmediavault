@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-bcache\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:34+0200\n"
 "PO-Revision-Date: 2024-11-20 12:26+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2026\n"
 "Language-Team: Japanese (Japan) (https://app.transifex.com/openmediavault/teams/14254/ja_JP/)\n"
@@ -42,6 +42,12 @@ msgstr "Bcache"
 
 msgid "Bcache Device"
 msgstr "Bcacheデバイス"
+
+msgid "Bcache backing device [%s, %s]"
+msgstr ""
+
+msgid "Bcache cache device [%s, %s]"
+msgstr ""
 
 msgid "Cache Device"
 msgstr "キャッシュデバイス"

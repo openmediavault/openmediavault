@@ -5,18 +5,18 @@
 # 
 # Translators:
 # 王大山, 2024
-# songming <by@songming.me>, 2024
 # kochin <kochinc@outlook.com>, 2026
 # 黃柏諺 <s8321414@gmail.com>, 2026
+# songming <by@songming.me>, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-26 11:58+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2026\n"
+"Last-Translator: songming <by@songming.me>, 2026\n"
 "Language-Team: Chinese (Taiwan) (https://app.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -69,20 +69,11 @@ msgstr "經過壓縮"
 msgid "Config Maps"
 msgstr "設置圖"
 
-msgid "Copy to clipboard"
-msgstr "複製到剪貼板"
-
-msgid "Copy token"
-msgstr "複製權杖"
-
 msgid "Count"
 msgstr "數目"
 
 msgid "Created"
 msgstr "建立於"
-
-msgid "Dashboard"
-msgstr "儀表板"
 
 msgid "Data"
 msgstr "資料"
@@ -104,6 +95,9 @@ msgstr "描述"
 
 msgid "Description"
 msgstr "敘述"
+
+msgid "Digest"
+msgstr "概要"
 
 msgid "Do you really want to restore this snapshot?"
 msgstr "您確定要還原此快照嗎？"
@@ -229,9 +223,6 @@ msgstr "正常"
 
 msgid "Object"
 msgstr "物件"
-
-msgid "Open UI"
-msgstr "開啟使用者介面"
 
 msgid "PV"
 msgstr "PV"
@@ -397,14 +388,14 @@ msgstr "儲存 etcd 隨選快照的位置。"
 msgid "The manifest to apply."
 msgstr "要套用的 manifest。"
 
+msgid "The names 'web' and 'websecure' are reserved."
+msgstr ""
+
 msgid "The snapshot was created successfully."
 msgstr "快照建立成功。"
 
 msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
 msgstr "已成功還原快照 {{ spec.snapshotName }}。"
-
-msgid "The token to authenticate to the Kubernetes Dashboard."
-msgstr "用於向 Kubernetes 儀表板進行身份驗證的權杖。"
 
 msgid "Type"
 msgstr "類型"

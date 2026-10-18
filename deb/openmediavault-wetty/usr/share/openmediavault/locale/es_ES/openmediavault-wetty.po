@@ -4,17 +4,17 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Volker Theile <votdev@gmx.de>, 2022
 # Raul Fernandez Garcia <raulfg3@gmail.com>, 2022
+# Heather Freelig, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wetty\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2022-03-22 21:34+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2022\n"
+"Last-Translator: Heather Freelig, 2026\n"
 "Language-Team: Spanish (Spain) (https://app.transifex.com/openmediavault/teams/14254/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,13 +29,13 @@ msgid "Enabled"
 msgstr "Habilitado"
 
 msgid "Open UI"
-msgstr "Abrir UI"
+msgstr "Abrir interfaz de usuario"
 
 msgid "Port"
 msgstr "Puerto"
 
 msgid "Port to listen on."
-msgstr "Puerto de escucha."
+msgstr "Puerto en el que escuchar."
 
 msgid "The SSL certificate."
 msgstr "El certificado SSL."

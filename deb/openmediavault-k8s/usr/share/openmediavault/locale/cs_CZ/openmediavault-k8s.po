@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-26 11:58+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2025\n"
 "Language-Team: Czech (Czech Republic) (https://app.transifex.com/openmediavault/teams/14254/cs_CZ/)\n"
@@ -67,20 +67,11 @@ msgstr "Komprimováno"
 msgid "Config Maps"
 msgstr ""
 
-msgid "Copy to clipboard"
-msgstr "Kopírovat do schránky"
-
-msgid "Copy token"
-msgstr "Kopírovat token"
-
 msgid "Count"
 msgstr ""
 
 msgid "Created"
 msgstr "Vytvořeno"
-
-msgid "Dashboard"
-msgstr "Přehled"
 
 msgid "Data"
 msgstr "Data"
@@ -102,6 +93,9 @@ msgstr "Popsat"
 
 msgid "Description"
 msgstr "Popis"
+
+msgid "Digest"
+msgstr ""
 
 msgid "Do you really want to restore this snapshot?"
 msgstr "Opravdu chcete tento snímek obnovit?"
@@ -227,9 +221,6 @@ msgstr ""
 
 msgid "Object"
 msgstr ""
-
-msgid "Open UI"
-msgstr "Otevřít uživatelské rozhraní"
 
 msgid "PV"
 msgstr ""
@@ -389,13 +380,13 @@ msgstr ""
 msgid "The manifest to apply."
 msgstr "Použitý manifest."
 
+msgid "The names 'web' and 'websecure' are reserved."
+msgstr ""
+
 msgid "The snapshot was created successfully."
 msgstr ""
 
 msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
-msgstr ""
-
-msgid "The token to authenticate to the Kubernetes Dashboard."
 msgstr ""
 
 msgid "Type"

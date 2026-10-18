@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-26 11:58+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
 "Last-Translator: Dung Ba Minh, 2026\n"
 "Language-Team: Vietnamese (Viet Nam) (https://app.transifex.com/openmediavault/teams/14254/vi_VN/)\n"
@@ -66,20 +66,11 @@ msgstr "Đã nén"
 msgid "Config Maps"
 msgstr "Các bản đồ cấu hình"
 
-msgid "Copy to clipboard"
-msgstr "Sao chép đến bảng nhớ tạm"
-
-msgid "Copy token"
-msgstr "Sao chép token"
-
 msgid "Count"
 msgstr "Đếm"
 
 msgid "Created"
 msgstr "Đã tạo"
-
-msgid "Dashboard"
-msgstr "Bảng điều khiển"
 
 msgid "Data"
 msgstr "Dữ liệu"
@@ -101,6 +92,9 @@ msgstr "Diễn giải "
 
 msgid "Description"
 msgstr "Ghi chú"
+
+msgid "Digest"
+msgstr "Mã định danh nội dung"
 
 msgid "Do you really want to restore this snapshot?"
 msgstr "Bạn có muốn khôi phục bản sao ảnh chụp này không ?"
@@ -228,9 +222,6 @@ msgstr ""
 
 msgid "Object"
 msgstr "Đối tượng"
-
-msgid "Open UI"
-msgstr "Open UI"
 
 msgid "PV"
 msgstr "PV"
@@ -400,14 +391,14 @@ msgstr "Vị trí lưu trữ bản sao lưu tức thời của etcd"
 msgid "The manifest to apply."
 msgstr ""
 
+msgid "The names 'web' and 'websecure' are reserved."
+msgstr ""
+
 msgid "The snapshot was created successfully."
 msgstr "Bản chụp nhanh đã được tạo thành công."
 
 msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
 msgstr ""
-
-msgid "The token to authenticate to the Kubernetes Dashboard."
-msgstr "Mã thông báo để xác thực vào bảng điều khiển của Kubernetes."
 
 msgid "Type"
 msgstr ""

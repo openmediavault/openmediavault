@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-wbprefs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-08 19:29+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2026-03-07 00:03+0000\n"
 "Last-Translator: 杨宇哲, 2026\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/openmediavault/teams/14254/zh_CN/)\n"
@@ -25,6 +25,9 @@ msgstr ""
 
 msgid "Apply"
 msgstr "应用"
+
+msgid "Authentication"
+msgstr ""
 
 msgid "Login"
 msgstr "登录"

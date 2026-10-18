@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>, 2015\n"
 "Language-Team: Korean (Korea) (http://app.transifex.com/openmediavault/openmediavault/language/ko_KR/)\n"
@@ -23,8 +23,26 @@ msgid ""
 "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
 msgstr ""
 
+msgid "Battery charge with the low-battery shutdown threshold marked."
+msgstr ""
+
+msgid "Battery date"
+msgstr ""
+
+msgid "Battery low"
+msgstr ""
+
+msgid "Battery type"
+msgstr ""
+
+msgid "Battery voltage"
+msgstr ""
+
 msgid "Charge"
 msgstr "충전"
+
+msgid "Charge warning"
+msgstr ""
 
 msgid "Comment"
 msgstr "설명"
@@ -47,17 +65,29 @@ msgstr "활성화됨"
 msgid "Identifier"
 msgstr "식별자"
 
+msgid "Input voltage"
+msgstr ""
+
 msgid "Invalid identifier"
 msgstr ""
 
 msgid "Load"
 msgstr "부하"
 
+msgid "Low"
+msgstr ""
+
+msgid "Manufacturer"
+msgstr ""
+
 msgid "Message"
 msgstr "메시지"
 
 msgid "Mode"
 msgstr "모드"
+
+msgid "Model"
+msgstr "모델"
 
 msgid "Netclient"
 msgstr ""
@@ -86,6 +116,12 @@ msgstr "프로그램"
 msgid "Remote monitoring"
 msgstr "원격 감시"
 
+msgid "Runtime"
+msgstr ""
+
+msgid "Runtime low"
+msgstr ""
+
 msgid "Service disabled"
 msgstr "서비스 비활성화됨"
 
@@ -97,6 +133,9 @@ msgstr "종료 타이머"
 
 msgid "Standalone"
 msgstr ""
+
+msgid "Status"
+msgstr "상태"
 
 msgid "Temperature"
 msgstr "온도"
@@ -123,6 +162,15 @@ msgstr "어떻게 UPS를 설정할 것인지에 대해 더 많은 정보가 필�
 
 msgid "UPS"
 msgstr "UPS"
+
+msgid "UPS Battery"
+msgstr ""
+
+msgid "UPS Information"
+msgstr ""
+
+msgid "UPS device and battery information."
+msgstr ""
 
 msgid "UPS goes on battery"
 msgstr "UPS 배터리가 동작 중입니다."

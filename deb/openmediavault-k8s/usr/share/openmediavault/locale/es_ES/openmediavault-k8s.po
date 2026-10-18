@@ -4,17 +4,17 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2024
 # Heather Freelig, 2026
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2026
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-k8s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-26 11:58+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
-"Last-Translator: Heather Freelig, 2026\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2026\n"
 "Language-Team: Spanish (Spain) (https://app.transifex.com/openmediavault/teams/14254/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -67,20 +67,11 @@ msgstr "Comprimido"
 msgid "Config Maps"
 msgstr "Mapas de configuración"
 
-msgid "Copy to clipboard"
-msgstr "Copiar al portapapeles"
-
-msgid "Copy token"
-msgstr "Copiar token"
-
 msgid "Count"
 msgstr "Contador"
 
 msgid "Created"
 msgstr "Creado"
-
-msgid "Dashboard"
-msgstr "Tablero"
 
 msgid "Data"
 msgstr "Datos"
@@ -102,6 +93,9 @@ msgstr "Describir"
 
 msgid "Description"
 msgstr "Descripción"
+
+msgid "Digest"
+msgstr "Digest"
 
 msgid "Do you really want to restore this snapshot?"
 msgstr "¿Realmente desea restaurar esta instantánea?"
@@ -230,9 +224,6 @@ msgstr "Normal"
 
 msgid "Object"
 msgstr "Objeto"
-
-msgid "Open UI"
-msgstr "Abrir interfaz de usuario"
 
 msgid "PV"
 msgstr "PV"
@@ -407,15 +398,15 @@ msgstr "La ubicación donde almacenar instantáneas bajo demanda de etcd."
 msgid "The manifest to apply."
 msgstr "El manifiesto a aplicar."
 
+msgid "The names 'web' and 'websecure' are reserved."
+msgstr ""
+
 msgid "The snapshot was created successfully."
 msgstr "La instantánea se creó correctamente."
 
 msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
 msgstr ""
 "La instantánea {{ spec.snapshotName }} se ha restaurado correctamente."
-
-msgid "The token to authenticate to the Kubernetes Dashboard."
-msgstr "El token para autenticarse en el Tablero de Kubernetes."
 
 msgid "Type"
 msgstr "Tipo"

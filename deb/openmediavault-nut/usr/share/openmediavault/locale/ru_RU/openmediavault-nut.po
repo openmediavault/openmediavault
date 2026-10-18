@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2017\n"
 "Language-Team: Russian (Russia) (http://app.transifex.com/openmediavault/openmediavault/language/ru_RU/)\n"
@@ -25,8 +25,26 @@ msgid ""
 "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
 msgstr ""
 
+msgid "Battery charge with the low-battery shutdown threshold marked."
+msgstr ""
+
+msgid "Battery date"
+msgstr ""
+
+msgid "Battery low"
+msgstr ""
+
+msgid "Battery type"
+msgstr ""
+
+msgid "Battery voltage"
+msgstr ""
+
 msgid "Charge"
 msgstr "Заряд"
+
+msgid "Charge warning"
+msgstr ""
 
 msgid "Comment"
 msgstr "Коментарий"
@@ -49,17 +67,29 @@ msgstr "Включено"
 msgid "Identifier"
 msgstr "Идентификатор"
 
+msgid "Input voltage"
+msgstr ""
+
 msgid "Invalid identifier"
 msgstr ""
 
 msgid "Load"
 msgstr "Загрузка"
 
+msgid "Low"
+msgstr ""
+
+msgid "Manufacturer"
+msgstr ""
+
 msgid "Message"
 msgstr "сообщение"
 
 msgid "Mode"
 msgstr "Режим"
+
+msgid "Model"
+msgstr "Модель"
 
 msgid "Netclient"
 msgstr ""
@@ -88,6 +118,12 @@ msgstr "Программа"
 msgid "Remote monitoring"
 msgstr "Удаленный мониторинг"
 
+msgid "Runtime"
+msgstr ""
+
+msgid "Runtime low"
+msgstr ""
+
 msgid "Service disabled"
 msgstr "Служба отключена"
 
@@ -99,6 +135,9 @@ msgstr "Таймер выключения"
 
 msgid "Standalone"
 msgstr ""
+
+msgid "Status"
+msgstr "Статус"
 
 msgid "Temperature"
 msgstr "Температура"
@@ -125,6 +164,15 @@ msgstr "Чтобы получить более подробную информа
 
 msgid "UPS"
 msgstr "ИБП"
+
+msgid "UPS Battery"
+msgstr ""
+
+msgid "UPS Information"
+msgstr ""
+
+msgid "UPS device and battery information."
+msgstr ""
 
 msgid "UPS goes on battery"
 msgstr "ИБП переходит на батареи"

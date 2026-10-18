@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: Dung Ba Minh, 2026\n"
 "Language-Team: Vietnamese (Viet Nam) (http://app.transifex.com/openmediavault/openmediavault/language/vi_VN/)\n"
@@ -22,8 +22,26 @@ msgid ""
 "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
 msgstr "'Standalone' cho UPS cục bộ, 'Netclient' cho bộ lưu điện từ xa trên một máy chủ NUT."
 
+msgid "Battery charge with the low-battery shutdown threshold marked."
+msgstr ""
+
+msgid "Battery date"
+msgstr ""
+
+msgid "Battery low"
+msgstr ""
+
+msgid "Battery type"
+msgstr ""
+
+msgid "Battery voltage"
+msgstr ""
+
 msgid "Charge"
 msgstr "Mức sạc"
+
+msgid "Charge warning"
+msgstr ""
 
 msgid "Comment"
 msgstr "Bình luận"
@@ -46,17 +64,29 @@ msgstr "Đã kích hoạt"
 msgid "Identifier"
 msgstr "Mã định danh"
 
+msgid "Input voltage"
+msgstr ""
+
 msgid "Invalid identifier"
 msgstr "Mã định danh không hợp lệ"
 
 msgid "Load"
 msgstr "Mức tải"
 
+msgid "Low"
+msgstr ""
+
+msgid "Manufacturer"
+msgstr ""
+
 msgid "Message"
 msgstr "Tin nhắn"
 
 msgid "Mode"
 msgstr "Chế độ"
+
+msgid "Model"
+msgstr "Mô hình"
 
 msgid "Netclient"
 msgstr ""
@@ -85,6 +115,12 @@ msgstr "Chương trình"
 msgid "Remote monitoring"
 msgstr "Giám sát từ xa"
 
+msgid "Runtime"
+msgstr ""
+
+msgid "Runtime low"
+msgstr ""
+
 msgid "Service disabled"
 msgstr "Dịch vụ đã bị vô hiệu hóa"
 
@@ -96,6 +132,9 @@ msgstr "Thời gian tắt nguồn"
 
 msgid "Standalone"
 msgstr ""
+
+msgid "Status"
+msgstr "Trạng thái"
 
 msgid "Temperature"
 msgstr "Nhiệt độ"
@@ -122,6 +161,15 @@ msgstr ""
 
 msgid "UPS"
 msgstr "Bộ lưu điện"
+
+msgid "UPS Battery"
+msgstr ""
+
+msgid "UPS Information"
+msgstr ""
+
+msgid "UPS device and battery information."
+msgstr ""
 
 msgid "UPS goes on battery"
 msgstr "Bộ lưu điện chuyển sang chế độ dùng pin"

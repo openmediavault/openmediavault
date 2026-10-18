@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014,2020-2021\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -22,8 +22,26 @@ msgid ""
 "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
 msgstr "ローカルUPSの場合は 'Standalone'、NUTサーバー上のリモートUPSの場合は 'Netclient'。"
 
+msgid "Battery charge with the low-battery shutdown threshold marked."
+msgstr ""
+
+msgid "Battery date"
+msgstr ""
+
+msgid "Battery low"
+msgstr ""
+
+msgid "Battery type"
+msgstr ""
+
+msgid "Battery voltage"
+msgstr ""
+
 msgid "Charge"
 msgstr "充電"
+
+msgid "Charge warning"
+msgstr ""
 
 msgid "Comment"
 msgstr "コメント"
@@ -46,17 +64,29 @@ msgstr "有効"
 msgid "Identifier"
 msgstr "識別子"
 
+msgid "Input voltage"
+msgstr ""
+
 msgid "Invalid identifier"
 msgstr "無効な識別子"
 
 msgid "Load"
 msgstr "ロード"
 
+msgid "Low"
+msgstr ""
+
+msgid "Manufacturer"
+msgstr ""
+
 msgid "Message"
 msgstr "メッセージ"
 
 msgid "Mode"
 msgstr "モード"
+
+msgid "Model"
+msgstr "モデル"
 
 msgid "Netclient"
 msgstr "Netclient"
@@ -85,6 +115,12 @@ msgstr "プログラム"
 msgid "Remote monitoring"
 msgstr "リモート監視"
 
+msgid "Runtime"
+msgstr ""
+
+msgid "Runtime low"
+msgstr ""
+
 msgid "Service disabled"
 msgstr "サービスは無効"
 
@@ -96,6 +132,9 @@ msgstr "シャットダウンタイマー"
 
 msgid "Standalone"
 msgstr "Standalone"
+
+msgid "Status"
+msgstr "ステータス"
 
 msgid "Temperature"
 msgstr "温度"
@@ -122,6 +161,15 @@ msgstr "詳細や、あなたのUPSについての設定方法についてはNet
 
 msgid "UPS"
 msgstr "UPS"
+
+msgid "UPS Battery"
+msgstr ""
+
+msgid "UPS Information"
+msgstr ""
+
+msgid "UPS device and battery information."
+msgstr ""
 
 msgid "UPS goes on battery"
 msgstr "UPSがバッテリモードへ移行した時"

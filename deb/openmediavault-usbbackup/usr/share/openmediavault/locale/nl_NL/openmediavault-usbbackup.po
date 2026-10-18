@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
 "Last-Translator: Stephan Paternotte <stephan@paternottes.net>, 2025-2026\n"
 "Language-Team: Dutch (Netherlands) (http://app.transifex.com/openmediavault/openmediavault/language/nl_NL/)\n"
@@ -49,6 +49,9 @@ msgstr "Bestanden die niet bestaan bij de verzender verwijderen bij de ontvanger
 
 msgid "Device"
 msgstr "Apparaat"
+
+msgid "Disconnected"
+msgstr ""
 
 msgid "Edit"
 msgstr "Bewerken"

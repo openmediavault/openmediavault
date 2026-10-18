@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>, 2014\n"
 "Language-Team: Portuguese (Portugal) (http://app.transifex.com/openmediavault/openmediavault/language/pt_PT/)\n"
@@ -23,8 +23,26 @@ msgid ""
 "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
 msgstr ""
 
+msgid "Battery charge with the low-battery shutdown threshold marked."
+msgstr ""
+
+msgid "Battery date"
+msgstr ""
+
+msgid "Battery low"
+msgstr ""
+
+msgid "Battery type"
+msgstr ""
+
+msgid "Battery voltage"
+msgstr ""
+
 msgid "Charge"
 msgstr "Carga"
+
+msgid "Charge warning"
+msgstr ""
 
 msgid "Comment"
 msgstr "Comentário"
@@ -47,17 +65,29 @@ msgstr "Ativar"
 msgid "Identifier"
 msgstr "Identificador"
 
+msgid "Input voltage"
+msgstr ""
+
 msgid "Invalid identifier"
 msgstr ""
 
 msgid "Load"
 msgstr "Carregar"
 
+msgid "Low"
+msgstr ""
+
+msgid "Manufacturer"
+msgstr ""
+
 msgid "Message"
 msgstr "Mensagem"
 
 msgid "Mode"
 msgstr "Modo"
+
+msgid "Model"
+msgstr "Modelo"
 
 msgid "Netclient"
 msgstr ""
@@ -86,6 +116,12 @@ msgstr "Programa"
 msgid "Remote monitoring"
 msgstr "Monitorização remota"
 
+msgid "Runtime"
+msgstr ""
+
+msgid "Runtime low"
+msgstr ""
+
 msgid "Service disabled"
 msgstr "Serviço desativo"
 
@@ -97,6 +133,9 @@ msgstr "Encerramento temporizado"
 
 msgid "Standalone"
 msgstr ""
+
+msgid "Status"
+msgstr "Estado"
 
 msgid "Temperature"
 msgstr "Temperatura"
@@ -123,6 +162,15 @@ msgstr "Para obter mais informações sobre a configuração das UPS por favor v
 
 msgid "UPS"
 msgstr "UPS"
+
+msgid "UPS Battery"
+msgstr ""
+
+msgid "UPS Information"
+msgstr ""
+
+msgid "UPS device and battery information."
+msgstr ""
 
 msgid "UPS goes on battery"
 msgstr "UPS usa a carga das baterias"

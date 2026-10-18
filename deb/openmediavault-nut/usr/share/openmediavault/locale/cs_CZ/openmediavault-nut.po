@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
 "Last-Translator: Marek Pavelka, 2025\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -23,8 +23,26 @@ msgid ""
 "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
 msgstr "„Samostatné“ pro místní UPS, „Síťový klient“ pro vzdálený UPS na serveru NUT."
 
+msgid "Battery charge with the low-battery shutdown threshold marked."
+msgstr ""
+
+msgid "Battery date"
+msgstr ""
+
+msgid "Battery low"
+msgstr ""
+
+msgid "Battery type"
+msgstr ""
+
+msgid "Battery voltage"
+msgstr ""
+
 msgid "Charge"
 msgstr "Nabití"
+
+msgid "Charge warning"
+msgstr ""
 
 msgid "Comment"
 msgstr "Komentář"
@@ -47,17 +65,29 @@ msgstr "Povoleno"
 msgid "Identifier"
 msgstr "Identifikátor"
 
+msgid "Input voltage"
+msgstr ""
+
 msgid "Invalid identifier"
 msgstr "Neplatný identifikátor"
 
 msgid "Load"
 msgstr "Zátěž"
 
+msgid "Low"
+msgstr ""
+
+msgid "Manufacturer"
+msgstr ""
+
 msgid "Message"
 msgstr "Zpráva"
 
 msgid "Mode"
 msgstr "Režim"
+
+msgid "Model"
+msgstr "Model"
 
 msgid "Netclient"
 msgstr "Síťový klient"
@@ -86,6 +116,12 @@ msgstr "Program"
 msgid "Remote monitoring"
 msgstr "Vzdálené monitorování"
 
+msgid "Runtime"
+msgstr ""
+
+msgid "Runtime low"
+msgstr ""
+
 msgid "Service disabled"
 msgstr "Služba zakázána"
 
@@ -97,6 +133,9 @@ msgstr "Časovač vypnutí"
 
 msgid "Standalone"
 msgstr "Samostatné"
+
+msgid "Status"
+msgstr "Stav"
 
 msgid "Temperature"
 msgstr "Teplota"
@@ -123,6 +162,15 @@ msgstr "Další informace o konfiguraci UPS naleznete v <a href='http://www.netw
 
 msgid "UPS"
 msgstr "UPS"
+
+msgid "UPS Battery"
+msgstr ""
+
+msgid "UPS Information"
+msgstr ""
+
+msgid "UPS device and battery information."
+msgstr ""
 
 msgid "UPS goes on battery"
 msgstr "UPS jede na baterii"

@@ -4,7 +4,6 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Volker Theile <votdev@gmx.de>, 2022
 # XoN <gigaxon@gmail.com>, 2022
 # Raul Fernandez Garcia <raulfg3@gmail.com>, 2025
 # Heather Freelig, 2026
@@ -14,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-onedrive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
 "Last-Translator: Heather Freelig, 2026\n"
 "Language-Team: Spanish (Spain) (https://app.transifex.com/openmediavault/teams/14254/es_ES/)\n"
@@ -73,27 +72,26 @@ msgid ""
 "- Replicate the local state to OneDrive, by only uploading local changes to "
 "OneDrive. Do not download changes from OneDrive.</li></ul>"
 msgstr ""
-"<ul><li>Completo: replica los cambios desde y hacia OneDrive</li>. <li>Solo "
-"descarga: replica el estado en línea de OneDrive localmente, solo "
-"descargando los cambios de OneDrive. No cargue los cambios locales en "
-"OneDrive</li>. <li>Cargar solo: replique el estado local en OneDrive, "
-"cargando solo los cambios locales en OneDrive. No descargue cambios de "
-"OneDrive</li></ul>."
+"<ul><li>Completo: replicar los cambios desde y hacia OneDrive.</li><li>Solo "
+"descarga: replicar el estado en línea de OneDrive localmente, descargando "
+"únicamente los cambios desde OneDrive.</li><li>Solo subida: replicar el "
+"estado local en OneDrive, subiendo únicamente los cambios locales a "
+"OneDrive. No descargar los cambios desde OneDrive.</li></ul>"
 
 msgid ""
 "After enabling and deploying this service the first time please run the "
 "command <em>omv-onedrive-auth</em> as <em>root</em> user in the CLI to "
 "authenticate the application in Microsoft OneDrive."
 msgstr ""
-"Después de habilitar e implementar este servicio por primera vez, ejecute el"
-" comando <em>omv-onedrive-auth</em> como usuario <em>root</em> en la CLI "
-"para autenticar la aplicación en Microsoft OneDrive."
+"Después de habilitar e implementar este servicio por primera vez, se debe "
+"ejecutar el comando <em>omv-onedrive-auth</em> como usuario <em>root</em> en"
+" la CLI para autenticar la aplicación en Microsoft OneDrive."
 
 msgid "Clean up local files"
 msgstr "Limpiar archivos locales"
 
 msgid "Clean up local files that have been removed online."
-msgstr "Limpiar los archivos locales que se hayan eliminado en la nube."
+msgstr "Limpiar los archivos locales que se hayan eliminado en línea."
 
 msgid "Date & Time"
 msgstr "Fecha y hora"
@@ -102,7 +100,7 @@ msgid "Disabled"
 msgstr "Deshabilitado"
 
 msgid "Do not delete local file deletions from OneDrive."
-msgstr "No borrar archivos locales cuando se borre en OneDrive."
+msgstr "No eliminar en OneDrive los archivos borrados localmente."
 
 msgid "Download only"
 msgstr "Descargar únicamente"
@@ -114,7 +112,7 @@ msgid "Extra options"
 msgstr "Opciones adicionales"
 
 msgid "Full"
-msgstr "Lleno"
+msgstr "Completo"
 
 msgid "Local first"
 msgstr "Primero local"
@@ -126,30 +124,31 @@ msgid "Monitor interval"
 msgstr "Intervalo de monitorización"
 
 msgid "No remote delete"
-msgstr "No borrar  remotos"
+msgstr "Sin borrado remoto"
 
 msgid "OneDrive"
 msgstr "OneDrive"
 
 msgid "Rate limit"
-msgstr "Limite de descarga"
+msgstr "Límite de velocidad"
 
 msgid "Replicate local state first, before downloading changes from OneDrive."
 msgstr ""
-"Primero replique el estado local, antes de descargar los cambios de "
+"Replicar primero el estado local antes de descargar los cambios desde "
 "OneDrive."
 
 msgid "Replication mode"
 msgstr "Modo de replicación"
 
 msgid "Shared folder"
-msgstr "Carpeta Compartida"
+msgstr "Carpeta compartida"
 
 msgid "Skip dot files and folders from syncing."
-msgstr "Evite la sincronización de archivos y carpetas con solo puntos."
+msgstr ""
+"Omitir la sincronización de archivos y carpetas que empiezan por punto."
 
 msgid "Skip dotfiles"
-msgstr "Evite archivos de puntos."
+msgstr "Omitir archivos que empiezan por punto"
 
 msgid "The location to which the files are synchronised."
 msgstr "La ubicación en la que se sincronizan los archivos."
@@ -174,8 +173,9 @@ msgid ""
 "Use the <em>omv-onedrive</em> command in the CLI to perform additional "
 "actions according to the documentation of the OneDrive Linux client."
 msgstr ""
-"Utilice el comando <em>omv-onedrive</em> en la CLI para realizar acciones "
-"adicionales de acuerdo con la documentación del cliente OneDrive Linux."
+"Utilizar el comando <em>omv-onedrive</em> en la CLI para realizar acciones "
+"adicionales de acuerdo con la documentación del cliente de OneDrive para "
+"Linux."
 
 msgid "User"
-msgstr "User"
+msgstr "Usuario"
