@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-nut\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,25 @@ msgstr ""
 msgid "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
 msgstr ""
 
+msgid "Battery charge with the low-battery shutdown threshold marked."
+msgstr ""
+
+msgid "Battery date"
+msgstr ""
+
+msgid "Battery low"
+msgstr ""
+
+msgid "Battery type"
+msgstr ""
+
+msgid "Battery voltage"
+msgstr ""
+
 msgid "Charge"
+msgstr ""
+
+msgid "Charge warning"
 msgstr ""
 
 msgid "Comment"
@@ -44,16 +62,28 @@ msgstr ""
 msgid "Identifier"
 msgstr ""
 
+msgid "Input voltage"
+msgstr ""
+
 msgid "Invalid identifier"
 msgstr ""
 
 msgid "Load"
 msgstr ""
 
+msgid "Low"
+msgstr ""
+
+msgid "Manufacturer"
+msgstr ""
+
 msgid "Message"
 msgstr ""
 
 msgid "Mode"
+msgstr ""
+
+msgid "Model"
 msgstr ""
 
 msgid "Netclient"
@@ -83,6 +113,12 @@ msgstr ""
 msgid "Remote monitoring"
 msgstr ""
 
+msgid "Runtime"
+msgstr ""
+
+msgid "Runtime low"
+msgstr ""
+
 msgid "Service disabled"
 msgstr ""
 
@@ -93,6 +129,9 @@ msgid "Shutdown timer"
 msgstr ""
 
 msgid "Standalone"
+msgstr ""
+
+msgid "Status"
 msgstr ""
 
 msgid "Temperature"
@@ -111,6 +150,15 @@ msgid "To get more information how to configure your UPS please check the Networ
 msgstr ""
 
 msgid "UPS"
+msgstr ""
+
+msgid "UPS Battery"
+msgstr ""
+
+msgid "UPS Information"
+msgstr ""
+
+msgid "UPS device and battery information."
 msgstr ""
 
 msgid "UPS goes on battery"
