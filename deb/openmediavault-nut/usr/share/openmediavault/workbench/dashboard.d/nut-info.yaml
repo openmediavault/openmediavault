@@ -12,7 +12,7 @@ data:
   grid:
     class: "omv-grid-cols-3"
     item:
-      title: "{{ key }}"
+      title: "{{ key | translate }}"
       content: "{{ value }}"
       contentClass: "omv-text-wrap"
     store:
