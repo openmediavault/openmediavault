@@ -34,4 +34,29 @@ describe('DashboardWidgetChartComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should draw rounded doughnut segments without border', () => {
+    const dataset: Record<string, any> = component.chart.config.data.datasets[0];
+    expect(dataset.borderRadius).toBe(12);
+    expect(dataset.spacing).toBe(2);
+  });
+
+  it('should draw rounded gauge arcs without border', () => {
+    fixture = TestBed.createComponent(DashboardWidgetChartComponent);
+    component = fixture.componentInstance;
+    component.config = {
+      id: 'c2eecbb8-f40f-4110-99f1-4cb037edce68',
+      type: 'chart',
+      title: 'foo',
+      chart: {
+        type: 'gauge',
+        dataConfig: [{ label: 'CPU', prop: 'cpu', backgroundColor: '#4cd964' }]
+      }
+    };
+    fixture.detectChanges();
+    const dataset: Record<string, any> = component.chart.config.data.datasets[0];
+    expect(dataset.borderRadius).toBe(12);
+    expect(dataset.backgroundColor).toEqual(['#4cd964', '#0000001a']);
+    expect((component.chart.config.options as any).cutout).toBe('75%');
+  });
 });
