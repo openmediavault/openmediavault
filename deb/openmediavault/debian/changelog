@@ -1,3 +1,9 @@
+openmediavault (8.5.13-1) stable; urgency=medium
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 20 Oct 2026 03:01:50 +0200
+
 openmediavault (8.5.12-1) stable; urgency=medium
 
   * Fix rsyslog rate limiting regression.
