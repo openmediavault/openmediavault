@@ -15,7 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import {
   ArcElement,
   Chart,
@@ -27,13 +27,16 @@ import {
 } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import * as _ from 'lodash';
+import { Subscription } from 'rxjs';
 
 import {
   ChartDataConfig,
   DashboardWidgetConfig
 } from '~/app/core/components/dashboard/models/dashboard-widget-config.model';
+import { Unsubscribe } from '~/app/decorators';
 import { renderTemplate } from '~/app/functions.helper';
 import { translate } from '~/app/i18n.helper';
+import { PrefersColorSchemeService } from '~/app/shared/services/prefers-color-scheme.service';
 
 Chart.register(ArcElement, DoughnutController, Tooltip);
 
@@ -42,23 +45,35 @@ Chart.register(ArcElement, DoughnutController, Tooltip);
   templateUrl: './dashboard-widget-chart.component.html',
   styleUrls: ['./dashboard-widget-chart.component.scss']
 })
-export class DashboardWidgetChartComponent implements OnInit {
+export class DashboardWidgetChartComponent implements OnInit, OnDestroy {
   @ViewChild('chartCtx', { static: true })
   chartCtx: ElementRef;
 
   @Input()
   config: DashboardWidgetConfig;
 
+  @Unsubscribe()
+  private subscriptions = new Subscription();
+
   public chart?: Chart;
   // The chart width in percent.
   public chartWidth?: 25 | 50 | 75 | 100;
   public data: Record<string, any>;
 
-  constructor() {}
+  constructor(private prefersColorSchemeService: PrefersColorSchemeService) {}
 
   ngOnInit(): void {
     this.sanitizeConfig();
     this.chart = this.createChart();
+    this.subscriptions.add(
+      this.prefersColorSchemeService.change$.subscribe(() => {
+        this.refreshDatasets();
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.chart?.destroy();
   }
 
   public labelFormatterByProp(data, prop, context) {
@@ -183,9 +198,11 @@ export class DashboardWidgetChartComponent implements OnInit {
   protected initDatasets(): Array<ChartDataset> {
     const dataSets: Array<ChartDataset> = [];
     const backgroundColor: Array<Color> = _.map(this.config.chart.dataConfig, 'backgroundColor');
-    // Rounded arcs separated by a small gap instead of a border, which
-    // is drawn white in the dark theme.
-    const arcStyle = { borderRadius: 20, borderWidth: 0, spacing: 2 };
+    const arcStyle = {
+      borderColor: this.prefersColorSchemeService.current === 'dark' ? '#303e48' : 'white',
+      borderRadius: 12,
+      spacing: 2
+    };
     switch (this.config.chart.type) {
       case 'doughnut':
       case 'advanced-doughnut':
@@ -199,7 +216,7 @@ export class DashboardWidgetChartComponent implements OnInit {
       case 'gauge':
       case 'advanced-gauge':
         // Set the fill color, it must be visible in the light and dark theme.
-        backgroundColor.push('#8080804d');
+        backgroundColor.push('#0000001a');
         // This type of chart can have multiple datasets.
         _.forEach(this.config.chart.dataConfig, (dataConfig) => {
           dataSets.push({
@@ -230,14 +247,14 @@ export class DashboardWidgetChartComponent implements OnInit {
         break;
       case 'advanced-doughnut':
         this.chartWidth = 50;
-        cutout = '82%';
+        cutout = '75%';
         displayLegend = false;
         displayDataLabels = false;
         break;
       case 'gauge':
       case 'advanced-gauge':
         this.chartWidth = this.config.chart.type === 'advanced-gauge' ? 50 : 100;
-        cutout = `${90 - this.config.chart.dataConfig.length * 5}%`;
+        cutout = `${80 - this.config.chart.dataConfig.length * 5}%`;
         displayLegend = _.defaultTo(this.config.chart.legend.display, false);
         displayDataLabels = false;
         circumference = 270;
@@ -283,6 +300,17 @@ export class DashboardWidgetChartComponent implements OnInit {
         }
       }
     });
+  }
+
+  protected refreshDatasets(): void {
+    if (this.chart) {
+      this.chart.data.datasets = this.initDatasets();
+      if (this.data) {
+        this.updateChart();
+      } else {
+        this.chart.update();
+      }
+    }
   }
 
   protected updateChart() {

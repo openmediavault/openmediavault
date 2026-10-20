@@ -37,8 +37,7 @@ describe('DashboardWidgetChartComponent', () => {
 
   it('should draw rounded doughnut segments without border', () => {
     const dataset: Record<string, any> = component.chart.config.data.datasets[0];
-    expect(dataset.borderRadius).toBe(20);
-    expect(dataset.borderWidth).toBe(0);
+    expect(dataset.borderRadius).toBe(12);
     expect(dataset.spacing).toBe(2);
   });
 
@@ -56,9 +55,8 @@ describe('DashboardWidgetChartComponent', () => {
     };
     fixture.detectChanges();
     const dataset: Record<string, any> = component.chart.config.data.datasets[0];
-    expect(dataset.borderRadius).toBe(20);
-    expect(dataset.borderWidth).toBe(0);
-    expect(dataset.backgroundColor).toEqual(['#4cd964', '#8080804d']);
-    expect((component.chart.config.options as any).cutout).toBe('85%');
+    expect(dataset.borderRadius).toBe(12);
+    expect(dataset.backgroundColor).toEqual(['#4cd964', '#0000001a']);
+    expect((component.chart.config.options as any).cutout).toBe('75%');
   });
 });
