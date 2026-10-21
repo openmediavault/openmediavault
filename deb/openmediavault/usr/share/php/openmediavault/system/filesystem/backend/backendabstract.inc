@@ -136,7 +136,19 @@ abstract class BackendAbstract
         $cmdArgs[] = escapeshellarg($id);
         $cmd = new \OMV\System\Process("blkid", $cmdArgs);
         $cmd->setRedirect2to1();
-        $cmd->execute($output);
+        $cmd->setQuiet(true);
+        // Bound the probe time: on a disk that does not answer the probe
+        // would block the caller indefinitely.
+        $cmd->setTimeout(30);
+        $cmd->execute($output, $exitStatus);
+        if (0 !== $exitStatus) {
+            if (\OMV\System\Process::isTimeoutExitStatus($exitStatus)) {
+                // The probe timed out, treat it like an unreadable device,
+                // i.e. no file system detected.
+                return false;
+            }
+            throw new \OMV\ExecException($cmd, $output, $exitStatus);
+        }
         if (empty($output)) {
             return false;
         }

@@ -82,6 +82,68 @@ class Filesystem extends \OMV\System\BlockDevice implements FilesystemInterface,
      * @return void
      * @throw \OMV\ExecException
      */
+    /**
+     * Replace the device name in a cached probe result with the current one.
+     * The kernel device name is not stable, so a result that was cached
+     * before a rename would carry the old name.
+     * @param array $output The cached output of the probe.
+     * @param string $deviceFile The device file that was probed.
+     * @return array The output with the current device name.
+     */
+    private function refreshProbeDeviceName(array $output, string $deviceFile): array
+    {
+        foreach ($output as $key => $line) {
+            if (preg_match("/^(\S+):/", $line, $matches)) {
+                $output[$key] = preg_replace(
+                    "/^\S+:/",
+                    $deviceFile . ":",
+                    $line
+                );
+                break;
+            }
+        }
+        return $output;
+    }
+
+    /**
+     * Probe a device for its file system information.
+     * @param string $deviceFile The device file to probe.
+     * @return array The output of the 'blkid' command.
+     * @throw \OMV\Exception If the probe timed out.
+     * @throw \OMV\ExecException If the probe failed.
+     */
+    private function probeFileSystem(string $deviceFile): array
+    {
+        $cmdArgs = [];
+        $cmdArgs[] = "-p";
+        $cmdArgs[] = "-o full";
+        $cmdArgs[] = escapeshellarg($deviceFile);
+        $cmd = new \OMV\System\Process("blkid", $cmdArgs);
+        $cmd->setRedirect2to1();
+        $cmd->setRequireOutput();
+        $cmd->setQuiet(true);
+        // Bound the probe time: on a disk that does not answer the probe
+        // would block the caller indefinitely.
+        $cmd->setTimeout(\OMV\Environment::getInteger(
+            "OMV_BLKID_SCAN_TIMEOUT",
+            30
+        ));
+        $output = [];
+        $exitStatus = 0;
+        $cmd->execute($output, $exitStatus);
+        if (\OMV\System\Process::isTimeoutExitStatus($exitStatus)) {
+            // The probe timed out, treat it like an unreadable device.
+            throw new \OMV\Exception(
+                "Failed to get the file system information for '%s' (timeout).",
+                $deviceFile
+            );
+        }
+        if (0 !== $exitStatus) {
+            throw new \OMV\ExecException($cmd, $output, $exitStatus);
+        }
+        return $output;
+    }
+
     protected function getData()
     {
         if (false !== $this->isCached()) {
@@ -117,15 +179,71 @@ class Filesystem extends \OMV\System\BlockDevice implements FilesystemInterface,
             $this->deviceFile = realpath($this->deviceFile);
         }
 
-        // Get the file system information.
-        $cmdArgs = [];
-        $cmdArgs[] = "-p";
-        $cmdArgs[] = "-o full";
-        $cmdArgs[] = escapeshellarg($this->deviceFile);
-        $cmd = new \OMV\System\Process("blkid", $cmdArgs);
-        $cmd->setRedirect2to1();
-        $cmd->setRequireOutput();
-        $cmd->execute($output);
+        // Get the file system information. The probe of a device that does
+        // not answer blocks the caller in uninterruptible disk wait, so the
+        // result is cached per device and only one probe per device runs at
+        // a time.
+        // The cache key must be stable: the kernel device name changes
+        // with the enumeration order. The file system UUID is what the
+        // probe returns, so it cannot be the key of the probe that
+        // discovers it, and using it would give the same device two cache
+        // entries depending on how the object was created. The stable
+        // '/dev/disk/by-id' or '/dev/disk/by-uuid' path of the device is
+        // used instead: one entry per device, no matter how the object
+        // was constructed.
+        $cacheKey = "probe:" . \OMV\System\BlkidCache::getStableDeviceId(
+            $this->deviceFile
+        );
+        $cached = \OMV\System\BlkidCache::get($cacheKey);
+        if (null !== $cached && \OMV\System\BlkidCache::isFresh($cached)) {
+            $output = $this->refreshProbeDeviceName(
+                $cached['data'],
+                $this->deviceFile
+            );
+        } else {
+            $lock = \OMV\System\BlkidCache::tryLock($cacheKey);
+            if (null === $lock) {
+                // The cache is not usable at all, probe right away.
+                $output = $this->probeFileSystem($this->deviceFile);
+            } elseif (false !== $lock) {
+                try {
+                    // Another probe may have finished while we were waiting
+                    // for the lock, so check the cache once more.
+                    $cached = \OMV\System\BlkidCache::get($cacheKey);
+                    if (null !== $cached && \OMV\System\BlkidCache::isFresh($cached)) {
+                        $output = $cached['data'];
+                    } else {
+                        $output = $this->probeFileSystem($this->deviceFile);
+                        \OMV\System\BlkidCache::put($cacheKey, $output);
+                    }
+                } finally {
+                    \OMV\System\BlkidCache::releaseLock($lock);
+                }
+            } else {
+                // Another probe of this device is running. Wait for its
+                // result instead of starting a second one. The wait has to
+                // outlast the probe (including its timeout), otherwise the
+                // waiters would start their own probes and the pileup
+                // would return.
+                $wait = \OMV\Environment::getInteger(
+                    "OMV_BLKID_SCAN_TIMEOUT",
+                    30
+                ) + 5;
+                for ($i = 0; $i < $wait * 10; ++$i) {
+                    usleep(100000);
+                    $cached = \OMV\System\BlkidCache::get($cacheKey);
+                    if (null !== $cached) {
+                        $output = $cached['data'];
+                        break;
+                    }
+                }
+                if (!isset($output) || empty($output)) {
+                    // No result yet: probe it ourselves rather than report
+                    // no file system at all.
+                    $output = $this->probeFileSystem($this->deviceFile);
+                }
+            }
+        }
 
         // Parse command output:
         // /dev/sda1: UUID="3d9be906-d592-449b-93c4-3dd8888801b2" TYPE="ext3"
@@ -872,6 +990,9 @@ class Filesystem extends \OMV\System\BlockDevice implements FilesystemInterface,
         $cmdArgs[] = escapeshellarg($deviceFile);
         $cmd = new \OMV\System\Process("blkid", $cmdArgs);
         $cmd->setQuiet(true);
+        // Note: a timeout surfaces as exit status 124/137, i.e. "no file
+        // system detected", same as for an unreadable device.
+        $cmd->setTimeout(30);
         $cmd->execute($output, $exitStatus);
         if ($exitStatus !== 0) {
             return false;

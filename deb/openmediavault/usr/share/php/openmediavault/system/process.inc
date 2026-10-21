@@ -30,6 +30,22 @@ class Process
 {
     use \OMV\DebugTrait;
 
+    /**
+     * Exit status of a command that was aborted because it hit the
+     * timeout. This is the status returned by the 'timeout' utility, see
+     * https://www.gnu.org/software/coreutils/manual/html_node/timeout-invocation.html
+     */
+    public const EXIT_TIMEOUT = 124;
+
+    /**
+     * Exit status of a command that was killed by a signal, i.e. 128 plus
+     * the signal number (9 for SIGKILL). In the context of the timeout
+     * this is the status of a command that ignored SIGTERM and had to be
+     * killed, see
+     * https://www.gnu.org/software/coreutils/manual/html_node/timeout-invocation.html
+     */
+    public const EXIT_KILLED = 137;
+
     private $cmdArgs = [];
     private $redirect1toFile = false;
     private $redirect2toFile = false;
@@ -38,6 +54,7 @@ class Process
     private $quiet = false;
     private $requireOutput = false;
     private $background = false;
+    private $timeout = 0;
     private $env = [
         "PATH" => [
             "value" => "/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin",
@@ -168,6 +185,34 @@ class Process
     }
 
     /**
+     * Bound the execution time of the command using the 'timeout' utility
+     * (GNU coreutils, part of the base system). This is meant for commands
+     * that probe hardware and may stall on slow or failing devices, e.g.
+     * 'blkid' on a disk with unreadable sectors.
+     * @param int $seconds Timeout in seconds. 0 (default) disables the limit.
+     * @return void
+     */
+    public function setTimeout($seconds = 0)
+    {
+        $this->timeout = intval($seconds);
+    }
+
+    /**
+     * Check whether the exit status of a command indicates that it was
+     * aborted because it hit the timeout.
+     * @param int $exitStatus The exit status of the command.
+     * @return bool TRUE if the command was aborted by the timeout.
+     */
+    public static function isTimeoutExitStatus(int $exitStatus): bool
+    {
+        return in_array(
+            $exitStatus,
+            [self::EXIT_TIMEOUT, self::EXIT_KILLED],
+            true
+        );
+    }
+
+    /**
      * Set an environment variable. To remove an environment variable
      * simply set an empty string value.
      * @param string $name The name of the environment variable.
@@ -233,7 +278,20 @@ class Process
                 $envv['value']
             ));
         }
-        $cmdArgs = array_merge($cmdArgs, $this->cmdArgs);
+        if ($this->timeout > 0) {
+            // Note: a timeout only bounds interruptible stalls. A process
+            // already stuck in uninterruptible (D-state) disk wait ignores
+            // even SIGKILL until the I/O resolves, so this is not a
+            // substitute for not hammering a failing disk in the first
+            // place. SIGTERM is used first, SIGKILL after 5 seconds, so a
+            // command that ignores SIGTERM still dies and the exit status
+            // stays the documented 124 (137 if it had to be killed).
+            $cmdArgs = array_merge($cmdArgs, [
+                sprintf("timeout --kill-after=5 %d", $this->timeout)
+            ], $this->cmdArgs);
+        } else {
+            $cmdArgs = array_merge($cmdArgs, $this->cmdArgs);
+        }
         if (false === empty($this->redirect1toFile)) {
             $cmdArgs[] = sprintf("1>%s", $this->redirect1toFile);
         }
