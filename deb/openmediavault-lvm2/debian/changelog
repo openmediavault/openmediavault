@@ -1,3 +1,10 @@
+openmediavault-lvm2 (8.0.4-1) stable; urgency=medium
+
+  * Wait until udev has processed the changes after creating a physical
+    volume.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 23 Oct 2026 20:21:56 +0200
+
 openmediavault-lvm2 (8.0.3-1) stable; urgency=medium
 
   * Update i18n files.

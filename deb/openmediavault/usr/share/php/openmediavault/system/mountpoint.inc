@@ -245,7 +245,17 @@ class MountPoint
     public function getInfo()
     {
         $cmdArgs = [];
-        $cmdArgs[] = "--output-all";
+        // Do not use '--output-all', because the SOURCES column makes
+        // 'findmnt' probe ALL block devices via libblkid, which hangs if
+        // a disk is failing. Additionally, do not use columns that are
+        // only available in newer util-linux versions (e.g. 'INO.*' or
+        // 'UNIQ-ID').
+        $cmdArgs[] = sprintf("--output=%s", implode(",", [
+            "AVAIL", "FREQ", "FSROOT", "FSTYPE", "FS-OPTIONS", "ID", "LABEL",
+            "MAJ:MIN", "OPTIONS", "OPT-FIELDS", "PARENT", "PARTLABEL",
+            "PARTUUID", "PASSNO", "PROPAGATION", "SIZE", "SOURCE", "TARGET",
+            "TID", "USED", "USE%", "UUID", "VFS-OPTIONS"
+        ]));
         $cmdArgs[] = "--nofsroot";
         $cmdArgs[] = "--json";
         // We do not want to process 'autofs' entries for filesystems

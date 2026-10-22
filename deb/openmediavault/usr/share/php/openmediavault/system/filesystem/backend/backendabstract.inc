@@ -117,7 +117,7 @@ abstract class BackendAbstract
     {
         if (!is_devicefile($id)) {
             // Get the device file containing the file system. This is
-            // required for the blkid low-level probing mode.
+            // required to query the udev database.
             $cmdArgs = [];
             $cmdArgs[] = sprintf("UUID=%s", escapeshellarg($id));
             $cmd = new \OMV\System\Process("findfs", $cmdArgs);
@@ -128,20 +128,12 @@ abstract class BackendAbstract
             unset($cmdArgs);
             unset($output);
         }
-        // Get the filesystem type.
-        // !!! Note, do not use the '-p' option here. !!!
-        $cmdArgs = [];
-        $cmdArgs[] = "-o value";
-        $cmdArgs[] = "-s TYPE";
-        $cmdArgs[] = escapeshellarg($id);
-        $cmd = new \OMV\System\Process("blkid", $cmdArgs);
-        $cmd->setRedirect2to1();
-        $cmd->execute($output);
-        if (empty($output)) {
+        // Get the filesystem type and compare it.
+        $info = \OMV\System\Filesystem\Blkid::probe($id);
+        if (empty($info['type'])) {
             return false;
         }
-        // Compare the filesystem type.
-        return ($output[0] == $this->getType()) ? true : false;
+        return ($info['type'] == $this->getType()) ? true : false;
     }
 
     /**

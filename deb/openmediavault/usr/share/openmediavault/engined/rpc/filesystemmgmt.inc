@@ -786,6 +786,12 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract
             ))) {
                 throw new \OMV\ExecException($cmd, $output, $exitStatus);
             }
+            // Wait until udev has processed the change, otherwise the
+            // new file system might not be in the udev database yet.
+            \OMV\System\Udev::settle([
+                $sd->getDeviceFile(),
+                $fsbd->getDeviceFile()
+            ]);
             // Notify configuration changes.
             $dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
             $dispatcher->notify(
@@ -823,7 +829,7 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract
         );
         // Create the background process.
         return $this->execBgProc(function ($bgStatusFilename, $bgOutputFilename) use ($params) {
-            $deviceFiles = explode(",", $params['devicefiles']);
+            $deviceFiles = explode_safe(",", $params['devicefiles']);
             // Wipe all existing data on the storage devices.
             foreach ($deviceFiles as $deviceFile) {
                 $sd = \OMV\System\Storage\StorageDevice::assertGetStorageDevice(
@@ -860,6 +866,9 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract
             ))) {
                 throw new \OMV\ExecException($cmd, $output, $exitStatus);
             }
+            // Wait until udev has processed the change, otherwise the
+            // new file system might not be in the udev database yet.
+            \OMV\System\Udev::settle($deviceFiles);
         });
     }
 

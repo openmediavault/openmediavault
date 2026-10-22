@@ -318,6 +318,32 @@ class StorageDevice extends \OMV\System\BlockDevice implements StorageDeviceInte
      */
     public function hasSignature(): bool
     {
+        // Use the udev database first, the device itself is not accessed
+        // then, which may hang for a long time on failing disks. The udev
+        // properties are cached by the object, so they can be reused by
+        // other methods, e.g. getModel().
+        $info = [];
+        try {
+            $info = \OMV\System\Filesystem\Blkid::fromUdevProperties(
+                $this->getUdevProperties()
+            );
+        } catch (\Exception $e) {
+            // Unknown, check the device itself below.
+        }
+        // Only the file system (or RAID/LVM/LUKS member) signature and the
+        // partition table are stored on the device itself. A partition
+        // entry (`part_entry_*`) is stored in the partition table of the
+        // parent device, so it is not a signature of this device.
+        if (!empty($info['type']) || !empty($info['pttype'])) {
+            return true;
+        }
+        // Missing udev properties do not prove that the device is empty.
+        // If the device contains conflicting signatures, e.g. two file
+        // systems, the probe of udev is ambiguous and no properties are
+        // exported at all, so such a device looks like an empty one. Thus
+        // confirm that the device is empty by looking at the device itself.
+        // This is only done for devices that udev does not report a
+        // signature for, so devices that are identified are never accessed.
         $cmdArgs = [];
         $cmdArgs[] = "--parsable";
         $cmdArgs[] = "--noheadings";

@@ -176,6 +176,9 @@ class Bcache extends \OMV\Rpc\ServiceAbstract
                 $bcd->stop();
             }
             $bcd->wipe();
+            // Wait until udev has processed the change, otherwise the
+            // device might still be listed as a bcache device.
+            \OMV\System\Udev::settle([$bcd->getDeviceFile()]);
             $devicefile = $bcd->getPredictableDeviceFile();
         }
         // Get the configuration object.
@@ -551,6 +554,9 @@ class Bcache extends \OMV\Rpc\ServiceAbstract
                 $bbd->stop();
             }
             $bbd->wipe();
+            // Wait until udev has processed the change, otherwise the
+            // device might still be listed as a bcache device.
+            \OMV\System\Udev::settle([$bbd->getDeviceFile()]);
             $devicefile = $bbd->getPredictableDeviceFile();
         }
         // Get the configuration object.

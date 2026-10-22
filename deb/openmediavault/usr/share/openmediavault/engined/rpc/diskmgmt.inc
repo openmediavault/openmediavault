@@ -349,6 +349,9 @@ class DiskMgmt extends \OMV\Rpc\ServiceAbstract
             ))) {
                 throw new \OMV\ExecException($cmd, $output, $exitStatus);
             }
+            // Wait until udev has processed the change, otherwise the
+            // udev database might still contain the wiped signatures.
+            \OMV\System\Udev::settle([$bd->getDeviceFile()]);
             return $output;
         });
     }
