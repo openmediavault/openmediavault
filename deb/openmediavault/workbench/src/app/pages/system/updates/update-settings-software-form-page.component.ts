@@ -37,7 +37,7 @@ export class UpdateSettingsSoftwareFormPageComponent extends BaseFormPageCompone
     },
     fields: [
       {
-        type: 'paragraph',
+        type: 'divider',
         title: gettext('Install updates from')
       },
       {
