@@ -1,6 +1,13 @@
-openmediavault (8.5.13-1) stable; urgency=medium
+openmediavault (8.6.0-1) stable; urgency=medium
 
-  *
+  * Read the file system information from the udev database instead of
+    running `blkid` on every request. This prevents hanging `blkid`
+    processes (and a high system load) when a disk is failing.
+  * Do not probe all block devices via `findmnt --output-all`, because
+    this hangs if a disk is failing.
+  * Fix wrong parsing of file system labels containing double quotes.
+  * Wait until udev has processed the changes after creating a file
+    system or wiping a device.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 20 Oct 2026 03:01:50 +0200
 

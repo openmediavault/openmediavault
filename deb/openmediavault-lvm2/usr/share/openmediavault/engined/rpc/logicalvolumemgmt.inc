@@ -213,6 +213,9 @@ class OMVRpcServiceLogicalVolumeMgmt extends \OMV\Rpc\ServiceAbstract
         // Create the physical volume.
         $pv = new \OMV\System\Storage\Lvm\PhysicalVolume($sd->getDeviceFile());
         $pv->create();
+        // Wait until udev has processed the change, otherwise the physical
+        // volume might still be listed as a candidate for other uses.
+        \OMV\System\Udev::settle([$sd->getDeviceFile()]);
         // Notify configuration changes.
         $dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
         $dispatcher->notify(

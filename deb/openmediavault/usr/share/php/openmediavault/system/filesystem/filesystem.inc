@@ -90,7 +90,7 @@ class Filesystem extends \OMV\System\BlockDevice implements FilesystemInterface,
 
         if (true === is_fs_uuid($this->uuid)) {
             // Get the device name containing the file system. This is
-            // required for the blkid low-level probing mode.
+            // required to query the udev database.
             // Do not use /dev/disk/by-uuid/xxx because this will cause
             // some problems:
             // - After creating an RAID the filesystem is not listed in
@@ -117,32 +117,20 @@ class Filesystem extends \OMV\System\BlockDevice implements FilesystemInterface,
             $this->deviceFile = realpath($this->deviceFile);
         }
 
-        // Get the file system information.
-        $cmdArgs = [];
-        $cmdArgs[] = "-p";
-        $cmdArgs[] = "-o full";
-        $cmdArgs[] = escapeshellarg($this->deviceFile);
-        $cmd = new \OMV\System\Process("blkid", $cmdArgs);
-        $cmd->setRedirect2to1();
-        $cmd->setRequireOutput();
-        $cmd->execute($output);
-
-        // Parse command output:
-        // /dev/sda1: UUID="3d9be906-d592-449b-93c4-3dd8888801b2" TYPE="ext3"
-        // /dev/sdg1: LABEL="test" UUID="d19bcea0-a323-4aea-9791-c6578180c129" TYPE="jfs"
-        // /dev/sda1: UUID="128917b7-718a-4361-ab6f-6b1725564cb8" VERSION="1.0" TYPE="ext4" USAGE="filesystem" PART_ENTRY_SCHEME="dos" PART_ENTRY_TYPE="0x83" PART_ENTRY_FLAGS="0x80" PART_ENTRY_NUMBER="1" PART_ENTRY_OFFSET="2048" PART_ENTRY_SIZE="30074880" PART_ENTRY_DISK="8:0"
-        // /dev/sdc1: LABEL="xfs" UUID="83d116e4-8b95-4e49-86e4-369615079b33" TYPE="xfs" USAGE="filesystem" PART_ENTRY_SCHEME="gpt" PART_ENTRY_UUID="8856f019-67da-4813-ab75-9fc3c3fe056f" PART_ENTRY_TYPE="0fc63daf-8483-4772-8e79-3d69d8477de4" PART_ENTRY_NUMBER="1" PART_ENTRY_OFFSET="2048" PART_ENTRY_SIZE="206815" PART_ENTRY_DISK="8:32"
-        // /dev/sdg1: LABEL="Traveller" UUID="2218-DF1C" VERSION="FAT32" TYPE="vfat" USAGE="filesystem" PART_ENTRY_SCHEME="dos" PART_ENTRY_TYPE="0xc" PART_ENTRY_FLAGS="0x80" PART_ENTRY_NUMBER="1" PART_ENTRY_OFFSET="62" PART_ENTRY_SIZE="15635532" PART_ENTRY_DISK="8:96"
-        $regex = '/^(\S+): (.+)$/i';
-        if (1 !== preg_match($regex, $output[0], $matches)) {
+        // Get the file system information. Use the udev properties of the
+        // device, so they are queried only once and can be reused by other
+        // methods, e.g. to get the device file symlinks. Always re-query
+        // them, otherwise outdated information is used when the data is
+        // refreshed, e.g. after the file system has been modified.
+        $info = Blkid::fromUdevProperties($this->getUdevProperties(true));
+        if (empty($info)) {
             throw new \OMV\Exception(
-                "Failed to parse file system information for '%s'.",
+                "Failed to get file system information for '%s'.",
                 $this->deviceFile
             );
         }
-        // Set default values and extract key/value pairs.
-        $data = [
-            "devicefile" => $matches[1],
+        // Set default values.
+        $data = array_merge([
             "uuid" => "",
             "label" => "",
             "type" => "",
@@ -155,22 +143,8 @@ class Filesystem extends \OMV\System\BlockDevice implements FilesystemInterface,
             "part_entry_size" => "",
             "part_entry_disk" => "",
             "usage" => ""
-        ];
-        $parts = preg_split(
-            "/(\S+=\\\"[^\\\"]+\\\")|[\s]+/",
-            $matches[2],
-            -1,
-            PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE
-        );
-        foreach ($parts as $partk => $partv) {
-            $keyValue = explode("=", $partv);
-            if (count($keyValue) != 2) {
-                continue;
-            }
-            $data[mb_strtolower($keyValue[0])] = substr($keyValue[1], 1, -1);
-        }
+        ], $info);
 
-        $this->deviceFile = $data['devicefile'];
         $this->uuid = $data['uuid'];
         $this->label = $data['label'];
         $this->type = $data['type'];
@@ -600,6 +574,9 @@ class Filesystem extends \OMV\System\BlockDevice implements FilesystemInterface,
         $cmd = new \OMV\System\Process("wipefs", $cmdArgs);
         $cmd->setRedirect2to1();
         $cmd->execute();
+        // Wait until udev has processed the change, otherwise the udev
+        // database might still contain the removed file system.
+        \OMV\System\Udev::settle([$this->getDeviceFile()]);
     }
 
     /**
@@ -867,16 +844,20 @@ class Filesystem extends \OMV\System\BlockDevice implements FilesystemInterface,
      */
     public static function hasFileSystem($deviceFile)
     {
-        $cmdArgs = [];
-        $cmdArgs[] = "-u filesystem";
-        $cmdArgs[] = escapeshellarg($deviceFile);
-        $cmd = new \OMV\System\Process("blkid", $cmdArgs);
-        $cmd->setQuiet(true);
-        $cmd->execute($output, $exitStatus);
-        if ($exitStatus !== 0) {
+        // Note, like 'blkid <DEVICE>' this also succeeds if anything else
+        // is detected, e.g. a RAID or LVM signature, a partition table or
+        // a partition entry (even if the partition is empty).
+        // This is intentional and kept for compatibility, do not change it
+        // to check only for a file system type. The candidate lists of the
+        // RAID and LVM plugins rely on this behavior, they use this method
+        // to skip devices that are already in use or are not empty.
+        // See \OMV\System\Storage\StorageDevice::hasSignature() if you need
+        // to know whether the device itself contains a signature.
+        try {
+            return !is_null(Blkid::probe($deviceFile));
+        } catch (\Exception $e) {
             return false;
         }
-        return true;
     }
 
     /**

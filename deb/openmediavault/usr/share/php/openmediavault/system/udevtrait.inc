@@ -45,16 +45,7 @@ trait UdevTrait
     {
         // Do we need to get the udev information?
         if ((true === $force) || empty($this->_udevProperties)) {
-            $cmdArgs = [];
-            $cmdArgs[] = "info";
-            $cmdArgs[] = "--query=property";
-            $cmdArgs[] = sprintf("--name=%s", escapeshellarg(
-                $this->getDeviceFile()
-            ));
-            $cmd = new \OMV\System\Process("udevadm", $cmdArgs);
-            $cmd->setRedirect2to1();
-            $cmd->execute($output);
-            // Parse output:
+            // Example of the returned properties:
             // UDEV_LOG=3
             // DEVPATH=/devices/pci0000:00/0000:00:10.0/host2/target2:0:1/2:0:1:0/block/sdb
             // MAJOR=8
@@ -100,15 +91,9 @@ trait UdevTrait
             // SUBSYSTEM=block
             // UDEV_LOG=3
             // USEC_INITIALIZED=16872806
-            $this->_udevProperties = [];
-            foreach ($output as $row) {
-                $data = explode("=", $row, 2);
-                if (count($data) !== 2) {
-                    continue;
-                }
-                // Trim only the key, do not touch the value.
-                $this->_udevProperties[trim($data[0])] = $data[1];
-            }
+            $this->_udevProperties = Udev::getProperties(
+                $this->getDeviceFile()
+            );
         }
     }
 
@@ -119,6 +104,28 @@ trait UdevTrait
     {
         $this->queryUdevInfo();
         return array_key_exists($id, $this->_udevProperties);
+    }
+
+    /**
+     * See \OMV\System\UdevInterface interface definition.
+     */
+    public function getUdevProperty($id)
+    {
+        $this->queryUdevInfo();
+        $this->assertUdevProperty($id);
+        return $this->_udevProperties[$id];
+    }
+
+    /**
+     * Get all udev properties of the device.
+     * @param bool $force Force the collection of the information,
+     *   although the information is already cached. Defaults to FALSE.
+     * @return array An associative array containing the udev properties.
+     */
+    protected function getUdevProperties(bool $force = false): array
+    {
+        $this->queryUdevInfo($force);
+        return $this->_udevProperties;
     }
 
     /**
@@ -136,15 +143,5 @@ trait UdevTrait
                 $id
             );
         }
-    }
-
-    /**
-     * See \OMV\System\UdevInterface interface definition.
-     */
-    public function getUdevProperty($id)
-    {
-        $this->queryUdevInfo();
-        $this->assertUdevProperty($id);
-        return $this->_udevProperties[$id];
     }
 }

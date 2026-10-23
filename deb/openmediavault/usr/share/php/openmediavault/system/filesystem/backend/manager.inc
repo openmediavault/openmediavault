@@ -226,65 +226,20 @@ class Manager implements \IteratorAggregate
     {
         $result = [];
         $blkidEnumsByType = [];
-        $output = [];
         // Get all file systems that are identified by the block device
         // identification library.
         // !!! Note !!!
         // File systems that are identified by the block device identification
         // library are processed in one step to increase performance. Otherwise
-        // each backend must implement the \ref enumerate method and call the
-        // command 'blkid -t TYPE=<xxx> -o full'.
-        $cmd = new \OMV\System\Process("blkid", "-o full");
-        $cmd->setRedirect2to1();
-        $cmd->setQuiet(true);
-        $cmd->execute($output, $exitStatus);
-        if (!in_array($exitStatus, [0, 2])) {
-            throw new \OMV\ExecException($cmd, $output, $exitStatus);
-        }
-        foreach ($output as $outputk => $outputv) {
-            // Parse command output:
-            // /dev/sdb: UUID="e6a0f61e-d969-ffcb-d4c5-06e7711285a3" LABEL="dhcppc4:0" TYPE="linux_raid_member"
-            // /dev/sdg1: LABEL="test" UUID="d19bcea0-a323-4aea-9791-c6578180c129" TYPE="jfs"
-            // /dev/sda5: UUID="902775c7-8250-4630-81eb-2602ac65e136" TYPE="swap"
-            // /dev/sda1: LABEL="Ubuntu" UUID="4aa77ba3-beb6-45dc-b2c7-e77cffd6c6fd" TYPE="ext4"
-            // /dev/sdb1: UUID="A27E16CD7E1699DD" TYPE="ntfs"
-            // /dev/sdc1: UUID="1a03b79f-d347-4a24-8ae2-62f1aa9a4554" TYPE="ext4"
-            // /dev/sdd1: UUID="cb8f7844-362f-4151-8e9e-3888aab723c2" TYPE="ext4"
-            // /dev/sda3: UUID="fdca09a8-cbc8-432f-9cba-ce033cb59139" TYPE="ext4" LABEL="Debian"
-            // /dev/sr0: LABEL="Debian 7.5.0 amd64 1" TYPE="iso9660"
-            // /dev/sr0: UUID="2015-04-25-12-52-13-00" LABEL="Debian 8.0.0 amd64 1" TYPE="iso9660" PTUUID="5e97595e" PTTYPE="dos"
-            // /dev/sda1: LABEL="Music" UUID="54AF-0252" TYPE="exfat"
-            // /dev/sdk: LABEL="TestFS" UUID="b7adba40-b980-4067-b33c-dd5c8ee17044" UUID_SUB="7b19094b-e7df-4a3e-a3db-57e2d4c548b3" TYPE="btrfs"
-            // /dev/sdl: LABEL="TestFS" UUID="b7adba40-b980-4067-b33c-dd5c8ee17044" UUID_SUB="ba1e2b16-5022-4cbd-ad35-6d609e9560e9" TYPE="btrfs"
-            $regex = '/^(\S+):\s*(.+)$/i';
-            unset($matches);
-            if (1 !== preg_match($regex, $outputv, $matches)) {
-                continue;
-            }
-            // Set default values and extract key/value pairs.
-            $data = [
-                "devicefile" => $matches[1],
+        // each backend must implement the \ref enumerate method.
+        foreach (\OMV\System\Filesystem\Blkid::enumerate() as $enum) {
+            // Set default values.
+            $data = array_merge([
+                "devicefile" => "",
                 "uuid" => "",
                 "label" => "",
                 "type" => ""
-            ];
-            $parts = preg_split(
-                "/(\S+=\\\"[^\\\"]+\\\")|[\s]+/",
-                $matches[2],
-                -1,
-                PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE
-            );
-            foreach ($parts as $partk => $partv) {
-                $keyValue = explode("=", $partv);
-                if (count($keyValue) != 2) {
-                    continue;
-                }
-                $data[mb_strtolower($keyValue[0])] = substr(
-                    $keyValue[1],
-                    1,
-                    -1
-                );
-            }
+            ], $enum);
             // Append the found filesystem to the list for further processing.
             if (!array_key_exists($data['type'], $blkidEnumsByType)) {
                 $blkidEnumsByType[$data['type']] = [];
