@@ -1248,7 +1248,7 @@ msgid "Execute only"
 msgstr "Μόνο εκτέλεση"
 
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Άπλωμα/Μάζεμα"
 
 msgid "Extended Information"
 msgstr "Εκτεταμένες πληροφορίες"

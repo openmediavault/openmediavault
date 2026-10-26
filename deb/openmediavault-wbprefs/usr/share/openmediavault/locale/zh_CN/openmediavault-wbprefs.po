@@ -27,7 +27,7 @@ msgid "Apply"
 msgstr "应用"
 
 msgid "Authentication"
-msgstr ""
+msgstr "认证"
 
 msgid "Login"
 msgstr "登录"

@@ -49,10 +49,10 @@ msgid "Bcache Device"
 msgstr "Dispositivo Bcache"
 
 msgid "Bcache backing device [%s, %s]"
-msgstr ""
+msgstr "Dispositivo de respaldo Bcache [%s, %s]"
 
 msgid "Bcache cache device [%s, %s]"
-msgstr ""
+msgstr "Dispositivo de caché Bcache [%s, %s]"
 
 msgid "Cache Device"
 msgstr "Dispositivo de caché"

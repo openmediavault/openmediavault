@@ -1250,7 +1250,7 @@ msgid "Execute only"
 msgstr "只可執行"
 
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "展開/縮起"
 
 msgid "Extended Information"
 msgstr "延伸資訊"

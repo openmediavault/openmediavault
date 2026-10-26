@@ -1257,7 +1257,7 @@ msgid "Execute only"
 msgstr "仅执行"
 
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "展开/收起"
 
 msgid "Extended Information"
 msgstr "扩展信息"

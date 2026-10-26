@@ -1254,7 +1254,7 @@ msgid "Execute only"
 msgstr "Solo ejecutar"
 
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Expandir/Contraer"
 
 msgid "Extended Information"
 msgstr "Información extendida"

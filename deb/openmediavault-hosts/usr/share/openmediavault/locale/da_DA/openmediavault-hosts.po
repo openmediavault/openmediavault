@@ -3,13 +3,17 @@
 # This file is distributed under the same license as the openmediavault-hosts package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Stefan Thrane Overby <stoverby@gmail.com>, 2026
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-hosts\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-03 21:46+0100\n"
+"POT-Creation-Date: 2026-10-18 08:34+0200\n"
 "PO-Revision-Date: 2023-12-20 21:57+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>, 2026\n"
 "Language-Team: Danish (https://app.transifex.com/openmediavault/teams/14254/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,12 +26,15 @@ msgid ""
 "href='https://manpages.debian.org/stable/manpages/hosts.5.en.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr ""
+"Tilføj brugerdefineret poster til /etc/hosts filen. Kontroller venligst <a "
+"href='https://manpages.debian.org/stable/manpages/hosts.5.en.html' "
+"target='_blank'>manual siden</a> for flere detaljer."
 
 msgid "Custom entries"
-msgstr ""
+msgstr "Brugerdefineret poster"
 
 msgid "Hosts"
-msgstr ""
+msgstr "Værter"
 
 msgid "Updated local hostname-to-IP mapping."
-msgstr ""
+msgstr "Opdateret lokal værtsnavn-til-IP fordeling."

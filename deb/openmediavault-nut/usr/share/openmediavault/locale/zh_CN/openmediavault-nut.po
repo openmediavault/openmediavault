@@ -5,13 +5,14 @@
 # Translators:
 # songming <by@songming.me>, 2013-2014,2016,2020
 # LeeYang <150183966@qq.com>, 2021
+# 杨宇哲, 2026
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
-"Last-Translator: LeeYang <150183966@qq.com>, 2021\n"
+"Last-Translator: 杨宇哲, 2026\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/openmediavault/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,25 +25,25 @@ msgid ""
 msgstr "“单机版”是本地链接的 UPS，“网络版”是通过 NUT 服务连接的远程 UPS。"
 
 msgid "Battery charge with the low-battery shutdown threshold marked."
-msgstr ""
+msgstr "已标出低电量关机阈值的电池电量。"
 
 msgid "Battery date"
-msgstr ""
+msgstr "电池日期"
 
 msgid "Battery low"
-msgstr ""
+msgstr "低电量"
 
 msgid "Battery type"
-msgstr ""
+msgstr "电池类型"
 
 msgid "Battery voltage"
-msgstr ""
+msgstr "电池电压"
 
 msgid "Charge"
 msgstr "充电量"
 
 msgid "Charge warning"
-msgstr ""
+msgstr "电量警告"
 
 msgid "Comment"
 msgstr "注释"
@@ -66,7 +67,7 @@ msgid "Identifier"
 msgstr "标识符"
 
 msgid "Input voltage"
-msgstr ""
+msgstr "输入电压"
 
 msgid "Invalid identifier"
 msgstr "标识符语法不符"
@@ -75,10 +76,10 @@ msgid "Load"
 msgstr "负载"
 
 msgid "Low"
-msgstr ""
+msgstr "低"
 
 msgid "Manufacturer"
-msgstr ""
+msgstr "制造商"
 
 msgid "Message"
 msgstr "消息"
@@ -117,10 +118,10 @@ msgid "Remote monitoring"
 msgstr "远程监控"
 
 msgid "Runtime"
-msgstr ""
+msgstr "可用时间"
 
 msgid "Runtime low"
-msgstr ""
+msgstr "低可用时间"
 
 msgid "Service disabled"
 msgstr "服务已停用"
@@ -164,13 +165,13 @@ msgid "UPS"
 msgstr "UPS"
 
 msgid "UPS Battery"
-msgstr ""
+msgstr "UPS 电池"
 
 msgid "UPS Information"
-msgstr ""
+msgstr "UPS 信息"
 
 msgid "UPS device and battery information."
-msgstr ""
+msgstr "UPS 设备与电池信息。"
 
 msgid "UPS goes on battery"
 msgstr "UPS 使用电池供电"

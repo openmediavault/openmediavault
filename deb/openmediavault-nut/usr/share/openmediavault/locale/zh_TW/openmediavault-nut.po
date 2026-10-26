@@ -5,13 +5,14 @@
 # Translators:
 # kochin <kochinc@outlook.com>, 2013-2014,2016-2017,2020-2021
 # kochin <kochinc@outlook.com>, 2012
+# 黃柏諺 <s8321414@gmail.com>, 2026
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2012-03-17 01:51+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>, 2013-2014,2016-2017,2020-2021\n"
+"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2026\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,25 +25,25 @@ msgid ""
 msgstr "'Standalone' 用於本機上的 UPS，'Netclient' 用於一個 NUT 伺服器上的遠端 UPS。"
 
 msgid "Battery charge with the low-battery shutdown threshold marked."
-msgstr ""
+msgstr "標示了低電量關機閾值的電池電量。"
 
 msgid "Battery date"
-msgstr ""
+msgstr "電池日期"
 
 msgid "Battery low"
-msgstr ""
+msgstr "低電量"
 
 msgid "Battery type"
-msgstr ""
+msgstr "電池類型"
 
 msgid "Battery voltage"
-msgstr ""
+msgstr "電池電壓"
 
 msgid "Charge"
 msgstr "充電量"
 
 msgid "Charge warning"
-msgstr ""
+msgstr "充電警告"
 
 msgid "Comment"
 msgstr "註釋"
@@ -66,7 +67,7 @@ msgid "Identifier"
 msgstr "識別名稱"
 
 msgid "Input voltage"
-msgstr ""
+msgstr "輸入電壓"
 
 msgid "Invalid identifier"
 msgstr "無效的識別名稱"
@@ -75,10 +76,10 @@ msgid "Load"
 msgstr "負載"
 
 msgid "Low"
-msgstr ""
+msgstr "低"
 
 msgid "Manufacturer"
-msgstr ""
+msgstr "製造商"
 
 msgid "Message"
 msgstr "訊息"
@@ -117,10 +118,10 @@ msgid "Remote monitoring"
 msgstr "遠端監控"
 
 msgid "Runtime"
-msgstr ""
+msgstr "可用時間"
 
 msgid "Runtime low"
-msgstr ""
+msgstr "低可用時間"
 
 msgid "Service disabled"
 msgstr "服務已停用"
@@ -164,13 +165,13 @@ msgid "UPS"
 msgstr "不斷電系統"
 
 msgid "UPS Battery"
-msgstr ""
+msgstr "UPS 電池"
 
 msgid "UPS Information"
-msgstr ""
+msgstr "UPS 資訊"
 
 msgid "UPS device and battery information."
-msgstr ""
+msgstr "UPS 裝置與電池資訊。"
 
 msgid "UPS goes on battery"
 msgstr "不斷電系統開始使用電池供電"

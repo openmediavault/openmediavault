@@ -25,7 +25,7 @@ msgid "Apply"
 msgstr "Εφαρμογή"
 
 msgid "Authentication"
-msgstr ""
+msgstr "Πιστοποίηση"
 
 msgid "Login"
 msgstr "Είσοδος"

@@ -4,10 +4,10 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# kochin <kochinc@outlook.com>, 2024
 # 王大山, 2024
 # songming <by@songming.me>, 2024
 # 黃柏諺 <s8321414@gmail.com>, 2024
+# kochin <kochinc@outlook.com>, 2026
 # 
 #, fuzzy
 msgid ""
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-18 08:34+0200\n"
 "PO-Revision-Date: 2024-11-20 12:26+0000\n"
-"Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2024\n"
+"Last-Translator: kochin <kochinc@outlook.com>, 2026\n"
 "Language-Team: Chinese (Taiwan) (https://app.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,7 +38,7 @@ msgid ""
 msgstr "允許 bcache 在讀寫壅塞時繞過快取。（預設值：true）"
 
 msgid "Backing Devices"
-msgstr "備份裝置"
+msgstr "後端裝置"
 
 msgid "Bcache"
 msgstr "Bcache"
@@ -47,10 +47,10 @@ msgid "Bcache Device"
 msgstr "Bcache 裝置"
 
 msgid "Bcache backing device [%s, %s]"
-msgstr ""
+msgstr "Bcache 後端裝置 [%s, %s]"
 
 msgid "Bcache cache device [%s, %s]"
-msgstr ""
+msgstr "Bcache 快取裝置 [%s, %s]"
 
 msgid "Cache Device"
 msgstr "快取裝置"
@@ -150,7 +150,7 @@ msgid "Select a device ..."
 msgstr "選取裝置"
 
 msgid "Select the device that will be formatted as Bcache backing device."
-msgstr "選取要格式化為 Bcache 備份裝置的裝置。"
+msgstr "選取要格式化為 Bcache 後端裝置之裝置。"
 
 msgid "Select the device that will be formatted as Bcache cache device."
 msgstr "選取要格式化為 Bcache 快取裝置的裝置。"
@@ -198,7 +198,7 @@ msgid "Unused"
 msgstr "未使用"
 
 msgid "Updated backing device '{{ devicefile }}'."
-msgstr "已更新備份裝置 '{{ devicefile }}'。"
+msgstr "已更新後端裝置 '{{ devicefile }}'。"
 
 msgid "Updated cache device '{{ devicefile }}'."
 msgstr "已更新快取裝置 '{{ devicefile }}'。"

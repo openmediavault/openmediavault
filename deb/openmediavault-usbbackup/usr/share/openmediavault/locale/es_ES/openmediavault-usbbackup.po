@@ -50,7 +50,7 @@ msgid "Device"
 msgstr "Dispositivo"
 
 msgid "Disconnected"
-msgstr ""
+msgstr "Desconectado"
 
 msgid "Edit"
 msgstr "Editar"

@@ -3922,10 +3922,10 @@ msgid ""
 msgstr "Opdater destinationens udvidede attributter til at være de samme som de lokale."
 
 msgid "Updated NFS settings."
-msgstr "Opdater NFS indstillinger."
+msgstr "Opdateret NFS indstillinger."
 
 msgid "Updated NFS share."
-msgstr ""
+msgstr "Opdateret NFS deling."
 
 msgid "Updated Rsync Server settings."
 msgstr ""

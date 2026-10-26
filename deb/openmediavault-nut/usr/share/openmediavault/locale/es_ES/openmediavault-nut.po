@@ -26,25 +26,25 @@ msgid ""
 msgstr "'Standalone' para un SAI local, 'Netclient' para un SAI remoto en un servidor NUT."
 
 msgid "Battery charge with the low-battery shutdown threshold marked."
-msgstr ""
+msgstr "Carga de la batería con el umbral de apagado por batería baja marcado."
 
 msgid "Battery date"
-msgstr ""
+msgstr "Fecha de la batería"
 
 msgid "Battery low"
-msgstr ""
+msgstr "Batería baja"
 
 msgid "Battery type"
-msgstr ""
+msgstr "Tipo de batería"
 
 msgid "Battery voltage"
-msgstr ""
+msgstr "Tensión de la batería"
 
 msgid "Charge"
 msgstr "Carga"
 
 msgid "Charge warning"
-msgstr ""
+msgstr "Advertencia de carga"
 
 msgid "Comment"
 msgstr "Comentario"
@@ -68,7 +68,7 @@ msgid "Identifier"
 msgstr "Identificador"
 
 msgid "Input voltage"
-msgstr ""
+msgstr "Tensión de entrada"
 
 msgid "Invalid identifier"
 msgstr "Identificador no válido"
@@ -77,10 +77,10 @@ msgid "Load"
 msgstr "Consumo"
 
 msgid "Low"
-msgstr ""
+msgstr "Baja"
 
 msgid "Manufacturer"
-msgstr ""
+msgstr "Fabricante"
 
 msgid "Message"
 msgstr "Mensaje"
@@ -119,10 +119,10 @@ msgid "Remote monitoring"
 msgstr "Control remoto"
 
 msgid "Runtime"
-msgstr ""
+msgstr "Autonomía"
 
 msgid "Runtime low"
-msgstr ""
+msgstr "Autonomía baja"
 
 msgid "Service disabled"
 msgstr "Servicio deshabilitado"
@@ -166,13 +166,13 @@ msgid "UPS"
 msgstr "SAI"
 
 msgid "UPS Battery"
-msgstr ""
+msgstr "Batería del SAI"
 
 msgid "UPS Information"
-msgstr ""
+msgstr "Información del SAI"
 
 msgid "UPS device and battery information."
-msgstr ""
+msgstr "Información de la batería y del dispositivo SAI."
 
 msgid "UPS goes on battery"
 msgstr "El SAI está usando la batería"

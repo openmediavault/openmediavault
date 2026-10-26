@@ -3527,7 +3527,7 @@ msgstr "Chemin relatif du dossier à partager. Utilisez \"/\" pour partager la r
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
-msgstr "Le dépôt sera vérifié pour identifier les paquets nouveaux, supprimés ou mis à niveau."
+msgstr "Le dépôt est en cours de vérification pour identifier les paquets nouveaux, supprimés ou mis à niveau."
 
 msgid ""
 "The requested authentication challenge is not supported by this browser "

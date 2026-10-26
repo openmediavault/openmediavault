@@ -398,7 +398,7 @@ msgid "The manifest to apply."
 msgstr "Η δήλωση προς εφαρμογή."
 
 msgid "The names 'web' and 'websecure' are reserved."
-msgstr ""
+msgstr "Τα ονόματα 'web' και 'websecure' είναι δεσμευμένα."
 
 msgid "The snapshot was created successfully."
 msgstr "Το στιγμιότυπο δημιουργήθηκε επιτυχώς"

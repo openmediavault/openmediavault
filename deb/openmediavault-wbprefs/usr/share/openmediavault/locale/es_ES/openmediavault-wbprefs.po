@@ -26,7 +26,7 @@ msgid "Apply"
 msgstr "Aplicar"
 
 msgid "Authentication"
-msgstr ""
+msgstr "Autenticación"
 
 msgid "Login"
 msgstr "Iniciar sesión"
