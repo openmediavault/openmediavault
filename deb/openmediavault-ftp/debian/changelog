@@ -1,3 +1,9 @@
+openmediavault-ftp (8.0.5-1) stable; urgency=medium
+
+  * Fix translations.
+
+  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 26 Oct 2026 07:31:22 +0100
+
 openmediavault-ftp (8.0.4-1) stable; urgency=medium
 
   * Upgrade to SaltStack 3008.

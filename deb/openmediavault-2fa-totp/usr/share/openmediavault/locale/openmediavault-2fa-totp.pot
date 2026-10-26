@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-2fa-totp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-18 08:33+0200\n"
+"POT-Creation-Date: 2026-10-26 17:41+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,6 +38,15 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
+msgid "Get the authentication code from the two-factor authentication app on your device."
+msgstr ""
+
+msgid "Log in"
+msgstr ""
+
+msgid "Must be a 6-digit number."
+msgstr ""
+
 msgid "Name"
 msgstr ""
 
@@ -63,4 +72,7 @@ msgid "User name"
 msgstr ""
 
 msgid "Verification code"
+msgstr ""
+
+msgid "Verifying authentication code. Please wait..."
 msgstr ""

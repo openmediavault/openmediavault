@@ -4,5 +4,5 @@ data:
   url: "/services/k8s/apply"
   title: _("Manifest")
   editing: true
-  notificationTitle: _('Applied Kubernetes manifest.')
+  notificationTitle: _("Applied Kubernetes manifest.")
   component: omv-services-k8s-apply-tabs-page

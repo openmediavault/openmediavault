@@ -9,10 +9,10 @@ data:
       service: Session
       post:
         method: verify
-        progressMessage: _('Verifying authentication code. Please wait...')
+        progressMessage: _("Verifying authentication code. Please wait...")
     fields:
       - type: hint
-        text: _('A verification code has been sent to your email address. Please enter the code below.')
+        text: _("A verification code has been sent to your email address. Please enter the code below.")
       - type: textInput
         name: username
         label: _("User name")
@@ -31,11 +31,11 @@ data:
           maxLength: 6
           pattern:
             pattern: '^[0-9]{6}$'
-            errorData: _('Must be a 6-digit number.')
+            errorData: _("Must be a 6-digit number.")
     buttonAlign: center
     buttons:
       - template: submit
-        text: _('Log in')
+        text: _("Log in")
         execute:
           type: url
           url: "/dashboard"

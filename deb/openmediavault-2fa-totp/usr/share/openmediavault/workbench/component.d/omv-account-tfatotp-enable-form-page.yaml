@@ -38,7 +38,7 @@ data:
           maxLength: 6
           pattern:
             pattern: '^[0-9]{6}$'
-            errorData: _('Must be a 6-digit number.')
+            errorData: _("Must be a 6-digit number.")
     buttons:
       - template: submit
         text: _("Enable")
