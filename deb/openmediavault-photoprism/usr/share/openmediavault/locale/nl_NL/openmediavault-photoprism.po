@@ -97,7 +97,7 @@ msgstr ""
 "verwijderen."
 
 msgid "Images"
-msgstr "Images"
+msgstr "Afbeeldingen"
 
 msgid "Import"
 msgstr "Importeren"
