@@ -2,7 +2,7 @@ openmediavault-k8s (8.2.8-1) stable; urgency=medium
 
   * Fix translations.
 
-  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 26 Oct 2026 07:31:56 +0100
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 26 Oct 2026 07:31:56 +0100
 
 openmediavault-k8s (8.2.7-1) stable; urgency=medium
 
