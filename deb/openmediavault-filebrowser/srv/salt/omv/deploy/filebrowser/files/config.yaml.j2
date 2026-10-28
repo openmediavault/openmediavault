@@ -1,18 +1,31 @@
 {%- set admin_username = salt['pillar.get']('default:OMV_FILEBROWSER_APP_ADMIN_USERNAME', 'admin') -%}
 {%- set create_file_permission = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CREATEFILEPERMISSION', '664') -%}
 {%- set create_directory_permission = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CREATEDIRECTORYPERMISSION', '775') -%}
-server:
-  disableUpdateCheck: true
+{#- Legacy (v1) BoltDB database that must be migrated to SQLite on first start. -#}
+{%- set legacy_database = '/var/lib/filebrowser/database.db' -%}
+{%- set migrate_database = (salt['file.file_exists'](legacy_database) and (salt['file.stats'](legacy_database).size | default(0)) > 0) -%}
+http:
   port: 8080
   baseURL: "/"
+server:
+  disableUpdateCheck: true
   logging:
     - levels: "info|warning|error"
   cacheDir: "./data/tmp/"
-  database: "./data/database.db"
+{%- if migrate_database %}
+  database:
+    migrateFrom: "./data/database.db"
+{%- endif %}
   sources:
     - path: "/srv/"
       config:
         defaultEnabled: true
+        defaultPermissions:
+          view: true
+          download: true
+          modify: false
+          create: false
+          delete: false
   filesystem:
     createFilePermission: "{{ create_file_permission }}"
     createDirectoryPermission: "{{ create_directory_permission }}"
@@ -25,11 +38,13 @@ userDefaults:
     video: false
     office: false
     highQuality: false
-  darkMode: true
-  disableSettings: false
-  singleClick: false
-  permissions:
-    admin: false
-    modify: false
-    share: false
-    api: false
+  ui:
+    darkMode: true
+  listing:
+    singleClick: false
+  account:
+    disableSettings: false
+    permissions:
+      admin: false
+      share: false
+      api: false

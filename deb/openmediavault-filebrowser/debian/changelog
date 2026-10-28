@@ -1,3 +1,10 @@
+openmediavault-filebrowser (8.0.7-1) stable; urgency=medium
+
+  * Adapt the configuration to FileBrowser Quantum v2.
+    Migrate an existing v1 database automatically.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 28 Oct 2026 08:45:42 +0100
+
 openmediavault-filebrowser (8.0.6-1) stable; urgency=medium
 
   * Update i18n files.

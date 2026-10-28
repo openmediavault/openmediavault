@@ -79,15 +79,6 @@ setup_filebrowser_dir:
     - group: {{ gname }}
     - mode: '0755'
 
-# Make sure the file exists. Do not use "file.touch" state.
-create_filebrowser_database:
-  file.managed:
-    - name: "/var/lib/filebrowser/database.db"
-    - user: {{ uname }}
-    - group: {{ gname }}
-    - mode: '0644'
-    - replace: False
-
 configure_filebrowser_config:
   file.managed:
     - name: "/var/lib/filebrowser/config.yaml"
