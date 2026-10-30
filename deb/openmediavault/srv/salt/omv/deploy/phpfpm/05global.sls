@@ -17,12 +17,12 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
-{% set config_file = salt['pillar.get']('default:OMV_PHPFPM_CONFIG_FILE', '/etc/php/8.4/fpm/php-fpm.conf') %}
+{% set conf_file = salt['pillar.get']('default:OMV_PHPFPM_CONFIG_FILE', '/etc/php/8.4/fpm/php-fpm.conf') %}
 {% set pid_file = salt['pillar.get']('default:OMV_PHPFPM_PID_FILE', '/run/php/php8.4-fpm.pid') %}
 
-configure_phpfpm_pid:
+configure_phpfpm_conf_pid:
   file.line:
-    - name: "{{ config_file }}"
+    - name: "{{ conf_file }}"
     - match: "^[;#]?\\s*pid\\s*=.*$"
     - content: "pid = {{ pid_file }}"
     - mode: replace
@@ -31,4 +31,4 @@ configure_phpfpm_pid:
 
 divert_phpfpm_conf:
   omv_dpkg.divert_add:
-    - name: "{{ config_file }}"
+    - name: "{{ conf_file }}"

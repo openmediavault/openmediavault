@@ -38,7 +38,7 @@ restart_phpfpm_service:
     - require:
       - cmd: test_phpfpm_service_config
     - watch:
-      - file: configure_phpfpm_pid
+      - file: configure_phpfpm_conf_pid
       - file: configure_phpfpm_webgui
 
 monitor_phpfpm_service:
