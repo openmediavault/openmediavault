@@ -21,8 +21,10 @@
 
 include:
   - omv.deploy.monit
-{% for file in salt['file.find'](dirpath, iname='*.sls', print='name') | difference(['init.sls', 'default.sls']) | sort %}
+{% for file in salt['file.readdir'](dirpath) | sort %}
+{% if file | regex_match('^(\d+.+).sls$', ignorecase=True) %}
   - .{{ file | replace('.sls', '') }}
+{% endif %}
 {% endfor %}
 
 test_phpfpm_service_config:
@@ -36,6 +38,7 @@ restart_phpfpm_service:
     - require:
       - cmd: test_phpfpm_service_config
     - watch:
+      - file: configure_phpfpm_pid
       - file: configure_phpfpm_webgui
 
 monitor_phpfpm_service:
