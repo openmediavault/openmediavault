@@ -5,11 +5,13 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { ComponentsModule } from '~/app/shared/components/components.module';
 import { DatatableComponent } from '~/app/shared/components/datatable/datatable.component';
+import { UserLocalStorageService } from '~/app/shared/services/user-local-storage.service';
 import { TestingModule } from '~/app/testing.module';
 
 describe('DatatableComponent', () => {
   let component: DatatableComponent;
   let fixture: ComponentFixture<DatatableComponent>;
+  let userLocalStorageService: UserLocalStorageService;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -20,7 +22,14 @@ describe('DatatableComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(DatatableComponent);
     component = fixture.componentInstance;
+    userLocalStorageService = TestBed.inject(UserLocalStorageService);
+    jest.spyOn(userLocalStorageService, 'set').mockImplementation(() => undefined);
+    jest.spyOn(userLocalStorageService, 'get').mockReturnValue(null);
     fixture.detectChanges();
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
   });
 
   it('should create', () => {
@@ -62,5 +71,87 @@ describe('DatatableComponent', () => {
     expect(toggle('expanded').hasAttribute('aria-busy')).toBe(false);
     expect(toggle('expanded').getAttribute('aria-label')).toContain('Expand/Collapse');
     expect(toggle('disabled').querySelector('mat-icon')).toBeNull();
+  });
+
+  it('should offer the configured page size', () => {
+    const newFixture = TestBed.createComponent(DatatableComponent);
+    newFixture.componentInstance.limit = 20;
+    newFixture.detectChanges();
+    expect(newFixture.componentInstance.pageSizeOptions).toEqual([10, 20, 25, 50, 100]);
+  });
+
+  it('should not duplicate a preset page size', () => {
+    const newFixture = TestBed.createComponent(DatatableComponent);
+    newFixture.componentInstance.limit = 50;
+    newFixture.detectChanges();
+    expect(newFixture.componentInstance.pageSizeOptions).toEqual([10, 25, 50, 100]);
+  });
+
+  it('should reset the page and save the chosen size', () => {
+    component.offset = 3;
+    component.onPageSizeChange(100);
+    expect(component.limit).toBe(100);
+    expect(component.offset).toBe(0);
+    expect(userLocalStorageService.set).toHaveBeenCalledWith('datatable_pagesize', '100');
+  });
+
+  it('should restore a saved page size', () => {
+    jest.spyOn(userLocalStorageService, 'get').mockReturnValue('50');
+    const newFixture = TestBed.createComponent(DatatableComponent);
+    newFixture.detectChanges();
+    expect(newFixture.componentInstance.limit).toBe(50);
+  });
+
+  it('should restore the All option', () => {
+    jest.spyOn(userLocalStorageService, 'get').mockReturnValue('0');
+    const newFixture = TestBed.createComponent(DatatableComponent);
+    newFixture.detectChanges();
+    expect(newFixture.componentInstance.limit).toBe(0);
+    expect(newFixture.componentInstance.pagingEnabled).toBe(true);
+  });
+
+  it('should ignore invalid saved page sizes', () => {
+    jest.spyOn(userLocalStorageService, 'get').mockReturnValue('10.5');
+    const newFixture = TestBed.createComponent(DatatableComponent);
+    newFixture.detectChanges();
+    expect(newFixture.componentInstance.limit).toBe(25);
+  });
+
+  it('should preserve disabled paging', () => {
+    jest.spyOn(userLocalStorageService, 'get').mockReturnValue('50');
+    const newFixture = TestBed.createComponent(DatatableComponent);
+    newFixture.componentInstance.limit = 0;
+    newFixture.detectChanges();
+    expect(newFixture.componentInstance.limit).toBe(0);
+    expect(newFixture.componentInstance.pagingEnabled).toBe(false);
+  });
+
+  it('should preserve tables without a footer', () => {
+    jest.spyOn(userLocalStorageService, 'get').mockReturnValue('50');
+    const newFixture = TestBed.createComponent(DatatableComponent);
+    newFixture.componentInstance.hasFooter = false;
+    newFixture.detectChanges();
+    expect(newFixture.componentInstance.limit).toBe(25);
+  });
+
+  it('should request all rows in remote paging mode', () => {
+    component.remotePaging = true;
+    const callback = jest.fn();
+    component.loadDataEvent.subscribe(callback);
+    component.onPageSizeChange(0);
+    expect(callback).toHaveBeenCalledWith({ offset: 0, limit: -1 });
+  });
+
+  it('should search job commands and tags', () => {
+    const backup = { command: '/usr/local/bin/backup', comment: 'daily' };
+    const sync = { command: '/usr/local/bin/rsync', comment: 'storage' };
+    component.columns = [
+      { name: 'Command', prop: 'command' },
+      { name: 'Tags', prop: 'comment' }
+    ];
+    component.data = [backup, sync];
+    component.searchFilter = 'storage';
+    component.applySearchFilter();
+    expect(component.rows).toEqual([sync]);
   });
 });
