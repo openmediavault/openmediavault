@@ -61,6 +61,8 @@ export type DataTableCellChanged = {
   column: DatatableColumn;
 };
 
+const PAGE_SIZE_STORAGE_KEY = 'datatable_pagesize';
+
 @Component({
   selector: 'omv-datatable',
   templateUrl: './datatable.component.html',
@@ -270,6 +272,8 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   public icon = Icon;
   public rows = [];
   public offset = 0;
+  public pageSizeOptions = [10, 25, 50, 100];
+  public pagingEnabled = true;
   public selection = new DatatableSelection();
   public filteredColumns: DatatableColumn[];
   public messages: {
@@ -318,6 +322,11 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
     this.initTemplates();
     // Sanitize configuration.
     this.sanitizeConfig();
+    this.pagingEnabled = !!this.hasFooter && this.limit > 0;
+    this.loadPageSize();
+    if (this.limit > 0 && !this.pageSizeOptions.includes(this.limit)) {
+      this.pageSizeOptions = [...this.pageSizeOptions, this.limit].sort((a, b) => a - b);
+    }
     // Initialize timer or simply load the data once.
     // Note, we'll also use the RxJS timer when loading the data only once,
     // that's because this will prevent us from getting an 'Expression has
@@ -361,7 +370,7 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   reloadData(): void {
     const params: DataTableLoadParams = {};
     if (this.remotePaging) {
-      _.merge(params, { offset: this.offset, limit: this.limit });
+      _.merge(params, { offset: this.offset, limit: this.limit > 0 ? this.limit : -1 });
     }
     if (this.remoteSorting && !_.isEmpty(this.sorters)) {
       _.merge(params, { dir: this.sorters[0].dir, prop: this.sorters[0].prop });
@@ -422,6 +431,15 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
   onPage({ count, pageSize, limit, offset }): void {
     if (this.remotePaging) {
       this.offset = offset;
+      this.reloadData();
+    }
+  }
+
+  onPageSizeChange(limit: number): void {
+    this.limit = limit;
+    this.offset = 0;
+    this.userLocalStorageService.set(PAGE_SIZE_STORAGE_KEY, String(limit));
+    if (this.remotePaging) {
       this.reloadData();
     }
   }
@@ -591,5 +609,18 @@ export class DatatableComponent implements Datatable, OnInit, OnDestroy, OnChang
       `datatable_state_${this.stateId}`,
       JSON.stringify(columnsConfig)
     );
+  }
+
+  private loadPageSize(): void {
+    if (!this.pagingEnabled) {
+      return;
+    }
+    const value = this.userLocalStorageService.get(PAGE_SIZE_STORAGE_KEY);
+    if (_.isString(value) && /^(0|[1-9]\d*)$/.test(value)) {
+      const limit = _.toNumber(value);
+      if (Number.isSafeInteger(limit)) {
+        this.limit = limit;
+      }
+    }
   }
 }
