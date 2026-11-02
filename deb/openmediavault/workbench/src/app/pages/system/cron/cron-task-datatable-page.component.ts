@@ -26,6 +26,7 @@ import { DatatablePageConfig } from '~/app/core/components/intuition/models/data
 export class CronTaskDatatablePageComponent {
   public config: DatatablePageConfig = {
     autoReload: false,
+    hasSearchField: true,
     stateId: '43b8eb04-2594-11ea-8bd6-fb7a107fca0e',
     sorters: [
       {
