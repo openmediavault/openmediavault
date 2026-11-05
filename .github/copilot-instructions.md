@@ -21,7 +21,7 @@ When reviewing code, use the conventions outlined below to ensure consistency an
 - For **Shell scripts**, refer to the instructions in `.github/instructions/shell-sec.instructions.md`.
 - For **Python scripts**, refer to the instructions in `.github/instructions/python-sec.instructions.md`.
 - For **PHP code**, refer to the instructions in `.github/instructions/php-sec.instructions.md`.
-- Skip security checks for files that do not contain executable code (e.g., markdown, YAML, JSON, etc.).
+- Skip security checks for files that do not contain executable code (e.g., Markdown, YAML, JSON, etc.).
 
 ### Security Review Summary
 
@@ -30,8 +30,8 @@ Please provide a security review summary in your review comments, even if no iss
 ```
 **Security review**
 
-- Shell scripts: [PASS | N issues — list types] (if applicable)
-- Python scripts: [PASS | N issues — list types] (if applicable)
-- PHP code: [PASS | N issues — list types] (if applicable)
+- Shell scripts: [PASS | N issues - list types] (if applicable)
+- Python scripts: [PASS | N issues - list types] (if applicable)
+- PHP code: [PASS | N issues - list types] (if applicable)
 - Pre-existing issues noted: [none | list]
 ```
