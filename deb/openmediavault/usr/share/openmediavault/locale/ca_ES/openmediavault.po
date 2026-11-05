@@ -6,13 +6,14 @@
 # Quim Farriol <qfarriol@valette.cat>, 2020-2025
 # Quim Farriol <qfarriol@valette.cat>, 2017-2018,2020
 # Quim Farriol <qfarriol@valette.cat>, 2016
+# Volker Theile <votdev@gmx.de>, 2026
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-18 08:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Quim Farriol <qfarriol@valette.cat>, 2020-2025\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2026\n"
 "Language-Team: Catalan (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3996,7 +3997,7 @@ msgid "Updated password."
 msgstr "Contrasenya actualitzada. "
 
 msgid "Updated permissions of group \"{{ name }}\"."
-msgstr "S'han actualitzat els permisos del grup \"{{ nom }}\"."
+msgstr "S'han actualitzat els permisos del grup \"{{ name }}\"."
 
 msgid "Updated permissions of shared folder."
 msgstr "S'han actualitzat els permisos de la carpeta compartida."

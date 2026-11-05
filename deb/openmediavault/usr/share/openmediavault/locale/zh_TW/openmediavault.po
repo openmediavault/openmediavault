@@ -1798,7 +1798,7 @@ msgid "LVM logical volume %s [%s, %s]"
 msgstr "LVM 邏輯儲存卷 %s [%s, %s]"
 
 msgid "Label"
-msgstr "標號"
+msgstr "標記"
 
 msgid "Language"
 msgstr "語言"
@@ -3430,7 +3430,7 @@ msgid "The home of the project and source of news and updates."
 msgstr "專案網站與新聞與更新的來源。"
 
 msgid "The hostname is a label that identifies the system to the network."
-msgstr "主機名稱是一個用以於網路上識別系統的標號。"
+msgstr "主機名稱是一個用以於網路上識別系統的標記。"
 
 msgid "The hostname of the remote system."
 msgstr "遠端系統的主機名稱"

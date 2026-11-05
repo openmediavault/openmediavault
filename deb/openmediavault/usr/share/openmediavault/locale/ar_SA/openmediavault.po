@@ -5,13 +5,14 @@
 # Translators:
 # omv nas <myomv100@gmail.com>, 2020,2023
 # omv nas <myomv100@gmail.com>, 2020-2023
+# Volker Theile <votdev@gmx.de>, 2026
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-18 08:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: omv nas <myomv100@gmail.com>, 2020-2023\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2026\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3535,7 +3536,7 @@ msgid "The shared folder from which the permissions are copied."
 msgstr "المجلد المشترك الذي يتم نسخ الصلاحيات منه."
 
 msgid "The shared folder {{ _selected[0].name }} was successfully created."
-msgstr "تم إنشاء المجلد المشترك {{ _selected [0] .name }} بنجاح."
+msgstr "تم إنشاء المجلد المشترك {{ _selected[0].name }} بنجاح."
 
 msgid ""
 "The snapshot '{{ _response.name }}' has been created for the shared folder "
