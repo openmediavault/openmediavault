@@ -31,11 +31,11 @@ server:
     createFilePermission: "{{ create_file_permission }}"
     createDirectoryPermission: "{{ create_directory_permission }}"
 auth:
+  adminUsername: {{ admin_username }}
+  adminPassword: {{ admin_password }}
   methods:
     password:
       enabled: true
-      adminUsername: {{ admin_username }}
-      adminPassword: {{ admin_password }}
 userDefaults:
   preview:
     image: true
