@@ -12,6 +12,10 @@ When reviewing code, use the conventions outlined below to ensure consistency an
 - All file modifications must comply with the rules defined in the `.editorconfig` file.
 - All commits must be signed-off (`git commit -s`).
 
+## Validation and Linting
+
+- For **Translations and PO files**, refer to the instructions in `.github/instructions/i18n-lint.instructions.md`.
+
 ## Security Checks
 
 - For **Shell scripts**, refer to the instructions in `.github/instructions/shell-sec.instructions.md`.
