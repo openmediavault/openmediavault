@@ -5,13 +5,14 @@
 # Translators:
 # omv nas <myomv100@gmail.com>, 2020,2023
 # omv nas <myomv100@gmail.com>, 2023
+# Volker Theile <votdev@gmx.de>, 2026
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2012-03-17 01:49+0000\n"
-"Last-Translator: omv nas <myomv100@gmail.com>, 2023\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2026\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -150,7 +151,7 @@ msgid ""
 msgstr "النسبة المئوية لإجمالي المساحة في مجموعة وحدات التخزين المراد استخدامها بواسطة وحدات التخزين المنطقية٠"
 
 msgid "Updated logical volume '{{ devicefile }}'."
-msgstr "تم تحديث وحدة تخزين منطقية '{{ name }}'."
+msgstr "تم تحديث وحدة تخزين منطقية '{{ devicefile }}'."
 
 msgid "Updated volume group '{{ devicefile }}'."
 msgstr "تم تحديث وحدة تخزين حقيقية {{ devicefile }}."

@@ -16,6 +16,70 @@ permissions:
   contents: read
 
 jobs:
+  lint-i18n:
+    runs-on: ubuntu-latest
+    container: python:3.13-slim
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+
+      - name: Install dependencies
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends gettext
+          pip install --no-cache-dir polib
+
+      - name: Validate PO files with msgfmt
+        run: |
+          find deb -name "*.po" -exec sh -c 'for po_file in "$@"; do msgfmt --check --output-file=/dev/null "$po_file" || exit 1; done' sh {} +
+
+      - name: Lint PO placeholder integrity
+        run: |
+          python3 - << 'EOF'
+          import glob
+          import os
+          import re
+          import sys
+          import polib
+
+          placeholder_re = re.compile(r'\{\{(.*?)\}\}')
+          has_errors = False
+
+          def extract_placeholders(text):
+              # Trim only surrounding whitespace; preserve expression contents,
+              # including whitespace inside string literals.
+              tags = []
+              for match in placeholder_re.findall(text):
+                  normalized = match.strip()
+                  tags.append(normalized)
+              return sorted(tags)
+
+          po_files = sorted(glob.glob("deb/**/locale/**/*.po", recursive=True))
+          print(f"Checking {len(po_files)} PO files...")
+
+          for po_file in po_files:
+              po = polib.pofile(po_file)
+              for entry in po:
+                  if entry.obsolete or not entry.msgstr:
+                      continue
+
+                  msgid_placeholders = extract_placeholders(entry.msgid)
+                  msgstr_placeholders = extract_placeholders(entry.msgstr)
+
+                  if msgid_placeholders != msgstr_placeholders:
+                      print(f"Error in {po_file}:{entry.linenum}")
+                      print(f"  msgid : {entry.msgid}")
+                      print(f"  msgstr: {entry.msgstr}")
+                      print(f"  Expected: {msgid_placeholders}")
+                      print(f"  Found   : {msgstr_placeholders}\n")
+                      has_errors = True
+
+          if has_errors:
+              sys.exit(1)
+          print("All PO files passed placeholder integrity check.")
+          EOF
+
   lint-ui:
     runs-on: ubuntu-latest
 

@@ -38,7 +38,7 @@ msgid "Created logical volume '{{ name }}'."
 msgstr "Logisches Volume '{{ name }}' erstellt."
 
 msgid "Created physical volume {{ devicefile }}."
-msgstr "Physikalisches Volume '{{ name }}' erstellt."
+msgstr "Physikalisches Volume '{{ devicefile }}' erstellt."
 
 msgid "Created snapshot of logical volume '{{ devicefile }}'."
 msgstr "Ein Snapshot des Logischen Volume '{{ devicefile }}' wurde erstellt."

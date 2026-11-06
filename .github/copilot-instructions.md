@@ -16,6 +16,17 @@ When reviewing code, use the conventions outlined below to ensure consistency an
 
 - For **Translations and PO files**, refer to the instructions in `.github/instructions/i18n-lint.instructions.md`.
 
+### Validation and Linting Summary
+
+Please provide a validation and linting summary in your review comments, even if no issues are found. Use the following format:
+
+```
+**Validation & linting review**
+
+- Translations (.po/.pot): [PASS | N issues - list types] (if applicable)
+- Pre-existing issues noted: [none | list]
+```
+
 ## Security Checks
 
 - For **Shell scripts**, refer to the instructions in `.github/instructions/shell-sec.instructions.md`.

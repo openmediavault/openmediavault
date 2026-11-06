@@ -4003,7 +4003,7 @@ msgid "Updated permissions of shared folder."
 msgstr "S'han actualitzat els permisos de la carpeta compartida."
 
 msgid "Updated permissions of user \"{{ name }}\"."
-msgstr "S'han actualitzat els permisos de l'usuari \"{{ nom }}\"."
+msgstr "S'han actualitzat els permisos de l'usuari \"{{ name }}\"."
 
 msgid "Updated power management settings."
 msgstr "Configuració actualitzada de gestió d'energia. "
