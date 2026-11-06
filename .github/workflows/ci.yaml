@@ -80,6 +80,51 @@ jobs:
           print("All PO files passed placeholder integrity check.")
           EOF
 
+  lint-salt:
+    runs-on: ubuntu-latest
+    container: python:3.13-slim
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+
+      - name: Install dependencies
+        run: pip install --no-cache-dir jinja2
+
+      - name: Lint Jinja2 syntax in SLS and J2 files
+        run: |
+          python3 - << 'EOF'
+          import glob
+          import sys
+          import jinja2
+
+          env = jinja2.Environment(extensions=["jinja2.ext.do"])
+          has_errors = False
+
+          files = sorted(
+              glob.glob("deb/**/*.sls", recursive=True) +
+              glob.glob("deb/**/*.j2", recursive=True)
+          )
+          print(f"Checking {len(files)} Salt SLS and Jinja2 template files...")
+
+          for filepath in files:
+              try:
+                  with open(filepath, "r", encoding="utf-8") as f:
+                      content = f.read()
+                  env.parse(content)
+              except jinja2.TemplateSyntaxError as e:
+                  print(f"Syntax error in {filepath}:{e.lineno}")
+                  print(f"  {e.message}\n")
+                  has_errors = True
+              except Exception as e:
+                  print(f"Error reading {filepath}: {e}\n")
+                  has_errors = True
+
+          if has_errors:
+              sys.exit(1)
+          print("All SLS and J2 files passed Jinja2 syntax check.")
+          EOF
+
   lint-ui:
     runs-on: ubuntu-latest
 
