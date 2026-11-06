@@ -95,7 +95,7 @@ msgid "Description"
 msgstr "Descrizione"
 
 msgid "Digest"
-msgstr "Digest"
+msgstr "Riepilogo"
 
 msgid "Do you really want to restore this snapshot?"
 msgstr "Vuoi davvero ripristinare questo snapshot?"
@@ -398,7 +398,7 @@ msgid "The manifest to apply."
 msgstr "Il manifesto da applicare."
 
 msgid "The names 'web' and 'websecure' are reserved."
-msgstr ""
+msgstr "I nomi 'web' e 'websecure' sono riservati."
 
 msgid "The snapshot was created successfully."
 msgstr "Lo snapshot è stato creato correttamente."

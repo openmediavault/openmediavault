@@ -55,7 +55,7 @@ msgid "Devices"
 msgstr "Enheter"
 
 msgid "Do you really want to create a physical volume on '{{ devicefile }}'?"
-msgstr "Vill du verkligen skapa en fysisk volym på '{{ devicefile }}'?"
+msgstr "Vill du verkligen skapa en fysisk volym på ”{{ devicefile }}”?"
 
 msgid "Do you really want to resize the selected physical volume?"
 msgstr "Vill du verkligen ändra storlek på den valda fysiska volymen?"
@@ -82,22 +82,22 @@ msgid "LVM"
 msgstr "LVM"
 
 msgid "Logical Volume Management"
-msgstr "Logisk volymhantering"
+msgstr "Hantering av logiska volymer"
 
 msgid "Logical Volumes"
 msgstr "Logiska volymer"
 
 msgid "Max. capacity"
-msgstr ""
+msgstr "Maximal kapacitet"
 
 msgid "Name"
 msgstr "Namn"
 
 msgid "New capacity"
-msgstr ""
+msgstr "Ny kapacitet"
 
 msgid "Percentage"
-msgstr ""
+msgstr "Procentandel"
 
 msgid "Physical Volumes"
 msgstr "Fysiska volymer"
@@ -112,22 +112,22 @@ msgid "Reduced volume group '{{ devicefile }}'."
 msgstr "Volymgruppen ”{{ devicefile }}” minskades."
 
 msgid "Referenced"
-msgstr "Refererad"
+msgstr "Används av andra resurser"
 
 msgid "Resize"
 msgstr "Ändra storlek"
 
 msgid "Select a device ..."
-msgstr "Välj en enhet …"
+msgstr "Välj en enhet…"
 
 msgid "Select a volume group ..."
-msgstr "Välj en volymgrupp …"
+msgstr "Välj en volymgrupp…"
 
 msgid "Select devices ..."
-msgstr "Välj enheter …"
+msgstr "Välj enheter…"
 
 msgid "Select the devices used to extend the volume group."
-msgstr "Välj de enheter som används för att utöka volymgruppen."
+msgstr "Välj de enheter som ska läggas till i volymgruppen."
 
 msgid "Select the devices used to reduce from the volume group."
 msgstr "Välj de enheter som ska tas bort från volymgruppen."
@@ -147,12 +147,12 @@ msgstr "Namnet på volymgruppen."
 msgid ""
 "The percentage of the total space in the volume group to allocate for the "
 "new logical volume."
-msgstr "Procentandelen av volymgruppens totala utrymme som ska tilldelas den nya logiska volymen."
+msgstr "Ange i procent hur stor del av volymgruppens totala utrymme som ska tilldelas den nya logiska volymen."
 
 msgid ""
 "The percentage of the total space in the volume group to use by the logical "
 "volume."
-msgstr "Procentandelen av volymgruppens totala utrymme som den logiska volymen ska använda."
+msgstr "Ange i procent hur stor del av volymgruppens totala utrymme den logiska volymen ska använda."
 
 msgid "Updated logical volume '{{ devicefile }}'."
 msgstr "Den logiska volymen ”{{ devicefile }}” uppdaterades."

@@ -186,7 +186,7 @@ msgid "Kubernetes - Resources"
 msgstr "Kubernetes - 資源"
 
 msgid "Labels"
-msgstr "標號"
+msgstr "標記"
 
 msgid "Last seen"
 msgstr "最後出現"

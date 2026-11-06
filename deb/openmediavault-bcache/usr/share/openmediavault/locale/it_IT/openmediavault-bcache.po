@@ -5,7 +5,7 @@
 # 
 # Translators:
 # Roberto Bellingeri <bellingeri@netguru.it>, 2025
-# Giovanni Scafora <scafora.giovanni@gmail.com>, 2025
+# Giovanni Scafora <scafora.giovanni@gmail.com>, 2026
 # 
 #, fuzzy
 msgid ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-18 08:34+0200\n"
 "PO-Revision-Date: 2024-11-20 12:26+0000\n"
-"Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025\n"
+"Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2026\n"
 "Language-Team: Italian (https://app.transifex.com/openmediavault/teams/14254/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,10 +49,10 @@ msgid "Bcache Device"
 msgstr "Dispositivo bcache"
 
 msgid "Bcache backing device [%s, %s]"
-msgstr ""
+msgstr "Dispositivo di supporto di Bcache [%s, %s]"
 
 msgid "Bcache cache device [%s, %s]"
-msgstr ""
+msgstr "Dispositivo di cache di Bcache [%s, %s]"
 
 msgid "Cache Device"
 msgstr "Dispositivo di cache"

@@ -25,7 +25,7 @@ msgid "Apply"
 msgstr "Tillämpa"
 
 msgid "Authentication"
-msgstr ""
+msgstr "Autentisering"
 
 msgid "Login"
 msgstr "Inloggning"

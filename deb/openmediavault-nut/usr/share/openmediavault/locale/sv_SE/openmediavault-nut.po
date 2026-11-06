@@ -25,28 +25,28 @@ msgstr ""
 
 msgid ""
 "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
-msgstr "”Standalone” för en lokal UPS och ”Netclient” för en fjärransluten UPS på en NUT-server."
+msgstr "Välj ”Fristående” om UPS:en är ansluten till den här datorn eller ”Nätverksklient” om den övervakas via en NUT-server."
 
 msgid "Battery charge with the low-battery shutdown threshold marked."
-msgstr ""
+msgstr "Visar batteriets laddningsnivå och markerar gränsen för avstängning vid låg batterinivå."
 
 msgid "Battery date"
-msgstr ""
+msgstr "Batteriets tillverkningsdatum"
 
 msgid "Battery low"
-msgstr ""
+msgstr "Gräns för låg batterinivå"
 
 msgid "Battery type"
-msgstr ""
+msgstr "Batterityp"
 
 msgid "Battery voltage"
-msgstr ""
+msgstr "Batterispänning"
 
 msgid "Charge"
-msgstr "Laddning"
+msgstr "Batterinivå"
 
 msgid "Charge warning"
-msgstr ""
+msgstr "Varningsgräns för batterinivå"
 
 msgid "Comment"
 msgstr "Kommentar"
@@ -55,13 +55,13 @@ msgid "Date & Time"
 msgstr "Datum och tid"
 
 msgid "Defines when the shutdown is initiated."
-msgstr "Anger när avstängningen initieras."
+msgstr "Anger när systemet börjar stängas av."
 
 msgid "Driver configuration directives"
-msgstr "Direktiv för drivrutinskonfiguration"
+msgstr "Konfigurationsdirektiv för drivrutinen"
 
 msgid "Enable remote monitoring of the local connected UPS."
-msgstr "Aktivera fjärrövervakning för den lokalt anslutna UPS:en."
+msgstr "Tillåt fjärrövervakning av den lokalt anslutna UPS:en."
 
 msgid "Enabled"
 msgstr "Aktiverad"
@@ -70,7 +70,7 @@ msgid "Identifier"
 msgstr "Identifierare"
 
 msgid "Input voltage"
-msgstr ""
+msgstr "Inspänning"
 
 msgid "Invalid identifier"
 msgstr "Ogiltig identifierare"
@@ -79,10 +79,10 @@ msgid "Load"
 msgstr "Belastning"
 
 msgid "Low"
-msgstr ""
+msgstr "Gräns för låg nivå"
 
 msgid "Manufacturer"
-msgstr ""
+msgstr "Tillverkare"
 
 msgid "Message"
 msgstr "Meddelande"
@@ -94,16 +94,16 @@ msgid "Model"
 msgstr "Modell"
 
 msgid "Netclient"
-msgstr "Netclient"
+msgstr "Nätverksklient"
 
 msgid "Netclient hostname"
-msgstr "Netclient-värdnamn"
+msgstr "NUT-serverns värdnamn"
 
 msgid "Netclient password"
-msgstr "Netclient-lösenord"
+msgstr "Lösenord på NUT-servern"
 
 msgid "Netclient user name"
-msgstr "Netclient-användarnamn"
+msgstr "Användarnamn på NUT-servern"
 
 msgid "PID"
 msgstr "PID"
@@ -112,7 +112,7 @@ msgid "Password"
 msgstr "Lösenord"
 
 msgid "Powervalue"
-msgstr "Effektvärde"
+msgstr "Antal nätaggregat som UPS:en försörjer"
 
 msgid "Program"
 msgstr "Program"
@@ -121,10 +121,10 @@ msgid "Remote monitoring"
 msgstr "Fjärrövervakning"
 
 msgid "Runtime"
-msgstr ""
+msgstr "Återstående batteritid"
 
 msgid "Runtime low"
-msgstr ""
+msgstr "Gräns för låg återstående batteritid"
 
 msgid "Service disabled"
 msgstr "Tjänst inaktiverad"
@@ -136,7 +136,7 @@ msgid "Shutdown timer"
 msgstr "Tidsgräns före avstängning"
 
 msgid "Standalone"
-msgstr "Standalone"
+msgstr "Fristående"
 
 msgid "Status"
 msgstr "Status"
@@ -145,18 +145,18 @@ msgid "Temperature"
 msgstr "Temperatur"
 
 msgid "The name used to uniquely identify your UPS on local or remote system."
-msgstr "Namnet som unikt identifierar UPS-enheten på det lokala systemet eller ett fjärrsystem."
+msgstr "Ett unikt namn för UPS:en på det lokala systemet eller fjärrsystemet."
 
 msgid ""
 "The number of power supplies that the UPS feeds on this system (usually 1), "
 "refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
 "target='_blank'>upsmon.conf(5)</a> for more information."
-msgstr "Antalet strömförsörjningsenheter som UPS-enheten försörjer i systemet, vanligtvis 1. Mer information finns i <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf(5)</a>."
+msgstr "Antalet nätaggregat i det här systemet som får ström från UPS:en (vanligtvis 1). Mer information finns i <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf(5)</a>."
 
 msgid ""
 "The time in seconds until shutdown is initiated. If the UPS happens to come "
 "back before the time is up the shutdown is canceled."
-msgstr "Tiden i sekunder till avstängningen initieras. Om UPS:en kommer tillbaka innan tiden är slut kommer avstängningen att avbrytas."
+msgstr "Antal sekunder innan systemet börjar stängas av. Om nätströmmen kommer tillbaka innan tiden har gått ut avbryts den planerade avstängningen."
 
 msgid ""
 "To get more information how to configure your UPS please check the Network "
@@ -168,19 +168,19 @@ msgid "UPS"
 msgstr "UPS"
 
 msgid "UPS Battery"
-msgstr ""
+msgstr "UPS-batteri"
 
 msgid "UPS Information"
-msgstr ""
+msgstr "UPS-information"
 
 msgid "UPS device and battery information."
-msgstr ""
+msgstr "Information om UPS:en och batteriet."
 
 msgid "UPS goes on battery"
 msgstr "UPS-enheten går över till batteridrift"
 
 msgid "UPS reaches low battery"
-msgstr "UPS-enheten når låg batterinivå"
+msgstr "UPS:en når gränsen för låg batterinivå"
 
 msgid "Updated UPS settings."
 msgstr "UPS-inställningarna uppdaterades."
