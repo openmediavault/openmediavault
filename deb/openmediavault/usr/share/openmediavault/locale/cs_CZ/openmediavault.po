@@ -6,13 +6,14 @@
 # Jan Štourač <wormsik666@gmail.com>, 2014-2015
 # Marek Pavelka, 2024-2025
 # Pavel Borecki <pavel.borecki@gmail.com>, 2014-2021
+# Volker Theile <votdev@gmx.de>, 2026
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-18 08:34+0200\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
-"Last-Translator: Marek Pavelka, 2024-2025\n"
+"Last-Translator: Volker Theile <votdev@gmx.de>, 2026\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3560,7 +3561,7 @@ msgstr "Hodnota neodpovídá vzoru /{{ pattern }}/."
 msgid ""
 "The value must be on of the slave network interfaces {{ slaves | join(\", "
 "\") }}."
-msgstr "Hodnota musí být na podřízeném síťovém rozhraní {{ slaves | join(“, “) }}."
+msgstr "Hodnota musí být na podřízeném síťovém rozhraní {{ slaves | join(\", \") }}."
 
 msgid "The value must be one of the slave network interfaces."
 msgstr "Hodnota musí být jedno z podřízených síťových rozhraní."
