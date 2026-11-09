@@ -1,3 +1,9 @@
+openmediavault-nut (8.0.9-1) stable; urgency=medium
+
+  * Fix log parser.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Nov 2026 17:21:57 +0100
+
 openmediavault-nut (8.0.8-1) stable; urgency=medium
 
   * Translate text in dashboard widget.

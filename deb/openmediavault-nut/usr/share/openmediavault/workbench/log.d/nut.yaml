@@ -9,15 +9,6 @@ data:
     prop: ts
     cellTemplateName: localeDateTime
     flexGrow: 1
-  - name: _("Program")
-    sortable: true
-    prop: program
-    flexGrow: 1
-  - name: _("PID")
-    sortable: true
-    hidden: true
-    prop: pid
-    flexGrow: 1
   - name: _("Message")
     sortable: true
     prop: message
