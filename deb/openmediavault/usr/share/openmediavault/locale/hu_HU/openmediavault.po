@@ -4,11 +4,11 @@
 # 
 # Translators:
 # Ádám Balajti <balajtiadam@gmail.com>, 2012
-# Sári Gábor <sari.gabor@gmail.com>, 2017
+# Sári Gábor <sarigaborj@gmail.com>, 2017
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2018-2020
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2017
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2026
-# Sári Gábor <sari.gabor@gmail.com>, 2018,2022,2024
+# Sári Gábor <sarigaborj@gmail.com>, 2018,2022,2024
 # Grawens <szabolcs.szanyi@gmail.com>, 2014-2023
 msgid ""
 msgstr ""
