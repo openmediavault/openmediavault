@@ -169,8 +169,10 @@ class TFATotp extends \OMV\Rpc\ServiceAbstract
             $object = new \OMV\Config\ConfigObject("conf.system.tfatotp");
             $object->set("name", $context['username']);
         }
-        $object->set("secret", $params['secret']);
-        $object->set("enabled", true);
+        $object->setFlatAssoc([
+            "secret" => $params['secret'],
+            "enabled" => true
+        ]);
 
         $db = \OMV\Config\Database::getInstance();
         $db->set($object);

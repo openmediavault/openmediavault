@@ -280,15 +280,15 @@ class OMVRpcServiceFileSystemMgmt extends \OMV\Rpc\ServiceAbstract
             $rootObject = new \OMV\Config\ConfigObject(
                 "conf.system.filesystem.mountpoint"
             );
-            $rootObject->set("fsname", \OMV\Environment::get(
-                "OMV_ROOT_DEVICE_FILE"
-            ));
-            $rootObject->set("dir", "/");
-            $rootObject->set("comment", "");
-            $rootObject->set("usagewarnthreshold", \OMV\Environment::get(
-                "OMV_MONIT_SERVICE_FILESYSTEM_ROOT_USAGEWARNTHRESHOLD",
-                85
-            ));
+            $rootObject->setFlatAssoc([
+                "fsname" => \OMV\Environment::get("OMV_ROOT_DEVICE_FILE"),
+                "dir" => "/",
+                "comment" => "",
+                "usagewarnthreshold" => \OMV\Environment::get(
+                    "OMV_MONIT_SERVICE_FILESYSTEM_ROOT_USAGEWARNTHRESHOLD",
+                    85
+                )
+            ]);
             array_unshift($objects, $rootObject);
         }
         // Get the file system details for each mount point.

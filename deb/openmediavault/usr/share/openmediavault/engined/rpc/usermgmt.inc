@@ -522,9 +522,10 @@ class UserMgmt extends \OMV\Rpc\ServiceAbstract
                 $filter,
                 1
             );
-            $object->set("email", $params['email']);
-            $object->set("disallowusermod", $params['disallowusermod']);
-            $object->set("email", $params['email']);
+            $object->setFlatAssoc([
+                "email" => $params['email'],
+                "disallowusermod" => $params['disallowusermod']
+            ]);
             $object->set("sshpubkeys", [
                 "sshpubkey" => $params['sshpubkeys']
             ]);
@@ -535,10 +536,11 @@ class UserMgmt extends \OMV\Rpc\ServiceAbstract
                 "conf.system.usermngmnt.user"
             );
             $object->setNew();
-            $object->set("name", $params['name']);
-            $object->set("email", $params['email']);
-            $object->set("disallowusermod", $params['disallowusermod']);
-            $object->set("email", $params['email']);
+            $object->setFlatAssoc([
+                "name" => $params['name'],
+                "email" => $params['email'],
+                "disallowusermod" => $params['disallowusermod']
+            ]);
             $object->set("sshpubkeys", [
                 "sshpubkey" => $params['sshpubkeys']
             ]);
@@ -939,8 +941,10 @@ class UserMgmt extends \OMV\Rpc\ServiceAbstract
                 "conf.system.usermngmnt.group"
             );
             $object->setNew();
-            $object->set("name", $params['name']);
-            $object->set("comment", $params['comment']);
+            $object->setFlatAssoc([
+                "name" => $params['name'],
+                "comment" => $params['comment']
+            ]);
         }
         $db->set($object);
         // Append some more information to the notification object.

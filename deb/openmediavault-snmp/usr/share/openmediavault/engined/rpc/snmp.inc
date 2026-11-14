@@ -81,10 +81,12 @@ class OMVRpcServiceSnmp extends \OMV\Rpc\ServiceAbstract
         // Prepare the configuration object.
         $object = new \OMV\Config\ConfigObject("conf.service.snmp");
         $object->setAssoc($params, true, true);
-        $object->set("trap.enable", $params['trapenable']);
-        $object->set("trap.community", $params['trapcommunity']);
-        $object->set("trap.host", $params['traphost']);
-        $object->set("trap.port", $params['trapport']);
+        $object->setFlatAssoc([
+            "trap.enable" => $params['trapenable'],
+            "trap.community" => $params['trapcommunity'],
+            "trap.host" => $params['traphost'],
+            "trap.port" => $params['trapport']
+        ]);
         // Set the configuration object.
         $db = \OMV\Config\Database::getInstance();
         $db->set($object);

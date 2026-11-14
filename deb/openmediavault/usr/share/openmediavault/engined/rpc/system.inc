@@ -385,10 +385,12 @@ class System extends \OMV\Rpc\ServiceAbstract
         // Get and update the existing configuration object.
         $db = \OMV\Config\Database::getInstance();
         $object = $db->get("conf.system.time");
-        $object->set("timezone", $params['timezone']);
-        $object->set("ntp.enable", $params['ntpenable']);
-        $object->set("ntp.timeservers", $params['ntptimeservers']);
-        $object->set("ntp.clients", $params['ntpclients']);
+        $object->setFlatAssoc([
+            "timezone" => $params['timezone'],
+            "ntp.enable" => $params['ntpenable'],
+            "ntp.timeservers" => $params['ntptimeservers'],
+            "ntp.clients" => $params['ntpclients']
+        ]);
         // Set the configuration object.
         $db->set($object);
         // Return the configuration object.

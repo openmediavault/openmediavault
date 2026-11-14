@@ -203,28 +203,32 @@ class Rsync extends \OMV\Rpc\ServiceAbstract
         $object->setAssoc($params, true, true);
         switch ($params['type']) {
             case "local":
-                $object->set("src.sharedfolderref", $params[
-                    'srcsharedfolderref']);
-                $object->set("src.uri", "");
-                $object->set("dest.sharedfolderref", $params[
-                    'destsharedfolderref']);
-                $object->set("dest.uri", "");
+                $object->setFlatAssoc([
+                    "src.sharedfolderref" => $params['srcsharedfolderref'],
+                    "src.uri" => "",
+                    "dest.sharedfolderref" => $params['destsharedfolderref'],
+                    "dest.uri" => ""
+                ]);
                 break;
             case "remote":
                 switch ($params['mode']) {
                     case "push":
-                        $object->set("src.sharedfolderref", $params[
-                            'srcsharedfolderref']);
-                        $object->set("src.uri", "");
-                        $object->set("dest.sharedfolderref", "");
-                        $object->set("dest.uri", $params['desturi']);
+                        $object->setFlatAssoc([
+                            "src.sharedfolderref" => $params[
+                                'srcsharedfolderref'],
+                            "src.uri" => "",
+                            "dest.sharedfolderref" => "",
+                            "dest.uri" => $params['desturi']
+                        ]);
                         break;
                     case "pull":
-                        $object->set("src.sharedfolderref", "");
-                        $object->set("src.uri", $params['srcuri']);
-                        $object->set("dest.sharedfolderref", $params[
-                            'destsharedfolderref']);
-                        $object->set("dest.uri", "");
+                        $object->setFlatAssoc([
+                            "src.sharedfolderref" => "",
+                            "src.uri" => $params['srcuri'],
+                            "dest.sharedfolderref" => $params[
+                                'destsharedfolderref'],
+                            "dest.uri" => ""
+                        ]);
                         break;
                 }
                 break;
