@@ -48,7 +48,7 @@ export class NavigationBarListItemComponent implements OnInit {
         .pipe(filter((event: Event) => event instanceof NavigationStart))
         .subscribe((event: NavigationStart) => {
           this.item.active = false;
-          this.item.expanded = _.startsWith(event.url, this.item.url);
+          this.item.expanded = this.matchesUrl(event.url);
         })
     );
     this.subscriptions.add(
@@ -64,7 +64,7 @@ export class NavigationBarListItemComponent implements OnInit {
             // is shown that is using parts of the items URL, e.g.:
             // - Route of the menu item: /system/powermgmt/tasks/
             // - Route of the displayed page: /system/powermgmt/tasks/create
-            this.item.active = _.startsWith(event.url, this.item.url);
+            this.item.active = this.matchesUrl(event.url);
           }
         })
     );
@@ -74,9 +74,9 @@ export class NavigationBarListItemComponent implements OnInit {
     if (this.item.children && this.item.children.length > 0) {
       this.item.active = this.router.url === this.item.url;
     } else {
-      this.item.active = _.startsWith(this.router.url, this.item.url);
+      this.item.active = this.matchesUrl(this.router.url);
     }
-    this.item.expanded = _.startsWith(this.router.url, this.item.url);
+    this.item.expanded = this.matchesUrl(this.router.url);
   }
 
   onClick(item: NavigationBarListItem) {
@@ -86,5 +86,19 @@ export class NavigationBarListItemComponent implements OnInit {
     if (item.url) {
       this.router.navigate([item.url]);
     }
+  }
+
+  /**
+   * Check whether the given URL is the URL of the item or a sub-page of
+   * it. Compare whole path segments, otherwise `/a/persistentvolume`
+   * would also match `/a/persistentvolumeclaim`.
+   */
+  private matchesUrl(url: string): boolean {
+    if (!this.item.url) {
+      return false;
+    }
+    const path = url.split(/[?#]/)[0];
+    const base = _.trimEnd(this.item.url, '/');
+    return path === base || _.startsWith(path, `${base}/`);
   }
 }
