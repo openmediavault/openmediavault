@@ -1,3 +1,12 @@
+openmediavault-k8s (8.2.9-1) stable; urgency=medium
+
+  * Do not make the K3S kubeconfig file world-readable. Thanks to Nader
+    Eloshaiker for reporting this.
+  * Restrict the RPC method K8s::set to administrators. Thanks to Nader
+    Eloshaiker for reporting this.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 17 Nov 2026 01:04:41 +0100
+
 openmediavault-k8s (8.2.8-1) stable; urgency=medium
 
   * Fix translations.

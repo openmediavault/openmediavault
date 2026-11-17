@@ -281,7 +281,7 @@ create_k3s_config:
   file.managed:
     - name: "/etc/rancher/k3s/config.yaml"
     - contents: |
-        write-kubeconfig-mode: "0644"
+        write-kubeconfig-mode: "0600"
         kube-controller-manager-arg:
           # Removing leader election can reduce CPU usage on a single-node setup.
           - "leader-elect=false"

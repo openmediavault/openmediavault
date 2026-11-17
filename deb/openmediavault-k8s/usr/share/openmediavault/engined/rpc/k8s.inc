@@ -109,6 +109,9 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract
      */
     public function set($params, $context)
     {
+        $this->validateMethodContext($context, [
+            "role" => OMV_ROLE_ADMINISTRATOR
+        ]);
         // Do some validation:
         // - Make sure that the port names are unique.
         // - Validate the port configuration and make sure new added
@@ -150,11 +153,16 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract
         if (!is_readable($filePath)) {
             throw new \OMV\Exception("Kubeconfig not readable.");
         }
+        // Return the content instead of the path of the file, because
+        // the file is only readable by root and the download is processed
+        // by the web server user.
+        if (false === ($content = file_get_contents($filePath))) {
+            throw new \OMV\Exception("Failed to read the kubeconfig.");
+        }
         // Return values required by generic download RPC implementation.
         return [
             "filename" => "kubeconfig.yaml",
-            "filepath" => $filePath,
-            "unlink" => false,
+            "content" => $content,
             "headers" => [
                 "Content-Type" => "text/yaml"
             ],
