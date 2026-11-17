@@ -42,6 +42,15 @@ describe('TextPageComponent', () => {
   });
 
   describe('content sanitizing', () => {
+    beforeEach(() => {
+      // Angular warns when the sanitizer strips content, which is expected here.
+      jest.spyOn(console, 'warn').mockImplementation();
+    });
+
+    afterEach(() => {
+      jest.restoreAllMocks();
+    });
+
     const render = (contentFormat: string, value: string): HTMLElement => {
       component.config.contentFormat = contentFormat as any;
       component.config.request = { service: 'Foo', get: { method: 'bar' } };
