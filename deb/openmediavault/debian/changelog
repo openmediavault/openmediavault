@@ -3,9 +3,9 @@ openmediavault (8.6.2-1) stable; urgency=medium
   * Several UI improvements.
   * Fix active state of navigation items sharing a URL prefix.
   * Sanitize the HTML and Markdown content of text pages. Thanks to Nader
-    Eloshaiker for reporting this.
+    Eloshaiker for submitting patches.
   * Remove the content of the SMB recycle bin relative to its directory.
-    Thanks to Nader Eloshaiker for reporting this.
+    Thanks to Nader Eloshaiker for submitting patches.
   * Do not execute the RPC of the `/download` route if the route has
     not been opened by the UI itself, e.g. via an external link. Thanks
     to Nader Eloshaiker for reporting this.
