@@ -133,12 +133,10 @@ export class TextPageComponent extends AbstractPageComponent<TextPageConfig> imp
         value = marked.parse(value, {
           gfm: true
         });
-        value = this.domSanitizer.bypassSecurityTrustHtml(value);
         value = this.domSanitizer.sanitize(SecurityContext.HTML, value);
         break;
       case 'html':
         propName = 'innerHTML';
-        value = this.domSanitizer.bypassSecurityTrustHtml(value);
         value = this.domSanitizer.sanitize(SecurityContext.HTML, value);
         break;
       default:
