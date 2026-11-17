@@ -34,8 +34,8 @@ trap "rm -rf ${lockfile}; exit" 0 1 2 5 15
 # Exit if the recycle bin directory does not exist.
 [ ! -e "${recycle_repository}" ] && exit 0
 omv_log "Please wait, empty recyle bin of <{{ sf_path }}> ..."
-find "${recycle_repository}" -mindepth 1 -amin +${amin} -print0 | xargs -0r rm -rfv
+find "${recycle_repository}" -mindepth 1 -amin +${amin} -prune -execdir rm -rfv -- {} + || :
 wait $!
 # Do a second run to remove empty directories.
-find "${recycle_repository}" -mindepth 1 -type d -empty -print0 | xargs -0r rm -rfv
+find "${recycle_repository}" -mindepth 1 -type d -empty -prune -execdir rm -rfv -- {} + || :
 wait $!

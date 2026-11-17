@@ -3,6 +3,8 @@ openmediavault (8.6.2-1) stable; urgency=medium
   * Fix active state of navigation items sharing a URL prefix.
   * Sanitize the HTML and Markdown content of text pages. Thanks to Nader
     Eloshaiker for reporting this.
+  * Remove the content of the SMB recycle bin relative to its directory.
+    Thanks to Nader Eloshaiker for reporting this.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 15 Nov 2026 15:37:32 +0100
 
