@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 import { of } from 'rxjs';
 
@@ -43,5 +44,34 @@ describe('FormPageComponent', () => {
     expect(request).toHaveBeenCalledWith('Foo', 'setA', { foo: 'bar', copy: 'bar' });
     // The tokens must be kept in the configuration.
     expect(component.config.request.post.params).toEqual({ copy: '{{ foo }}' });
+  });
+
+  describe('returnUrl', () => {
+    let navigateByUrl: jest.SpyInstance;
+
+    beforeEach(() => {
+      navigateByUrl = jest.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
+      component.config.buttons = [{ template: 'cancel', execute: { type: 'url', url: '/foo' } }];
+    });
+
+    const setReturnUrl = (returnUrl: string) => {
+      (TestBed.inject(ActivatedRoute).snapshot as any).queryParams = { returnUrl };
+    };
+
+    it('should navigate to the return URL', () => {
+      setReturnUrl('/bar');
+      component.onButtonClick(component.config.buttons[0]);
+      expect(navigateByUrl).toHaveBeenCalledWith('/bar');
+    });
+
+    it.each(['/download?service=A&method=b', 'download?service=A&method=b', '/download'])(
+      'should ignore the download return URL %s',
+      (returnUrl) => {
+        setReturnUrl(returnUrl);
+        component.onButtonClick(component.config.buttons[0]);
+        expect(navigateByUrl).toHaveBeenCalledTimes(1);
+        expect(navigateByUrl).toHaveBeenCalledWith('/foo');
+      }
+    );
   });
 });

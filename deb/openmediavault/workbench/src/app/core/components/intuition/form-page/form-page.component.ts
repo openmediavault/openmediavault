@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  */
 import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, PRIMARY_OUTLET, Router } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
 import { EMPTY, exhaustMap, Observable, Subscription, timer } from 'rxjs';
@@ -201,7 +201,7 @@ export class FormPageComponent
         case 'url':
           // Check if there is a return URL specified. This will override the configured URL.
           const returnUrl = _.get(this.activatedRoute.snapshot.queryParams, 'returnUrl');
-          if (_.isString(returnUrl)) {
+          if (_.isString(returnUrl) && !this.isDownloadUrl(returnUrl)) {
             this.router.navigateByUrl(returnUrl);
             break;
           }
@@ -501,5 +501,14 @@ export class FormPageComponent
     }
     // Update the form field values.
     this.setFormValues(res);
+  }
+
+  /**
+   * The `/download` route must not be reachable via the `returnUrl`
+   * query parameter, because it can be set by an external link.
+   */
+  private isDownloadUrl(url: string): boolean {
+    const segments = this.router.parseUrl(url).root.children[PRIMARY_OUTLET]?.segments;
+    return segments?.[0]?.path === 'download';
   }
 }

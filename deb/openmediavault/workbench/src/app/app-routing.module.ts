@@ -15,7 +15,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
-import { APP_INITIALIZER, inject, NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { ActivatedRouteSnapshot, Router, RouterModule, Routes } from '@angular/router';
 import { marker as gettext } from '@ngneat/transloco-keys-manager/marker';
 import * as _ from 'lodash';
@@ -234,12 +234,19 @@ const routes: Routes = [
     },
     {
       provide: 'downloadResolver',
-      useValue: (route: ActivatedRouteSnapshot) => {
+      useFactory: (router: Router, rpcService: RpcService) => (route: ActivatedRouteSnapshot) => {
         // Example: /download?service=LogFile&method=getContent&params={"id":"syslog"}
         // Note, it might be necessary to encode the JSON content of `params`, see
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent?retiredLocale=de
         // for more information.
-        const rpcService: RpcService = inject(RpcService);
+        // This route is only intended to be used by the UI itself. Do not
+        // execute the RPC if the navigation was triggered from outside,
+        // e.g. via an external link, a bookmark or a page reload.
+        const navigation = router.getCurrentNavigation();
+        if (navigation?.trigger !== 'imperative' || _.isNull(navigation.previousNavigation)) {
+          router.navigate(['/404']);
+          return EMPTY;
+        }
         const params: string | null = route.queryParamMap.get('params');
         rpcService.download(
           route.queryParamMap.get('service'),
@@ -247,7 +254,8 @@ const routes: Routes = [
           _.isNull(params) ? undefined : JSON.parse(decodeURIComponent(params))
         );
         return EMPTY;
-      }
+      },
+      deps: [Router, RpcService]
     }
   ]
 })
