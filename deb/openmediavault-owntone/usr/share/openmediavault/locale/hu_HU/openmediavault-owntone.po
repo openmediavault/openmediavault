@@ -8,7 +8,7 @@
 # Volker Theile <votdev@gmx.de>, 2022
 # Gábor Majoros <mersaint@gmail.com>, 2022
 # Grawens <szabolcs.szanyi@gmail.com>, 2022
-# Sári Gábor <sari.gabor@gmail.com>, 2022
+# Sári Gábor <sarigaborj@gmail.com>, 2022
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2025
 # 
 #, fuzzy

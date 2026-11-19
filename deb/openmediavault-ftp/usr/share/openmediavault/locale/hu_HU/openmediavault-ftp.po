@@ -6,7 +6,7 @@
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2023
 # Ádám Balajti <balajtiadam@gmail.com>, 2023
-# Sári Gábor <sari.gabor@gmail.com>, 2023
+# Sári Gábor <sarigaborj@gmail.com>, 2023
 # Grawens <szabolcs.szanyi@gmail.com>, 2025
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2026
 # 

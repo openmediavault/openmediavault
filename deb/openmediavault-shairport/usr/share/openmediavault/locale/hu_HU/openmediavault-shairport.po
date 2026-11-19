@@ -3,8 +3,8 @@
 # This file is distributed under the same license as the openmediavault-shairport package.
 # 
 # Translators:
-# Sári Gábor <sari.gabor@gmail.com>, 2017
-# Sári Gábor <sari.gabor@gmail.com>, 2018
+# Sári Gábor <sarigaborj@gmail.com>, 2017
+# Sári Gábor <sarigaborj@gmail.com>, 2018
 # Grawens <szabolcs.szanyi@gmail.com>, 2014-2016,2021
 msgid ""
 msgstr ""

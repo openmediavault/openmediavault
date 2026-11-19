@@ -5,7 +5,7 @@
 # 
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2017
-# Sári Gábor <sari.gabor@gmail.com>, 2018
+# Sári Gábor <sarigaborj@gmail.com>, 2018
 # Grawens <szabolcs.szanyi@gmail.com>, 2021
 # 
 #, fuzzy

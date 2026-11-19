@@ -48,7 +48,7 @@ msgid "Device"
 msgstr "デバイス"
 
 msgid "Disconnected"
-msgstr ""
+msgstr "切断されました"
 
 msgid "Edit"
 msgstr "編集"

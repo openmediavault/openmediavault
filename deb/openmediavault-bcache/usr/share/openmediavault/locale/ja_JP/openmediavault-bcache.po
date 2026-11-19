@@ -44,10 +44,10 @@ msgid "Bcache Device"
 msgstr "Bcacheデバイス"
 
 msgid "Bcache backing device [%s, %s]"
-msgstr ""
+msgstr "Bcache backing デバイス [%s, %s]"
 
 msgid "Bcache cache device [%s, %s]"
-msgstr ""
+msgstr "Bcache キャッシュデバイス[%s, %s]"
 
 msgid "Cache Device"
 msgstr "キャッシュデバイス"

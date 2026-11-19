@@ -5,7 +5,7 @@
 # 
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2022
-# Sári Gábor <sari.gabor@gmail.com>, 2022
+# Sári Gábor <sarigaborj@gmail.com>, 2022
 # Ádám Balajti <balajtiadam@gmail.com>, 2022
 # Grawens <szabolcs.szanyi@gmail.com>, 2022
 # 
