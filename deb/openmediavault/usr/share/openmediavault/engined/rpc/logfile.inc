@@ -40,7 +40,7 @@ class LogFile extends \OMV\Rpc\ServiceAbstract
     {
         $this->registerMethod("getList");
         $this->registerMethod("clear");
-        $this->registerMethod("getContent");
+        $this->registerMethod("getContent", null, ["allowlist" => ["download"]]);
     }
 
     /**

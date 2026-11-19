@@ -38,14 +38,25 @@ class Rpc
 
     /**
      * Create a context.
+     * @param string $username The name of the user.
+     * @param int $role The role of the user.
+     * @param array $options Optional context fields. The following
+     *   options are available:
+     *   \em entrypoint The name of the entrypoint the request has been
+     *   received through, e.g. `rpc` or `download`. If not set, the context is
+     *   considered as internal and is not restricted.
      * @return The context using the specified parameters.
      */
-    public static function createContext($username, $role)
+    public static function createContext($username, $role, $options = [])
     {
-        return [
+        $context = [
             "username" => $username,
             "role" => $role
         ];
+        if (array_key_exists("entrypoint", $options)) {
+            $context['entrypoint'] = $options['entrypoint'];
+        }
+        return $context;
     }
 
     /**
@@ -86,6 +97,18 @@ class Rpc
                 $service
             ))) {
                 if (true === $rpcService->hasMethod($method)) {
+                    if (!$rpcService->isMethodAllowed($method, $context)) {
+                        throw new \OMV\HttpErrorException(
+                            403,
+                            "The method '%s' of the RPC service '%s' is not ".
+                            "allowed to be called via the '%s' entrypoint.",
+                            $method,
+                            $service,
+                            $context['entrypoint']
+                        );
+                    }
+                    // Nested RPCs are internal calls.
+                    unset($context['entrypoint']);
                     // Restore server and execution environment information
                     // if exists.
                     if (array_key_exists("_SERVER", $context)) {

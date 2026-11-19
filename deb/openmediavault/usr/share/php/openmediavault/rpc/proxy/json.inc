@@ -39,6 +39,7 @@ require_once("openmediavault/functions.inc");
 class Json
 {
     protected $params = null;
+    protected $entryPoint = "rpc";
 
     /**
      * Handle the RPC request.
@@ -101,7 +102,8 @@ class Json
         $this->preExecute();
         $context = \OMV\Rpc\Rpc::createContext(
             $session->getUsername(),
-            $session->getRole()
+            $session->getRole(),
+            [ "entrypoint" => $this->entryPoint ]
         );
         $response = \OMV\Rpc\Rpc::call(
             $this->params['service'],
