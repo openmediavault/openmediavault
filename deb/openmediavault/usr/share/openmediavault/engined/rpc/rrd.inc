@@ -39,7 +39,7 @@ class RRD extends \OMV\Rpc\ServiceAbstract
     public function initialize()
     {
         $this->registerMethod("generate");
-        $this->registerMethod("getGraph");
+        $this->registerMethod("getGraph", null, ["allowlist" => ["download"]]);
     }
 
     /**

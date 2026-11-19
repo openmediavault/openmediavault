@@ -29,6 +29,8 @@ namespace OMV\Rpc\Proxy;
  */
 class Download extends Json
 {
+    protected $entryPoint = "download";
+
     /**
      * @param response The response must contain the fields \em content or
      *   \em filepath. The field \em filename and \em headers are optional.

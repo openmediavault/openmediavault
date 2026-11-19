@@ -34,6 +34,7 @@ abstract class ServiceAbstract
     use \OMV\DebugTrait;
 
     private $registeredMethods = [];
+    private $registeredMethodOptions = [];
     private $registeredMutatingMethods = [];
 
     /**
@@ -54,10 +55,18 @@ abstract class ServiceAbstract
      * @param methodName The name of the class method that implements the
      *   RPC sevice method. If set to NULL the name given in \em rpcName
      *   is used. Defaults to NULL.
+     * @param options An array of options. The following options are
+     *   available:
+     *   \em allowlist The names of the entrypoints (`rpc`, `download`)
+     *   the method may be called through. If not set, administrators may
+     *   use any entrypoint and all other users only the `rpc` entrypoint.
      * @return TRUE on success, otherwise an error is thrown.
      */
-    final protected function registerMethod($rpcName, $methodName = null)
-    {
+    final protected function registerMethod(
+        $rpcName,
+        $methodName = null,
+        $options = []
+    ) {
         $methodName = is_null($methodName) ? $rpcName : $methodName;
         if (!method_exists($this, $methodName)) {
             throw new Exception(
@@ -67,6 +76,7 @@ abstract class ServiceAbstract
             );
         }
         $this->registeredMethods[$rpcName] = $methodName;
+        $this->registeredMethodOptions[$rpcName] = $options;
         return true;
     }
 
@@ -111,6 +121,27 @@ abstract class ServiceAbstract
     final public function hasMethod($name)
     {
         return array_key_exists($name, $this->registeredMethods);
+    }
+
+    /**
+     * Check if the given RPC service method may be called via the
+     * entrypoint stored in the given context.
+     * @param name The name of the method.
+     * @param context The context of the caller.
+     * @return TRUE if the method may be called, otherwise FALSE.
+     */
+    final public function isMethodAllowed($name, $context)
+    {
+        // Contexts without an entrypoint are internal and not restricted.
+        if (!array_key_exists("entrypoint", $context)) {
+            return true;
+        }
+        $options = array_value($this->registeredMethodOptions, $name, []);
+        if (array_key_exists("allowlist", $options)) {
+            return in_array($context['entrypoint'], $options['allowlist'], true);
+        }
+        return ($context['role'] & OMV_ROLE_ADMINISTRATOR) ||
+            ("rpc" === $context['entrypoint']);
     }
 
     /**

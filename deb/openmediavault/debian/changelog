@@ -1,4 +1,4 @@
-openmediavault (8.6.2-1) stable; urgency=medium
+openmediavault (8.7.0-1) stable; urgency=medium
 
   * Several UI improvements.
   * Fix active state of navigation items sharing a URL prefix.
@@ -9,6 +9,9 @@ openmediavault (8.6.2-1) stable; urgency=medium
   * Do not execute the RPC of the `/download` route if the route has
     not been opened by the UI itself, e.g. via an external link. Thanks
     to Nader Eloshaiker for reporting this.
+  * Add the `allowlist` option to `registerMethod` to restrict the
+    entrypoints (`rpc`, `download`) a RPC may be called through. Thanks
+    to Nader Eloshaiker for reporting the underlying problem.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 15 Nov 2026 15:37:32 +0100
 

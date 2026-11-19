@@ -46,7 +46,7 @@ class OMVRpcServiceK8s extends \OMV\Rpc\ServiceAbstract
         $this->registerMethod("isConfigApplicable");
         $this->registerMethod("get");
         $this->registerMethod("set");
-        $this->registerMethod("getKubeConfig");
+        $this->registerMethod("getKubeConfig", null, ["allowlist" => ["download"]]);
         $this->registerMethod("getManifestIngredients");
         $this->registerMethod("refreshRecipes");
         $this->registerMethod("listRecipes");
