@@ -1,5 +1,7 @@
 openmediavault-k8s (8.2.9-1) stable; urgency=medium
 
+  * Use K3S v1.36.6+k3s1 on new installations. Existing installations won't
+    be upgraded automatically.
   * Do not make the K3S kubeconfig file world-readable. Thanks to Nader
     Eloshaiker for submitting a patch.
   * Restrict the RPC method K8s::set to administrators. Thanks to Nader
