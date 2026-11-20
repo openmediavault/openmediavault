@@ -1211,8 +1211,13 @@ function is_locked($filename): bool
             $stat['ino']
         );
         $locks = file("/proc/locks");
+        // Match the whole MAJ:MIN:INODE field, not just a substring.
+        // Examples:
+        // 1: POSIX  ADVISORY  WRITE 921 fe:00:2121 0 EOF
+        // 2: -> FLOCK  ADVISORY  WRITE 1234 fe:00:212 0 EOF
+        $regex = '/\s' . preg_quote($search, '/') . '\s/';
         foreach ($locks as $linek => $linev) {
-            if (false !== mb_strpos($linev, $search)) {
+            if (1 === preg_match($regex, $linev)) {
                 $locked = true;
                 break;
             }
