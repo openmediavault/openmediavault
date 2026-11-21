@@ -1136,6 +1136,11 @@ body {
   margin: 0;
 }
 
+kbd {
+  background-color: transparent;
+  backdrop-filter: brightness(0.85);
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // Links
 /* stylelint-disable no-descending-specificity */

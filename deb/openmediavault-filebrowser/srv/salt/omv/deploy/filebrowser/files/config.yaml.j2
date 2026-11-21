@@ -1,5 +1,5 @@
 {%- set admin_username = salt['pillar.get']('default:OMV_FILEBROWSER_APP_ADMIN_USERNAME', 'admin') -%}
-{%- set admin_password = salt['pillar.get']('default:OMV_FILEBROWSER_APP_ADMIN_PASSWORD', 'openmediavault') -%}
+{%- set admin_password = salt['pillar.get']('default:OMV_FILEBROWSER_APP_ADMIN_PASSWORD', '') -%}
 {%- set create_file_permission = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CREATEFILEPERMISSION', '664') -%}
 {%- set create_directory_permission = salt['pillar.get']('default:OMV_FILEBROWSER_APP_CREATEDIRECTORYPERMISSION', '775') -%}
 {#- Legacy (v1) BoltDB database that must be migrated to SQLite on first start. -#}
@@ -32,7 +32,9 @@ server:
     createDirectoryPermission: "{{ create_directory_permission }}"
 auth:
   adminUsername: {{ admin_username }}
+{%- if admin_password | length > 0 %}
   adminPassword: {{ admin_password }}
+{%- endif %}
   methods:
     password:
       enabled: true
