@@ -103,7 +103,7 @@ export class FirewallRuleFormPageComponent extends BaseFormPageComponent {
         name: 'source',
         label: gettext('Source'),
         hint: gettext(
-          'Source address can be either a network IP address (with /mask), a IP range or a plain IP address. A "!" argument before the address specification inverts the sense of the address.'
+          'Source address can be either a network IP address (with /mask), an IP range or a plain IP address. A "!" argument before the address specification inverts the sense of the address.'
         ),
         value: ''
       },
@@ -144,7 +144,7 @@ export class FirewallRuleFormPageComponent extends BaseFormPageComponent {
         name: 'destination',
         label: gettext('Destination'),
         hint: gettext(
-          'Destination address can be either a network IP address (with /mask), a IP range or a plain IP address. A "!" argument before the address specification inverts the sense of the address.'
+          'Destination address can be either a network IP address (with /mask), an IP range or a plain IP address. A "!" argument before the address specification inverts the sense of the address.'
         ),
         value: ''
       },

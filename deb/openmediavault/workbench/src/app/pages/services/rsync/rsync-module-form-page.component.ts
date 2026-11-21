@@ -72,7 +72,7 @@ export class RsyncModuleFormPageComponent extends BaseFormPageComponent {
         type: 'select',
         name: 'uid',
         label: gettext('User'),
-        placeholder: gettext('Select an user ...'),
+        placeholder: gettext('Select a user ...'),
         hint: gettext(
           'This option specifies the user name that file transfers to and from that module should take place.'
         ),

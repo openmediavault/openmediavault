@@ -308,7 +308,7 @@ export class CustomValidators {
       case 'ipNetCidr':
         return CustomValidators.pattern(
           (value) => regExp.ipv4NetCidr.test(value) || regExp.ipv6NetCidr.test(value),
-          gettext('This field should be a IP network address in CIDR notation.')
+          gettext('This field should be an IP network address in CIDR notation.')
         );
       case 'hostName':
         return CustomValidators.pattern(regExp.hostName, gettext('Invalid host name.'));

@@ -240,7 +240,7 @@ export class InterfaceBondFormPageComponent extends BaseFormPageComponent {
                 }
               },
               errorData: gettext(
-                'The value must be on of the slave network interfaces {{ slaves | join(", ") }}.'
+                'The value must be one of the slave network interfaces {{ slaves | join(", ") }}.'
               )
             },
             {

@@ -522,7 +522,7 @@ export class CronTaskFormPageComponent extends BaseFormPageComponent {
         type: 'select',
         name: 'username',
         label: gettext('User'),
-        placeholder: gettext('Select an user ...'),
+        placeholder: gettext('Select a user ...'),
         value: 'root',
         valueField: 'name',
         textField: 'name',
