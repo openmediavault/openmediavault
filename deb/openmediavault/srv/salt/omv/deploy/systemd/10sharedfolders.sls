@@ -17,13 +17,49 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
-# Documentation/Howto:
-# https://www.freedesktop.org/software/systemd/man/latest/bootup.html#System%20Manager%20Bootup
+# Expose every shared folder as a symlink '<OMV_SHAREDFOLDERS_DIR>/<name>'
+# pointing to the shared folder's absolute path. Earlier versions used bind
+# mount units for this, those are stopped and removed by this state.
+#
+# Only symlinks are pruned from OMV_SHAREDFOLDERS_DIR, regular files and
+# directories are never deleted.
+#
+# Testing:
+# ls -la /sharedfolders
+# omv-salt deploy run systemd
 
 {% set sharedfolders_dir_enabled = salt['pillar.get']('default:OMV_SHAREDFOLDERS_DIR_ENABLED', 'no') %}
 {% set sharedfolders_dir = salt['pillar.get']('default:OMV_SHAREDFOLDERS_DIR', '/sharedfolders') %}
 {% set sharedfolders_dir_escaped = salt['cmd.run']('systemd-escape --path ' ~ sharedfolders_dir) %}
 {% set sharedfolder_config = salt['omv_conf.get']('conf.system.sharedfolder') %}
+
+# Migration: Stop and disable the bind mount units created by earlier
+# versions and remove their (empty) mount points to make room for the
+# symlinks. A mount point that still contains data is left untouched.
+{% set legacy_unit_files = salt['file.find']('/etc/systemd/system', iname=sharedfolders_dir_escaped ~ '-*.mount', type='f') %}
+{% for unit_file in legacy_unit_files %}
+{% set unit_name = salt['file.basename'](unit_file) %}
+{% set where = salt['cmd.run']('systemd-escape --unescape --path ' ~ (unit_name | replace('.mount', '') | quote)) %}
+
+stop_legacy_sharedfolder_mount_unit_{{ loop.index }}:
+  service.dead:
+    - name: "{{ unit_name }}"
+    - enable: False
+
+remove_legacy_sharedfolder_mount_point_{{ loop.index }}:
+  cmd.run:
+    - name: rmdir {{ where | quote }}
+    - onlyif: >-
+        test -d {{ where | quote }} &&
+        ! test -L {{ where | quote }} &&
+        ! mountpoint -q {{ where | quote }} &&
+        test -z "$(ls -A {{ where | quote }})"
+    - require:
+      - service: stop_legacy_sharedfolder_mount_unit_{{ loop.index }}
+    - require_in:
+      - module: remove_sharedfolder_mount_unit_files
+
+{% endfor %}
 
 remove_sharedfolder_mount_unit_files:
   module.run:
@@ -32,72 +68,54 @@ remove_sharedfolder_mount_unit_files:
       - iname: "{{ sharedfolders_dir_escaped }}-*.mount"
       - delete: "f"
 
+sharedfolder_mount_units_systemctl_daemon_reload:
+  module.run:
+    - service.systemctl_reload:
+    - require:
+      - module: remove_sharedfolder_mount_unit_files
+
+{% set managed_names = [] %}
+
 {% if sharedfolders_dir_enabled | to_bool %}
 
 create_sharedfolders_dir:
   file.directory:
-    - name: {{ sharedfolders_dir }}
-
-{% for sharedfolder in sharedfolder_config %}
-{% set mntdir = salt['omv_conf.get_sharedfolder_mount_path'](sharedfolder.uuid) %}
-{% set what = salt['omv_conf.get_sharedfolder_path'](sharedfolder.uuid) %}
-{% set where = sharedfolders_dir | path_join(sharedfolder.name) %}
-{% set unit_name = salt['cmd.run']('systemd-escape --path --suffix=mount ' ~ where) %}
-
-configure_sharedfolder_{{ sharedfolder.name }}_mount_unit_file:
-  file.managed:
-    - name: {{ '/etc/systemd/system' | path_join(unit_name) }}
-    - contents: |
-        {{ pillar['headers']['auto_generated'] }}
-        {{ pillar['headers']['warning'] }}
-        [Unit]
-        Description=Mount shared folder {{ sharedfolder.name }} to {{ where }}
-        DefaultDependencies=no
-        After=zfs-mount.service
-        Wants=sysinit.target
-        Conflicts=umount.target
-        RequiresMountsFor={{ mntdir }}
-        AssertPathIsDirectory={{ sharedfolders_dir }}
-        AssertPathIsMountPoint={{ mntdir }}
-        AssertPathIsDirectory={{ what }}
-
-        [Mount]
-        What={{ what }}
-        Where={{ where }}
-        Type=none
-        Options=bind,nofail
-
-        [Install]
-        WantedBy=basic.target
+    - name: "{{ sharedfolders_dir }}"
     - user: root
     - group: root
-    - mode: '0644'
+    - mode: "0755"
+
+{% for sharedfolder in sharedfolder_config %}
+{% set target = salt['omv_conf.get_sharedfolder_path'](sharedfolder.uuid) %}
+{% set link_path = sharedfolders_dir | path_join(sharedfolder.name) %}
+{% do managed_names.append(sharedfolder.name) %}
+
+# Do NOT use 'force' here, otherwise Salt would recursively delete a
+# directory that is in the way, e.g. a still mounted legacy mount point.
+create_sharedfolder_{{ sharedfolder.uuid }}_symlink:
+  file.symlink:
+    - name: "{{ link_path }}"
+    - target: "{{ target }}"
+    - user: root
+    - group: root
+    - require:
+      - file: create_sharedfolders_dir
+      - module: remove_sharedfolder_mount_unit_files
 
 {% endfor %}
 {% endif %}
 
-sharedfolder_mount_units_systemctl_daemon_reload:
-  module.run:
-    - service.systemctl_reload:
+# Remove symlinks of deleted or renamed shared folders. If the feature is
+# disabled, all symlinks are removed.
+{% if salt['file.directory_exists'](sharedfolders_dir) %}
+{% for entry in salt['file.readdir'](sharedfolders_dir) %}
+{% set entry_path = sharedfolders_dir | path_join(entry) %}
+{% if entry not in ['.', '..'] and entry not in managed_names and salt['file.is_link'](entry_path) %}
 
-{% if sharedfolders_dir_enabled | to_bool %}
-{% for sharedfolder in sharedfolder_config %}
-{% set where = sharedfolders_dir | path_join(sharedfolder.name) %}
-{% set unit_name = salt['cmd.run']('systemd-escape --path --suffix=mount ' ~ where) %}
+remove_stale_sharedfolder_symlink_{{ loop.index }}:
+  file.absent:
+    - name: "{{ entry_path }}"
 
-# Only enable the mount unit, do NOT take care that it is running.
-enable_sharedfolder_{{ sharedfolder.name }}_mount_unit:
-  service.enabled:
-    - name: {{ unit_name }}
-    - enable: True
-
-# Restart the mount unit to take care it is in an up-to-date state. This
-# is necessary because it is possible that the file system of the shared
-# folder has been changed in the meanwhile.
-restart_sharedfolder_{{ sharedfolder.name }}_mount_unit:
-  module.run:
-    - service.restart:
-      - name: {{ unit_name }}
-
+{% endif %}
 {% endfor %}
 {% endif %}

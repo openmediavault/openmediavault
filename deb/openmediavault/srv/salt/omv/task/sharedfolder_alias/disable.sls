@@ -18,31 +18,22 @@
 # along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
 
 # Testing:
-# systemctl status sharedfolders-test.mount
+# ls -la /sharedfolders
 # salt-call --local --retcode-passthrough --no-color state.apply omv.task.apply
 
 {% set data = salt['pillar.get']('data', None) %}
 {% set sharedfolders_path = salt['pillar.get']('default:OMV_SHAREDFOLDERS_DIR', '/sharedfolders') %}
 {% set sharedfolders_dir_enabled = salt['pillar.get']('default:OMV_SHAREDFOLDERS_DIR_ENABLED', 'no') %}
 
-{% if sharedfolders_dir_enabled | to_bool %}
+{% if sharedfolders_dir_enabled | to_bool and data is not none %}
 
-{% if data is not none %}
+{% set link_path = sharedfolders_path | path_join(data.name) %}
 
-{% set dir_path = sharedfolders_path | path_join(data.name) %}
-{% set unit_name = salt['cmd.run']('systemd-escape --path --suffix=mount ' ~ dir_path) %}
-
-disable_sharedfolder_{{ data.name }}_mount_unit:
-  service.dead:
-    - name: {{ unit_name }}
-    - enable: False
-
-remove_sharedfolder_{{ data.name }}_mount_point:
+# Only remove the entry if it is a symlink, never delete real data.
+remove_sharedfolder_{{ data.name }}_symlink:
   file.absent:
-    - name: {{ dir_path }}
-    - unless: "mountpoint -q '{{ dir_path }}'"
-
-{% endif %}
+    - name: "{{ link_path }}"
+    - onlyif: test -L {{ link_path | quote }}
 
 {% else %}
 
