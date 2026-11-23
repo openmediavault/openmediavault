@@ -1,5 +1,6 @@
 openmediavault-md (8.1.8-1) stable; urgency=medium
 
+  * Issue #2338: Remove the undefined `_used` field from `MdMgmt::get`.
   * Issue #2339: Fix calculation of the number of devices when removing
     devices from a RAID.
 

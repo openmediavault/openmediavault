@@ -152,7 +152,7 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract
      * @param context The context of the caller.
      * @return An object containing objects with the following fields:
      *   name, devicefile, uuid, level, numdevices, devices, size,
-     *   state, description and _used.
+     *   state and description.
      */
     public function get($params, $context)
     {
@@ -168,7 +168,6 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract
         );
         $raid->assertExists();
         return [
-            "_used" => $used,
             "name" => $raid->getName(),
             "canonicaldevicefile" => $raid->getCanonicalDeviceFile(),
             "devicefile" => $raid->getPredictableDeviceFile(),
