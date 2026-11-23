@@ -526,7 +526,7 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract
         $devices = $raid->getSlaves();
         // Calculate new number of devices.
         $rmDevices = $params['devices'];
-        $numDevices += count($rmDevices);
+        $numDevices -= count($rmDevices);
         // Remove the devices from the RAID device. The devices to remove
         // must be marked as failed before they can be removed from the
         // RAID device.
