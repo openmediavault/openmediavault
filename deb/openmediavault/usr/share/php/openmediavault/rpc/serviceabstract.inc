@@ -58,8 +58,8 @@ abstract class ServiceAbstract
      * @param options An array of options. The following options are
      *   available:
      *   \em allowlist The names of the entrypoints (`rpc`, `download`)
-     *   the method may be called through. If not set, administrators may
-     *   use any entrypoint and all other users only the `rpc` entrypoint.
+     *   the method may be called through. If not set, only the `rpc`
+     *   entrypoint is allowed, regardless of the user's role.
      * @return TRUE on success, otherwise an error is thrown.
      */
     final protected function registerMethod(
@@ -140,8 +140,7 @@ abstract class ServiceAbstract
         if (array_key_exists("allowlist", $options)) {
             return in_array($context['entrypoint'], $options['allowlist'], true);
         }
-        return ($context['role'] & OMV_ROLE_ADMINISTRATOR) ||
-            ("rpc" === $context['entrypoint']);
+        return "rpc" === $context['entrypoint'];
     }
 
     /**

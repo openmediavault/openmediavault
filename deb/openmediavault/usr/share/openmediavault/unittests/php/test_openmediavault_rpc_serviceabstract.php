@@ -81,7 +81,7 @@ class test_openmediavault_rpc_serviceabstract extends \PHPUnit\Framework\TestCas
             OMV_ROLE_USER,
             ["entrypoint" => "rpc"]
         );
-        $this->assertTrue($service->isMethodAllowed("plain", $admin));
+        $this->assertFalse($service->isMethodAllowed("plain", $admin));
         $this->assertFalse($service->isMethodAllowed("plain", $user));
         $this->assertTrue($service->isMethodAllowed("plain", $userRpc));
     }
