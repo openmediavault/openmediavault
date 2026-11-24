@@ -93,11 +93,6 @@ class UserMgmt extends \OMV\Rpc\ServiceAbstract
             ))) {
                 goto finish;
             }
-            // Deny access for inactive user accounts.
-            if (true === $user->getInactive()) {
-                $authenticated = false;
-                goto finish;
-            }
             // Is the user a WebUI administrator?
             // Note, this check must be carried out before checking
             // whether the user is a system account.

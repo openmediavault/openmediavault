@@ -12,6 +12,8 @@ openmediavault (8.7.2-1) stable; urgency=medium
     Nader Eloshaiker for submitting a patch.
   * Fix the SMB user lookup that matched user names by substring.
   * Fix regular expression patterns.
+  * Remove the dead check for inactive accounts in UserMgmt::authUser.
+    PAM already denies expired and locked accounts.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 21 Nov 2026 20:19:01 +0100
 
