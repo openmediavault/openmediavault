@@ -91,7 +91,8 @@ class Sharedfolders extends \OMV\Engine\Module\ServiceAbstract implements \OMV\E
                 continue;
             }
             $privileges = $objectv->get("privileges.privilege");
-            $newPrivileges = array_values(array_filter($privileges,
+            $newPrivileges = array_values(array_filter(
+                $privileges,
                 function ($privilege) use ($role, $name) {
                     return !(($privilege['type'] === $role) &&
                         ($privilege['name'] === $name));

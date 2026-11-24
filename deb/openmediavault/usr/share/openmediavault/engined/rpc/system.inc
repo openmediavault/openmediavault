@@ -170,7 +170,7 @@ class System extends \OMV\Rpc\ServiceAbstract
             "is_executable"
         ));
         // Filter duplicates. Remove `/bin/xxx` if `/usr/bin/xxx` exists.
-        $result = array_filter($result, fn($shell) =>
+        $result = array_filter($result, fn ($shell) =>
             !preg_match('#^/s?bin/#', $shell) ||
             !in_array("/usr" . $shell, $result));
         sort($result, SORT_NATURAL);
