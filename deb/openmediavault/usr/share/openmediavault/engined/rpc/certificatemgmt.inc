@@ -129,7 +129,8 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract
      * @param params An array containing the following fields:
      *   \em uuid The UUID of the configuration object.
      * @param context The context of the caller.
-     * @return The requested configuration object.
+     * @return The requested configuration object, including the
+     *   private key.
      */
     public function get($params, $context)
     {
@@ -142,8 +143,6 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract
         // Get the configuration object.
         $db = \OMV\Config\Database::getInstance();
         $object = $db->get("conf.system.certificate.ssl", $params['uuid']);
-        // Remove the private key. It should not leave the system.
-        $object->remove("privatekey");
         // Return the values.
         return $object->getAssoc();
     }
@@ -152,7 +151,8 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract
      * Set (add/update) a SSL certificate configuration object
      * @param params The method parameters.
      * @param context The context of the caller.
-     * @return The stored configuration object.
+     * @return The stored configuration object. The private key is not
+     *   included in the response, use \em get to read it.
      */
     public function set($params, $context)
     {
@@ -211,6 +211,8 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract
         }
         $db->set($object);
         // Return the configuration object.
+        // Only the response is affected, the object is already stored.
+        $object->remove("privatekey");
         return $object->getAssoc();
     }
 
@@ -219,7 +221,8 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract
      * @param params An array containing the following fields:
      *   \em uuid The UUID of the configuration object.
      * @param context The context of the caller.
-     * @return The deleted configuration object.
+     * @return The deleted configuration object, including the
+     *   private key.
      */
     public function delete($params, $context)
     {
@@ -307,7 +310,8 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract
      *   \em cn Common name
      *   \em email Email address
      * @param context The context of the caller.
-     * @return The configuration object.
+     * @return The configuration object. The private key is not
+     *   included in the response, use \em get to read it.
      */
     public function create($params, $context)
     {
@@ -469,7 +473,8 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract
      * @param params An array containing the following fields:
      *   \em comment The comment
      * @param context The context of the caller.
-     * @return The configuration object.
+     * @return The configuration object. The private key is not
+     *   included in the response, use \em getSsh to read it.
      */
     public function createSsh($params, $context)
     {
@@ -519,9 +524,8 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract
      * @param params An array containing the following fields:
      *   \em uuid The UUID of the configuration object.
      * @param context The context of the caller.
-     * @return The requested configuration object. Note, the
-     *   private key is not included in the response because of
-     *   security issues.
+     * @return The requested configuration object, including the
+     *   private key.
      */
     public function getSsh($params, $context)
     {
@@ -534,8 +538,6 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract
         // Get the configuration object.
         $db = \OMV\Config\Database::getInstance();
         $object = $db->get("conf.system.certificate.ssh", $params['uuid']);
-        // Remove the private key. It should not leave the system.
-        $object->remove("privatekey");
         // Return the values.
         return $object->getAssoc();
     }
@@ -544,7 +546,8 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract
      * Set (add/update) a SSH certificate configuration object
      * @param params The method parameters.
      * @param context The context of the caller.
-     * @return The stored configuration object.
+     * @return The stored configuration object. The private key is not
+     *   included in the response, use \em getSsh to read it.
      */
     public function setSsh($params, $context)
     {
@@ -577,6 +580,8 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract
         }
         $db->set($object);
         // Return the configuration object.
+        // Only the response is affected, the object is already stored.
+        $object->remove("privatekey");
         return $object->getAssoc();
     }
 
@@ -585,7 +590,8 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract
      * @param params An array containing the following fields:
      *   \em uuid The UUID of the configuration object.
      * @param context The context of the caller.
-     * @return The deleted configuration object.
+     * @return The deleted configuration object, including the
+     *   private key.
      */
     public function deleteSsh($params, $context)
     {
