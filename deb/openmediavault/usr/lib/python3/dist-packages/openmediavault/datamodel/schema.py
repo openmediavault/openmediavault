@@ -48,14 +48,14 @@ class Schema(openmediavault.json.Schema):
                     ) from None
             elif "devicefile" == schema['format']:
                 if not re.match(
-                    r'^\/dev(\/disk\/by-id)?\/[a-z0-9\/.:_+-]+$', value, flags=re.IGNORECASE
+                    r'^\/dev(\/disk\/by-id)?\/[a-z0-9\/.:_+-]+\Z', value, flags=re.IGNORECASE
                 ):
                     raise openmediavault.json.SchemaValidationException(
                         name, "The value '%s' is no device file name." % value
                     ) from None
             elif "dirpath" == schema['format']:
                 if not re.match(
-                    r'^(?!.*[\/]\.{2}[\/])(?!\.{2}[\/])[-\w.\/@ ]+$',
+                    r'^(?!.*[\/]\.{2}[\/])(?!\.{2}[\/])[-\w.\/@ ]+\Z',
                     value,
                     flags=re.UNICODE,
                 ):
@@ -132,7 +132,7 @@ class Schema(openmediavault.json.Schema):
                 # - Leading and trailing spaces are not allowed
                 # - All other Unicode characters (incl. spaces within the name) are legal
                 if not re.match(
-                    r'^(?![ ])[^"\x00-\x1f\\/\[\]:|<>+=;,*?]+(?<! )$',
+                    r'^(?![ ])[^"\x00-\x1f\\/\[\]:|<>+=;,*?]+(?<! )\Z',
                     value,
                 ):
                     raise openmediavault.json.SchemaValidationException(
@@ -142,7 +142,7 @@ class Schema(openmediavault.json.Schema):
                 # Regular expression is taken from Debian tools.
                 # - https://github.com/shadow-maint/shadow/blob/55e75ec6b2f8878c6c269570a4470730092c1b39/lib/chkname.c#L52
                 # - https://salsa.debian.org/debian/adduser/-/blob/debian/latest/adduser.conf?ref_type=heads#L88
-                if not re.match(r'^[a-zA-Z0-9_.][a-zA-Z0-9_.-]*\$?$', value):
+                if not re.match(r'^[a-zA-Z0-9_.][a-zA-Z0-9_.-]*\$?\Z', value):
                     raise openmediavault.json.SchemaValidationException(
                         name, "The value '%s' is not a valid user name." % value
                     )
@@ -150,7 +150,7 @@ class Schema(openmediavault.json.Schema):
                 if not re.match(
                     r'^[a-zA-Z0-9]([-a-zA-Z0-9]{0,61}'
                     r'[a-zA-Z0-9])?([.][a-zA-Z0-9]([-a-zA-Z0-9]{0,61}'
-                    r'[a-zA-Z0-9])?)*$',
+                    r'[a-zA-Z0-9])?)*\Z',
                     value,
                 ):
                     raise openmediavault.json.SchemaValidationException(
@@ -158,7 +158,7 @@ class Schema(openmediavault.json.Schema):
                     ) from None
             elif "netbiosname" == schema['format']:
                 # https://github.com/samba-team/samba/blob/samba-4.13.13/python/samba/__init__.py#L317
-                if not re.match(r'^[\w !#$%&\'()\-.@^_{}~]{1,15}$', value):
+                if not re.match(r'^[\w !#$%&\'()\-.@^_{}~]{1,15}\Z', value):
                     raise openmediavault.json.SchemaValidationException(
                         name, "The value '%s' is not a valid NetBIOS name." % value
                     ) from None

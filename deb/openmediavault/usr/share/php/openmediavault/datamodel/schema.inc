@@ -57,7 +57,7 @@ class Schema extends \OMV\Json\Schema
                     }
                     break;
                 case "devicefile":
-                    if (!preg_match('/^\/dev(\/disk\/by-id)?\/[a-z0-9\/.:_+-]+$/i', $value)) {
+                    if (!preg_match('/^\/dev(\/disk\/by-id)?\/[a-z0-9\/.:_+-]+$/iD', $value)) {
                         throw new \OMV\Json\SchemaValidationException(
                             "%s: The value '%s' is not a device file.",
                             $name,
@@ -67,7 +67,7 @@ class Schema extends \OMV\Json\Schema
                     break;
                 case "dirpath":
                     if (!preg_match('/^(?!.*[\/]\.{2}[\/])(?!\.{2}[\/])'.
-                      '[-\w.\/@ ]+$/u', $value)) {
+                      '[-\w.\/@ ]+$/uD', $value)) {
                         throw new \OMV\Json\SchemaValidationException(
                             "%s: The value '%s' is not a valid directory path.",
                             $name,
@@ -132,7 +132,7 @@ class Schema extends \OMV\Json\Schema
                     // - Leading and trailing spaces are not allowed
                     // - All other Unicode characters (incl. spaces within the name) are legal
                     if (!preg_match(
-                        '~^(?![ ])[^"\x00-\x1F\\\/\[\]:|<>+=;,*?]+(?<! )$~u',
+                        '~^(?![ ])[^"\x00-\x1F\\\/\[\]:|<>+=;,*?]+(?<! )$~uD',
                         $value
                     )) {
                         throw new \OMV\Json\SchemaValidationException(
@@ -147,7 +147,7 @@ class Schema extends \OMV\Json\Schema
                     // - https://github.com/shadow-maint/shadow/blob/55e75ec6b2f8878c6c269570a4470730092c1b39/lib/chkname.c#L52
                     // - https://salsa.debian.org/debian/adduser/-/blob/debian/latest/adduser.conf?ref_type=heads#L88
                     if (!preg_match(
-                        '/^[a-zA-Z0-9_.][a-zA-Z0-9_.-]*\$?$/',
+                        '/^[a-zA-Z0-9_.][a-zA-Z0-9_.-]*\$?$/D',
                         $value
                     )) {
                         throw new \OMV\Json\SchemaValidationException(
@@ -161,7 +161,7 @@ class Schema extends \OMV\Json\Schema
                     // https://web.archive.org/web/20230607192429/http://shauninman.com/archive/2006/05/08/validating_domain_names
                     if (!preg_match('/^[a-zA-Z0-9]([-a-zA-Z0-9]{0,61}'.
                       '[a-zA-Z0-9])?([.][a-zA-Z0-9]([-a-zA-Z0-9]{0,61}'.
-                      '[a-zA-Z0-9])?)*$/', $value)) {
+                      '[a-zA-Z0-9])?)*$/D', $value)) {
                         throw new \OMV\Json\SchemaValidationException(
                             "%s: The value '%s' is not a valid domain name.",
                             $name,
@@ -172,7 +172,7 @@ class Schema extends \OMV\Json\Schema
                 case "netbiosname":
                     // https://github.com/samba-team/samba/blob/samba-4.13.13/python/samba/__init__.py#L317
                     if (!preg_match(
-                        '/^[\w !#$%&\'()\-.@^_{}~]{1,15}$/',
+                        '/^[\w !#$%&\'()\-.@^_{}~]{1,15}$/D',
                         $value
                     )) {
                         throw new \OMV\Json\SchemaValidationException(
@@ -183,7 +183,7 @@ class Schema extends \OMV\Json\Schema
                     }
                     break;
                 case "no-multi-line":
-                    if (!preg_match('/^[^\r\n]*$/', $value)) {
+                    if (!preg_match('/^[^\r\n]*$/D', $value)) {
                         throw new \OMV\Json\SchemaValidationException(
                             "%s: The value contains a multi-line content.",
                             $name

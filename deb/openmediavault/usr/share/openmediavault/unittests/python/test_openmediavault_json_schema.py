@@ -148,12 +148,12 @@ class SchemaTestCase(unittest.TestCase):
             r"^(((eth|venet|wlan)\d+|(en|veth|wl)\S+|(bond)\d+)(\.\d+)?,)*((eth|venet|wlan)\d+|(en|veth|wl)\S+|(bond)\d+)(\.\d+)?$",
             r"^(\d+[KMGTP]?)?$",
             r"^(([a-zA-Z_]+)(=([\w@:\/]+))?[,])*([a-zA-Z_]+)(=([\w@:\/]+))?$",
-            r"^(!?(tcp|udp|icmp|icmpv6))|all$",
+            r"^((!?(tcp|udp|icmp|icmpv6))|all)$",
             r"^((\S+[,;]\s*)*\S+)?$",
             r"^(br\d+)?$",
-            r"^[0-9]|[1-5][0-9]$",
-            r"^[0-9]|1[0-9]|2[0-3]|[*]$",
-            r"^[1-9]|[12][0-9]|3[01]$",
+            r"^([0-9]|[1-5][0-9])$",
+            r"^([0-9]|1[0-9]|2[0-3]|[*])$",
+            r"^([1-9]|[12][0-9]|3[01])$",
         ]
         for i, pattern in enumerate(patterns):
             schema._check_format(pattern, {"format": "regex"}, f"core_{i}")

@@ -578,7 +578,7 @@ class Schema
         }
         // Note, the pattern is defined according to the ECMA 262 regular
         // expression dialect. So it must be adapted to the PHP syntax.
-        $regex = sprintf("/%s/u", $schema['pattern']);
+        $regex = sprintf("/%s/uD", $schema['pattern']);
         if (!preg_match($regex, $value)) {
             throw new SchemaValidationException(
                 "%s: The value '%s' doesn't match the pattern '%s' (code=%d).",
