@@ -111,7 +111,7 @@ class Session
      */
     public function initialize($username, $role)
     {
-        session_regenerate_id();
+        session_regenerate_id(true);
         $_SESSION['authenticated'] = true;
         $_SESSION['username'] = $username;
         $_SESSION['role'] = $role;

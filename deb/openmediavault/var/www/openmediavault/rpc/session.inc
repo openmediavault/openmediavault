@@ -347,7 +347,7 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract
     }
 
     /**
-     * Initialize (or reuse) the PHP session for the given user.
+     * Initialize the PHP session for the given user.
      * @param username The authenticated username.
      * @param permissions The user permissions array.
      * @param server The SuperGlobalServer instance.
@@ -357,19 +357,17 @@ class OMVRpcServiceSession extends \OMV\Rpc\ServiceAbstract
     {
         $session = &\OMV\Session::getInstance();
 
-        if ($session->isAuthenticated()) {
-            // Reject if an existing session belongs to a different user.
-            if ($session->getUsername() !== $username) {
-                throw new \OMV\HttpErrorException(
-                    400,
-                    _("Another user is already authenticated.")
-                );
-            }
-            // Session already established for this user — reuse it.
-            $session->clearPendingAuth();
-            return $session->getId();
+        // Reject if an existing session belongs to a different user.
+        if ($session->isAuthenticated() &&
+                ($session->getUsername() !== $username)) {
+            throw new \OMV\HttpErrorException(
+                400,
+                _("Another user is already authenticated.")
+            );
         }
 
+        // Always re-initialize an existing session of the same user, the
+        // stored role may be outdated.
         $role = ("admin" == array_value($permissions, "role", "user")) ?
             OMV_ROLE_ADMINISTRATOR : OMV_ROLE_USER;
         return $session->initialize($username, $role);
