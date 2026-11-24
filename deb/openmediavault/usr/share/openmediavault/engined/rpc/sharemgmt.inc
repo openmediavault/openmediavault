@@ -451,6 +451,10 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract
             $object->get("reldirpath")
         );
         // Create the shared folder directory if necessary.
+        // Note, symlinks inside the path are intentionally followed and
+        // not checked. Users may point shared folders to other file
+        // systems via symlinks, and an administrator can run commands
+        // as root anyway. Do not add symlink hardening here.
         if (false === file_exists($pathName)) {
             // Create the directory.
             switch ($meObject->get("type")) {
@@ -693,6 +697,10 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract
                 $object->get("reldirpath")
             );
             // Delete the shared folder directory.
+            // Note, symlinks inside the path are intentionally followed and
+            // not checked. Users may point shared folders to other file
+            // systems via symlinks, and an administrator can run commands
+            // as root anyway. Do not add symlink hardening here.
             $cmdArgs = [];
             $cmdArgs[] = "-f";
             $cmdArgs[] = "-r";
