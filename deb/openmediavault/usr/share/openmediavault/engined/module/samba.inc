@@ -65,6 +65,10 @@ class Samba extends \OMV\Engine\Module\ServiceAbstract implements
      * SMB/CIFS user database.
      * @param username The name of the user.
      * @return bool TRUE if the user exists, otherwise FALSE.
+     * @note The name is compared case sensitive like Linux does, but the
+     *   Samba user database (tdbsam) is case insensitive. Users whose
+     *   names differ only in case share one SMB account. This is not
+     *   prevented on purpose, because Linux allows such users.
      */
     private function existsUser($username)
     {
