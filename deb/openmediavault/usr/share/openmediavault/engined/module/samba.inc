@@ -92,8 +92,11 @@ class Samba extends \OMV\Engine\Module\ServiceAbstract implements
         if (in_array($object['name'], $this->invalidUsers)) {
             return;
         }
-        // Skip this notification if no password is included.
-        if (false === array_key_exists("password", $object)) {
+        // Skip this notification if no password is included and do not
+        // create SMB accounts with an empty password, these could log in
+        // without a password. The account is created by `onModifyUser`
+        // as soon as a password is set.
+        if (empty(array_value($object, "password"))) {
             return;
         }
         // Add the new user into the database.
