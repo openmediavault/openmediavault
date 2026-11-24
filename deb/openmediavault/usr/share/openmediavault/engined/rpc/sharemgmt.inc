@@ -1184,10 +1184,10 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract
      *     optional.
      *   \em otherperms The other permissions as octal digit. This field is
      *     optional.
-     *   \em users An array of arrays with the following fiels:
+     *   \em users An array of arrays with the following fields:
      *     \em name The user name.
      *     \em perms The permissions as octal digit.
-     *   \em groups An array of arrays with the following fiels:
+     *   \em groups An array of arrays with the following fields:
      *     \em name The group name.
      *     \em perms The permissions as octal digit.
      * @param context The context of the caller.
@@ -1222,13 +1222,13 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract
             )) {
                 $ownerGroupArg = "";
                 if (array_key_exists("owner", $params)) {
-                    $ownerGroupArg = str_replace(' ', '\ ', $params['owner']);
+                    $ownerGroupArg = $params['owner'];
                 }
                 if (array_key_exists("group", $params)) {
                     $ownerGroupArg = sprintf(
                         "%s:%s",
                         $ownerGroupArg,
-                        str_replace(' ', '\ ', $params['group'])
+                        $params['group']
                     );
                 }
                 // Build the command arguments list.
@@ -1236,7 +1236,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract
                 if (true === boolvalEx($params['recursive'])) {
                     $cmdArgs[] = "--recursive";
                 }
-                $cmdArgs[] = $ownerGroupArg;
+                $cmdArgs[] = escapeshellarg($ownerGroupArg);
                 $cmdArgs[] = escapeshellarg(build_path(
                     DIRECTORY_SEPARATOR,
                     $sfpath,
