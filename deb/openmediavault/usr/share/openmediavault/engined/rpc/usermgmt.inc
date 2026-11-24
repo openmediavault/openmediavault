@@ -550,7 +550,8 @@ class UserMgmt extends \OMV\Rpc\ServiceAbstract
         ));
         if (array_key_exists("shell", $params) &&
                 !empty($params['shell'])) {
-            // Make sure the shell exists.
+            // Make sure the shell exists. It is intentionally not checked
+            // against `/etc/shells`, useradd/usermod do not do that either.
             if (!file_exists($params['shell'])) {
                 throw new \OMV\Exception(
                     "The shell '%s' does not exist.",
