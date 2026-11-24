@@ -161,28 +161,18 @@ class System extends \OMV\Rpc\ServiceAbstract
             "/usr/sbin/nologin"
         ];
         // Get list of available shells.
-        $shells = file("/etc/shells");
-        foreach ($shells as $shellk => $shellv) {
-            $shellv = trim($shellv);
-            if (is_executable($shellv)) {
-                $result[] = $shellv;
-            }
-        }
+        $shells = file(
+            "/etc/shells",
+            FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES
+        ) ?: [];
+        $result = array_merge($result, array_filter(
+            array_map("trim", $shells),
+            "is_executable"
+        ));
         // Filter duplicates. Remove `/bin/xxx` if `/usr/bin/xxx` exists.
-        foreach ($result as $shellk => $shellv) {
-            foreach (['bin', 'sbin'] as $origin) {
-                if (str_starts_with($shellv, sprintf("/%s/", $origin))) {
-                    $shellPath = sprintf(
-                        "/usr/%s/%s",
-                        $origin,
-                        basename($shellv)
-                    );
-                    if (in_array($shellPath, $result)) {
-                        unset($result[$shellk]);
-                    }
-                }
-            }
-        }
+        $result = array_filter($result, fn($shell) =>
+            !preg_match('#^/s?bin/#', $shell) ||
+            !in_array("/usr" . $shell, $result));
         sort($result, SORT_NATURAL);
         return $result;
     }
