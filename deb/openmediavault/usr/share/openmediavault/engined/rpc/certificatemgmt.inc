@@ -650,6 +650,13 @@ class CertificateMgmt extends \OMV\Rpc\ServiceAbstract
         $cmdArgs[] = escapeshellarg($pwdFile->getFilename());
         $cmdArgs[] = "--";
         $cmdArgs[] = "ssh-copy-id";
+        // Do not verify the host key. This is intentional, please do not
+        // change it without a concept for the UI. There is no interactive
+        // prompt, and a fingerprint can only be verified via a second,
+        // trusted channel that the user usually does not have. 'accept-new'
+        // would make the call fail after a host was reinstalled, and the
+        // user has no way to remove the stale known_hosts entry of root.
+        // Ease of use is the goal here. The risk is accepted.
         $cmdArgs[] = "-o";
         $cmdArgs[] = "StrictHostKeyChecking=no";
         $cmdArgs[] = "-i";
