@@ -698,6 +698,14 @@ class UserMgmt extends \OMV\Rpc\ServiceAbstract
         ]);
         // Validate the parameters of the RPC service method.
         $this->validateMethodParams($params, "rpc.usermgmt.deleteuser");
+        // Check if the given user is a system account. Abort this attempt.
+        $user = new \OMV\System\User($params['name']);
+        if ($user->exists() && $user->isSystemAccount()) {
+            throw new \OMV\Exception(
+                "Unauthorized attempt to delete the system user account '%s'",
+                $params['name']
+            );
+        }
         // Get the user configuration object (required for the notification
         // event).
         $object = $this->callMethod("getUser", array(
@@ -1010,6 +1018,14 @@ class UserMgmt extends \OMV\Rpc\ServiceAbstract
         ]);
         // Validate the parameters of the RPC service method.
         $this->validateMethodParams($params, "rpc.usermgmt.deletegroup");
+        // Check if the given group is a system account. Abort this attempt.
+        $group = new \OMV\System\Group($params['name']);
+        if ($group->exists() && $group->isSystemAccount()) {
+            throw new \OMV\Exception(
+                "Unauthorized attempt to delete the system group account '%s'",
+                $params['name']
+            );
+        }
         // Get the group configuration object (required for the notification
         // event).
         $object = $this->callMethod("getGroup", [
