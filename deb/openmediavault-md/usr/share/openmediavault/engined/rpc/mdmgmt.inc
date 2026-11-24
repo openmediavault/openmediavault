@@ -338,7 +338,7 @@ class MdMgmt extends \OMV\Rpc\ServiceAbstract
         $cmdArgs[] = count($devices);
         if (!empty($params['name'])) {
             $cmdArgs[] = "-N";
-            $cmdArgs[] = $params['name'];
+            $cmdArgs[] = escapeshellarg($params['name']);
         }
         foreach ($devices as $device) {
             $cmdArgs[] = escapeshellarg($device);
