@@ -73,8 +73,12 @@ class LogFile extends \OMV\Rpc\ServiceAbstract
         // command.
         $filePath = $spec->getFilePath();
         if (true === empty($filePath)) {
-            // Create a temporary file.
+            // Create a temporary file. It is removed when this method
+            // returns.
             $filePath = tempnam(sys_get_temp_dir(), "logfile");
+            $_ = defer(function () use ($filePath) {
+                @unlink($filePath);
+            });
             // Execute the given command to get the log file content.
             $cmd = new \OMV\System\Process($spec->getCommand());
             $cmd->setRedirect1toFile($filePath);
