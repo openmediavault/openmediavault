@@ -637,8 +637,9 @@ class UserMgmt extends \OMV\Rpc\ServiceAbstract
             $objectAssoc,
             !is_null($oldObject) ? $oldObject->getAssoc() : null
         );
-        // Return the configuration object.
-        return $objectAssoc;
+        // Return the configuration object. Note, the password is only
+        // required by the notification listeners, so do not return it.
+        return array_omit_keys($objectAssoc, ['password']);
     }
 
     /**

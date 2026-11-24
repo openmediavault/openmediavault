@@ -4,6 +4,8 @@ openmediavault (8.7.2-1) stable; urgency=medium
     `download` entrypoint, not even by administrators.
   * System user and group accounts can no longer be deleted. Thanks to
     Nader Eloshaiker for submitting a patch.
+  * Do not return the password from UserMgmt::setUser. Thanks to Nader
+    Eloshaiker for submitting a patch.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 21 Nov 2026 20:19:01 +0100
 
