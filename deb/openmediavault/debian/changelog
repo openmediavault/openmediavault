@@ -16,6 +16,8 @@ openmediavault (8.7.2-1) stable; urgency=medium
     PAM already denies expired and locked accounts.
   * Do not create SMB accounts for users with an empty password, these
     were able to log in without a password.
+  * Remove the shared folder privileges of a user or group when it is
+    deleted.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 21 Nov 2026 20:19:01 +0100
 

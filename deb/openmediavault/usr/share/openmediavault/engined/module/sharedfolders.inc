@@ -53,6 +53,65 @@ class Sharedfolders extends \OMV\Engine\Module\ServiceAbstract implements \OMV\E
         ]);
     }
 
+    /**
+     * Remove the shared folder privileges of a deleted user.
+     * @param type The event message type.
+     * @param path The event message path.
+     * @param object The configuration object.
+     */
+    final public function onDeleteUser($type, $path, $object)
+    {
+        $this->deletePrivilegesByRole("user", $object['name']);
+    }
+
+    /**
+     * Remove the shared folder privileges of a deleted group.
+     * @param type The event message type.
+     * @param path The event message path.
+     * @param object The configuration object.
+     */
+    final public function onDeleteGroup($type, $path, $object)
+    {
+        $this->deletePrivilegesByRole("group", $object['name']);
+    }
+
+    /**
+     * Remove the privileges of the given user or group from all
+     * shared folders.
+     * @param role The privilege role, e.g. 'user' or 'group'.
+     * @param name The name of the user or group.
+     */
+    private function deletePrivilegesByRole(string $role, string $name): void
+    {
+        $db = \OMV\Config\Database::getInstance();
+        $dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
+        $objects = $db->get("conf.system.sharedfolder");
+        foreach ($objects as $objectk => $objectv) {
+            if (true === $objectv->isEmpty("privileges")) {
+                continue;
+            }
+            $privileges = $objectv->get("privileges.privilege");
+            $newPrivileges = array_values(array_filter($privileges,
+                function ($privilege) use ($role, $name) {
+                    return !(($privilege['type'] === $role) &&
+                        ($privilege['name'] === $name));
+                }
+            ));
+            if (count($newPrivileges) === count($privileges)) {
+                continue;
+            }
+            $objectv->set("privileges", [
+                "privilege" => $newPrivileges
+            ]);
+            $db->set($objectv);
+            $dispatcher->notify(
+                OMV_NOTIFY_MODIFY,
+                "org.openmediavault.conf.system.sharedfolder.privilege",
+                $objectv->getAssoc()
+            );
+        }
+    }
+
     public function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher)
     {
         $dispatcher->addListener(
@@ -64,6 +123,16 @@ class Sharedfolders extends \OMV\Engine\Module\ServiceAbstract implements \OMV\E
             OMV_NOTIFY_DELETE,
             "org.openmediavault.conf.system.sharedfolder",
             [$this, "onDeleteSharedFolder"]
+        );
+        $dispatcher->addListener(
+            OMV_NOTIFY_DELETE,
+            "org.openmediavault.conf.system.usermngmnt.user",
+            [$this, "onDeleteUser"]
+        );
+        $dispatcher->addListener(
+            OMV_NOTIFY_DELETE,
+            "org.openmediavault.conf.system.usermngmnt.group",
+            [$this, "onDeleteGroup"]
         );
         $moduleMngr = \OMV\Engine\Module\Manager::getInstance();
         $dispatcher->addListener(
