@@ -68,11 +68,16 @@ class Samba extends \OMV\Engine\Module\ServiceAbstract implements
      */
     private function existsUser($username)
     {
-        $cmdLine = sprintf("pdbedit --list | grep '%s:'", $username);
-        $cmd = new \OMV\System\Process($cmdLine);
+        $cmd = new \OMV\System\Process("pdbedit", ["--list"]);
         $cmd->setQuiet(true);
-        $cmd->execute($output, $exitStatus);
-        return (0 == $exitStatus) ? true : false;
+        $cmd->execute($output);
+        // Each line has the format 'name:uid:fullname'.
+        foreach ($output as $outputk => $outputv) {
+            if (explode(":", $outputv)[0] === $username) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
