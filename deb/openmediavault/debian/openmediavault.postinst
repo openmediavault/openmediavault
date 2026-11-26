@@ -716,7 +716,7 @@ case "$1" in
 			omv_module_set_dirty phpfpm
 		fi
 		if dpkg --compare-versions "$2" lt-nl "8.8.0"; then
-			omv_set_default "OMV_WEBGUI_SESSION_CHECK_INTERVAL" "15" 0 || :
+			omv_set_default "OMV_WEBGUI_SESSION_CHECK_INTERVAL" "300" 0 || :
 		fi
 
 		########################################################################

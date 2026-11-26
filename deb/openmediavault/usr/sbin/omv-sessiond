@@ -21,6 +21,12 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
  */
+
+// Block the signals as early as possible, they are handled synchronously in
+// the main loop. The default action of SIGUSR1 would terminate the process.
+$signals = [ SIGUSR1, SIGTERM, SIGINT ];
+pcntl_sigprocmask(SIG_BLOCK, $signals);
+
 require_once("openmediavault/autoloader.inc");
 require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
@@ -29,17 +35,12 @@ require_once("openmediavault/functions.inc");
 // terminates the sessions of users that have been deleted or that are no
 // longer administrators. Sessions with the role 'user' are not checked,
 // a promotion is applied with the next login.
+// The sessions are checked periodically to detect changes made outside of
+// openmediavault (e.g. AD/LDAP). SIGUSR1 requests an immediate check, this
+// is used by the engine if a user or group has been changed.
 
 // Must match the directory configured for PHP-FPM.
 const SESSION_DIR = "/run/openmediavault/sessions";
-
-$sigTerm = false;
-
-function signalHandler($signal)
-{
-    global $sigTerm;
-    $sigTerm = true;
-}
 
 function checkSessions()
 {
@@ -92,19 +93,16 @@ ini_set("session.use_cookies", 0);
 ini_set("session.cache_limiter", "");
 session_save_path(SESSION_DIR);
 
-pcntl_async_signals(true);
-pcntl_signal(SIGINT, "signalHandler");
-pcntl_signal(SIGTERM, "signalHandler");
-
 $interval = max(1, \OMV\Environment::getInteger(
     "OMV_WEBGUI_SESSION_CHECK_INTERVAL",
-    15
+    300
 ));
-while (false === $sigTerm) {
+do {
     checkSessions();
-    // Note, a signal interrupts the sleep.
-    sleep($interval);
-}
+    // Wait for the next check. A SIGUSR1 that arrives during a check is
+    // not lost, it stays pending and starts the next check immediately.
+    $signal = pcntl_sigtimedwait($signals, $info, $interval);
+} while (!in_array($signal, [ SIGTERM, SIGINT ], true));
 
 closelog();
 exit(0);
