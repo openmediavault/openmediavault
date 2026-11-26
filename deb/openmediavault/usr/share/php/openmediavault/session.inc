@@ -31,8 +31,8 @@ require_once("openmediavault/functions.inc");
 class Session
 {
     public const PENDING_AUTH_MAX_DELAY_SECONDS = 300;
+    public const PENDING_AUTH_TTL_SECONDS = 300;
 
-    private const PENDING_AUTH_TTL_SECONDS = 300;
     private const PENDING_AUTH_BASE_DELAY_SECONDS = 5;
     private const PENDING_AUTH_RESET_TIMEOUT_SECONDS = 900;
     private const PENDING_AUTH_ATTEMPT_TTL_SECONDS = 30;

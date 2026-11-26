@@ -42,12 +42,17 @@ require_once("openmediavault/functions.inc");
 // Must match the directory configured for PHP-FPM.
 const SESSION_DIR = "/run/openmediavault/sessions";
 
+// Seconds after which a session that is not logged in is removed. This must
+// be longer than the lifetime of a pending login.
+const SESSION_UNAUTHENTICATED_TTL = \OMV\Session::PENDING_AUTH_TTL_SECONDS + 300;
+
 function checkSessions()
 {
     $adminGroup = \OMV\Environment::get("OMV_WEBGUI_ADMINGROUP_NAME");
     foreach (glob(SESSION_DIR . "/sess_*") as $file) {
         try {
             session_id(substr(basename($file), strlen("sess_")));
+            $mtime = filemtime($file);
             // Close the session immediately to release the file lock. The
             // user checks below may take a while (e.g. AD/LDAP) and must
             // not block the web UI.
@@ -56,7 +61,14 @@ function checkSessions()
             $_SESSION = [];
             // Skip sessions that are not logged in, e.g. a login that is
             // waiting for the response of an authentication challenge.
+            // Every request without a login creates such a session, thus
+            // remove them if they are stale.
             if (true !== array_value($data, "authenticated", false)) {
+                if ((false !== $mtime) &&
+                        ((time() - $mtime) > SESSION_UNAUTHENTICATED_TTL)) {
+                    session_start();
+                    session_destroy();
+                }
                 continue;
             }
             // Keep the session if the user still exists and, in case of an
