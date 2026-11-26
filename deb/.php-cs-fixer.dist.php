@@ -9,7 +9,8 @@ $finder = PhpCsFixer\Finder::create()
     ->name('*.php')
     ->name('*.inc')
     ->name('omv-engined')
-    ->name('omv-rpc');
+    ->name('omv-rpc')
+    ->name('omv-sessiond');
 
 $config = new PhpCsFixer\Config();
 return $config->setRules([

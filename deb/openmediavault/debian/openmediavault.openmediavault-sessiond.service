@@ -1,0 +1,13 @@
+[Unit]
+Description=The openmediavault daemon that terminates outdated web UI sessions
+After=local-fs.target
+
+[Service]
+Type=simple
+User=openmediavault-webgui
+Group=openmediavault-webgui
+ExecStart=/usr/sbin/omv-sessiond
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

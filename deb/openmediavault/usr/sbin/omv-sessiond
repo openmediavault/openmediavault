@@ -1,0 +1,110 @@
+#!/usr/bin/php8.4 -c/etc/openmediavault
+<?php
+
+/**
+ * This file is part of OpenMediaVault.
+ *
+ * @license   https://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @author    Volker Theile <volker.theile@openmediavault.org>
+ * @copyright Copyright (c) 2009-2026 Volker Theile
+ *
+ * OpenMediaVault is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * OpenMediaVault is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with OpenMediaVault. If not, see <https://www.gnu.org/licenses/>.
+ */
+require_once("openmediavault/autoloader.inc");
+require_once("openmediavault/globals.inc");
+require_once("openmediavault/functions.inc");
+
+// The role of a web UI session is set at login. This daemon periodically
+// terminates the sessions of users that have been deleted or that are no
+// longer administrators. Sessions with the role 'user' are not checked,
+// a promotion is applied with the next login.
+
+// Must match the directory configured for PHP-FPM.
+const SESSION_DIR = "/run/openmediavault/sessions";
+
+$sigTerm = false;
+
+function signalHandler($signal)
+{
+    global $sigTerm;
+    $sigTerm = true;
+}
+
+function checkSessions()
+{
+    $adminGroup = \OMV\Environment::get("OMV_WEBGUI_ADMINGROUP_NAME");
+    foreach (glob(SESSION_DIR . "/sess_*") as $file) {
+        try {
+            session_id(substr(basename($file), strlen("sess_")));
+            // Close the session immediately to release the file lock. The
+            // user checks below may take a while (e.g. AD/LDAP) and must
+            // not block the web UI.
+            session_start([ "read_and_close" => true ]);
+            $data = $_SESSION;
+            $_SESSION = [];
+            // Skip sessions that are not logged in, e.g. a login that is
+            // waiting for the response of an authentication challenge.
+            if (true !== array_value($data, "authenticated", false)) {
+                continue;
+            }
+            // Keep the session if the user still exists and, in case of an
+            // administrator session, is still a member of the admin group.
+            $user = new \OMV\System\User($data['username']);
+            if ($user->exists() && ((OMV_ROLE_ADMINISTRATOR !== $data['role']) ||
+                    in_array($adminGroup, $user->getGroups()))) {
+                continue;
+            }
+            // Reopen the session, session_destroy() needs an active one.
+            session_start();
+            session_destroy();
+            syslog(LOG_NOTICE, sprintf(
+                "Terminated the session of user '%s'",
+                $data['username']
+            ));
+        } catch (\Throwable $e) {
+            // Never terminate a session if the check itself has failed,
+            // e.g. because the group membership could not be resolved.
+            syslog(LOG_ERR, sprintf(
+                "Failed to check the session '%s': %s",
+                basename($file),
+                $e->getMessage()
+            ));
+        }
+    }
+}
+
+openlog(basename($argv[0]), LOG_PID, LOG_USER);
+
+// Do not send cookies or headers, this is no web request. Without an empty
+// cache limiter session_start() fails once anything has been printed.
+ini_set("session.use_cookies", 0);
+ini_set("session.cache_limiter", "");
+session_save_path(SESSION_DIR);
+
+pcntl_async_signals(true);
+pcntl_signal(SIGINT, "signalHandler");
+pcntl_signal(SIGTERM, "signalHandler");
+
+$interval = max(1, \OMV\Environment::getInteger(
+    "OMV_WEBGUI_SESSION_CHECK_INTERVAL",
+    15
+));
+while (false === $sigTerm) {
+    checkSessions();
+    // Note, a signal interrupts the sleep.
+    sleep($interval);
+}
+
+closelog();
+exit(0);

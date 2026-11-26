@@ -202,6 +202,7 @@ case "$1" in
 		deb-systemd-helper enable openmediavault-cleanup-monit.service
 		deb-systemd-helper enable openmediavault-engined.service
 		deb-systemd-helper enable openmediavault-issue.service
+		deb-systemd-helper enable openmediavault-sessiond.service
 
 		########################################################################
 		# Activate trigger to rebuild workbench configuration files.
@@ -714,6 +715,14 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "8.6.1"; then
 			omv_module_set_dirty phpfpm
 		fi
+		if dpkg --compare-versions "$2" lt-nl "8.8.0"; then
+			omv_set_default "OMV_WEBGUI_SESSION_CHECK_INTERVAL" "15" 0 || :
+		fi
+
+		########################################################################
+		# Restart the daemon that terminates outdated web UI sessions.
+		########################################################################
+		deb-systemd-invoke restart openmediavault-sessiond.service || :
 
 		########################################################################
 		# Trigger the restart of the omv-engined daemon to load and use the

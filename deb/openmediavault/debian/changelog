@@ -1,4 +1,4 @@
-openmediavault (8.7.2-1) stable; urgency=medium
+openmediavault (8.8.0-1) stable; urgency=medium
 
   * Methods without an `allowlist` can no longer be called via the
     `download` entrypoint, not even by administrators.
@@ -18,6 +18,8 @@ openmediavault (8.7.2-1) stable; urgency=medium
     were able to log in without a password.
   * Remove the shared folder privileges of a user or group when it is
     deleted.
+  * Terminate the web UI sessions of users that have been deleted or
+    that are no longer administrators.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 21 Nov 2026 20:19:01 +0100
 

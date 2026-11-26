@@ -28,4 +28,5 @@ override_dh_installsystemd:
 	dh_installsystemd -r --no-start --name=openmediavault-cleanup-monit
 	dh_installsystemd -r --no-start --name=openmediavault-engined
 	dh_installsystemd -r --no-start --name=openmediavault-issue
+	dh_installsystemd -r --no-start --name=openmediavault-sessiond
 	dh_installtmpfiles
