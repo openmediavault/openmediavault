@@ -1,5 +1,5 @@
 [Unit]
-Description=The OpenMediaVault engine daemon that processes the RPC request
+Description=The openmediavault engine daemon that processes the RPC request
 After=local-fs.target network.target
 
 [Service]
