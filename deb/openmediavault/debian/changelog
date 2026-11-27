@@ -20,6 +20,9 @@ openmediavault (8.8.0-1) stable; urgency=medium
     deleted.
   * Terminate the web UI sessions of users that have been deleted or
     that are no longer administrators.
+  * Do not follow symlinks out of the shared folder when setting the
+    owner or ACL of a file in a shared folder. Thanks to Hasnain Naeem
+    and Ryan Henry (University of Calgary) for reporting this issue.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 21 Nov 2026 20:19:01 +0100
 

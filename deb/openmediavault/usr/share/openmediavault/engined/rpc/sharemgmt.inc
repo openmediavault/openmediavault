@@ -1006,6 +1006,35 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract
     }
 
     /**
+     * Make sure the file does not leave the shared folder, e.g. via a
+     * symlink planted by a share user. The shared folder path itself may
+     * contain symlinks.
+     * @param sfpath The absolute path of the shared folder.
+     * @param file The relative path to the file.
+     * @throw \OMV\Exception
+     */
+    protected function assertFileInSharedFolder($sfpath, $file)
+    {
+        $root = realpath($sfpath);
+        $real = realpath(build_path(
+            DIRECTORY_SEPARATOR,
+            $sfpath,
+            $file
+        ));
+        // The trailing slash makes the shared folder itself match and
+        // prevents '/srv/share2' from matching '/srv/share'.
+        if (false === $root || false === $real || !str_starts_with(
+            $real . DIRECTORY_SEPARATOR,
+            rtrim($root, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR
+        )) {
+            throw new \OMV\Exception(
+                "The file '%s' is outside of the shared folder.",
+                $file
+            );
+        }
+    }
+
+    /**
      * Get the file access control lists.
      * @param params An array containing the following fields:
      *   \em uuid The UUID of the shared folder object.
@@ -1033,6 +1062,8 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract
         $sfpath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath", [
             "uuid" => $params['uuid']
         ], $context);
+        // Prevent following symlinks planted by share users.
+        $this->assertFileInSharedFolder($sfpath, $params['file']);
         // Execute command to get the file access control lists.
         $cmdArgs = [];
         $cmdArgs[] = "--no-effective";
@@ -1214,12 +1245,14 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract
             throw new \OMV\Exception("The field 'file' contains forbidden ".
               "two-dot symbols");
         }
+        // Get the absolute shared folder path.
+        $sfpath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath", [
+            "uuid" => $params['uuid']
+        ], $context);
+        // Prevent following symlinks planted by share users.
+        $this->assertFileInSharedFolder($sfpath, $params['file']);
         // Create the background process.
-        return $this->execBgProc(function ($bgStatusFilename, $bgOutputFilename) use ($params, $context) {
-            // Get the absolute shared folder path.
-            $sfpath = \OMV\Rpc\Rpc::call("ShareMgmt", "getPath", [
-                "uuid" => $params['uuid']
-            ], $context);
+        return $this->execBgProc(function ($bgStatusFilename, $bgOutputFilename) use ($params, $sfpath) {
             ////////////////////////////////////////////////////////////////////
             // 1. Update the directory/file owner and group
             ////////////////////////////////////////////////////////////////////
@@ -1250,6 +1283,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract
                     $sfpath,
                     $params['file']
                 ));
+                // Note, `chown -R` does not follow symlinks (defaults to -P).
                 // Execute command to set the file owner/group.
                 $cmd = new \OMV\System\Process("chown", $cmdArgs);
                 $cmd->setRedirect2to1();
@@ -1335,6 +1369,7 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract
                 $sfpath,
                 $params['file']
             ));
+            // Note, `setfacl -R` does not follow symlinks in subdirectories.
             // Execute command to set the file access control lists.
             $cmd = new \OMV\System\Process("setfacl", $cmdArgs);
             $cmd->setRedirect2to1();
