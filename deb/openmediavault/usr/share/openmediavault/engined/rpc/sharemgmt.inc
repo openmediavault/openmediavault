@@ -1009,6 +1009,12 @@ class ShareMgmt extends \OMV\Rpc\ServiceAbstract
      * Make sure the file does not leave the shared folder, e.g. via a
      * symlink planted by a share user. The shared folder path itself may
      * contain symlinks.
+     * Known limit: a user can replace a path component with a symlink
+     * between this check and the execution of `chown`/`setfacl` (TOCTOU).
+     * This is accepted because the administrator has to trigger the
+     * operation. Closing it requires fd-based operations (`openat` with
+     * `O_NOFOLLOW`), which PHP does not offer. Do not add `chown -h` or
+     * `setfacl -P`, they break symlinks that point inside the shared folder.
      * @param sfpath The absolute path of the shared folder.
      * @param file The relative path to the file.
      * @throw \OMV\Exception
