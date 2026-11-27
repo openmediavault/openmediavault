@@ -49,10 +49,11 @@ const SESSION_UNAUTHENTICATED_TTL = \OMV\Session::PENDING_AUTH_TTL_SECONDS + 300
 function checkSessions()
 {
     $adminGroup = \OMV\Environment::get("OMV_WEBGUI_ADMINGROUP_NAME");
-    foreach (glob(SESSION_DIR . "/sess_*") as $file) {
+    foreach (glob(SESSION_DIR . "/sess_*") as $filePath) {
         try {
-            session_id(substr(basename($file), strlen("sess_")));
-            $mtime = filemtime($file);
+            session_id(substr(basename($filePath), strlen("sess_")));
+            clearstatcache(true, $filePath);
+            $mtime = filemtime($filePath);
             // Close the session immediately to release the file lock. The
             // user checks below may take a while (e.g. AD/LDAP) and must
             // not block the web UI.
@@ -90,7 +91,7 @@ function checkSessions()
             // e.g. because the group membership could not be resolved.
             syslog(LOG_ERR, sprintf(
                 "Failed to check the session '%s': %s",
-                basename($file),
+                basename($filePath),
                 $e->getMessage()
             ));
         }
