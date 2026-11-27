@@ -18,6 +18,11 @@ Please include the following information in your report:
 
 Reports missing required information may delay triage and response.
 
+# CVEs and rewards
+
+* The openmediavault project does not request or assign CVE IDs for reported issues. Reporters are free to request a CVE ID themselves.
+* The project does not run a bug bounty program and does not pay rewards for reported issues. Reporters are credited in the changelog if they consent to it.
+
 # Issues NOT to be reported
 
 * Issues or bugs that aren't security related.
