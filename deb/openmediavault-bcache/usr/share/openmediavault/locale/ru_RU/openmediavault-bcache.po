@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-bcache package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Дмитрий <bardimnik@rambler.ru>, 2026
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-18 08:34+0200\n"
 "PO-Revision-Date: 2024-11-20 12:26+0000\n"
+"Last-Translator: Дмитрий <bardimnik@rambler.ru>, 2026\n"
 "Language-Team: Russian (Russia) (https://app.transifex.com/openmediavault/teams/14254/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,202 +22,220 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 msgid "5 Minutes"
-msgstr ""
+msgstr "5 минут"
 
 msgid ""
 "A sequential IO will bypass the cache once it passes this threshold. "
 "(default:4.0M, max:3.9G)"
 msgstr ""
+"Последовательный ввод-вывод обходит кэш после превышения этого порога (по "
+"умолчанию: 4,0M, макс.: 3,9G)."
 
 msgid ""
 "Allow bcache go around the cache when there's read / write congestion. "
 "(default:true)"
 msgstr ""
+"Разрешает bcache обходить кэш при перегрузке при чтении/записи (по "
+"умолчанию: true)."
 
 msgid "Backing Devices"
-msgstr ""
+msgstr "Основные устройства"
 
 msgid "Bcache"
-msgstr ""
+msgstr "Bcache"
 
 msgid "Bcache Device"
-msgstr ""
+msgstr "Устройство Bcache"
 
 msgid "Bcache backing device [%s, %s]"
-msgstr ""
+msgstr "Основное устройство Bcache [%s, %s]"
 
 msgid "Bcache cache device [%s, %s]"
-msgstr ""
+msgstr "Кэш-устройство Bcache [%s, %s]"
 
 msgid "Cache Device"
-msgstr ""
+msgstr "Кэш-устройство"
 
 msgid "Cache Devices"
-msgstr ""
+msgstr "Кэш-устройства"
 
 msgid "Cache Mode"
-msgstr ""
+msgstr "Режим кэша"
 
 msgid "Capacity"
-msgstr ""
+msgstr "Ёмкость"
 
 msgid "Clean"
-msgstr ""
+msgstr "В порядке"
 
 msgid "Clear total statistics"
-msgstr ""
+msgstr "Очистить общую статистику"
 
 msgid "Configuration"
-msgstr ""
+msgstr "Конфигурация"
 
 msgid "Congest Tracking"
-msgstr ""
+msgstr "Отслеживание перегрузки"
 
 msgid "Congested Read Threshold (us)"
-msgstr ""
+msgstr "Порог перегрузки при чтении (мкс)"
 
 msgid "Create"
-msgstr ""
+msgstr "Создать"
 
 msgid "Day"
-msgstr ""
+msgstr "День"
 
 msgid "Device"
-msgstr ""
+msgstr "Устройство"
 
 msgid "Dirty"
-msgstr ""
+msgstr "Загрязнено"
 
 msgid "Dirty Data"
-msgstr ""
+msgstr "Грязные данные"
 
 msgid "Docs"
-msgstr ""
+msgstr "Документация"
 
 msgid "Hour"
-msgstr ""
+msgstr "Час"
 
 msgid ""
 "If nonzero, bcache tries to keep around this percentage of the cache dirty "
 "by throttling background writeback and using a PD controller to smoothly "
 "adjust the rate. (default:10)"
 msgstr ""
+"Если значение отлично от нуля, bcache стремится поддерживать около этого "
+"процента кэша в грязном состоянии, ограничивая фоновую обратную запись и "
+"используя ПД-регулятор для плавной корректировки скорости (по умолчанию: "
+"10)."
 
 msgid "Inconsistent"
-msgstr ""
+msgstr "Несогласованно"
 
 msgid "Metadata"
-msgstr ""
+msgstr "Метаданные"
 
 msgid "Missing"
-msgstr ""
+msgstr "Отсутствует"
 
 msgid "Missing Cache"
-msgstr ""
+msgstr "Потеря кэша"
 
 msgid "Mounted"
-msgstr ""
+msgstr "Смонтировано"
 
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 msgid "No Cache"
-msgstr ""
+msgstr "Без кэша"
 
 msgid "Online"
-msgstr ""
+msgstr "Онлайн"
 
 msgid ""
 "Please note that creating a file system on a Bcache device can take longer. "
 "It is therefore possible that the file system is not immediately available "
 "for mounting."
 msgstr ""
+"Обратите внимание, что создание файловой системы на устройстве Bcache может "
+"занять больше времени. Поэтому файловая система может быть недоступна для "
+"монтирования сразу."
 
 msgid "Recovery Actions"
-msgstr ""
+msgstr "Действия по восстановлению"
 
 msgid "Register"
-msgstr ""
+msgstr "Зарегистрировать"
 
 msgid "Select a cache device ..."
-msgstr ""
+msgstr "Выберите кэш-устройство..."
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "Выберите устройство..."
 
 msgid "Select the device that will be formatted as Bcache backing device."
 msgstr ""
+"Выберите устройство, которое будет отформатировано как основное устройство "
+"Bcache."
 
 msgid "Select the device that will be formatted as Bcache cache device."
 msgstr ""
+"Выберите устройство, которое будет отформатировано как кэш-устройство "
+"Bcache."
 
 msgid "Select the device that will be used as cache device."
 msgstr ""
+"Выберите устройство, которое будет использоваться в качестве кэш-устройства."
 
 msgid "Sequential Cutoff"
-msgstr ""
+msgstr "Порог отсечения"
 
 msgid "Show details"
-msgstr ""
+msgstr "Показать подробности"
 
 msgid "Start without cache"
-msgstr ""
+msgstr "Запуск без кэша"
 
 msgid "State"
-msgstr ""
+msgstr "Состояние"
 
 msgid "Statistics"
-msgstr ""
+msgstr "Статистика"
 
 msgid "Superblock"
-msgstr ""
+msgstr "Суперблок"
 
 msgid "The default is 2000 us (2 milliseconds)"
-msgstr ""
+msgstr "Значение по умолчанию — 2000 мкс (2 миллисекунды)"
 
 msgid "The default is 20000 us (20 milliseconds)"
-msgstr ""
+msgstr "Значение по умолчанию — 20000 мкс (20 миллисекунд)"
 
 msgid "Total"
-msgstr ""
+msgstr "Всего"
 
 msgid "Unit"
-msgstr ""
+msgstr "Единица"
 
 msgid "Unregister"
-msgstr ""
+msgstr "Снять с регистрации"
 
 msgid "Unregistered"
-msgstr ""
+msgstr "Снято с регистрации"
 
 msgid "Unused"
-msgstr ""
+msgstr "Не используется"
 
 msgid "Updated backing device '{{ devicefile }}'."
-msgstr ""
+msgstr "Обновлено основное устройство «{{ devicefile }}»."
 
 msgid "Updated cache device '{{ devicefile }}'."
-msgstr ""
+msgstr "Обновлено кэш-устройство «{{ devicefile }}»."
 
 msgid ""
 "When dirty data is written to the cache and it previously did not contain "
 "any, waits some number of seconds before initiating writeback. (default:30)"
 msgstr ""
+"Когда в кэш записываются грязные данные, которых в нём ранее не было, перед "
+"началом обратной записи ожидается указанное число секунд (по умолчанию: 30)."
 
 msgid "Writeback Delay"
-msgstr ""
+msgstr "Задержка обратной записи"
 
 msgid "Writeback Percent"
-msgstr ""
+msgstr "Процент обратной записи"
 
 msgid "none"
-msgstr ""
+msgstr "нет"
 
 msgid "writearound"
-msgstr ""
+msgstr "обход записи"
 
 msgid "writeback"
-msgstr ""
+msgstr "обратная запись"
 
 msgid "writethrough"
-msgstr ""
+msgstr "сквозная запись"

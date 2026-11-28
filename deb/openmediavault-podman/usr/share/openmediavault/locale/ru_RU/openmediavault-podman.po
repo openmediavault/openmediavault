@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-podman package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Дмитрий <bardimnik@rambler.ru>, 2026
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2023-10-11 19:57+0000\n"
+"Last-Translator: Дмитрий <bardimnik@rambler.ru>, 2026\n"
 "Language-Team: Russian (Russia) (https://app.transifex.com/openmediavault/teams/14254/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,130 +22,130 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 msgid "Block I/O"
-msgstr ""
+msgstr "Блочный ввод-вывод"
 
 msgid "CID"
-msgstr ""
+msgstr "CID"
 
 msgid "CPU %"
-msgstr ""
+msgstr "Загрузка ЦП, %"
 
 msgid "Command"
-msgstr ""
+msgstr "Команда"
 
 msgid "Containers"
-msgstr ""
+msgstr "Контейнеры"
 
 msgid "Created"
-msgstr ""
+msgstr "Создано"
 
 msgid "Digest"
-msgstr ""
+msgstr "Дайджест"
 
 msgid "Do you really want to restart this container?"
-msgstr ""
+msgstr "Вы действительно хотите перезапустить этот контейнер?"
 
 msgid "Do you really want to restart this pod?"
-msgstr ""
+msgstr "Вы действительно хотите перезапустить этот под?"
 
 msgid "Driver"
-msgstr ""
+msgstr "Драйвер"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Image"
-msgstr ""
+msgstr "Образ"
 
 msgid "Images"
-msgstr ""
+msgstr "Образы"
 
 msgid "Infra ID"
-msgstr ""
+msgstr "ID инфраструктуры"
 
 msgid "Inspect"
-msgstr ""
+msgstr "Инспекция"
 
 msgid "Logs"
-msgstr ""
+msgstr "Журналы"
 
 msgid "Mem %"
-msgstr ""
+msgstr "Загрузка памяти, %"
 
 msgid "Mem Usage / Limit"
-msgstr ""
+msgstr "Использование памяти / лимит"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "Точка монтирования"
 
 msgid "Mounts"
-msgstr ""
+msgstr "Монтирования"
 
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 msgid "Names"
-msgstr ""
+msgstr "Имена"
 
 msgid "Network I/O"
-msgstr ""
+msgstr "Сетевой ввод-вывод"
 
 msgid "Networks"
-msgstr ""
+msgstr "Сети"
 
 msgid "PIDs"
-msgstr ""
+msgstr "PID"
 
 msgid "Pod"
-msgstr ""
+msgstr "Под"
 
 msgid "Podman"
-msgstr ""
+msgstr "Podman"
 
 msgid "Pods"
-msgstr ""
+msgstr "Поды"
 
 msgid "Ports"
-msgstr ""
+msgstr "Порты"
 
 msgid "Pull"
-msgstr ""
+msgstr "Скачать"
 
 msgid "Pull image"
-msgstr ""
+msgstr "Скачать образ"
 
 msgid "Repository"
-msgstr ""
+msgstr "Репозиторий"
 
 msgid "Restart"
-msgstr ""
+msgstr "Перезапустить"
 
 msgid "Size"
-msgstr ""
+msgstr "Размер"
 
 msgid "Started"
-msgstr ""
+msgstr "Запущено"
 
 msgid "State"
-msgstr ""
+msgstr "Состояние"
 
 msgid "Statistics"
-msgstr ""
+msgstr "Статистика"
 
 msgid "Status"
-msgstr ""
+msgstr "Статус"
 
 msgid "Tag"
-msgstr ""
+msgstr "Тег"
 
 msgid "The tag of the image to pull."
-msgstr ""
+msgstr "Тег образа, который нужно скачать."
 
 msgid "Updated Podman settings."
-msgstr ""
+msgstr "Настройки Podman обновлены."
 
 msgid "Used"
-msgstr ""
+msgstr "Использовано"
 
 msgid "Volumes"
-msgstr ""
+msgstr "Тома"

@@ -30,7 +30,7 @@ msgstr "Алгоритмическое обнаружение"
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr ""
+msgstr "Администратору отправляется электронное сообщение с выводом команды (если он был)."
 
 msgid "Antivirus"
 msgstr "Антивирус"
@@ -48,10 +48,10 @@ msgid "Create"
 msgstr "Создать"
 
 msgid "Created on-access scan."
-msgstr ""
+msgstr "Проверка при доступе создана."
 
 msgid "Created scheduled scan."
-msgstr ""
+msgstr "Плановая проверка создана."
 
 msgid "Database checks"
 msgstr "Проверки базы данных"
@@ -69,7 +69,7 @@ msgid "December"
 msgstr "Декабрь"
 
 msgid "Delete immediately"
-msgstr ""
+msgstr "Удалить сразу"
 
 msgid "Detect PUA"
 msgstr "Обнаружение PUA"
@@ -78,7 +78,7 @@ msgid "Detect broken executables"
 msgstr "Обнаружение повреждённых исполняемых файлов"
 
 msgid "Detect broken media"
-msgstr ""
+msgstr "Обнаруживать повреждённые медиафайлы"
 
 msgid "Edit"
 msgstr "Редактировать"
@@ -90,42 +90,42 @@ msgid "Enable archive scanning."
 msgstr "Включить сканирование архивов."
 
 msgid "Enable scanning of ELF files."
-msgstr "Включить сканирование ELF файлов."
+msgstr "Включить сканирование ELF-файлов."
 
 msgid ""
 "Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
 "files."
-msgstr "Включить сканирование OLE2 файлов, таких как документы Microsoft Office и файлы .msi."
+msgstr "Включить сканирование OLE2-файлов, таких как документы Microsoft Office и файлы .msi."
 
 msgid "Enable scanning within PDF files."
-msgstr "Включить сканирование в PDF файлах."
+msgstr "Включить сканирование PDF-файлов."
 
 msgid "Enable the algorithmic detection."
 msgstr "Включить алгоритмическое обнаружение."
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
-msgstr "Включить обнаружение повреждённых исполняемых файлов (и PE и ELF)."
+msgstr "Включить обнаружение повреждённых исполняемых файлов (как PE, так и ELF)."
 
 msgid "Enable the detection of broken media files (JPEG, TIFF, PNG, GIF)."
-msgstr ""
+msgstr "Включить обнаружение повреждённых медиафайлов (JPEG, TIFF, PNG, GIF)."
 
 msgid "Enable the detection of possibly unwanted applications."
-msgstr "Включить обнаружение возможно нежелательных приложений."
+msgstr "Включить обнаружение потенциально нежелательных приложений."
 
 msgid "Enabled"
 msgstr "Включено"
 
 msgid "Every N day of month"
-msgstr "Каждый N день месяца"
+msgstr "Каждые N дней месяца"
 
 msgid "Every N hour"
-msgstr "Каждый N час"
+msgstr "Каждые N часов"
 
 msgid "Every N minute"
-msgstr "Каждую N минуту"
+msgstr "Каждые N минут"
 
 msgid "Execute scheduled scan"
-msgstr ""
+msgstr "Выполнить плановую проверку"
 
 msgid "Extra options"
 msgstr "Дополнительные опции"
@@ -134,16 +134,16 @@ msgid "February"
 msgstr "Февраль"
 
 msgid "Follow directory symlinks"
-msgstr "Следовать по символьными ссылками каталога"
+msgstr "Переходить по символическим ссылкам каталогов"
 
 msgid "Follow directory symlinks."
-msgstr "Следовать по символьными ссылками каталога."
+msgstr "Переходить по символическим ссылкам каталогов."
 
 msgid "Follow file symlinks"
-msgstr "Следовать по символьными ссылками файла"
+msgstr "Переходить по символическим ссылкам файлов"
 
 msgid "Follow regular file symlinks."
-msgstr "Следовать по регулярными символьными ссылками файла."
+msgstr "Переходить по символическим ссылкам обычных файлов."
 
 msgid "Friday"
 msgstr "Пятница"
@@ -152,7 +152,7 @@ msgid "Hour"
 msgstr "Час"
 
 msgid "Infected files"
-msgstr "Зараженные файлы"
+msgstr "Заражённые файлы"
 
 msgid "January"
 msgstr "Январь"
@@ -164,10 +164,10 @@ msgid "June"
 msgstr "Июнь"
 
 msgid "Log clean files"
-msgstr "Записывать в лог чистые файлы"
+msgstr "Записывать чистые файлы в журнал"
 
 msgid "Log clean files. This drastically increases the log size."
-msgstr "Записывать в лог чистые файлы. Это значительно увеличивает размер журнала."
+msgstr "Записывать чистые файлы в журнал. Это значительно увеличивает размер журнала."
 
 msgid "March"
 msgstr "Март"
@@ -179,7 +179,7 @@ msgid "Message"
 msgstr "Сообщение"
 
 msgid "Minute"
-msgstr "Минут"
+msgstr "Минута"
 
 msgid "Monday"
 msgstr "Понедельник"
@@ -188,7 +188,7 @@ msgid "Month"
 msgstr "Месяц"
 
 msgid "Move to quarantine"
-msgstr ""
+msgstr "Переместить в карантин"
 
 msgid "Multiscan"
 msgstr "Мультисканирование"
@@ -197,25 +197,25 @@ msgid "November"
 msgstr "Ноябрь"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
-msgstr "Количество проверок обновлений базы данных в день. Установите в 0 для отключения."
+msgstr "Количество проверок обновлений базы данных в день. Установите 0, чтобы отключить."
 
 msgid "October"
 msgstr "Октябрь"
 
 msgid "On Access Scans"
-msgstr "Проверка доступа"
+msgstr "Проверки при доступе"
 
 msgid "Perform a deeper analysis of executable files."
 msgstr "Выполнить более глубокий анализ исполняемых файлов."
 
 msgid "Perform nothing"
-msgstr ""
+msgstr "Ничего не делать"
 
 msgid ""
 "Please check the <a href='https://manpages.debian.org/stable/clamav-"
 "daemon/clamd.conf.5.en.html' target='_blank'>manual page</a> for more "
 "details."
-msgstr ""
+msgstr "Дополнительные сведения см. на <a href='https://manpages.debian.org/stable/clamav-daemon/clamd.conf.5.en.html' target='_blank'>странице руководства</a>."
 
 msgid "Quarantine"
 msgstr "Карантин"
@@ -239,7 +239,7 @@ msgid "Scan PDF"
 msgstr "Сканировать PDF"
 
 msgid "Scan Portable Executable"
-msgstr "Сканировать переносимые исполняемые программы"
+msgstr "Сканировать Portable Executable (PE)"
 
 msgid "Scan archives"
 msgstr "Сканировать архивы"
@@ -248,13 +248,13 @@ msgid "Scan the directory contents in parallel using available threads."
 msgstr "Сканировать содержимое каталога параллельно, используя доступные потоки."
 
 msgid "Scheduled Scans"
-msgstr ""
+msgstr "Плановые проверки"
 
 msgid "Scheduling"
-msgstr "Планируется"
+msgstr "Расписание"
 
 msgid "Send email"
-msgstr "Отправить электронное письмо"
+msgstr "Отправлять email"
 
 msgid "September"
 msgstr "Сентябрь"
@@ -266,7 +266,7 @@ msgid "Settings"
 msgstr "Настройки"
 
 msgid "Shared folder"
-msgstr "Общая папка"
+msgstr "Общий каталог"
 
 msgid "Sunday"
 msgstr "Воскресенье"
@@ -275,19 +275,19 @@ msgid "Tags"
 msgstr "Теги"
 
 msgid "The field should only contain * or a comma separated list of values."
-msgstr "Поле должно содержать только * или список значений, разделенных запятыми."
+msgstr "Поле должно содержать только * или список значений, разделённых запятыми."
 
 msgid "The location of the files to scan on-access."
-msgstr "Расположение файлов для сканирования по доступу."
+msgstr "Расположение файлов для сканирования при доступе."
 
 msgid "The location of the files to scan."
 msgstr "Расположение файлов для сканирования."
 
 msgid "The location which is used as quarantine."
-msgstr "Расположение которое будет использоваться в качестве карантина."
+msgstr "Расположение, используемое в качестве карантина."
 
 msgid "The option, how to handle infected files."
-msgstr "Опции , как обращаться с зараженными файлами."
+msgstr "Параметр обработки заражённых файлов."
 
 msgid "Thursday"
 msgstr "Четверг"
@@ -299,13 +299,13 @@ msgid "Tuesday"
 msgstr "Вторник"
 
 msgid "Updated on-access scan."
-msgstr ""
+msgstr "Проверка при доступе обновлена."
 
 msgid "Updated scheduled scan."
-msgstr ""
+msgstr "Плановая проверка обновлена."
 
 msgid "Verbose"
-msgstr "Отладка"
+msgstr "Подробный вывод"
 
 msgid "Wednesday"
 msgstr "Среда"

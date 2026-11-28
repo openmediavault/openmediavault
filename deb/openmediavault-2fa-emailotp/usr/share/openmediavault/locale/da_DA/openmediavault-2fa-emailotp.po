@@ -41,7 +41,7 @@ msgid "Disable 2FA Email OTP"
 msgstr ""
 
 msgid "Edit"
-msgstr ""
+msgstr "Rediger"
 
 msgid "Enable"
 msgstr ""
@@ -53,7 +53,7 @@ msgid "Enabled"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "Navn"
 
 msgid "No email address is configured for this account."
 msgstr ""

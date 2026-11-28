@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-2fa-emailotp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Дмитрий <bardimnik@rambler.ru>, 2026
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2026-07-17 18:21+0000\n"
+"Last-Translator: Дмитрий <bardimnik@rambler.ru>, 2026\n"
 "Language-Team: Russian (Russia) (https://app.transifex.com/openmediavault/teams/14254/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,61 +22,70 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 msgid "2FA Email OTP"
-msgstr ""
+msgstr "2FA Email OTP"
 
 msgid ""
 "A verification code has been sent to your email address. Please enter the "
 "code to confirm and disable two-factor authentication."
 msgstr ""
+"На ваш адрес электронной почты отправлен проверочный код. Введите код, чтобы"
+" подтвердить отключение двухфакторной аутентификации."
 
 msgid ""
 "A verification code has been sent to your email address. Please enter the "
 "code to confirm and enable two-factor authentication."
 msgstr ""
+"На ваш адрес электронной почты отправлен проверочный код. Введите код, чтобы"
+" подтвердить включение двухфакторной аутентификации."
 
 msgid "Disable"
-msgstr ""
+msgstr "Отключить"
 
 msgid "Disable 2FA Email OTP"
-msgstr ""
+msgstr "Отключить 2FA Email OTP"
 
 msgid "Edit"
-msgstr ""
+msgstr "Редактировать"
 
 msgid "Enable"
-msgstr ""
+msgstr "Включить"
 
 msgid "Enable 2FA Email OTP"
-msgstr ""
+msgstr "Включить 2FA Email OTP"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Включено"
 
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 msgid "No email address is configured for this account."
-msgstr ""
+msgstr "Для этой учётной записи не настроен адрес электронной почты."
 
 msgid ""
 "Notifications need to be enabled on this system. Please contact the "
 "administrator."
 msgstr ""
+"В этой системе необходимо включить уведомления. Обратитесь к администратору."
 
 msgid "Two-Factor Authentication"
-msgstr ""
+msgstr "Двухфакторная аутентификация"
 
 msgid ""
 "Two-factor authentication (2FA) with email OTP adds an extra layer of "
 "security by sending a one-time code to your email address in addition to "
 "your password. You can enable or disable it for your account here."
 msgstr ""
+"Двухфакторная аутентификация (2FA) с одноразовыми кодами по электронной "
+"почте (Email OTP) добавляет дополнительный уровень защиты, отправляя помимо "
+"пароля одноразовый код на ваш адрес электронной почты. Здесь можно включить "
+"или отключить её для своей учётной записи."
 
 msgid "Updated 2FA Email OTP."
-msgstr ""
+msgstr "Настройки 2FA Email OTP обновлены."
 
 msgid "User name"
-msgstr ""
+msgstr "Имя пользователя"
 
 msgid "Verification code"
-msgstr ""
+msgstr "Код проверки"

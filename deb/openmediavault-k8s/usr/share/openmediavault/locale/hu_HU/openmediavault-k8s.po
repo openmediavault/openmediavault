@@ -399,7 +399,7 @@ msgid "The manifest to apply."
 msgstr "Az alkalmazandó manifesztum. "
 
 msgid "The names 'web' and 'websecure' are reserved."
-msgstr ""
+msgstr "A „web” és a „websecure” nevek fenn vannak tartva."
 
 msgid "The snapshot was created successfully."
 msgstr "A pillanatfelvétel sikeresen létrejött."

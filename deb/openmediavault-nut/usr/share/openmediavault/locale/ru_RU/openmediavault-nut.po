@@ -23,31 +23,31 @@ msgstr ""
 
 msgid ""
 "'Standalone' for local UPS, 'Netclient' for remote UPS on a NUT server."
-msgstr ""
+msgstr "«Автономный» для локального ИБП, «Сетевой клиент» — для удалённого ИБП на сервере NUT."
 
 msgid "Battery charge with the low-battery shutdown threshold marked."
-msgstr ""
+msgstr "Заряд батареи с отмеченным порогом отключения при низком заряде"
 
 msgid "Battery date"
-msgstr ""
+msgstr "Дата батареи"
 
 msgid "Battery low"
-msgstr ""
+msgstr "Низкий заряд батареи"
 
 msgid "Battery type"
-msgstr ""
+msgstr "Тип батареи"
 
 msgid "Battery voltage"
-msgstr ""
+msgstr "Напряжение батареи"
 
 msgid "Charge"
 msgstr "Заряд"
 
 msgid "Charge warning"
-msgstr ""
+msgstr "Предупреждение о заряде"
 
 msgid "Comment"
-msgstr "Коментарий"
+msgstr "Комментарий"
 
 msgid "Date & Time"
 msgstr "Дата и время"
@@ -59,7 +59,7 @@ msgid "Driver configuration directives"
 msgstr "Директивы конфигурации драйверов"
 
 msgid "Enable remote monitoring of the local connected UPS."
-msgstr "Включить удаленный мониторинг локально подключенного ИБП."
+msgstr "Включить удалённый мониторинг локально подключённого ИБП."
 
 msgid "Enabled"
 msgstr "Включено"
@@ -68,22 +68,22 @@ msgid "Identifier"
 msgstr "Идентификатор"
 
 msgid "Input voltage"
-msgstr ""
+msgstr "Входное напряжение"
 
 msgid "Invalid identifier"
-msgstr ""
+msgstr "Недопустимый идентификатор"
 
 msgid "Load"
 msgstr "Загрузка"
 
 msgid "Low"
-msgstr ""
+msgstr "Низкий"
 
 msgid "Manufacturer"
-msgstr ""
+msgstr "Производитель"
 
 msgid "Message"
-msgstr "сообщение"
+msgstr "Сообщение"
 
 msgid "Mode"
 msgstr "Режим"
@@ -92,16 +92,16 @@ msgid "Model"
 msgstr "Модель"
 
 msgid "Netclient"
-msgstr ""
+msgstr "Сетевой клиент"
 
 msgid "Netclient hostname"
-msgstr ""
+msgstr "Имя сетевого клиента"
 
 msgid "Netclient password"
-msgstr ""
+msgstr "Пароль сетевого клиента"
 
 msgid "Netclient user name"
-msgstr ""
+msgstr "Имя пользователя сетевого клиента"
 
 msgid "PID"
 msgstr "PID"
@@ -110,31 +110,31 @@ msgid "Password"
 msgstr "Пароль"
 
 msgid "Powervalue"
-msgstr ""
+msgstr "Powervalue"
 
 msgid "Program"
 msgstr "Программа"
 
 msgid "Remote monitoring"
-msgstr "Удаленный мониторинг"
+msgstr "Удалённый мониторинг"
 
 msgid "Runtime"
-msgstr ""
+msgstr "Время работы"
 
 msgid "Runtime low"
-msgstr ""
+msgstr "Минимальное время работы"
 
 msgid "Service disabled"
 msgstr "Служба отключена"
 
 msgid "Shutdown mode"
-msgstr "Режим отключения"
+msgstr "Режим выключения"
 
 msgid "Shutdown timer"
 msgstr "Таймер выключения"
 
 msgid "Standalone"
-msgstr ""
+msgstr "Автономный"
 
 msgid "Status"
 msgstr "Статус"
@@ -143,48 +143,48 @@ msgid "Temperature"
 msgstr "Температура"
 
 msgid "The name used to uniquely identify your UPS on local or remote system."
-msgstr ""
+msgstr "Имя, используемое для уникальной идентификации вашего ИБП в локальной или удалённой системе."
 
 msgid ""
 "The number of power supplies that the UPS feeds on this system (usually 1), "
 "refer to <a href='https://networkupstools.org/docs/man/upsmon.conf.html' "
 "target='_blank'>upsmon.conf(5)</a> for more information."
-msgstr ""
+msgstr "Количество блоков питания, питаемых от ИБП в этой системе (обычно 1). Дополнительные сведения см. в <a href='https://networkupstools.org/docs/man/upsmon.conf.html' target='_blank'>upsmon.conf(5)</a>."
 
 msgid ""
 "The time in seconds until shutdown is initiated. If the UPS happens to come "
 "back before the time is up the shutdown is canceled."
-msgstr "Время в секундах до выключения системы. Если питание ИБП восстановится до истечения этого времени, выключение будет отменено."
+msgstr "Время в секундах до выключения системы. Если ИБП восстановит питание до истечения этого времени, выключение будет отменено."
 
 msgid ""
 "To get more information how to configure your UPS please check the Network "
 "UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
 "target='_blank'>documentation</a>."
-msgstr "Чтобы получить более подробную информацию, как настроить UPS проверьте <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>документацию</a> Network UPS Tools."
+msgstr "Чтобы получить дополнительную информацию о настройке ИБП, см. <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>документацию</a> Network UPS Tools."
 
 msgid "UPS"
 msgstr "ИБП"
 
 msgid "UPS Battery"
-msgstr ""
+msgstr "Батарея ИБП"
 
 msgid "UPS Information"
-msgstr ""
+msgstr "Сведения об ИБП"
 
 msgid "UPS device and battery information."
-msgstr ""
+msgstr "Сведения об устройстве ИБП и батарее."
 
 msgid "UPS goes on battery"
-msgstr "ИБП переходит на батареи"
+msgstr "ИБП переходит на питание от батареи"
 
 msgid "UPS reaches low battery"
 msgstr "ИБП достигает низкого заряда батареи"
 
 msgid "Updated UPS settings."
-msgstr ""
+msgstr "Настройки ИБП обновлены."
 
 msgid "Used for remote authentication."
-msgstr "Используется для удаленной аутентификации."
+msgstr "Используется для удалённой аутентификации."
 
 msgid "User name"
 msgstr "Имя пользователя"

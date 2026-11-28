@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-18 08:34+0200\n"
+"POT-Creation-Date: 2026-11-21 20:27+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Heather Freelig, 2026\n"
 "Language-Team: Spanish (Spain) (http://app.transifex.com/openmediavault/openmediavault/language/es_ES/)\n"
@@ -925,10 +925,10 @@ msgid "Destination"
 msgstr "Destino"
 
 msgid ""
-"Destination address can be either a network IP address (with /mask), a IP "
+"Destination address can be either a network IP address (with /mask), an IP "
 "range or a plain IP address. A \"!\" argument before the address "
 "specification inverts the sense of the address."
-msgstr "La dirección de destino puede ser una dirección IP de red (con /máscara), un rango de IP o una dirección IP simple. El argumento \"!\" antes de especificar la dirección invierte el sentido de la misma."
+msgstr "La dirección de destino puede ser una dirección IP de red (con /máscara), un rango de IP o una dirección IP simple. Un argumento \"!\" antes de la especificación de la dirección invierte el sentido de la misma."
 
 msgid "Destination port"
 msgstr "Puerto de destino"
@@ -2938,14 +2938,14 @@ msgstr "Seleccionar una shell..."
 msgid "Select a system log ..."
 msgstr "Seleccionar un registro del sistema..."
 
+msgid "Select a user ..."
+msgstr "Seleccionar un usuario ..."
+
 msgid "Select all"
 msgstr "Seleccionar todo"
 
 msgid "Select an authentication mode ..."
 msgstr "Seleccionar un modo de autenticación..."
-
-msgid "Select an user ..."
-msgstr "Seleccionar un usuario..."
 
 msgid "Select devices ..."
 msgstr "Seleccionar dispositivos..."
@@ -3136,10 +3136,10 @@ msgid "Source"
 msgstr "Origen"
 
 msgid ""
-"Source address can be either a network IP address (with /mask), a IP range "
+"Source address can be either a network IP address (with /mask), an IP range "
 "or a plain IP address. A \"!\" argument before the address specification "
 "inverts the sense of the address."
-msgstr "La dirección de origen puede ser una dirección IP de red (con /máscara), un rango de IP o una dirección IP estándar. Un argumento «!» antes de la especificación de la dirección invierte el sentido de la misma."
+msgstr "La dirección de origen puede ser una dirección IP de red (con /máscara), un rango de IP o una dirección IP simple. Un argumento \"!\" antes de la especificación de la dirección invierte el sentido de la misma."
 
 msgid "Source port"
 msgstr "Puerto de origen"
@@ -3562,7 +3562,7 @@ msgid "The value does not match the pattern /{{ pattern }}/."
 msgstr "El valor no coincide con el patrón /{{ pattern }}/."
 
 msgid ""
-"The value must be on of the slave network interfaces {{ slaves | join(\", "
+"The value must be one of the slave network interfaces {{ slaves | join(\", "
 "\") }}."
 msgstr "El valor debe ser una de las interfaces de red esclavas {{ slaves | join(\", \") }}."
 
@@ -3622,9 +3622,6 @@ msgstr "Este campo debe tener el formato <hh:mm:ss>."
 msgid "This field must match the format SIZE[K|M|G|T|P]."
 msgstr "Este campo debe coincidir con el formato TAMAÑO[K|M|G|T|P]."
 
-msgid "This field should be a IP network address in CIDR notation."
-msgstr "Este campo debe ser una dirección de red IP en notación CIDR."
-
 msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
 msgstr "Este campo debe ser una dirección MAC, p. ej., 00:80:41:ae:fd:7e."
 
@@ -3663,6 +3660,9 @@ msgstr "Este campo debe ser un puerto o un rango de puertos (p. ej., 21 o !443 o
 
 msgid "This field should be an IP address."
 msgstr "Este campo debe ser una dirección IP."
+
+msgid "This field should be an IP network address in CIDR notation."
+msgstr "Este campo debe ser una dirección de red IP en notación CIDR."
 
 msgid "This field should be an IPv4 address."
 msgstr "El campo debe ser una dirección IPv4."

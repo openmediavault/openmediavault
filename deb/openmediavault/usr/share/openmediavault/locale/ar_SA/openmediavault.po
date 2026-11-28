@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-18 08:34+0200\n"
+"POT-Creation-Date: 2026-11-21 20:27+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2026\n"
 "Language-Team: Arabic (Saudi Arabia) (http://app.transifex.com/openmediavault/openmediavault/language/ar_SA/)\n"
@@ -921,10 +921,10 @@ msgid "Destination"
 msgstr "الوجهة"
 
 msgid ""
-"Destination address can be either a network IP address (with /mask), a IP "
+"Destination address can be either a network IP address (with /mask), an IP "
 "range or a plain IP address. A \"!\" argument before the address "
 "specification inverts the sense of the address."
-msgstr "يمكن أن يكون عنوان الوجهة إما عنوان IP للشبكة (مع قناع mask) أو نطاق IP أو عنوان IP عادي. تمرير العلامة \"!\" قبل تحديد العنوان يعكس معنى العنوان."
+msgstr ""
 
 msgid "Destination port"
 msgstr "منفذ الوجهة"
@@ -2934,14 +2934,14 @@ msgstr "تحديد Shell ..."
 msgid "Select a system log ..."
 msgstr "تحديد سجل أحداث النظام ..."
 
+msgid "Select a user ..."
+msgstr ""
+
 msgid "Select all"
 msgstr "تحديد الكل"
 
 msgid "Select an authentication mode ..."
 msgstr "تحديد وضع مصادقة ..."
-
-msgid "Select an user ..."
-msgstr "تحديد مستخدم ..."
 
 msgid "Select devices ..."
 msgstr "تحديد أجهزة ..."
@@ -3132,10 +3132,10 @@ msgid "Source"
 msgstr "المصدر"
 
 msgid ""
-"Source address can be either a network IP address (with /mask), a IP range "
+"Source address can be either a network IP address (with /mask), an IP range "
 "or a plain IP address. A \"!\" argument before the address specification "
 "inverts the sense of the address."
-msgstr "يمكن أن يكون عنوان الوجهة إما عنوان IP للشبكة (مع قناع mask) أو نطاق IP أو عنوان IP عادي. تمرير العلامة \"!\" قبل تحديد العنوان يعكس معنى العنوان."
+msgstr ""
 
 msgid "Source port"
 msgstr "منفذ المصدر"
@@ -3558,9 +3558,9 @@ msgid "The value does not match the pattern /{{ pattern }}/."
 msgstr "القيمة لا تطابق النمط /{{ pattern }}/."
 
 msgid ""
-"The value must be on of the slave network interfaces {{ slaves | join(\", "
+"The value must be one of the slave network interfaces {{ slaves | join(\", "
 "\") }}."
-msgstr "يجب أن تكون القيمة واحدة من واجهات الشبكة التابعة {{ slaves | join(\", \") }}."
+msgstr ""
 
 msgid "The value must be one of the slave network interfaces."
 msgstr ""
@@ -3618,9 +3618,6 @@ msgstr "يجب أن يكون هذا الحقل وفق التنسيق <hh:mm:ss>.
 msgid "This field must match the format SIZE[K|M|G|T|P]."
 msgstr ""
 
-msgid "This field should be a IP network address in CIDR notation."
-msgstr "يجب أن يحتوي هذا الحقل على عنوان شبكة IP في صيغة CIDR"
-
 msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
 msgstr ""
 
@@ -3659,6 +3656,9 @@ msgstr "يجب أن يحتوي هذا الحقل على منذف شبكة أو �
 
 msgid "This field should be an IP address."
 msgstr "يجب أن يحتوي هذا الحقل على عنوان IP"
+
+msgid "This field should be an IP network address in CIDR notation."
+msgstr ""
 
 msgid "This field should be an IPv4 address."
 msgstr "يجب أن يحتوي هذا الحقل على عنوان IPv4."

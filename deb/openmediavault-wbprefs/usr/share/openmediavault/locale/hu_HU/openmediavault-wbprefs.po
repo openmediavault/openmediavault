@@ -25,7 +25,7 @@ msgid "Apply"
 msgstr "Alkalmaz"
 
 msgid "Authentication"
-msgstr ""
+msgstr "Azonosítás"
 
 msgid "Login"
 msgstr "Bejelentkezés"

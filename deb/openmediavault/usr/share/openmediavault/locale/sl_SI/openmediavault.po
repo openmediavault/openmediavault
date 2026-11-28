@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-18 08:34+0200\n"
+"POT-Creation-Date: 2026-11-21 20:27+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Valentin Korenjak <valentin@korenjak.si>, 2025\n"
 "Language-Team: Slovenian (Slovenia) (http://app.transifex.com/openmediavault/openmediavault/language/sl_SI/)\n"
@@ -920,10 +920,10 @@ msgid "Destination"
 msgstr "Cilj"
 
 msgid ""
-"Destination address can be either a network IP address (with /mask), a IP "
+"Destination address can be either a network IP address (with /mask), an IP "
 "range or a plain IP address. A \"!\" argument before the address "
 "specification inverts the sense of the address."
-msgstr "Namembni naslov je lahko omrežni naslov IP (z /masko), območje IP ali navaden naslov IP. Argument \"!\" pred določanjem naslova obrne pomen naslova."
+msgstr ""
 
 msgid "Destination port"
 msgstr "Ciljna vrata"
@@ -2933,14 +2933,14 @@ msgstr "Izberi lupino ..."
 msgid "Select a system log ..."
 msgstr "Izberi sistemski dnevnik ..."
 
+msgid "Select a user ..."
+msgstr ""
+
 msgid "Select all"
 msgstr "Izberi vse"
 
 msgid "Select an authentication mode ..."
 msgstr "Izberi metodo overovitve ..."
-
-msgid "Select an user ..."
-msgstr "Izberi uporabnika ..."
 
 msgid "Select devices ..."
 msgstr "Izberi naprave ..."
@@ -3131,10 +3131,10 @@ msgid "Source"
 msgstr "Izvor"
 
 msgid ""
-"Source address can be either a network IP address (with /mask), a IP range "
+"Source address can be either a network IP address (with /mask), an IP range "
 "or a plain IP address. A \"!\" argument before the address specification "
 "inverts the sense of the address."
-msgstr "Izvorni naslov je lahko omrežni naslov IP (z /masko), območje IP ali navaden naslov IP. Argument \"!\" pred specifikacijo naslova spremeni pomen naslova."
+msgstr ""
 
 msgid "Source port"
 msgstr "Vrata izvora"
@@ -3557,9 +3557,9 @@ msgid "The value does not match the pattern /{{ pattern }}/."
 msgstr "Vrednost se ne ujema z vzorcem /{{ pattern }}/."
 
 msgid ""
-"The value must be on of the slave network interfaces {{ slaves | join(\", "
+"The value must be one of the slave network interfaces {{ slaves | join(\", "
 "\") }}."
-msgstr "Vrednost mora ustrezati enemu izmed podrejenih omrežnih vmesnikov {{ slaves | join(\", \") }}."
+msgstr ""
 
 msgid "The value must be one of the slave network interfaces."
 msgstr "Vrednost mora biti eden od podrejenih omrežnih vmesnikov."
@@ -3617,9 +3617,6 @@ msgstr "To polje mora imeti obliko <hh:mm:ss>."
 msgid "This field must match the format SIZE[K|M|G|T|P]."
 msgstr ""
 
-msgid "This field should be a IP network address in CIDR notation."
-msgstr "To polje mora biti omrežni naslov IP v zapisu CIDR."
-
 msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
 msgstr "To polje mora biti naslov MAC, npr. 00:80:41:ae:fd:7e."
 
@@ -3658,6 +3655,9 @@ msgstr "To polje mora biti vrata ali območje vrat (npr. 21 ali !443 ali 1024-65
 
 msgid "This field should be an IP address."
 msgstr "V tem polju mora biti naslov IP."
+
+msgid "This field should be an IP network address in CIDR notation."
+msgstr ""
 
 msgid "This field should be an IPv4 address."
 msgstr "To polje mora biti naslov IPv4."

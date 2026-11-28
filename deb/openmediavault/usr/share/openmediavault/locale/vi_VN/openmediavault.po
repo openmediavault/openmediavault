@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-18 08:34+0200\n"
+"POT-Creation-Date: 2026-11-21 20:27+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2026\n"
 "Language-Team: Vietnamese (Viet Nam) (http://app.transifex.com/openmediavault/openmediavault/language/vi_VN/)\n"
@@ -920,10 +920,10 @@ msgid "Destination"
 msgstr "Đích đến"
 
 msgid ""
-"Destination address can be either a network IP address (with /mask), a IP "
+"Destination address can be either a network IP address (with /mask), an IP "
 "range or a plain IP address. A \"!\" argument before the address "
 "specification inverts the sense of the address."
-msgstr "Địa chỉ đích có thể là một địa chỉ IP mạng (kèm /mask), một dải IP hoặc một địa chỉ IP đơn lẻ. Tham số \"!\" đặt trước phần chỉ định địa chỉ sẽ phủ định ý nghĩa của địa chỉ đó."
+msgstr ""
 
 msgid "Destination port"
 msgstr "Cổng đích"
@@ -2933,14 +2933,14 @@ msgstr ""
 msgid "Select a system log ..."
 msgstr "Chọn một nhật ký hệ thống ..."
 
+msgid "Select a user ..."
+msgstr ""
+
 msgid "Select all"
 msgstr "Chọn tất cả"
 
 msgid "Select an authentication mode ..."
 msgstr "Chọn chế độ xác thực ..."
-
-msgid "Select an user ..."
-msgstr "Chọn một người dùng"
 
 msgid "Select devices ..."
 msgstr "Chọn các thiết bị"
@@ -3131,10 +3131,10 @@ msgid "Source"
 msgstr "Nguồn"
 
 msgid ""
-"Source address can be either a network IP address (with /mask), a IP range "
+"Source address can be either a network IP address (with /mask), an IP range "
 "or a plain IP address. A \"!\" argument before the address specification "
 "inverts the sense of the address."
-msgstr "Địa chỉ đích có thể là một địa chỉ IP mạng (kèm /mask), một dải IP hoặc một địa chỉ IP đơn lẻ. Tham số \"!\" đặt trước phần chỉ định địa chỉ sẽ phủ định ý nghĩa của địa chỉ đó."
+msgstr ""
 
 msgid "Source port"
 msgstr "Cổng nguồn"
@@ -3557,7 +3557,7 @@ msgid "The value does not match the pattern /{{ pattern }}/."
 msgstr ""
 
 msgid ""
-"The value must be on of the slave network interfaces {{ slaves | join(\", "
+"The value must be one of the slave network interfaces {{ slaves | join(\", "
 "\") }}."
 msgstr ""
 
@@ -3617,9 +3617,6 @@ msgstr "Trường phải định dạng <hh:mm:ss>"
 msgid "This field must match the format SIZE[K|M|G|T|P]."
 msgstr ""
 
-msgid "This field should be a IP network address in CIDR notation."
-msgstr "Trường này phải là một địa chỉ mạng IP được viết dưới dạng ký hiệu CIDR"
-
 msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
 msgstr "Trường này nên là một địa chỉ MAC, ví dụ 00:80:41:ae:fd:7e."
 
@@ -3658,6 +3655,9 @@ msgstr ""
 
 msgid "This field should be an IP address."
 msgstr "Trường này nên là một địa chỉ IP"
+
+msgid "This field should be an IP network address in CIDR notation."
+msgstr ""
 
 msgid "This field should be an IPv4 address."
 msgstr "Trường này nên là một địa chỉ IPv4"

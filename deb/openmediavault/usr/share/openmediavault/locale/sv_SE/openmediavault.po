@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-18 08:34+0200\n"
+"POT-Creation-Date: 2026-11-21 20:27+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Jonatan Nyberg, 2026\n"
 "Language-Team: Swedish (http://app.transifex.com/openmediavault/openmediavault/language/sv/)\n"
@@ -926,10 +926,10 @@ msgid "Destination"
 msgstr "Mål"
 
 msgid ""
-"Destination address can be either a network IP address (with /mask), a IP "
+"Destination address can be either a network IP address (with /mask), an IP "
 "range or a plain IP address. A \"!\" argument before the address "
 "specification inverts the sense of the address."
-msgstr "Måladressen kan vara en nätverksadress med /mask, ett IP-intervall eller en enskild IP-adress. Ett utropstecken (!) före adressen vänder på villkoret."
+msgstr ""
 
 msgid "Destination port"
 msgstr "Destinationsport"
@@ -2939,14 +2939,14 @@ msgstr "Välj ett skal…"
 msgid "Select a system log ..."
 msgstr "Välj en systemlogg…"
 
+msgid "Select a user ..."
+msgstr ""
+
 msgid "Select all"
 msgstr "Välj alla"
 
 msgid "Select an authentication mode ..."
 msgstr "Välj ett autentiseringsläge…"
-
-msgid "Select an user ..."
-msgstr "Välj en användare…"
 
 msgid "Select devices ..."
 msgstr "Välj enheter…"
@@ -3137,10 +3137,10 @@ msgid "Source"
 msgstr "Källa"
 
 msgid ""
-"Source address can be either a network IP address (with /mask), a IP range "
+"Source address can be either a network IP address (with /mask), an IP range "
 "or a plain IP address. A \"!\" argument before the address specification "
 "inverts the sense of the address."
-msgstr "Källadressen kan vara en nätverksadress med /mask, ett IP-intervall eller en enskild IP-adress. Ett utropstecken (!) före adressen vänder på villkoret."
+msgstr ""
 
 msgid "Source port"
 msgstr "Källport"
@@ -3563,9 +3563,9 @@ msgid "The value does not match the pattern /{{ pattern }}/."
 msgstr "Värdet matchar inte mönstret /{{ pattern }}/."
 
 msgid ""
-"The value must be on of the slave network interfaces {{ slaves | join(\", "
+"The value must be one of the slave network interfaces {{ slaves | join(\", "
 "\") }}."
-msgstr "Värdet måste vara ett av de underordnade nätverksgränssnitten {{ slaves | join(\", \") }}."
+msgstr ""
 
 msgid "The value must be one of the slave network interfaces."
 msgstr "Värdet måste vara ett av de underordnade nätverksgränssnitten."
@@ -3623,9 +3623,6 @@ msgstr "Det här fältet måste ha formatet <hh:mm:ss>."
 msgid "This field must match the format SIZE[K|M|G|T|P]."
 msgstr "Det här fältet måste följa formatet SIZE[K|M|G|T|P]."
 
-msgid "This field should be a IP network address in CIDR notation."
-msgstr "Fältet ska innehålla en IP-nätverksadress i CIDR-notation."
-
 msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
 msgstr "Detta fält ska vara en MAC-adress, t.ex. 00:80:41:ae:fd:7e."
 
@@ -3664,6 +3661,9 @@ msgstr "Fältet ska innehålla en port eller ett portintervall, till exempel 21,
 
 msgid "This field should be an IP address."
 msgstr "Det här fältet ska vara en IP-adress."
+
+msgid "This field should be an IP network address in CIDR notation."
+msgstr ""
 
 msgid "This field should be an IPv4 address."
 msgstr "Det här fältet ska vara en IPv4-adress."

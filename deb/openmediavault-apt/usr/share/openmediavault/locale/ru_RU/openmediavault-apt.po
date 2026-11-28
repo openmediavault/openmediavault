@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-apt package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Дмитрий <bardimnik@rambler.ru>, 2026
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2024-06-14 17:38+0000\n"
+"Last-Translator: Дмитрий <bardimnik@rambler.ru>, 2026\n"
 "Language-Team: Russian (Russia) (https://app.transifex.com/openmediavault/teams/14254/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,73 +22,88 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 msgid "Check for new packages"
-msgstr ""
+msgstr "Проверить наличие новых пакетов"
 
 msgid "Components"
-msgstr ""
+msgstr "Компоненты"
 
 msgid ""
 "Components specify different sections of one distribution version present in"
 " a suite, e.g. 'main', 'contrib' or 'non-free'. Configure multiple "
 "components at once by separating them with a blank."
 msgstr ""
+"Компоненты определяют разные разделы одной версии дистрибутива, "
+"присутствующие в комплекте, например «main», «contrib» или «non-free». "
+"Укажите несколько компонентов сразу, разделив их пробелом."
 
 msgid "Create"
-msgstr ""
+msgstr "Создать"
 
 msgid "Created APT source."
-msgstr ""
+msgstr "Источник APT создан."
 
 msgid ""
 "Defines which types of packages to look for from a given source, e.g. 'deb' "
 "or 'deb-src'."
 msgstr ""
+"Определяет типы пакетов, которые следует искать в данном источнике, например"
+" «deb» или «deb-src»."
 
 msgid "Edit"
-msgstr ""
+msgstr "Редактировать"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Включено"
 
 msgid "Other Software"
-msgstr ""
+msgstr "Другое программное обеспечение"
 
 msgid "Signed-By"
-msgstr ""
+msgstr "Signed-By"
 
 msgid "Suites"
-msgstr ""
+msgstr "Комплекты"
 
 msgid "Tags"
-msgstr ""
+msgstr "Теги"
 
 msgid ""
 "The GPG/PGP key used to verify packages and repository metadata. This "
 "increases security by ensuring that only packages signed with a specific key"
 " are accepted."
 msgstr ""
+"Ключ GPG/PGP, используемый для проверки пакетов и метаданных репозитория. "
+"Это повышает безопасность, поскольку принимаются только пакеты, подписанные "
+"этим ключом."
 
 msgid ""
 "The URI must specify the base of the package repository, e.g. "
 "'https://ftp.debian.org/debian'. Configure multiple URIs at once by "
 "separating them with a blank."
 msgstr ""
+"URI-адрес должен указывать базовую часть репозитория пакетов, например "
+"«https://ftp.debian.org/debian». Укажите несколько URI-адресов сразу, "
+"разделив их пробелом."
 
 msgid ""
 "The package index files from the sources are downloaded and updated to get "
 "the latest information about available packages and their versions."
 msgstr ""
+"Файлы индекса пакетов из настроенных источников загружаются и обновляются, "
+"чтобы получить актуальную информацию о доступных пакетах и их версиях."
 
 msgid ""
 "The suite is the name of the release, e.g. 'stable', 'testing', 'unstable' "
 "or 'sandworm'."
 msgstr ""
+"Комплект — это название выпуска, например «stable», «testing», «unstable» "
+"или «sandworm»."
 
 msgid "Types"
-msgstr ""
+msgstr "Типы"
 
 msgid "URIs"
-msgstr ""
+msgstr "URI-адреса"
 
 msgid "Updated APT source."
-msgstr ""
+msgstr "Источник APT обновлён."

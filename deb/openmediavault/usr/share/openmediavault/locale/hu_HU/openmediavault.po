@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-18 08:34+0200\n"
+"POT-Creation-Date: 2026-11-21 20:27+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021-2026\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
@@ -925,7 +925,7 @@ msgid "Destination"
 msgstr "Célállomás"
 
 msgid ""
-"Destination address can be either a network IP address (with /mask), a IP "
+"Destination address can be either a network IP address (with /mask), an IP "
 "range or a plain IP address. A \"!\" argument before the address "
 "specification inverts the sense of the address."
 msgstr "Célállomás címe lehet egy hálózati IP cím (/mask-al ellátva), egy IP tartomány vagy egy egyszerű IP cím. A címe előtti \"!\" argumentum megfordítja ennek a címnek a jelentését."
@@ -1254,7 +1254,7 @@ msgid "Execute only"
 msgstr "Csak végrehajtás"
 
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Kibontás/Összecsukás"
 
 msgid "Extended Information"
 msgstr "További információ"
@@ -1642,7 +1642,7 @@ msgid ""
 "Improve interoperability with macOS clients: correctly handle filenames "
 "using characters reserved in SMB, and apply Samba tuning recommended for "
 "macOS."
-msgstr ""
+msgstr "A macOS-kliensekkel való együttműködés javítása: az SMB-ben fenntartott karaktereket tartalmazó fájlnevek helyes kezelése, valamint a macOS esetében ajánlott Samba-beállítások alkalmazása."
 
 msgid "India"
 msgstr "India"
@@ -2938,14 +2938,14 @@ msgstr "Válasszon ki egy parancsértelmezőt…"
 msgid "Select a system log ..."
 msgstr "Válasszon ki egy rendszernaplót…"
 
+msgid "Select a user ..."
+msgstr "Válassz ki egy felhasználót ..."
+
 msgid "Select all"
 msgstr "Összes kijelölése"
 
 msgid "Select an authentication mode ..."
 msgstr "Válasszon ki egy hitelesítési módot…"
-
-msgid "Select an user ..."
-msgstr "Válasszon ki egy felhasználót…"
 
 msgid "Select devices ..."
 msgstr "Eszközök kiválasztása…"
@@ -3136,7 +3136,7 @@ msgid "Source"
 msgstr "Forrás"
 
 msgid ""
-"Source address can be either a network IP address (with /mask), a IP range "
+"Source address can be either a network IP address (with /mask), an IP range "
 "or a plain IP address. A \"!\" argument before the address specification "
 "inverts the sense of the address."
 msgstr "A forrás cím lehet egy konkrét hálózati IP cím (/mask-al ellátva), egy IP tartomány, vagy egy egyszerű IP cím. A címe előtti \"!\" argumentum megfordítja ennek a címnek a jelentését."
@@ -3562,9 +3562,9 @@ msgid "The value does not match the pattern /{{ pattern }}/."
 msgstr "Az érték nem egyezik a mintával /{{ pattern }}/."
 
 msgid ""
-"The value must be on of the slave network interfaces {{ slaves | join(\", "
+"The value must be one of the slave network interfaces {{ slaves | join(\", "
 "\") }}."
-msgstr "Az értéknek a másodlagos hálózati eszközön kell lennie {{ slaves | join(\", \") }}."
+msgstr "Az értéknek a másodlagos hálózat interfészei közül kell lennie {{ slaves | join(\", \") }}."
 
 msgid "The value must be one of the slave network interfaces."
 msgstr "Az érték a szolga hálózati interfészek egyike kell legyen."
@@ -3601,7 +3601,7 @@ msgstr "Ez vezérli, hogy a megosztás látható legyen az elérhető megosztás
 msgid ""
 "This field contains invalid characters (e.g. \"\\/[]:+|<>=;,*?) or has "
 "leading/trailing spaces."
-msgstr ""
+msgstr "Ez a mező érvénytelen karaktereket tartalmaz (pl. „\\/[]:+|<>=;,*?”), vagy az elején, ill. a végén szóközök vannak."
 
 msgid ""
 "This field contains invalid characters, only alphanumeric characters and "
@@ -3621,9 +3621,6 @@ msgstr "E mezőnek <hh:mm:ss>formátumúnak kell lennie."
 
 msgid "This field must match the format SIZE[K|M|G|T|P]."
 msgstr "A mező meg kell feleljen a MÉRET[K|M|G|T|P] formátumnak."
-
-msgid "This field should be a IP network address in CIDR notation."
-msgstr "E mezőnek egy IP hálózati címnek kell lennie CIDR jelölésben."
 
 msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
 msgstr "Ez a mező egy MAC-cím kell legyen, pl. 00:80:41:ae:fd:7e."
@@ -3663,6 +3660,9 @@ msgstr "E mezőnek egy portnak vagy port tartománynak (pl. 21 vagy !443 vagy 10
 
 msgid "This field should be an IP address."
 msgstr "E mezőnek IP címnek kell lennie."
+
+msgid "This field should be an IP network address in CIDR notation."
+msgstr "E mezőnek egy IP hálózati címnek kell lennie CIDR jelölésben."
 
 msgid "This field should be an IPv4 address."
 msgstr "E mezőnek IPv4 címnek kell lennie."
@@ -4296,7 +4296,7 @@ msgid "in %s"
 msgstr "%s ben"
 
 msgid "macOS compatibility"
-msgstr ""
+msgstr "macOS-kompatibilitás"
 
 msgid "selected"
 msgstr "kiválasztva"

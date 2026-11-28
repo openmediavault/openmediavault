@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-18 08:34+0200\n"
+"POT-Creation-Date: 2026-11-21 20:27+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>, 2014-2024,2026\n"
 "Language-Team: Japanese (Japan) (http://app.transifex.com/openmediavault/openmediavault/language/ja_JP/)\n"
@@ -919,10 +919,10 @@ msgid "Destination"
 msgstr "送信先"
 
 msgid ""
-"Destination address can be either a network IP address (with /mask), a IP "
+"Destination address can be either a network IP address (with /mask), an IP "
 "range or a plain IP address. A \"!\" argument before the address "
 "specification inverts the sense of the address."
-msgstr "送信先アドレスは、ネットワークIPアドレス（/mask をつける）、IP範囲またはプレーンIPアドレスのいずれかになります。 '！'をアドレス指定の前に置くと、そのアドレスの意味を反転させることができます。"
+msgstr ""
 
 msgid "Destination port"
 msgstr "送信先ポート"
@@ -2932,14 +2932,14 @@ msgstr "シェルを選択 ..."
 msgid "Select a system log ..."
 msgstr "システムログを選択する ..."
 
+msgid "Select a user ..."
+msgstr ""
+
 msgid "Select all"
 msgstr "すべて選択"
 
 msgid "Select an authentication mode ..."
 msgstr "認証モードを選択 ..."
-
-msgid "Select an user ..."
-msgstr "ユーザーを選択する ..."
 
 msgid "Select devices ..."
 msgstr "デバイスを選択 ..."
@@ -3130,10 +3130,10 @@ msgid "Source"
 msgstr "ソース"
 
 msgid ""
-"Source address can be either a network IP address (with /mask), a IP range "
+"Source address can be either a network IP address (with /mask), an IP range "
 "or a plain IP address. A \"!\" argument before the address specification "
 "inverts the sense of the address."
-msgstr "送信元アドレスは、ネットワークIPアドレス（/mask付き）、IPレンジ、またはプレーンなIPアドレスのいずれかを指定することができます。アドレス指定の前に\"!\"を付けると、アドレスの意味が反転します。"
+msgstr ""
 
 msgid "Source port"
 msgstr "ソースポート"
@@ -3556,9 +3556,9 @@ msgid "The value does not match the pattern /{{ pattern }}/."
 msgstr "値がパターンに一致しない /{{ pattern }}/。"
 
 msgid ""
-"The value must be on of the slave network interfaces {{ slaves | join(\", "
+"The value must be one of the slave network interfaces {{ slaves | join(\", "
 "\") }}."
-msgstr "値は、スレーブ ネットワーク インターフェイスのいずれかでなければなりません {{ slaves | join(\", \") }}"
+msgstr ""
 
 msgid "The value must be one of the slave network interfaces."
 msgstr "この値は、スレーブのネットワークインターフェースのいずれかである必要があります。"
@@ -3616,9 +3616,6 @@ msgstr "このフィールドは <hh:mm:ss>のフォーマットで記述する�
 msgid "This field must match the format SIZE[K|M|G|T|P]."
 msgstr "このフィールドは、SIZE[K|M|G|T|P]. という形式に一致する必要があります。"
 
-msgid "This field should be a IP network address in CIDR notation."
-msgstr "このフィールドは、CIDR記法によるIPネットワークアドレスである必要があります。"
-
 msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
 msgstr "このフィールドにはMACアドレスを入力してください。例：00:80:41:ae:fd:7e."
 
@@ -3657,6 +3654,9 @@ msgstr "このフィールドには、ポートまたはポート範囲（例：
 
 msgid "This field should be an IP address."
 msgstr "このフィールドは、IPアドレスである必要があります。"
+
+msgid "This field should be an IP network address in CIDR notation."
+msgstr ""
 
 msgid "This field should be an IPv4 address."
 msgstr "このフィールドは、IPv4アドレスである必要があります。"

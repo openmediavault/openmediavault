@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-18 08:34+0200\n"
+"POT-Creation-Date: 2026-11-21 20:27+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2026\n"
 "Language-Team: Czech (Czech Republic) (http://app.transifex.com/openmediavault/openmediavault/language/cs_CZ/)\n"
@@ -922,10 +922,10 @@ msgid "Destination"
 msgstr "Cíl"
 
 msgid ""
-"Destination address can be either a network IP address (with /mask), a IP "
+"Destination address can be either a network IP address (with /mask), an IP "
 "range or a plain IP address. A \"!\" argument before the address "
 "specification inverts the sense of the address."
-msgstr "Cílovou adresou může být síťová IP adresa (s /maskou), rozsah IP adres nebo prostá IP adresa. Argument „!“ před specifikací adresy obrací smysl adresy."
+msgstr ""
 
 msgid "Destination port"
 msgstr "Cílový port"
@@ -2935,14 +2935,14 @@ msgstr "Vyberte shell…"
 msgid "Select a system log ..."
 msgstr "Vyberte systémový protokol…"
 
+msgid "Select a user ..."
+msgstr ""
+
 msgid "Select all"
 msgstr "Vybrat vše"
 
 msgid "Select an authentication mode ..."
 msgstr "Vyberte režim ověřování…"
-
-msgid "Select an user ..."
-msgstr "Vyberte uživatele…"
 
 msgid "Select devices ..."
 msgstr "Vyberte zařízení…"
@@ -3133,10 +3133,10 @@ msgid "Source"
 msgstr "Zdroj"
 
 msgid ""
-"Source address can be either a network IP address (with /mask), a IP range "
+"Source address can be either a network IP address (with /mask), an IP range "
 "or a plain IP address. A \"!\" argument before the address specification "
 "inverts the sense of the address."
-msgstr "Zdrojovou adresou může být síťová IP adresa (s /maskou), rozsah IP adres nebo prostá IP adresa. Argument „!“ před specifikací adresy obrací smysl adresy."
+msgstr ""
 
 msgid "Source port"
 msgstr "Zdrojový port"
@@ -3559,9 +3559,9 @@ msgid "The value does not match the pattern /{{ pattern }}/."
 msgstr "Hodnota neodpovídá vzoru /{{ pattern }}/."
 
 msgid ""
-"The value must be on of the slave network interfaces {{ slaves | join(\", "
+"The value must be one of the slave network interfaces {{ slaves | join(\", "
 "\") }}."
-msgstr "Hodnota musí být na podřízeném síťovém rozhraní {{ slaves | join(\", \") }}."
+msgstr ""
 
 msgid "The value must be one of the slave network interfaces."
 msgstr "Hodnota musí být jedno z podřízených síťových rozhraní."
@@ -3619,9 +3619,6 @@ msgstr "Toto pole musí mít formát <hh:mm:ss>."
 msgid "This field must match the format SIZE[K|M|G|T|P]."
 msgstr ""
 
-msgid "This field should be a IP network address in CIDR notation."
-msgstr "V tomto poli by měla být síťová adresa IP v zápisu CIDR."
-
 msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
 msgstr "V tomto poli by měla být adresa MAC, např. 00:80:41:ae:fd:7e."
 
@@ -3660,6 +3657,9 @@ msgstr "V tomto poli by měl být port nebo rozsah portů (např. 21 nebo !443 n
 
 msgid "This field should be an IP address."
 msgstr "V tomto poli by měla být IP adresa."
+
+msgid "This field should be an IP network address in CIDR notation."
+msgstr ""
 
 msgid "This field should be an IPv4 address."
 msgstr "V tomto poli by měla být adresa IPv4."

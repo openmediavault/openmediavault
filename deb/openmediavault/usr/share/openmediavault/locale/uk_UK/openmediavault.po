@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-18 08:34+0200\n"
+"POT-Creation-Date: 2026-11-21 20:27+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Volker Theile <votdev@gmx.de>, 2026\n"
 "Language-Team: Ukrainian (http://app.transifex.com/openmediavault/openmediavault/language/uk/)\n"
@@ -922,10 +922,10 @@ msgid "Destination"
 msgstr "Призначення"
 
 msgid ""
-"Destination address can be either a network IP address (with /mask), a IP "
+"Destination address can be either a network IP address (with /mask), an IP "
 "range or a plain IP address. A \"!\" argument before the address "
 "specification inverts the sense of the address."
-msgstr "Адреса призначення може бути або мережевою IP-адресою (з /маскою), діапазоном IP або простою IP-адресою. А \"!\" аргумент перед специфікацією адреси інвертує сенс адреси."
+msgstr ""
 
 msgid "Destination port"
 msgstr "Порт призначення"
@@ -2935,14 +2935,14 @@ msgstr "Оберіть оболонку ..."
 msgid "Select a system log ..."
 msgstr "Оберіть системний журнал ..."
 
+msgid "Select a user ..."
+msgstr ""
+
 msgid "Select all"
 msgstr "Вибрати все"
 
 msgid "Select an authentication mode ..."
 msgstr "Оберіть режим перевірки автентичності ..."
-
-msgid "Select an user ..."
-msgstr "Оберіть користувача ..."
 
 msgid "Select devices ..."
 msgstr "Оберіть пристрої ..."
@@ -3133,10 +3133,10 @@ msgid "Source"
 msgstr "Джерело"
 
 msgid ""
-"Source address can be either a network IP address (with /mask), a IP range "
+"Source address can be either a network IP address (with /mask), an IP range "
 "or a plain IP address. A \"!\" argument before the address specification "
 "inverts the sense of the address."
-msgstr "Адреса джерела може бути або мережевою IP-адресою (з /маскою), діапазоном IP або простою IP-адресою. А \"!\" аргумент перед специфікацією адреси інвертує сенс адреси."
+msgstr ""
 
 msgid "Source port"
 msgstr "Порт джерела"
@@ -3559,9 +3559,9 @@ msgid "The value does not match the pattern /{{ pattern }}/."
 msgstr "Значення не відповідає шаблону /{{ pattern }}/."
 
 msgid ""
-"The value must be on of the slave network interfaces {{ slaves | join(\", "
+"The value must be one of the slave network interfaces {{ slaves | join(\", "
 "\") }}."
-msgstr "Значення має бути одним із підлеглих мережевих інтерфейсів {{ slaves | join(\", \") }}."
+msgstr ""
 
 msgid "The value must be one of the slave network interfaces."
 msgstr ""
@@ -3619,9 +3619,6 @@ msgstr "Це поле має мати формат <hh:mm:ss>."
 msgid "This field must match the format SIZE[K|M|G|T|P]."
 msgstr ""
 
-msgid "This field should be a IP network address in CIDR notation."
-msgstr "Це поле повинне містити адресу мережі IP в нотації CIDR."
-
 msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
 msgstr ""
 
@@ -3660,6 +3657,9 @@ msgstr "Це поле повинно містити порт або діапаз
 
 msgid "This field should be an IP address."
 msgstr "Це поле має містити IP-адресу."
+
+msgid "This field should be an IP network address in CIDR notation."
+msgstr ""
 
 msgid "This field should be an IPv4 address."
 msgstr "Це поле повинно містити IPv4 адресу."

@@ -7,6 +7,7 @@
 # Volker Theile <votdev@gmx.de>, 2022
 # Alexander Savchenko, 2022
 # Artur Mudrykh <arturmon82@gmail.com>, 2024
+# Дмитрий <bardimnik@rambler.ru>, 2026
 # 
 #, fuzzy
 msgid ""
@@ -15,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2022-04-13 15:28+0000\n"
-"Last-Translator: Artur Mudrykh <arturmon82@gmail.com>, 2024\n"
+"Last-Translator: Дмитрий <bardimnik@rambler.ru>, 2026\n"
 "Language-Team: Russian (Russia) (https://app.transifex.com/openmediavault/teams/14254/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,31 +25,31 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 msgid "1 MiB/s"
-msgstr ""
+msgstr "1 МиБ/с"
 
 msgid "10 MiB/s"
-msgstr ""
+msgstr "10 МиБ/с"
 
 msgid "10 minutes"
 msgstr "10 минут"
 
 msgid "100 MiB/s"
-msgstr ""
+msgstr "100 МиБ/с"
 
 msgid "12 hours"
-msgstr ""
+msgstr "12 часов"
 
 msgid "128 KiB/s"
-msgstr ""
+msgstr "128 КиБ/с"
 
 msgid "15 minutes"
 msgstr "15 минут"
 
 msgid "24 hours"
-msgstr ""
+msgstr "24 часа"
 
 msgid "256 KiB/s"
-msgstr ""
+msgstr "256 КиБ/с"
 
 msgid "30 minutes"
 msgstr "30 минут"
@@ -57,10 +58,10 @@ msgid "5 minutes"
 msgstr "5 минут"
 
 msgid "512 KiB/s"
-msgstr ""
+msgstr "512 КиБ/с"
 
 msgid "6 hours"
-msgstr ""
+msgstr "6 часов"
 
 msgid "60 minutes"
 msgstr "60 минут"
@@ -72,30 +73,39 @@ msgid ""
 "- Replicate the local state to OneDrive, by only uploading local changes to "
 "OneDrive. Do not download changes from OneDrive.</li></ul>"
 msgstr ""
+"<ul><li>Полный — синхронизировать изменения в обоих направлениях с "
+"OneDrive.</li><li>Только скачивание — отражать состояние OneDrive локально, "
+"скачивая только изменения из OneDrive. Не выгружать локальные изменения в "
+"OneDrive.</li><li>Только выгрузка — отражать локальное состояние в OneDrive,"
+" выгружая только локальные изменения в OneDrive. Не скачивать изменения из "
+"OneDrive.</li></ul>"
 
 msgid ""
 "After enabling and deploying this service the first time please run the "
 "command <em>omv-onedrive-auth</em> as <em>root</em> user in the CLI to "
 "authenticate the application in Microsoft OneDrive."
 msgstr ""
+"После первого включения и развёртывания этой службы выполните в командной "
+"строке команду <em>omv-onedrive-auth</em> от имени пользователя "
+"<em>root</em>, чтобы аутентифицировать приложение в Microsoft OneDrive."
 
 msgid "Clean up local files"
-msgstr ""
+msgstr "Очистить локальные файлы"
 
 msgid "Clean up local files that have been removed online."
-msgstr ""
+msgstr "Удалить локальные файлы, которые были удалены в OneDrive."
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Дата и время"
 
 msgid "Disabled"
 msgstr "Выключено"
 
 msgid "Do not delete local file deletions from OneDrive."
-msgstr ""
+msgstr "Не удалять в OneDrive файлы, удалённые локально."
 
 msgid "Download only"
-msgstr ""
+msgstr "Только скачивание"
 
 msgid "Enabled"
 msgstr "Включено"
@@ -107,60 +117,65 @@ msgid "Full"
 msgstr "Полный"
 
 msgid "Local first"
-msgstr ""
+msgstr "Сначала локально"
 
 msgid "Message"
-msgstr ""
+msgstr "Сообщение"
 
 msgid "Monitor interval"
-msgstr ""
+msgstr "Интервал мониторинга"
 
 msgid "No remote delete"
-msgstr ""
+msgstr "Не удалять на удалённой стороне"
 
 msgid "OneDrive"
-msgstr ""
+msgstr "OneDrive"
 
 msgid "Rate limit"
-msgstr ""
+msgstr "Ограничение скорости"
 
 msgid "Replicate local state first, before downloading changes from OneDrive."
 msgstr ""
+"Сначала синхронизировать локальное состояние, а затем скачивать изменения из"
+" OneDrive."
 
 msgid "Replication mode"
-msgstr ""
+msgstr "Режим репликации"
 
 msgid "Shared folder"
 msgstr "Общий каталог"
 
 msgid "Skip dot files and folders from syncing."
-msgstr ""
+msgstr "Пропускать при синхронизации скрытые файлы и каталоги (dotfiles)."
 
 msgid "Skip dotfiles"
-msgstr ""
+msgstr "Пропускать скрытые файлы (dotfiles)"
 
 msgid "The location to which the files are synchronised."
-msgstr ""
+msgstr "Расположение, в которое синхронизируются файлы."
 
 msgid "The synchronised files and directories are owned by this user."
-msgstr ""
+msgstr "Синхронизированные файлы и каталоги принадлежат этому пользователю."
 
 msgid "The wait time between each sync operation."
-msgstr ""
+msgstr "Время ожидания между операциями синхронизации."
 
 msgid "Updated OneDrive settings."
-msgstr ""
+msgstr "Настройки OneDrive обновлены."
 
 msgid "Upload only"
-msgstr ""
+msgstr "Только выгрузка"
 
 msgid "Upload/Download rate limit."
-msgstr ""
+msgstr "Ограничение скорости выгрузки/скачивания."
 
 msgid ""
 "Use the <em>omv-onedrive</em> command in the CLI to perform additional "
 "actions according to the documentation of the OneDrive Linux client."
 msgstr ""
+"Используйте команду <em>omv-onedrive</em> в командной строке для выполнения "
+"дополнительных действий в соответствии с документацией клиента OneDrive для "
+"Linux."
 
 msgid "User"
-msgstr ""
+msgstr "Пользователь"

@@ -6,7 +6,7 @@
 # Sári Gábor <sarigaborj@gmail.com>, 2017
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2019
 # Gyuris Gellért <jobel@ujevangelizacio.hu>, 2017
-# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021,2024
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021,2024,2026
 # Sári Gábor <sarigaborj@gmail.com>, 2018
 # Grawens <szabolcs.szanyi@gmail.com>, 2014,2017,2021
 msgid ""
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2013-02-15 12:55+0000\n"
-"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021,2024\n"
+"Last-Translator: Gyuris Gellért <jobel@ujevangelizacio.hu>, 2021,2024,2026\n"
 "Language-Team: Hungarian (Hungary) (http://app.transifex.com/openmediavault/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,7 +53,7 @@ msgid "Device"
 msgstr "Meghajtó"
 
 msgid "Disconnected"
-msgstr ""
+msgstr "Nincs kapcsolat"
 
 msgid "Edit"
 msgstr "Szerkesztés"

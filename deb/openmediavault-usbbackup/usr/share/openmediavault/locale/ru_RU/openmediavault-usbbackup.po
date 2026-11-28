@@ -23,7 +23,7 @@ msgstr ""
 msgid ""
 "An email message with the command output (if any produced) is sent to the "
 "administrator."
-msgstr ""
+msgstr "Администратору отправляется электронное сообщение с выводом команды (если он был)."
 
 msgid "Archive"
 msgstr "Архив"
@@ -38,19 +38,19 @@ msgid "Create"
 msgstr "Создать"
 
 msgid "Created USB backup job."
-msgstr ""
+msgstr "Задание резервного копирования на USB создано."
 
 msgid "Delete"
 msgstr "Удалить"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr "Удалить файлы на приемной стороне, которые не существует у отправителя"
+msgstr "Удалить файлы на приёмной стороне, которых нет у отправителя."
 
 msgid "Device"
 msgstr "Устройство"
 
 msgid "Disconnected"
-msgstr ""
+msgstr "Отключено"
 
 msgid "Edit"
 msgstr "Редактировать"
@@ -67,16 +67,16 @@ msgid "Enabled"
 msgstr "Доступно"
 
 msgid "External Storage Device"
-msgstr ""
+msgstr "Внешнее устройство хранения"
 
 msgid "Extra options"
 msgstr "Дополнительные опции"
 
 msgid "From external storage to shared folder"
-msgstr "С внешнего накопителя в общую папку"
+msgstr "С внешнего накопителя в общий каталог"
 
 msgid "From shared folder to external storage"
-msgstr "Из общей папки на внешний накопитель"
+msgstr "Из общего каталога на внешний накопитель"
 
 msgid "Keep partially transferred files"
 msgstr "Хранить частично загруженные файлы"
@@ -123,13 +123,13 @@ msgid "Run"
 msgstr "Запуск"
 
 msgid "Run backup job"
-msgstr ""
+msgstr "Запустить задание резервного копирования"
 
 msgid "Select a device ..."
 msgstr "Выберите устройство..."
 
 msgid "Send email"
-msgstr "Оправить на email"
+msgstr "Отправлять email"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
@@ -145,7 +145,7 @@ msgid ""
 msgstr "Установить владельца файла назначения таким же, как исходный файл, но только в том случае, если принимающий rsync запускается от имени суперпользователя."
 
 msgid "Shared folder"
-msgstr "Общая папка"
+msgstr "Общий каталог"
 
 msgid "Suppress non-error messages."
 msgstr "Не показывать сообщения в которых нет ошибок."
@@ -154,23 +154,23 @@ msgid "Tags"
 msgstr "Теги"
 
 msgid "The 'Send email' and 'Quiet' options are mutually exclusive."
-msgstr ""
+msgstr "Параметры «Отправлять email» и «Тихий режим» взаимоисключающие."
 
 msgid ""
 "The external storage device. Please make sure that the device has only one "
 "file system."
-msgstr ""
+msgstr "Внешнее устройство хранения. Убедитесь, что на устройстве только одна файловая система."
 
 msgid ""
 "The relative directory path on the external storage device from/to which the"
 " content of the shared folder is to be synchronized. The directory is "
 "created if it does not exist."
-msgstr ""
+msgstr "Относительный путь к каталогу на внешнем устройстве хранения, в который или из которого синхронизируется содержимое общего каталога. Если каталог не существует, он будет создан."
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "
 "connected."
-msgstr "Общие папки синхронизируются, когда внешнее устройство хранения данных подключено."
+msgstr "Общий каталог, который синхронизируется при подключении внешнего устройства хранения."
 
 msgid ""
 "Transfer modification times along with the files and update them on the "
@@ -188,7 +188,7 @@ msgid ""
 msgstr "Обновлять расширенные атрибуты назначения, чтобы были таким же, как у источника."
 
 msgid "Updated USB backup job."
-msgstr ""
+msgstr "Задание резервного копирования на USB обновлено."
 
 msgid "n/a"
 msgstr "n/a"

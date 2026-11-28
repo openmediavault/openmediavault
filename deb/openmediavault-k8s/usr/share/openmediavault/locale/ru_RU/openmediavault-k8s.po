@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-k8s package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Дмитрий <bardimnik@rambler.ru>, 2026
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2024-03-09 09:44+0000\n"
+"Last-Translator: Дмитрий <bardimnik@rambler.ru>, 2026\n"
 "Language-Team: Russian (Russia) (https://app.transifex.com/openmediavault/teams/14254/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,346 +22,356 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 msgid "Absolute Path"
-msgstr ""
+msgstr "Абсолютный путь"
 
 msgid "Access Modes"
-msgstr ""
+msgstr "Режимы доступа"
 
 msgid "App Version"
-msgstr ""
+msgstr "Версия приложения"
 
 msgid "Apply"
-msgstr ""
+msgstr "Применить"
 
 msgid "Architecture"
-msgstr ""
+msgstr "Архитектура"
 
 msgid "Available"
-msgstr ""
+msgstr "Доступно"
 
 msgid "Capacity"
-msgstr ""
+msgstr "Ёмкость"
 
 msgid "Certificate"
-msgstr ""
+msgstr "Сертификат"
 
 msgid "Certificates"
-msgstr ""
+msgstr "Сертификаты"
 
 msgid "Chart"
-msgstr ""
+msgstr "Чарт"
 
 msgid "Check for new recipes"
-msgstr ""
+msgstr "Проверить наличие новых рецептов"
 
 msgid "Class"
-msgstr ""
+msgstr "Класс"
 
 msgid "Cluster IP"
-msgstr ""
+msgstr "IP кластера"
 
 msgid "Compressed"
-msgstr ""
+msgstr "Сжато"
 
 msgid "Config Maps"
-msgstr ""
+msgstr "ConfigMap"
 
 msgid "Count"
-msgstr ""
+msgstr "Количество"
 
 msgid "Created"
-msgstr ""
+msgstr "Создано"
 
 msgid "Data"
-msgstr ""
+msgstr "Данные"
 
 msgid "Datastore"
-msgstr ""
+msgstr "Хранилище данных"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Дата и время"
 
 msgid "Depends"
-msgstr ""
+msgstr "Зависит от"
 
 msgid "Deployments"
-msgstr ""
+msgstr "Развёртывания"
 
 msgid "Describe"
-msgstr ""
+msgstr "Описать"
 
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 msgid "Digest"
-msgstr ""
+msgstr "Дайджест"
 
 msgid "Do you really want to restore this snapshot?"
-msgstr ""
+msgstr "Вы действительно хотите восстановить этот снапшот?"
 
 msgid "Download"
-msgstr ""
+msgstr "Скачать"
 
 msgid ""
 "Downloading the kubeconfig file to the local system enables secure remote "
 "management of the Kubernetes cluster using command-line tools like kubectl."
 msgstr ""
+"Скачивание файла kubeconfig в локальную систему позволяет безопасно "
+"управлять кластером Kubernetes удалённо с помощью инструментов командной "
+"строки, таких как kubectl."
 
 msgid "Enabled"
-msgstr ""
+msgstr "Включено"
 
 msgid "Events"
-msgstr ""
+msgstr "События"
 
 msgid "Expose"
-msgstr ""
+msgstr "Опубликовать"
 
 msgid "Exposed"
-msgstr ""
+msgstr "Опубликовано"
 
 msgid "Exposed port"
-msgstr ""
+msgstr "Опубликованный порт"
 
 msgid "External IP"
-msgstr ""
+msgstr "Внешний IP"
 
 msgid "Extra configuration"
-msgstr ""
+msgstr "Дополнительная конфигурация"
 
 msgid "Failed"
-msgstr ""
+msgstr "Сбой"
 
 msgid "First seen"
-msgstr ""
+msgstr "Впервые замечено"
 
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 msgid "Groups"
-msgstr ""
+msgstr "Группы"
 
 msgid "Helm Charts"
-msgstr ""
+msgstr "Чарты Helm"
 
 msgid "Homepage"
-msgstr ""
+msgstr "Домашняя страница"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Image"
-msgstr ""
+msgstr "Образ"
 
 msgid "Images"
-msgstr ""
+msgstr "Образы"
 
 msgid "Import"
-msgstr ""
+msgstr "Импорт"
 
 msgid "Ingredients"
-msgstr ""
+msgstr "Ингредиенты"
 
 msgid "Ingress Routes"
-msgstr ""
+msgstr "Маршруты Ingress"
 
 msgid "Ingresses"
-msgstr ""
+msgstr "Ingress"
 
 msgid "Job"
-msgstr ""
+msgstr "Задание"
 
 msgid "Kubeconfig"
-msgstr ""
+msgstr "Kubeconfig"
 
 msgid "Kubernetes"
-msgstr ""
+msgstr "Kubernetes"
 
 msgid "Kubernetes - Pods"
-msgstr ""
+msgstr "Kubernetes — поды"
 
 msgid "Kubernetes - Resources"
-msgstr ""
+msgstr "Kubernetes — ресурсы"
 
 msgid "Labels"
-msgstr ""
+msgstr "Метки"
 
 msgid "Last seen"
-msgstr ""
+msgstr "Последний раз замечено"
 
 msgid "Load Balancer"
-msgstr ""
+msgstr "Балансировщик нагрузки"
 
 msgid "Logs"
-msgstr ""
+msgstr "Журналы"
 
 msgid "Manifest"
-msgstr ""
+msgstr "Манифест"
 
 msgid "Message"
-msgstr ""
+msgstr "Сообщение"
 
 msgid "Monitoring - Kubernetes"
-msgstr ""
+msgstr "Мониторинг — Kubernetes"
 
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 msgid "Namespace"
-msgstr ""
+msgstr "Пространство имён"
 
 msgid "Namespaces"
-msgstr ""
+msgstr "Пространства имён"
 
 msgid "NodePort IP"
-msgstr ""
+msgstr "IP NodePort"
 
 msgid "Normal"
-msgstr ""
+msgstr "Обычное"
 
 msgid "Object"
-msgstr ""
+msgstr "Объект"
 
 msgid "PV"
-msgstr ""
+msgstr "PV"
 
 msgid "PVC"
-msgstr ""
+msgstr "PVC"
 
 msgid "Pending"
-msgstr ""
+msgstr "Ожидание"
 
 msgid "Persistent Volume Claims"
-msgstr ""
+msgstr "Запросы на постоянные тома"
 
 msgid "Persistent Volumes"
-msgstr ""
+msgstr "Постоянные тома"
 
 msgid "Please wait, a snapshot will be created ..."
-msgstr ""
+msgstr "Подождите, создаётся снапшот..."
 
 msgid "Please wait, the snapshot will be restored ..."
-msgstr ""
+msgstr "Подождите, снапшот восстанавливается..."
 
 msgid "Pods"
-msgstr ""
+msgstr "Поды"
 
 msgid "Port"
-msgstr ""
+msgstr "Порт"
 
 msgid "Ports"
-msgstr ""
+msgstr "Порты"
 
 msgid "Protocol"
-msgstr ""
+msgstr "Протокол"
 
 msgid "README"
-msgstr ""
+msgstr "README"
 
 msgid "Ready"
-msgstr ""
+msgstr "Готово"
 
 msgid "Reason"
-msgstr ""
+msgstr "Причина"
 
 msgid "Recipe Information"
-msgstr ""
+msgstr "Сведения о рецепте"
 
 msgid "Recipe Version"
-msgstr ""
+msgstr "Версия рецепта"
 
 msgid "Recipes"
-msgstr ""
+msgstr "Рецепты"
 
 msgid "Reclaim policy"
-msgstr ""
+msgstr "Политика возврата"
 
 msgid ""
 "Refer to the values.yaml file in the Traefik Helm chart to see what "
 "configuration options are available."
 msgstr ""
+"Обратитесь к файлу values.yaml в чарте Helm Traefik, чтобы узнать доступные "
+"параметры конфигурации."
 
 msgid "Repository"
-msgstr ""
+msgstr "Репозиторий"
 
 msgid "Resources"
-msgstr ""
+msgstr "Ресурсы"
 
 msgid "Restore"
-msgstr ""
+msgstr "Восстановить"
 
 msgid "Running"
-msgstr ""
+msgstr "Выполняется"
 
 msgid "SQLite"
-msgstr ""
+msgstr "SQLite"
 
 msgid "Secrets"
-msgstr ""
+msgstr "Секреты"
 
 msgid "Section"
-msgstr ""
+msgstr "Раздел"
 
 msgid "Services"
-msgstr ""
+msgstr "Сервисы"
 
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 msgid "Shared Folders"
-msgstr ""
+msgstr "Общие каталоги"
 
 msgid "Show README"
-msgstr ""
+msgstr "Показать README"
 
 msgid "Show the number of pods per status phase."
-msgstr ""
+msgstr "Показывать количество подов по фазам состояния."
 
 msgid "Show the total number of several resources."
-msgstr ""
+msgstr "Показывать общее количество нескольких ресурсов."
 
 msgid "Size"
-msgstr ""
+msgstr "Размер"
 
 msgid "Snapshots"
-msgstr ""
+msgstr "Снапшоты"
 
 msgid "Source"
-msgstr ""
+msgstr "Источник"
 
 msgid "Stateful Sets"
-msgstr ""
+msgstr "StatefulSet"
 
 msgid "Status"
-msgstr ""
+msgstr "Состояние"
 
 msgid "Storage Class"
-msgstr ""
+msgstr "Класс хранилища"
 
 msgid "Succeeded"
-msgstr ""
+msgstr "Успешно"
 
 msgid "Tag"
-msgstr ""
+msgstr "Тег"
 
 msgid "Tags"
-msgstr ""
+msgstr "Теги"
 
 msgid "Target Namespace"
-msgstr ""
+msgstr "Целевое пространство имён"
 
 msgid ""
 "The SSL certificate used by the LoadBalancer service. If not set, a self-"
 "signed certificate from cert-manager is used."
 msgstr ""
+"SSL-сертификат, используемый сервисом LoadBalancer. Если не задан, "
+"используется самоподписанный сертификат от cert-manager."
 
 msgid ""
 "The datastore used by the Kubernetes cluster. SQLite is recommended for "
 "single-node setups and SBCs with slow disks, while etcd is recommended for "
 "high-availability setups with multiple nodes."
 msgstr ""
+"Хранилище данных, используемое кластером Kubernetes. SQLite рекомендуется "
+"для одноузловых конфигураций и SBC с медленными дисками, а etcd — для "
+"конфигураций с высокой доступностью и несколькими узлами."
 
 msgid "The field should only contain the characters a-z, 0-9 and -."
-msgstr ""
+msgstr "Поле должно содержать только символы a-z, 0-9 и -."
 
 msgid ""
 "The following placeholders can be used in recipes to get access to global "
@@ -368,57 +382,64 @@ msgid ""
 "href='https://twig.symfony.com/doc/filters/index.html' "
 "target='_blank'>here</a>."
 msgstr ""
+"В рецептах можно использовать следующие плейсхолдеры для доступа к "
+"глобальной информации о системе и базе данных "
+"конфигурации:<br><ul><li>hostname()</li><li>domain()</li><li>fqdn()</li><li>tz()</li><li>ipaddr(name=NULL)</li><li>ipaddr6(name=NULL)</li><li>uid(name)</li><li>gid(name)</li><li>sharedfolder_path(name)</li><li>conf_get(id,"
+" uuid=NULL)</li></ul>Плейсхолдеры должны быть заключены в двойные фигурные "
+"скобки. Обзор дополнительных доступных фильтров можно найти <a "
+"href='https://twig.symfony.com/doc/filters/index.html' "
+"target='_blank'>здесь</a>."
 
 msgid "The location where to store etcd on-demand snapshots."
-msgstr ""
+msgstr "Расположение для хранения снапшотов etcd по запросу."
 
 msgid "The manifest to apply."
-msgstr ""
+msgstr "Манифест для применения."
 
 msgid "The names 'web' and 'websecure' are reserved."
-msgstr ""
+msgstr "Имена «web» и «websecure» зарезервированы."
 
 msgid "The snapshot was created successfully."
-msgstr ""
+msgstr "Снапшот успешно создан."
 
 msgid "The snapshot {{ spec.snapshotName }} has been successfully restored."
-msgstr ""
+msgstr "Снапшот {{ spec.snapshotName }} успешно восстановлен."
 
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 msgid "UUID"
-msgstr ""
+msgstr "UUID"
 
 msgid "Unknown"
-msgstr ""
+msgstr "Неизвестно"
 
 msgid "Up-to-date"
-msgstr ""
+msgstr "Актуально"
 
 msgid "Updated Kubernetes settings."
-msgstr ""
+msgstr "Настройки Kubernetes обновлены."
 
 msgid "Users"
-msgstr ""
+msgstr "Пользователи"
 
 msgid "Version"
-msgstr ""
+msgstr "Версия"
 
 msgid "View"
-msgstr ""
+msgstr "Просмотр"
 
 msgid "Volume"
-msgstr ""
+msgstr "Том"
 
 msgid "Warning"
-msgstr ""
+msgstr "Предупреждение"
 
 msgid "YAML"
-msgstr ""
+msgstr "YAML"
 
 msgid "etcd"
-msgstr ""
+msgstr "etcd"

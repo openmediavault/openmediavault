@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-envvars package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Дмитрий <bardimnik@rambler.ru>, 2026
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-18 08:34+0200\n"
 "PO-Revision-Date: 2026-04-23 18:04+0000\n"
+"Last-Translator: Дмитрий <bardimnik@rambler.ru>, 2026\n"
 "Language-Team: Russian (Russia) (https://app.transifex.com/openmediavault/teams/14254/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,32 +22,33 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 msgid "Apply"
-msgstr ""
+msgstr "Применить"
 
 msgid "Create"
-msgstr ""
+msgstr "Создать"
 
 msgid "Created environment variable."
-msgstr ""
+msgstr "Переменная среды создана."
 
 msgid "Edit"
-msgstr ""
+msgstr "Редактировать"
 
 msgid "Environment Variables"
-msgstr ""
+msgstr "Переменные среды"
 
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 msgid ""
 "Please wait, applying environment variables. This can take some time ..."
 msgstr ""
+"Подождите, применяются переменные среды. Это может занять некоторое время…"
 
 msgid "Select an environment variable ..."
-msgstr ""
+msgstr "Выберите переменную среды…"
 
 msgid "Updated environment variable."
-msgstr ""
+msgstr "Переменная среды обновлена."
 
 msgid "Value"
-msgstr ""
+msgstr "Значение"

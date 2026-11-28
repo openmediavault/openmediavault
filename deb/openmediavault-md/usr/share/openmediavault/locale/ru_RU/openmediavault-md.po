@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-md package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Дмитрий <bardimnik@rambler.ru>, 2026
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2023-11-06 09:08+0000\n"
+"Last-Translator: Дмитрий <bardimnik@rambler.ru>, 2026\n"
 "Language-Team: Russian (Russia) (https://app.transifex.com/openmediavault/teams/14254/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,13 +22,13 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 msgid "A maximum of one device can be removed."
-msgstr ""
+msgstr "Можно удалить не более одного устройства."
 
 msgid "A maximum of two devices can be removed."
-msgstr ""
+msgstr "Можно удалить не более двух устройств."
 
 msgid "Add"
-msgstr ""
+msgstr "Добавить"
 
 msgid ""
 "Adding a disk to a degraded array starts the rebuild process. The kernel "
@@ -33,6 +37,12 @@ msgid ""
 "Alternatively, a disk can be added to a healthy array as a <em>hot "
 "spare</em> that will be used automatically to replace a failed disk."
 msgstr ""
+"Добавление диска в массив с пониженной избыточностью запускает процесс "
+"восстановления. Ядро автоматически синхронизирует данные на новый диск, что "
+"может занять очень много времени, поэтому не выключайте питание и не "
+"перезагружайте систему до его завершения. Кроме того, диск можно добавить в "
+"исправный массив в качестве <em>горячего резерва</em> (hot spare), который "
+"будет автоматически использован для замены отказавшего диска."
 
 msgid ""
 "Adding disk(s) to the array reshapes it, which can take a very long time "
@@ -40,92 +50,102 @@ msgid ""
 "reshape is in progress. Note that the file system on the array is not grown "
 "automatically."
 msgstr ""
+"Добавление дисков в массив запускает его перестроение (reshape), которое в "
+"зависимости от размера может занять очень много времени. Не выключайте "
+"питание и не перезагружайте систему, пока перестроение выполняется. Обратите"
+" внимание, что файловая система на массиве не увеличивается автоматически."
 
 msgid "At least four devices are required."
-msgstr ""
+msgstr "Требуется не менее четырёх устройств."
 
 msgid "At least three devices are required."
-msgstr ""
+msgstr "Требуется не менее трёх устройств."
 
 msgid "At least two devices are required."
-msgstr ""
+msgstr "Требуется не менее двух устройств."
 
 msgid "Capacity"
-msgstr ""
+msgstr "Ёмкость"
 
 msgid "Check"
-msgstr ""
+msgstr "Проверить"
 
 msgid "Create"
-msgstr ""
+msgstr "Создать"
 
 msgid "Device"
-msgstr ""
+msgstr "Устройство"
 
 msgid "Devices"
-msgstr ""
+msgstr "Устройства"
 
 msgid "Displays information about MD (Software RAID) devices."
-msgstr ""
+msgstr "Отображает сведения об устройствах MD (программный RAID)."
 
 msgid ""
 "Do you really want to repair the selected RAID device? This will attempt to "
 "correct any inconsistencies found, which can overwrite data if a mismatch "
 "cannot be unambiguously resolved."
 msgstr ""
+"Вы действительно хотите исправить выбранное устройство RAID? Будет "
+"предпринята попытка устранить все обнаруженные несоответствия, что может "
+"привести к перезаписи данных, если несоответствие невозможно однозначно "
+"устранить."
 
 msgid ""
 "Do you really want to stop the running check/repair action on the selected "
 "RAID device?"
 msgstr ""
+"Вы действительно хотите остановить выполняемую проверку/исправление "
+"выбранного устройства RAID?"
 
 msgid "Grow"
-msgstr ""
+msgstr "Расширить"
 
 msgid "Level"
-msgstr ""
+msgstr "Уровень"
 
 msgid "MD Devices"
-msgstr ""
+msgstr "Устройства MD"
 
 msgid "Maintenance"
-msgstr ""
+msgstr "Обслуживание"
 
 msgid "Mirror"
-msgstr ""
+msgstr "Зеркало"
 
 msgid "Multiple Device"
-msgstr ""
+msgstr "Составное устройство"
 
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 msgid "RAID 10"
-msgstr ""
+msgstr "RAID 10"
 
 msgid "RAID 2"
-msgstr ""
+msgstr "RAID 2"
 
 msgid "RAID 3"
-msgstr ""
+msgstr "RAID 3"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
-msgstr ""
+msgstr "RAID 5"
 
 msgid "RAID 6"
-msgstr ""
+msgstr "RAID 6"
 
 msgid "Recover"
-msgstr ""
+msgstr "Восстановить"
 
 msgid "Referenced"
-msgstr ""
+msgstr "Используется"
 
 msgid "Remove"
-msgstr ""
+msgstr "Удалить"
 
 msgid ""
 "Removing disk(s) first marks them as <em>failed</em> and then removes them "
@@ -133,35 +153,42 @@ msgid ""
 " is typically used to replace a faulty disk. Note that the RAID metadata on "
 "the removed disk(s) is not erased."
 msgstr ""
+"Удаление дисков сначала помечает их как <em>отказавшие</em>, а затем удаляет"
+" из массива, переводя его в деградированное состояние с пониженной "
+"избыточностью. Обычно используется для замены неисправного диска. Обратите "
+"внимание, что метаданные RAID на удалённых дисках не стираются."
 
 msgid "Repair"
-msgstr ""
+msgstr "Исправить"
 
 msgid "Select devices ..."
-msgstr ""
+msgstr "Выберите устройства..."
 
 msgid "Select devices to be added to the RAID device."
-msgstr ""
+msgstr "Выберите устройства, которые нужно добавить в устройство RAID."
 
 msgid "Select devices to be removed from the RAID device."
-msgstr ""
+msgstr "Выберите устройства, которые нужно удалить из устройства RAID."
 
 msgid ""
 "Select the devices that will be used to create the RAID device. Devices "
 "connected via USB will not be listed (too unreliable)."
 msgstr ""
+"Выберите устройства, которые будут использоваться для создания устройства "
+"RAID. Устройства, подключённые через USB, не отображаются (из-за низкой "
+"надёжности)."
 
 msgid "Show details"
-msgstr ""
+msgstr "Показать подробности"
 
 msgid "Software RAID"
-msgstr ""
+msgstr "Программный RAID"
 
 msgid "State"
-msgstr ""
+msgstr "Состояние"
 
 msgid "Stop"
-msgstr ""
+msgstr "Остановить"
 
 msgid "Stripe"
-msgstr ""
+msgstr "Чередование"

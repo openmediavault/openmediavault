@@ -3,6 +3,9 @@
 # This file is distributed under the same license as the openmediavault-2fa-totp package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Дмитрий <bardimnik@rambler.ru>, 2026
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -10,6 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-18 08:33+0200\n"
 "PO-Revision-Date: 2026-06-26 17:34+0000\n"
+"Last-Translator: Дмитрий <bardimnik@rambler.ru>, 2026\n"
 "Language-Team: Russian (Russia) (https://app.transifex.com/openmediavault/teams/14254/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,31 +22,31 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 msgid "2FA TOTP"
-msgstr ""
+msgstr "2FA TOTP"
 
 msgid "Disable"
-msgstr ""
+msgstr "Отключить"
 
 msgid "Disable 2FA TOTP"
-msgstr ""
+msgstr "Отключить 2FA TOTP"
 
 msgid "Edit"
-msgstr ""
+msgstr "Редактировать"
 
 msgid "Enable"
-msgstr ""
+msgstr "Включить"
 
 msgid "Enable 2FA TOTP"
-msgstr ""
+msgstr "Включить 2FA TOTP"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Включено"
 
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 msgid "QR code"
-msgstr ""
+msgstr "QR-код"
 
 msgid ""
 "Scan the QR code below with your authenticator app (Google Authenticator, "
@@ -50,12 +54,17 @@ msgid ""
 "manually. Once your authenticator app is configured, enter the 6-digit code "
 "it shows to confirm the setup."
 msgstr ""
+"Отсканируйте приведённый ниже QR-код с помощью приложения-аутентификатора "
+"(Google Authenticator, Authy и т. д.). Если ваше приложение не поддерживает "
+"QR-коды, введите секретный ключ вручную. После настройки приложения-"
+"аутентификатора введите отображаемый в нём шестизначный код, чтобы "
+"подтвердить настройку."
 
 msgid "Secret"
-msgstr ""
+msgstr "Секретный ключ"
 
 msgid "Two-Factor Authentication"
-msgstr ""
+msgstr "Двухфакторная аутентификация"
 
 msgid ""
 "Two-factor authentication (2FA) with TOTP adds an extra layer of security by"
@@ -63,12 +72,16 @@ msgid ""
 "addition to your password. You can enable or disable it for your account "
 "here."
 msgstr ""
+"Двухфакторная аутентификация (2FA) с TOTP добавляет дополнительный уровень "
+"защиты, требуя помимо пароля одноразовый код на основе времени из вашего "
+"приложения-аутентификатора. Здесь можно включить или отключить её для своей "
+"учётной записи."
 
 msgid "Updated 2FA TOTP."
-msgstr ""
+msgstr "Настройки 2FA TOTP обновлены."
 
 msgid "User name"
-msgstr ""
+msgstr "Имя пользователя"
 
 msgid "Verification code"
-msgstr ""
+msgstr "Код проверки"

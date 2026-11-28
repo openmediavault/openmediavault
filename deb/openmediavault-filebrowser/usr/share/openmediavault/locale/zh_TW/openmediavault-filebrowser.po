@@ -6,7 +6,7 @@
 # Translators:
 # Volker Theile <votdev@gmx.de>, 2022
 # 黃柏諺 <s8321414@gmail.com>, 2022
-# kochin <kochinc@outlook.com>, 2022
+# kochin <kochinc@outlook.com>, 2026
 # 
 #, fuzzy
 msgid ""
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-21 10:11+0100\n"
 "PO-Revision-Date: 2022-04-13 15:40+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>, 2022\n"
+"Last-Translator: kochin <kochinc@outlook.com>, 2026\n"
 "Language-Team: Chinese (Taiwan) (https://app.transifex.com/openmediavault/teams/14254/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,6 +37,8 @@ msgid ""
 "by running <kbd>podman logs filebrowser-app | grep 'admin password'</kbd> in"
 " the CLI."
 msgstr ""
+"首次啟動服務後，透過在 CLI 中執行 <kbd>podman logs filebrowser-app | grep 'admin "
+"password'</kbd> 取得自動產生的密碼。"
 
 msgid "Open UI"
 msgstr "開啟使用者介面"

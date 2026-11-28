@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-18 08:34+0200\n"
+"POT-Creation-Date: 2026-11-21 20:27+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: Giovanni Scafora <scafora.giovanni@gmail.com>, 2025-2026\n"
 "Language-Team: Italian (http://app.transifex.com/openmediavault/openmediavault/language/it/)\n"
@@ -927,10 +927,10 @@ msgid "Destination"
 msgstr "Destinazione"
 
 msgid ""
-"Destination address can be either a network IP address (with /mask), a IP "
+"Destination address can be either a network IP address (with /mask), an IP "
 "range or a plain IP address. A \"!\" argument before the address "
 "specification inverts the sense of the address."
-msgstr "L'indirizzo di destinazione può essere un indirizzo IP di rete (con /mask), un intervallo IP o un semplice indirizzo IP. Un argomento \"!\" prima della specifica dell'indirizzo inverte il senso dell'indirizzo."
+msgstr "L'indirizzo di destinazione può essere un indirizzo IP di rete (con /maschera), un intervallo IP o un singolo indirizzo IP. Un argomento \"!\" prima della specifica dell'indirizzo ne inverte il senso."
 
 msgid "Destination port"
 msgstr "Porta di destinazione"
@@ -2940,14 +2940,14 @@ msgstr "Seleziona una shell..."
 msgid "Select a system log ..."
 msgstr "Seleziona un log di sistema..."
 
+msgid "Select a user ..."
+msgstr "Scegli un utente..."
+
 msgid "Select all"
 msgstr "Seleziona tutto"
 
 msgid "Select an authentication mode ..."
 msgstr "Seleziona una modalità di autenticazione..."
-
-msgid "Select an user ..."
-msgstr "Seleziona un utente..."
 
 msgid "Select devices ..."
 msgstr "Seleziona i dispositivi..."
@@ -3138,10 +3138,10 @@ msgid "Source"
 msgstr "Origine"
 
 msgid ""
-"Source address can be either a network IP address (with /mask), a IP range "
+"Source address can be either a network IP address (with /mask), an IP range "
 "or a plain IP address. A \"!\" argument before the address specification "
 "inverts the sense of the address."
-msgstr "L'indirizzo di origine può essere un indirizzo IP di rete (con /mask), un intervallo di indirizzi IP oppure un semplice indirizzo IP. Un argomento \"!\" prima della specifica dell’indirizzo inverte il significato dell’indirizzo."
+msgstr "L'indirizzo di origine può essere un indirizzo IP di rete (con /maschera), un intervallo IP o un singolo indirizzo IP. Un argomento \"!\" prima della specifica dell'indirizzo ne inverte il senso."
 
 msgid "Source port"
 msgstr "Porta di origine"
@@ -3564,9 +3564,9 @@ msgid "The value does not match the pattern /{{ pattern }}/."
 msgstr "Il valore non corrisponde al pattern /{{ pattern }}/."
 
 msgid ""
-"The value must be on of the slave network interfaces {{ slaves | join(\", "
+"The value must be one of the slave network interfaces {{ slaves | join(\", "
 "\") }}."
-msgstr "Il valore deve corrispondere ad una delle interfacce di rete slave {{ slaves | join(\", \") }}."
+msgstr "Il valore deve essere una delle interfacce di rete slave {{ slaves | join(', ') }}."
 
 msgid "The value must be one of the slave network interfaces."
 msgstr "Il valore deve corrispondere ad una delle interfacce di rete slave."
@@ -3624,9 +3624,6 @@ msgstr "Questo campo deve avere il formato <hh:mm:ss>."
 msgid "This field must match the format SIZE[K|M|G|T|P]."
 msgstr "Questo campo deve rispettare il formato SIZE[K|M|G|T|P]."
 
-msgid "This field should be a IP network address in CIDR notation."
-msgstr "Questo campo deve contenere un indirizzo di rete IP in notazione CIDR."
-
 msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
 msgstr "Questo campo deve contenere un indirizzo MAC, ad esempio 00:80:41:ae:fd:7e."
 
@@ -3665,6 +3662,9 @@ msgstr "Questo campo deve contenere una porta o un intervallo di porte (ad esemp
 
 msgid "This field should be an IP address."
 msgstr "Questo campo deve contenere un indirizzo IP."
+
+msgid "This field should be an IP network address in CIDR notation."
+msgstr "Questo campo deve contenere un indirizzo IP di rete in notazione CIDR."
 
 msgid "This field should be an IPv4 address."
 msgstr "Questo campo deve contenere un indirizzo IPv4."

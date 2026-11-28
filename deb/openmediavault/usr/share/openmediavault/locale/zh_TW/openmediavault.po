@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-18 08:34+0200\n"
+"POT-Creation-Date: 2026-11-21 20:27+0100\n"
 "PO-Revision-Date: 2012-03-17 01:48+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>, 2013-2026\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/openmediavault/openmediavault/language/zh_TW/)\n"
@@ -921,10 +921,10 @@ msgid "Destination"
 msgstr "目的地"
 
 msgid ""
-"Destination address can be either a network IP address (with /mask), a IP "
+"Destination address can be either a network IP address (with /mask), an IP "
 "range or a plain IP address. A \"!\" argument before the address "
 "specification inverts the sense of the address."
-msgstr "目的網址可以是網路 IP 位址(與 /遮罩)，IP 範圍或一個普通的 IP 位址。網址前可有 '!' 來反轉位址的意義。"
+msgstr "目標位址可以是網路 IP 位址（帶有 /遮罩）、IP 位址範圍或單純 IP 位址。指定位址前的 “!” 參數會反轉位址的含義。"
 
 msgid "Destination port"
 msgstr "目的地通訊埠"
@@ -2934,14 +2934,14 @@ msgstr "選擇一個指令殼層 ..."
 msgid "Select a system log ..."
 msgstr "選擇一個系統日誌 ..."
 
+msgid "Select a user ..."
+msgstr "選擇一個用戶 ..."
+
 msgid "Select all"
 msgstr "選取全部"
 
 msgid "Select an authentication mode ..."
 msgstr "選擇一個鑑別模式"
-
-msgid "Select an user ..."
-msgstr "選擇一個用戶 ..."
 
 msgid "Select devices ..."
 msgstr "選擇裝置 ..."
@@ -3132,10 +3132,10 @@ msgid "Source"
 msgstr "來源"
 
 msgid ""
-"Source address can be either a network IP address (with /mask), a IP range "
+"Source address can be either a network IP address (with /mask), an IP range "
 "or a plain IP address. A \"!\" argument before the address specification "
 "inverts the sense of the address."
-msgstr "來源位址可以是網路 IP 位址(與 /掩碼)，IP 範圍或一個普通的 IP 位址。位址前可有 '!' 來反轉位址的意義。"
+msgstr "來源位址可以是網路 IP 位址 (帶有 /遮罩)、IP 位址範圍或單純 IP 位址。指定位址前的 “!” 參數會反轉位址的意義。"
 
 msgid "Source port"
 msgstr "來源通訊埠"
@@ -3558,9 +3558,9 @@ msgid "The value does not match the pattern /{{ pattern }}/."
 msgstr "該值不符合型樣 /{{ pattern }}/。"
 
 msgid ""
-"The value must be on of the slave network interfaces {{ slaves | join(\", "
+"The value must be one of the slave network interfaces {{ slaves | join(\", "
 "\") }}."
-msgstr "此值必須是一個從屬網路界面 {{ slaves | join(\", \") }}。"
+msgstr "該值必須是從屬網路介面之一 {{ slaves | join(\", \") }}。"
 
 msgid "The value must be one of the slave network interfaces."
 msgstr "此值必須是一個從屬網路界面。"
@@ -3618,9 +3618,6 @@ msgstr "此欄位的格式必須為 <hh:mm:ss>。"
 msgid "This field must match the format SIZE[K|M|G|T|P]."
 msgstr "此欄位必須符合 SIZE[K|M|G|T|P] 格式。"
 
-msgid "This field should be a IP network address in CIDR notation."
-msgstr "此欄位應該是一個以 CIDR 表示法的 IP 網路位址。"
-
 msgid "This field should be a MAC address, e.g. 00:80:41:ae:fd:7e."
 msgstr "此欄位必須是一個 MAC 地址，例如：00:80:41:ae:fd:7e。"
 
@@ -3659,6 +3656,9 @@ msgstr "此欄位應該是一個通訊埠或通訊埠範圍 (例如：21 或 !44
 
 msgid "This field should be an IP address."
 msgstr "此欄位應該是一個 IP 位址。"
+
+msgid "This field should be an IP network address in CIDR notation."
+msgstr "此欄位應該是採用 CIDR 表示法的 IP 網路位址。"
 
 msgid "This field should be an IPv4 address."
 msgstr "此欄位應該是一個 IPv4 位址。"
